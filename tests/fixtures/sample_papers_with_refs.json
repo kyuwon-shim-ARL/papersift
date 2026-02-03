@@ -1,0 +1,111 @@
+{
+  "papers": [
+    {
+      "doi": "https://doi.org/10.test/001",
+      "title": "Deep learning for protein structure prediction using transformers",
+      "year": 2023,
+      "citations": 150,
+      "category": "machine_learning",
+      "referenced_works": [
+        "https://doi.org/10.test/005",
+        "https://doi.org/10.test/003"
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/002",
+      "title": "Single-cell RNA-seq reveals heterogeneity in E. coli biofilm formation",
+      "year": 2022,
+      "citations": 85,
+      "category": "microbiology",
+      "referenced_works": [
+        "https://doi.org/10.test/008",
+        "https://doi.org/10.test/010"
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/003",
+      "title": "Graph neural network for metabolic pathway reconstruction",
+      "year": 2023,
+      "citations": 42,
+      "category": "computational_biology",
+      "referenced_works": [
+        "https://doi.org/10.test/007",
+        "https://doi.org/10.test/010"
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/004",
+      "title": "CRISPR screening identifies novel drug targets in cancer cells",
+      "year": 2024,
+      "citations": 210,
+      "category": "genomics",
+      "referenced_works": [
+        "https://doi.org/10.test/009"
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/005",
+      "title": "Transformer-based language model for gene expression prediction",
+      "year": 2023,
+      "citations": 67,
+      "category": "machine_learning",
+      "referenced_works": [
+        "https://doi.org/10.test/001",
+        "https://doi.org/10.test/007"
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/006",
+      "title": "Spatial transcriptomics of mouse brain reveals cell state dynamics",
+      "year": 2024,
+      "citations": 33,
+      "category": "neuroscience",
+      "referenced_works": [
+        "https://doi.org/10.test/008",
+        "https://doi.org/10.test/002"
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/007",
+      "title": "Bayesian inference for gene regulatory network reconstruction",
+      "year": 2022,
+      "citations": 120,
+      "category": "systems_biology",
+      "referenced_works": [
+        "https://doi.org/10.test/003",
+        "https://doi.org/10.test/010"
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/008",
+      "title": "scRNA-seq atlas of human stem cell differentiation",
+      "year": 2023,
+      "citations": 95,
+      "category": "cell_biology",
+      "referenced_works": [
+        "https://doi.org/10.test/002"
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/009",
+      "title": "Multi-omics data integration for precision medicine in diabetes",
+      "year": 2024,
+      "citations": 55,
+      "category": "clinical",
+      "referenced_works": [
+        "https://doi.org/10.test/004",
+        "https://doi.org/10.test/007"
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/010",
+      "title": "Flux balance analysis of yeast metabolic network under stress",
+      "year": 2022,
+      "citations": 78,
+      "category": "systems_biology",
+      "referenced_works": [
+        "https://doi.org/10.test/003"
+      ]
+    }
+  ]
+}

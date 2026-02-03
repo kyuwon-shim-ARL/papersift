@@ -1,0 +1,213 @@
+{
+  "papers": [
+    {
+      "doi": "https://doi.org/10.test/001",
+      "title": "Deep learning for protein structure prediction using transformers",
+      "year": 2023,
+      "citations": 150,
+      "category": "machine_learning",
+      "topics": [
+        {
+          "display_name": "Protein Structure Prediction",
+          "score": 0.98,
+          "subfield": {"display_name": "Structural Biology", "id": "https://openalex.org/subfields/1315"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        },
+        {
+          "display_name": "Deep Learning in Bioinformatics",
+          "score": 0.92,
+          "subfield": {"display_name": "Computational Biology", "id": "https://openalex.org/subfields/1311"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        }
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/002",
+      "title": "Single-cell RNA-seq reveals heterogeneity in E. coli biofilm formation",
+      "year": 2022,
+      "citations": 85,
+      "category": "microbiology",
+      "topics": [
+        {
+          "display_name": "Single-Cell Transcriptomics",
+          "score": 0.95,
+          "subfield": {"display_name": "Molecular Biology", "id": "https://openalex.org/subfields/1312"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        }
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/003",
+      "title": "Graph neural network for metabolic pathway reconstruction",
+      "year": 2023,
+      "citations": 42,
+      "category": "computational_biology",
+      "topics": [
+        {
+          "display_name": "Metabolic Network Modeling",
+          "score": 0.91,
+          "subfield": {"display_name": "Systems Biology", "id": "https://openalex.org/subfields/1313"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        },
+        {
+          "display_name": "Graph Neural Networks",
+          "score": 0.88,
+          "subfield": {"display_name": "Artificial Intelligence", "id": "https://openalex.org/subfields/1702"},
+          "field": {"display_name": "Computer Science", "id": "https://openalex.org/fields/17"},
+          "domain": {"display_name": "Physical Sciences", "id": "https://openalex.org/domains/3"}
+        }
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/004",
+      "title": "CRISPR screening identifies novel drug targets in cancer cells",
+      "year": 2024,
+      "citations": 210,
+      "category": "genomics",
+      "topics": [
+        {
+          "display_name": "CRISPR Gene Editing",
+          "score": 0.97,
+          "subfield": {"display_name": "Genetics", "id": "https://openalex.org/subfields/1311"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        },
+        {
+          "display_name": "Cancer Drug Discovery",
+          "score": 0.85,
+          "subfield": {"display_name": "Oncology", "id": "https://openalex.org/subfields/2730"},
+          "field": {"display_name": "Medicine", "id": "https://openalex.org/fields/27"},
+          "domain": {"display_name": "Health Sciences", "id": "https://openalex.org/domains/4"}
+        }
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/005",
+      "title": "Transformer-based language model for gene expression prediction",
+      "year": 2023,
+      "citations": 67,
+      "category": "machine_learning",
+      "topics": [
+        {
+          "display_name": "Deep Learning in Bioinformatics",
+          "score": 0.93,
+          "subfield": {"display_name": "Computational Biology", "id": "https://openalex.org/subfields/1311"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        },
+        {
+          "display_name": "Gene Expression Analysis",
+          "score": 0.89,
+          "subfield": {"display_name": "Molecular Biology", "id": "https://openalex.org/subfields/1312"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        }
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/006",
+      "title": "Spatial transcriptomics of mouse brain reveals cell state dynamics",
+      "year": 2024,
+      "citations": 33,
+      "category": "neuroscience",
+      "topics": [
+        {
+          "display_name": "Spatial Transcriptomics",
+          "score": 0.96,
+          "subfield": {"display_name": "Molecular Biology", "id": "https://openalex.org/subfields/1312"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        },
+        {
+          "display_name": "Single-Cell Transcriptomics",
+          "score": 0.82,
+          "subfield": {"display_name": "Molecular Biology", "id": "https://openalex.org/subfields/1312"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        }
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/007",
+      "title": "Bayesian inference for gene regulatory network reconstruction",
+      "year": 2022,
+      "citations": 120,
+      "category": "systems_biology",
+      "topics": [
+        {
+          "display_name": "Gene Regulatory Networks",
+          "score": 0.94,
+          "subfield": {"display_name": "Systems Biology", "id": "https://openalex.org/subfields/1313"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        }
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/008",
+      "title": "scRNA-seq atlas of human stem cell differentiation",
+      "year": 2023,
+      "citations": 95,
+      "category": "cell_biology",
+      "topics": [
+        {
+          "display_name": "Single-Cell Transcriptomics",
+          "score": 0.97,
+          "subfield": {"display_name": "Molecular Biology", "id": "https://openalex.org/subfields/1312"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        },
+        {
+          "display_name": "Stem Cell Differentiation",
+          "score": 0.91,
+          "subfield": {"display_name": "Cell Biology", "id": "https://openalex.org/subfields/1307"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        }
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/009",
+      "title": "Multi-omics data integration for precision medicine in diabetes",
+      "year": 2024,
+      "citations": 55,
+      "category": "clinical",
+      "topics": [
+        {
+          "display_name": "Multi-Omics Integration",
+          "score": 0.92,
+          "subfield": {"display_name": "Computational Biology", "id": "https://openalex.org/subfields/1311"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        },
+        {
+          "display_name": "Precision Medicine",
+          "score": 0.88,
+          "subfield": {"display_name": "Internal Medicine", "id": "https://openalex.org/subfields/2701"},
+          "field": {"display_name": "Medicine", "id": "https://openalex.org/fields/27"},
+          "domain": {"display_name": "Health Sciences", "id": "https://openalex.org/domains/4"}
+        }
+      ]
+    },
+    {
+      "doi": "https://doi.org/10.test/010",
+      "title": "Flux balance analysis of yeast metabolic network under stress",
+      "year": 2022,
+      "citations": 78,
+      "category": "systems_biology",
+      "topics": [
+        {
+          "display_name": "Metabolic Network Modeling",
+          "score": 0.96,
+          "subfield": {"display_name": "Systems Biology", "id": "https://openalex.org/subfields/1313"},
+          "field": {"display_name": "Biochemistry", "id": "https://openalex.org/fields/13"},
+          "domain": {"display_name": "Life Sciences", "id": "https://openalex.org/domains/1"}
+        }
+      ]
+    }
+  ]
+}

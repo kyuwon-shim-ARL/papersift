@@ -1,0 +1,144 @@
+{
+  "papers": [
+    {
+      "doi": "https://doi.org/10.test/001",
+      "title": "Deep learning for protein structure prediction using transformers",
+      "year": 2023,
+      "citations": 150,
+      "category": "machine_learning"
+    },
+    {
+      "doi": "https://doi.org/10.test/002",
+      "title": "Single-cell RNA-seq reveals heterogeneity in E. coli biofilm formation",
+      "year": 2022,
+      "citations": 85,
+      "category": "microbiology"
+    },
+    {
+      "doi": "https://doi.org/10.test/003",
+      "title": "Graph neural network for metabolic pathway reconstruction",
+      "year": 2023,
+      "citations": 42,
+      "category": "computational_biology"
+    },
+    {
+      "doi": "https://doi.org/10.test/004",
+      "title": "CRISPR screening identifies novel drug targets in cancer cells",
+      "year": 2024,
+      "citations": 210,
+      "category": "genomics"
+    },
+    {
+      "doi": "https://doi.org/10.test/005",
+      "title": "Transformer-based language model for gene expression prediction",
+      "year": 2023,
+      "citations": 67,
+      "category": "machine_learning"
+    },
+    {
+      "doi": "https://doi.org/10.test/006",
+      "title": "Spatial transcriptomics of mouse brain reveals cell state dynamics",
+      "year": 2024,
+      "citations": 33,
+      "category": "neuroscience"
+    },
+    {
+      "doi": "https://doi.org/10.test/007",
+      "title": "Bayesian inference for gene regulatory network reconstruction",
+      "year": 2022,
+      "citations": 120,
+      "category": "systems_biology"
+    },
+    {
+      "doi": "https://doi.org/10.test/008",
+      "title": "scRNA-seq atlas of human stem cell differentiation",
+      "year": 2023,
+      "citations": 95,
+      "category": "cell_biology"
+    },
+    {
+      "doi": "https://doi.org/10.test/009",
+      "title": "Multi-omics data integration for precision medicine in diabetes",
+      "year": 2024,
+      "citations": 55,
+      "category": "clinical"
+    },
+    {
+      "doi": "https://doi.org/10.test/010",
+      "title": "Flux balance analysis of yeast metabolic network under stress",
+      "year": 2022,
+      "citations": 78,
+      "category": "systems_biology"
+    },
+    {
+      "doi": "https://doi.org/10.test/011",
+      "title": "Variational autoencoder for dimensionality reduction in single-cell data",
+      "year": 2023,
+      "citations": 145,
+      "category": "machine_learning"
+    },
+    {
+      "doi": "https://doi.org/10.test/012",
+      "title": "UMAP embedding reveals microbiome community structure",
+      "year": 2022,
+      "citations": 62,
+      "category": "microbiology"
+    },
+    {
+      "doi": "https://doi.org/10.test/013",
+      "title": "Contrastive learning for protein-protein interaction prediction",
+      "year": 2024,
+      "citations": 38,
+      "category": "bioinformatics"
+    },
+    {
+      "doi": "https://doi.org/10.test/014",
+      "title": "Random forest classification of biomarker panels for cancer diagnosis",
+      "year": 2023,
+      "citations": 88,
+      "category": "clinical"
+    },
+    {
+      "doi": "https://doi.org/10.test/015",
+      "title": "Whole-cell simulation of Mycoplasma genitalium metabolism",
+      "year": 2022,
+      "citations": 200,
+      "category": "systems_biology"
+    },
+    {
+      "doi": "https://doi.org/10.test/016",
+      "title": "Attention mechanism for ATAC-seq peak calling in epigenetics",
+      "year": 2024,
+      "citations": 27,
+      "category": "genomics"
+    },
+    {
+      "doi": "https://doi.org/10.test/017",
+      "title": "Transfer learning from UniProt to predict enzyme function",
+      "year": 2023,
+      "citations": 72,
+      "category": "bioinformatics"
+    },
+    {
+      "doi": "https://doi.org/10.test/018",
+      "title": "Digital twin of human cardiomyocyte electrophysiology using ODE models",
+      "year": 2024,
+      "citations": 19,
+      "category": "computational_biology"
+    },
+    {
+      "doi": "https://doi.org/10.test/019",
+      "title": "GNN-based drug discovery pipeline targeting Alzheimer disease pathways",
+      "year": 2023,
+      "citations": 110,
+      "category": "drug_discovery"
+    },
+    {
+      "doi": "https://doi.org/10.test/020",
+      "title": "Perturb-seq analysis of immune cell response to COVID-19 infection",
+      "year": 2024,
+      "citations": 160,
+      "category": "immunology"
+    }
+  ]
+}
