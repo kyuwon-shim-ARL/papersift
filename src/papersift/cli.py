@@ -28,6 +28,9 @@ Examples:
   # Find papers by entity
   papersift find papers.json --entity "transformer"
 
+  # Enrich papers with OpenAlex referenced_works
+  papersift enrich papers.json -o enriched.json --email user@example.com
+
   # Stream from seed paper
   papersift stream papers.json --seed "https://doi.org/10.1101/..." --hops 5
         """
@@ -47,6 +50,18 @@ Examples:
     cluster_parser.add_argument("--validate", action="store_true")
     cluster_parser.add_argument("--use-topics", action="store_true",
                                 help="Use OpenAlex topics as additional entities (requires enriched data)")
+
+    # ===== enrich command =====
+    enrich_parser = subparsers.add_parser(
+        "enrich",
+        help="Enrich papers with OpenAlex data (referenced_works, topics, abstract)"
+    )
+    enrich_parser.add_argument("input", help="Papers JSON file")
+    enrich_parser.add_argument("-o", "--output", required=True, help="Output JSON file")
+    enrich_parser.add_argument("--email", required=True,
+                               help="Email for OpenAlex polite pool (faster rate limits)")
+    enrich_parser.add_argument("--fields", default="referenced_works,openalex_id",
+                               help="Comma-separated fields to fetch (default: referenced_works,openalex_id)")
 
     # ===== find command (NEW) =====
     find_parser = subparsers.add_parser(
@@ -77,10 +92,35 @@ Examples:
 
     if args.command == "cluster":
         run_cluster(args)
+    elif args.command == "enrich":
+        run_enrich(args)
     elif args.command == "find":
         run_find(args)
     elif args.command == "stream":
         run_stream(args)
+
+
+def run_enrich(args):
+    """Execute enrich command."""
+    try:
+        from papersift.enrich import OpenAlexEnricher
+    except ImportError:
+        print("Error: enrichment requires pyalex. Install with: pip install papersift[enrich]",
+              file=sys.stderr)
+        sys.exit(1)
+
+    papers = load_papers(args.input)
+    fields = [f.strip() for f in args.fields.split(',')]
+
+    enricher = OpenAlexEnricher(email=args.email)
+    enriched = enricher.enrich_papers(papers, fields=fields)
+
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, 'w') as f:
+        json.dump(enriched, f, indent=2)
+
+    print(f"Saved: {output_path}")
 
 
 def run_find(args):

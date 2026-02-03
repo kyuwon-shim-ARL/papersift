@@ -10,6 +10,9 @@ dependencies = [
     "scikit-learn>=1.0",
 ]
 
+[project.optional-dependencies]
+enrich = ["pyalex>=0.14", "tqdm>=4.0"]
+
 [project.scripts]
 papersift = "papersift.cli:main"
 
