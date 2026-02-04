@@ -1,0 +1,29 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "papersift",
+  "description": "Entity-based academic paper clustering with Leiden community detection",
+  "owner": {
+    "name": "kyuwon-shim-ARL"
+  },
+  "plugins": [
+    {
+      "name": "papersift",
+      "description": "Cluster academic papers by shared entities (methods, organisms, concepts, datasets). Includes enrich, cluster, find, and stream commands.",
+      "version": "0.1.0",
+      "author": {
+        "name": "kyuwon-shim-ARL"
+      },
+      "source": "./",
+      "category": "research",
+      "homepage": "https://github.com/kyuwon-shim-ARL/papersift",
+      "tags": [
+        "research",
+        "papers",
+        "clustering",
+        "entity-extraction",
+        "leiden",
+        "openalex"
+      ]
+    }
+  ]
+}

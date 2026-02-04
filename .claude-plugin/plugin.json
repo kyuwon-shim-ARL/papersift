@@ -1,0 +1,10 @@
+{
+  "name": "papersift",
+  "version": "0.1.0",
+  "description": "Entity-based academic paper clustering using rule-based entity extraction and Leiden graph clustering. Cluster papers, find hub papers, trace entity connections, and validate with citations.",
+  "author": {
+    "name": "kyuwon-shim-ARL",
+    "email": "kyuwon.shim@arl.org"
+  },
+  "skills": "./skills/"
+}
