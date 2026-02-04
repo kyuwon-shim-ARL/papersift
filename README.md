@@ -20,9 +20,9 @@ PaperSift discovers research themes and connections through entity-based analysi
 Install and cluster papers in three commands:
 
 ```bash
-pip install -e /path/to/papersift
+pip install -e .
 papersift cluster papers.json -o results/
-cat results/communities.json
+python -m json.tool results/communities.json
 ```
 
 This creates two output files:
@@ -34,16 +34,17 @@ This creates two output files:
 PaperSift requires Python 3.11+. Install from source:
 
 ```bash
-pip install -e /path/to/.claude/skills/papersift/
+pip install -e /path/to/papersift/
 ```
 
-Or with validation support:
+Or with enrichment support (OpenAlex API):
 
 ```bash
-pip install -e /path/to/.claude/skills/papersift/[validation]
+pip install -e "/path/to/papersift/[enrich]"
 ```
 
-**Dependencies:** igraph, leidenalg, numpy, scikit-learn
+**Core dependencies:** igraph, leidenalg, numpy, scikit-learn
+**Enrichment dependencies (optional):** pyalex, tqdm
 
 ## CLI Reference
 
@@ -87,6 +88,38 @@ papersift cluster papers.json -o results/ --validate
 # Reproducible run with explicit seed
 papersift cluster papers.json -o results/ --seed 123
 ```
+
+### enrich - Fetch data from OpenAlex
+
+```bash
+papersift enrich INPUT -o OUTPUT --email EMAIL [--fields FIELDS]
+```
+
+**Arguments:**
+- `INPUT`: Path to JSON file with papers list
+- `-o, --output`: Output JSON file (required)
+- `--email`: Email for OpenAlex polite pool (required)
+
+**Options:**
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `--fields` | str | `referenced_works,openalex_id` | Comma-separated fields to fetch |
+
+**Supported fields:** `referenced_works`, `openalex_id`, `topics`, `abstract`
+
+**Examples:**
+
+```bash
+# Fetch citation data for validation
+papersift enrich papers.json -o enriched.json --email user@example.com
+
+# Fetch all available fields
+papersift enrich papers.json -o enriched.json --email user@example.com \
+  --fields referenced_works,openalex_id,topics,abstract
+```
+
+**Requires:** `pip install papersift[enrich]`
 
 ### find - Discover hub papers and search by entity
 
@@ -525,6 +558,37 @@ Memory usage: ~200-300 MB for 748 papers with ~5000 edges
 **"Insufficient citation data":**
 - Papers lack `referenced_works` field or < 10 internal citations
 - Remove `--validate` flag or enrich data with citation information
+
+## Verification
+
+Run the full test suite:
+
+```bash
+pip install -e ".[enrich]"
+pytest tests/ -v
+```
+
+Quick smoke test:
+
+```bash
+papersift cluster tests/fixtures/sample_papers.json -o /tmp/papersift-test/
+python -m json.tool /tmp/papersift-test/communities.json | head -20
+```
+
+Enrichment + validation test (requires network):
+
+```bash
+papersift enrich tests/fixtures/sample_papers.json -o /tmp/enriched.json --email your@email.com
+papersift cluster /tmp/enriched.json -o /tmp/validated/ --validate
+python -m json.tool /tmp/validated/validation_report.json
+```
+
+Validation with bundled fixture data (no network):
+
+```bash
+papersift cluster tests/fixtures/sample_papers_with_refs.json -o /tmp/ref-test/ --validate
+python -m json.tool /tmp/ref-test/validation_report.json
+```
 
 ## Version
 
