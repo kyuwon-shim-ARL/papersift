@@ -56,10 +56,13 @@ The `[enrich]` extra installs `pyalex` for OpenAlex integration. Requires Python
 After installing this plugin, you must install the Python package:
 
 ```bash
-# From the plugin's cached directory or from GitHub
+# Using pip (from GitHub)
 pip install "papersift[enrich] @ git+https://github.com/kyuwon-shim-ARL/papersift.git"
 
-# Or if you have the repo cloned locally
+# Using uv (specify target Python if needed)
+uv pip install --python $(which python) "papersift[enrich] @ git+https://github.com/kyuwon-shim-ARL/papersift.git"
+
+# Or from a local clone
 pip install -e "/path/to/papersift/[enrich]"
 ```
 
