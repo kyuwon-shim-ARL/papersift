@@ -12,6 +12,16 @@ dependencies = [
 
 [project.optional-dependencies]
 enrich = ["pyalex>=0.14", "tqdm>=4.0"]
+ui = [
+    "dash>=2.17.0",
+    "dash-cytoscape>=1.0.2",
+    "dash-ag-grid>=33.3.0",
+    "pandas>=2.0.0",
+    "plotly>=5.0.0",
+    "networkx>=3.0",
+]
+landscape = ["umap-learn>=0.5"]
+all = ["papersift[enrich,ui,landscape]"]
 
 [project.scripts]
 papersift = "papersift.cli:main"

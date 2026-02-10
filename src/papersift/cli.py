@@ -87,6 +87,112 @@ Examples:
     stream_parser.add_argument("--expand", action="store_true", help="Use expand mode (all neighbors) instead of stream")
     stream_parser.add_argument("--use-topics", action="store_true",
                                help="Use OpenAlex topics as additional entities")
+    stream_parser.add_argument("--format", choices=["table", "json"], default="table",
+                               help="Output format (default: table)")
+
+    # ===== ui command (NEW) =====
+    ui_parser = subparsers.add_parser(
+        "ui",
+        help="Launch interactive UI for paper filtering"
+    )
+    ui_parser.add_argument("input", help="Papers JSON file")
+    ui_parser.add_argument("--port", type=int, default=8050, help="Server port")
+    ui_parser.add_argument("--debug", action="store_true", help="Enable debug mode")
+    ui_parser.add_argument("--host", default="127.0.0.1",
+                           help="Server host (use 0.0.0.0 for external access)")
+    ui_parser.add_argument("--export", metavar="FILE",
+                           help="Export interactive HTML (static snapshot, no server)")
+    ui_parser.add_argument("--mode", choices=["cluster", "paper"], default="cluster",
+                           help="Export visualization mode: cluster (default) or paper")
+    ui_parser.add_argument("--use-topics", action="store_true",
+                           help="Use OpenAlex topics for enhanced clustering (requires enriched data)")
+
+    # ===== browse command (NEW) =====
+    browse_parser = subparsers.add_parser(
+        "browse",
+        help="Browse cluster contents (text-based)"
+    )
+    browse_parser.add_argument("input", help="Papers JSON file")
+    browse_parser.add_argument("--list", action="store_true",
+                               help="List all clusters with summary")
+    browse_parser.add_argument("--cluster", type=str,
+                               help="Show specific cluster(s), comma-separated IDs")
+    browse_parser.add_argument("--export", metavar="FILE",
+                               help="Export selected clusters to JSON")
+    browse_parser.add_argument("--full", action="store_true",
+                               help="Show all DOIs (default: first 10)")
+    browse_parser.add_argument("--use-topics", action="store_true",
+                               help="Use OpenAlex topics as additional entities")
+    browse_parser.add_argument("--resolution", type=float, default=1.0,
+                               help="Leiden clustering resolution (default: 1.0)")
+    browse_parser.add_argument("--format", choices=["table", "json"], default="table",
+                               help="Output format (default: table)")
+    browse_parser.add_argument("--sub-cluster", type=str, metavar="CLUSTER_ID",
+                               help="Sub-cluster a specific cluster (e.g., '3' or '3.1')")
+    browse_parser.add_argument("--sub-resolution", type=float, default=1.0,
+                               help="Resolution for sub-clustering (default: 1.0)")
+
+    # ===== landscape command (NEW) =====
+    landscape_parser = subparsers.add_parser(
+        "landscape",
+        help="Generate UMAP/t-SNE landscape visualization"
+    )
+    landscape_parser.add_argument("input", help="Papers JSON file (or '-' for stdin)")
+    landscape_parser.add_argument("--method", choices=["umap", "tsne"], default="tsne",
+                                   help="Embedding method (default: tsne)")
+    landscape_parser.add_argument("-o", "--output", required=True, help="Output HTML file")
+    landscape_parser.add_argument("--use-topics", action="store_true",
+                                   help="Use OpenAlex topics as additional entities")
+    landscape_parser.add_argument("--resolution", type=float, default=1.0,
+                                   help="Leiden resolution for cluster coloring (default: 1.0)")
+    landscape_parser.add_argument("--seed", type=int, default=42, help="Random seed")
+    landscape_parser.add_argument("--interactive", action="store_true",
+                                   help="Open in browser after export")
+
+    # ===== filter command (NEW) =====
+    filter_parser = subparsers.add_parser(
+        "filter",
+        help="Filter papers by entity, cluster, or DOI list"
+    )
+    filter_parser.add_argument("input", help="Papers JSON file (use '-' for stdin)")
+    filter_parser.add_argument("--entity", action="append", help="Entity to filter by (repeatable)")
+    filter_parser.add_argument("--entity-any", action="store_true",
+                               help="OR logic for entities (default: AND)")
+    filter_parser.add_argument("--cluster", type=str,
+                               help="Cluster IDs to keep (comma-separated, e.g. '3,5')")
+    filter_parser.add_argument("--dois", help="File with DOI list to keep (one per line or JSON array)")
+    filter_parser.add_argument("--exclude", action="store_true",
+                               help="Invert: remove matching papers instead of keeping them")
+    filter_parser.add_argument("--clusters-from", help="clusters.json file for cluster-based filtering")
+    filter_parser.add_argument("--resolution", type=float, default=1.0)
+    filter_parser.add_argument("--use-topics", action="store_true")
+    filter_parser.add_argument("--format", choices=["json", "table"], default="json",
+                               help="Output format (default: json)")
+    filter_parser.add_argument("-o", "--output", help="Output file (default: stdout)")
+
+    # ===== merge command (NEW) =====
+    merge_parser = subparsers.add_parser(
+        "merge",
+        help="Merge multiple paper JSON files, deduplicate by DOI"
+    )
+    merge_parser.add_argument("inputs", nargs="+", help="Paper JSON files to merge")
+    merge_parser.add_argument("-o", "--output", required=True, help="Output file")
+
+    # ===== subcluster command (NEW) =====
+    subcluster_parser = subparsers.add_parser(
+        "subcluster",
+        help="Sub-cluster a specific cluster"
+    )
+    subcluster_parser.add_argument("input", help="Papers JSON file (use '-' for stdin)")
+    subcluster_parser.add_argument("--cluster", required=True, type=str,
+                                    help="Cluster ID to subdivide (e.g., '3' or '3.1')")
+    subcluster_parser.add_argument("--clusters-from", required=True,
+                                    help="Existing clusters.json file")
+    subcluster_parser.add_argument("--resolution", type=float, default=1.0)
+    subcluster_parser.add_argument("--use-topics", action="store_true")
+    subcluster_parser.add_argument("--seed", type=int, default=42)
+    subcluster_parser.add_argument("-o", "--output", help="Output directory for updated clusters")
+    subcluster_parser.add_argument("--format", choices=["json", "table"], default="table")
 
     args = parser.parse_args()
 
@@ -98,6 +204,18 @@ Examples:
         run_find(args)
     elif args.command == "stream":
         run_stream(args)
+    elif args.command == "ui":
+        run_ui(args)
+    elif args.command == "browse":
+        run_browse(args)
+    elif args.command == "landscape":
+        run_landscape(args)
+    elif args.command == "filter":
+        run_filter(args)
+    elif args.command == "merge":
+        run_merge(args)
+    elif args.command == "subcluster":
+        run_subcluster(args)
 
 
 def run_enrich(args):
@@ -134,21 +252,44 @@ def run_find(args):
 
     if args.hubs:
         hubs = builder.find_hub_papers(top_k=args.hubs)
-        print(f"Top {args.hubs} Entity Hub Papers:")
-        print("-" * 60)
-        for i, h in enumerate(hubs, 1):
-            title = get_title(papers, h['doi'])
-            print(f"{i:2d}. [{h['hub_score']:4d}] {title[:50]}...")
-            print(f"    Entities: {', '.join(h['entities'][:5])}")
+        if args.format == "json":
+            # JSON output
+            output = []
+            for h in hubs:
+                title = get_title(papers, h['doi'])
+                output.append({
+                    'doi': h['doi'],
+                    'title': title,
+                    'hub_score': h['hub_score'],
+                    'entities': h['entities']
+                })
+            print(json.dumps(output, indent=2))
+        else:
+            # Table output (default)
+            print(f"Top {args.hubs} Entity Hub Papers:")
+            print("-" * 60)
+            for i, h in enumerate(hubs, 1):
+                title = get_title(papers, h['doi'])
+                print(f"{i:2d}. [{h['hub_score']:4d}] {title[:50]}...")
+                print(f"    Entities: {', '.join(h['entities'][:5])}")
 
     elif args.entity:
         dois = builder.find_papers_by_entity(args.entity)
-        print(f"Papers containing '{args.entity}': {len(dois)}")
-        for doi in dois[:20]:
-            title = get_title(papers, doi)
-            print(f"  - {title[:60]}...")
-        if len(dois) > 20:
-            print(f"  ... and {len(dois) - 20} more")
+        if args.format == "json":
+            # JSON output
+            output = []
+            for doi in dois:
+                title = get_title(papers, doi)
+                output.append({'doi': doi, 'title': title})
+            print(json.dumps(output, indent=2))
+        else:
+            # Table output (default)
+            print(f"Papers containing '{args.entity}': {len(dois)}")
+            for doi in dois[:20]:
+                title = get_title(papers, doi)
+                print(f"  - {title[:60]}...")
+            if len(dois) > 20:
+                print(f"  ... and {len(dois) - 20} more")
 
 
 def run_stream(args):
@@ -162,23 +303,59 @@ def run_stream(args):
 
     if args.expand:
         reachable = builder.expand_from_seed(args.seed, hops=args.hops)
-        print(f"Papers reachable in {args.hops} hops from seed: {len(reachable)}")
-        for doi in list(reachable)[:20]:
-            title = get_title(papers, doi)
-            print(f"  - {title[:60]}...")
+        if args.format == "json":
+            # JSON output
+            output = []
+            for doi in reachable:
+                title = get_title(papers, doi)
+                output.append({'doi': doi, 'title': title})
+            print(json.dumps(output, indent=2))
+        else:
+            # Table output (default)
+            print(f"Papers reachable in {args.hops} hops from seed: {len(reachable)}")
+            for doi in list(reachable)[:20]:
+                title = get_title(papers, doi)
+                print(f"  - {title[:60]}...")
     else:
         path = builder.entity_stream(args.seed, strategy=args.strategy, max_hops=args.hops)
-        print(f"Entity stream ({args.strategy}, {len(path)} papers):")
-        for i, doi in enumerate(path):
-            title = get_title(papers, doi)
-            marker = ">" if i == 0 else " "
-            print(f"{marker} {i}. {title[:55]}...")
+        if args.format == "json":
+            # JSON output
+            output = []
+            for doi in path:
+                title = get_title(papers, doi)
+                output.append({'doi': doi, 'title': title})
+            print(json.dumps(output, indent=2))
+        else:
+            # Table output (default)
+            print(f"Entity stream ({args.strategy}, {len(path)} papers):")
+            for i, doi in enumerate(path):
+                title = get_title(papers, doi)
+                marker = ">" if i == 0 else " "
+                print(f"{marker} {i}. {title[:55]}...")
 
 
 def load_papers(path):
-    with open(path) as f:
-        data = json.load(f)
-    return data.get('papers', data)
+    """Load papers from file or stdin.
+
+    Args:
+        path: File path or "-" for stdin
+
+    Returns:
+        List of paper dicts
+    """
+    if path == "-":
+        if sys.stdin.isatty():
+            print("Error: No input on stdin. Use '-' only when piping data.", file=sys.stderr)
+            sys.exit(1)
+        try:
+            data = json.load(sys.stdin)
+        except json.JSONDecodeError:
+            print("Error: Invalid JSON input on stdin", file=sys.stderr)
+            sys.exit(1)
+    else:
+        with open(path) as f:
+            data = json.load(f)
+    return data.get('papers', data) if isinstance(data, dict) else data
 
 
 def get_title(papers, doi):
@@ -190,15 +367,7 @@ def run_cluster(args):
     from papersift import EntityLayerBuilder, ClusterValidator
 
     # Load papers
-    input_path = Path(args.input)
-    if not input_path.exists():
-        print(f"Error: File not found: {input_path}", file=sys.stderr)
-        sys.exit(1)
-
-    with open(input_path) as f:
-        data = json.load(f)
-
-    papers = data.get('papers', data)  # Support both {papers: [...]} and [...]
+    papers = load_papers(args.input)
     print(f"Loaded {len(papers)} papers")
 
     # Build entity graph and cluster
@@ -265,6 +434,483 @@ def run_cluster(args):
             with open(confidence_path, 'w') as f:
                 json.dump(report.confidence_scores, f, indent=2)
             print(f"Saved: {confidence_path}")
+
+
+def run_ui(args):
+    """Launch interactive UI or export static HTML."""
+    # Mutual exclusion check
+    if args.export and args.host != "127.0.0.1":
+        print("Error: --export and --host cannot be used together.", file=sys.stderr)
+        print("  --export generates a static file, no server is started.", file=sys.stderr)
+        sys.exit(1)
+
+    if args.export:
+        # Export mode
+        from papersift.ui.exporter import export_network_html
+        export_network_html(args.input, args.export, mode=getattr(args, 'mode', 'cluster'))
+    else:
+        # Server mode
+        try:
+            from papersift.ui.app import run_server
+        except ImportError:
+            print("Error: UI requires additional dependencies. Install with: pip install -r requirements-ui.txt",
+                  file=sys.stderr)
+            sys.exit(1)
+
+        run_server(args.input, port=args.port, debug=args.debug, host=args.host,
+                   use_topics=getattr(args, 'use_topics', False))
+
+
+def run_browse(args):
+    """Browse cluster contents in text mode."""
+    from papersift import EntityLayerBuilder
+
+    papers = load_papers(args.input)
+    use_topics = getattr(args, 'use_topics', False)
+    builder = EntityLayerBuilder(use_topics=use_topics)
+    builder.build_from_papers(papers)
+
+    clusters = builder.run_leiden(resolution=args.resolution, seed=42)
+    summaries = builder.get_cluster_summary(clusters)
+    # Sort by size descending
+    summaries.sort(key=lambda s: s['size'], reverse=True)
+
+    # Default to --list if no specific action
+    if not args.cluster and not args.export:
+        args.list = True
+
+    if args.list:
+        _browse_list(summaries, len(papers), args.format)
+
+    if args.cluster:
+        cluster_ids = [int(x.strip()) for x in args.cluster.split(',')]
+        _browse_detail(summaries, cluster_ids, papers, args.full, args.format)
+
+        if args.export:
+            _browse_export(summaries, cluster_ids, papers, args.export)
+
+    if getattr(args, 'sub_cluster', None):
+        from papersift.embedding import sub_cluster
+        target_cid = args.sub_cluster
+        # Try to match cluster_id (could be int or string)
+        try:
+            target_cid_int = int(target_cid)
+            if target_cid_int in set(clusters.values()):
+                target_cid = target_cid_int
+        except ValueError:
+            pass  # Keep as string for hierarchical IDs like "3.1"
+
+        try:
+            sub_results = sub_cluster(
+                papers, target_cid, clusters,
+                resolution=getattr(args, 'sub_resolution', 1.0),
+                seed=42, use_topics=use_topics
+            )
+        except ValueError as e:
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
+
+        # Build summaries for sub-clusters
+        sub_builder = EntityLayerBuilder(use_topics=use_topics)
+        subset = [p for p in papers if p['doi'] in sub_results]
+        sub_builder.build_from_papers(subset)
+        sub_summaries = sub_builder.get_cluster_summary(sub_results)
+        sub_summaries.sort(key=lambda s: s['size'], reverse=True)
+
+        if args.format == "json":
+            output = []
+            for s in sub_summaries:
+                output.append({
+                    'cluster_id': s['cluster_id'],
+                    'size': s['size'],
+                    'top_entities': s['top_entities']
+                })
+            print(json.dumps(output, indent=2))
+        else:
+            n_papers = sum(s['size'] for s in sub_summaries)
+            print(f"\nSub-clusters of cluster {args.sub_cluster} ({n_papers} papers):\n")
+            for s in sub_summaries:
+                entities = ', '.join(s['top_entities'][:5])
+                print(f"  Sub-cluster {s['cluster_id']} ({s['size']} papers): {entities}")
+
+
+def _browse_list(summaries, total_papers, format_type="table"):
+    """Print cluster list summary."""
+    if format_type == "json":
+        # JSON output
+        output = []
+        for s in summaries:
+            output.append({
+                'cluster_id': s['cluster_id'],
+                'size': s['size'],
+                'top_entities': s['top_entities']
+            })
+        print(json.dumps(output, indent=2))
+    else:
+        # Table output (default)
+        print(f"{len(summaries)} clusters found ({total_papers} papers total)\n")
+        for s in summaries:
+            entities = ', '.join(s['top_entities'][:5])
+            print(f"Cluster {s['cluster_id']} ({s['size']} papers): {entities}")
+
+
+def _browse_detail(summaries, cluster_ids, papers, full=False, format_type="table"):
+    """Print detailed cluster info."""
+    summary_map = {s['cluster_id']: s for s in summaries}
+
+    if format_type == "json":
+        # JSON output
+        output = []
+        for cid in cluster_ids:
+            if cid not in summary_map:
+                continue
+            s = summary_map[cid]
+            # Get sample papers with details
+            sample_papers = []
+            for doi in s['dois'][:3]:
+                title = get_title(papers, doi)
+                year = next((p.get('year', '?') for p in papers if p['doi'] == doi), '?')
+                sample_papers.append({'doi': doi, 'title': title, 'year': year})
+
+            output.append({
+                'cluster_id': cid,
+                'size': s['size'],
+                'top_entities': s['top_entities'],
+                'sample_papers': sample_papers,
+                'dois': s['dois'] if full else s['dois'][:10]
+            })
+        print(json.dumps(output, indent=2))
+    else:
+        # Table output (default)
+        for cid in cluster_ids:
+            if cid not in summary_map:
+                print(f"Cluster {cid}: not found", file=sys.stderr)
+                continue
+            s = summary_map[cid]
+            print(f"\nCluster {cid}: {s['size']} papers")
+            print(f"Top Entities: {', '.join(s['top_entities'])}")
+
+            # Sample papers (first 3)
+            print(f"\nSample Papers:")
+            for i, doi in enumerate(s['dois'][:3], 1):
+                title = get_title(papers, doi)
+                year = next((p.get('year', '?') for p in papers if p['doi'] == doi), '?')
+                print(f"  {i}. \"{title[:70]}\" ({year})")
+
+            # DOI list
+            doi_limit = len(s['dois']) if full else min(10, len(s['dois']))
+            suffix = "" if full or len(s['dois']) <= 10 else f" (use --full for all {len(s['dois'])})"
+            print(f"\nDOIs:{suffix}")
+            for doi in s['dois'][:doi_limit]:
+                print(f"  - {doi}")
+            if not full and len(s['dois']) > 10:
+                print(f"  ... ({len(s['dois']) - 10} more)")
+            print()
+
+
+def _browse_export(summaries, cluster_ids, papers, output_path):
+    """Export selected clusters to JSON."""
+    summary_map = {s['cluster_id']: s for s in summaries}
+    selected_dois = set()
+    for cid in cluster_ids:
+        if cid in summary_map:
+            selected_dois.update(summary_map[cid]['dois'])
+
+    selected_papers = [p for p in papers if p['doi'] in selected_dois]
+
+    with open(output_path, 'w') as f:
+        json.dump(selected_papers, f, indent=2)
+
+    print(f"Selected {len(cluster_ids)} clusters ({len(selected_papers)} papers total)")
+    print(f"Exported to: {output_path}")
+
+
+def run_landscape(args):
+    """Generate landscape visualization as HTML."""
+    from papersift.embedding import embed_papers
+    from papersift import EntityLayerBuilder
+
+    papers = load_papers(args.input)
+    use_topics = getattr(args, 'use_topics', False)
+    print(f"Loaded {len(papers)} papers", file=sys.stderr)
+
+    # Cluster for coloring
+    builder = EntityLayerBuilder(use_topics=use_topics)
+    builder.build_from_papers(papers)
+    clusters = builder.run_leiden(resolution=args.resolution, seed=args.seed)
+    num_clusters = len(set(clusters.values()))
+    print(f"Found {num_clusters} clusters", file=sys.stderr)
+
+    # Compute embedding
+    print(f"Computing {args.method.upper()} embedding...", file=sys.stderr)
+
+    # Auto-adjust perplexity for t-SNE with small sample sizes
+    kwargs = {}
+    if args.method == "tsne":
+        max_perplexity = (len(papers) - 1) / 3.0
+        if max_perplexity < 30.0:
+            kwargs['perplexity'] = max(5.0, max_perplexity)
+            print(f"  (Adjusted perplexity to {kwargs['perplexity']:.1f} for small sample size)", file=sys.stderr)
+
+    try:
+        embedding = embed_papers(papers, method=args.method, use_topics=use_topics, random_state=args.seed, **kwargs)
+    except ImportError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        print("Falling back to t-SNE...", file=sys.stderr)
+        embedding = embed_papers(papers, method="tsne", use_topics=use_topics, random_state=args.seed, **kwargs)
+
+    # Build Plotly figure
+    try:
+        import plotly.graph_objects as go
+    except ImportError:
+        print("Error: plotly is required for landscape visualization.", file=sys.stderr)
+        print("Install with: pip install plotly", file=sys.stderr)
+        sys.exit(1)
+
+    # Colorblind-friendly palette
+    palette = [
+        '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
+        '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf',
+        '#aec7e8', '#ffbb78', '#98df8a', '#ff9896', '#c5b0d5',
+    ]
+
+    # Get entity info for hover
+    paper_entities = builder.paper_entities
+
+    # Group by cluster for legend toggling
+    cluster_papers = {}
+    for doi, cid in clusters.items():
+        cluster_papers.setdefault(cid, []).append(doi)
+
+    fig = go.Figure()
+    for i, cid in enumerate(sorted(cluster_papers.keys(), key=str)):
+        dois_in_cluster = cluster_papers[cid]
+        xs = [embedding[d][0] for d in dois_in_cluster if d in embedding]
+        ys = [embedding[d][1] for d in dois_in_cluster if d in embedding]
+        titles = [get_title(papers, d) for d in dois_in_cluster]
+        entities_hover = [
+            ', '.join(list(paper_entities.get(d, set()))[:3])
+            for d in dois_in_cluster
+        ]
+        hover_text = [
+            f"<b>{t[:60]}</b><br>Cluster: {cid}<br>Entities: {e}"
+            for t, e in zip(titles, entities_hover)
+        ]
+
+        fig.add_trace(go.Scatter(
+            x=xs, y=ys,
+            mode='markers',
+            marker=dict(size=8, color=palette[i % len(palette)]),
+            name=f'Cluster {cid} ({len(dois_in_cluster)})',
+            text=hover_text,
+            hoverinfo='text',
+        ))
+
+    method_label = args.method.upper()
+    fig.update_layout(
+        title=f"PaperSift Landscape ({method_label}, {len(papers)} papers)",
+        xaxis=dict(showticklabels=False, title=''),
+        yaxis=dict(showticklabels=False, title=''),
+        hovermode='closest',
+        template='plotly_white',
+    )
+
+    # Export
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.write_html(str(output_path), include_plotlyjs=True)
+    print(f"Saved: {output_path}", file=sys.stderr)
+
+    if getattr(args, 'interactive', False):
+        import webbrowser
+        webbrowser.open(str(output_path.resolve()))
+
+
+def run_filter(args):
+    """Filter papers by entity, cluster, or DOI list."""
+    from papersift import EntityLayerBuilder
+
+    papers = load_papers(args.input)
+    matching_dois = set(p['doi'] for p in papers)  # Start with all
+
+    # Entity filter
+    if args.entity:
+        use_topics = getattr(args, 'use_topics', False)
+        builder = EntityLayerBuilder(use_topics=use_topics)
+        builder.build_from_papers(papers)
+
+        entity_matches = []
+        for entity_name in args.entity:
+            found = set(builder.find_papers_by_entity(entity_name))
+            entity_matches.append(found)
+
+        if getattr(args, 'entity_any', False):
+            # OR: union
+            entity_set = set()
+            for s in entity_matches:
+                entity_set.update(s)
+        else:
+            # AND: intersection
+            entity_set = entity_matches[0]
+            for s in entity_matches[1:]:
+                entity_set &= s
+
+        matching_dois &= entity_set
+
+    # Cluster filter
+    if args.cluster:
+        cluster_ids_str = [x.strip() for x in args.cluster.split(',')]
+
+        if args.clusters_from:
+            # Load pre-computed clusters
+            with open(args.clusters_from) as f:
+                clusters = json.load(f)
+        else:
+            # Cluster on-the-fly
+            print("Clustering on-the-fly with resolution=" + str(args.resolution), file=sys.stderr)
+            use_topics = getattr(args, 'use_topics', False)
+            builder = EntityLayerBuilder(use_topics=use_topics)
+            builder.build_from_papers(papers)
+            clusters = builder.run_leiden(resolution=args.resolution, seed=42)
+
+        # Match cluster IDs (handle int/str comparison)
+        cluster_dois = set()
+        for doi, cid in clusters.items():
+            if str(cid) in cluster_ids_str:
+                cluster_dois.add(doi)
+
+        matching_dois &= cluster_dois
+
+    # DOI list filter
+    if args.dois:
+        dois_path = args.dois
+        with open(dois_path) as f:
+            content = f.read().strip()
+        try:
+            doi_list = json.loads(content)
+            if isinstance(doi_list, list):
+                doi_set = set(doi_list)
+            else:
+                doi_set = set(content.splitlines())
+        except json.JSONDecodeError:
+            doi_set = set(line.strip() for line in content.splitlines() if line.strip())
+        matching_dois &= doi_set
+
+    # Apply exclude (invert)
+    if getattr(args, 'exclude', False):
+        all_dois = set(p['doi'] for p in papers)
+        matching_dois = all_dois - matching_dois
+
+    # Filter papers
+    filtered = [p for p in papers if p['doi'] in matching_dois]
+
+    # Output
+    if args.format == "json":
+        output_data = json.dumps(filtered, indent=2)
+    else:
+        output_data = f"Filtered: {len(filtered)} papers (from {len(papers)} total)\n"
+        for p in filtered[:20]:
+            output_data += f"  - {p.get('title', p['doi'])[:60]}...\n"
+        if len(filtered) > 20:
+            output_data += f"  ... and {len(filtered) - 20} more\n"
+
+    if args.output:
+        out_path = Path(args.output)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(out_path, 'w') as f:
+            f.write(output_data)
+        print(f"Saved {len(filtered)} papers to {out_path}", file=sys.stderr)
+    else:
+        print(output_data)
+
+
+def run_merge(args):
+    """Merge multiple paper JSON files, deduplicate by DOI."""
+    all_papers = []
+    seen_dois = set()
+
+    for input_path in args.inputs:
+        papers = load_papers(input_path)
+        for p in papers:
+            if p['doi'] not in seen_dois:
+                all_papers.append(p)
+                seen_dois.add(p['doi'])
+
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, 'w') as f:
+        json.dump(all_papers, f, indent=2)
+
+    total_input = sum(len(load_papers(p)) for p in args.inputs)
+    deduped = total_input - len(all_papers)
+    print(f"Merged {len(args.inputs)} files: {total_input} papers -> {len(all_papers)} unique", file=sys.stderr)
+    if deduped > 0:
+        print(f"  Removed {deduped} duplicates", file=sys.stderr)
+    print(f"Saved: {output_path}", file=sys.stderr)
+
+
+def run_subcluster(args):
+    """Sub-cluster a specific cluster using the standalone sub_cluster function."""
+    from papersift.embedding import sub_cluster
+
+    papers = load_papers(args.input)
+
+    with open(args.clusters_from) as f:
+        clusters = json.load(f)
+
+    use_topics = getattr(args, 'use_topics', False)
+    target_cid = args.cluster
+
+    # Try to match as int if possible (clusters.json values are often ints)
+    try:
+        target_cid_int = int(target_cid)
+        if any(v == target_cid_int for v in clusters.values()):
+            target_cid = target_cid_int
+    except ValueError:
+        pass
+
+    try:
+        sub_results = sub_cluster(
+            papers, target_cid, clusters,
+            resolution=args.resolution,
+            seed=args.seed,
+            use_topics=use_topics,
+        )
+    except ValueError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    # Count sub-clusters
+    from collections import Counter
+    sub_counts = Counter(sub_results.values())
+
+    if args.format == "json":
+        output = json.dumps(sub_results, indent=2)
+        if args.output:
+            output_dir = Path(args.output)
+            output_dir.mkdir(parents=True, exist_ok=True)
+            # Save updated clusters (merge sub_results into original)
+            updated_clusters = dict(clusters)
+            updated_clusters.update(sub_results)
+            with open(output_dir / "clusters.json", 'w') as f:
+                json.dump(updated_clusters, f, indent=2)
+            print(f"Saved updated clusters to {output_dir / 'clusters.json'}", file=sys.stderr)
+        else:
+            print(output)
+    else:
+        print(f"\nSub-clusters of cluster {args.cluster}:")
+        print(f"  {len(sub_results)} papers -> {len(sub_counts)} sub-clusters\n")
+        for scid, count in sub_counts.most_common():
+            print(f"  Sub-cluster {scid}: {count} papers")
+
+        if args.output:
+            output_dir = Path(args.output)
+            output_dir.mkdir(parents=True, exist_ok=True)
+            updated_clusters = dict(clusters)
+            updated_clusters.update(sub_results)
+            with open(output_dir / "clusters.json", 'w') as f:
+                json.dump(updated_clusters, f, indent=2)
+            print(f"\nSaved: {output_dir / 'clusters.json'}")
 
 
 if __name__ == "__main__":

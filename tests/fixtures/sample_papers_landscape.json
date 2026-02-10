@@ -1,0 +1,297 @@
+[
+  {
+    "doi": "10.1000/ml001",
+    "title": "Machine Learning Approaches for Predicting Protein Structure from Sequence Data",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/ml002",
+    "title": "Deep Learning Models for Gene Expression Analysis in Cancer Research",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/ml003",
+    "title": "Neural Network Architecture for Single-Cell RNA-seq Data Classification",
+    "year": 2022
+  },
+  {
+    "doi": "10.1000/ml004",
+    "title": "Convolutional Neural Networks for Protein Structure Prediction",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/ml005",
+    "title": "Machine Learning Framework for Predicting Drug-Target Interactions",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/ml006",
+    "title": "Deep Learning Methods for Genomic Variant Classification",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/ml007",
+    "title": "Graph Neural Networks for Protein-Protein Interaction Prediction",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/ml008",
+    "title": "Transfer Learning for Gene Expression Pattern Recognition",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/ml009",
+    "title": "Attention-Based Deep Learning for Protein Function Annotation",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/ml010",
+    "title": "Machine Learning Pipeline for Single-Cell RNA-seq Data Integration",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/cr001",
+    "title": "CRISPR-Cas9 Gene Editing for Therapeutic Applications in Human Disease",
+    "year": 2023,
+    "topics": [
+      {"display_name": "Gene Editing", "score": 0.95},
+      {"display_name": "CRISPR Technology", "score": 0.92}
+    ]
+  },
+  {
+    "doi": "10.1000/cr002",
+    "title": "CRISPR Screening in Mammalian Cells for Drug Target Discovery",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/cr003",
+    "title": "Base Editing with CRISPR for Precise Genome Modification",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/cr004",
+    "title": "CRISPR-Cas13 System for RNA Targeting in Viral Infections",
+    "year": 2024,
+    "topics": [
+      {"display_name": "RNA Biology", "score": 0.88},
+      {"display_name": "Antiviral Therapy", "score": 0.85}
+    ]
+  },
+  {
+    "doi": "10.1000/cr005",
+    "title": "Prime Editing Technology for CRISPR-Based Gene Correction",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/cr006",
+    "title": "CRISPR Activation Screens in Cancer Cells for Oncogene Discovery",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/cr007",
+    "title": "Epigenome Editing with dCas9 for Gene Regulation Studies",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/cr008",
+    "title": "CRISPR-Based Diagnostics for Infectious Disease Detection",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/cr009",
+    "title": "Multiplex CRISPR Screening for Genetic Interaction Networks",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/cr010",
+    "title": "In Vivo CRISPR Gene Therapy for Inherited Metabolic Disorders",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/sc001",
+    "title": "Single-Cell RNA-seq Analysis of Tumor Microenvironment Heterogeneity",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/sc002",
+    "title": "Single-Cell Sequencing Reveals Cell Type Diversity in Brain Development",
+    "year": 2024,
+    "topics": [
+      {"display_name": "Neuroscience", "score": 0.91},
+      {"display_name": "Developmental Biology", "score": 0.87}
+    ]
+  },
+  {
+    "doi": "10.1000/sc003",
+    "title": "Spatial Transcriptomics for Single-Cell Gene Expression Mapping",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/sc004",
+    "title": "Single-Cell ATAC-seq for Chromatin Accessibility in Immune Cells",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/sc005",
+    "title": "Single-Cell Proteomics Using Mass Cytometry in Cancer Research",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/sc006",
+    "title": "Trajectory Analysis of Single-Cell RNA-seq Data in Stem Cell Differentiation",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/sc007",
+    "title": "Single-Cell Multi-Omics Integration for Cell State Identification",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/sc008",
+    "title": "Single-Cell Genomics of Rare Cell Populations in Human Tissues",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/sc009",
+    "title": "Computational Methods for Single-Cell RNA-seq Clustering and Annotation",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/sc010",
+    "title": "Single-Cell Lineage Tracing with CRISPR Barcoding Technology",
+    "year": 2024,
+    "topics": [
+      {"display_name": "Lineage Tracing", "score": 0.93},
+      {"display_name": "Cell Biology", "score": 0.86}
+    ]
+  },
+  {
+    "doi": "10.1000/vs001",
+    "title": "Virtual Cell Model for Simulating Metabolic Pathways in E. coli",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/vs002",
+    "title": "Agent-Based Simulation of Cell Population Dynamics in Tissue Growth",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/vs003",
+    "title": "Whole-Cell Computational Model of Mycoplasma Genitalium",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/vs004",
+    "title": "Stochastic Simulation of Gene Regulatory Networks in Mammalian Cells",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/vs005",
+    "title": "Virtual Tissue Model for Predicting Drug Effects on Cell Signaling",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/vs006",
+    "title": "Multiscale Modeling of Cellular Metabolism and Growth Dynamics",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/vs007",
+    "title": "Spatial Simulation of Cell Migration in Wound Healing",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/vs008",
+    "title": "Virtual Cell Platform for Systems Biology Research",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/vs009",
+    "title": "Computational Framework for Simulating Cell Division and Differentiation",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/mb001",
+    "title": "Microbiome Analysis Reveals Bacterial Diversity in Urban Environments",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/mb002",
+    "title": "16S rRNA Sequencing for Gut Microbiome Composition Studies",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/mb003",
+    "title": "Metagenomic Assembly of Microbial Communities in Soil Samples",
+    "year": 2023,
+    "topics": [
+      {"display_name": "Metagenomics", "score": 0.94},
+      {"display_name": "Environmental Microbiology", "score": 0.89}
+    ]
+  },
+  {
+    "doi": "10.1000/mb004",
+    "title": "Functional Analysis of Microbiome Using Shotgun Sequencing",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/mb005",
+    "title": "Microbiome-Host Interaction in Inflammatory Bowel Disease",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/pr001",
+    "title": "AlphaFold2 for Accurate Protein Structure Prediction from Sequence",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/pr002",
+    "title": "Protein-Protein Docking Using Molecular Dynamics Simulation",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/pr003",
+    "title": "Deep Learning for Protein Secondary Structure Prediction",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/gx001",
+    "title": "RNA-seq Analysis of Gene Expression Changes in Alzheimer Disease",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/gx002",
+    "title": "Differential Gene Expression Profiling in Cancer Subtypes",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/gx003",
+    "title": "Transcriptome Assembly and Annotation in Non-Model Organisms",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/dd001",
+    "title": "Structure-Based Drug Design for Kinase Inhibitor Discovery",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/dd002",
+    "title": "Machine Learning for Predicting Drug Toxicity and Side Effects",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/dd003",
+    "title": "Virtual Screening of Chemical Libraries for Antibacterial Compounds",
+    "year": 2024
+  },
+  {
+    "doi": "10.1000/im001",
+    "title": "Immune Cell Profiling Using Flow Cytometry and Machine Learning",
+    "year": 2023
+  },
+  {
+    "doi": "10.1000/im002",
+    "title": "T Cell Receptor Repertoire Analysis in Autoimmune Disease",
+    "year": 2024
+  }
+]

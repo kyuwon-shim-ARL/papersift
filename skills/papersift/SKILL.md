@@ -37,6 +37,108 @@ Invoke this skill when you need to:
 
 ---
 
+## Conversational Exploration
+
+PaperSift supports interactive paper exploration workflows through entity-based filtering, cluster manipulation, and iterative refinement.
+
+### Pattern 1: Entity-based extraction
+
+**User prompt example:**
+```
+"virtual cell 관련 논문만 추출해줘"
+```
+
+**Commands:**
+```bash
+# First, browse to identify clusters
+papersift browse papers.json --list --format json
+
+# Filter papers containing "virtual cell" entity
+papersift filter papers.json --entity "virtual cell" -o vc_papers.json
+```
+
+**Expected output:** JSON file containing only papers with "virtual cell" entity.
+
+### Pattern 2: Cluster merge
+
+**User prompt example:**
+```
+"클러스터 3과 5를 합쳐줘"
+```
+
+**Commands:**
+```bash
+# Merge cluster 3 and 5 into one output
+papersift filter papers.json --cluster 3,5 --clusters-from results/clusters.json -o merged.json
+```
+
+**Expected output:** JSON file containing papers from both cluster 3 and 5.
+
+### Pattern 3: Sub-cluster drill-down
+
+**User prompt example:**
+```
+"가장 큰 클러스터를 세분화해줘"
+```
+
+**Commands:**
+```bash
+# First, identify the largest cluster
+papersift browse papers.json --list --format json
+
+# Sub-cluster the largest cluster (e.g., cluster 2)
+papersift subcluster papers.json --cluster 2 --clusters-from results/clusters.json
+```
+
+**Expected output:** Sub-cluster analysis showing finer-grained communities within the selected cluster.
+
+### Pattern 4: Topic-based re-clustering
+
+**User prompt example:**
+```
+"deep learning 관련만 따로 클러스터링"
+```
+
+**Commands:**
+```bash
+# Filter papers by entity
+papersift filter papers.json --entity "deep learning" -o dl.json
+
+# Re-cluster the filtered papers
+papersift cluster dl.json -o dl_results/
+```
+
+**Expected output:** New clustering results focused on deep learning papers only.
+
+### Pattern 5: Multi-step refinement
+
+**User prompt example:**
+```
+"transformer 관련 논문 중 큰 클러스터만 세분화하고 관련 없는 건 제외"
+```
+
+**Commands:**
+```bash
+# Step 1: Filter by entity
+papersift filter papers.json --entity "transformer" -o tf.json
+
+# Step 2: Cluster
+papersift cluster tf.json -o tf_results/
+
+# Step 3: Browse to identify clusters
+papersift browse tf.json --list --format json
+
+# Step 4: Sub-cluster largest cluster
+papersift subcluster tf.json --cluster 0 --clusters-from tf_results/clusters.json -o tf_refined.json
+
+# Step 5: Merge relevant sub-clusters if needed
+papersift filter tf_refined.json --cluster 1,2 --clusters-from tf_refined_results/clusters.json -o final.json
+```
+
+**Expected output:** Iteratively refined paper collection through filtering, clustering, sub-clustering, and merging.
+
+---
+
 ## Prerequisites
 
 PaperSift must be pip-installed:
@@ -182,6 +284,140 @@ papersift cluster INPUT -o OUTPUT \
 - `clusters.json` - {doi: cluster_id}
 - `communities.json` - Cluster summaries with entity listings
 - `validation_report.json` - ARI/NMI scores (if --validate)
+
+### papersift landscape
+Generate UMAP/t-SNE visualization of paper landscape.
+
+```bash
+papersift landscape INPUT -o OUTPUT \
+  [--method {umap,tsne}]   # Visualization method (default: tsne)
+  [--use-topics]           # Include OpenAlex topics in embedding
+  [--resolution FLOAT]     # Leiden resolution for cluster overlay (default: 1.0)
+  [--seed INT]             # Random seed (default: 42)
+  [--interactive]          # Generate interactive HTML plot
+```
+
+**Output files:**
+- `landscape.png` - Static visualization
+- `landscape.html` - Interactive plot (if --interactive)
+- `clusters.json` - Cluster assignments used for coloring
+
+### papersift filter
+Filter papers by entity, cluster, or DOI.
+
+```bash
+papersift filter INPUT -o OUTPUT \
+  [--entity NAME]              # Filter by entity (repeatable)
+  [--entity-any]               # Match ANY entity (OR logic, default: AND)
+  [--cluster N,M,...]          # Filter by cluster ID(s)
+  [--dois file.txt]            # Filter by DOI list file
+  [--exclude]                  # Invert filter (exclude matches)
+  [--clusters-from FILE]       # Load clusters from file (required for --cluster)
+  [--resolution FLOAT]         # Leiden resolution (default: 1.0)
+  [--use-topics]               # Include OpenAlex topics in entity extraction
+  [--format {json,table}]      # Output format (default: json)
+```
+
+**Input:**
+- Use `-` for stdin to enable piping
+- Supports both JSON array and `{"papers": [...]}` format
+
+**Examples:**
+```bash
+# Filter by single entity
+papersift filter papers.json --entity "transformer" -o tf_papers.json
+
+# Filter by multiple entities (AND logic)
+papersift filter papers.json --entity "CRISPR" --entity "human" -o crispr_human.json
+
+# Filter by multiple entities (OR logic)
+papersift filter papers.json --entity "CRISPR" --entity "TALEN" --entity-any -o gene_editing.json
+
+# Filter by cluster
+papersift filter papers.json --cluster 0,1,2 --clusters-from results/clusters.json -o top3.json
+
+# Filter by DOI list
+papersift filter papers.json --dois selected_dois.txt -o selected.json
+
+# Exclude papers with entity (invert)
+papersift filter papers.json --entity "review" --exclude -o no_reviews.json
+
+# Pipe from stdin
+cat papers.json | papersift filter - --entity "deep learning" -o dl.json
+```
+
+### papersift merge
+Merge and deduplicate multiple paper files.
+
+```bash
+papersift merge INPUT1 INPUT2 [INPUT3 ...] -o OUTPUT
+```
+
+**Features:**
+- Deduplicates by DOI (case-insensitive)
+- Preserves all unique papers across input files
+- Supports both JSON array and `{"papers": [...]}` format
+
+**Example:**
+```bash
+papersift merge collection1.json collection2.json enriched.json -o merged.json
+```
+
+### papersift subcluster
+Sub-cluster a specific cluster for finer-grained analysis.
+
+```bash
+papersift subcluster INPUT \
+  --cluster N \
+  --clusters-from FILE \
+  [--resolution FLOAT]     # Leiden resolution (default: 1.0)
+  [--use-topics]           # Include OpenAlex topics
+  [--seed INT]             # Random seed (default: 42)
+  [-o OUTPUT]              # Save filtered papers (optional)
+  [--format {json,table}]  # Output format (default: table)
+```
+
+**Output:**
+- Prints sub-cluster analysis to stdout
+- Optionally saves filtered papers to file if `-o` specified
+
+**Example:**
+```bash
+# Analyze sub-clusters within cluster 0
+papersift subcluster papers.json --cluster 0 --clusters-from results/clusters.json
+
+# Save sub-clustered papers to file
+papersift subcluster papers.json --cluster 0 --clusters-from results/clusters.json -o cluster0_refined.json
+```
+
+### papersift browse
+Browse and explore cluster assignments interactively.
+
+```bash
+papersift browse INPUT \
+  [--list]                 # List all clusters with paper counts
+  [--cluster N]            # Show papers in specific cluster
+  [--sub-cluster]          # Show sub-cluster analysis for selected cluster
+  [--clusters-from FILE]   # Load clusters from file (required)
+  [--resolution FLOAT]     # Leiden resolution (default: 1.0)
+  [--use-topics]           # Include OpenAlex topics
+  [--format {table,json}]  # Output format (default: table)
+```
+
+**Examples:**
+```bash
+# List all clusters
+papersift browse papers.json --list --clusters-from results/clusters.json
+
+# List clusters in JSON format
+papersift browse papers.json --list --clusters-from results/clusters.json --format json
+
+# Show papers in cluster 2
+papersift browse papers.json --cluster 2 --clusters-from results/clusters.json
+
+# Sub-cluster analysis for cluster 2
+papersift browse papers.json --cluster 2 --clusters-from results/clusters.json --sub-cluster
+```
 
 ### papersift enrich
 Fetch OpenAlex data to enhance papers.

@@ -1,0 +1,11 @@
+"""Pytest configuration for papersift tests."""
+
+import pytest
+
+
+def pytest_configure(config):
+    """Register custom markers."""
+    config.addinivalue_line(
+        "markers",
+        "slow: marks tests as slow (may take >10 seconds)"
+    )

@@ -401,6 +401,11 @@ class EntityLayerBuilder:
 
         return sorted(summaries, key=lambda x: -x['size'])
 
+    @property
+    def paper_entities(self) -> Dict[str, set]:
+        """Read-only access to per-DOI entity sets (returns deep copy)."""
+        return {doi: set(ents) for doi, ents in self._paper_entities.items()}
+
     # ===== Citation-alternative functions =====
 
     def find_hub_papers(self, top_k: int = 10) -> List[Dict]:

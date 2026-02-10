@@ -16,3 +16,21 @@ try:
     __all__.append("OpenAlexEnricher")
 except ImportError:
     pass  # pyalex not installed
+
+try:
+    from papersift.embedding import (
+        embed_papers,
+        build_entity_matrix,
+        compute_embedding,
+        sub_cluster,
+        extract_paper_entities,
+    )
+    __all__.extend([
+        "embed_papers",
+        "build_entity_matrix",
+        "compute_embedding",
+        "sub_cluster",
+        "extract_paper_entities",
+    ])
+except ImportError:
+    pass  # Should not happen since numpy/sklearn are core deps
