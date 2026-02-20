@@ -267,14 +267,18 @@ class EntityLayerBuilder:
         # Add OpenAlex topics if enabled
         if self.use_topics:
             for topic in paper.get('topics', []):
-                # Add topic display name
-                display_name = topic.get('display_name', '')
-                if display_name:
-                    entity_set.add(display_name.lower())
-                # Add subfield for broader coverage
-                subfield = topic.get('subfield', {}).get('display_name', '')
-                if subfield:
-                    entity_set.add(subfield.lower())
+                if isinstance(topic, str):
+                    # Flat string format (legacy)
+                    if topic:
+                        entity_set.add(topic.lower())
+                elif isinstance(topic, dict):
+                    # Rich format (OpenAlex standard)
+                    display_name = topic.get('display_name', '')
+                    if display_name:
+                        entity_set.add(display_name.lower())
+                    subfield = topic.get('subfield', {}).get('display_name', '')
+                    if subfield:
+                        entity_set.add(subfield.lower())
 
         return entity_set
 

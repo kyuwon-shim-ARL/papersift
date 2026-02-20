@@ -3,8 +3,11 @@
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
+
+from papersift.doi import normalize_doi
 
 
 def main():
@@ -34,6 +37,12 @@ Examples:
   # Stream from seed paper
   papersift stream papers.json --seed "https://doi.org/10.1101/..." --hops 5
         """
+    )
+
+    parser.add_argument(
+        "--data-dir",
+        default="data/papers",
+        help="Base directory for paper storage (default: data/papers)",
     )
 
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -178,6 +187,20 @@ Examples:
     merge_parser.add_argument("inputs", nargs="+", help="Paper JSON files to merge")
     merge_parser.add_argument("-o", "--output", required=True, help="Output file")
 
+    # ===== dedupe command (NEW) =====
+    dedupe_parser = subparsers.add_parser(
+        "dedupe",
+        help="Remove non-paper DOIs (datasets, supplementary) and deduplicate preprints"
+    )
+    dedupe_parser.add_argument("input", help="Papers JSON file")
+    dedupe_parser.add_argument("-o", "--output", required=True, help="Output JSON file")
+    dedupe_parser.add_argument("--keep-non-papers", action="store_true",
+                               help="Don't remove datasets/supplementary/editorial DOIs")
+    dedupe_parser.add_argument("--no-preprint-dedupe", action="store_true",
+                               help="Don't deduplicate preprint/published pairs")
+    dedupe_parser.add_argument("--report", action="store_true",
+                               help="Print detailed report of removed entries")
+
     # ===== subcluster command (NEW) =====
     subcluster_parser = subparsers.add_parser(
         "subcluster",
@@ -193,6 +216,71 @@ Examples:
     subcluster_parser.add_argument("--seed", type=int, default=42)
     subcluster_parser.add_argument("-o", "--output", help="Output directory for updated clusters")
     subcluster_parser.add_argument("--format", choices=["json", "table"], default="table")
+
+    # ===== Pipeline commands (require papersift[pipeline]) =====
+
+    # search command
+    search_parser = subparsers.add_parser("search", help="Search papers on OpenAlex")
+    search_parser.add_argument("query", help="Search query")
+    search_parser.add_argument("--max", type=int, default=50, help="Max results")
+    search_parser.add_argument("--oa-only", action="store_true", help="Only OA papers")
+    search_parser.add_argument("--year-min", type=int, help="Minimum publication year")
+    search_parser.add_argument("--email", help="Contact email (or set PAPER_PIPELINE_EMAIL)")
+    search_parser.add_argument("--collection", help="Add to collection")
+    search_parser.add_argument("--quiet", "-q", action="store_true")
+    search_parser.add_argument("--output", "-o", help="Export as flat JSON (for clustering)")
+
+    # fetch command
+    fetch_parser = subparsers.add_parser("fetch", help="Fetch paper content (PDF/XML)")
+    fetch_parser.add_argument("--doi", help="Single DOI to fetch")
+    fetch_parser.add_argument("--collection", help="Fetch all papers in collection")
+    fetch_parser.add_argument("--email", help="Contact email")
+    fetch_parser.add_argument("--grobid-url", default="http://localhost:8070")
+
+    # status command
+    status_parser = subparsers.add_parser("status", help="Show paper store status")
+
+    # collection command
+    collection_parser = subparsers.add_parser("collection", help="Manage collections")
+    collection_sub = collection_parser.add_subparsers(dest="collection_cmd")
+    coll_list = collection_sub.add_parser("list", help="List collections")
+    coll_show = collection_sub.add_parser("show", help="Show collection details")
+    coll_show.add_argument("name", help="Collection name")
+    coll_create = collection_sub.add_parser("create", help="Create collection")
+    coll_create.add_argument("name", help="Collection name")
+    coll_create.add_argument("--dois", required=True, help="Comma-separated DOIs")
+    coll_export = collection_sub.add_parser("export", help="Export collection as flat JSON")
+    coll_export.add_argument("name", help="Collection name")
+    coll_export.add_argument("-o", "--output", required=True, help="Output JSON path")
+
+    # ===== abstract command =====
+    abstract_parser = subparsers.add_parser(
+        "abstract",
+        help="Fetch abstracts from OpenAlex, Semantic Scholar, and Europe PMC"
+    )
+    abstract_parser.add_argument("input", help="Papers JSON file")
+    abstract_parser.add_argument("-o", "--output", required=True, help="Output JSON file")
+    abstract_parser.add_argument("--email", default="", help="Email for OpenAlex polite pool")
+    abstract_parser.add_argument("--skip-epmc", action="store_true",
+                                help="Skip Europe PMC (individual queries, slower)")
+
+    # ===== research command =====
+    research_parser = subparsers.add_parser(
+        "research",
+        help="Enrich papers with abstracts and LLM extraction for omc:research"
+    )
+    research_parser.add_argument("input", help="Papers JSON file")
+    research_parser.add_argument("-o", "--output", required=True, help="Output directory")
+    research_parser.add_argument("--email", default="", help="Email for OpenAlex polite pool")
+    research_parser.add_argument("--resolution", type=float, default=1.0)
+    research_parser.add_argument("--seed", type=int, default=42)
+    research_parser.add_argument("--use-topics", action="store_true")
+    research_parser.add_argument("--skip-epmc", action="store_true",
+                                help="Skip Europe PMC (individual queries, slower)")
+    research_parser.add_argument("--clusters-from",
+                                help="Pre-computed clusters JSON file ({doi: cluster_id})")
+    research_parser.add_argument("--extractions-from",
+                                help="Pre-computed LLM extractions JSON file (enables Phase 2)")
 
     args = parser.parse_args()
 
@@ -214,8 +302,23 @@ Examples:
         run_filter(args)
     elif args.command == "merge":
         run_merge(args)
+    elif args.command == "dedupe":
+        run_dedupe(args)
     elif args.command == "subcluster":
         run_subcluster(args)
+    elif args.command == "abstract":
+        run_abstract(args)
+    elif args.command == "research":
+        run_research(args)
+    # Pipeline command dispatch
+    elif args.command == "search":
+        run_search(args)
+    elif args.command == "fetch":
+        run_fetch(args)
+    elif args.command == "status":
+        run_status(args)
+    elif args.command == "collection":
+        run_collection(args)
 
 
 def run_enrich(args):
@@ -355,7 +458,14 @@ def load_papers(path):
     else:
         with open(path) as f:
             data = json.load(f)
-    return data.get('papers', data) if isinstance(data, dict) else data
+    papers = data.get('papers', data) if isinstance(data, dict) else data
+    # Normalize DOIs
+    for p in papers:
+        if 'doi' in p:
+            p['doi'] = normalize_doi(p['doi'])
+        if 'referenced_works' in p:
+            p['referenced_works'] = [normalize_doi(ref) for ref in p['referenced_works']]
+    return papers
 
 
 def get_title(papers, doi):
@@ -849,6 +959,133 @@ def run_merge(args):
     print(f"Saved: {output_path}", file=sys.stderr)
 
 
+def run_dedupe(args):
+    """Remove non-paper DOIs and deduplicate preprint/published pairs."""
+    from papersift.doi import clean_papers, classify_doi, DoiType
+
+    papers = load_papers(args.input)
+
+    cleaned, stats = clean_papers(
+        papers,
+        remove_non_papers=not getattr(args, 'keep_non_papers', False),
+        dedupe_preprints=not getattr(args, 'no_preprint_dedupe', False),
+    )
+
+    # Save output
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, 'w') as f:
+        json.dump(cleaned, f, indent=2)
+
+    # Print summary
+    print(f"Input: {stats['total_input']} papers", file=sys.stderr)
+    print(f"Output: {stats['final_count']} papers", file=sys.stderr)
+    removed = stats['total_input'] - stats['final_count']
+    if removed > 0:
+        print(f"Removed: {removed} entries", file=sys.stderr)
+        if stats.get('removed_datasets', 0):
+            print(f"  - Datasets (zenodo/figshare/etc): {stats['removed_datasets']}", file=sys.stderr)
+        if stats.get('removed_supplementary', 0):
+            print(f"  - Supplementary files: {stats['removed_supplementary']}", file=sys.stderr)
+        if stats.get('removed_editorial', 0):
+            print(f"  - Editorial/recommendations: {stats['removed_editorial']}", file=sys.stderr)
+        if stats.get('removed_preprint_duplicates', 0):
+            print(f"  - Preprint duplicates: {stats['removed_preprint_duplicates']}", file=sys.stderr)
+        if stats.get('removed_other', 0):
+            print(f"  - Other non-papers: {stats['removed_other']}", file=sys.stderr)
+
+    if getattr(args, 'report', False):
+        # Detailed report
+        print(f"\nDOI Type Distribution (input):", file=sys.stderr)
+        for dtype, count in sorted(stats.get('doi_types', {}).items()):
+            print(f"  {dtype}: {count}", file=sys.stderr)
+
+    print(f"\nSaved: {output_path}", file=sys.stderr)
+
+
+def run_abstract(args):
+    """Execute abstract fetch command."""
+    from papersift.abstract import AbstractFetcher, attach_abstracts
+
+    papers = load_papers(args.input)
+    print(f"Loaded {len(papers)} papers", file=sys.stderr)
+
+    fetcher = AbstractFetcher(
+        email=args.email,
+        skip_epmc=getattr(args, 'skip_epmc', False),
+    )
+    abstracts = fetcher.fetch_all(papers)
+    papers, stats = attach_abstracts(papers, abstracts)
+
+    # Save output
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, 'w') as f:
+        json.dump(papers, f, indent=2, ensure_ascii=False)
+
+    # Print summary
+    total = stats['total']
+    with_abs = stats['with_abstract']
+    print(f"\n=== Summary ===", file=sys.stderr)
+    print(f"Total papers: {total}", file=sys.stderr)
+    print(f"With abstract: {with_abs} ({100*with_abs/total:.1f}%)" if total else "With abstract: 0", file=sys.stderr)
+    print(f"Without abstract: {stats['without_abstract']}", file=sys.stderr)
+    if stats['without_doi']:
+        print(f"Without DOI: {stats['without_doi']}", file=sys.stderr)
+    print(f"\nSaved: {output_path}", file=sys.stderr)
+
+
+def run_research(args):
+    """Execute research pipeline command."""
+    from papersift.research import ResearchPipeline
+
+    papers = load_papers(args.input)
+    print(f"Loaded {len(papers)} papers", file=sys.stderr)
+
+    pipeline = ResearchPipeline(
+        use_topics=getattr(args, 'use_topics', False),
+        resolution=args.resolution,
+        seed=args.seed,
+    )
+
+    # Always run Phase 1
+    clusters_from = Path(args.clusters_from) if args.clusters_from else None
+    prepared = pipeline.prepare(
+        papers,
+        email=args.email,
+        skip_epmc=getattr(args, 'skip_epmc', False),
+        clusters_from=clusters_from,
+    )
+
+    output_dir = Path(args.output)
+
+    # Phase 2 if extractions provided
+    if args.extractions_from:
+        output = pipeline.finalize(
+            prepared,
+            extractions_from=Path(args.extractions_from),
+        )
+        pipeline.export(output, output_dir, prepared=prepared)
+        print(f"\nPipeline complete. Output in {output_dir}/", file=sys.stderr)
+    else:
+        # Phase 1 only — save prompts
+        output_dir.mkdir(parents=True, exist_ok=True)
+        from papersift.extract import save_prompts
+        prompts_path = output_dir / "extraction_prompts.json"
+        save_prompts(prepared.prompts, prepared.batch_doi_lists, prompts_path)
+
+        # Also run finalize without extractions to get basic enriched output
+        output = pipeline.finalize(prepared)
+        pipeline.export(output, output_dir, prepared=prepared)
+
+        n_prompts = len(prepared.prompts)
+        print(f"\nPhase 1 complete. {n_prompts} extraction prompts saved to {prompts_path}", file=sys.stderr)
+        print(f"\nTo complete the pipeline:", file=sys.stderr)
+        print(f"  1. Run LLM extraction on the prompts (e.g., via Claude Code Task tool)", file=sys.stderr)
+        print(f"  2. Save results to a JSON file", file=sys.stderr)
+        print(f"  3. Run: papersift research {args.input} -o {args.output} --extractions-from <results.json>", file=sys.stderr)
+
+
 def run_subcluster(args):
     """Sub-cluster a specific cluster using the standalone sub_cluster function."""
     from papersift.embedding import sub_cluster
@@ -911,6 +1148,201 @@ def run_subcluster(args):
             with open(output_dir / "clusters.json", 'w') as f:
                 json.dump(updated_clusters, f, indent=2)
             print(f"\nSaved: {output_dir / 'clusters.json'}")
+
+
+def _require_pipeline():
+    """Import pipeline modules or exit with helpful error."""
+    try:
+        from papersift.pipeline import PaperDiscovery, PaperFetcher, PaperExtractor, PaperStore
+        return PaperDiscovery, PaperFetcher, PaperExtractor, PaperStore
+    except ImportError:
+        print("Error: Pipeline commands require additional dependencies.", file=sys.stderr)
+        print("Install with: pip install papersift[pipeline]", file=sys.stderr)
+        sys.exit(1)
+
+
+def run_search(args):
+    """Execute search command."""
+    PaperDiscovery, _, _, PaperStore = _require_pipeline()
+
+    email = args.email or os.environ.get("PAPER_PIPELINE_EMAIL")
+    if not email:
+        print("Error: Email required. Use --email or set PAPER_PIPELINE_EMAIL", file=sys.stderr)
+        sys.exit(1)
+
+    discovery = PaperDiscovery(email=email)
+
+    filters = {}
+    if args.oa_only:
+        filters["is_oa"] = True
+    if args.year_min:
+        filters["publication_year"] = f">{args.year_min - 1}"
+
+    print(f"Searching for: {args.query}")
+    papers = discovery.search(
+        query=args.query,
+        max_results=args.max,
+        filters=filters if filters else None,
+    )
+    print(f"Found {len(papers)} papers")
+
+    # Save to store
+    store = PaperStore(args.data_dir)
+    saved = 0
+    for paper in papers:
+        if paper.get("doi"):
+            store.save_layer(paper["doi"], "L0", paper)
+            saved += 1
+    print(f"Saved {saved} papers to {args.data_dir}")
+
+    if args.collection:
+        dois = [p["doi"] for p in papers if p.get("doi")]
+        store.add_to_collection(args.collection, dois)
+        print(f"Added to collection: {args.collection}")
+
+    # Export flat JSON for clustering if requested
+    if args.output:
+        import json as _json
+        output_path = Path(args.output)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(output_path, "w") as f:
+            _json.dump(papers, f, indent=2, ensure_ascii=False)
+        print(f"Exported {len(papers)} papers to {args.output}")
+
+    if papers and not getattr(args, 'quiet', False):
+        print("\nTop papers:")
+        for i, p in enumerate(papers[:5], 1):
+            print(f"  {i}. {p.get('title', 'Unknown')[:60]}...")
+            print(f"     DOI: {p.get('doi', 'N/A')} | Year: {p.get('publication_year', 'N/A')} | Cited: {p.get('cited_by_count', 0)}")
+
+
+def run_fetch(args):
+    """Execute fetch command."""
+    _, PaperFetcher, PaperExtractor, PaperStore = _require_pipeline()
+
+    email = args.email or os.environ.get("PAPER_PIPELINE_EMAIL")
+    if not email:
+        print("Error: Email required. Use --email or set PAPER_PIPELINE_EMAIL", file=sys.stderr)
+        sys.exit(1)
+
+    store = PaperStore(args.data_dir)
+    fetcher = PaperFetcher(email=email)
+    extractor = PaperExtractor(grobid_url=args.grobid_url)
+
+    dois = []
+    if args.doi:
+        dois = [args.doi]
+    elif args.collection:
+        dois = store.get_collection(args.collection)
+        if not dois:
+            print(f"Collection not found: {args.collection}", file=sys.stderr)
+            sys.exit(1)
+    else:
+        papers = store.list_papers(filters={"has_layer": "L0"})
+        dois = [p["doi"] for p in papers if not p.get("content_available")]
+
+    print(f"Fetching content for {len(dois)} papers...")
+
+    success = 0
+    for doi in dois:
+        metadata = store.load_layer(doi, "L0")
+        if not metadata:
+            print(f"  [SKIP] {doi} - No L0 metadata")
+            continue
+
+        content_dir = store.get_paper_dir(doi) / "content"
+        result = fetcher.fetch_content(doi=doi, work_data=metadata, save_dir=content_dir)
+
+        if result.content_type in ("pmc_xml", "pdf"):
+            extraction = extractor.extract(
+                content_type=result.content_type,
+                data=result.data,
+                pdf_path=result.pdf_path,
+            )
+            if result.content_type == "pmc_xml" and result.data:
+                store.save_content(doi, "europe_pmc_xml", result.data)
+            if extraction.full_text:
+                store.save_content(doi, "fulltext", extraction.full_text)
+            store.update_paper_metadata(doi=doi, content_source=result.source, extraction_method=extraction.extraction_method)
+            if extraction.sections:
+                store.save_layer(doi, "L2", {"sections": extraction.sections, "abstract": extraction.abstract, "extraction_method": extraction.extraction_method})
+            print(f"  [OK] {doi} - {result.source}/{extraction.extraction_method}")
+            success += 1
+        else:
+            print(f"  [SKIP] {doi} - {result.content_type}")
+
+    print(f"\nFetched {success}/{len(dois)} papers")
+
+
+def run_status(args):
+    """Execute status command."""
+    _, _, _, PaperStore = _require_pipeline()
+    store = PaperStore(args.data_dir)
+    stats = store.get_stats()
+
+    print(f"Paper Store Status ({args.data_dir})")
+    print("=" * 50)
+    print(f"Total papers: {stats['total_papers']}")
+    print(f"Collections: {stats['collections']}")
+    print(f"\nLayers:")
+    for layer, count in stats["by_layer"].items():
+        print(f"  {layer}: {count}")
+    print(f"\nContent available: {stats['content_available']}")
+    if stats["by_extraction_method"]:
+        print("\nExtraction methods:")
+        for method, count in stats["by_extraction_method"].items():
+            print(f"  {method}: {count}")
+
+
+def run_collection(args):
+    """Execute collection command."""
+    _, _, _, PaperStore = _require_pipeline()
+    store = PaperStore(args.data_dir)
+
+    if not args.collection_cmd:
+        print("Usage: papersift collection {list|show|create|export}", file=sys.stderr)
+        sys.exit(1)
+
+    if args.collection_cmd == "list":
+        collections = store.list_collections()
+        if not collections:
+            print("No collections found")
+        else:
+            print("Collections:")
+            for name in collections:
+                dois = store.get_collection(name) or []
+                print(f"  {name}: {len(dois)} papers")
+
+    elif args.collection_cmd == "show":
+        dois = store.get_collection(args.name)
+        if not dois:
+            print(f"Collection not found: {args.name}", file=sys.stderr)
+            sys.exit(1)
+        print(f"Collection: {args.name} ({len(dois)} papers)\n")
+        for doi in dois:
+            metadata = store.load_layer(doi, "L0")
+            if metadata:
+                print(f"  - {doi}")
+                print(f"    {metadata.get('title', 'Unknown')[:60]}... ({metadata.get('publication_year', 'N/A')})")
+            else:
+                print(f"  - {doi} (no metadata)")
+
+    elif args.collection_cmd == "create":
+        dois = [d.strip() for d in args.dois.split(",") if d.strip()]
+        store.create_collection(args.name, dois)
+        print(f"Created collection '{args.name}' with {len(dois)} papers")
+
+    elif args.collection_cmd == "export":
+        papers = store.export_papers_json(collection=args.name)
+        if not papers:
+            print(f"Collection not found or empty: {args.name}", file=sys.stderr)
+            sys.exit(1)
+        import json as _json
+        output_path = Path(args.output)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(output_path, "w") as f:
+            _json.dump(papers, f, indent=2, ensure_ascii=False)
+        print(f"Exported {len(papers)} papers to {args.output}")
 
 
 if __name__ == "__main__":

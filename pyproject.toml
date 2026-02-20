@@ -1,6 +1,6 @@
 [project]
 name = "papersift"
-version = "0.1.0"
+version = "0.3.0"
 description = "Entity-based paper clustering for Claude Code"
 requires-python = ">=3.11"
 dependencies = [
@@ -12,6 +12,16 @@ dependencies = [
 
 [project.optional-dependencies]
 enrich = ["pyalex>=0.14", "tqdm>=4.0"]
+pipeline = [
+    "pyalex>=0.14",
+    "requests>=2.28",
+    "tqdm>=4.0",
+]
+pipeline-pdf = [
+    "papersift[pipeline]",
+    "PyMuPDF>=1.23",
+    "pymupdf4llm>=0.2",
+]
 ui = [
     "dash>=2.17.0",
     "dash-cytoscape>=1.0.2",
@@ -21,7 +31,7 @@ ui = [
     "networkx>=3.0",
 ]
 landscape = ["umap-learn>=0.5"]
-all = ["papersift[enrich,ui,landscape]"]
+all = ["papersift[enrich,pipeline,pipeline-pdf,ui,landscape]"]
 
 [project.scripts]
 papersift = "papersift.cli:main"
