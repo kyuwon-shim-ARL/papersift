@@ -10,7 +10,7 @@ def register_history_callbacks(app):
     @app.callback(
         Output('papers-data', 'data', allow_duplicate=True),
         Output('cluster-data', 'data', allow_duplicate=True),
-        Output('cytoscape-network', 'elements', allow_duplicate=True),
+        Output('cluster-bubble-chart', 'figure', allow_duplicate=True),
         Output('paper-table', 'rowData', allow_duplicate=True),
         Output('cluster-colors', 'data', allow_duplicate=True),
         Output('selection-store', 'data', allow_duplicate=True),
@@ -28,11 +28,11 @@ def register_history_callbacks(app):
     def undo_action(n_clicks, history, original_papers, resolution, use_topics):
         from papersift.ui.utils.data_loader import (
             cluster_papers,
-            papers_to_cytoscape_elements,
             papers_to_table_data,
             generate_cluster_colors,
             compute_paper_embedding,
         )
+        from papersift.ui.components.network import create_bubble_figure
         from papersift.ui.components.breadcrumb import create_breadcrumb
 
         checkpoints = history.get('checkpoints', [])
@@ -54,10 +54,10 @@ def register_history_callbacks(app):
             restored_papers, resolution=cp.get('resolution', resolution),
             use_topics=bool(use_topics)
         )
-        elements = papers_to_cytoscape_elements(restored_papers, restored_clusters, builder)
         rows = papers_to_table_data(restored_papers, restored_clusters)
         colors = generate_cluster_colors(set(restored_clusters.values()))
         embedding = compute_paper_embedding(restored_papers, method="tsne", use_topics=bool(use_topics))
+        bubble_fig = create_bubble_figure(embedding, restored_clusters, colors, restored_papers)
 
         # Update history (pop the checkpoint)
         new_history = dict(history)
@@ -67,7 +67,7 @@ def register_history_callbacks(app):
         nav_state = {'path': restored_path, 'cluster_id': restored_path[-1] if restored_path else None}
         breadcrumb = create_breadcrumb(restored_path)
 
-        return (restored_papers, restored_clusters, elements, rows, colors,
+        return (restored_papers, restored_clusters, bubble_fig, rows, colors,
                 {'selected_dois': [], 'source': 'reset'}, embedding,
                 nav_state, new_history, breadcrumb)
 

@@ -9,10 +9,12 @@ allowed-tools:
   - Glob
 ---
 
-# PaperSift Skill v0.1.0
-## Entity-Based Academic Paper Clustering
+# PaperSift Skill v0.2.0
+## Entity-Based Academic Paper Clustering + Paper Pipeline
 
 PaperSift discovers research themes and connections through entity-based analysis rather than citation data. It extracts structured information (methods, organisms, concepts, datasets) from paper titles, builds a paper-paper network based on shared entities, and applies Leiden clustering for community detection.
+
+**v0.2.0**: Now includes an integrated paper pipeline for searching, fetching, and managing academic paper collections via OpenAlex.
 
 **Key capabilities for Claude:**
 - Rule-based entity extraction from titles (deterministic, no LLM required)
@@ -21,6 +23,8 @@ PaperSift discovers research themes and connections through entity-based analysi
 - Entity-based paper search and filtering
 - Stream traversal following entity connections
 - Optional citation-based validation (ARI, NMI metrics)
+- **NEW**: OpenAlex paper search and collection management
+- **NEW**: PDF/XML content fetching with multi-source fallback
 
 ---
 
@@ -28,6 +32,8 @@ PaperSift discovers research themes and connections through entity-based analysi
 
 Invoke this skill when you need to:
 
+- **Search for papers** on OpenAlex by topic/keyword and build collections
+- **Fetch paper content** (PDF/XML) with multi-source fallback chain
 - **Cluster papers** by shared research concepts (methods, organisms, cell types, domains)
 - **Find hub papers** - papers that bridge multiple research areas via shared entities
 - **Discover research connections** - trace entity networks to understand topic relationships
@@ -149,45 +155,102 @@ pip install papersift
 
 # With enrichment capability (recommended)
 pip install papersift[enrich]
+
+# With paper pipeline (search + fetch + store)
+pip install papersift[pipeline]
+
+# With PDF extraction support
+pip install papersift[pipeline-pdf]
+
+# Everything
+pip install papersift[all]
 ```
 
-The `[enrich]` extra installs `pyalex` for OpenAlex integration. Requires Python 3.11+.
+Requires Python 3.11+.
 
 ### First-Time Setup
 
 After installing this plugin, you must install the Python package:
 
 ```bash
-# Using pip (from GitHub)
-pip install "papersift[enrich] @ git+https://github.com/kyuwon-shim-ARL/papersift.git"
+# Using pip (from GitHub) - recommended: all features
+pip install "papersift[all] @ git+https://github.com/kyuwon-shim-ARL/papersift.git"
 
 # Using uv (specify target Python if needed)
-uv pip install --python $(which python) "papersift[enrich] @ git+https://github.com/kyuwon-shim-ARL/papersift.git"
+uv pip install --python $(which python) "papersift[all] @ git+https://github.com/kyuwon-shim-ARL/papersift.git"
 
 # Or from a local clone
-pip install -e "/path/to/papersift/[enrich]"
+pip install -e "/path/to/papersift/[all]"
 ```
 
 Verify installation:
 ```bash
 papersift --help
 python -c "from papersift import EntityLayerBuilder; print('OK')"
+python -c "from papersift.pipeline import PaperDiscovery; print('Pipeline OK')"
 ```
 
 ---
 
 ## Workflow
 
-### Step 1: Prepare Paper Collection
+### Step 0: Search & Collect Papers (Pipeline)
 
-**Load papers from MSK2025 data directory:**
+**Search OpenAlex for papers and build a collection:**
 
 ```bash
-# Option A: Papers from paper-pipeline (recommended)
-# Location: /home/kyuwon/projects/MSK2025/data/papers/by-collection/[COLLECTION]/collection.json
+# Search for papers (stores in local paper store)
+papersift search "antimicrobial resistance machine learning" --max 50 --email user@example.com
 
-# Option B: Assemble papers manually from metadata
-# Location: /home/kyuwon/projects/MSK2025/data/papers/by-doi/[DOI_ENCODED]/metadata.json
+# Search and save directly as flat JSON for clustering
+papersift search "virtual cell modeling" --max 100 --output vc_papers.json --email user@example.com
+
+# Search with filters
+papersift search "CRISPR therapy" --max 50 --oa-only --year-min 2022 --email user@example.com
+
+# Add results to a named collection
+papersift search "metagenomics" --max 50 --collection metagenomics-2025 --email user@example.com
+```
+
+**Manage collections:**
+
+```bash
+# List all collections
+papersift collection list
+
+# Show collection details
+papersift collection show metagenomics-2025
+
+# Export collection as flat JSON (for clustering)
+papersift collection export metagenomics-2025 -o papers.json
+```
+
+**Check paper store status:**
+
+```bash
+papersift status
+```
+
+### Step 1: Prepare Paper Collection
+
+**Option A: Use pipeline search (recommended):**
+
+```bash
+# Search and export directly
+papersift search "topic" --max 100 --output papers.json --email user@example.com
+```
+
+**Option B: Export from existing collection:**
+
+```bash
+papersift collection export my-collection -o papers.json
+```
+
+**Option C: Use existing JSON files:**
+
+```bash
+# From MSK2025 data directory
+# Location: /home/kyuwon/projects/MSK2025/data/papers/by-collection/[COLLECTION]/
 ```
 
 **Required JSON format:**
@@ -197,7 +260,7 @@ python -c "from papersift import EntityLayerBuilder; print('OK')"
     "doi": "10.1038/nature06244",
     "title": "The Human Microbiome Project",
     "referenced_works": ["10.1101/...", "10.1038/..."],
-    "topics": ["Gut microbiota", "Genomics"]
+    "topics": [{"display_name": "Gut Microbiota", "subfield": {"display_name": "Microbiology"}}]
   }
 ]
 ```
@@ -453,6 +516,59 @@ papersift stream INPUT \
   [--use-topics]                    # Include OpenAlex topics
 ```
 
+### papersift search
+Search OpenAlex for papers. Requires `[pipeline]` extra.
+
+```bash
+papersift search QUERY \
+  [--max N]                  # Max results (default: 50)
+  [--oa-only]                # Only open access papers
+  [--year-min YEAR]          # Minimum publication year
+  [--email EMAIL]            # Contact email (or set PAPER_PIPELINE_EMAIL env)
+  [--collection NAME]        # Add results to named collection
+  [--quiet]                  # Suppress progress output
+  [--output FILE]            # Export as flat JSON for clustering
+```
+
+**Examples:**
+```bash
+# Search and cluster immediately
+papersift search "single cell RNA sequencing" --max 100 --output scrna.json --email me@example.com
+papersift cluster scrna.json -o scrna_results/ --use-topics
+
+# Build a collection over multiple searches
+papersift search "CRISPR therapy" --max 50 --collection crispr --email me@example.com
+papersift search "gene editing delivery" --max 50 --collection crispr --email me@example.com
+papersift collection export crispr -o crispr_papers.json
+```
+
+### papersift fetch
+Fetch full-text content (PDF/XML) for papers in the store. Requires `[pipeline]` extra.
+
+```bash
+papersift fetch [DOI ...] \
+  [--collection NAME]       # Fetch all papers in collection
+  [--email EMAIL]            # Contact email
+  [--workers N]              # Concurrent fetch workers (default: 3)
+```
+
+### papersift status
+Show paper store statistics.
+
+```bash
+papersift status
+```
+
+### papersift collection
+Manage paper collections.
+
+```bash
+papersift collection list                    # List all collections
+papersift collection show NAME               # Show collection details
+papersift collection create NAME             # Create empty collection
+papersift collection export NAME -o FILE     # Export as flat JSON
+```
+
 ---
 
 ## Python API
@@ -491,6 +607,29 @@ neighbors = builder.expand_from_seed("10.1038/nature06244", hops=3)
 if papers[0].get('referenced_works'):
     validator = ClusterValidator(clusters, papers)
     report = validator.generate_report()  # ARI, NMI, confidence
+```
+
+### Pipeline API (requires `[pipeline]` extra)
+
+```python
+from papersift.pipeline import PaperDiscovery, PaperFetcher, PaperStore
+
+# Search papers on OpenAlex
+discovery = PaperDiscovery(email="user@example.com")
+papers = discovery.search("antimicrobial resistance", max_results=50)
+
+# Store papers locally
+store = PaperStore(base_dir="data/papers")
+for paper in papers:
+    store.save_paper(paper)
+
+# Export to flat JSON for clustering
+flat_json = store.export_papers_json(collection="my-collection")
+
+# Fetch full-text content
+fetcher = PaperFetcher(email="user@example.com")
+result = fetcher.fetch(doi="10.1038/s41586-023-06291-2")
+# result.content, result.content_type, result.source
 ```
 
 ---
@@ -542,25 +681,29 @@ Or plain array:
 
 ---
 
-## Integration with Paper Pipeline
+## End-to-End Workflow Example
 
-If using paper-pipeline to fetch papers:
+Complete workflow from search to analysis:
 
 ```bash
-# 1. Generate papers collection from paper-pipeline
-python -m paper_pipeline cluster \
-  --collection-id my-collection \
-  --output data/papers/by-collection/my-collection/
+# 1. Search and collect papers
+papersift search "single cell virtual cell" --max 100 --collection vc-papers --email user@example.com
 
-# 2. Optionally enrich with OpenAlex
-papersift enrich data/papers/by-collection/my-collection/papers.json \
-  -o data/papers/by-collection/my-collection/enriched.json \
-  --email user@example.com
+# 2. Export to flat JSON
+papersift collection export vc-papers -o vc_papers.json
 
-# 3. Cluster with papersift
-papersift cluster data/papers/by-collection/my-collection/enriched.json \
-  -o data/papers/by-collection/my-collection/papersift-results/ \
-  --use-topics --validate
+# 3. Enrich with OpenAlex topics and references
+papersift enrich vc_papers.json -o vc_enriched.json --email user@example.com
+
+# 4. Cluster
+papersift cluster vc_enriched.json -o vc_results/ --use-topics --validate
+
+# 5. Explore results
+papersift browse vc_enriched.json --list --clusters-from vc_results/clusters.json
+papersift find vc_enriched.json --hubs 10
+
+# 6. Drill into specific clusters
+papersift subcluster vc_enriched.json --cluster 0 --clusters-from vc_results/clusters.json
 ```
 
 ---
@@ -627,6 +770,6 @@ Per-paper cluster confidence scores (0-1 scale indicating how well each paper fi
 
 ---
 
-**Version**: 0.1.0
-**Last Updated**: 2026-02-04
+**Version**: 0.2.0
+**Last Updated**: 2026-02-12
 **Repository**: /home/kyuwon/projects/papersift/

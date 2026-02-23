@@ -6,6 +6,10 @@ from typing import Any, Dict, List, Tuple
 from papersift import EntityLayerBuilder
 
 
+# Module-level embedding cache (limit to 5 entries)
+_embedding_cache = {}
+
+
 def _truncate(text: str, max_len: int) -> str:
     """Truncate text with ellipsis if needed."""
     if not text:
@@ -15,13 +19,14 @@ def _truncate(text: str, max_len: int) -> str:
     return text[:max_len] + '...'
 
 
-def slim_papers(papers: List[Dict[str, Any]], keep_topics: bool = False) -> List[Dict[str, Any]]:
+def slim_papers(papers: List[Dict[str, Any]], keep_topics: bool = False, keep_abstract: bool = False) -> List[Dict[str, Any]]:
     """
     Create a lighter version of papers for Store (reduces payload size).
 
     Args:
         papers: full paper list
         keep_topics: if True, preserve 'topics' field for re-clustering with use_topics
+        keep_abstract: if True, preserve 'abstract' field for detail panel
     """
     result = []
     for p in papers:
@@ -32,6 +37,8 @@ def slim_papers(papers: List[Dict[str, Any]], keep_topics: bool = False) -> List
         }
         if keep_topics and 'topics' in p:
             slim['topics'] = p['topics']
+        if keep_abstract and 'abstract' in p:
+            slim['abstract'] = p['abstract']
         result.append(slim)
     return result
 
@@ -46,7 +53,7 @@ def load_papers(path: str) -> List[Dict[str, Any]]:
     except json.JSONDecodeError as e:
         raise ValueError(f"Invalid JSON in papers file: {e}")
 
-    raw_papers = data.get('papers', data)
+    raw_papers = data if isinstance(data, list) else data.get('papers', data)
 
     # Validate required fields
     papers = []
@@ -184,6 +191,12 @@ def papers_to_table_data(
     return rows
 
 
+def _cache_key(papers: list, method: str, use_topics: bool) -> tuple:
+    """Generate a hashable cache key from paper DOIs + params."""
+    dois = tuple(sorted(p['doi'] for p in papers))
+    return (dois, method, use_topics)
+
+
 def compute_paper_embedding(
     papers: list,
     method: str = "tsne",
@@ -191,7 +204,33 @@ def compute_paper_embedding(
 ) -> Dict[str, list]:
     """
     Compute embedding standalone, return JSON-serializable {doi: [x, y]}.
+    Uses in-memory cache to avoid recomputing for same paper sets.
+    Auto-adjusts t-SNE perplexity for small datasets.
     """
+    global _embedding_cache
+
+    # Check cache
+    key = _cache_key(papers, method, use_topics)
+    if key in _embedding_cache:
+        return _embedding_cache[key]
+
+    # Auto-adjust perplexity for t-SNE with small sample sizes
+    kwargs = {}
+    if method == "tsne":
+        max_perplexity = (len(papers) - 1) / 3.0
+        if max_perplexity < 30.0:
+            kwargs['perplexity'] = max(5.0, max_perplexity)
+
+    # Compute fresh
     from papersift.embedding import embed_papers
-    result = embed_papers(papers, method=method, use_topics=use_topics)
-    return {doi: list(coords) for doi, coords in result.items()}
+    result = embed_papers(papers, method=method, use_topics=use_topics, **kwargs)
+    embedding = {doi: list(coords) for doi, coords in result.items()}
+
+    # Cache with size limit (keep last 5 entries)
+    if len(_embedding_cache) >= 5:
+        # Remove oldest entry (first inserted)
+        oldest = next(iter(_embedding_cache))
+        del _embedding_cache[oldest]
+    _embedding_cache[key] = embedding
+
+    return embedding

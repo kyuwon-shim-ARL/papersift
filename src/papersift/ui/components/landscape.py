@@ -2,6 +2,13 @@
 
 from dash import html, dcc
 from typing import Any, Dict, List
+import numpy as np
+
+try:
+    from scipy.spatial import ConvexHull
+    HAS_SCIPY = True
+except ImportError:
+    HAS_SCIPY = False
 
 
 def create_landscape_figure(
@@ -31,6 +38,44 @@ def create_landscape_figure(
         cluster_dois.setdefault(cid, []).append(doi)
 
     fig = go.Figure()
+
+    # Draw contours first (so points appear on top)
+    if HAS_SCIPY:
+        for cid in sorted(cluster_dois.keys(), key=str):
+            dois = cluster_dois[cid]
+            points = [[embedding_data[d][0], embedding_data[d][1]] for d in dois if d in embedding_data]
+            if len(points) >= 3:
+                pts = np.array(points)
+                try:
+                    hull = ConvexHull(pts)
+                    hull_x = [pts[v, 0] for v in hull.vertices] + [pts[hull.vertices[0], 0]]
+                    hull_y = [pts[v, 1] for v in hull.vertices] + [pts[hull.vertices[0], 1]]
+
+                    # Convert rgb to rgba with 0.1 opacity
+                    color = colors.get(cid, '#cccccc')
+                    if color.startswith('rgb('):
+                        fillcolor = color.replace('rgb(', 'rgba(').replace(')', ',0.1)')
+                    elif color.startswith('#'):
+                        # Convert hex to rgba
+                        h = color.lstrip('#')
+                        r, g, b = tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
+                        fillcolor = f'rgba({r},{g},{b},0.1)'
+                    else:
+                        fillcolor = 'rgba(200,200,200,0.1)'
+
+                    fig.add_trace(go.Scatter(
+                        x=hull_x, y=hull_y,
+                        fill='toself',
+                        fillcolor=fillcolor,
+                        line=dict(color=color, width=1, dash='dot'),
+                        showlegend=False,
+                        hoverinfo='skip',
+                        mode='lines',
+                    ))
+                except Exception:
+                    pass  # Skip if hull fails (e.g., collinear points)
+
+    # Draw scatter points
     for cid in sorted(cluster_dois.keys(), key=str):
         dois = cluster_dois[cid]
         xs = [embedding_data[d][0] for d in dois if d in embedding_data]
@@ -48,6 +93,23 @@ def create_landscape_figure(
             hoverinfo='text',
             customdata=valid_dois,
         ))
+
+    # Add cluster label annotations at centroids
+    for cid in sorted(cluster_dois.keys(), key=str):
+        dois = cluster_dois[cid]
+        cxs = [embedding_data[d][0] for d in dois if d in embedding_data]
+        cys = [embedding_data[d][1] for d in dois if d in embedding_data]
+        if cxs:
+            cx = sum(cxs) / len(cxs)
+            cy = sum(cys) / len(cys)
+            fig.add_annotation(
+                x=cx, y=cy,
+                text=f'C{cid}',
+                showarrow=False,
+                font=dict(size=14, color='rgba(0,0,0,0.6)'),
+                bgcolor='rgba(255,255,255,0.7)',
+                borderpad=3,
+            )
 
     fig.update_layout(
         xaxis=dict(showticklabels=False, title=''),

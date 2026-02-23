@@ -115,6 +115,8 @@ Examples:
                            help="Export visualization mode: cluster (default) or paper")
     ui_parser.add_argument("--use-topics", action="store_true",
                            help="Use OpenAlex topics for enhanced clustering (requires enriched data)")
+    ui_parser.add_argument("--analysis-dir", metavar="DIR",
+                           help="Directory with analysis JSON files (method_flows.json, trend_analysis.json, hypotheses.json)")
 
     # ===== browse command (NEW) =====
     browse_parser = subparsers.add_parser(
@@ -568,7 +570,8 @@ def run_ui(args):
             sys.exit(1)
 
         run_server(args.input, port=args.port, debug=args.debug, host=args.host,
-                   use_topics=getattr(args, 'use_topics', False))
+                   use_topics=getattr(args, 'use_topics', False),
+                   analysis_dir=getattr(args, 'analysis_dir', None))
 
 
 def run_browse(args):

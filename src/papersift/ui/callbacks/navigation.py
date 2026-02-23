@@ -10,7 +10,7 @@ def register_navigation_callbacks(app):
     @app.callback(
         Output('papers-data', 'data', allow_duplicate=True),
         Output('cluster-data', 'data', allow_duplicate=True),
-        Output('cytoscape-network', 'elements', allow_duplicate=True),
+        Output('cluster-bubble-chart', 'figure', allow_duplicate=True),
         Output('paper-table', 'rowData', allow_duplicate=True),
         Output('cluster-colors', 'data', allow_duplicate=True),
         Output('selection-store', 'data', allow_duplicate=True),
@@ -32,11 +32,11 @@ def register_navigation_callbacks(app):
                            resolution, use_topics, nav_state, history):
         from papersift.ui.utils.data_loader import (
             cluster_papers,
-            papers_to_cytoscape_elements,
             papers_to_table_data,
             generate_cluster_colors,
             compute_paper_embedding,
         )
+        from papersift.ui.components.network import create_bubble_figure
         from papersift.embedding import sub_cluster
         from papersift.ui.components.breadcrumb import create_breadcrumb
 
@@ -102,10 +102,10 @@ def register_navigation_callbacks(app):
         # Rebuild visualization
         clusters_rebuilt, builder = cluster_papers(drilled_papers, resolution=resolution, use_topics=bool(use_topics))
         # Use the sub-cluster IDs, not the rebuilt ones
-        elements = papers_to_cytoscape_elements(drilled_papers, drilled_clusters, builder)
         rows = papers_to_table_data(drilled_papers, drilled_clusters)
         colors = generate_cluster_colors(set(drilled_clusters.values()))
         embedding = compute_paper_embedding(drilled_papers, method="tsne", use_topics=bool(use_topics))
+        bubble_fig = create_bubble_figure(embedding, drilled_clusters, colors, drilled_papers)
 
         # Update navigation
         path = list(nav_state.get('path', []))
@@ -114,7 +114,7 @@ def register_navigation_callbacks(app):
 
         breadcrumb = create_breadcrumb(path)
 
-        return (drilled_papers, drilled_clusters, elements, rows, colors,
+        return (drilled_papers, drilled_clusters, bubble_fig, rows, colors,
                 {'selected_dois': [], 'source': 'reset'}, embedding,
                 new_nav, history, breadcrumb)
 
@@ -122,7 +122,7 @@ def register_navigation_callbacks(app):
     @app.callback(
         Output('papers-data', 'data', allow_duplicate=True),
         Output('cluster-data', 'data', allow_duplicate=True),
-        Output('cytoscape-network', 'elements', allow_duplicate=True),
+        Output('cluster-bubble-chart', 'figure', allow_duplicate=True),
         Output('paper-table', 'rowData', allow_duplicate=True),
         Output('cluster-colors', 'data', allow_duplicate=True),
         Output('selection-store', 'data', allow_duplicate=True),
@@ -141,11 +141,11 @@ def register_navigation_callbacks(app):
     def drill_up(n_clicks, nav_state, history, original_papers, resolution, use_topics):
         from papersift.ui.utils.data_loader import (
             cluster_papers,
-            papers_to_cytoscape_elements,
             papers_to_table_data,
             generate_cluster_colors,
             compute_paper_embedding,
         )
+        from papersift.ui.components.network import create_bubble_figure
         from papersift.ui.components.breadcrumb import create_breadcrumb
 
         path = nav_state.get('path', [])
@@ -166,10 +166,10 @@ def register_navigation_callbacks(app):
                     restored_papers, resolution=resolution, use_topics=bool(use_topics)
                 )
                 # Use restored clusters
-                elements = papers_to_cytoscape_elements(restored_papers, restored_clusters, builder)
                 rows = papers_to_table_data(restored_papers, restored_clusters)
                 colors = generate_cluster_colors(set(restored_clusters.values()))
                 embedding = compute_paper_embedding(restored_papers, method="tsne", use_topics=bool(use_topics))
+                bubble_fig = create_bubble_figure(embedding, restored_clusters, colors, restored_papers)
 
                 restored_path = cp.get('navigation_path', [])
                 new_nav = {'path': restored_path, 'cluster_id': restored_path[-1] if restored_path else None}
@@ -180,7 +180,7 @@ def register_navigation_callbacks(app):
                 new_history['checkpoints'] = checkpoints[:-1]
                 new_history['current_index'] = len(checkpoints) - 2
 
-                return (restored_papers, restored_clusters, elements, rows, colors,
+                return (restored_papers, restored_clusters, bubble_fig, rows, colors,
                         {'selected_dois': [], 'source': 'reset'}, embedding,
                         new_nav, new_history, breadcrumb)
 
@@ -188,15 +188,15 @@ def register_navigation_callbacks(app):
         clusters_rebuilt, builder = cluster_papers(
             original_papers, resolution=resolution, use_topics=bool(use_topics)
         )
-        elements = papers_to_cytoscape_elements(original_papers, clusters_rebuilt, builder)
         rows = papers_to_table_data(original_papers, clusters_rebuilt)
         colors = generate_cluster_colors(set(clusters_rebuilt.values()))
         embedding = compute_paper_embedding(original_papers, method="tsne", use_topics=bool(use_topics))
+        bubble_fig = create_bubble_figure(embedding, clusters_rebuilt, colors, original_papers)
 
         new_nav = {'path': [], 'cluster_id': None}
         breadcrumb = create_breadcrumb([])
 
-        return (original_papers, clusters_rebuilt, elements, rows, colors,
+        return (original_papers, clusters_rebuilt, bubble_fig, rows, colors,
                 {'selected_dois': [], 'source': 'reset'}, embedding,
                 new_nav, history, breadcrumb)
 

@@ -6,16 +6,30 @@ from dash import callback, Input, Output, State, ctx, no_update, html
 def register_selection_callbacks(app):
     """Register all selection-related callbacks."""
 
-    # Network selection -> Store
+    # Bubble chart click -> Store (selects all papers in clicked cluster)
     @app.callback(
         Output('selection-store', 'data', allow_duplicate=True),
-        Input('cytoscape-network', 'selectedNodeData'),
+        Input('cluster-bubble-chart', 'clickData'),
+        State('cluster-data', 'data'),
         prevent_initial_call=True
     )
-    def network_to_store(selected_nodes):
-        if selected_nodes is None:
+    def bubble_to_store(click_data, clusters):
+        if not click_data or not click_data.get('points'):
             return {'selected_dois': [], 'source': 'network'}
-        dois = [node['id'] for node in selected_nodes]
+
+        point = click_data['points'][0]
+        # Get the cluster ID from the trace name
+        trace_name = point.get('text', '')
+        # Extract cluster id - "C{id}"
+        cid_str = trace_name.replace('C', '')
+
+        # Find all DOIs in this cluster
+        try:
+            cid = int(cid_str)
+        except ValueError:
+            cid = cid_str
+
+        dois = [doi for doi, c in clusters.items() if str(c) == str(cid)]
         return {'selected_dois': dois, 'source': 'network'}
 
     # Table selection -> Store
@@ -30,23 +44,29 @@ def register_selection_callbacks(app):
         dois = [row['doi'] for row in selected_rows]
         return {'selected_dois': dois, 'source': 'table'}
 
-    # Store -> Network highlight (only if source is table)
+    # Landscape lasso/box selection -> Store
     @app.callback(
-        Output('cytoscape-network', 'stylesheet'),
-        Input('selection-store', 'data'),
+        Output('selection-store', 'data', allow_duplicate=True),
+        Input('landscape-scatter', 'selectedData'),
+        prevent_initial_call=True
     )
-    def store_to_network(selection):
-        from papersift.ui.components.network import get_default_stylesheet, get_highlight_stylesheet
-
-        if selection is None or selection.get('source') == 'network':
-            # Don't update if network triggered this
+    def landscape_to_store(selected_data):
+        if not selected_data or not selected_data.get('points'):
             return no_update
 
-        base = get_default_stylesheet()
-        selected_dois = selection.get('selected_dois', [])
-        return get_highlight_stylesheet(base, selected_dois)
+        dois = []
+        for point in selected_data['points']:
+            if 'customdata' in point:
+                dois.append(point['customdata'])
 
-    # Store -> Table selection (only if source is network)
+        if not dois:
+            return no_update
+
+        return {'selected_dois': dois, 'source': 'landscape'}
+
+    # Note: Bubble chart doesn't need store->network sync (removed old Cytoscape stylesheet callback)
+
+    # Store -> Table selection (only if source is network or landscape)
     @app.callback(
         Output('paper-table', 'selectedRows'),
         Input('selection-store', 'data'),
