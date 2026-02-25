@@ -278,12 +278,18 @@ class ResearchPipeline:
                 ensure_ascii=False,
             )
 
-        # 2. for_research.md
+        # 2. clusters.json (standalone, for papersift filter compatibility)
+        clusters_path = output_dir / "clusters.json"
+        print(f"Exporting clusters.json to {clusters_path}...", file=sys.stderr)
+        with open(clusters_path, "w", encoding="utf-8") as f:
+            json.dump(output.clusters, f, indent=2, ensure_ascii=False)
+
+        # 3. for_research.md
         research_md_path = output_dir / "for_research.md"
         print(f"Exporting for_research.md to {research_md_path}...", file=sys.stderr)
         self._export_research_briefing(output, research_md_path)
 
-        # 3. extraction_prompts.json (if prepared data available)
+        # 4. extraction_prompts.json (if prepared data available)
         if prepared and prepared.prompts:
             prompts_path = output_dir / "extraction_prompts.json"
             print(f"Exporting extraction_prompts.json to {prompts_path}...", file=sys.stderr)

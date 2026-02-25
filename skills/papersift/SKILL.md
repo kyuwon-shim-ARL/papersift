@@ -9,12 +9,12 @@ allowed-tools:
   - Glob
 ---
 
-# PaperSift Skill v0.2.0
+# PaperSift Skill v0.3.0
 ## Entity-Based Academic Paper Clustering + Paper Pipeline
 
 PaperSift discovers research themes and connections through entity-based analysis rather than citation data. It extracts structured information (methods, organisms, concepts, datasets) from paper titles, builds a paper-paper network based on shared entities, and applies Leiden clustering for community detection.
 
-**v0.2.0**: Now includes an integrated paper pipeline for searching, fetching, and managing academic paper collections via OpenAlex.
+**v0.3.0**: Full research pipeline with auto LLM extraction via `claude` CLI, drill-down workflow, and enriched output for Claude analysis.
 
 **Key capabilities for Claude:**
 - Rule-based entity extraction from titles (deterministic, no LLM required)
@@ -460,26 +460,27 @@ Browse and explore cluster assignments interactively.
 papersift browse INPUT \
   [--list]                 # List all clusters with paper counts
   [--cluster N]            # Show papers in specific cluster
-  [--sub-cluster]          # Show sub-cluster analysis for selected cluster
-  [--clusters-from FILE]   # Load clusters from file (required)
+  [--sub-cluster ID]       # Sub-cluster a specific cluster
   [--resolution FLOAT]     # Leiden resolution (default: 1.0)
   [--use-topics]           # Include OpenAlex topics
   [--format {table,json}]  # Output format (default: table)
 ```
 
+**Note:** `browse` always re-clusters internally (no `--clusters-from`). To use pre-computed clusters, use `filter --clusters-from` instead.
+
 **Examples:**
 ```bash
-# List all clusters
-papersift browse papers.json --list --clusters-from results/clusters.json
+# List all clusters (re-clusters internally)
+papersift browse papers.json --list
 
 # List clusters in JSON format
-papersift browse papers.json --list --clusters-from results/clusters.json --format json
+papersift browse papers.json --list --format json
 
 # Show papers in cluster 2
-papersift browse papers.json --cluster 2 --clusters-from results/clusters.json
+papersift browse papers.json --cluster 2
 
 # Sub-cluster analysis for cluster 2
-papersift browse papers.json --cluster 2 --clusters-from results/clusters.json --sub-cluster
+papersift browse papers.json --sub-cluster 2
 ```
 
 ### papersift enrich
@@ -567,6 +568,106 @@ papersift collection list                    # List all collections
 papersift collection show NAME               # Show collection details
 papersift collection create NAME             # Create empty collection
 papersift collection export NAME -o FILE     # Export as flat JSON
+```
+
+### papersift abstract
+Fetch abstracts from 3 APIs (OpenAlex → Semantic Scholar → Europe PMC).
+
+```bash
+papersift abstract INPUT -o OUTPUT \
+  [--email EMAIL]          # OpenAlex polite pool (faster access)
+  [--skip-epmc]            # Skip Europe PMC individual queries (faster)
+```
+
+**Output:** Papers JSON with `abstract` field attached. Run `papersift abstract --help` for details.
+
+### papersift research
+Full research pipeline: cluster → fetch abstracts → LLM extraction → enriched output.
+
+Auto-detects `claude` CLI and runs parallel LLM extraction automatically.
+
+```bash
+papersift research INPUT -o OUTPUT \
+  [--email EMAIL]              # OpenAlex polite pool
+  [--resolution FLOAT]         # Leiden resolution (default: 1.0)
+  [--seed INT]                 # Random seed (default: 42)
+  [--use-topics]               # Include OpenAlex topics as entities
+  [--skip-epmc]                # Skip Europe PMC
+  [--clusters-from FILE]       # Use pre-computed clusters
+  [--extractions-from FILE]    # Use pre-computed LLM extractions
+  [--no-llm]                   # Skip auto LLM extraction (prompts only)
+```
+
+**Output files:**
+- `clusters.json` - Cluster assignments ({doi: cluster_id}), compatible with `papersift filter --clusters-from`
+- `enriched_papers.json` - Full enriched data (papers + clusters + problem/method/finding)
+- `for_research.md` - Self-contained cluster briefing for Claude/LLM analysis
+- `extraction_prompts.json` - Raw prompts for reproducibility
+
+Run `papersift research --help` for workflow examples.
+
+---
+
+## Drill-Down Workflow
+
+**The core pattern for focused research:** start broad, identify clusters of interest, filter, repeat.
+
+### Pattern A: Landscape Survey (broad)
+
+```bash
+# Full dataset → overview
+papersift research papers.json -o results/sweep/
+# Read for_research.md for landscape overview
+```
+
+### Pattern B: Cluster Drill-Down (by number)
+
+```bash
+# 1. Run research first to get clusters.json
+papersift research papers.json -o results/sweep/
+
+# 2. See what clusters exist (uses pre-computed clusters)
+papersift filter papers.json --clusters-from results/sweep/clusters.json --format table
+
+# 3. Filter interesting clusters (comma-separated, multiple OK)
+papersift filter papers.json --cluster 1,3 \
+  --clusters-from results/sweep/clusters.json -o focused.json
+
+# 3. Run research on focused set (re-clusters internally)
+papersift research focused.json -o results/sweep/c1c3-focused/
+
+# 4. Repeat: drill deeper into sub-clusters
+papersift filter focused.json --cluster 0 \
+  --clusters-from results/sweep/c1c3-focused/clusters.json -o deeper.json
+papersift research deeper.json -o results/sweep/c1c3-focused/c0-detail/
+```
+
+### Pattern C: Entity-Based Focus (skip cluster numbers)
+
+```bash
+# Filter by entity names directly — no need to look up cluster numbers
+papersift filter papers.json --entity "whole-cell" --entity "ODE" --entity-any -o focused.json
+papersift research focused.json -o results/focused-wc-ode/
+```
+
+### Context Efficiency Guide
+
+| Level | Papers | for_research.md | Best For |
+|-------|--------|----------------|----------|
+| Full sweep | 1000+ | 100+ KB | Landscape overview, trend mapping |
+| Filtered cluster | 100-500 | 30-100 KB | Domain-specific analysis |
+| Deep drill-down | 30-150 | 10-40 KB | Specific method/problem deep dive |
+
+**Rule of thumb:** If `for_research.md` exceeds ~50 KB, it's too broad for focused questions. Filter first.
+
+### Passing Results to Claude
+
+```bash
+# Option 1: Direct file reference
+"Read results/focused/for_research.md and analyze method trends"
+
+# Option 2: Specific question
+"Read results/focused/for_research.md — what Problem×Method combinations are missing?"
 ```
 
 ---
@@ -699,7 +800,7 @@ papersift enrich vc_papers.json -o vc_enriched.json --email user@example.com
 papersift cluster vc_enriched.json -o vc_results/ --use-topics --validate
 
 # 5. Explore results
-papersift browse vc_enriched.json --list --clusters-from vc_results/clusters.json
+papersift browse vc_enriched.json --list
 papersift find vc_enriched.json --hubs 10
 
 # 6. Drill into specific clusters
@@ -770,6 +871,6 @@ Per-paper cluster confidence scores (0-1 scale indicating how well each paper fi
 
 ---
 
-**Version**: 0.2.0
-**Last Updated**: 2026-02-12
+**Version**: 0.3.0
+**Last Updated**: 2026-02-25
 **Repository**: /home/kyuwon/projects/papersift/

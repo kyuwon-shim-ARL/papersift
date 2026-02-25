@@ -258,31 +258,58 @@ Examples:
     # ===== abstract command =====
     abstract_parser = subparsers.add_parser(
         "abstract",
-        help="Fetch abstracts from OpenAlex, Semantic Scholar, and Europe PMC"
+        help="Fetch abstracts from OpenAlex, Semantic Scholar, and Europe PMC",
+        description="Fetch abstracts from 3 APIs: OpenAlex (batch 50) → Semantic Scholar (batch 200) → Europe PMC (individual).",
     )
     abstract_parser.add_argument("input", help="Papers JSON file")
-    abstract_parser.add_argument("-o", "--output", required=True, help="Output JSON file")
-    abstract_parser.add_argument("--email", default="", help="Email for OpenAlex polite pool")
+    abstract_parser.add_argument("-o", "--output", required=True,
+                                help="Output JSON file (papers with abstracts attached)")
+    abstract_parser.add_argument("--email", default="",
+                                help="Email for OpenAlex polite pool (faster access)")
     abstract_parser.add_argument("--skip-epmc", action="store_true",
-                                help="Skip Europe PMC (individual queries, slower)")
+                                help="Skip Europe PMC individual queries (faster but lower coverage)")
 
     # ===== research command =====
     research_parser = subparsers.add_parser(
         "research",
-        help="Enrich papers with abstracts and LLM extraction for omc:research"
+        help="Full research pipeline: cluster + abstracts + LLM extraction",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        description="Full research pipeline: cluster → fetch abstracts → LLM extraction → enriched output.",
+        epilog="""output files:
+  clusters.json           Cluster assignments ({doi: cluster_id}) for filter
+  enriched_papers.json    Full enriched data (papers + clusters + extractions)
+  for_research.md         Self-contained cluster briefing for Claude/LLM analysis
+  extraction_prompts.json Raw prompts for reproducibility
+
+workflow: landscape survey
+  papersift research papers.json -o results/sweep/
+
+workflow: drill-down (focus on specific clusters)
+  papersift browse papers.json --list --clusters-from results/sweep/clusters.json
+  papersift filter papers.json --cluster 1,3 --clusters-from results/sweep/clusters.json -o focused.json
+  papersift research focused.json -o results/sweep/focused/
+
+workflow: entity-based focus (skip cluster numbers)
+  papersift filter papers.json --entity "whole-cell" --entity "ODE" --entity-any -o focused.json
+  papersift research focused.json -o results/focused/""",
     )
     research_parser.add_argument("input", help="Papers JSON file")
     research_parser.add_argument("-o", "--output", required=True, help="Output directory")
     research_parser.add_argument("--email", default="", help="Email for OpenAlex polite pool")
-    research_parser.add_argument("--resolution", type=float, default=1.0)
-    research_parser.add_argument("--seed", type=int, default=42)
-    research_parser.add_argument("--use-topics", action="store_true")
+    research_parser.add_argument("--resolution", type=float, default=1.0,
+                                help="Leiden clustering resolution (default: 1.0)")
+    research_parser.add_argument("--seed", type=int, default=42,
+                                help="Random seed for reproducible clustering (default: 42)")
+    research_parser.add_argument("--use-topics", action="store_true",
+                                help="Include OpenAlex topics as entities")
     research_parser.add_argument("--skip-epmc", action="store_true",
                                 help="Skip Europe PMC (individual queries, slower)")
     research_parser.add_argument("--clusters-from",
                                 help="Pre-computed clusters JSON file ({doi: cluster_id})")
     research_parser.add_argument("--extractions-from",
-                                help="Pre-computed LLM extractions JSON file (enables Phase 2)")
+                                help="Pre-computed LLM extractions JSON file (skips auto-extraction)")
+    research_parser.add_argument("--no-llm", action="store_true",
+                                help="Skip automatic LLM extraction (save prompts only)")
 
     args = parser.parse_args()
 
@@ -1038,6 +1065,57 @@ def run_abstract(args):
     print(f"\nSaved: {output_path}", file=sys.stderr)
 
 
+def _run_claude_extraction(prompts, max_parallel=5):
+    """Run LLM extraction via claude CLI subprocess in parallel batches.
+
+    Args:
+        prompts: List of extraction prompt strings
+        max_parallel: Max concurrent subprocess calls
+
+    Returns:
+        List of lists of extraction dicts (one list per prompt batch)
+    """
+    import concurrent.futures
+    import shutil
+    import subprocess
+
+    from papersift.extract import parse_llm_response
+
+    results = [None] * len(prompts)
+
+    def extract_one(idx, prompt):
+        try:
+            result = subprocess.run(
+                ['claude', '-p', '--output-format', 'json'],
+                input=prompt,
+                capture_output=True,
+                text=True,
+                timeout=300,
+            )
+            if result.returncode != 0:
+                print(f"  Warning: Batch {idx+1} claude CLI returned code {result.returncode}", file=sys.stderr)
+                return idx, []
+            response = json.loads(result.stdout)
+            text = response.get('result', '')
+            return idx, parse_llm_response(text)
+        except subprocess.TimeoutExpired:
+            print(f"  Warning: Batch {idx+1} timed out after 300s", file=sys.stderr)
+            return idx, []
+        except (json.JSONDecodeError, KeyError) as e:
+            print(f"  Warning: Batch {idx+1} parse error: {e}", file=sys.stderr)
+            return idx, []
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_parallel) as pool:
+        futures = {pool.submit(extract_one, i, p): i for i, p in enumerate(prompts)}
+        for future in concurrent.futures.as_completed(futures):
+            idx, parsed = future.result()
+            results[idx] = parsed
+            print(f"  Batch {idx+1}/{len(prompts)}: {len(parsed)} extractions", file=sys.stderr)
+
+    # Replace any None entries (shouldn't happen, but safety)
+    return [r if r is not None else [] for r in results]
+
+
 def run_research(args):
     """Execute research pipeline command."""
     from papersift.research import ResearchPipeline
@@ -1071,22 +1149,35 @@ def run_research(args):
         pipeline.export(output, output_dir, prepared=prepared)
         print(f"\nPipeline complete. Output in {output_dir}/", file=sys.stderr)
     else:
-        # Phase 1 only — save prompts
+        import shutil
+
+        # Always save prompts for reproducibility
         output_dir.mkdir(parents=True, exist_ok=True)
         from papersift.extract import save_prompts
         prompts_path = output_dir / "extraction_prompts.json"
         save_prompts(prepared.prompts, prepared.batch_doi_lists, prompts_path)
 
-        # Also run finalize without extractions to get basic enriched output
-        output = pipeline.finalize(prepared)
-        pipeline.export(output, output_dir, prepared=prepared)
-
         n_prompts = len(prepared.prompts)
-        print(f"\nPhase 1 complete. {n_prompts} extraction prompts saved to {prompts_path}", file=sys.stderr)
-        print(f"\nTo complete the pipeline:", file=sys.stderr)
-        print(f"  1. Run LLM extraction on the prompts (e.g., via Claude Code Task tool)", file=sys.stderr)
-        print(f"  2. Save results to a JSON file", file=sys.stderr)
-        print(f"  3. Run: papersift research {args.input} -o {args.output} --extractions-from <results.json>", file=sys.stderr)
+        no_llm = getattr(args, 'no_llm', False)
+
+        # Auto-extract if claude CLI is available and not skipped
+        if shutil.which('claude') and not no_llm:
+            print(f"\nRunning LLM extraction via claude CLI ({n_prompts} batches)...", file=sys.stderr)
+            llm_results = _run_claude_extraction(prepared.prompts, max_parallel=5)
+
+            output = pipeline.finalize(prepared, llm_results=llm_results)
+            pipeline.export(output, output_dir, prepared=prepared)
+            print(f"\nPipeline complete. Output in {output_dir}/", file=sys.stderr)
+        else:
+            # Fallback: Phase 1 only
+            output = pipeline.finalize(prepared)
+            pipeline.export(output, output_dir, prepared=prepared)
+
+            print(f"\nPhase 1 complete. {n_prompts} extraction prompts saved to {prompts_path}", file=sys.stderr)
+            print(f"\nTo complete the pipeline:", file=sys.stderr)
+            print(f"  1. Run LLM extraction on the prompts (e.g., via Claude Code Task tool)", file=sys.stderr)
+            print(f"  2. Save results to a JSON file", file=sys.stderr)
+            print(f"  3. Run: papersift research {args.input} -o {args.output} --extractions-from <results.json>", file=sys.stderr)
 
 
 def run_subcluster(args):
