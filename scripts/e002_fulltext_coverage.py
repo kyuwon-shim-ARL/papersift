@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """
-e002: OpenAlex fulltext indexing coverage and SOTA filtering pattern analysis
+e002 v2: OpenAlex fulltext indexing coverage and SOTA filtering pattern analysis
+
+Changes from v1:
+- Fixed: .search() -> fulltext.search filter (fulltext-only, not combined search)
+- Fixed: per_page=25 bug -> get(per_page=200) for full coverage
+- Improved: seed selection diversified across clusters (median-cited, not top-cited)
 """
 import json
 import time
@@ -42,11 +47,11 @@ def batch_check_fulltext(dois: List[str], batch_size: int = 50) -> Tuple[int, in
 
         # Query with has_fulltext filter
         try:
-            results = Works().filter(doi=doi_filter, has_fulltext=True).get()
+            results = Works().filter(doi=doi_filter, has_fulltext=True).get(per_page=200)
             batch_fulltext = len(results)
 
             # Also check total in this batch to verify
-            total_results = Works().filter(doi=doi_filter).get()
+            total_results = Works().filter(doi=doi_filter).get(per_page=200)
             batch_total = len(total_results)
 
             total_checked += batch_total
@@ -113,8 +118,8 @@ def test_filter_patterns(seed_papers: List[Dict]) -> Dict:
             # Test each pattern
             for pattern_name, pattern_query in patterns.items():
                 try:
-                    # Search in fulltext of citing papers
-                    hits = Works().filter(cites=oa_id).search(pattern_query).count()
+                    # Search in fulltext of citing papers (fulltext-only filter)
+                    hits = Works().filter(cites=oa_id, fulltext={"search": pattern_query}).count()
                     hit_rate = hits / total_citing if total_citing > 0 else 0.0
 
                     results[pattern_name].append({
@@ -152,7 +157,7 @@ def test_filter_patterns(seed_papers: List[Dict]) -> Dict:
 def main():
     # Paths
     papers_path = "/home/kyuwon/projects/papersift/results/virtual-cell-sweep/papers_cleaned.json"
-    output_dir = Path("/home/kyuwon/projects/papersift/outputs/e002")
+    output_dir = Path("/home/kyuwon/projects/papersift/outputs/e002_v2")
     output_dir.mkdir(parents=True, exist_ok=True)
 
     print("=" * 80)
@@ -200,11 +205,38 @@ def main():
     print("STEP 2: Text Filter Pattern Analysis")
     print("=" * 80)
 
-    # Select top 10 cited papers as seeds
-    papers_sorted = sorted(papers, key=lambda p: p.get('cited_by_count', 0), reverse=True)
-    seed_papers = papers_sorted[:10]
+    # Select diverse seeds: 1-2 papers per cluster (median-cited)
+    import random
+    random.seed(42)
 
-    print(f"[DATA] Testing patterns on top 10 cited papers:")
+    # Group by cluster if available, otherwise by topic
+    clusters = {}
+    for p in papers:
+        # Use first topic as cluster proxy
+        cluster_key = (p.get("topics", ["general"]) or ["general"])[0]
+        clusters.setdefault(cluster_key, []).append(p)
+
+    seed_papers = []
+    for cluster_key, cluster_papers in sorted(clusters.items()):
+        # Sort by citation count, pick median
+        sorted_cp = sorted(cluster_papers, key=lambda x: x.get("cited_by_count", 0))
+        median_idx = len(sorted_cp) // 2
+        seed_papers.append(sorted_cp[median_idx])
+        if len(seed_papers) >= 15:
+            break
+
+    # Ensure minimum 10 seeds
+    if len(seed_papers) < 10:
+        remaining = [p for p in papers if p not in seed_papers]
+        remaining.sort(key=lambda x: x.get("cited_by_count", 0))
+        median_start = len(remaining) // 3
+        for p in remaining[median_start:]:
+            if p not in seed_papers:
+                seed_papers.append(p)
+            if len(seed_papers) >= 15:
+                break
+
+    print(f"[DATA] Testing patterns on {len(seed_papers)} diverse seed papers (median-cited across topics):")
     for i, p in enumerate(seed_papers):
         print(f"  {i+1}. {p['title'][:60]}... (cited: {p.get('cited_by_count', 0)})")
 

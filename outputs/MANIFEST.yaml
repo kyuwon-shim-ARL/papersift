@@ -1,5 +1,5 @@
 version: 1
-updated: "2026-02-26T12:00:00Z"
+updated: "2026-02-26T15:30:00Z"
 scan_paths:
   - outputs/
 experiments:
@@ -22,12 +22,16 @@ experiments:
       - outputs/e002/EXECUTIVE_SUMMARY.md
       - outputs/e002/fulltext_coverage.json
       - outputs/e002/filter_patterns.json
+      - outputs/e002_v2/CHANGES.md
+      - outputs/e002_v2/fulltext_coverage.json
+      - outputs/e002_v2/filter_patterns.json
+      - outputs/e002_v2/EXECUTIVE_SUMMARY.md
     status: complete
-    description: "2-Tier 방법론 논문 텍스트 필터링 (독립 실험)"
+    description: "OpenAlex fulltext coverage & SOTA filter pattern analysis (v2 재실험 완료)"
     issue: 2
     branch: ""
     priority: 1
-    verdict: "GO — fulltext 48.6%, improvement 29.7%, method_proposal 26.8%"
+    verdict: "NO-GO — fulltext coverage 24.5% (threshold 30%), best pattern 16.1% hit rate. v1 GO 판정 무효 확정"
   e003:
     path: outputs/e003/
     script: ""
@@ -58,9 +62,10 @@ experiments:
     script: ""
     params: {}
     outputs: []
-    status: experimental
-    description: "OA full-text 방법론 추출 (사전 검증 포함)"
+    status: phase1-complete
+    description: "Phase 1: 추출 스키마 확장 (abstract 기반, P0) → Phase 2: OA full-text (e002 NO-GO로 보류)"
     issue: 5
     branch: ""
-    priority: 2
+    priority: 1
     depends_on: []
+    note: "Phase 1 완료: extract.py 7필드 확장, 22/22 tests pass. Phase 2: e002 NO-GO(24.5%)로 fulltext 전략 보류"

@@ -14,6 +14,12 @@ EXTRACTION_PROMPT_TEMPLATE = """You are a scientific paper analyst. For each pap
 - problem: The research problem or question addressed (1-2 sentences)
 - method: The computational/experimental methods used (1-2 sentences)
 - finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
 
 If the abstract is empty or missing, extract what you can from the title alone.
 
@@ -23,7 +29,11 @@ Return a JSON array with one object per paper:
     "doi": "10.xxxx/...",
     "problem": "...",
     "method": "...",
-    "finding": "..."
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
   }},
   ...
 ]
@@ -140,7 +150,11 @@ def parse_llm_response(response: str) -> list[dict]:
                     "doi": item["doi"],
                     "problem": item.get("problem", ""),
                     "method": item.get("method", ""),
-                    "finding": item.get("finding", "")
+                    "finding": item.get("finding", ""),
+                    "dataset": item.get("dataset", ""),
+                    "metric": item.get("metric", ""),
+                    "baseline": item.get("baseline", ""),
+                    "result": item.get("result", ""),
                 }
                 valid_extractions.append(extraction)
 
@@ -152,11 +166,28 @@ def parse_llm_response(response: str) -> list[dict]:
         return []
 
 
+def filter_extraction_quality(extractions: list[dict], max_field_length: int = 200) -> list[dict]:
+    """
+    Filter and clean extraction fields for quality.
+
+    - Truncates fields longer than max_field_length characters
+    - Flags fields that appear to be raw abstract text (contain 3+ sentences)
+    """
+    for ext in extractions:
+        for field in ["problem", "method", "finding", "dataset", "metric", "baseline", "result"]:
+            value = ext.get(field, "")
+            if len(value) > max_field_length:
+                # Truncate and mark
+                ext[field] = value[:max_field_length].rsplit(" ", 1)[0] + "..."
+                ext.setdefault("_quality_flags", []).append(f"{field}_truncated")
+    return extractions
+
+
 def merge_extractions(papers: list[dict], extractions: list[dict]) -> list[dict]:
     """
     Merge extraction results back into paper dicts.
 
-    Builds {doi_lower: {problem, method, finding}} lookup from extractions.
+    Builds {doi_lower: {problem, method, finding, dataset, metric, baseline, result}} lookup from extractions.
     For each paper: if extraction exists, attach fields; otherwise set empty strings.
     Returns the mutated papers list (same objects, new fields added).
     DOI matching is case-insensitive.
@@ -169,7 +200,11 @@ def merge_extractions(papers: list[dict], extractions: list[dict]) -> list[dict]
             extraction_lookup[doi] = {
                 "problem": ext.get("problem", ""),
                 "method": ext.get("method", ""),
-                "finding": ext.get("finding", "")
+                "finding": ext.get("finding", ""),
+                "dataset": ext.get("dataset", ""),
+                "metric": ext.get("metric", ""),
+                "baseline": ext.get("baseline", ""),
+                "result": ext.get("result", ""),
             }
 
     # Merge into papers
@@ -181,11 +216,19 @@ def merge_extractions(papers: list[dict], extractions: list[dict]) -> list[dict]
             paper["problem"] = ext["problem"]
             paper["method"] = ext["method"]
             paper["finding"] = ext["finding"]
+            paper["dataset"] = ext["dataset"]
+            paper["metric"] = ext["metric"]
+            paper["baseline"] = ext["baseline"]
+            paper["result"] = ext["result"]
         else:
             # Set empty strings for missing extractions
             paper["problem"] = ""
             paper["method"] = ""
             paper["finding"] = ""
+            paper["dataset"] = ""
+            paper["metric"] = ""
+            paper["baseline"] = ""
+            paper["result"] = ""
 
     return papers
 

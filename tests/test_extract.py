@@ -10,6 +10,7 @@ from papersift.extract import (
     merge_extractions,
     load_extractions,
     save_prompts,
+    filter_extraction_quality,
 )
 
 
@@ -176,3 +177,141 @@ def test_load_extractions_dict_format(tmp_path):
 def test_prompt_template_has_placeholders():
     """EXTRACTION_PROMPT_TEMPLATE contains {papers_block}."""
     assert "{papers_block}" in EXTRACTION_PROMPT_TEMPLATE
+
+
+def test_parse_llm_response_extended_fields():
+    """Parse all 7 fields correctly."""
+    response = json.dumps([
+        {
+            "doi": "10.1/a",
+            "problem": "P1",
+            "method": "M1",
+            "finding": "F1",
+            "dataset": "D1",
+            "metric": "AUC=0.95",
+            "baseline": "RF",
+            "result": "2.3x speedup"
+        },
+    ])
+    result = parse_llm_response(response)
+    assert len(result) == 1
+    assert result[0]["doi"] == "10.1/a"
+    assert result[0]["problem"] == "P1"
+    assert result[0]["method"] == "M1"
+    assert result[0]["finding"] == "F1"
+    assert result[0]["dataset"] == "D1"
+    assert result[0]["metric"] == "AUC=0.95"
+    assert result[0]["baseline"] == "RF"
+    assert result[0]["result"] == "2.3x speedup"
+
+
+def test_parse_llm_response_missing_new_fields():
+    """New fields default to empty string when absent (backward compat)."""
+    response = json.dumps([
+        {"doi": "10.1/a", "problem": "P", "method": "M", "finding": "F"},
+    ])
+    result = parse_llm_response(response)
+    assert len(result) == 1
+    assert result[0]["doi"] == "10.1/a"
+    assert result[0]["problem"] == "P"
+    assert result[0]["method"] == "M"
+    assert result[0]["finding"] == "F"
+    # New fields should default to empty string
+    assert result[0]["dataset"] == ""
+    assert result[0]["metric"] == ""
+    assert result[0]["baseline"] == ""
+    assert result[0]["result"] == ""
+
+
+def test_merge_extractions_extended_fields():
+    """All 7 fields merged into papers."""
+    papers = [
+        {"doi": "10.1/a", "title": "A"},
+        {"doi": "10.1/b", "title": "B"},
+    ]
+    extractions = [
+        {
+            "doi": "10.1/a",
+            "problem": "P1",
+            "method": "M1",
+            "finding": "F1",
+            "dataset": "E. coli",
+            "metric": "AUC",
+            "baseline": "null model",
+            "result": "p<0.001"
+        },
+        {
+            "doi": "10.1/b",
+            "problem": "P2",
+            "method": "M2",
+            "finding": "F2",
+            "dataset": "MNIST",
+            "metric": "RMSE",
+            "baseline": "RF",
+            "result": "0.95"
+        },
+    ]
+    result = merge_extractions(papers, extractions)
+    assert result[0]["problem"] == "P1"
+    assert result[0]["dataset"] == "E. coli"
+    assert result[0]["metric"] == "AUC"
+    assert result[0]["baseline"] == "null model"
+    assert result[0]["result"] == "p<0.001"
+    assert result[1]["method"] == "M2"
+    assert result[1]["dataset"] == "MNIST"
+    assert result[1]["baseline"] == "RF"
+
+
+def test_filter_extraction_quality_truncation():
+    """Long fields are truncated at word boundary."""
+    long_text = "This is a very long sentence. " * 20  # ~600 chars
+    extractions = [
+        {
+            "doi": "10.1/a",
+            "problem": "Short",
+            "method": long_text,
+            "finding": "Short",
+            "dataset": "",
+            "metric": "",
+            "baseline": "",
+            "result": ""
+        }
+    ]
+    result = filter_extraction_quality(extractions, max_field_length=200)
+    assert len(result[0]["method"]) <= 204  # 200 + "..."
+    assert result[0]["method"].endswith("...")
+    assert "_quality_flags" in result[0]
+    assert "method_truncated" in result[0]["_quality_flags"]
+    # Short fields untouched
+    assert result[0]["problem"] == "Short"
+    assert "problem_truncated" not in result[0].get("_quality_flags", [])
+
+
+def test_filter_extraction_quality_short_fields():
+    """Short fields are untouched."""
+    extractions = [
+        {
+            "doi": "10.1/a",
+            "problem": "P",
+            "method": "M",
+            "finding": "F",
+            "dataset": "D",
+            "metric": "AUC",
+            "baseline": "RF",
+            "result": "0.95"
+        }
+    ]
+    result = filter_extraction_quality(extractions, max_field_length=200)
+    assert result[0]["problem"] == "P"
+    assert result[0]["method"] == "M"
+    assert result[0]["finding"] == "F"
+    assert result[0]["dataset"] == "D"
+    assert "_quality_flags" not in result[0]
+
+
+def test_prompt_template_has_new_fields():
+    """Template mentions dataset, metric, baseline, result."""
+    assert "dataset" in EXTRACTION_PROMPT_TEMPLATE
+    assert "metric" in EXTRACTION_PROMPT_TEMPLATE
+    assert "baseline" in EXTRACTION_PROMPT_TEMPLATE
+    assert "result" in EXTRACTION_PROMPT_TEMPLATE
