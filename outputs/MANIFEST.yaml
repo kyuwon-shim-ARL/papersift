@@ -1,0 +1,66 @@
+version: 1
+updated: "2026-02-26T12:00:00Z"
+scan_paths:
+  - outputs/
+experiments:
+  e001:
+    path: outputs/e001/
+    script: ""
+    params: {}
+    outputs: []
+    status: complete
+    description: "expand_citations — forward citation expansion (standalone tool)"
+    issue: 1
+    branch: ""
+    priority: 1
+    verdict: "GO — implemented as standalone exploration tool, not for clustering input"
+  e002:
+    path: outputs/e002/
+    script: scripts/e002_fulltext_coverage.py
+    params: {}
+    outputs:
+      - outputs/e002/EXECUTIVE_SUMMARY.md
+      - outputs/e002/fulltext_coverage.json
+      - outputs/e002/filter_patterns.json
+    status: complete
+    description: "2-Tier 방법론 논문 텍스트 필터링 (독립 실험)"
+    issue: 2
+    branch: ""
+    priority: 1
+    verdict: "GO — fulltext 48.6%, improvement 29.7%, method_proposal 26.8%"
+  e003:
+    path: outputs/e003/
+    script: ""
+    params: {}
+    outputs: []
+    status: deferred
+    description: "[후순위] LLM 시드 선정 vs 수동 시드 품질 비교"
+    issue: 3
+    branch: ""
+    priority: 3
+  e004:
+    path: outputs/e004/
+    script: ""
+    params: {}
+    outputs:
+      - outputs/e004/smoke_test_report.md
+      - outputs/e004/stability_analysis.json
+      - outputs/e004/v3/smoke_test_v3_report.md
+    status: closed
+    description: "하이브리드 워크플로우 smoke test — NO-GO"
+    issue: 4
+    branch: ""
+    priority: 2
+    depends_on: [e001]
+    verdict: "NO-GO — forward citation ↔ entity clustering 근본적 부적합 (3회 실험, 최고 56.8%)"
+  e005:
+    path: outputs/e005/
+    script: ""
+    params: {}
+    outputs: []
+    status: experimental
+    description: "OA full-text 방법론 추출 (사전 검증 포함)"
+    issue: 5
+    branch: ""
+    priority: 2
+    depends_on: []

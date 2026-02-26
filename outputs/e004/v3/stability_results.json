@@ -1,0 +1,11 @@
+{
+  "baseline_papers": 3070,
+  "new_papers": 3419,
+  "common_papers": 3070,
+  "matched_papers": 3070,
+  "baseline_pairs": 669832,
+  "preserved_pairs": 380786,
+  "stability_percent": 56.8,
+  "baseline_clusters": 11,
+  "new_clusters": 334
+}

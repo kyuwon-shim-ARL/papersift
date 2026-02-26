@@ -1,0 +1,66 @@
+{
+  "overall_preservation_rate": 0.4828554025486988,
+  "total_pairs": 669832,
+  "preserved_pairs": 323432,
+  "common_papers": 3070,
+  "old_clusters": 11,
+  "new_clusters": 322,
+  "per_cluster_results": [
+    {
+      "old_cluster_id": 0,
+      "size": 595,
+      "pairs": 176715,
+      "preserved_pairs": 68728,
+      "preservation_rate": 0.3889200124494242
+    },
+    {
+      "old_cluster_id": 1,
+      "size": 571,
+      "pairs": 162735,
+      "preserved_pairs": 78080,
+      "preservation_rate": 0.479798445325222
+    },
+    {
+      "old_cluster_id": 2,
+      "size": 453,
+      "pairs": 102378,
+      "preserved_pairs": 67459,
+      "preservation_rate": 0.6589208619039246
+    },
+    {
+      "old_cluster_id": 4,
+      "size": 362,
+      "pairs": 65341,
+      "preserved_pairs": 43548,
+      "preservation_rate": 0.6664728118639139
+    },
+    {
+      "old_cluster_id": 3,
+      "size": 362,
+      "pairs": 65341,
+      "preserved_pairs": 22094,
+      "preservation_rate": 0.3381337904225525
+    },
+    {
+      "old_cluster_id": 5,
+      "size": 336,
+      "pairs": 56280,
+      "preserved_pairs": 26146,
+      "preservation_rate": 0.46457000710732055
+    },
+    {
+      "old_cluster_id": 6,
+      "size": 254,
+      "pairs": 32131,
+      "preserved_pairs": 13735,
+      "preservation_rate": 0.4274687996016308
+    },
+    {
+      "old_cluster_id": 7,
+      "size": 134,
+      "pairs": 8911,
+      "preserved_pairs": 3642,
+      "preservation_rate": 0.4087083380092021
+    }
+  ]
+}

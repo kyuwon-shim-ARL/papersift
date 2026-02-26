@@ -9,3 +9,19 @@ build/
 venv/
 .venv/
 *.egg
+
+# OMC Experiment Workflow
+outputs/**/*.csv
+outputs/**/*.png
+outputs/**/*.pkl
+outputs/**/*.html
+!outputs/MANIFEST.yaml
+.omc-config.sh
+
+# Large experiment data files (keep reports/scripts/small metadata)
+outputs/**/combined*.json
+outputs/**/sota_expand*.json
+outputs/**/clusters.json
+outputs/**/communities.json
+outputs/**/seeds_v2_enriched.json
+outputs/**/execution.log

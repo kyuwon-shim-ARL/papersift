@@ -1,0 +1,396 @@
+{
+  "pattern_stats": {
+    "sota_narrow": {
+      "avg_hit_rate": 0.07802431611070829,
+      "total_hits": 109659,
+      "total_citing": 1273182,
+      "n_seeds": 10
+    },
+    "sota_broad": {
+      "avg_hit_rate": 0.07287656145538289,
+      "total_hits": 84825,
+      "total_citing": 1273182,
+      "n_seeds": 10
+    },
+    "method_proposal": {
+      "avg_hit_rate": 0.26779622391242675,
+      "total_hits": 333247,
+      "total_citing": 1273182,
+      "n_seeds": 10
+    },
+    "improvement": {
+      "avg_hit_rate": 0.29669941031323194,
+      "total_hits": 378136,
+      "total_citing": 1273182,
+      "n_seeds": 10
+    },
+    "combined": {
+      "avg_hit_rate": 0.09844689398568526,
+      "total_hits": 118466,
+      "total_citing": 1273182,
+      "n_seeds": 10
+    }
+  },
+  "detailed_results": {
+    "sota_narrow": [
+      {
+        "seed_doi": "10.1109/cvpr.2016.90",
+        "seed_title": "Deep Residual Learning for Image Recognition",
+        "total_citing": 214678,
+        "hit_count": 53880,
+        "hit_rate": 0.25098053829456207
+      },
+      {
+        "seed_doi": "10.1103/physrevlett.77.3865",
+        "seed_title": "Generalized Gradient Approximation Made Simple",
+        "total_citing": 203551,
+        "hit_count": 4017,
+        "hit_rate": 0.019734611964569077
+      },
+      {
+        "seed_doi": "10.1006/meth.2001.1262",
+        "seed_title": "Analysis of Relative Gene Expression Data Using Real-Time Quantitative PCR and the 2\u2212\u0394\u0394CT Method",
+        "total_citing": 172801,
+        "hit_count": 1207,
+        "hit_rate": 0.006984913281751842
+      },
+      {
+        "seed_doi": "10.1023/a:1010933404324",
+        "seed_title": "Random Forests",
+        "total_citing": 118517,
+        "hit_count": 16111,
+        "hit_rate": 0.1359383042095227
+      },
+      {
+        "seed_doi": "10.1111/j.2517-6161.1995.tb02031.x",
+        "seed_title": "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing",
+        "total_citing": 104957,
+        "hit_count": 3983,
+        "hit_rate": 0.03794887430090418
+      },
+      {
+        "seed_doi": "10.1063/1.464913",
+        "seed_title": "Density-functional thermochemistry. III. The role of exact exchange",
+        "total_citing": 101039,
+        "hit_count": 969,
+        "hit_rate": 0.00959035619909144
+      },
+      {
+        "seed_doi": "10.1186/s13059-014-0550-8",
+        "seed_title": "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+        "total_citing": 90173,
+        "hit_count": 2050,
+        "hit_rate": 0.022734077828174732
+      },
+      {
+        "seed_doi": "10.1162/neco.1997.9.8.1735",
+        "seed_title": "Long Short-Term Memory",
+        "total_citing": 93552,
+        "hit_count": 23654,
+        "hit_rate": 0.2528433384641697
+      },
+      {
+        "seed_doi": "10.1016/s0022-2836(05)80360-2",
+        "seed_title": "Basic local alignment search tool",
+        "total_citing": 91720,
+        "hit_count": 2056,
+        "hit_rate": 0.022416048844308766
+      },
+      {
+        "seed_doi": "10.3322/caac.21492",
+        "seed_title": "Global cancer statistics 2018: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries",
+        "total_citing": 82194,
+        "hit_count": 1732,
+        "hit_rate": 0.021072097720028226
+      }
+    ],
+    "sota_broad": [
+      {
+        "seed_doi": "10.1109/cvpr.2016.90",
+        "seed_title": "Deep Residual Learning for Image Recognition",
+        "total_citing": 214678,
+        "hit_count": 10854,
+        "hit_rate": 0.05055944251390455
+      },
+      {
+        "seed_doi": "10.1103/physrevlett.77.3865",
+        "seed_title": "Generalized Gradient Approximation Made Simple",
+        "total_citing": 203551,
+        "hit_count": 5082,
+        "hit_rate": 0.02496671595816282
+      },
+      {
+        "seed_doi": "10.1006/meth.2001.1262",
+        "seed_title": "Analysis of Relative Gene Expression Data Using Real-Time Quantitative PCR and the 2\u2212\u0394\u0394CT Method",
+        "total_citing": 172801,
+        "hit_count": 11426,
+        "hit_rate": 0.06612230253297145
+      },
+      {
+        "seed_doi": "10.1023/a:1010933404324",
+        "seed_title": "Random Forests",
+        "total_citing": 118517,
+        "hit_count": 12635,
+        "hit_rate": 0.10660917843009864
+      },
+      {
+        "seed_doi": "10.1111/j.2517-6161.1995.tb02031.x",
+        "seed_title": "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing",
+        "total_citing": 104957,
+        "hit_count": 11547,
+        "hit_rate": 0.11001648294063283
+      },
+      {
+        "seed_doi": "10.1063/1.464913",
+        "seed_title": "Density-functional thermochemistry. III. The role of exact exchange",
+        "total_citing": 101039,
+        "hit_count": 3133,
+        "hit_rate": 0.03100782866022031
+      },
+      {
+        "seed_doi": "10.1186/s13059-014-0550-8",
+        "seed_title": "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+        "total_citing": 90173,
+        "hit_count": 6333,
+        "hit_rate": 0.07023166579796614
+      },
+      {
+        "seed_doi": "10.1162/neco.1997.9.8.1735",
+        "seed_title": "Long Short-Term Memory",
+        "total_citing": 93552,
+        "hit_count": 7322,
+        "hit_rate": 0.07826663246109115
+      },
+      {
+        "seed_doi": "10.1016/s0022-2836(05)80360-2",
+        "seed_title": "Basic local alignment search tool",
+        "total_citing": 91720,
+        "hit_count": 7656,
+        "hit_rate": 0.08347143480157
+      },
+      {
+        "seed_doi": "10.3322/caac.21492",
+        "seed_title": "Global cancer statistics 2018: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries",
+        "total_citing": 82194,
+        "hit_count": 8837,
+        "hit_rate": 0.10751393045721098
+      }
+    ],
+    "method_proposal": [
+      {
+        "seed_doi": "10.1109/cvpr.2016.90",
+        "seed_title": "Deep Residual Learning for Image Recognition",
+        "total_citing": 214678,
+        "hit_count": 78296,
+        "hit_rate": 0.3647136641854312
+      },
+      {
+        "seed_doi": "10.1103/physrevlett.77.3865",
+        "seed_title": "Generalized Gradient Approximation Made Simple",
+        "total_citing": 203551,
+        "hit_count": 29466,
+        "hit_rate": 0.14475978992979646
+      },
+      {
+        "seed_doi": "10.1006/meth.2001.1262",
+        "seed_title": "Analysis of Relative Gene Expression Data Using Real-Time Quantitative PCR and the 2\u2212\u0394\u0394CT Method",
+        "total_citing": 172801,
+        "hit_count": 27844,
+        "hit_rate": 0.1611333267747293
+      },
+      {
+        "seed_doi": "10.1023/a:1010933404324",
+        "seed_title": "Random Forests",
+        "total_citing": 118517,
+        "hit_count": 40430,
+        "hit_rate": 0.3411324957601019
+      },
+      {
+        "seed_doi": "10.1111/j.2517-6161.1995.tb02031.x",
+        "seed_title": "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing",
+        "total_citing": 104957,
+        "hit_count": 42954,
+        "hit_rate": 0.4092533132616214
+      },
+      {
+        "seed_doi": "10.1063/1.464913",
+        "seed_title": "Density-functional thermochemistry. III. The role of exact exchange",
+        "total_citing": 101039,
+        "hit_count": 10081,
+        "hit_rate": 0.09977335484317937
+      },
+      {
+        "seed_doi": "10.1186/s13059-014-0550-8",
+        "seed_title": "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+        "total_citing": 90173,
+        "hit_count": 29560,
+        "hit_rate": 0.3278143124882171
+      },
+      {
+        "seed_doi": "10.1162/neco.1997.9.8.1735",
+        "seed_title": "Long Short-Term Memory",
+        "total_citing": 93552,
+        "hit_count": 33370,
+        "hit_rate": 0.35670001710278776
+      },
+      {
+        "seed_doi": "10.1016/s0022-2836(05)80360-2",
+        "seed_title": "Basic local alignment search tool",
+        "total_citing": 91720,
+        "hit_count": 23054,
+        "hit_rate": 0.25135194068905364
+      },
+      {
+        "seed_doi": "10.3322/caac.21492",
+        "seed_title": "Global cancer statistics 2018: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries",
+        "total_citing": 82194,
+        "hit_count": 18192,
+        "hit_rate": 0.2213300240893496
+      }
+    ],
+    "improvement": [
+      {
+        "seed_doi": "10.1109/cvpr.2016.90",
+        "seed_title": "Deep Residual Learning for Image Recognition",
+        "total_citing": 214678,
+        "hit_count": 94164,
+        "hit_rate": 0.43862901648049635
+      },
+      {
+        "seed_doi": "10.1103/physrevlett.77.3865",
+        "seed_title": "Generalized Gradient Approximation Made Simple",
+        "total_citing": 203551,
+        "hit_count": 33357,
+        "hit_rate": 0.16387539240779952
+      },
+      {
+        "seed_doi": "10.1006/meth.2001.1262",
+        "seed_title": "Analysis of Relative Gene Expression Data Using Real-Time Quantitative PCR and the 2\u2212\u0394\u0394CT Method",
+        "total_citing": 172801,
+        "hit_count": 47005,
+        "hit_rate": 0.2720181017470964
+      },
+      {
+        "seed_doi": "10.1023/a:1010933404324",
+        "seed_title": "Random Forests",
+        "total_citing": 118517,
+        "hit_count": 45677,
+        "hit_rate": 0.3854046254967642
+      },
+      {
+        "seed_doi": "10.1111/j.2517-6161.1995.tb02031.x",
+        "seed_title": "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing",
+        "total_citing": 104957,
+        "hit_count": 31197,
+        "hit_rate": 0.2972360109378126
+      },
+      {
+        "seed_doi": "10.1063/1.464913",
+        "seed_title": "Density-functional thermochemistry. III. The role of exact exchange",
+        "total_citing": 101039,
+        "hit_count": 8872,
+        "hit_rate": 0.08780767822326033
+      },
+      {
+        "seed_doi": "10.1186/s13059-014-0550-8",
+        "seed_title": "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+        "total_citing": 90173,
+        "hit_count": 27634,
+        "hit_rate": 0.3064553691237954
+      },
+      {
+        "seed_doi": "10.1162/neco.1997.9.8.1735",
+        "seed_title": "Long Short-Term Memory",
+        "total_citing": 93552,
+        "hit_count": 37820,
+        "hit_rate": 0.4042671455447238
+      },
+      {
+        "seed_doi": "10.1016/s0022-2836(05)80360-2",
+        "seed_title": "Basic local alignment search tool",
+        "total_citing": 91720,
+        "hit_count": 20843,
+        "hit_rate": 0.22724596598342783
+      },
+      {
+        "seed_doi": "10.3322/caac.21492",
+        "seed_title": "Global cancer statistics 2018: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries",
+        "total_citing": 82194,
+        "hit_count": 31567,
+        "hit_rate": 0.38405479718714264
+      }
+    ],
+    "combined": [
+      {
+        "seed_doi": "10.1109/cvpr.2016.90",
+        "seed_title": "Deep Residual Learning for Image Recognition",
+        "total_citing": 214678,
+        "hit_count": 11650,
+        "hit_rate": 0.054267321290490875
+      },
+      {
+        "seed_doi": "10.1103/physrevlett.77.3865",
+        "seed_title": "Generalized Gradient Approximation Made Simple",
+        "total_citing": 203551,
+        "hit_count": 15354,
+        "hit_rate": 0.07543072743440218
+      },
+      {
+        "seed_doi": "10.1006/meth.2001.1262",
+        "seed_title": "Analysis of Relative Gene Expression Data Using Real-Time Quantitative PCR and the 2\u2212\u0394\u0394CT Method",
+        "total_citing": 172801,
+        "hit_count": 21395,
+        "hit_rate": 0.12381294089733277
+      },
+      {
+        "seed_doi": "10.1023/a:1010933404324",
+        "seed_title": "Random Forests",
+        "total_citing": 118517,
+        "hit_count": 8037,
+        "hit_rate": 0.06781305635478455
+      },
+      {
+        "seed_doi": "10.1111/j.2517-6161.1995.tb02031.x",
+        "seed_title": "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing",
+        "total_citing": 104957,
+        "hit_count": 14490,
+        "hit_rate": 0.13805653743914173
+      },
+      {
+        "seed_doi": "10.1063/1.464913",
+        "seed_title": "Density-functional thermochemistry. III. The role of exact exchange",
+        "total_citing": 101039,
+        "hit_count": 5688,
+        "hit_rate": 0.05629509397361415
+      },
+      {
+        "seed_doi": "10.1186/s13059-014-0550-8",
+        "seed_title": "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+        "total_citing": 90173,
+        "hit_count": 19166,
+        "hit_rate": 0.21254699300233995
+      },
+      {
+        "seed_doi": "10.1162/neco.1997.9.8.1735",
+        "seed_title": "Long Short-Term Memory",
+        "total_citing": 93552,
+        "hit_count": 5175,
+        "hit_rate": 0.05531682914315034
+      },
+      {
+        "seed_doi": "10.1016/s0022-2836(05)80360-2",
+        "seed_title": "Basic local alignment search tool",
+        "total_citing": 91720,
+        "hit_count": 9588,
+        "hit_rate": 0.10453554295682511
+      },
+      {
+        "seed_doi": "10.3322/caac.21492",
+        "seed_title": "Global cancer statistics 2018: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries",
+        "total_citing": 82194,
+        "hit_count": 7923,
+        "hit_rate": 0.09639389736477115
+      }
+    ]
+  }
+}
