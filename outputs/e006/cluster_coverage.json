@@ -1,0 +1,204 @@
+{
+  "analysis": "T1.5 per-cluster fulltext coverage",
+  "biology_clusters": [
+    0,
+    1,
+    3,
+    5,
+    7
+  ],
+  "noise_clusters": [
+    2,
+    4,
+    6
+  ],
+  "per_cluster": {
+    "C0": {
+      "type": "biology",
+      "total": 595,
+      "unpaywall_oa": 396,
+      "unpaywall_pdf": 301,
+      "epmc_pmcid": 319,
+      "any_fulltext": 375,
+      "fulltext_pct": 63.0,
+      "oa_status": {
+        "closed": 199,
+        "gold": 215,
+        "bronze": 76,
+        "hybrid": 50,
+        "green": 55
+      }
+    },
+    "C1": {
+      "type": "biology",
+      "total": 571,
+      "unpaywall_oa": 368,
+      "unpaywall_pdf": 251,
+      "epmc_pmcid": 287,
+      "any_fulltext": 354,
+      "fulltext_pct": 62.0,
+      "oa_status": {
+        "bronze": 74,
+        "closed": 203,
+        "hybrid": 54,
+        "gold": 161,
+        "green": 79
+      }
+    },
+    "C2": {
+      "type": "noise",
+      "total": 453,
+      "unpaywall_oa": 162,
+      "unpaywall_pdf": 98,
+      "epmc_pmcid": 53,
+      "any_fulltext": 123,
+      "fulltext_pct": 27.2,
+      "oa_status": {
+        "hybrid": 26,
+        "closed": 291,
+        "bronze": 34,
+        "gold": 61,
+        "green": 41
+      }
+    },
+    "C3": {
+      "type": "biology",
+      "total": 362,
+      "unpaywall_oa": 208,
+      "unpaywall_pdf": 151,
+      "epmc_pmcid": 153,
+      "any_fulltext": 197,
+      "fulltext_pct": 54.4,
+      "oa_status": {
+        "gold": 78,
+        "closed": 154,
+        "bronze": 71,
+        "hybrid": 25,
+        "green": 34
+      }
+    },
+    "C4": {
+      "type": "noise",
+      "total": 362,
+      "unpaywall_oa": 185,
+      "unpaywall_pdf": 107,
+      "epmc_pmcid": 39,
+      "any_fulltext": 114,
+      "fulltext_pct": 31.5,
+      "oa_status": {
+        "closed": 177,
+        "gold": 123,
+        "green": 14,
+        "hybrid": 40,
+        "bronze": 8
+      }
+    },
+    "C5": {
+      "type": "biology",
+      "total": 336,
+      "unpaywall_oa": 203,
+      "unpaywall_pdf": 139,
+      "epmc_pmcid": 139,
+      "any_fulltext": 180,
+      "fulltext_pct": 53.6,
+      "oa_status": {
+        "closed": 133,
+        "hybrid": 29,
+        "gold": 72,
+        "green": 42,
+        "bronze": 60
+      }
+    },
+    "C6": {
+      "type": "noise",
+      "total": 254,
+      "unpaywall_oa": 100,
+      "unpaywall_pdf": 61,
+      "epmc_pmcid": 23,
+      "any_fulltext": 65,
+      "fulltext_pct": 25.6,
+      "oa_status": {
+        "gold": 26,
+        "hybrid": 26,
+        "closed": 154,
+        "green": 26,
+        "bronze": 22
+      }
+    },
+    "C7": {
+      "type": "biology",
+      "total": 134,
+      "unpaywall_oa": 94,
+      "unpaywall_pdf": 64,
+      "epmc_pmcid": 71,
+      "any_fulltext": 87,
+      "fulltext_pct": 64.9,
+      "oa_status": {
+        "gold": 44,
+        "closed": 40,
+        "green": 19,
+        "bronze": 21,
+        "hybrid": 10
+      }
+    },
+    "C8": {
+      "type": "noise",
+      "total": 1,
+      "unpaywall_oa": 0,
+      "unpaywall_pdf": 0,
+      "epmc_pmcid": 0,
+      "any_fulltext": 0,
+      "fulltext_pct": 0.0,
+      "oa_status": {
+        "closed": 1
+      }
+    },
+    "C9": {
+      "type": "noise",
+      "total": 1,
+      "unpaywall_oa": 1,
+      "unpaywall_pdf": 1,
+      "epmc_pmcid": 0,
+      "any_fulltext": 1,
+      "fulltext_pct": 100.0,
+      "oa_status": {
+        "green": 1
+      }
+    },
+    "C10": {
+      "type": "noise",
+      "total": 1,
+      "unpaywall_oa": 0,
+      "unpaywall_pdf": 0,
+      "epmc_pmcid": 0,
+      "any_fulltext": 0,
+      "fulltext_pct": 0.0,
+      "oa_status": {
+        "closed": 1
+      }
+    }
+  },
+  "summary": {
+    "biology": {
+      "total": 1998,
+      "any_fulltext": 1193,
+      "pct": 59.7
+    },
+    "noise": {
+      "total": 1069,
+      "any_fulltext": 302,
+      "pct": 28.3
+    },
+    "overall": {
+      "total": 3067,
+      "any_fulltext": 1495,
+      "pct": 48.7
+    }
+  },
+  "go_no_go": {
+    "biology": "CONDITIONAL",
+    "noise": "NO-GO",
+    "overall": "CONDITIONAL",
+    "threshold": 60
+  }
+}

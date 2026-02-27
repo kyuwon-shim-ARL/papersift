@@ -1,5 +1,5 @@
 version: 1
-updated: "2026-02-27T12:30:00Z"
+updated: "2026-02-27T15:00:00Z"
 scan_paths:
   - outputs/
 experiments:
@@ -61,26 +61,30 @@ experiments:
     path: outputs/e005/
     script: ""
     params: {}
-    outputs: []
-    status: phase1-complete
-    description: "Phase 1: 추출 스키마 확장 (abstract 기반, P0) → Phase 2: OA full-text (e002 NO-GO로 보류)"
+    outputs:
+      - outputs/e005/abstract_extraction_analysis.json
+    status: complete
+    description: "추출 스키마 확장 — Phase 1 완료 (7필드), Phase 2 보류 (e002 NO-GO). 재추출은 e006에 통합."
     issue: 5
     branch: ""
     priority: 1
     depends_on: []
-    note: "Phase 1 완료: extract.py 7필드 확장, 22/22 tests pass. Phase 2: e002 NO-GO(24.5%)로 fulltext 전략 보류"
+    verdict: "Phase 1 COMPLETE — extract.py 7필드 확장, 22/22 tests pass. Abstract baseline: 정량 7.3%, dataset 12.9%. Phase 2 → e006 통합"
   e006:
     path: outputs/e006/
     script: scripts/e006_fulltext_coverage.py
     params: {}
     outputs:
       - outputs/e006/fulltext_coverage.json
-      - outputs/e006/checkpoint.json
+      - outputs/e006/cluster_coverage.json
+      - outputs/e006/pmc_fulltext.json
+      - outputs/e006/ab_comparison_v2.json
       - outputs/e006/README.md
-    status: t1-complete
-    description: "Fulltext 수집 + LLM 추출 파이프라인 (T1 커버리지 측정 완료)"
+    status: final
+    description: "Fulltext 수집 + A/B 추출 비교 파이프라인"
     issue: 6
     branch: ""
     priority: 1
     depends_on: [e005]
-    verdict: "T1 CONDITIONAL GO — 48.7% (1,496/3,070) any fulltext. Unpaywall 55.9% OA, PMC 35.3% XML. 60% 미달이나 biology 클러스터만 필터 시 상승 가능"
+    verdict: "GO — baseline 커버리지 64%→96% (+32pp), 전체 개선율 82.2%, 구체성 Δ +0.223. PMC XML 705편 수집, 50편 A/B 비교 완료"
+    note: "T1 커버리지(48.7%) → T2 PMC XML 705편 → T3 A/B 비교(50편, 15 parallel agents) → T4 GO 판정"
