@@ -1,0 +1,105 @@
+{
+  "experiment": "e005_phase1_abstract_baseline",
+  "analysis_date": "2026-02-27",
+  "dataset": {
+    "source": "results/virtual-cell-sweep/extractions_all.json",
+    "total_papers": 3070,
+    "schema_version": "3-field (problem, method, finding)"
+  },
+  "field_completeness": {
+    "problem": {
+      "non_empty": 2996,
+      "empty": 74,
+      "completeness_pct": 97.6
+    },
+    "method": {
+      "non_empty": 2676,
+      "empty": 394,
+      "completeness_pct": 87.2
+    },
+    "finding": {
+      "non_empty": 2751,
+      "empty": 319,
+      "completeness_pct": 89.6
+    }
+  },
+  "quantitative_signals": {
+    "in_finding_field": {
+      "has_numbers_percentages": 59,
+      "has_comparison_words": 75,
+      "has_metric_names": 67,
+      "has_statistical_claims": 46,
+      "has_any_quantitative": 224
+    },
+    "percentages_of_non_empty_findings": {
+      "has_numbers_pct": 2.1,
+      "has_comparison_pct": 2.7,
+      "has_metrics_pct": 2.4,
+      "has_statistical_pct": 1.7,
+      "has_any_quantitative_pct": 8.1
+    },
+    "percentages_of_total": {
+      "has_numbers_pct": 1.9,
+      "has_comparison_pct": 2.4,
+      "has_metrics_pct": 2.2,
+      "has_statistical_pct": 1.5,
+      "has_any_quantitative_pct": 7.3
+    }
+  },
+  "dataset_organism_signals": {
+    "in_problem_method_fields": {
+      "has_organisms": 369,
+      "has_datasets": 12,
+      "has_sample_sizes": 24,
+      "has_any_dataset_info": 396
+    },
+    "percentages_of_total": {
+      "has_organisms_pct": 12.0,
+      "has_datasets_pct": 0.4,
+      "has_sample_sizes_pct": 0.8,
+      "has_any_dataset_info_pct": 12.9
+    },
+    "top_organisms": {
+      "human": 305,
+      "mouse": 60,
+      "mammalian": 41,
+      "rat": 24,
+      "bacteria": 22,
+      "yeast": 12,
+      "drosophila": 8,
+      "arabidopsis": 6,
+      "zebrafish": 5,
+      "c. elegans": 3
+    },
+    "top_datasets": {
+      "ncbi": 4,
+      "pdb": 4,
+      "go": 2,
+      "string": 2,
+      "kegg": 2,
+      "gene ontology": 1,
+      "genbank": 1
+    }
+  },
+  "combined_analysis": {
+    "papers_with_both_quant_and_dataset": 26,
+    "papers_with_either_quant_or_dataset": 594,
+    "both_pct": 0.8,
+    "either_pct": 19.3
+  },
+  "estimated_7field_ceiling": {
+    "result_value_ceiling_pct": 1.9,
+    "result_comparison_ceiling_pct": 2.4,
+    "result_metric_ceiling_pct": 2.2,
+    "dataset_ceiling_pct": 12.0,
+    "complete_7field_ceiling_pct": 0.8,
+    "interpretation": "Only 0.8% of papers have both quantitative results AND dataset/organism info in abstracts. This is the upper bound for abstract-only 7-field extraction."
+  },
+  "conclusions": {
+    "abstract_completeness": "High (87-98% for problem/method/finding)",
+    "quantitative_content": "Low (7.3% have any quantitative signal)",
+    "dataset_content": "Low (12.9% mention organisms/datasets/samples)",
+    "7field_viability": "Very Low (0.8% complete)",
+    "recommendation": "Abstract-only extraction is insufficient for complete 7-field schema. E006 T4 fulltext extraction is necessary to achieve meaningful coverage of result_value, result_comparison, result_metric, and dataset fields."
+  }
+}

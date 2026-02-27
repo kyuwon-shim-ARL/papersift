@@ -25,3 +25,8 @@ outputs/**/clusters.json
 outputs/**/communities.json
 outputs/**/seeds_v2_enriched.json
 outputs/**/execution.log
+
+# Generated data (large, reproducible)
+reports/
+results/
+data/

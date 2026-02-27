@@ -1,5 +1,5 @@
 version: 1
-updated: "2026-02-26T15:30:00Z"
+updated: "2026-02-27T12:30:00Z"
 scan_paths:
   - outputs/
 experiments:
@@ -69,3 +69,18 @@ experiments:
     priority: 1
     depends_on: []
     note: "Phase 1 완료: extract.py 7필드 확장, 22/22 tests pass. Phase 2: e002 NO-GO(24.5%)로 fulltext 전략 보류"
+  e006:
+    path: outputs/e006/
+    script: scripts/e006_fulltext_coverage.py
+    params: {}
+    outputs:
+      - outputs/e006/fulltext_coverage.json
+      - outputs/e006/checkpoint.json
+      - outputs/e006/README.md
+    status: t1-complete
+    description: "Fulltext 수집 + LLM 추출 파이프라인 (T1 커버리지 측정 완료)"
+    issue: 6
+    branch: ""
+    priority: 1
+    depends_on: [e005]
+    verdict: "T1 CONDITIONAL GO — 48.7% (1,496/3,070) any fulltext. Unpaywall 55.9% OA, PMC 35.3% XML. 60% 미달이나 biology 클러스터만 필터 시 상승 가능"
