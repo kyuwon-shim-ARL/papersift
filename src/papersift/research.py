@@ -18,10 +18,12 @@ from papersift.abstract import AbstractFetcher, attach_abstracts
 from papersift.entity_layer import EntityLayerBuilder
 from papersift.extract import (
     build_batch_prompts,
+    build_fulltext_batch_prompts,
     load_extractions,
     merge_extractions,
     save_prompts,
 )
+from papersift.fulltext import FulltextFetcher, attach_fulltext
 
 
 @dataclass
@@ -52,17 +54,19 @@ class ResearchOutput:
 class ResearchPipeline:
     """Research pipeline orchestrator with prepare/finalize pattern."""
 
-    def __init__(self, use_topics: bool = False, resolution: float = 1.0, seed: int = 42):
+    def __init__(self, use_topics: bool = False, resolution: float = 1.0, seed: int = 42, use_fulltext: bool = False):
         """Initialize the research pipeline.
 
         Args:
             use_topics: If True, use OpenAlex topics as entities in addition to title extraction
             resolution: Leiden clustering resolution (higher = more clusters)
             seed: Random seed for reproducible clustering
+            use_fulltext: If True, fetch PMC fulltext for enhanced extraction
         """
         self.use_topics = use_topics
         self.resolution = resolution
         self.seed = seed
+        self.use_fulltext = use_fulltext
 
     def prepare(
         self,
@@ -125,18 +129,54 @@ class ResearchPipeline:
             file=sys.stderr,
         )
 
+        # Step 2.5: Fetch fulltext (if enabled)
+        fulltext_stats = {}
+        if self.use_fulltext:
+            print("\nStep 2.5: Fetching PMC fulltext...", file=sys.stderr)
+            ft_fetcher = FulltextFetcher()
+            fulltext_data = ft_fetcher.fetch_all(papers)
+            papers, fulltext_stats = attach_fulltext(papers, fulltext_data)
+            print(
+                f"  Fulltext coverage: {fulltext_stats['with_fulltext']}/{fulltext_stats['total']} "
+                f"({100*fulltext_stats['with_fulltext']/fulltext_stats['total']:.1f}%)",
+                file=sys.stderr,
+            )
+
         # Step 3: Build extraction prompts
         print("\nStep 3: Building extraction prompts...", file=sys.stderr)
-        prompts, batch_doi_lists = build_batch_prompts(papers)
-        print(f"  Created {len(prompts)} prompts for {len(papers)} papers", file=sys.stderr)
+        if self.use_fulltext:
+            # Split papers: those with fulltext vs those without
+            papers_with_ft = [p for p in papers if p.get("fulltext")]
+            papers_without_ft = [p for p in papers if not p.get("fulltext")]
+
+            prompts = []
+            batch_doi_lists = []
+
+            if papers_with_ft:
+                ft_prompts, ft_dois = build_fulltext_batch_prompts(papers_with_ft)
+                prompts.extend(ft_prompts)
+                batch_doi_lists.extend(ft_dois)
+                print(f"  Fulltext prompts: {len(ft_prompts)} ({len(papers_with_ft)} papers)", file=sys.stderr)
+
+            if papers_without_ft:
+                abs_prompts, abs_dois = build_batch_prompts(papers_without_ft)
+                prompts.extend(abs_prompts)
+                batch_doi_lists.extend(abs_dois)
+                print(f"  Abstract-only prompts: {len(abs_prompts)} ({len(papers_without_ft)} papers)", file=sys.stderr)
+        else:
+            prompts, batch_doi_lists = build_batch_prompts(papers)
+        print(f"  Created {len(prompts)} prompts total for {len(papers)} papers", file=sys.stderr)
 
         metadata = {
             "timestamp": datetime.now().isoformat(),
             "resolution": self.resolution,
             "seed": self.seed,
             "use_topics": self.use_topics,
+            "use_fulltext": self.use_fulltext,
             "version": "1.0",
         }
+        if fulltext_stats:
+            metadata["fulltext_stats"] = fulltext_stats
 
         return PreparedData(
             papers=papers,

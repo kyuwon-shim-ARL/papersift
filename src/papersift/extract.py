@@ -42,6 +42,37 @@ Papers to analyze:
 {papers_block}"""
 
 
+FULLTEXT_EXTRACTION_PROMPT_TEMPLATE = """You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+Extract from the fulltext sections below. The fulltext provides richer detail than abstracts alone.
+If information is not available for a field, use empty string.
+
+Return a JSON array with one object per paper:
+[
+  {{
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  }},
+  ...
+]
+
+Papers to analyze:
+{papers_block}"""
+
+
 def build_batch_prompts(papers: list[dict], batch_size: int = 45) -> tuple[list[str], list[list[str]]]:
     """
     Groups papers into batches and builds extraction prompts.
@@ -97,6 +128,86 @@ Abstract: {abstract}
 
         papers_block = "\n\n".join(paper_entries)
         prompt = EXTRACTION_PROMPT_TEMPLATE.format(papers_block=papers_block)
+
+        prompts.append(prompt)
+        batch_doi_lists.append(batch_dois)
+
+    return prompts, batch_doi_lists
+
+
+def build_fulltext_batch_prompts(
+    papers: list[dict], batch_size: int = 5
+) -> tuple[list[str], list[list[str]]]:
+    """Build extraction prompts for papers with fulltext sections.
+
+    Uses smaller batch size (default 5) because fulltext is much longer per paper.
+    Papers without fulltext fall back to abstract-only format.
+
+    Args:
+        papers: list of paper dicts with doi, title, year, abstract, fulltext fields
+        batch_size: papers per batch (default 5, smaller due to fulltext length)
+
+    Returns:
+        (prompts, batch_doi_lists) where:
+        - prompts[i] is the full prompt string for batch i
+        - batch_doi_lists[i] is the list of DOIs in batch i
+    """
+    prompts = []
+    batch_doi_lists = []
+
+    valid_papers = [p for p in papers if p.get("doi")]
+
+    for i in range(0, len(valid_papers), batch_size):
+        batch = valid_papers[i : i + batch_size]
+
+        paper_entries = []
+        batch_dois = []
+        has_any_fulltext = False
+
+        for paper in batch:
+            doi = paper["doi"]
+            title = paper.get("title", "(no title)")
+            year = paper.get("year", "unknown")
+            abstract = paper.get("abstract", "").strip()
+            fulltext = paper.get("fulltext", {})
+
+            if not abstract:
+                abstract = "(no abstract available)"
+
+            methods = fulltext.get("methods_text", "")
+            results = fulltext.get("results_text", "")
+            discussion = fulltext.get("discussion_text", "")
+
+            # Truncate to prevent context window overflow
+            if methods:
+                methods = methods[:3000]
+                has_any_fulltext = True
+            if results:
+                results = results[:3000]
+                has_any_fulltext = True
+            if discussion:
+                discussion = discussion[:2000]
+                has_any_fulltext = True
+
+            parts = [f"---\nDOI: {doi}\nTitle: {title}\nYear: {year}\nAbstract: {abstract}"]
+            if methods:
+                parts.append(f"Methods: {methods}")
+            if results:
+                parts.append(f"Results: {results}")
+            if discussion:
+                parts.append(f"Discussion: {discussion}")
+            parts.append("---")
+
+            paper_entries.append("\n".join(parts))
+            batch_dois.append(doi)
+
+        papers_block = "\n\n".join(paper_entries)
+
+        # Use fulltext template if any paper in batch has fulltext
+        if has_any_fulltext:
+            prompt = FULLTEXT_EXTRACTION_PROMPT_TEMPLATE.format(papers_block=papers_block)
+        else:
+            prompt = EXTRACTION_PROMPT_TEMPLATE.format(papers_block=papers_block)
 
         prompts.append(prompt)
         batch_doi_lists.append(batch_dois)

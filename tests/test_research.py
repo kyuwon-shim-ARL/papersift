@@ -197,6 +197,54 @@ def test_pipeline_end_to_end_mock(tmp_path):
     assert output.stats["extraction_coverage"] > 0
 
 
+@patch("papersift.research.FulltextFetcher")
+@patch("papersift.research.AbstractFetcher")
+def test_prepare_with_fulltext_flag(mock_abs_cls, mock_ft_cls):
+    """Fulltext fetch is called when use_fulltext=True."""
+    mock_abs = MagicMock()
+    mock_abs.fetch_all.return_value = {}
+    mock_abs_cls.return_value = mock_abs
+
+    mock_ft = MagicMock()
+    mock_ft.fetch_all.return_value = {
+        "10.1234/paper0": {"methods_text": "M0", "results_text": "R0", "discussion_text": "D0"},
+    }
+    mock_ft_cls.return_value = mock_ft
+
+    papers = _make_papers(3)
+    pipeline = ResearchPipeline(use_fulltext=True)
+    prepared = pipeline.prepare(papers)
+
+    mock_ft.fetch_all.assert_called_once()
+    assert prepared.metadata.get("use_fulltext") is True
+    assert len(prepared.prompts) > 0
+
+
+@patch("papersift.research.FulltextFetcher")
+@patch("papersift.research.AbstractFetcher")
+def test_prepare_mixed_prompts(mock_abs_cls, mock_ft_cls):
+    """Both fulltext and abstract-only prompts are generated."""
+    mock_abs = MagicMock()
+    mock_abs.fetch_all.return_value = {}
+    mock_abs_cls.return_value = mock_abs
+
+    # Only paper0 gets fulltext
+    mock_ft = MagicMock()
+    mock_ft.fetch_all.return_value = {
+        "10.1234/paper0": {"methods_text": "Methods", "results_text": "Results", "discussion_text": "Discussion"},
+    }
+    mock_ft_cls.return_value = mock_ft
+
+    papers = _make_papers(5)
+    pipeline = ResearchPipeline(use_fulltext=True)
+    prepared = pipeline.prepare(papers)
+
+    # Should have prompts for both fulltext and abstract-only papers
+    assert len(prepared.prompts) >= 2
+    total_dois = sum(len(dl) for dl in prepared.batch_doi_lists)
+    assert total_dois == 5
+
+
 def test_export_creates_files(tmp_path):
     """Output directory contains expected files."""
     papers = _make_papers(2)

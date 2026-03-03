@@ -5,7 +5,9 @@ import pytest
 from pathlib import Path
 from papersift.extract import (
     EXTRACTION_PROMPT_TEMPLATE,
+    FULLTEXT_EXTRACTION_PROMPT_TEMPLATE,
     build_batch_prompts,
+    build_fulltext_batch_prompts,
     parse_llm_response,
     merge_extractions,
     load_extractions,
@@ -315,3 +317,75 @@ def test_prompt_template_has_new_fields():
     assert "metric" in EXTRACTION_PROMPT_TEMPLATE
     assert "baseline" in EXTRACTION_PROMPT_TEMPLATE
     assert "result" in EXTRACTION_PROMPT_TEMPLATE
+
+
+def test_fulltext_prompt_template_has_fields():
+    """Fulltext template mentions all 7 extraction fields."""
+    for field in ["problem", "method", "finding", "dataset", "metric", "baseline", "result"]:
+        assert field in FULLTEXT_EXTRACTION_PROMPT_TEMPLATE
+    assert "fulltext" in FULLTEXT_EXTRACTION_PROMPT_TEMPLATE.lower()
+
+
+def test_build_fulltext_batch_prompts_basic():
+    """Correct batch count for fulltext papers."""
+    papers = [
+        {
+            "doi": f"10.1/{i}",
+            "title": f"Paper {i}",
+            "year": 2024,
+            "abstract": f"Abstract {i}",
+            "fulltext": {"methods_text": f"Methods {i}", "results_text": "", "discussion_text": ""},
+        }
+        for i in range(12)
+    ]
+    prompts, doi_lists = build_fulltext_batch_prompts(papers, batch_size=5)
+    assert len(prompts) == 3  # ceil(12/5) = 3
+    assert len(doi_lists[0]) == 5
+    assert len(doi_lists[1]) == 5
+    assert len(doi_lists[2]) == 2
+
+
+def test_build_fulltext_batch_prompts_truncation():
+    """Long fulltext sections are truncated."""
+    long_methods = "M" * 5000  # > 3000 char limit
+    long_results = "R" * 5000
+    long_discussion = "D" * 5000  # > 2000 char limit
+    papers = [
+        {
+            "doi": "10.1/a",
+            "title": "Paper A",
+            "year": 2024,
+            "abstract": "Abstract",
+            "fulltext": {
+                "methods_text": long_methods,
+                "results_text": long_results,
+                "discussion_text": long_discussion,
+            },
+        }
+    ]
+    prompts, _ = build_fulltext_batch_prompts(papers)
+    # Methods truncated to 3000 chars
+    assert "M" * 3001 not in prompts[0]
+    # Discussion truncated to 2000 chars
+    assert "D" * 2001 not in prompts[0]
+    # But some content is present
+    assert "Methods:" in prompts[0]
+    assert "Results:" in prompts[0]
+    assert "Discussion:" in prompts[0]
+
+
+def test_build_fulltext_batch_prompts_fallback():
+    """Papers without fulltext use abstract-only template."""
+    papers = [
+        {
+            "doi": "10.1/a",
+            "title": "Paper A",
+            "year": 2024,
+            "abstract": "Abstract A",
+        },
+    ]
+    prompts, doi_lists = build_fulltext_batch_prompts(papers)
+    assert len(prompts) == 1
+    # Should use EXTRACTION_PROMPT_TEMPLATE (no fulltext sections)
+    assert "Methods:" not in prompts[0]
+    assert "Abstract A" in prompts[0]

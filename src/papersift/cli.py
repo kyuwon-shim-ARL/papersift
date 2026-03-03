@@ -269,6 +269,16 @@ Examples:
     abstract_parser.add_argument("--skip-epmc", action="store_true",
                                 help="Skip Europe PMC individual queries (faster but lower coverage)")
 
+    # ===== fulltext command =====
+    fulltext_parser = subparsers.add_parser(
+        "fulltext",
+        help="Fetch PMC fulltext for papers with available open-access XML",
+        description="Fetch fulltext from Europe PMC: DOI→PMCID lookup, then JATS XML fetch + section extraction.",
+    )
+    fulltext_parser.add_argument("input", help="Papers JSON file")
+    fulltext_parser.add_argument("-o", "--output", required=True,
+                                help="Output JSON file (papers with fulltext attached)")
+
     # ===== research command =====
     research_parser = subparsers.add_parser(
         "research",
@@ -308,6 +318,8 @@ workflow: entity-based focus (skip cluster numbers)
                                 help="Pre-computed clusters JSON file ({doi: cluster_id})")
     research_parser.add_argument("--extractions-from",
                                 help="Pre-computed LLM extractions JSON file (skips auto-extraction)")
+    research_parser.add_argument("--use-fulltext", action="store_true",
+                                help="Fetch PMC fulltext and use for enhanced extraction (slower but higher quality)")
     research_parser.add_argument("--no-llm", action="store_true",
                                 help="Skip automatic LLM extraction (save prompts only)")
 
@@ -337,6 +349,8 @@ workflow: entity-based focus (skip cluster numbers)
         run_subcluster(args)
     elif args.command == "abstract":
         run_abstract(args)
+    elif args.command == "fulltext":
+        run_fulltext(args)
     elif args.command == "research":
         run_research(args)
     # Pipeline command dispatch
@@ -1116,6 +1130,35 @@ def _run_claude_extraction(prompts, max_parallel=5):
     return [r if r is not None else [] for r in results]
 
 
+def run_fulltext(args):
+    """Execute fulltext fetch command."""
+    from papersift.fulltext import FulltextFetcher, attach_fulltext
+
+    papers = load_papers(args.input)
+    print(f"Loaded {len(papers)} papers", file=sys.stderr)
+
+    fetcher = FulltextFetcher()
+    fulltext_data = fetcher.fetch_all(papers)
+    papers, stats = attach_fulltext(papers, fulltext_data)
+
+    # Save output
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, 'w') as f:
+        json.dump(papers, f, indent=2, ensure_ascii=False)
+
+    # Print summary
+    total = stats['total']
+    with_ft = stats['with_fulltext']
+    print(f"\n=== Summary ===", file=sys.stderr)
+    print(f"Total papers: {total}", file=sys.stderr)
+    print(f"With fulltext: {with_ft} ({100*with_ft/total:.1f}%)" if total else "With fulltext: 0", file=sys.stderr)
+    print(f"Without fulltext: {stats['without_fulltext']}", file=sys.stderr)
+    if stats['without_doi']:
+        print(f"Without DOI: {stats['without_doi']}", file=sys.stderr)
+    print(f"\nSaved: {output_path}", file=sys.stderr)
+
+
 def run_research(args):
     """Execute research pipeline command."""
     from papersift.research import ResearchPipeline
@@ -1127,6 +1170,7 @@ def run_research(args):
         use_topics=getattr(args, 'use_topics', False),
         resolution=args.resolution,
         seed=args.seed,
+        use_fulltext=getattr(args, 'use_fulltext', False),
     )
 
     # Always run Phase 1
