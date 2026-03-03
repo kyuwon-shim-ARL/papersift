@@ -1,5 +1,5 @@
 version: 1
-updated: "2026-02-27T15:00:00Z"
+updated: "2026-03-03T14:00:00Z"
 scan_paths:
   - outputs/
 experiments:
@@ -37,11 +37,12 @@ experiments:
     script: ""
     params: {}
     outputs: []
-    status: deferred
+    status: closed
     description: "[후순위] LLM 시드 선정 vs 수동 시드 품질 비교"
     issue: 3
     branch: ""
     priority: 3
+    verdict: "DEFERRED (won't-do) — e006 fulltext pipeline으로 extraction 품질 해결, 시드 선정 필요성 낮음"
   e004:
     path: outputs/e004/
     script: ""
