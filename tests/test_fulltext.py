@@ -198,6 +198,122 @@ def test_attach_fulltext_doi_normalization():
     assert papers[0]["fulltext"]["methods_text"] == "M"
 
 
+def test_extract_section_text_nested_sec():
+    """Handles nested <sec> elements (subsections)."""
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+    <article><body>
+      <sec sec-type="methods">
+        <title>Methods</title>
+        <p>Overview of methods.</p>
+        <sec>
+          <title>Cell Culture</title>
+          <p>HeLa cells were cultured in DMEM.</p>
+        </sec>
+        <sec>
+          <title>Statistical Analysis</title>
+          <p>We used t-tests for comparison.</p>
+        </sec>
+      </sec>
+    </body></article>"""
+    root = ET.fromstring(xml)
+    methods = extract_section_text(root, section_titles=["method"], sec_types=["methods"])
+    assert "Overview of methods" in methods
+    assert "HeLa cells" in methods
+    assert "t-tests" in methods
+
+
+def test_extract_section_text_multiple_matching_sections():
+    """Concatenates text from multiple matching sections."""
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+    <article><body>
+      <sec sec-type="methods"><title>Methods</title><p>Method A.</p></sec>
+      <sec sec-type="methods"><title>Supplementary Methods</title><p>Method B.</p></sec>
+    </body></article>"""
+    root = ET.fromstring(xml)
+    methods = extract_section_text(root, section_titles=["method"], sec_types=["methods"])
+    assert "Method A" in methods
+    assert "Method B" in methods
+
+
+def test_parse_jats_xml_unicode():
+    """Handles Unicode characters in XML content."""
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+    <article><body>
+      <sec sec-type="methods"><title>Methods</title>
+        <p>We used α-synuclein and β-amyloid markers (p&lt;0.001).</p>
+      </sec>
+    </body></article>"""
+    result = parse_jats_xml(xml)
+    assert "α-synuclein" in result["methods_text"]
+    assert "β-amyloid" in result["methods_text"]
+
+
+def test_parse_jats_xml_with_tables_and_figures():
+    """Extracts text but ignores table/figure structure."""
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+    <article><body>
+      <sec sec-type="results"><title>Results</title>
+        <p>Key result described here.</p>
+        <fig id="f1"><label>Figure 1</label><caption><p>Caption text.</p></caption></fig>
+        <table-wrap><table><tr><td>Data</td></tr></table></table-wrap>
+      </sec>
+    </body></article>"""
+    result = parse_jats_xml(xml)
+    assert "Key result" in result["results_text"]
+    assert "Caption text" in result["results_text"]
+
+
+def test_attach_fulltext_empty_papers():
+    """Empty paper list returns zero stats."""
+    papers, stats = attach_fulltext([], {})
+    assert stats["total"] == 0
+    assert stats["with_fulltext"] == 0
+
+
+def test_attach_fulltext_case_insensitive_doi():
+    """DOI matching is case-insensitive."""
+    papers = [{"doi": "10.1038/S41586-021-03828-1", "title": "A"}]
+    fulltext_data = {"10.1038/s41586-021-03828-1": {"methods_text": "M", "results_text": "", "discussion_text": ""}}
+    papers, stats = attach_fulltext(papers, fulltext_data)
+    assert stats["with_fulltext"] == 1
+
+
+def test_fetcher_no_dois():
+    """Fetcher returns empty when no papers have DOIs."""
+    fetcher = FulltextFetcher()
+    result = fetcher.fetch_all([{"title": "No DOI paper"}])
+    assert result == {}
+
+
+def test_fetcher_empty_papers():
+    """Fetcher handles empty paper list."""
+    fetcher = FulltextFetcher()
+    result = fetcher.fetch_all([])
+    assert result == {}
+
+
+@patch("papersift.fulltext.urllib.request.urlopen")
+def test_fetch_pmc_xml_404(mock_urlopen):
+    """404 returns None (paper not in PMC)."""
+    import urllib.error
+    mock_urlopen.side_effect = urllib.error.HTTPError(
+        url="http://test", code=404, msg="Not Found", hdrs=None, fp=None
+    )
+    fetcher = FulltextFetcher()
+    result = fetcher._fetch_pmc_xml("PMC999999")
+    assert result is None
+
+
+@patch("papersift.fulltext.urllib.request.urlopen")
+def test_fetch_pmcids_handles_errors(mock_urlopen):
+    """PMCID lookup gracefully handles network errors."""
+    import urllib.error
+    mock_urlopen.side_effect = urllib.error.URLError("Connection refused")
+    fetcher = FulltextFetcher()
+    result = fetcher._fetch_pmcids(["10.1/test"])
+    assert result == {}
+
+
 @patch("papersift.fulltext.urllib.request.urlopen")
 def test_fetch_all_with_mock(mock_urlopen):
     """Mocked HTTP calls for full pipeline."""
@@ -226,3 +342,29 @@ def test_fetch_all_with_mock(mock_urlopen):
 
     assert "10.1/test" in result
     assert "ODE modeling" in result["10.1/test"]["methods_text"]
+
+
+@patch("papersift.fulltext.urllib.request.urlopen")
+def test_fetch_all_skips_empty_sections(mock_urlopen):
+    """Papers with XML but no meaningful sections are excluded."""
+    pmcid_response = MagicMock()
+    pmcid_response.__enter__ = MagicMock(return_value=pmcid_response)
+    pmcid_response.__exit__ = MagicMock(return_value=False)
+    pmcid_response.read.return_value = json.dumps({
+        "resultList": {"result": [{"pmcid": "PMC456"}]}
+    }).encode()
+    pmcid_response.status = 200
+
+    # XML with no recognizable sections
+    empty_xml = '<?xml version="1.0"?><article><body><p>Just text.</p></body></article>'
+    xml_response = MagicMock()
+    xml_response.__enter__ = MagicMock(return_value=xml_response)
+    xml_response.__exit__ = MagicMock(return_value=False)
+    xml_response.read.return_value = empty_xml.encode()
+    xml_response.status = 200
+
+    mock_urlopen.side_effect = [pmcid_response, xml_response]
+
+    fetcher = FulltextFetcher()
+    result = fetcher.fetch_all([{"doi": "10.1/empty", "title": "Empty"}])
+    assert "10.1/empty" not in result  # excluded because no methods/results/discussion

@@ -1,0 +1,14 @@
+# Intermediate experiment outputs (reproducible from scripts)
+prompt_*.txt
+result_*.json
+checkpoint.json
+pmc_checkpoint.json
+
+# Intermediate extraction data
+extracted_fulltext*.json
+fulltext_extractions.json
+
+# V1 prompt/comparison files (superseded by v2)
+ab_prompts_abstract.json
+ab_prompts_fulltext.json
+ab_comparison_template.json

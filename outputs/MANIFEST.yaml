@@ -1,5 +1,5 @@
 version: 1
-updated: "2026-03-03T14:00:00Z"
+updated: "2026-03-04T00:15:00Z"
 scan_paths:
   - outputs/
 experiments:
@@ -89,3 +89,30 @@ experiments:
     depends_on: [e005]
     verdict: "GO — baseline 커버리지 64%→96% (+32pp), 전체 개선율 82.2%, 구체성 Δ +0.223. PMC XML 705편 수집, 50편 A/B 비교 완료"
     note: "T1 커버리지(48.7%) → T2 PMC XML 705편 → T3 A/B 비교(50편, 15 parallel agents) → T4 GO 판정"
+  e007:
+    path: outputs/e007/
+    script: ""
+    params:
+      mode: "abstract-only first, then fulltext for PMC papers"
+      model: "haiku subagent"
+      batch_size_abstract: 45
+      batch_size_fulltext: 5
+    outputs: []
+    status: planned
+    description: "3,070편 전량 LLM 추출 — haiku subagent (abstract-only 69 calls + fulltext 141 calls)"
+    issue: 7
+    branch: ""
+    priority: 1
+    depends_on: [e006]
+  e008:
+    path: outputs/e008/
+    script: ""
+    params:
+      comparison: "fulltext-enriched vs abstract-only landscape reports"
+    outputs: []
+    status: planned
+    description: "다운스트림 영향 측정 — fulltext vs abstract-only landscape report 품질 비교"
+    issue: 8
+    branch: ""
+    priority: 1
+    depends_on: [e007]
