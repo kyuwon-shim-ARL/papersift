@@ -236,3 +236,79 @@ experiments:
     success_criteria: ">= 3 entities q < 0.05 after BH-FDR"
     verdict: "GO — 64/154 entities significant (v1: 0/75). Top rising: digital twin, in silico, cancer, deep learning, machine learning. Top declining: rat, neuronal. 동물모델→in silico 전환 신호 확인"
     note: "v1→v2 검출력 극적 개선 (0→64). valid_years>=10, freq>=15로 안정성 강화. Rising 60개, declining 4개 — field 전체가 computational 전환 중"
+  e015:
+    path: outputs/e015/
+    script: scripts/e015_knowledge_frontier_v1.py
+    params:
+      design: "Knowledge Frontier v1.0 — T0(entity extraction) + T1(redundancy) + T2(temporal) + T3(gaps) + acceptance test"
+      dataset: "results/virtual-cell-sweep/papers_with_abstracts.json"
+      clusters: "results/virtual-cell-sweep/clusters.json"
+    outputs:
+      - outputs/e015/results.json
+      - results/virtual-cell-sweep/papers_with_entities.json
+    status: complete
+    description: "Knowledge Frontier v1.0 — 3차원 탐색 (redundancy + temporal + structural gaps)"
+    issue: ""
+    branch: ""
+    priority: 1
+    depends_on: [e010, e014]
+    success_criteria: "v1.0 acceptance: >=3/5 biology clusters with non-trivial signals in all 3 dimensions"
+    verdict: "PASS — 3/5 biology clusters pass (C0,C1,C5). T0: 97.2% entity coverage. T1: 9,710 redundant pairs, 2-axis independent (r=-0.057). T2: 14 significant per-cluster trends, momentum variance>0. T3: 12 intra-cluster gaps, 28 cross-cluster bridges."
+    note: "C3 T3 gap 0 (entity 해상도 부족), C7 small cluster(134편) T2+T3 모두 insufficient. 시나리오 A/B/C/E 코드 실현 완료."
+  e016:
+    path: outputs/e016/
+    script: scripts/e016_extended_extraction.py
+    params:
+      design: "2-pass haiku subagent extraction (45→20 papers/batch)"
+      model: "haiku subagent"
+      pass1_batch_size: 45
+      pass2_batch_size: 20
+      total_papers: 3070
+    outputs:
+      - outputs/e016/results.json
+      - outputs/e016/checkpoints/
+      - outputs/e016/reextract/
+      - results/virtual-cell-sweep/extractions_extended.json
+    status: complete
+    description: "Extended extraction — enables/limits/open_questions 3,070편 2-pass 추출"
+    issue: ""
+    branch: ""
+    priority: 1
+    depends_on: [e012]
+    success_criteria: "enables >= 80%, limits >= 60%, open_questions >= 60%"
+    verdict: "CONDITIONAL — enables 52.7%, limits 45.6%, open_questions 49.7% (above 40% kill, below GO thresholds)"
+    note: "Pass 1: 69 batches all 10 fields → low extended fill (20.1/12.9/17.0%). Pass 2: 84 batches focused 3 fields only → merged 52.7/45.6/49.7%. Sufficient for downstream T5/T6."
+  e017:
+    path: outputs/e017/
+    script: scripts/e017_failure_signal.py
+    params:
+      design: "dead-end detection from limits + open_questions per cluster"
+      input: "extractions_extended.json + clusters.json"
+    outputs:
+      - outputs/e017/results.json
+    status: complete
+    description: "Failure Signal Aggregation — dead-end 탐지"
+    issue: ""
+    branch: ""
+    priority: 1
+    depends_on: [e016]
+    success_criteria: ">= 2 recurring limitation themes per cluster + >= 5 actionable directions"
+    verdict: "GO — 5/5 bio clusters with themes, 63 actionable OQ themes, generic rate near 0%"
+    note: "C0: 22 dead-ends, C1: 14, C4: 15. All bio clusters have rich limit themes. Generic rate 0-1.7%."
+  e018:
+    path: outputs/e018/
+    script: scripts/e018_bridge_recommendation.py
+    params:
+      design: "bridge_score = momentum × gap × (1-failure_penalty)"
+      inputs: "e015 T2/T3 + e017 failure signals"
+    outputs:
+      - outputs/e018/results.json
+    status: complete
+    description: "Bridge Recommendation — T2+T3+T5 종합 추천"
+    issue: ""
+    branch: ""
+    priority: 1
+    depends_on: [e015, e017]
+    success_criteria: "top-10 >= 5 user-rated 'worth trying'"
+    verdict: "GO — 10/10 top recs involve biology clusters, 7 linked to rising trends"
+    note: "33 total recommendations (8 intra + 25 cross). Top: mechanics↔fuel-cells, fuel-cells↔immunology, neuro↔fuel-cells."

@@ -1,0 +1,35 @@
+{
+  "experiment": "e016",
+  "description": "Extended extraction — enables/limits/open_questions via 2-pass haiku subagent",
+  "total_papers": 3070,
+  "total_extractions": 3056,
+  "coverage_pct": 99.5,
+  "field_fill_rates": {
+    "enables": {
+      "non_empty": 1612,
+      "rate_pct": 52.7
+    },
+    "limits": {
+      "non_empty": 1393,
+      "rate_pct": 45.6
+    },
+    "open_questions": {
+      "non_empty": 1519,
+      "rate_pct": 49.7
+    },
+    "problem": {
+      "non_empty": 2940,
+      "rate_pct": 96.2
+    },
+    "method": {
+      "non_empty": 2090,
+      "rate_pct": 68.4
+    },
+    "finding": {
+      "non_empty": 2243,
+      "rate_pct": 73.4
+    }
+  },
+  "extraction_method": "2-pass: (1) 45-paper batches all fields, (2) 20-paper focused re-extraction for empty extended fields",
+  "verdict": "CONDITIONAL — enables 52.7%, limits 45.6%, open_questions 49.7%"
+}

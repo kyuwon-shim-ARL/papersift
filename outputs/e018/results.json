@@ -1,0 +1,1559 @@
+{
+  "experiment": "e018",
+  "description": "Bridge Recommendation — combining temporal + gaps + failure signals",
+  "n_intra_recommendations": 8,
+  "n_cross_recommendations": 25,
+  "n_total": 33,
+  "top_10_bio_involved": 10,
+  "top_10_with_rising": 7,
+  "verdict": "GO — 10/10 top recs involve biology clusters, 7 linked to rising trends",
+  "momentum_summary": {
+    "0": {
+      "momentum": 0.004332,
+      "rising": [
+        "vitro",
+        "dynamics"
+      ]
+    },
+    "1": {
+      "momentum": 0.003195,
+      "rising": [
+        "deep learning",
+        "whole-cell",
+        "multi-omics"
+      ]
+    },
+    "2": {
+      "momentum": 0.003243,
+      "rising": []
+    },
+    "3": {
+      "momentum": 0.007974,
+      "rising": [
+        "disease",
+        "therapeutic"
+      ]
+    },
+    "4": {
+      "momentum": 0.010091,
+      "rising": [
+        "algorithm",
+        "energy",
+        "ai",
+        "cancer"
+      ]
+    },
+    "5": {
+      "momentum": 0.011385,
+      "rising": [
+        "agent-based"
+      ]
+    },
+    "6": {
+      "momentum": 0.012398,
+      "rising": [
+        "digital twin"
+      ]
+    },
+    "7": {
+      "momentum": 0.010329,
+      "rising": []
+    }
+  },
+  "failure_summary": {
+    "0": {
+      "penalty": 0.6667,
+      "n_dead_ends": 22,
+      "n_themes": 10,
+      "dead_end_keywords": [
+        "validation + experimental + computational",
+        "quality + validation + require",
+        "novel + knowledge + accuracy",
+        "affinity + predictive + cannot",
+        "predictions + metabolic + binding",
+        "microenvironment + cell + vivo",
+        "capture + biological + assumptions",
+        "parameter + require + translational",
+        "divergent + modalities + depends",
+        "predictive + novel + scaffolds",
+        "applicability + diverse + systems",
+        "application + identification + limiting",
+        "capture + simplified + computational",
+        "stationarity + depends + training",
+        "parameters + kinetic + interactions",
+        "noise + measurement + resolution",
+        "varies + requires + across",
+        "affinity + cellular + binding",
+        "consensus + assembly + cross",
+        "novel + discovering + across",
+        "differ + relevant + activity",
+        "heterogeneous + uptake + mechanisms"
+      ]
+    },
+    "1": {
+      "penalty": 0.56,
+      "n_dead_ends": 14,
+      "n_themes": 10,
+      "dead_end_keywords": [
+        "accuracy + biological + limit",
+        "diverse + systems + biological",
+        "capture + biological + assumptions",
+        "validation + conditions + experimental",
+        "noise + measurement + resolution",
+        "cell + whole + challenges",
+        "challenge + biology + interactions",
+        "translational + capture + parameter",
+        "divergent + modalities + depends",
+        "challenges + review + cell",
+        "cell + whole + toward",
+        "significantly + complexity + computational",
+        "training + requires + sparse",
+        "approaches + validation + require"
+      ]
+    },
+    "2": {
+      "penalty": 0.3889,
+      "n_dead_ends": 7,
+      "n_themes": 10,
+      "dead_end_keywords": [
+        "accuracy + biological + limit",
+        "diverse + validation + generalizability",
+        "systems + biological + applicability",
+        "promising + cloud + network",
+        "cell + virtual + network",
+        "molecular + details + precision",
+        "sparse + data + training"
+      ]
+    },
+    "3": {
+      "penalty": 0.3125,
+      "n_dead_ends": 5,
+      "n_themes": 10,
+      "dead_end_keywords": [
+        "accuracy + biological + limit",
+        "validation + experimental + diverse",
+        "applicability + diverse + systems",
+        "molecular + details + precision",
+        "capture + biological + assumptions"
+      ]
+    },
+    "4": {
+      "penalty": 0.5769,
+      "n_dead_ends": 15,
+      "n_themes": 10,
+      "dead_end_keywords": [
+        "diverse + validation + datasets",
+        "capture + relevant + complexity",
+        "novel + knowledge + accuracy",
+        "training + requires + sparse",
+        "significantly + complexity + computational",
+        "required + tuning + systems",
+        "stationarity + depends + training",
+        "noise + measurement + resolution",
+        "include + cell + current",
+        "include + research + education",
+        "include + digital + optimal",
+        "include + storage + vehicle",
+        "include + systems + simulating",
+        "include + digital + twin",
+        "include + variables + number"
+      ]
+    },
+    "5": {
+      "penalty": 0.3636,
+      "n_dead_ends": 4,
+      "n_themes": 6,
+      "dead_end_keywords": [
+        "accuracy + biological + limit",
+        "validation + experimental + conditions",
+        "diverse + systems + applicability",
+        "capture + biological + fail"
+      ]
+    },
+    "6": {
+      "penalty": 0.2667,
+      "n_dead_ends": 4,
+      "n_themes": 10,
+      "dead_end_keywords": [
+        "diverse + systems + validation",
+        "novel + knowledge + accuracy",
+        "capture + biological + assumptions",
+        "constraint + msmr + coupled"
+      ]
+    },
+    "7": {
+      "penalty": 0.3333,
+      "n_dead_ends": 2,
+      "n_themes": 3,
+      "dead_end_keywords": [
+        "novel + knowledge + accuracy",
+        "systems + biological + applicability"
+      ]
+    },
+    "8": {
+      "penalty": 0.0,
+      "n_dead_ends": 0,
+      "n_themes": 0,
+      "dead_end_keywords": []
+    },
+    "9": {
+      "penalty": 0.0,
+      "n_dead_ends": 0,
+      "n_themes": 0,
+      "dead_end_keywords": []
+    },
+    "10": {
+      "penalty": 0.0,
+      "n_dead_ends": 0,
+      "n_themes": 0,
+      "dead_end_keywords": []
+    }
+  },
+  "top_20": [
+    {
+      "type": "cross_cluster",
+      "cluster_a": "5",
+      "cluster_b": "6",
+      "cluster_a_label": "mechanics/ABM",
+      "cluster_b_label": "fuel-cells/energy",
+      "bridge_score": 0.007259,
+      "momentum_score": 0.011891,
+      "gap_score": 0.8914,
+      "failure_penalty": 0.3151,
+      "entity_jaccard": 0.1457,
+      "shared_entities": [
+        "algorithm",
+        "application",
+        "development",
+        "digital twin",
+        "disease",
+        "dynamics",
+        "evolution",
+        "heterogeneity",
+        "homeostasis",
+        "human"
+      ],
+      "rising_in_shared": [
+        "digital twin"
+      ],
+      "recommendation": "Bridge mechanics/ABM ↔ fuel-cells/energy (Jaccard=0.146, 22 shared entities). Rising entities in overlap: digital twin. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "6",
+      "cluster_b": "7",
+      "cluster_a_label": "fuel-cells/energy",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.006982,
+      "momentum_score": 0.011363,
+      "gap_score": 0.8778,
+      "failure_penalty": 0.3,
+      "entity_jaccard": 0.1389,
+      "shared_entities": [
+        "algorithm",
+        "development",
+        "disease",
+        "dynamics",
+        "heterogeneity",
+        "homeostasis",
+        "human",
+        "metabolic",
+        "microbial",
+        "neural network"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge fuel-cells/energy ↔ immunology (Jaccard=0.139, 15 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "3",
+      "cluster_b": "6",
+      "cluster_a_label": "neuro/electrophysiology",
+      "cluster_b_label": "fuel-cells/energy",
+      "bridge_score": 0.006534,
+      "momentum_score": 0.010186,
+      "gap_score": 0.903,
+      "failure_penalty": 0.2896,
+      "entity_jaccard": 0.1515,
+      "shared_entities": [
+        "algorithm",
+        "application",
+        "blood",
+        "development",
+        "diagnosis",
+        "digital twin",
+        "disease",
+        "dynamics",
+        "evolution",
+        "experimental"
+      ],
+      "rising_in_shared": [
+        "disease",
+        "digital twin"
+      ],
+      "recommendation": "Bridge neuro/electrophysiology ↔ fuel-cells/energy (Jaccard=0.151, 25 shared entities). Rising entities in overlap: disease, digital twin. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "intra_cluster",
+      "cluster": "5",
+      "cluster_label": "mechanics/ABM",
+      "entity_a": "dynamics",
+      "entity_b": "human",
+      "bridge_score": 0.006275,
+      "momentum_score": 0.011385,
+      "gap_score": 0.866,
+      "failure_penalty": 0.3636,
+      "gap_expected": 7.46,
+      "gap_observed": 1,
+      "rising_involved": false,
+      "recommendation": "Explore the intersection of 'dynamics' and 'human' within mechanics/ABM. Expected co-occurrence=7.5 but observed=1, suggesting an underexplored combination."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "5",
+      "cluster_b": "7",
+      "cluster_a_label": "mechanics/ABM",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.006259,
+      "momentum_score": 0.010857,
+      "gap_score": 0.8848,
+      "failure_penalty": 0.3484,
+      "entity_jaccard": 0.2576,
+      "shared_entities": [
+        "agent-based",
+        "algorithm",
+        "cancer",
+        "cell cycle",
+        "cell fate",
+        "development",
+        "differentiation",
+        "disease",
+        "dynamics",
+        "effects"
+      ],
+      "rising_in_shared": [
+        "agent-based"
+      ],
+      "recommendation": "Bridge mechanics/ABM ↔ immunology (Jaccard=0.258, 34 shared entities). Rising entities in overlap: agent-based. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "3",
+      "cluster_b": "7",
+      "cluster_a_label": "neuro/electrophysiology",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.00564,
+      "momentum_score": 0.009151,
+      "gap_score": 0.9102,
+      "failure_penalty": 0.3229,
+      "entity_jaccard": 0.2449,
+      "shared_entities": [
+        "agent-based",
+        "algorithm",
+        "b cell",
+        "bacterial",
+        "cancer",
+        "cell cycle",
+        "cell fate",
+        "development",
+        "differentiation",
+        "disease"
+      ],
+      "rising_in_shared": [
+        "disease"
+      ],
+      "recommendation": "Bridge neuro/electrophysiology ↔ immunology (Jaccard=0.245, 36 shared entities). Rising entities in overlap: disease. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "4",
+      "cluster_b": "5",
+      "cluster_a_label": "digital-twin/manufacturing",
+      "cluster_b_label": "mechanics/ABM",
+      "bridge_score": 0.00495,
+      "momentum_score": 0.010738,
+      "gap_score": 0.8702,
+      "failure_penalty": 0.4702,
+      "entity_jaccard": 0.1351,
+      "shared_entities": [
+        "adaptation",
+        "algorithm",
+        "application",
+        "bayesian",
+        "cancer",
+        "development",
+        "digital twin",
+        "disease",
+        "dynamics",
+        "engineering"
+      ],
+      "rising_in_shared": [
+        "cancer",
+        "algorithm"
+      ],
+      "recommendation": "Bridge digital-twin/manufacturing ↔ mechanics/ABM (Jaccard=0.135, 30 shared entities). Rising entities in overlap: cancer, algorithm. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "3",
+      "cluster_b": "5",
+      "cluster_a_label": "neuro/electrophysiology",
+      "cluster_b_label": "mechanics/ABM",
+      "bridge_score": 0.004916,
+      "momentum_score": 0.00968,
+      "gap_score": 0.7672,
+      "failure_penalty": 0.338,
+      "entity_jaccard": 0.3164,
+      "shared_entities": [
+        "adaptation",
+        "agent-based",
+        "algorithm",
+        "apoptosis",
+        "application",
+        "cancer",
+        "cancer cell",
+        "cell cycle",
+        "cell fate",
+        "culture"
+      ],
+      "rising_in_shared": [
+        "agent-based"
+      ],
+      "recommendation": "Bridge neuro/electrophysiology ↔ mechanics/ABM (Jaccard=0.316, 56 shared entities). Rising entities in overlap: agent-based. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "4",
+      "cluster_b": "7",
+      "cluster_a_label": "digital-twin/manufacturing",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.004768,
+      "momentum_score": 0.01021,
+      "gap_score": 0.857,
+      "failure_penalty": 0.4551,
+      "entity_jaccard": 0.1285,
+      "shared_entities": [
+        "algorithm",
+        "cancer",
+        "development",
+        "disease",
+        "dynamics",
+        "human",
+        "in silico",
+        "metabolic",
+        "ml",
+        "neural network"
+      ],
+      "rising_in_shared": [
+        "cancer",
+        "algorithm"
+      ],
+      "recommendation": "Bridge digital-twin/manufacturing ↔ immunology (Jaccard=0.129, 23 shared entities). Rising entities in overlap: cancer, algorithm. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "2",
+      "cluster_b": "5",
+      "cluster_a_label": "telecom/V2X",
+      "cluster_b_label": "mechanics/ABM",
+      "bridge_score": 0.00439,
+      "momentum_score": 0.007314,
+      "gap_score": 0.9622,
+      "failure_penalty": 0.3762,
+      "entity_jaccard": 0.1811,
+      "shared_entities": [
+        "adaptation",
+        "algorithm",
+        "application",
+        "cancer",
+        "cancer cell",
+        "carcinoma",
+        "cell state",
+        "cell-based",
+        "culture",
+        "development"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge telecom/V2X ↔ mechanics/ABM (Jaccard=0.181, 44 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "3",
+      "cluster_b": "4",
+      "cluster_a_label": "neuro/electrophysiology",
+      "cluster_b_label": "digital-twin/manufacturing",
+      "bridge_score": 0.004364,
+      "momentum_score": 0.009032,
+      "gap_score": 0.87,
+      "failure_penalty": 0.4447,
+      "entity_jaccard": 0.135,
+      "shared_entities": [
+        "adaptation",
+        "algorithm",
+        "application",
+        "cancer",
+        "control",
+        "design",
+        "development",
+        "diagnosis",
+        "digital twin",
+        "disease"
+      ],
+      "rising_in_shared": [
+        "cancer",
+        "disease",
+        "algorithm"
+      ],
+      "recommendation": "Bridge neuro/electrophysiology ↔ digital-twin/manufacturing (Jaccard=0.135, 32 shared entities). Rising entities in overlap: cancer, disease, algorithm. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "2",
+      "cluster_b": "7",
+      "cluster_a_label": "telecom/V2X",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.003906,
+      "momentum_score": 0.006786,
+      "gap_score": 0.901,
+      "failure_penalty": 0.3611,
+      "entity_jaccard": 0.1505,
+      "shared_entities": [
+        "algorithm",
+        "bacterial",
+        "bioinformatics",
+        "cancer",
+        "cd8",
+        "development",
+        "differential equation",
+        "differentiation",
+        "disease",
+        "dynamics"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge telecom/V2X ↔ immunology (Jaccard=0.150, 31 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "1",
+      "cluster_b": "6",
+      "cluster_a_label": "whole-cell/systems-biology",
+      "cluster_b_label": "fuel-cells/energy",
+      "bridge_score": 0.00382,
+      "momentum_score": 0.007796,
+      "gap_score": 0.8352,
+      "failure_penalty": 0.4133,
+      "entity_jaccard": 0.1176,
+      "shared_entities": [
+        "algorithm",
+        "application",
+        "development",
+        "diagnosis",
+        "digital twin",
+        "disease",
+        "dynamics",
+        "evolution",
+        "heterogeneity",
+        "homeostasis"
+      ],
+      "rising_in_shared": [
+        "digital twin"
+      ],
+      "recommendation": "Bridge whole-cell/systems-biology ↔ fuel-cells/energy (Jaccard=0.118, 24 shared entities). Rising entities in overlap: digital twin. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "0",
+      "cluster_b": "5",
+      "cluster_a_label": "in-silico/pharmacology",
+      "cluster_b_label": "mechanics/ABM",
+      "bridge_score": 0.003707,
+      "momentum_score": 0.007858,
+      "gap_score": 0.9728,
+      "failure_penalty": 0.5151,
+      "entity_jaccard": 0.2136,
+      "shared_entities": [
+        "adaptation",
+        "algorithm",
+        "apoptosis",
+        "application",
+        "arabidopsis",
+        "bayesian",
+        "cancer",
+        "cancer cell",
+        "carcinoma",
+        "cell cycle"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge in-silico/pharmacology ↔ mechanics/ABM (Jaccard=0.214, 63 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "1",
+      "cluster_b": "7",
+      "cluster_a_label": "whole-cell/systems-biology",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.003684,
+      "momentum_score": 0.006762,
+      "gap_score": 0.9846,
+      "failure_penalty": 0.4466,
+      "entity_jaccard": 0.2077,
+      "shared_entities": [
+        "agent-based",
+        "algorithm",
+        "bacterial",
+        "bioinformatics",
+        "cancer",
+        "cell cycle",
+        "cell fate",
+        "development",
+        "differential equation",
+        "differentiation"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge whole-cell/systems-biology ↔ immunology (Jaccard=0.208, 38 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "0",
+      "cluster_b": "6",
+      "cluster_a_label": "in-silico/pharmacology",
+      "cluster_b_label": "fuel-cells/energy",
+      "bridge_score": 0.003446,
+      "momentum_score": 0.008365,
+      "gap_score": 0.7724,
+      "failure_penalty": 0.4667,
+      "entity_jaccard": 0.0862,
+      "shared_entities": [
+        "algorithm",
+        "application",
+        "blood",
+        "development",
+        "diagnosis",
+        "digital twin",
+        "disease",
+        "dynamics",
+        "evolution",
+        "experimental"
+      ],
+      "rising_in_shared": [
+        "dynamics",
+        "digital twin"
+      ],
+      "recommendation": "Bridge in-silico/pharmacology ↔ fuel-cells/energy (Jaccard=0.086, 25 shared entities). Rising entities in overlap: dynamics, digital twin. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "0",
+      "cluster_b": "7",
+      "cluster_a_label": "in-silico/pharmacology",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.003421,
+      "momentum_score": 0.007331,
+      "gap_score": 0.9334,
+      "failure_penalty": 0.5,
+      "entity_jaccard": 0.1667,
+      "shared_entities": [
+        "algorithm",
+        "b cell",
+        "b-cell",
+        "bacterial",
+        "bioinformatics",
+        "cancer",
+        "cd4",
+        "cd8",
+        "cell cycle",
+        "development"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge in-silico/pharmacology ↔ immunology (Jaccard=0.167, 44 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "2",
+      "cluster_b": "3",
+      "cluster_a_label": "telecom/V2X",
+      "cluster_b_label": "neuro/electrophysiology",
+      "bridge_score": 0.003385,
+      "momentum_score": 0.005608,
+      "gap_score": 0.9296,
+      "failure_penalty": 0.3507,
+      "entity_jaccard": 0.1648,
+      "shared_entities": [
+        "adaptation",
+        "algorithm",
+        "application",
+        "bacteria",
+        "bacterial",
+        "blood",
+        "cancer",
+        "cancer cell",
+        "channel",
+        "clustering"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge telecom/V2X ↔ neuro/electrophysiology (Jaccard=0.165, 43 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "1",
+      "cluster_b": "5",
+      "cluster_a_label": "whole-cell/systems-biology",
+      "cluster_b_label": "mechanics/ABM",
+      "bridge_score": 0.003309,
+      "momentum_score": 0.00729,
+      "gap_score": 0.8434,
+      "failure_penalty": 0.4618,
+      "entity_jaccard": 0.2783,
+      "shared_entities": [
+        "adaptation",
+        "agent-based",
+        "algorithm",
+        "apoptosis",
+        "application",
+        "arabidopsis",
+        "bayesian",
+        "cancer",
+        "cancer cell",
+        "cell cycle"
+      ],
+      "rising_in_shared": [
+        "agent-based"
+      ],
+      "recommendation": "Bridge whole-cell/systems-biology ↔ mechanics/ABM (Jaccard=0.278, 59 shared entities). Rising entities in overlap: agent-based. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "0",
+      "cluster_b": "3",
+      "cluster_a_label": "in-silico/pharmacology",
+      "cluster_b_label": "neuro/electrophysiology",
+      "bridge_score": 0.002693,
+      "momentum_score": 0.006153,
+      "gap_score": 0.8576,
+      "failure_penalty": 0.4896,
+      "entity_jaccard": 0.2712,
+      "shared_entities": [
+        "action",
+        "adaptation",
+        "algorithm",
+        "alzheimer",
+        "apoptosis",
+        "application",
+        "b cell",
+        "bacteria",
+        "bacterial",
+        "biomarker"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge in-silico/pharmacology ↔ neuro/electrophysiology (Jaccard=0.271, 80 shared entities). These communities share vocabulary but rarely cite each other."
+    }
+  ],
+  "all_recommendations": [
+    {
+      "type": "cross_cluster",
+      "cluster_a": "5",
+      "cluster_b": "6",
+      "cluster_a_label": "mechanics/ABM",
+      "cluster_b_label": "fuel-cells/energy",
+      "bridge_score": 0.007259,
+      "momentum_score": 0.011891,
+      "gap_score": 0.8914,
+      "failure_penalty": 0.3151,
+      "entity_jaccard": 0.1457,
+      "shared_entities": [
+        "algorithm",
+        "application",
+        "development",
+        "digital twin",
+        "disease",
+        "dynamics",
+        "evolution",
+        "heterogeneity",
+        "homeostasis",
+        "human"
+      ],
+      "rising_in_shared": [
+        "digital twin"
+      ],
+      "recommendation": "Bridge mechanics/ABM ↔ fuel-cells/energy (Jaccard=0.146, 22 shared entities). Rising entities in overlap: digital twin. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "6",
+      "cluster_b": "7",
+      "cluster_a_label": "fuel-cells/energy",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.006982,
+      "momentum_score": 0.011363,
+      "gap_score": 0.8778,
+      "failure_penalty": 0.3,
+      "entity_jaccard": 0.1389,
+      "shared_entities": [
+        "algorithm",
+        "development",
+        "disease",
+        "dynamics",
+        "heterogeneity",
+        "homeostasis",
+        "human",
+        "metabolic",
+        "microbial",
+        "neural network"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge fuel-cells/energy ↔ immunology (Jaccard=0.139, 15 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "3",
+      "cluster_b": "6",
+      "cluster_a_label": "neuro/electrophysiology",
+      "cluster_b_label": "fuel-cells/energy",
+      "bridge_score": 0.006534,
+      "momentum_score": 0.010186,
+      "gap_score": 0.903,
+      "failure_penalty": 0.2896,
+      "entity_jaccard": 0.1515,
+      "shared_entities": [
+        "algorithm",
+        "application",
+        "blood",
+        "development",
+        "diagnosis",
+        "digital twin",
+        "disease",
+        "dynamics",
+        "evolution",
+        "experimental"
+      ],
+      "rising_in_shared": [
+        "disease",
+        "digital twin"
+      ],
+      "recommendation": "Bridge neuro/electrophysiology ↔ fuel-cells/energy (Jaccard=0.151, 25 shared entities). Rising entities in overlap: disease, digital twin. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "intra_cluster",
+      "cluster": "5",
+      "cluster_label": "mechanics/ABM",
+      "entity_a": "dynamics",
+      "entity_b": "human",
+      "bridge_score": 0.006275,
+      "momentum_score": 0.011385,
+      "gap_score": 0.866,
+      "failure_penalty": 0.3636,
+      "gap_expected": 7.46,
+      "gap_observed": 1,
+      "rising_involved": false,
+      "recommendation": "Explore the intersection of 'dynamics' and 'human' within mechanics/ABM. Expected co-occurrence=7.5 but observed=1, suggesting an underexplored combination."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "5",
+      "cluster_b": "7",
+      "cluster_a_label": "mechanics/ABM",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.006259,
+      "momentum_score": 0.010857,
+      "gap_score": 0.8848,
+      "failure_penalty": 0.3484,
+      "entity_jaccard": 0.2576,
+      "shared_entities": [
+        "agent-based",
+        "algorithm",
+        "cancer",
+        "cell cycle",
+        "cell fate",
+        "development",
+        "differentiation",
+        "disease",
+        "dynamics",
+        "effects"
+      ],
+      "rising_in_shared": [
+        "agent-based"
+      ],
+      "recommendation": "Bridge mechanics/ABM ↔ immunology (Jaccard=0.258, 34 shared entities). Rising entities in overlap: agent-based. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "3",
+      "cluster_b": "7",
+      "cluster_a_label": "neuro/electrophysiology",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.00564,
+      "momentum_score": 0.009151,
+      "gap_score": 0.9102,
+      "failure_penalty": 0.3229,
+      "entity_jaccard": 0.2449,
+      "shared_entities": [
+        "agent-based",
+        "algorithm",
+        "b cell",
+        "bacterial",
+        "cancer",
+        "cell cycle",
+        "cell fate",
+        "development",
+        "differentiation",
+        "disease"
+      ],
+      "rising_in_shared": [
+        "disease"
+      ],
+      "recommendation": "Bridge neuro/electrophysiology ↔ immunology (Jaccard=0.245, 36 shared entities). Rising entities in overlap: disease. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "4",
+      "cluster_b": "5",
+      "cluster_a_label": "digital-twin/manufacturing",
+      "cluster_b_label": "mechanics/ABM",
+      "bridge_score": 0.00495,
+      "momentum_score": 0.010738,
+      "gap_score": 0.8702,
+      "failure_penalty": 0.4702,
+      "entity_jaccard": 0.1351,
+      "shared_entities": [
+        "adaptation",
+        "algorithm",
+        "application",
+        "bayesian",
+        "cancer",
+        "development",
+        "digital twin",
+        "disease",
+        "dynamics",
+        "engineering"
+      ],
+      "rising_in_shared": [
+        "cancer",
+        "algorithm"
+      ],
+      "recommendation": "Bridge digital-twin/manufacturing ↔ mechanics/ABM (Jaccard=0.135, 30 shared entities). Rising entities in overlap: cancer, algorithm. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "3",
+      "cluster_b": "5",
+      "cluster_a_label": "neuro/electrophysiology",
+      "cluster_b_label": "mechanics/ABM",
+      "bridge_score": 0.004916,
+      "momentum_score": 0.00968,
+      "gap_score": 0.7672,
+      "failure_penalty": 0.338,
+      "entity_jaccard": 0.3164,
+      "shared_entities": [
+        "adaptation",
+        "agent-based",
+        "algorithm",
+        "apoptosis",
+        "application",
+        "cancer",
+        "cancer cell",
+        "cell cycle",
+        "cell fate",
+        "culture"
+      ],
+      "rising_in_shared": [
+        "agent-based"
+      ],
+      "recommendation": "Bridge neuro/electrophysiology ↔ mechanics/ABM (Jaccard=0.316, 56 shared entities). Rising entities in overlap: agent-based. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "4",
+      "cluster_b": "7",
+      "cluster_a_label": "digital-twin/manufacturing",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.004768,
+      "momentum_score": 0.01021,
+      "gap_score": 0.857,
+      "failure_penalty": 0.4551,
+      "entity_jaccard": 0.1285,
+      "shared_entities": [
+        "algorithm",
+        "cancer",
+        "development",
+        "disease",
+        "dynamics",
+        "human",
+        "in silico",
+        "metabolic",
+        "ml",
+        "neural network"
+      ],
+      "rising_in_shared": [
+        "cancer",
+        "algorithm"
+      ],
+      "recommendation": "Bridge digital-twin/manufacturing ↔ immunology (Jaccard=0.129, 23 shared entities). Rising entities in overlap: cancer, algorithm. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "2",
+      "cluster_b": "5",
+      "cluster_a_label": "telecom/V2X",
+      "cluster_b_label": "mechanics/ABM",
+      "bridge_score": 0.00439,
+      "momentum_score": 0.007314,
+      "gap_score": 0.9622,
+      "failure_penalty": 0.3762,
+      "entity_jaccard": 0.1811,
+      "shared_entities": [
+        "adaptation",
+        "algorithm",
+        "application",
+        "cancer",
+        "cancer cell",
+        "carcinoma",
+        "cell state",
+        "cell-based",
+        "culture",
+        "development"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge telecom/V2X ↔ mechanics/ABM (Jaccard=0.181, 44 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "3",
+      "cluster_b": "4",
+      "cluster_a_label": "neuro/electrophysiology",
+      "cluster_b_label": "digital-twin/manufacturing",
+      "bridge_score": 0.004364,
+      "momentum_score": 0.009032,
+      "gap_score": 0.87,
+      "failure_penalty": 0.4447,
+      "entity_jaccard": 0.135,
+      "shared_entities": [
+        "adaptation",
+        "algorithm",
+        "application",
+        "cancer",
+        "control",
+        "design",
+        "development",
+        "diagnosis",
+        "digital twin",
+        "disease"
+      ],
+      "rising_in_shared": [
+        "cancer",
+        "disease",
+        "algorithm"
+      ],
+      "recommendation": "Bridge neuro/electrophysiology ↔ digital-twin/manufacturing (Jaccard=0.135, 32 shared entities). Rising entities in overlap: cancer, disease, algorithm. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "2",
+      "cluster_b": "7",
+      "cluster_a_label": "telecom/V2X",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.003906,
+      "momentum_score": 0.006786,
+      "gap_score": 0.901,
+      "failure_penalty": 0.3611,
+      "entity_jaccard": 0.1505,
+      "shared_entities": [
+        "algorithm",
+        "bacterial",
+        "bioinformatics",
+        "cancer",
+        "cd8",
+        "development",
+        "differential equation",
+        "differentiation",
+        "disease",
+        "dynamics"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge telecom/V2X ↔ immunology (Jaccard=0.150, 31 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "1",
+      "cluster_b": "6",
+      "cluster_a_label": "whole-cell/systems-biology",
+      "cluster_b_label": "fuel-cells/energy",
+      "bridge_score": 0.00382,
+      "momentum_score": 0.007796,
+      "gap_score": 0.8352,
+      "failure_penalty": 0.4133,
+      "entity_jaccard": 0.1176,
+      "shared_entities": [
+        "algorithm",
+        "application",
+        "development",
+        "diagnosis",
+        "digital twin",
+        "disease",
+        "dynamics",
+        "evolution",
+        "heterogeneity",
+        "homeostasis"
+      ],
+      "rising_in_shared": [
+        "digital twin"
+      ],
+      "recommendation": "Bridge whole-cell/systems-biology ↔ fuel-cells/energy (Jaccard=0.118, 24 shared entities). Rising entities in overlap: digital twin. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "0",
+      "cluster_b": "5",
+      "cluster_a_label": "in-silico/pharmacology",
+      "cluster_b_label": "mechanics/ABM",
+      "bridge_score": 0.003707,
+      "momentum_score": 0.007858,
+      "gap_score": 0.9728,
+      "failure_penalty": 0.5151,
+      "entity_jaccard": 0.2136,
+      "shared_entities": [
+        "adaptation",
+        "algorithm",
+        "apoptosis",
+        "application",
+        "arabidopsis",
+        "bayesian",
+        "cancer",
+        "cancer cell",
+        "carcinoma",
+        "cell cycle"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge in-silico/pharmacology ↔ mechanics/ABM (Jaccard=0.214, 63 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "1",
+      "cluster_b": "7",
+      "cluster_a_label": "whole-cell/systems-biology",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.003684,
+      "momentum_score": 0.006762,
+      "gap_score": 0.9846,
+      "failure_penalty": 0.4466,
+      "entity_jaccard": 0.2077,
+      "shared_entities": [
+        "agent-based",
+        "algorithm",
+        "bacterial",
+        "bioinformatics",
+        "cancer",
+        "cell cycle",
+        "cell fate",
+        "development",
+        "differential equation",
+        "differentiation"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge whole-cell/systems-biology ↔ immunology (Jaccard=0.208, 38 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "0",
+      "cluster_b": "6",
+      "cluster_a_label": "in-silico/pharmacology",
+      "cluster_b_label": "fuel-cells/energy",
+      "bridge_score": 0.003446,
+      "momentum_score": 0.008365,
+      "gap_score": 0.7724,
+      "failure_penalty": 0.4667,
+      "entity_jaccard": 0.0862,
+      "shared_entities": [
+        "algorithm",
+        "application",
+        "blood",
+        "development",
+        "diagnosis",
+        "digital twin",
+        "disease",
+        "dynamics",
+        "evolution",
+        "experimental"
+      ],
+      "rising_in_shared": [
+        "dynamics",
+        "digital twin"
+      ],
+      "recommendation": "Bridge in-silico/pharmacology ↔ fuel-cells/energy (Jaccard=0.086, 25 shared entities). Rising entities in overlap: dynamics, digital twin. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "0",
+      "cluster_b": "7",
+      "cluster_a_label": "in-silico/pharmacology",
+      "cluster_b_label": "immunology",
+      "bridge_score": 0.003421,
+      "momentum_score": 0.007331,
+      "gap_score": 0.9334,
+      "failure_penalty": 0.5,
+      "entity_jaccard": 0.1667,
+      "shared_entities": [
+        "algorithm",
+        "b cell",
+        "b-cell",
+        "bacterial",
+        "bioinformatics",
+        "cancer",
+        "cd4",
+        "cd8",
+        "cell cycle",
+        "development"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge in-silico/pharmacology ↔ immunology (Jaccard=0.167, 44 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "2",
+      "cluster_b": "3",
+      "cluster_a_label": "telecom/V2X",
+      "cluster_b_label": "neuro/electrophysiology",
+      "bridge_score": 0.003385,
+      "momentum_score": 0.005608,
+      "gap_score": 0.9296,
+      "failure_penalty": 0.3507,
+      "entity_jaccard": 0.1648,
+      "shared_entities": [
+        "adaptation",
+        "algorithm",
+        "application",
+        "bacteria",
+        "bacterial",
+        "blood",
+        "cancer",
+        "cancer cell",
+        "channel",
+        "clustering"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge telecom/V2X ↔ neuro/electrophysiology (Jaccard=0.165, 43 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "1",
+      "cluster_b": "5",
+      "cluster_a_label": "whole-cell/systems-biology",
+      "cluster_b_label": "mechanics/ABM",
+      "bridge_score": 0.003309,
+      "momentum_score": 0.00729,
+      "gap_score": 0.8434,
+      "failure_penalty": 0.4618,
+      "entity_jaccard": 0.2783,
+      "shared_entities": [
+        "adaptation",
+        "agent-based",
+        "algorithm",
+        "apoptosis",
+        "application",
+        "arabidopsis",
+        "bayesian",
+        "cancer",
+        "cancer cell",
+        "cell cycle"
+      ],
+      "rising_in_shared": [
+        "agent-based"
+      ],
+      "recommendation": "Bridge whole-cell/systems-biology ↔ mechanics/ABM (Jaccard=0.278, 59 shared entities). Rising entities in overlap: agent-based. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "0",
+      "cluster_b": "3",
+      "cluster_a_label": "in-silico/pharmacology",
+      "cluster_b_label": "neuro/electrophysiology",
+      "bridge_score": 0.002693,
+      "momentum_score": 0.006153,
+      "gap_score": 0.8576,
+      "failure_penalty": 0.4896,
+      "entity_jaccard": 0.2712,
+      "shared_entities": [
+        "action",
+        "adaptation",
+        "algorithm",
+        "alzheimer",
+        "apoptosis",
+        "application",
+        "b cell",
+        "bacteria",
+        "bacterial",
+        "biomarker"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge in-silico/pharmacology ↔ neuro/electrophysiology (Jaccard=0.271, 80 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "1",
+      "cluster_b": "4",
+      "cluster_a_label": "whole-cell/systems-biology",
+      "cluster_b_label": "digital-twin/manufacturing",
+      "bridge_score": 0.002629,
+      "momentum_score": 0.006643,
+      "gap_score": 0.917,
+      "failure_penalty": 0.5685,
+      "entity_jaccard": 0.1585,
+      "shared_entities": [
+        "adaptation",
+        "ai",
+        "algorithm",
+        "application",
+        "assembly",
+        "bayesian",
+        "cancer",
+        "deep learning",
+        "design",
+        "development"
+      ],
+      "rising_in_shared": [
+        "deep learning",
+        "cancer",
+        "algorithm",
+        "ai"
+      ],
+      "recommendation": "Bridge whole-cell/systems-biology ↔ digital-twin/manufacturing (Jaccard=0.159, 42 shared entities). Rising entities in overlap: deep learning, cancer, algorithm, ai. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "1",
+      "cluster_b": "3",
+      "cluster_a_label": "whole-cell/systems-biology",
+      "cluster_b_label": "neuro/electrophysiology",
+      "bridge_score": 0.002347,
+      "momentum_score": 0.005585,
+      "gap_score": 0.7456,
+      "failure_penalty": 0.4363,
+      "entity_jaccard": 0.3272,
+      "shared_entities": [
+        "adaptation",
+        "agent-based",
+        "algorithm",
+        "alzheimer",
+        "apoptosis",
+        "application",
+        "bacteria",
+        "bacterial",
+        "bordetella",
+        "cancer"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge whole-cell/systems-biology ↔ neuro/electrophysiology (Jaccard=0.327, 71 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "0",
+      "cluster_b": "4",
+      "cluster_a_label": "in-silico/pharmacology",
+      "cluster_b_label": "digital-twin/manufacturing",
+      "bridge_score": 0.002236,
+      "momentum_score": 0.007211,
+      "gap_score": 0.8198,
+      "failure_penalty": 0.6218,
+      "entity_jaccard": 0.1099,
+      "shared_entities": [
+        "adaptation",
+        "algorithm",
+        "application",
+        "assessment",
+        "bayesian",
+        "cancer",
+        "classification",
+        "control",
+        "deep learning",
+        "design"
+      ],
+      "rising_in_shared": [
+        "cancer",
+        "algorithm"
+      ],
+      "recommendation": "Bridge in-silico/pharmacology ↔ digital-twin/manufacturing (Jaccard=0.110, 39 shared entities). Rising entities in overlap: cancer, algorithm. These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "intra_cluster",
+      "cluster": "1",
+      "cluster_label": "whole-cell/systems-biology",
+      "entity_a": "cancer",
+      "entity_b": "whole-cell",
+      "bridge_score": 0.001825,
+      "momentum_score": 0.004792,
+      "gap_score": 0.8656,
+      "failure_penalty": 0.56,
+      "gap_expected": 7.44,
+      "gap_observed": 1,
+      "rising_involved": true,
+      "recommendation": "Explore the intersection of 'cancer' and 'whole-cell' within whole-cell/systems-biology. Expected co-occurrence=7.4 but observed=1, suggesting an underexplored combination."
+    },
+    {
+      "type": "intra_cluster",
+      "cluster": "1",
+      "cluster_label": "whole-cell/systems-biology",
+      "entity_a": "virtual cell",
+      "entity_b": "whole-cell",
+      "bridge_score": 0.001727,
+      "momentum_score": 0.004792,
+      "gap_score": 0.8188,
+      "failure_penalty": 0.56,
+      "gap_expected": 5.52,
+      "gap_observed": 1,
+      "rising_involved": true,
+      "recommendation": "Explore the intersection of 'virtual cell' and 'whole-cell' within whole-cell/systems-biology. Expected co-occurrence=5.5 but observed=1, suggesting an underexplored combination."
+    },
+    {
+      "type": "intra_cluster",
+      "cluster": "1",
+      "cluster_label": "whole-cell/systems-biology",
+      "entity_a": "rna-seq",
+      "entity_b": "whole-cell",
+      "bridge_score": 0.001727,
+      "momentum_score": 0.004792,
+      "gap_score": 0.8188,
+      "failure_penalty": 0.56,
+      "gap_expected": 5.52,
+      "gap_observed": 1,
+      "rising_involved": true,
+      "recommendation": "Explore the intersection of 'rna-seq' and 'whole-cell' within whole-cell/systems-biology. Expected co-occurrence=5.5 but observed=1, suggesting an underexplored combination."
+    },
+    {
+      "type": "intra_cluster",
+      "cluster": "1",
+      "cluster_label": "whole-cell/systems-biology",
+      "entity_a": "single-cell",
+      "entity_b": "whole-cell",
+      "bridge_score": 0.00169,
+      "momentum_score": 0.004792,
+      "gap_score": 0.8015,
+      "failure_penalty": 0.56,
+      "gap_expected": 5.04,
+      "gap_observed": 1,
+      "rising_involved": true,
+      "recommendation": "Explore the intersection of 'single-cell' and 'whole-cell' within whole-cell/systems-biology. Expected co-occurrence=5.0 but observed=1, suggesting an underexplored combination."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "0",
+      "cluster_b": "2",
+      "cluster_a_label": "in-silico/pharmacology",
+      "cluster_b_label": "telecom/V2X",
+      "bridge_score": 0.001644,
+      "momentum_score": 0.003788,
+      "gap_score": 0.919,
+      "failure_penalty": 0.5278,
+      "entity_jaccard": 0.1595,
+      "shared_entities": [
+        "activity",
+        "adaptation",
+        "algorithm",
+        "application",
+        "bacteria",
+        "bacterial",
+        "bioinformatics",
+        "blood",
+        "cancer",
+        "cancer cell"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge in-silico/pharmacology ↔ telecom/V2X (Jaccard=0.160, 59 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "1",
+      "cluster_b": "2",
+      "cluster_a_label": "whole-cell/systems-biology",
+      "cluster_b_label": "telecom/V2X",
+      "bridge_score": 0.001608,
+      "momentum_score": 0.003219,
+      "gap_score": 0.9506,
+      "failure_penalty": 0.4745,
+      "entity_jaccard": 0.1753,
+      "shared_entities": [
+        "adaptation",
+        "ai",
+        "algorithm",
+        "application",
+        "bacteria",
+        "bacterial",
+        "bioinformatics",
+        "cancer",
+        "cancer cell",
+        "clustering"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge whole-cell/systems-biology ↔ telecom/V2X (Jaccard=0.175, 51 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "intra_cluster",
+      "cluster": "0",
+      "cluster_label": "in-silico/pharmacology",
+      "entity_a": "cancer cell",
+      "entity_b": "disease",
+      "bridge_score": 0.001274,
+      "momentum_score": 0.004332,
+      "gap_score": 0.8826,
+      "failure_penalty": 0.6667,
+      "gap_expected": 8.52,
+      "gap_observed": 1,
+      "rising_involved": false,
+      "recommendation": "Explore the intersection of 'cancer cell' and 'disease' within in-silico/pharmacology. Expected co-occurrence=8.5 but observed=1, suggesting an underexplored combination."
+    },
+    {
+      "type": "cross_cluster",
+      "cluster_a": "0",
+      "cluster_b": "1",
+      "cluster_a_label": "in-silico/pharmacology",
+      "cluster_b_label": "whole-cell/systems-biology",
+      "bridge_score": 0.001215,
+      "momentum_score": 0.003763,
+      "gap_score": 0.8348,
+      "failure_penalty": 0.6134,
+      "entity_jaccard": 0.2826,
+      "shared_entities": [
+        "adaptation",
+        "algorithm",
+        "alzheimer",
+        "apoptosis",
+        "application",
+        "approaches",
+        "arabidopsis",
+        "bacteria",
+        "bacterial",
+        "bayesian"
+      ],
+      "rising_in_shared": [],
+      "recommendation": "Bridge in-silico/pharmacology ↔ whole-cell/systems-biology (Jaccard=0.283, 91 shared entities). These communities share vocabulary but rarely cite each other."
+    },
+    {
+      "type": "intra_cluster",
+      "cluster": "0",
+      "cluster_label": "in-silico/pharmacology",
+      "entity_a": "cancer",
+      "entity_b": "covid",
+      "bridge_score": 0.001189,
+      "momentum_score": 0.004332,
+      "gap_score": 0.8237,
+      "failure_penalty": 0.6667,
+      "gap_expected": 5.67,
+      "gap_observed": 1,
+      "rising_involved": false,
+      "recommendation": "Explore the intersection of 'cancer' and 'covid' within in-silico/pharmacology. Expected co-occurrence=5.7 but observed=1, suggesting an underexplored combination."
+    },
+    {
+      "type": "intra_cluster",
+      "cluster": "0",
+      "cluster_label": "in-silico/pharmacology",
+      "entity_a": "apoptosis",
+      "entity_b": "tissue",
+      "bridge_score": 0.001161,
+      "momentum_score": 0.004332,
+      "gap_score": 0.8041,
+      "failure_penalty": 0.6667,
+      "gap_expected": 5.11,
+      "gap_observed": 1,
+      "rising_involved": false,
+      "recommendation": "Explore the intersection of 'apoptosis' and 'tissue' within in-silico/pharmacology. Expected co-occurrence=5.1 but observed=1, suggesting an underexplored combination."
+    }
+  ]
+}

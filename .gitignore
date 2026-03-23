@@ -14,9 +14,12 @@ venv/
 outputs/**/*.csv
 outputs/**/*.png
 outputs/**/*.pkl
+outputs/**/checkpoints/
+outputs/**/reextract/
 outputs/**/*.html
 !outputs/MANIFEST.yaml
 .omc-config.sh
+.claude/
 
 # Large experiment data files (keep reports/scripts/small metadata)
 outputs/**/combined*.json

@@ -1,0 +1,1076 @@
+{
+  "experiment": "e015",
+  "description": "Knowledge Frontier v1.0 — T0+T1+T2+T3 + acceptance test",
+  "dataset": "/home/kyuwon/projects/papersift/results/virtual-cell-sweep/papers_with_abstracts.json",
+  "clusters": "/home/kyuwon/projects/papersift/results/virtual-cell-sweep/clusters.json",
+  "t0_entity_extraction": {
+    "total_papers": 3070,
+    "non_empty": 2985,
+    "mean_entities_per_paper": 6.14
+  },
+  "t1_redundancy": {
+    "pairs_checked": 669832,
+    "notable_pairs": 9710,
+    "axis_correlation": -0.0574,
+    "top_20": [
+      {
+        "doi_a": "10.7554/elife.27041",
+        "doi_b": "10.5167/uzh-162597",
+        "cluster": 5,
+        "entity_jaccard": 1.0,
+        "biblio_coupling": 0.9752,
+        "combined_score": 0.9876
+      },
+      {
+        "doi_a": "10.1007/978-3-319-50257-1_66-1",
+        "doi_b": "10.1007/978-3-319-44680-6_66",
+        "cluster": 6,
+        "entity_jaccard": 1.0,
+        "biblio_coupling": 0.9341,
+        "combined_score": 0.967
+      },
+      {
+        "doi_a": "10.1016/s1474-6670(17)62794-0",
+        "doi_b": "10.1016/b978-0-08-029946-4.50032-7",
+        "cluster": 2,
+        "entity_jaccard": 1.0,
+        "biblio_coupling": 0.7857,
+        "combined_score": 0.8929
+      },
+      {
+        "doi_a": "10.1111/j.1540-5915.1996.tb00862.x",
+        "doi_b": "10.1111/j.1540-5915.1996.tb01824.x",
+        "cluster": 2,
+        "entity_jaccard": 0.8,
+        "biblio_coupling": 0.9524,
+        "combined_score": 0.8762
+      },
+      {
+        "doi_a": "10.1016/s0378-7753(01)01057-6",
+        "doi_b": "10.1016/s0378-7753(03)00816-4",
+        "cluster": 6,
+        "entity_jaccard": 1.0,
+        "biblio_coupling": 0.5333,
+        "combined_score": 0.7667
+      },
+      {
+        "doi_a": "10.1016/j.bpj.2017.08.022",
+        "doi_b": "10.1101/146225",
+        "cluster": 1,
+        "entity_jaccard": 0.5556,
+        "biblio_coupling": 0.96,
+        "combined_score": 0.7578
+      },
+      {
+        "doi_a": "10.1371/journal.pcbi.0030169",
+        "doi_b": "10.1371/journal.pcbi.0030169.eor",
+        "cluster": 3,
+        "entity_jaccard": 1.0,
+        "biblio_coupling": 0.4681,
+        "combined_score": 0.734
+      },
+      {
+        "doi_a": "10.1371/journal.pcbi.1006592",
+        "doi_b": "10.1101/452433",
+        "cluster": 1,
+        "entity_jaccard": 0.6667,
+        "biblio_coupling": 0.7865,
+        "combined_score": 0.7266
+      },
+      {
+        "doi_a": "10.1007/978-1-62703-589-7_21",
+        "doi_b": "10.1007/978-1-4939-9597-4_20",
+        "cluster": 0,
+        "entity_jaccard": 0.7143,
+        "biblio_coupling": 0.7353,
+        "combined_score": 0.7248
+      },
+      {
+        "doi_a": "10.1093/bioinformatics/btp324",
+        "doi_b": "10.1093/bioinformatics/btp698",
+        "cluster": 1,
+        "entity_jaccard": 0.8,
+        "biblio_coupling": 0.5405,
+        "combined_score": 0.6703
+      },
+      {
+        "doi_a": "10.1007/978-3-030-83418-0_11",
+        "doi_b": "10.2139/ssrn.3665284",
+        "cluster": 7,
+        "entity_jaccard": 0.6667,
+        "biblio_coupling": 0.6,
+        "combined_score": 0.6333
+      },
+      {
+        "doi_a": "10.1016/j.enconman.2007.05.007",
+        "doi_b": "10.1016/j.renene.2007.06.020",
+        "cluster": 6,
+        "entity_jaccard": 0.6667,
+        "biblio_coupling": 0.5769,
+        "combined_score": 0.6218
+      },
+      {
+        "doi_a": "10.3390/e18100374",
+        "doi_b": "10.1109/vtcfall.2016.7880968",
+        "cluster": 2,
+        "entity_jaccard": 0.6667,
+        "biblio_coupling": 0.5652,
+        "combined_score": 0.6159
+      },
+      {
+        "doi_a": "10.1016/j.renene.2006.04.018",
+        "doi_b": "10.1016/j.enconman.2007.05.007",
+        "cluster": 6,
+        "entity_jaccard": 0.5,
+        "biblio_coupling": 0.7143,
+        "combined_score": 0.6071
+      },
+      {
+        "doi_a": "10.1108/01443579610113979",
+        "doi_b": "10.1080/095372897235514",
+        "cluster": 2,
+        "entity_jaccard": 1.0,
+        "biblio_coupling": 0.2069,
+        "combined_score": 0.6034
+      },
+      {
+        "doi_a": "10.1101/2023.08.23.554489",
+        "doi_b": "10.1101/gr.279771.124",
+        "cluster": 1,
+        "entity_jaccard": 0.5455,
+        "biblio_coupling": 0.6571,
+        "combined_score": 0.6013
+      },
+      {
+        "doi_a": "10.1016/j.jpowsour.2003.12.027",
+        "doi_b": "10.1016/j.ijheatmasstransfer.2004.10.004",
+        "cluster": 6,
+        "entity_jaccard": 1.0,
+        "biblio_coupling": 0.1875,
+        "combined_score": 0.5938
+      },
+      {
+        "doi_a": "10.1016/s0169-409x(00)00129-0",
+        "doi_b": "10.1016/s0169-409x(96)00423-1",
+        "cluster": 0,
+        "entity_jaccard": 0.3333,
+        "biblio_coupling": 0.8302,
+        "combined_score": 0.5818
+      },
+      {
+        "doi_a": "10.1016/j.cirp.2019.04.011",
+        "doi_b": "10.1016/j.promfg.2018.10.047",
+        "cluster": 4,
+        "entity_jaccard": 1.0,
+        "biblio_coupling": 0.1591,
+        "combined_score": 0.5795
+      },
+      {
+        "doi_a": "10.1016/j.jpowsour.2003.12.027",
+        "doi_b": "10.1016/s0360-3199(02)00284-7",
+        "cluster": 6,
+        "entity_jaccard": 1.0,
+        "biblio_coupling": 0.1481,
+        "combined_score": 0.5741
+      }
+    ],
+    "threshold": 0.15,
+    "per_cluster_counts": {
+      "0": 1631,
+      "1": 970,
+      "2": 2372,
+      "3": 298,
+      "4": 3007,
+      "5": 606,
+      "6": 780,
+      "7": 46
+    }
+  },
+  "t2_temporal": {
+    "total_tests": 555,
+    "total_significant": 14,
+    "momentum_variance": 1.245e-05,
+    "clusters": {
+      "0": {
+        "n_papers": 595,
+        "valid_years": 25,
+        "year_range": "1998-2025",
+        "tests": 145,
+        "significant": 2,
+        "rising_count": 2,
+        "declining_count": 0,
+        "momentum_score": 0.004332,
+        "top_rising": [
+          {
+            "entity": "vitro",
+            "slope": 0.0039,
+            "q_value": 0.049742
+          },
+          {
+            "entity": "dynamics",
+            "slope": 0.004765,
+            "q_value": 0.042842
+          }
+        ],
+        "top_declining": []
+      },
+      "1": {
+        "n_papers": 571,
+        "valid_years": 27,
+        "year_range": "1999-2025",
+        "tests": 95,
+        "significant": 4,
+        "rising_count": 3,
+        "declining_count": 1,
+        "momentum_score": 0.003195,
+        "top_rising": [
+          {
+            "entity": "deep learning",
+            "slope": 0.002342,
+            "q_value": 0.013281
+          },
+          {
+            "entity": "whole-cell",
+            "slope": 0.012846,
+            "q_value": 0.008395
+          },
+          {
+            "entity": "multi-omics",
+            "slope": 0.001919,
+            "q_value": 0.01784
+          }
+        ],
+        "top_declining": [
+          {
+            "entity": "escherichia",
+            "slope": -0.004326,
+            "q_value": 0.04583
+          }
+        ]
+      },
+      "2": {
+        "n_papers": 453,
+        "valid_years": 25,
+        "year_range": "1996-2025",
+        "tests": 70,
+        "significant": 0,
+        "rising_count": 0,
+        "declining_count": 0,
+        "momentum_score": 0.003243,
+        "top_rising": [],
+        "top_declining": []
+      },
+      "3": {
+        "n_papers": 362,
+        "valid_years": 30,
+        "year_range": "1990-2025",
+        "tests": 62,
+        "significant": 2,
+        "rising_count": 2,
+        "declining_count": 0,
+        "momentum_score": 0.007974,
+        "top_rising": [
+          {
+            "entity": "disease",
+            "slope": 0.011196,
+            "q_value": 0.002407
+          },
+          {
+            "entity": "therapeutic",
+            "slope": 0.004752,
+            "q_value": 0.045978
+          }
+        ],
+        "top_declining": []
+      },
+      "4": {
+        "n_papers": 362,
+        "valid_years": 10,
+        "year_range": "2016-2025",
+        "tests": 66,
+        "significant": 4,
+        "rising_count": 4,
+        "declining_count": 0,
+        "momentum_score": 0.010091,
+        "top_rising": [
+          {
+            "entity": "algorithm",
+            "slope": 0.012514,
+            "q_value": 0.003847
+          },
+          {
+            "entity": "energy",
+            "slope": 0.005126,
+            "q_value": 0.005565
+          },
+          {
+            "entity": "ai",
+            "slope": 0.010376,
+            "q_value": 0.015694
+          },
+          {
+            "entity": "cancer",
+            "slope": 0.012347,
+            "q_value": 0.048766
+          }
+        ],
+        "top_declining": []
+      },
+      "5": {
+        "n_papers": 336,
+        "valid_years": 24,
+        "year_range": "2002-2025",
+        "tests": 56,
+        "significant": 1,
+        "rising_count": 1,
+        "declining_count": 0,
+        "momentum_score": 0.011385,
+        "top_rising": [
+          {
+            "entity": "agent-based",
+            "slope": 0.011385,
+            "q_value": 0.020139
+          }
+        ],
+        "top_declining": []
+      },
+      "6": {
+        "n_papers": 254,
+        "valid_years": 22,
+        "year_range": "2002-2025",
+        "tests": 30,
+        "significant": 1,
+        "rising_count": 1,
+        "declining_count": 0,
+        "momentum_score": 0.012398,
+        "top_rising": [
+          {
+            "entity": "digital twin",
+            "slope": 0.012398,
+            "q_value": 0.00172
+          }
+        ],
+        "top_declining": []
+      },
+      "7": {
+        "n_papers": 134,
+        "valid_years": 12,
+        "year_range": "2006-2023",
+        "tests": 31,
+        "significant": 0,
+        "rising_count": 0,
+        "declining_count": 0,
+        "momentum_score": 0.010329,
+        "top_rising": [],
+        "top_declining": []
+      }
+    }
+  },
+  "t3_structural_gaps": {
+    "intra_cluster_gaps": {
+      "0": [
+        {
+          "entity_a": "cancer cell",
+          "entity_b": "disease",
+          "freq_a": 65,
+          "freq_b": 78,
+          "expected": 8.52,
+          "observed": 1,
+          "ratio": 0.1174
+        },
+        {
+          "entity_a": "cancer",
+          "entity_b": "covid",
+          "freq_a": 225,
+          "freq_b": 15,
+          "expected": 5.67,
+          "observed": 1,
+          "ratio": 0.1763
+        },
+        {
+          "entity_a": "apoptosis",
+          "entity_b": "tissue",
+          "freq_a": 49,
+          "freq_b": 62,
+          "expected": 5.11,
+          "observed": 1,
+          "ratio": 0.1959
+        }
+      ],
+      "1": [
+        {
+          "entity_a": "cancer",
+          "entity_b": "whole-cell",
+          "freq_a": 31,
+          "freq_b": 137,
+          "expected": 7.44,
+          "observed": 1,
+          "ratio": 0.1344
+        },
+        {
+          "entity_a": "virtual cell",
+          "entity_b": "whole-cell",
+          "freq_a": 23,
+          "freq_b": 137,
+          "expected": 5.52,
+          "observed": 1,
+          "ratio": 0.1812
+        },
+        {
+          "entity_a": "rna-seq",
+          "entity_b": "whole-cell",
+          "freq_a": 23,
+          "freq_b": 137,
+          "expected": 5.52,
+          "observed": 1,
+          "ratio": 0.1812
+        },
+        {
+          "entity_a": "single-cell",
+          "entity_b": "whole-cell",
+          "freq_a": 21,
+          "freq_b": 137,
+          "expected": 5.04,
+          "observed": 1,
+          "ratio": 0.1985
+        }
+      ],
+      "2": [
+        {
+          "entity_a": "small",
+          "entity_b": "virtual cell",
+          "freq_a": 19,
+          "freq_b": 183,
+          "expected": 7.68,
+          "observed": 0,
+          "ratio": 0.0
+        },
+        {
+          "entity_a": "digital twin",
+          "entity_b": "virtual cell",
+          "freq_a": 16,
+          "freq_b": 183,
+          "expected": 6.46,
+          "observed": 0,
+          "ratio": 0.0
+        },
+        {
+          "entity_a": "screening",
+          "entity_b": "simulation",
+          "freq_a": 24,
+          "freq_b": 98,
+          "expected": 5.19,
+          "observed": 1,
+          "ratio": 0.1926
+        }
+      ],
+      "3": [],
+      "4": [
+        {
+          "entity_a": "twin",
+          "entity_b": "twins",
+          "freq_a": 125,
+          "freq_b": 37,
+          "expected": 12.78,
+          "observed": 0,
+          "ratio": 0.0
+        }
+      ],
+      "5": [
+        {
+          "entity_a": "dynamics",
+          "entity_b": "human",
+          "freq_a": 66,
+          "freq_b": 38,
+          "expected": 7.46,
+          "observed": 1,
+          "ratio": 0.134
+        }
+      ],
+      "6": [],
+      "7": []
+    },
+    "cross_cluster_bridges": [
+      {
+        "cluster_a": 1,
+        "cluster_b": 3,
+        "entity_jaccard": 0.3272,
+        "shared_entities": [
+          "adaptation",
+          "agent-based",
+          "algorithm",
+          "alzheimer",
+          "apoptosis",
+          "application",
+          "bacteria",
+          "bacterial",
+          "bordetella",
+          "cancer"
+        ],
+        "unique_a": 92,
+        "unique_b": 54,
+        "shared_count": 71
+      },
+      {
+        "cluster_a": 3,
+        "cluster_b": 5,
+        "entity_jaccard": 0.3164,
+        "shared_entities": [
+          "adaptation",
+          "agent-based",
+          "algorithm",
+          "apoptosis",
+          "application",
+          "cancer",
+          "cancer cell",
+          "cell cycle",
+          "cell fate",
+          "culture"
+        ],
+        "unique_a": 69,
+        "unique_b": 52,
+        "shared_count": 56
+      },
+      {
+        "cluster_a": 0,
+        "cluster_b": 1,
+        "entity_jaccard": 0.2826,
+        "shared_entities": [
+          "adaptation",
+          "algorithm",
+          "alzheimer",
+          "apoptosis",
+          "application",
+          "approaches",
+          "arabidopsis",
+          "bacteria",
+          "bacterial",
+          "bayesian"
+        ],
+        "unique_a": 159,
+        "unique_b": 72,
+        "shared_count": 91
+      },
+      {
+        "cluster_a": 1,
+        "cluster_b": 5,
+        "entity_jaccard": 0.2783,
+        "shared_entities": [
+          "adaptation",
+          "agent-based",
+          "algorithm",
+          "apoptosis",
+          "application",
+          "arabidopsis",
+          "bayesian",
+          "cancer",
+          "cancer cell",
+          "cell cycle"
+        ],
+        "unique_a": 104,
+        "unique_b": 49,
+        "shared_count": 59
+      },
+      {
+        "cluster_a": 0,
+        "cluster_b": 3,
+        "entity_jaccard": 0.2712,
+        "shared_entities": [
+          "action",
+          "adaptation",
+          "algorithm",
+          "alzheimer",
+          "apoptosis",
+          "application",
+          "b cell",
+          "bacteria",
+          "bacterial",
+          "biomarker"
+        ],
+        "unique_a": 170,
+        "unique_b": 45,
+        "shared_count": 80
+      },
+      {
+        "cluster_a": 5,
+        "cluster_b": 7,
+        "entity_jaccard": 0.2576,
+        "shared_entities": [
+          "agent-based",
+          "algorithm",
+          "cancer",
+          "cell cycle",
+          "cell fate",
+          "development",
+          "differentiation",
+          "disease",
+          "dynamics",
+          "effects"
+        ],
+        "unique_a": 74,
+        "unique_b": 24,
+        "shared_count": 34
+      },
+      {
+        "cluster_a": 3,
+        "cluster_b": 7,
+        "entity_jaccard": 0.2449,
+        "shared_entities": [
+          "agent-based",
+          "algorithm",
+          "b cell",
+          "bacterial",
+          "cancer",
+          "cell cycle",
+          "cell fate",
+          "development",
+          "differentiation",
+          "disease"
+        ],
+        "unique_a": 89,
+        "unique_b": 22,
+        "shared_count": 36
+      },
+      {
+        "cluster_a": 0,
+        "cluster_b": 5,
+        "entity_jaccard": 0.2136,
+        "shared_entities": [
+          "adaptation",
+          "algorithm",
+          "apoptosis",
+          "application",
+          "arabidopsis",
+          "bayesian",
+          "cancer",
+          "cancer cell",
+          "carcinoma",
+          "cell cycle"
+        ],
+        "unique_a": 187,
+        "unique_b": 45,
+        "shared_count": 63
+      },
+      {
+        "cluster_a": 1,
+        "cluster_b": 7,
+        "entity_jaccard": 0.2077,
+        "shared_entities": [
+          "agent-based",
+          "algorithm",
+          "bacterial",
+          "bioinformatics",
+          "cancer",
+          "cell cycle",
+          "cell fate",
+          "development",
+          "differential equation",
+          "differentiation"
+        ],
+        "unique_a": 125,
+        "unique_b": 20,
+        "shared_count": 38
+      },
+      {
+        "cluster_a": 2,
+        "cluster_b": 4,
+        "entity_jaccard": 0.1875,
+        "shared_entities": [
+          "adaptation",
+          "adaptive",
+          "ai",
+          "algorithm",
+          "application",
+          "cancer",
+          "cell-free",
+          "communication",
+          "control",
+          "design"
+        ],
+        "unique_a": 128,
+        "unique_b": 93,
+        "shared_count": 51
+      },
+      {
+        "cluster_a": 2,
+        "cluster_b": 5,
+        "entity_jaccard": 0.1811,
+        "shared_entities": [
+          "adaptation",
+          "algorithm",
+          "application",
+          "cancer",
+          "cancer cell",
+          "carcinoma",
+          "cell state",
+          "cell-based",
+          "culture",
+          "development"
+        ],
+        "unique_a": 135,
+        "unique_b": 64,
+        "shared_count": 44
+      },
+      {
+        "cluster_a": 1,
+        "cluster_b": 2,
+        "entity_jaccard": 0.1753,
+        "shared_entities": [
+          "adaptation",
+          "ai",
+          "algorithm",
+          "application",
+          "bacteria",
+          "bacterial",
+          "bioinformatics",
+          "cancer",
+          "cancer cell",
+          "clustering"
+        ],
+        "unique_a": 112,
+        "unique_b": 128,
+        "shared_count": 51
+      },
+      {
+        "cluster_a": 0,
+        "cluster_b": 7,
+        "entity_jaccard": 0.1667,
+        "shared_entities": [
+          "algorithm",
+          "b cell",
+          "b-cell",
+          "bacterial",
+          "bioinformatics",
+          "cancer",
+          "cd4",
+          "cd8",
+          "cell cycle",
+          "development"
+        ],
+        "unique_a": 206,
+        "unique_b": 14,
+        "shared_count": 44
+      },
+      {
+        "cluster_a": 2,
+        "cluster_b": 3,
+        "entity_jaccard": 0.1648,
+        "shared_entities": [
+          "adaptation",
+          "algorithm",
+          "application",
+          "bacteria",
+          "bacterial",
+          "blood",
+          "cancer",
+          "cancer cell",
+          "channel",
+          "clustering"
+        ],
+        "unique_a": 136,
+        "unique_b": 82,
+        "shared_count": 43
+      },
+      {
+        "cluster_a": 0,
+        "cluster_b": 2,
+        "entity_jaccard": 0.1595,
+        "shared_entities": [
+          "activity",
+          "adaptation",
+          "algorithm",
+          "application",
+          "bacteria",
+          "bacterial",
+          "bioinformatics",
+          "blood",
+          "cancer",
+          "cancer cell"
+        ],
+        "unique_a": 191,
+        "unique_b": 120,
+        "shared_count": 59
+      },
+      {
+        "cluster_a": 1,
+        "cluster_b": 4,
+        "entity_jaccard": 0.1585,
+        "shared_entities": [
+          "adaptation",
+          "ai",
+          "algorithm",
+          "application",
+          "assembly",
+          "bayesian",
+          "cancer",
+          "deep learning",
+          "design",
+          "development"
+        ],
+        "unique_a": 121,
+        "unique_b": 102,
+        "shared_count": 42
+      },
+      {
+        "cluster_a": 3,
+        "cluster_b": 6,
+        "entity_jaccard": 0.1515,
+        "shared_entities": [
+          "algorithm",
+          "application",
+          "blood",
+          "development",
+          "diagnosis",
+          "digital twin",
+          "disease",
+          "dynamics",
+          "evolution",
+          "experimental"
+        ],
+        "unique_a": 100,
+        "unique_b": 40,
+        "shared_count": 25
+      },
+      {
+        "cluster_a": 2,
+        "cluster_b": 7,
+        "entity_jaccard": 0.1505,
+        "shared_entities": [
+          "algorithm",
+          "bacterial",
+          "bioinformatics",
+          "cancer",
+          "cd8",
+          "development",
+          "differential equation",
+          "differentiation",
+          "disease",
+          "dynamics"
+        ],
+        "unique_a": 148,
+        "unique_b": 27,
+        "shared_count": 31
+      },
+      {
+        "cluster_a": 5,
+        "cluster_b": 6,
+        "entity_jaccard": 0.1457,
+        "shared_entities": [
+          "algorithm",
+          "application",
+          "development",
+          "digital twin",
+          "disease",
+          "dynamics",
+          "evolution",
+          "heterogeneity",
+          "homeostasis",
+          "human"
+        ],
+        "unique_a": 86,
+        "unique_b": 43,
+        "shared_count": 22
+      },
+      {
+        "cluster_a": 6,
+        "cluster_b": 7,
+        "entity_jaccard": 0.1389,
+        "shared_entities": [
+          "algorithm",
+          "development",
+          "disease",
+          "dynamics",
+          "heterogeneity",
+          "homeostasis",
+          "human",
+          "metabolic",
+          "microbial",
+          "neural network"
+        ],
+        "unique_a": 50,
+        "unique_b": 43,
+        "shared_count": 15
+      },
+      {
+        "cluster_a": 4,
+        "cluster_b": 5,
+        "entity_jaccard": 0.1351,
+        "shared_entities": [
+          "adaptation",
+          "algorithm",
+          "application",
+          "bayesian",
+          "cancer",
+          "development",
+          "digital twin",
+          "disease",
+          "dynamics",
+          "engineering"
+        ],
+        "unique_a": 114,
+        "unique_b": 78,
+        "shared_count": 30
+      },
+      {
+        "cluster_a": 3,
+        "cluster_b": 4,
+        "entity_jaccard": 0.135,
+        "shared_entities": [
+          "adaptation",
+          "algorithm",
+          "application",
+          "cancer",
+          "control",
+          "design",
+          "development",
+          "diagnosis",
+          "digital twin",
+          "disease"
+        ],
+        "unique_a": 93,
+        "unique_b": 112,
+        "shared_count": 32
+      },
+      {
+        "cluster_a": 4,
+        "cluster_b": 7,
+        "entity_jaccard": 0.1285,
+        "shared_entities": [
+          "algorithm",
+          "cancer",
+          "development",
+          "disease",
+          "dynamics",
+          "human",
+          "in silico",
+          "metabolic",
+          "ml",
+          "neural network"
+        ],
+        "unique_a": 121,
+        "unique_b": 35,
+        "shared_count": 23
+      },
+      {
+        "cluster_a": 4,
+        "cluster_b": 6,
+        "entity_jaccard": 0.1237,
+        "shared_entities": [
+          "algorithm",
+          "application",
+          "battery",
+          "development",
+          "diagnosis",
+          "digital twin",
+          "disease",
+          "dynamics",
+          "evolution",
+          "exchange"
+        ],
+        "unique_a": 121,
+        "unique_b": 42,
+        "shared_count": 23
+      },
+      {
+        "cluster_a": 1,
+        "cluster_b": 6,
+        "entity_jaccard": 0.1176,
+        "shared_entities": [
+          "algorithm",
+          "application",
+          "development",
+          "diagnosis",
+          "digital twin",
+          "disease",
+          "dynamics",
+          "evolution",
+          "heterogeneity",
+          "homeostasis"
+        ],
+        "unique_a": 139,
+        "unique_b": 41,
+        "shared_count": 24
+      },
+      {
+        "cluster_a": 0,
+        "cluster_b": 4,
+        "entity_jaccard": 0.1099,
+        "shared_entities": [
+          "adaptation",
+          "algorithm",
+          "application",
+          "assessment",
+          "bayesian",
+          "cancer",
+          "classification",
+          "control",
+          "deep learning",
+          "design"
+        ],
+        "unique_a": 211,
+        "unique_b": 105,
+        "shared_count": 39
+      },
+      {
+        "cluster_a": 0,
+        "cluster_b": 6,
+        "entity_jaccard": 0.0862,
+        "shared_entities": [
+          "algorithm",
+          "application",
+          "blood",
+          "development",
+          "diagnosis",
+          "digital twin",
+          "disease",
+          "dynamics",
+          "evolution",
+          "experimental"
+        ],
+        "unique_a": 225,
+        "unique_b": 40,
+        "shared_count": 25
+      },
+      {
+        "cluster_a": 2,
+        "cluster_b": 6,
+        "entity_jaccard": 0.0844,
+        "shared_entities": [
+          "algorithm",
+          "application",
+          "blood",
+          "development",
+          "digital twin",
+          "disease",
+          "dynamics",
+          "evolution",
+          "heterogeneity",
+          "human"
+        ],
+        "unique_a": 160,
+        "unique_b": 46,
+        "shared_count": 19
+      }
+    ],
+    "intra_summary": {
+      "0": 3,
+      "1": 4,
+      "2": 3,
+      "3": 0,
+      "4": 1,
+      "5": 1,
+      "6": 0,
+      "7": 0
+    }
+  },
+  "acceptance": {
+    "biology_clusters_tested": 5,
+    "passing_clusters": [
+      0,
+      1,
+      5
+    ],
+    "passing_count": 3,
+    "verdict": "PASS"
+  }
+}
