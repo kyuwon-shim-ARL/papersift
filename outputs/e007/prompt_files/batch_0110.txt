@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1038/35015116
+Title: Effects of mechanical forces on maintenance and adaptation of form in trabecular bone
+Year: 2000
+Abstract: The architecture of trabecular bone, the porous bone found in the spine and at articulating joints, provides the requirements for optimal load transfer, by pairing suitable strength and stiffness to minimal weight according to rules of mathematical design. But, as it is unlikely that the architecture is fully pre-programmed in the genes, how are the bone cells informed about these rules, which so obviously dictate architecture? A relationship exists between bone architecture and mechanical usage--while strenuous exercise increases bone mass, disuse, as in microgravity and inactivity, reduces it. Bone resorption cells (osteoclasts) and bone formation cells (osteoblasts) normally balance bone mass in a coupled homeostatic process of remodelling, which renews some 25% of trabecular bone volume per year. Here we present a computational model of the metabolic process in bone that confirms that cell coupling is governed by feedback from mechanical load transfer. This model can explain the emergence and maintenance of trabecular architecture as an optimal mechanical structure, as well as its adaptation to alternative external loads.
+---
+
+---
+DOI: 10.1080/10255842.2020.1714947
+Title: A quantitative high resolution computational cell model to unravel the mechanics in living tissues
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1175/1520-0426(2003)020<0159:augfvt>2.0.co;2
+Title: An Unstructured Grid, Finite-Volume, Three-Dimensional, Primitive Equations Ocean Model: Application to Coastal Ocean and Estuaries
+Year: 2003
+Abstract: An unstructured grid, finite-volume, three-dimensional (3D) primitive equation ocean model has been developed for the study of coastal oceanic and estuarine circulation. The model consists of momentum, continuity, temperature, salinity, and density equations and is closed physically and mathematically using the Mellor and Yamada level-2.5 turbulent closure submodel. The irregular bottom slope is represented using a σ-coordinate transformation, and the horizontal grids comprise unstructured triangular cells. The finite-volume method (FVM) used in this model combines the advantages of a finite-element method (FEM) for geometric flexibility and a finite-difference method (FDM) for simple discrete computation. Currents, temperature, and salinity in the model are computed in the integral form of the equations, which provides a better representation of the conservative laws for mass, momentum, and heat in the coastal region with complex geometry. The model was applied to the Bohai Sea, a semienclosed coastal ocean, and the Satilla River, a Georgia estuary characterized by numerous tidal creeks and inlets. Compared with the results obtained from the finite-difference model (ECOM-si), the new model produces a better simulation of tidal elevations and residual currents, especially around islands and tidal creeks. Given the same initial distribution of temperature in the Bohai Sea, the FVCOM and ECOM-si models show similar distributions of temperature and stratified tidal rectified flow in the interior region away from the coast and islands, but FVCOM appears to provide a better simulation of temperature and currents around the islands, barriers, and inlets with complex topography.
+---
+
+---
+DOI: 10.3390/en16010208
+Title: Computational Fluid Dynamics for Protonic Ceramic Fuel Cell Stack Modeling: A Brief Review
+Year: 2022
+Abstract: Protonic ceramic fuel cells (PCFCs) are one of the promising and emerging technologies for future energy generation. PCFCs are operated at intermediate temperatures (450–750 °C) and exhibit many advantages over traditional high-temperature oxygen-ion conducting solid oxide fuel cells (O-SOFCs) because they are simplified, have a longer life, and have faster startup times. A clear understanding/analysis of their specific working parameters/processes is required to enhance the performance of PCFCs further. Many physical processes, such as heat transfer, species transport, fluid flow, and electrochemical reactions, are involved in the operation of the PCFCs. These parameters are linked with each other along with internal velocity, temperature, and electric field. In real life, a complex non-linear relationship between these process parameters and their respective output cannot be validated only using an experimental setup. Hence, the computational fluid dynamics (CFD) method is an easier and more effective mathematical-based approach, which can easily change various geometric/process parameters of PCFCs and analyze their influence on its efficiency. This short review details the recent studies related to the application of CFD modeling in the PCFC system done by researchers to improve the electrochemical characteristics of the PCFC system. One of the crucial observations from this review is that the application of CFD modeling in PCFC design optimization is still much less than the traditional O-SOFC.
+---
+
+---
+DOI: 10.1021/acs.iecr.7b01765
+Title: 3D Numerical Simulations of Gas–Liquid Two-Phase Flows in Aluminum Electrolysis Cells with the Coupled Model of Computational Fluid Dynamics–Population Balance Model
+Year: 2017
+Abstract: The 3D numerical simulations of gas–liquid two-phase flows in three-anode and scaled-up 300 kA cell models using the computational fluid dynamics–population balance model (CFD–PBM) were presented. An Euler–Euler approach incorporated with a dispersed standard k–ε model and bubble-induced turbulence was used. The CFD–PBM was first validated with referenced experimental data. Then the effect of the electromagnetic force (EMF) was investigated. The basic flow patterns were predicted successfully by both the CFD and CFD–PBM simulations, but comparatively big differences remained in terms of gas bubble distributions. The bubble coalescence behavior played a predominant role under the anode bottom regions. The bubble breakup process became increasingly important once the different-sized bubbles escape from anode edge regions. Moreover, the overall distributions of various flow parameters in the simulations considering EMFs are clearly different from the cases without EMFs in an industrial 300 kA cell.
+---
+
+---
+DOI: 10.1016/j.actbio.2010.09.025
+Title: Computational modelling of biomaterial surface interactions with blood platelets and osteoblastic cells for the prediction of contact osteogenesis
+Year: 2010
+Abstract: Surface microroughness can induce contact osteogenesis (bone formation initiated at the implant surface) around oral implants, which may result from different mechanisms, such as blood platelet-biomaterial interactions and/or interaction with (pre-)osteoblast cells. We have developed a computational model of implant endosseous healing that takes into account these interactions. We hypothesized that the initial attachment and growth factor release from activated platelets is crucial in achieving contact osteogenesis. In order to investigate this, a computational model was applied to an animal experiment [7] that looked at the effect of surface microroughness on endosseous healing. Surface-specific model parameters were implemented based on in vitro data (Lincks et al. Biomaterials 1998;19:2219-32). The predicted spatio-temporal patterns of bone formation correlated with the histological data. It was found that contact osteogenesis could not be predicted if only the osteogenic response of cells was up-regulated by surface microroughness. This could only be achieved if platelet-biomaterial interactions were sufficiently up-regulated as well. These results confirmed our hypothesis and demonstrate the added value of the computational model to study the importance of surface-mediated events for peri-implant endosseous healing.
+---
+
+---
+DOI: 10.1016/j.jhydrol.2010.03.027
+Title: A simple inertial formulation of the shallow water equations for efficient two-dimensional flood inundation modelling
+Year: 2010
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.electacta.2021.138838
+Title: Three-dimensional computational fluid dynamics modeling of button solid oxide fuel cell
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/cnm.3520
+Title: Biomechanics of cells and subcellular components: A comprehensive review of computational models and applications
+Year: 2021
+Abstract: Abstract Cells are a fundamental structural, functional and biological unit for all living organisms. Up till now, considerable efforts have been made to study the responses of single cells and subcellular components to an external load, and understand the biophysics underlying cell rheology, mechanotransduction and cell functions using experimental and in silico approaches. In the last decade, computational simulation has become increasingly attractive due to its critical role in interpreting experimental data, analysing complex cellular/subcellular structures, facilitating diagnostic designs and therapeutic techniques, and developing biomimetic materials. Despite the significant progress, developing comprehensive and accurate models of living cells remains a grand challenge in the 21st century. To understand current state of the art, this review summarises and classifies the vast array of computational biomechanical models for cells. The article covers the cellular components at multi‐spatial levels, that is, protein polymers, subcellular components, whole cells and the systems with scale beyond a cell. In addition to the comprehensive review of the topic, this article also provides new insights into the future prospects of developing integrated, active and high‐fidelity cell models that are multiscale, multi‐physics and multi‐disciplinary in nature. This review will be beneficial for the researchers in modelling the biomechanics of subcellular components, cells and multiple cell systems and understanding the cell functions and biological processes from the perspective of cell mechanics.
+---
+
+---
+DOI: 10.1007/s10827-006-0011-9
+Title: A computational model to link psychophysics and cortical cell activation patterns in human texture processing
+Year: 2006
+Abstract: The human visual system uses texture information to automatically, or pre-attentively, segregate parts of the visual scene. We investigate the neural substrate underlying human texture processing using a computational model that consists of a hierarchy of bi-directionally linked model areas. The model builds upon two key hypotheses, namely that (i) texture segregation is based on boundary detection--rather than clustering of homogeneous items--and (ii) texture boundaries are detected mainly on the basis of a large scenic context that is analyzed by higher cortical areas within the ventral visual pathway, such as area V4. Here, we focus on the interpretation of key results from psychophysical studies on human texture segmentation. In psychophysical studies, texture patterns were varied along several feature dimensions to systematically characterize human performance. We use simulations to demonstrate that the activation patterns of our model directly correlate with the psychophysical results. This allows us to identify the putative neural mechanisms and cortical key areas which underlie human behavior. In particular, we investigate (i) the effects of varying texture density on target saliency, and the impact of (ii) element alignment and (iii) orientation noise on the detectability of a pop-out bar. As a result, we demonstrate that the dependency of target saliency on texture density is linked to a putative receptive field organization of orientation-selective neurons in V4. The effect of texture element alignment is related to grouping mechanisms in early visual areas. Finally, the modulation of cell activity by feedback activation from higher model areas, interacting with mechanisms of intra-areal center-surround competition, is shown to result in the specific suppression of noise-related cell activities and to improve the overall model capabilities in texture segmentation. In particular, feedback interaction is crucial to raise the model performance to the level of human observers.
+---
+
+---
+DOI: 10.1038/nature21350
+Title: Scaling single-cell genomics from phenomenology to mechanism
+Year: 2017
+Abstract: Three of the most fundamental questions in biology are how individual cells differentiate to form tissues, how tissues function in a coordinated and flexible fashion and which gene regulatory mechanisms support these processes. Single-cell genomics is opening up new ways to tackle these questions by combining the comprehensive nature of genomics with the microscopic resolution that is required to describe complex multicellular systems. Initial single-cell genomic studies provided a remarkably rich phenomenology of heterogeneous cellular states, but transforming observational studies into models of dynamics and causal mechanisms in tissues poses fresh challenges and requires stronger integration of theoretical, computational and experimental frameworks.
+---
+
+---
+DOI: 10.1039/d1dt00869b
+Title: Anticancer activity of a new copper(<scp>ii</scp>) complex with a hydrazone ligand. Structural and spectroscopic characterization, computational simulations and cell mechanistic studies on 2D and 3D breast cancer cell models
+Year: 2021
+Abstract: We report here the synthesis, crystal structure, characterization and anticancer activity of a copper(<sc>ii</sc>)-hydrazone complex, [Cu(MeBH<italic>o</italic>Va)(H<sub>2</sub>O)<sub>2</sub>](NO<sub>3</sub>) (for short, CuHL), against human breast cancer cells on monolayer (2D) and spheroids/mammospheres (3D).
+---
+
+---
+DOI: 10.1080/10255842.2013.774381
+Title: Corroboration of computational models for mechanoregulated stem cell differentiation
+Year: 2013
+Abstract: Do computational models contribute to progress in mechanobiology? Jacobs and Kelly (in Advances on Modelling in Tissue Engineering, p. 1-14, 2011) suggest that they do, but at the same time propose a limitation in the form of the 'paradox of validation', whereby the information needed to validate mechanoregulation theories obviates the need for them in the first place. In this article, the corroboration of theories describing mechanoregulation of tissue differentiation is reviewed. Considering the falsifiability of computational models derived using the theories as a measure of their predictive power, it is shown that the predictive power of some theories is poor and that models based on these theories fall into the 'paradox of validation'. Week theories for any phenomenon would succumb to such a paradox. We argue that mechanobiology needs theories that can have more potentially falsifying experiments and that perhaps the discipline does suffer from theories that are a priori designed to minimise falsifiability. However, several theories do have predictive power beyond the data used to validate them, so a paradox of validation should disappear as the subject develops.
+---
+
+---
+DOI: 10.1021/jz300839e
+Title: First-Principles Computational Modeling of Fluorescence Resonance Energy Transfer in Co-Sensitized Dye Solar Cells
+Year: 2012
+Abstract: TiO2 cosensitization by different dyes having complementary absorption represents an appealing strategy to obtain panchromatic sensitization in dye-sensitized solar cells. Fluorescence (Föster) resonance energy transfer (FRET) from an energy relay dye to a sensitizing dye, both grafted onto TiO2, was effectively shown to produce additional photocurrent (Hardin et al. J. Am. Chem. Soc.2011, 133, 10662). Here we develop a realistic cosensitization model to provide a precise estimate of the geometrical parameters, which govern the FRET rate. The reliability of our model is fully confirmed by the quantitative reproduction of the experimental spectral shift in the naphtalocyanine absorption band and by the excellent agreement between the experimentally reported FRET rates. Our model provides a realistic picture of the cosensitized TiO2 interface and is capable, at the same time, of predicting the cosensitization mechanism and the associated FRET kinetics based on the sole photophysical characterization of the isolated donor/acceptor partners.
+---
+
+---
+DOI: 10.1038/nprot.2009.94
+Title: Computational reconstruction of cell and tissue surfaces for modeling and data analysis
+Year: 2009
+Abstract: We present a method for the computational reconstruction of the 3-D morphology of biological objects, such as cells, cell conjugates or 3-D arrangements of tissue structures, using data from high-resolution microscopy modalities. The method is based on the iterative optimization of Voronoi representations of the spatial structures. The reconstructions of biological surfaces automatically adapt to morphological features of varying complexity with flexible degrees of resolution. We show how 3-D confocal images of single cells can be used to generate numerical representations of cellular membranes that may serve as the basis for realistic, spatially resolved computational models of membrane processes or intracellular signaling. Another example shows how the protocol can be used to reconstruct tissue boundaries from segmented two-photon image data that facilitate the quantitative analysis of lymphocyte migration behavior in relation to microanatomical structures. Processing time is of the order of minutes depending on data features and reconstruction parameters.
+---
+
+---
+DOI: 10.3390/pr6070082
+Title: A Framework for the Development of Integrated and Computationally Feasible Models of Large-Scale Mammalian Cell Bioreactors
+Year: 2018
+Abstract: Industrialization of bioreactors has been achieved by applying several core concepts of science and engineering. Modeling has deepened the understanding of biological and physical phenomena. In this paper, the state of existing cell culture models is summarized. A framework for development of dynamic and computationally feasible models that capture the interactions of hydrodynamics and cellular activities is proposed. Operating conditions are described by impeller rotation speed, gas sparging flowrate, and liquid fill level. A set of admissible operating states is defined over discretized process parameters. The burden on a dynamic solver is reduced by assuming hydrodynamics at its fully developed state and implementation of compartmental modeling. A change in the conditions of operation is followed by hydrodynamics switching instantaneously to the steady state that would be reached under new conditions. Finally, coupling the model with optimization solvers leads to improvements in operation.
+---
+
+---
+DOI: 10.1006/jcss.1999.1693
+Title: Computing with Membranes
+Year: 2000
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.hrthm.2008.02.026
+Title: Computational analysis of the effects of the hERG channel opener NS1643 in a human ventricular cell model
+Year: 2008
+Abstract: BackgroundDysfunction or pharmacologic inhibition of repolarizing cardiac ionic currents can lead to fatal arrhythmias. The hERG potassium channel underlies the repolarizing current I(Kr), and mutations therein can produce both long and short QT syndromes (LQT2 and SQT1). We previously reported on the diphenylurea compound NS1643, which acts on hERG channels in two distinct ways: by increasing overall conductance and by shifting the inactivation curve in the depolarized direction.ObjectiveThe purpose of this study was to determine which of the two components contributes more to the antiarrhythmic effects of NS1643 under normokalemic and hypokalemic conditions.MethodsThe study consisted of mathematical simulation of action potentials in a human ventricular ionic cell model in single cell and string of 100 cells.ResultsRegardless of external potassium concentration or diastolic interval used, NS1643 decreases action potential duration and triangulation. For single cells, NS1643 increases the postrepolarization refractory time but shortens the absolute refractory period. In one dimensional simulations, NS1643 increases the vulnerable window for unidirectional block but suppresses the emergence of premature action potentials and unidirectional blocks around APD(90). During normokalemia, shifting the inactivation curve has greater impact than increasing conductance, whereas the opposite occurs during hypokalemia.ConclusionIncreased hERG conductance and the depolarizing shift of the inactivation curve both contribute to the antiarrhythmic actions of NS1643, with relative effects dependent on external K(+) concentration.
+---
+
+---
+DOI: 10.1002/qua.24290
+Title: Anatase (100) thin film surface computational model for photoelectrochemical cell
+Year: 2012
+Abstract: Abstract Using computational approaches, one is able to better understand electron transfer and specific atomistic behaviors in semiconductor materials; it is also more cost and time effective than experimental methods. If computed semiconductor characteristics show promise, experimentalists can synthesize and further examine the structure. Specifically, doping TiO 2 thin film surfaces with platinum and ruthenium have shown great promise for efficient H 2 production and is beneficial in comparison to other materials such as the pure silicon used for most of today's solar cells. In computational studies, TiO 2 anatase thin film (100) surfaces are doped with platinum and ruthenium. The formulas used are Pt 2 Ti 32 O 72 H 16 or Ru 2 Ti 32 O 72 H 16 with the (100) crystallographic surface exposed and covered with a monolayer of water. Optimization is completed by density functional theory and Perdue Burke Ernzerhof, (PBE) in Vienna Ab‐initio simulation package (VASP) software. The density of states, absorption spectra, and partial charge densities are compared between slabs doped by the two elements as well as Ti 32 O 72 H 16 with no dopant as a standard for reference. The information can be used to show the mechanism of how doping the titanium dioxide nanocrystals facilitates photoinduced charge transfer at the surfaces, which is useful in understanding photoelectrochemical water splitting. © 2012 Wiley Periodicals, Inc.
+---
+
+---
+DOI: 10.1080/01621459.1987.10478458
+Title: The Calculation of Posterior Distributions by Data Augmentation
+Year: 1987
+Abstract: Abstract The idea of data augmentation arises naturally in missing value problems, as exemplified by the standard ways of filling in missing cells in balanced two-way tables. Thus data augmentation refers to a scheme of augmenting the observed data so as to make it more easy to analyze. This device is used to great advantage by the EM algorithm (Dempster, Laird, and Rubin 1977) in solving maximum likelihood problems. In situations when the likelihood cannot be approximated closely by the normal likelihood, maximum likelihood estimates and the associated standard errors cannot be relied upon to make valid inferential statements. From the Bayesian point of view, one must now calculate the posterior distribution of parameters of interest. If data augmentation can be used in the calculation of the maximum likelihood estimate, then in the same cases one ought to be able to use it in the computation of the posterior distribution. It is the purpose of this article to explain how this can be done. The basic idea is quite simple. The observed data y is augmented by the quantity z, which is referred to as the latent data. It is assumed that if y and z are both known, then the problem is straightforward to analyze, that is, the augmented data posterior p(θ | y, z) can be calculated. But the posterior density that we want is p(θ | y), which may be difficult to calculate directly. If, however, one can generate multiple values of z from the predictive distribution p(z | y) (i.e., multiple imputations of z), thenp(θ | y) can be approximately obtained as the average ofp(θ | y, z) over the imputed z's. However, p(z | y) depends, in turn, onp(θ | y). Hence if p(θ | y) was known, it could be used to calculate p(z | y). This mutual dependency between p(θ | y) and p(z | y) leads to an iterative algorithm to calculate p(θ | y). Analytically, this algorithm is essentially the method of successive substitution for solving an operator fixed point equation. We exploit this fact to prove convergence under mild regularity conditions. Typically, to implement the algorithm, one must be able to sample from two distributions, namely p(θ | y, z) andp(z | θ, y). In many cases, it is straightforward to sample from either distribution. In general, though, either sampling can be difficult, just as either the E or the M step can be difficult to implement in the EM algorithm. For p(θ | y, z) arising from parametric submodels of the multinomial, we develop a primitive but generally applicable way to approximately sample θ. The idea is first to sample from the posterior distribution of the cell probabilities and then to project to the parametric surface that is specified by the submodel, giving more weight to those observations lying closer to the surface. This procedure should cover many of the common models for categorical data. There are several examples given in this article. First, the algorithm is introduced and motivated in the context of a genetic linkage example. Second, we apply this algorithm to an example of inference from incomplete data regarding the correlation coefficient of the bivariate normal distribution. It is seen that the algorithm recovers the bimodal nature of the posterior distribution. Finally, the algorithm is used in the analysis of the traditional latent-class model as applied to data from the General Social Survey.
+---
+
+---
+DOI: 10.1126/science.1099962
+Title: Oscillations in NF-κB Signaling Control the Dynamics of Gene Expression
+Year: 2004
+Abstract: Signaling by the transcription factor nuclear factor kappa B (NF-κB) involves its release from inhibitor kappa B (IκB) in the cytosol, followed by translocation into the nucleus. NF-κB regulation of IκBα transcription represents a delayed negative feedback loop that drives oscillations in NF-κB translocation. Single-cell time-lapse imaging and computational modeling of NF-κB (RelA) localization showed asynchronous oscillations following cell stimulation that decreased in frequency with increased IκBα transcription. Transcription of target genes depended on oscillation persistence, involving cycles of RelA phosphorylation and dephosphorylation. The functional consequences of NF-κB signaling may thus depend on number, period, and amplitude of oscillations.
+---
+
+---
+DOI: 10.1073/pnas.0604460103
+Title: Migration of tumor cells in 3D matrices is governed by matrix stiffness along with cell-matrix adhesion and proteolysis
+Year: 2006
+Abstract: Cell migration on 2D surfaces is governed by a balance between counteracting tractile and adhesion forces. Although biochemical factors such as adhesion receptor and ligand concentration and binding, signaling through cell adhesion complexes, and cytoskeletal structure assembly/disassembly have been studied in detail in a 2D context, the critical biochemical and biophysical parameters that affect cell migration in 3D matrices have not been quantitatively investigated. We demonstrate that, in addition to adhesion and tractile forces, matrix stiffness is a key factor that influences cell movement in 3D. Cell migration assays in which Matrigel density, fibronectin concentration, and β1 integrin binding are systematically varied show that at a specific Matrigel density the migration speed of DU-145 human prostate carcinoma cells is a balance between tractile and adhesion forces. However, when biochemical parameters such as matrix ligand and cell integrin receptor levels are held constant, maximal cell movement shifts to matrices exhibiting lesser stiffness. This behavior contradicts current 2D models but is predicted by a recent force-based computational model of cell movement in a 3D matrix. As expected, this 3D motility through an extracellular environment of pore size much smaller than cellular dimensions does depend on proteolytic activity as broad-spectrum matrix metalloproteinase (MMP) inhibitors limit the migration of DU-145 cells and also HT-1080 fibrosarcoma cells. Our experimental findings here represent, to our knowledge, discovery of a previously undescribed set of balances of cell and matrix properties that govern the ability of tumor cells to migration in 3D environments.
+---
+
+---
+DOI: 10.1016/j.jpowsour.2006.07.043
+Title: Water transport in the proton exchange-membrane fuel cell: Comparison of model computation and measurements of effective drag
+Year: 2006
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1520/stp14635s
+Title: Modeling Crack Growth Resistance Using Computational Cells with Microstructurally—Based Length Scales
+Year: 1995
+Abstract: Many metals which fail by void growth mechanism display a macroscopically planar fracture process zone of one or two void spacing in thickness characterized by intense plastic flow in the ligaments between the voids. To model this process cell elements, each of which contains a void, are employed on the plane ahead of the initial crack. The linear dimension of these elements is D. We use Gurson model to describe the hole growth in a cell resulting in material softening and, ultimately, loss of stress carrying capacity leading to void coalescence and formation of new crack surface thereby advancing the crack. The void-free material surrounding the cells is described by the J2 flow theory of plasticity. The two cell parameters, D and f0, characterize the mean spacing and volume fraction of voids in the material lying in the plane of fracture. Finite element calculations have been carried out for plane strain, mode I crack growth under small scale yielding. A wide range of fracture behavior is captured by proper combinations of D and f0 Resistance curves are calculated for crack extensions two orders of magnitude larger than D. The parameters affecting fracture resistance are discussed emphasizing the roles of microstructural parameters and continuum properties of the material. Geometry effects on fracture resistance are investigated by way of the T-stress. As a final application, resistance curves for a deep and a shallow crack bend bar are computed. These are compared with experimental data.
+---
+
+---
+DOI: 10.1007/978-3-030-17593-1_1
+Title: Computational Modeling of Collective Cell Migration: Mechanical and Biochemical Aspects
+Year: 2019
+Abstract: Collective cell migration plays key roles in various physiological and pathological processes in multicellular organisms, including embryonic development, wound healing, and formation of cancer metastases. Such collective migration involves complex crosstalk among cells and their environment at both biochemical and mechanical levels. Here, we review various computational modeling strategies that have been helpful in decoding the dynamics of collective cell migration. Most of such attempts have focused either aspect - mechanical or biochemical regulation of collective cell migration, and have yielded complementary insights. Finally, we suggest some possible ways to integrate these models to gain a more comprehensive understanding of collective cell migration.
+---
+
+---
+DOI: 10.1016/s0006-3223(99)00140-7
+Title: Role of locus coeruleus in attention and behavioral flexibility
+Year: 1999
+Abstract: Previous findings have implicated the noradrenergic locus coeruleus (LC) system in functions along the dimension of arousal or attention. It has remained uncertain what role this system has in attention, or what mechanisms may be involved. We review our recent work examining activity of LC neurons in monkeys performing a visual discrimination task that requires focused attention. Results indicate that LC cells exhibit phasic or tonic modes of activity, that closely correspond to good or poor performance on this task, respectively. A computational model was used to simulate these results. This model predicts that alterations in electrotonic coupling among LC cells may produce the different modes of activity and corresponding differences in performance. This model also indicates that the phasic mode of LC activity may promote focused or selective attention, whereas the tonic mode may produce a state of high behavioral flexibility or scanning attentiveness. The implications of these results for clinical disorders such as attention-deficit hyperactivity disorder, stress disorders, and emotional and affective disorders are discussed.
+---
+
+---
+DOI: 10.1121/1.410228
+Title: A computational model with ionic conductances for the fusiform cell of the dorsal cochlear nucleus
+Year: 1994
+Abstract: A computational model of a fusiform cell of the dorsal cochlear nucleus was developed. The results of model simulations are compared with the results of in vitro experimental observations obtained by other investigators. The structure of the present model is similar to that of Hodgkin–Huxley [J. Physiol. 117, 500–544 (1952)]. The model incorporates five nonlinear voltage-dependent conductances (three potassium and two sodium types) and their associated equilibrium-potential batteries, a leakage conductance, the membrane capacitance, and a current source. Model responses were obtained under both current- and voltage-clamp conditions. When a hyper- and depolarizing current sequence was applied [Manis, J. Neurosci. 10, 2338–2351 (1990)], the cell model was able to reproduce builduplike and pauserlike discharge patterns closely resembling Manis’ observations. A transient ‘‘A’’-type potassium conductance in the model played a major role in generating this phenomenon. The model predicts that blocking the ‘‘A’’ conductance should convert a builduplike or pauserlike pattern into a sustained regular pattern. A persistent sodium conductance in the model played the main role in reproducing: Spontaneous regular discharges; a discharge after a long latency under a long small (+0.025 nA) current; and nonlinear voltage–current characteristics with positive currents. Usefulness of the model can be seen as follows: (1) Several sets of experimental observations can be integrated into a common framework; (2) possible roles of different ionic conductances postulated to be present in the cell can be inferred by observing the model behavior with the conductances intact or blocked; and (3) time courses of ionic currents and conductance values obtained from the model under current- and voltage-clamp conditions can serve as predictions to be tested in future experimental studies.
+---
+
+---
+DOI: 10.3174/ajnr.a3558
+Title: High WSS or Low WSS? Complex Interactions of Hemodynamics with Intracranial Aneurysm Initiation, Growth, and Rupture: Toward a Unifying Hypothesis
+Year: 2013
+Abstract: Increasing detection of unruptured intracranial aneurysms, catastrophic outcomes from subarachnoid hemorrhage, and risks and cost of treatment necessitate defining objective predictive parameters of aneurysm rupture risk. Image-based computational fluid dynamics models have suggested associations between hemodynamics and intracranial aneurysm rupture, albeit with conflicting findings regarding wall shear stress. We propose that the "high-versus-low wall shear stress" controversy is a manifestation of the complexity of aneurysm pathophysiology, and both high and low wall shear stress can drive intracranial aneurysm growth and rupture. Low wall shear stress and high oscillatory shear index trigger an inflammatory-cell-mediated pathway, which could be associated with the growth and rupture of large, atherosclerotic aneurysm phenotypes, while high wall shear stress combined with a positive wall shear stress gradient trigger a mural-cell-mediated pathway, which could be associated with the growth and rupture of small or secondary bleb aneurysm phenotypes. This hypothesis correlates disparate intracranial aneurysm pathophysiology with the results of computational fluid dynamics in search of more reliable risk predictors.
+---
+
+---
+DOI: 10.1016/j.jmps.2008.11.003
+Title: A computational modeling for micropipette-manipulated cell detachment from a substrate mediated by receptor–ligand binding
+Year: 2008
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1523/jneurosci.16-06-02112.1996
+Title: Representation of spatial orientation by the intrinsic dynamics of the head-direction cell ensemble: a theory
+Year: 1996
+Abstract: The head-direction (HD) cells found in the limbic system in freely mov ing rats represent the instantaneous head direction of the animal in the horizontal plane regardless of the location of the animal. The internal direction represented by these cells uses both self-motion information for inertially based updating and familiar visual landmarks for calibration. Here, a model of the dynamics of the HD cell ensemble is presented. The stability of a localized static activity profile in the network and a dynamic shift mechanism are explained naturally by synaptic weight distribution components with even and odd symmetry, respectively. Under symmetric weights or symmetric reciprocal connections, a stable activity profile close to the known directional tuning curves will emerge. By adding a slight asymmetry to the weights, the activity profile will shift continuously without disturbances to its shape, and the shift speed can be controlled accurately by the strength of the odd-weight component. The generic formulation of the shift mechanism is determined uniquely within the current theoretical framework. The attractor dynamics of the system ensures modality- independence of the internal representation and facilitates the correction for cumulative error by the putative local-view detectors. The model offers a specific one-dimensional example of a computational mechanism in which a truly world-centered representation can be derived from observer-centered sensory inputs by integrating self-motion information.
+---
+
+---
+DOI: 10.1016/j.commatsci.2014.08.045
+Title: A multi-scale computational model using Generalized Method of Cells (GMC) homogenization for multi-phase single crystal metals
+Year: 2014
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0022-5096(00)00019-3
+Title: An extended model for void growth and coalescence
+Year: 2000
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0378-7753(01)01057-6
+Title: Three-dimensional computational analysis of transport phenomena in a PEM fuel cell
+Year: 2002
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/0167-8760(84)90014-x
+Title: Low resolution electromagnetic tomography: a new method for localizing electrical activity in the brain
+Year: 1994
+Abstract: This paper presents a new method for localizing the electric activity in the brain based on multichannel surface EEG recordings. In contrast to the models presented up to now the new method does not assume a limited number of dipolar point sources nor a distribution on a given known surface, but directly computes a current distribution throughout the full brain volume. In order to find a unique solution for the 3-dimensional distribution among the infinite set of different possible solutions, the method assumes that neighboring neurons are simultaneously and synchronously activated. The basic assumption rests on evidence from single cell recordings in the brain that demonstrates strong synchronization of adjacent neurons. In view of this physiological consideration the computational task is to select the smoothest of all possible 3-dimensional current distributions, a task that is a common procedure in generalized signal processing. The result is a true 3-dimensional tomography with the characteristic that localization is preserved with a certain amount of dispersion, i.e., it has a relatively low spatial resolution. The new method, which we call Low Resolution Electromagnetic Tomography (LORETA) is illustrated with two different sets of evoked potential data, the first showing the tomography of the P100 component to checkerboard stimulation of the left, right, upper and lower hemiretina, and the second showing the results for the auditory N100 component and the two cognitive components CNV and P300. A direct comparison of the tomography results with those obtained from fitting one and two dipoles illustrates that the new method provides physiologically meaningful results while dipolar solutions fail in many situations. In the case of the cognitive components, the method offers new hypotheses on the location of higher cognitive functions in the brain.
+---
+
+---
+DOI: 10.1016/j.fufo.2022.100195
+Title: Computational fluid dynamics modeling of cell cultures in bioreactors and its potential for cultivated meat production—A mini-review
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/embc44109.2020.9176125
+Title: Responsiveness of Retinal Ganglion Cells Through Frequency Modulation of Electrical Stimulation: A Computational Modeling Study
+Year: 2020
+Abstract: Electrical stimulation of surviving retinal neurons has proven effective in restoring sight to totally blind patients affected by retinal degenerative diseases. Morphological and biophysical differences among retinal ganglion cells (RGCs) are important factors affecting their response to epiretinal electrical stimulation. Although detailed models of ON and OFF RGCs have already been investigated, here we developed morphologically and biophysically realistic computational models of two classified RGCs, D1-bistratified and A2-monostratified, and analyzed their response to alternations in stimulation frequency (up to 200 Hz). Results show that the D1-bistratified cell is more responsive to high frequency stimulation compared to the A2-monostratified cell. This differential RGCs response suggests a potential avenue for selective activation, and in turn different encoded percept of RGCs.
+---
+
+---
+DOI: 10.1016/0734-743x(90)90071-3
+Title: CTH: A three-dimensional shock wave physics code
+Year: 1990
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/ipdpsw.2010.5470823
+Title: OpenCL - An effective programming model for data parallel computations at the Cell Broadband Engine
+Year: 2010
+Abstract: Current processor architectures are diverse and heterogeneous. Examples include multicore chips, CPUs and the Cell Broadband Engine (CBE). The recent Open Compute Language (OpenCL) standard aims at efficiency and portability. This paper explores its efficiency when implemented on the CBE, without using CBE-specific features such as explicit asynchronous memory transfers. We based our experiments on two applications: matrix multiplication, and the client side of the Einstein@Home distributed computing project. Both were programmed in OpenCL, and then translated to the CBE. For matrix multiplication, we deployed different levels of OpenCL performance optimization, and observed that they pay off on the CBE. For the Einstein@Home application, our translated OpenCL version achieves almost the same speed as a native CBE version. Another main contribution of the paper is a proposal for an additional memory level in OpenCL, called static local memory. With little programming expense, it can lead to significant speedups such as factor seven for reduction. Finally, we studied two versions of the OpenCL to CBE mapping, in which the PPE component of the CBE does or does not take the role of a compute unit.
+---
+
+---
+DOI: 10.1016/j.ijleo.2019.163427
+Title: Computational modelling of monolithically stacked perovskite/silicon tandem solar cells using monofacial and bifacial designs
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jpowsour.2021.230564
+Title: Computational fluid dynamics modeling of anode-supported solid oxide fuel cells using triple-phase boundary-based kinetics
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/0893-6080(91)90056-b
+Title: Fuzzy ART: Fast stable learning and categorization of analog patterns by an adaptive resonance system
+Year: 1991
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0022-5193(88)80040-7
+Title: A diffusion-adsorption model for the computation of the amount of hormone around a secreting cell, detected by the reverse hemolytic plaque assay
+Year: 1988
+Abstract: The reverse hemolytic plaque assay enables the detection of secretion products from individual cells in cultures by visualizing the plaques formed after complement-mediated hemolysis around the secreting cells. However, the precise quantitation of the amount of secretion remains problematic. In this study we propose a computation model for estimating the spreading of the secreted molecules, based on the underlying processes of diffusion and antigen adsorption by immobilized antibodies. The translational diffusion coefficient of rat prolactin at 37 degrees C, determined by laser light scattering, was 9.89 x 10(-7) cm2/s. The time-dependent concentration distribution around a constantly secreting cell in a flat quasi infinite layer, was derived from the diffusion equation, using an analytical approach based on Laplace transformation. The relations between plaque size, incubation time and secretion level were expressed as a function of the threshold concentration of secretion product that can be detected and the effective diffusion coefficient, taking antigen adsorption into account. We obtained very good agreement between observed and predicted results for plaque formation by dispersed prolactin secreting cells of 14-day-old female rat pituitaries. This study confirms the validity of the assumptions underlying the reverse hemolytic plaque assay, provided that the cell density is low, the incubation time is moderately long and the concentration of specific antiserum is sufficiently high.
+---
+
+---
+DOI: 10.1007/s10047-012-0649-1
+Title: Computational modeling of adherent cell growth in a hollow-fiber membrane bioreactor for large-scale 3-D bone tissue engineering
+Year: 2012
+Abstract: The use of hollow-fiber membrane bioreactors (HFMBs) has been proposed for three-dimensional bone tissue growth at the clinical scale. However, to achieve an efficient HFMB design, the relationship between cell growth and environmental conditions must be determined. Therefore, in this work, a dynamic double-porous media model was developed to determine nutrient-dependent cell growth for bone tissue formation in a HFMB. The whole hollow-fiber scaffold within the bioreactor was treated as a porous domain in this model. The domain consisted of two interpenetrating porous regions, including a porous lumen region available for fluid flow and a porous extracapillary space filled with a collagen gel that contained adherent cells for promoting long-term growth into tissue-like mass. The governing equations were solved numerically and the model was validated using previously published experimental results. The contributions of several bioreactor design and process parameters to the performance of the bioreactor were studied. The results demonstrated that the process and design parameters of the HFMB significantly affect nutrient transport and thus cell behavior over a long period of culture. The approach presented here can be applied to any cell type and used to develop tissue engineering hollow-fiber scaffolds.
+---
+
+---
+DOI: 10.1016/j.compbiomed.2017.07.005
+Title: Computational modelling of genome-scale metabolic networks and its application to CHO cell cultures
+Year: 2017
+Abstract: Genome-scale metabolic models (GEMs) have become increasingly important in recent years. Currently, GEMs are the most accurate in silico representation of the genotype-phenotype link. They allow us to study complex networks from the systems perspective. Their application may drastically reduce the amount of experimental and clinical work, improve diagnostic tools and increase our understanding of complex biological phenomena. GEMs have also demonstrated high potential for the optimisation of bio-based production of recombinant proteins. Herein, we review the basic concepts, methods, resources and software tools used for the reconstruction and application of GEMs. We overview the evolution of the modelling efforts devoted to the metabolism of Chinese Hamster Ovary (CHO) cells. We present a case study on CHO cell metabolism under different amino acid depletions. This leads us to the identification of the most influential as well as essential amino acids in selected CHO cell lines.
+---
+
+---
+DOI: 10.1152/jn.1997.78.1.103
+Title: Quantifying the Role of Inhibition in Associative Long-Term Potentiation in Dentate Granule Cells With Computational Models
+Year: 1997
+Abstract: Holmes, William R. and William B. Levy. Quantifying the role of inhibition in associative long-term potentiation in dentate granule cells with computational models. J. Neurophysiol. 78: 103–116, 1997. In the dentate gyrus, coactivation of a mildly strong ipsilateral perforant path (pp) input with a weak contralateral pp input will not induce associative long-term potentiation in the weak input path unless both inputs project to the same part of the molecular layer. This “spatial convergence requirement” is thought to arise from either voltage attenuation between input locations or inhibition. Simulations with a detailed model of a dentate granule cell were performed to rule out voltage attenuation and to quantify the inhibition necessary to obtain the spatial convergence requirement. Strong lateral and weak medial or strong medial and weak lateral pp input were activated eight times at 400 Hz. Calcium current through N-methyl-d-aspartate receptor channels and subsequent changes in calcium concentration and the concentration of calmodulin bound with four calcium ions ([Cal-Ca 4 ]) in the spine head were computed for a medial and a lateral pp synapse. To satisfy the spatial convergence requirement, peak [Cal-Ca 4 ] had to be much larger in the strongly activated path synapse than in the weakly activated path synapse. With no inhibition in the model, differences in peak [Cal-Ca 4 ] at the two synapses were small, ruling out voltage attenuation as the explanation of the spatial convergence requirement. However, with shunting inhibition, modeled by reducing membrane resistivity to 1,600 Ω cm 2 in the distal two-thirds of the dendritic tree, peak [Cal-Ca 4 ] was 3–5 times larger in the strongly activated path synapse than in the weakly activated path synapse. The magnitude of shunting inhibition was varied to determine the level that maximized this difference in peak [Cal-Ca 4 ]. For strong lateral and weak medial pp input, the optimal level was one that prevented the cell from firing an action potential. For strong medial and weak lateral pp input, the optimal level was one at which the cell fired two action potentials. The distribution of shunting inhibition that best satisfied the spatial convergence requirement was inhibition on the distal two-thirds of the dendritic tree with or without inhibition at the soma, with inhibition stronger in the distal third than in the middle third. It was estimated that the number of inhibitory synapses involved in the shunting inhibition should be 25–50% of the number of excitatory synapses activated by the eight-pulse, 400-Hz tetanus. This number could be 20–50% of the total number of inhibitory synapses in the distal two-thirds of the dendritic tree. The addition of a single inhibitory synapse on a dendrite had a significant effect on peak spine head [Cal-Ca 4 ] in nearby spines. Inhibitory synapses had to be activated four or more times at 100 Hz for effective shunting to take place, and the inhibition had to begin no later than2–5 ms after the first excitatory input. The results suggest that inhibition can isolate potentiated synapses to particular dendritic domains and that the location of activated inhibitory synapses may affect potentiation of individual synapses on individual dendrites.
+---

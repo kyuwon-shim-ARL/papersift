@@ -1,0 +1,119 @@
+{
+  "batch_index": 43,
+  "dois": [
+    "10.1016/j.isci.2023.108180",
+    "10.1371/journal.pone.0111946",
+    "10.1371/journal.pcbi.1005093",
+    "10.1371/journal.pcbi.1000082",
+    "10.1371/journal.ppat.1008607",
+    "10.1186/s12885-018-4756-0",
+    "10.3390/biom9110693",
+    "10.3390/ijms21249549",
+    "10.3389/ftox.2022.992650",
+    "10.3389/fgene.2019.00632"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1016/j.isci.2023.108180",
+      "problem": "Mutation-targeted therapy in cystic fibrosis is not available for patients carrying ultra-rare CFTR variants like W57G/A234D; efficacy of CFTR modulators on this genotype is unknown.",
+      "method": "In silico structural modeling using cryo-EM CFTR structures (5UAK, 6O1V) for stability prediction, combined with functional characterization via western blotting, forskolin-induced swelling (FIS) assay in colonoids, and Ussing chamber analysis in reprogrammed nasal epithelial cells.",
+      "finding": "Both mutations destabilize CFTR but W57G is ~10 kcal/mol more destabilizing than A234D; residual CFTR function increases with VX661±VX445±VX770 treatment; in vivo VX770 reduced sweat chloride to non-CF levels and increased FEV1% by 6% after 27 weeks.",
+      "dataset": "Patient-derived colonoids and nasal epithelial cells (W57G/A234D genotype), FRT and CFBE cell lines, F508del/F508del and non-CF controls",
+      "metric": "Sweat chloride concentration, predicted FEV1%, forskolin-induced swelling, CFTR protein band C expression, ΔΔG (kcal/mol)",
+      "baseline": "Untreated (DMSO) conditions, non-CF controls, F508del/F508del genotype",
+      "result": "6% absolute FEV1% increase after 27 weeks VX770, sweat chloride reduced to non-CF levels, W57G destabilization ~10 kcal/mol greater than A234D"
+    },
+    {
+      "doi": "10.1371/journal.pone.0111946",
+      "problem": "The biochemistry of multi-cell systems (hepatocyte-endothelial-adipocyte) involving homeostatic balance in glucose and lipid metabolism is too complex to understand without computational models.",
+      "method": "Modular ODE-based model using Michaelis-Menten kinetics implemented in Simulink, merging three validated single-cell metabolic models with physiological interconnections under static and dynamic (flow) conditions.",
+      "finding": "Good agreement between simulated and experimental metabolic profiles for monocultures and connected three-culture system; heuristic correction factors identified differential pathway activation under flow vs static conditions.",
+      "dataset": "In vitro connected three-culture system: 250K hepatocytes, 80K endothelial cells, 300K adipocytes in MCmB 2.0 bioreactor",
+      "metric": "Glucose, fatty acid, lactate, glycerol concentration profiles over time",
+      "baseline": "Static culture conditions (no medium flow)",
+      "result": "Good agreement between simulated and experimental metabolic profiles in both static and dynamic conditions"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1005093",
+      "problem": "Reliable personalized prediction of NSCLC response to chemotherapy requires estimation of in vivo cell-killing efficacy, which cannot be directly measured or adequately reproduced by in vitro experiments.",
+      "method": "Multiscale mechanistic model incorporating uncontrolled proliferation, population heterogeneity, hypoxia, and treatment resistance; sensitivity analysis via OFAT and Latin hypercube sampling/partial rank correlation coefficient (LHS/PRCC) approaches.",
+      "finding": "Volume growth rate and growth fraction at diagnosis are key determinants for accurate cell kill rate estimation; the framework provides quantitative CKR estimates for cisplatin-based doublet regimens applicable to personalized predictions.",
+      "dataset": "13 NSCLC patients (9 SCC, 4 ADC, stage III-IV) treated with cisplatin + gemcitabine/vinorelbine/docetaxel",
+      "metric": "Cell kill rate (CKR), tumor volume change from CT imaging, partial rank correlation coefficients",
+      "baseline": "Pre-treatment tumor volume (CT at two time points), exponential growth model",
+      "result": "CKR estimates provided for 13 patients; volume growth rate and growth fraction identified as highest-sensitivity parameters via PRCC"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1000082",
+      "problem": "Genome-scale metabolic reconstructions include all reactions implied by genome annotation, but many are inactive in specific contexts; methods are needed to create context-specific networks for accurate in silico modeling.",
+      "method": "GIMME (Gene Inactivity Moderated by Metabolism and Expression) algorithm using quantitative gene expression data and required metabolic functionalities with linear optimization to produce context-specific reconstructions and quantitative inconsistency scores.",
+      "finding": "GIMME produces context-specific metabolic networks consistent with experimental results for E. coli adaptive evolution, metabolic engineering strain design, and human skeletal muscle cells; inconsistency scores quantify data-objective agreement.",
+      "dataset": "E. coli adaptive evolution strains, E. coli metabolic engineering strains, human skeletal muscle cells (GEO expression data)",
+      "metric": "Normalized consistency score (NCS), inconsistency score (IS), permutation test p-value",
+      "baseline": "Genome-scale metabolic reconstruction (full network), random permutations (10,000 randomizations)",
+      "result": "Consistency scores statistically significant (p<0.05 permutation test); context-specific predictions match known experimental phenotypes"
+    },
+    {
+      "doi": "10.1371/journal.ppat.1008607",
+      "problem": "T-cell epitope prediction algorithms used for SARS-CoV-2 vaccine design have inherent limitations that may cause vaccine candidates to miss critically important immune responses.",
+      "method": "Perspective/review analysis of limitations in HLA class I-restricted epitope prediction algorithms, including biases toward 9-mer/10-mer peptides and incomplete HLA allele coverage.",
+      "finding": "Approaches exclusively based on 9-mer/10-mer epitope prediction will miss important T-cell responses; unbiased overlapping peptide panels should complement prediction-based approaches to define correlates of protective immunity.",
+      "dataset": "SARS-CoV-2 viral proteome",
+      "metric": "",
+      "baseline": "9-mer/10-mer HLA class I epitope prediction algorithms",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/s12885-018-4756-0",
+      "problem": "Metastatic melanoma resists TRAIL-induced apoptosis via pro-inflammatory NF-κB and STAT3 pathways, limiting therapeutic options that selectively kill cancer cells.",
+      "method": "Boolean network modeling of melanoma signaling pathways with stuck-at fault analysis to simulate gene mutations and drug interventions; experimental validation using A375 melanoma cell viability assays.",
+      "finding": "Cryptotanshinone increases TRAIL sensitivity through dual action on DR5 upregulation and STAT3 inhibition; it induces apoptosis even without TRAIL by downregulating anti-apoptotic factors, validated experimentally in A375 cells.",
+      "dataset": "A375 metastatic melanoma cell line, Boolean network of TRAIL/NF-κB/STAT3 signaling pathways",
+      "metric": "Apoptosis ratio (sum pro-apoptotic / sum anti-apoptotic factors), cell viability",
+      "baseline": "No-fault/no-drug condition (apoptosis ratio=1.67), SH5-07 (STAT3-only inhibitor)",
+      "result": "CT induces apoptosis even without TRAIL input; enhanced cell death in A375 cells experimentally validated"
+    },
+    {
+      "doi": "10.3390/biom9110693",
+      "problem": "Gemcitabine has limited cellular uptake; pharmacokinetic properties of novel gemcitabine-cell-penetrating peptide conjugates need evaluation to assess therapeutic viability.",
+      "method": "PCA-derived z-scale from 12 physicochemical descriptors of 20 amino acids for QSAR CPP prediction models; GastroPlus pharmacokinetic simulation of plasma concentration profiles for conjugates.",
+      "finding": "CPP prediction models achieved ~80% accuracy; Gem-Cys-pVEC conjugate showed best in vitro bioactivity; GastroPlus simulations confirmed conjugates reach therapeutic plasma levels with bioavailability comparable to parental gemcitabine.",
+      "dataset": "CellPPD database (900 CPP, 1148 non-CPP), MKN-28 and HT-29 cell lines",
+      "metric": "Sensitivity, specificity, accuracy, MCC, Q², AUC (pharmacokinetic)",
+      "baseline": "Parental gemcitabine (GEMZAR®)",
+      "result": "79% sensitivity, 80% specificity, 81% accuracy, 61% MCC, Q²=0.406; conjugate AUC comparable to GEMZAR"
+    },
+    {
+      "doi": "10.3390/ijms21249549",
+      "problem": "SMYD3 lysine methyltransferase is overexpressed in breast carcinomas and drives uncontrolled proliferation; a fast, affordable hit-to-lead methodology for identifying SMYD3 inhibitors is needed.",
+      "method": "In silico docking screening of 137,990 ZINC15 molecules using Schrödinger software against SMYD3 binding pocket (PDB: 5EX3), followed by in vitro methyltransferase assays and breast cancer cell line experiments.",
+      "finding": "Inhibitor-4 reduces SMYD3-mediated H3 methylation by 70%, restores normal proliferation rates, arrests cell cycle, and induces apoptosis in breast cancer cells without affecting wildtype cells.",
+      "dataset": "MCF7 and MDA-MB-231 breast cancer cell lines, MCF10A normal cells, ZINC15 library (137,990 molecules)",
+      "metric": "SMYD3 methyltransferase activity (% reduction), cell proliferation rate, Glide docking score (kJ/mol)",
+      "baseline": "BCI-121 (known SMYD3 inhibitor), untreated controls, wildtype MCF10A cells",
+      "result": "70% reduction in H3 methylation, binding energy -7.2 to -9.1 kJ/mol, SMYD3 overexpressed 1.8-fold (MCF7) and 2.6-fold (MDA-MB-231) vs normal"
+    },
+    {
+      "doi": "10.3389/ftox.2022.992650",
+      "problem": "Preclinical identification of drug-induced cardiotoxicity and its translation to human proarrhythmic risk remain major challenges; animal models have species-specific limitations.",
+      "method": "In silico drug trials on a population of 530 human cardiac Purkinje cell models for 14 reference compounds at multiple concentrations and pacing frequencies; comparison with in vitro rabbit Purkinje fiber recordings and clinical TdP risk from CredibleMeds.",
+      "finding": "In silico human Purkinje EAD-based predictions achieved 100% accuracy for TdP risk classification, outperforming rabbit experiments (79%); high consistency between in silico and in vitro results with discrepancies explained by species differences.",
+      "dataset": "14 reference compounds, 530 in silico human Purkinje models, rabbit Purkinje fibers (n=4-6 per compound), CredibleMeds clinical TdP reports",
+      "metric": "TdP risk classification accuracy, APD90, APD50, dV/dtMax, EAD occurrence, APA",
+      "baseline": "In vitro rabbit Purkinje fiber experiments (79% accuracy), APD-based prediction (86% accuracy)",
+      "result": "100% accuracy (in silico EAD-based) vs 79% (rabbit in vitro) vs 86% (APD-based, both platforms) for proarrhythmic risk prediction"
+    },
+    {
+      "doi": "10.3389/fgene.2019.00632",
+      "problem": "Stone cells negatively affect pear fruit quality through secondary cell wall thickening and lignification; the KNOX gene family regulating these processes has not been characterized in pear.",
+      "method": "Genome-wide identification of KNOX family in Pyrus bretschneideri using BLASTp and domain analysis; phylogenetic and synteny analysis across four Rosaceae species; overexpression of PbKNOX1 in Arabidopsis with lignin content and cell wall thickness measurements.",
+      "finding": "18 PbKNOX genes identified across 10 chromosomes; PbKNOX1 expression inversely correlates with stone cell and lignin accumulation; PbKNOX1 overexpression decreased secondary cell wall thickness by ~19% and lignin content by ~13% with downregulation of lignin biosynthesis genes.",
+      "dataset": "Pyrus bretschneideri (Dangshan Su pear) at 8 developmental stages, Arabidopsis thaliana Columbia-0, grape/mei/strawberry genomes",
+      "metric": "Secondary cell wall thickness, lignin content (%), qRT-PCR gene expression levels",
+      "baseline": "Wild-type Arabidopsis thaliana Columbia-0",
+      "result": "~19% decrease in vessel cell wall thickness, ~13% reduction in lignin content in PbKNOX1-overexpressing Arabidopsis lines"
+    }
+  ],
+  "timestamp": "2026-03-05T14:29:02.686153",
+  "extraction_count": 10
+}

@@ -1,0 +1,175 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1038/s41596-020-0292-x
+Title: CellPhoneDB: inferring cell–cell communication from combined expression of multi-subunit ligand–receptor complexes
+Year: 2020
+Abstract: Cell–cell communication mediated by ligand–receptor complexes is critical to coordinating diverse biological processes, such as development, differentiation and inflammation. To investigate how the context-dependent crosstalk of different cell types enables physiological processes to proceed, we developed CellPhoneDB, a novel repository of ligands, receptors and their interactions. In contrast to other repositories, our database takes into account the subunit architecture of both ligands and receptors, representing heteromeric complexes accurately. We integrated our resource with a statistical framework that predicts enriched cellular interactions between two cell types from single-cell transcriptomics data. Here, we outline the structure and content of our repository, provide procedures for inferring cell–cell communication networks from single-cell RNA sequencing data and present a practical step-by-step guide to help implement the protocol. CellPhoneDB v.2.0 is an updated version of our resource that incorporates additional functionalities to enable users to introduce new interacting molecules and reduces the time and resources needed to interrogate large datasets. CellPhoneDB v.2.0 is publicly available, both as code and as a user-friendly web interface; it can be used by both experts and researchers with little experience in computational genomics. In our protocol, we demonstrate how to evaluate meaningful biological interactions with CellPhoneDB v.2.0 using published datasets. This protocol typically takes ~2 h to complete, from installation to statistical analysis and visualization, for a dataset of ~10 GB, 10,000 cells and 19 cell types, and using five threads. CellPhoneDB combines an interactive database and a statistical framework for the exploration of ligand–receptor interactions inferred from single-cell transcriptomics measurements.
+---
+
+---
+DOI: 10.1126/science.aaa1934
+Title: Cell types in the mouse cortex and hippocampus revealed by single-cell RNA-seq
+Year: 2015
+Abstract: Cellular diversity in the brain revealed The mammalian brain has an extraordinarily large number of cells. Although there are quite a few different cell types, many cells in any one category tend to look alike. Zeisel et al. analyzed the transcriptomes of mouse brain cells to reveal more than meets the eye. Interneurons of similar type were found in dissimilar regions of the brain. Oligodendrocytes that seemed to be all of one class were differentiated by their molecular signatures into a half-dozen classes. Microglia associated with blood vessels were distinguished from look-alike perivascular macrophages. Thus, the complex microanatomy of the brain can be revealed by the RNAs expressed in its cells. Science , this issue p. 1138
+---
+
+---
+DOI: 10.1021/jm000942e
+Title: Fast Calculation of Molecular Polar Surface Area as a Sum of Fragment-Based Contributions and Its Application to the Prediction of Drug Transport Properties
+Year: 2000
+Abstract: Molecular polar surface area (PSA), i.e., surface belonging to polar atoms, is a descriptor that was shown to correlate well with passive molecular transport through membranes and, therefore, allows prediction of transport properties of drugs. The calculation of PSA, however, is rather time-consuming because of the necessity to generate a reasonable 3D molecular geometry and the calculation of the surface itself. A new approach for the calculation of the PSA is presented here, based on the summation of tabulated surface contributions of polar fragments. The method, termed topological PSA (TPSA), provides results which are practically identical with the 3D PSA (the correlation coefficient between 3D PSA and fragment-based TPSA for 34 810 molecules from the World Drug Index is 0.99), while the computation speed is 2-3 orders of magnitude faster. The new methodology may, therefore, be used for fast bioavailability screening of virtual libraries having millions of molecules. This article describes the new methodology and shows the results of validation studies based on sets of published absorption data, including intestinal absorption, Caco-2 monolayer penetration, and blood-brain barrier penetration.
+---
+
+---
+DOI: 10.1021/cc9800071
+Title: A Knowledge-Based Approach in Designing Combinatorial or Medicinal Chemistry Libraries for Drug Discovery. 1. A Qualitative and Quantitative Characterization of Known Drug Databases
+Year: 1998
+Abstract: The discovery of various protein/receptor targets from genomic research is expanding rapidly. Along with the automation of organic synthesis and biochemical screening, this is bringing a major change in the whole field of drug discovery research. In the traditional drug discovery process, the industry tests compounds in the thousands. With automated synthesis, the number of compounds to be tested could be in the millions. This two-dimensional expansion will lead to a major demand for resources, unless the chemical libraries are made wisely. The objective of this work is to provide both quantitative and qualitative characterization of known drugs which will help to generate "drug-like" libraries. In this work we analyzed the Comprehensive Medicinal Chemistry (CMC) database and seven different subsets belonging to different classes of drug molecules. These include some central nervous system active drugs and cardiovascular, cancer, inflammation, and infection disease states. A quantitative characterization based on computed physicochemical property profiles such as log P, molar refractivity, molecular weight, and number of atoms as well as a qualitative characterization based on the occurrence of functional groups and important substructures are developed here. For the CMC database, the qualifying range (covering more than 80% of the compounds) of the calculated log P is between -0.4 and 5.6, with an average value of 2.52. For molecular weight, the qualifying range is between 160 and 480, with an average value of 357. For molar refractivity, the qualifying range is between 40 and 130, with an average value of 97. For the total number of atoms, the qualifying range is between 20 and 70, with an average value of 48. Benzene is by far the most abundant substructure in this drug database, slightly more abundant than all the heterocyclic rings combined. Nonaromatic heterocyclic rings are twice as abundant as the aromatic heterocycles. Tertiary aliphatic amines, alcoholic OH and carboxamides are the most abundant functional groups in the drug database. The effective range of physicochemical properties presented here can be used in the design of drug-like combinatorial libraries as well as in developing a more efficient corporate medicinal chemistry library.
+---
+
+---
+DOI: 10.1038/nbt.4091
+Title: Batch effects in single-cell RNA-sequencing data are corrected by matching mutual nearest neighbors
+Year: 2018
+Abstract: Large-scale single-cell RNA sequencing (scRNA-seq) data sets that are produced in different laboratories and at different times contain batch effects that may compromise the integration and interpretation of the data. Existing scRNA-seq analysis methods incorrectly assume that the composition of cell populations is either known or identical across batches. We present a strategy for batch correction based on the detection of mutual nearest neighbors (MNNs) in the high-dimensional expression space. Our approach does not rely on predefined or equal population compositions across batches; instead, it requires only that a subset of the population be shared between batches. We demonstrate the superiority of our approach compared with existing methods by using both simulated and real scRNA-seq data sets. Using multiple droplet-based scRNA-seq data sets, we demonstrate that our MNN batch-effect-correction method can be scaled to large numbers of cells.
+---
+
+---
+DOI: 10.1021/ci300367a
+Title: admetSAR: A Comprehensive Source and Free Tool for Assessment of Chemical ADMET Properties
+Year: 2012
+Abstract: Absorption, distribution, metabolism, excretion, and toxicity (ADMET) properties play key roles in the discovery/development of drugs, pesticides, food additives, consumer products, and industrial chemicals. This information is especially useful when to conduct environmental and human hazard assessment. The most critical rate limiting step in the chemical safety assessment workflow is the availability of high quality data. This paper describes an ADMET structure-activity relationship database, abbreviated as admetSAR. It is an open source, text and structure searchable, and continually updated database that collects, curates, and manages available ADMET-associated properties data from the published literature. In admetSAR, over 210,000 ADMET annotated data points for more than 96,000 unique compounds with 45 kinds of ADMET-associated properties, proteins, species, or organisms have been carefully curated from a large number of diverse literatures. The database provides a user-friendly interface to query a specific chemical profile, using either CAS registry number, common name, or structure similarity. In addition, the database includes 22 qualitative classification and 5 quantitative regression models with highly predictive accuracy, allowing to estimate ecological/mammalian ADMET properties for novel chemicals. AdmetSAR is accessible free of charge at http://www.admetexp.org.
+---
+
+---
+DOI: 10.1038/nchembio.186
+Title: Absolute metabolite concentrations and implied enzyme active site occupancy in Escherichia coli
+Year: 2009
+Abstract: Absolute metabolite concentrations are critical to a quantitative understanding of cellular metabolism, as concentrations impact both the free energies and rates of metabolic reactions. Here we use liquid chromatography-tandem mass spectrometry to quantify more than 100 metabolite concentrations in aerobic, exponentially growing E. coli with glucose, glycerol, or acetate as the carbon source. The total observed intracellular metabolite pool is approximately 300 mM. A small number of metabolites dominate the metabolome on a molar basis, with glutamate most abundant. Metabolite concentration exceeds Km for most substrate-enzyme pairs. An exception is lower glycolysis, where concentrations of intermediates are near the Km of their consuming enzymes and all reactions are near equilibrium. This may facilitate efficient flux reversibility given thermodynamic and osmotic constraints. The data and analyses presented here highlight the ability to identify organizing metabolic principles from systems-level absolute metabolite concentration data.
+---
+
+---
+DOI: 10.1038/s41566-018-0253-x
+Title: Quantitative phase imaging in biomedicine
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.cell.2014.04.005
+Title: Single-Cell Trajectory Detection Uncovers Progression and Regulatory Coordination in Human B Cell Development
+Year: 2014
+Abstract: Tissue regeneration is an orchestrated progression of cells from an immature state to a mature one, conventionally represented as distinctive cell subsets. A continuum of transitional cell states exists between these discrete stages. We combine the depth of single-cell mass cytometry and an algorithm developed to leverage this continuum by aligning single cells of a given lineage onto a unified trajectory that accurately predicts the developmental path de novo. Applied to human B cell lymphopoiesis, the algorithm (termed Wanderlust) constructed trajectories spanning from hematopoietic stem cells through to naive B cells. This trajectory revealed nascent fractions of B cell progenitors and aligned them with developmentally cued regulatory signaling including IL-7/STAT5 and cellular events such as immunoglobulin rearrangement, highlighting checkpoints across which regulatory signals are rewired paralleling changes in cellular state. This study provides a comprehensive analysis of human B lymphopoiesis, laying a foundation to apply this approach to other tissues and "corrupted" developmental processes including cancer.
+---
+
+---
+DOI: 10.1016/s0968-0004(97)01103-1
+Title: Biochemistry by numbers: simulation of biochemical pathways with Gepasi 3
+Year: 1997
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1128/ecosal.5.2.3
+Title: Modulation of Chemical Composition and Other Parameters of the Cell at Different Exponential Growth Rates
+Year: 2008
+Abstract: This review begins by briefly presenting the history of research on the chemical composition and other parameters of cells of E. coli and S. enterica at different exponential growth rates. Studies have allowed us to determine the in vivo strength of promoters and have allowed us to distinguish between factor-dependent transcriptional control of the promoter and changes in promoter activity due to changes in the concentration of free functional RNA polymerase associated with different growth conditions. The total, or bulk, amounts of RNA and protein are linked to the growth rate, because most bacterial RNA is ribosomal RNA (rRNA). Since ribosomes are required for protein synthesis, their number and their rate of function determine the rate of protein synthesis and cytoplasmic mass accumulation. Many mRNAs made in the presence of amino acids have strong ribosome binding sites whose presence reduces the expression of all other active genes. This implies that there can be profound differences in the spectrum of gene activities in cultures grown in different media that produce the same growth rate. Five classes of growth-related parameters that are generally useful in describing or establishing the macromolecular composition of bacterial cultures are described in detail in this review. A number of equations have been reported that describe the macromolecular composition of an average cell in an exponential culture as a function of the culture doubling time and five additional parameters: the C- and D-periods, protein per origin (PO), ribosome activity, and peptide chain elongation rate.
+---
+
+---
+DOI: 10.1073/pnas.1416533112
+Title: Mechanistic links between cellular trade-offs, gene expression, and growth
+Year: 2015
+Abstract: Significance Cells have finite resources. Committing resources to one task therefore reduces the amount of resources available to others. These trade-offs are often overlooked but potentially modify all cellular processes. Building a mathematical cell model that respects such trade-offs and describes the mechanisms of protein synthesis and how cells extract resources from their environment, we quantitatively recover the typical behavior of an individual growing cell and of a population of cells. As trade-offs are experienced by all cells and because growth largely determines cellular fitness, a predictive understanding of how biochemical processes affect others and affect growth is important for diverse applications, such as the use of microbes for biotechnology, the inhibition of antibiotic resistance, and the growth of cancers.
+---
+
+---
+DOI: 10.1016/j.immuni.2012.10.021
+Title: Virus-Specific CD4+ Memory-Phenotype T Cells Are Abundant in Unexposed Adults
+Year: 2013
+Abstract: Although T cell memory is generally thought to require direct antigen exposure, we found an abundance of memory-phenotype cells (20%-90%, averaging over 50%) of CD4(+) T cells specific to viral antigens in adults who had never been infected. These cells express the appropriate memory markers and genes, rapidly produce cytokines, and have clonally expanded. In contrast, the same T cell receptor (TCR) specificities in newborns are almost entirely naïve, which might explain the vulnerability of young children to infections. One mechanism for this phenomenon is TCR cross-reactivity to environmental antigens, and in support of this, we found extensive cross-recognition by HIV-1 and influenza-reactive T lymphocytes to other microbial peptides and expansion of one of these after influenza vaccination. Thus, the presence of these memory-phenotype T cells has significant implications for immunity to novel pathogens, child and adult health, and the influence of pathogen-rich versus hygienic environments.
+---
+
+---
+DOI: 10.1016/j.copbio.2011.04.014
+Title: Bacterial growth laws and their applications
+Year: 2011
+Abstract: Quantitative empirical relationships between cell composition and growth rate played an important role in the early days of microbiology. Gradually, the focus of the field began to shift from growth physiology to the ever more elaborate molecular mechanisms of regulation employed by the organisms. Advances in systems biology and biotechnology have renewed interest in the physiology of the cell as a whole. Furthermore, gene expression is known to be intimately coupled to the growth state of the cell. Here, we review recent efforts in characterizing such couplings, particularly the quantitative phenomenological approaches exploiting bacterial 'growth laws.' These approaches point toward underlying design principles that can guide the predictive manipulation of cell behavior in the absence of molecular details.
+---
+
+---
+DOI: 10.1093/bioinformatics/bti431
+Title: Stochastic reaction-diffusion simulation with MesoRD
+Year: 2005
+Abstract: 'MesoRD User's Guide' and other documents are available at http://mesord.sourceforge.net.
+---
+
+---
+DOI: 10.1038/nrg.2017.74
+Title: Emerging and evolving concepts in gene essentiality
+Year: 2017
+Abstract: Gene essentiality is a founding concept of genetics with important implications in both fundamental and applied research. Multiple screens have been performed over the years in bacteria, yeasts, animals and more recently in human cells to identify essential genes. A mounting body of evidence suggests that gene essentiality, rather than being a static and binary property, is both context dependent and evolvable in all kingdoms of life. This concept of a non-absolute nature of gene essentiality changes our fundamental understanding of essential biological processes and could directly affect future treatment strategies for cancer and infectious diseases.
+---
+
+---
+DOI: 10.1016/j.promfg.2018.12.020
+Title: Digital twin for adaptation of robots’ behavior in flexible robotic assembly lines
+Year: 2019
+Abstract: Product personalization is the global trend driving the development of modern production systems. This in turn creates the need to deploy flexible and reconfigurable assembly systems. New type of factories exploiting the capabilities of multiple resources such as human operators and mobile and / or stationary robot assistants are emerging. This paper investigates the use of digital world modelling techniques in such hybrid production systems for enabling system reconfiguration through shared environment and process perception. The suggested digital world model infrastructure involves three main functionalities: a) Virtual representation of the shopfloor, combining multiple sensor data and CAD models. The digital shopfloor is rendered in the 3D environment exploiting the capabilities provided by Robot Operating System (ROS) framework, b) Semantic representation of the world through the implementation of a unified data model for representing the geometrical as well as the workload state, and c) Dynamic update of the digital twin based on real time sensor and resource data coming from the actual shopfloor. The communication and integration layer among the physical and the virtual agents is realized on top of the ROS framework. The developed infrastructure is applied to an industrial case study from the automotive industry focusing on a car’s front axle assembly. Nevertheless, it is designed to be generic enough to be able to address multiple cases.
+---
+
+---
+DOI: 10.1007/978-1-59745-525-1_2
+Title: Computational Modeling of Biochemical Networks Using COPASI
+Year: 2009
+Abstract: Computational modeling and simulation of biochemical networks is at the core of systems biology and this includes many types of analyses that can aid understanding of how these systems work. COPASI is a generic software package for modeling and simulation of biochemical networks which provides many of these analyses in convenient ways that do not require the user to program or to have deep knowledge of the numerical algorithms. Here we provide a description of how these modeling techniques can be applied to biochemical models using COPASI. The focus is both on practical aspects of software usage as well as on the utility of these analyses in aiding biological understanding. Practical examples are described for steady-state and time-course simulations, stoichiometric analyses, parameter scanning, sensitivity analysis (including metabolic control analysis), global optimization, parameter estimation, and stochastic simulation. The examples used are all published models that are available in the BioModels database in SBML format.
+---
+
+---
+DOI: 10.1098/rsta.2001.0820
+Title: Models of cardiac ventricular action potentials: iterative interaction between experiment and simulation
+Year: 2001
+Abstract: The development of cardiac ventricular cell models since 1960 is reviewed with the focus on the interaction between simulation and experimental work. At each stage, the reasons for new models are explained, as are their defects and how these were used to point the way to successor models. A key feature of our analysis is the demonstration that as much, if not more, was learnt from the way in which models failed as from their successes. The review leads up to the most recent developments in this field and indicates the ways in which it may be expected to advance in the future.
+---
+
+---
+DOI: 10.1016/j.jmgm.2015.02.004
+Title: Complete atomistic model of a bacterial cytoplasm for integrating physics, biochemistry, and systems biology
+Year: 2015
+Abstract: A model for the cytoplasm of Mycoplasma genitalium is presented that integrates data from a variety of sources into a physically and biochemically consistent model. Based on gene annotations, core genes expected to be present in the cytoplasm were determined and a metabolic reaction network was reconstructed. The set of cytoplasmic genes and metabolites from the predicted reactions were assembled into a comprehensive atomistic model consisting of proteins with predicted structures, RNA, protein/RNA complexes, metabolites, ions, and solvent. The resulting model bridges between atomistic and cellular scales, between physical and biochemical aspects, and between structural and systems views of cellular systems and is meant as a starting point for a variety of simulation studies.
+---
+
+---
+DOI: 10.1006/jtbi.1997.0651
+Title: Predicting Temporal Fluctuations in an Intracellular Signalling Pathway
+Year: 1998
+Abstract: We used a newly developed stochastic-based program to predict the fluctuations in numbers of molecules in a chemotactic signalling pathway of coliform bacteria. Specifically, we examined temporal changes in molecules of CheYp, a cytoplasmic protein known to influence the direction of rotation of the flagellar motor. Signalling molecules in the vicinity of a flagellar motor were represented as individual software objects interacting according to probabilities derived from experimentally-observed concentrations rate constants. The simulated CheYp molecules were found to undergo random fluctuations in number about an average corresponding to the deterministically calculated concentration. Both the relative amplitude of the fluctuations, as a proportion of the total number of molecules, and their average duration, increased as the simulated volume was reduced. In a simulation corresponding to 10% of the volume of a bacterium, the average duration of fluctuations was found to be 80.7 ms, which is much shorter than the observed alternations between clockwise and counter clockwise rotations of tethered bacteria (typically 2.6 s). Our results are therefore not in agreement with a simple threshold-crossing model for motor switching. However, it is possible to filter the CheYp fluctuations to produce temporal distributions closer to the observed swimming behaviour and we discuss the possible implications for the control of motor rotation.
+---

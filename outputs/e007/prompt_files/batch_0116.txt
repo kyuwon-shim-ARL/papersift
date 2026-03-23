@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1007/s12652-018-0911-3
+Title: An application framework of digital twin and its case study
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/nbt1401
+Title: The growing scope of applications of genome-scale metabolic reconstructions using Escherichia coli
+Year: 2008
+Abstract: The number and scope of methods developed to interrogate and use metabolic network reconstructions has significantly expanded over the past 15 years. In particular, Escherichia coli metabolic network reconstruction has reached the genome scale and been utilized to address a broad spectrum of basic and practical applications in five main categories: metabolic engineering, model-directed discovery, interpretations of phenotypic screens, analysis of network properties and studies of evolutionary processes. Spurred on by these accomplishments, the field is expected to move forward and further broaden the scope and content of network reconstructions, develop new and novel in silico analysis tools, and expand in adaptation to uses of proximal and distal causation in biology. Taken together, these efforts will solidify a mechanistic genotype-phenotype relationship for microbial metabolism.
+---
+
+---
+DOI: 10.1038/s41592-018-0111-2
+Title: Label-free prediction of three-dimensional fluorescence images from transmitted-light microscopy
+Year: 2018
+Abstract: Understanding cells as integrated systems is central to modern biology. Although fluorescence microscopy can resolve subcellular structure in living cells, it is expensive, is slow, and can damage cells. We present a label-free method for predicting three-dimensional fluorescence directly from transmitted-light images and demonstrate that it can be used to generate multi-structure, integrated images. The method can also predict immunofluorescence (IF) from electron micrograph (EM) inputs, extending the potential applications. Convolutional neural networks enable prediction of fluorescently labeled structures from three-dimensional time-lapse transmitted-light images. Applications include multiplexed long time-lapse imaging and prediction of fluorescence in electron micrographs.
+---
+
+---
+DOI: 10.1016/j.egyai.2020.100016
+Title: Battery digital twins: Perspectives on the fusion of models, data and artificial intelligence for smart battery management systems
+Year: 2020
+Abstract: Abstract Effective management of lithium-ion batteries is a key enabler for a low carbon future, with applications including electric vehicles and grid scale energy storage. The lifetime of these devices depends greatly on the materials used, the system design and the operating conditions. This complexity has therefore made real-world control of battery systems challenging. However, with the recent advances in understanding battery degradation, modelling tools and diagnostics, there is an opportunity to fuse this knowledge with emerging machine learning techniques towards creating a battery digital twin. In this cyber-physical system, there is a close interaction between a physical and digital embodiment of a battery, which enables smarter control and longer lifetime. This perspectives paper thus presents the state-of-the-art in battery modelling, in-vehicle diagnostic tools, data driven modelling approaches, and how these elements can be combined in a framework for creating a battery digital twin. The challenges, emerging techniques and perspective comments provided here, will enable scientists and engineers from industry and academia with a framework towards more intelligent and interconnected battery management in the future.
+---
+
+---
+DOI: 10.1038/nmeth.1546
+Title: Efficient modeling, simulation and coarse-graining of biological complexity with NFsim
+Year: 2010
+Abstract: Managing the overwhelming numbers of molecular states and interactions is a fundamental obstacle to building predictive models of biological systems. Here we introduce the Network-Free Stochastic Simulator (NFsim), a general-purpose modeling platform that overcomes the combinatorial nature of molecular interactions. Unlike standard simulators that represent molecular species as variables in equations, NFsim uses a biologically intuitive representation: objects with binding and modification sites acted on by reaction rules. During simulations, rules operate directly on molecular objects to produce exact stochastic results with performance that scales independently of the reaction network size. Reaction rates can be defined as arbitrary functions of molecular states to provide powerful coarse-graining capabilities, for example to merge Boolean and kinetic representations of biological networks. NFsim enables researchers to simulate many biological systems that were previously inaccessible to general-purpose software, as we illustrate with models of immune system signaling, microbial signaling, cytoskeletal assembly and oscillating gene expression.
+---
+
+---
+DOI: 10.1529/biophysj.104.041459
+Title: Modeling the Effect of Deregulated Proliferation and Apoptosis on the Growth Dynamics of Epithelial Cell Populations In Vitro
+Year: 2004
+Abstract: We present a three-dimensional individual cell-based, biophysical model to study the effect of normal and malfunctioning growth regulation and control on the spatial-temporal organization of growing cell populations in vitro. The model includes explicit representations of typical epithelial cell growth regulation and control mechanisms, namely 1), a cell-cell contact-mediated form of growth inhibition; 2), a cell-substrate contact-dependent cell-cycle arrest; and 3), a cell-substrate contact-dependent programmed cell death (anoikis). The model cells are characterized by experimentally accessible biomechanical and cell-biological parameters. First, we study by variation of these cell-specific parameters which of them affect the macroscopic morphology and growth kinetics of a cell population within the initial expanding phase. Second, we apply selective knockouts of growth regulation and control mechanisms to investigate how the different mechanisms collectively act together. Thereby our simulation studies cover the growth behavior of epithelial cell populations ranging from undifferentiated stem cell populations via transformed variants up to tumor cell lines in vitro. We find that the cell-specific parameters, and in particular the strength of the cell-substrate anchorage, have a significant impact on the population morphology. Furthermore, they control the efficacy of the growth regulation and control mechanisms, and consequently tune the transition from controlled to uncontrolled growth that is induced by the failures of these mechanisms. Interestingly, however, we find the qualitative and quantitative growth kinetics to be remarkably robust against variations of cell-specific parameters. We compare our simulation results with experimental findings on a number of epithelial and tumor cell populations and suggest in vitro experiments to test our model predictions.
+---
+
+---
+DOI: 10.1007/s40571-015-0082-3
+Title: Simulating tissue mechanics with agent-based models: concepts, perspectives and some novel results
+Year: 2015
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/s00285-008-0182-2
+Title: Mathematics of cell motility: have we got its number?
+Year: 2008
+Abstract: Mathematical and computational modeling is rapidly becoming an essential research technique complementing traditional experimental biological methods. However, lack of standard modeling methods, difficulties of translating biological phenomena into mathematical language, and differences in biological and mathematical mentalities continue to hinder the scientific progress. Here we focus on one area-cell motility-characterized by an unusually high modeling activity, largely due to a vast amount of quantitative, biophysical data, 'modular' character of motility, and pioneering vision of the area's experimental leaders. In this review, after brief introduction to biology of cell movements, we discuss quantitative models of actin dynamics, protrusion, adhesion, contraction, and cell shape and movement that made an impact on the process of biological discovery. We also comment on modeling approaches and open questions.
+---
+
+---
+DOI: 10.1016/j.procir.2019.03.072
+Title: Methodology for enabling Digital Twin using advanced physics-based modelling in predictive maintenance
+Year: 2019
+Abstract: This paper presents a methodology for advanced physics-based modeling aiming to enable the Digital Twin (DT) concept in predictive maintenance applications. The proposed methodology consists of two main pillars; Digital model creation and Digital Twin enabling. Following this procedure, which is analyzed in the paper, the user is able to define, create and utilize the digital model of a resource, as well as to enable the DT concept. A digital model of an industrial robot was created aiming to validate the proposed methodology which can be utilized potentially in predictive maintenance applications.
+---
+
+---
+DOI: 10.1149/1.2221123
+Title: Analysis of Free Energy and Entropy Changes for Half‐Cell Reactions
+Year: 1993
+Abstract: A comprehensive study of different entropy scales used in chemical thermodynamics is presented, and a semi‐absolute entropy scale is introduced, by which problems involving noncharged and charge species can be considered correctly and further, the heat generation of half‐cell reactions can be calculated. In this context, the entropy of an electron in a metal is derived. The entropy changes for electrode reactions are calculated, and the heat distribution among the electrodes of the cell is solved. The correlation of the zeros of the energy scales for , H+(aq), and (vacuum) is studied, and the value of chemical potential of electron in metal and gas phase is derived. An estimation for the free‐enthalpy change for the half‐cell reaction (Pt electrode) is presented. The Galvani potential differences for half cells are calculated, and tables of , , and are presented. An example of the use of half‐cell reaction entropies and free‐energy changes for a fuel cell is presented. With this method we can establish how the total heat generated in the fuel cell is distributed between the cathode and the anode of the cell. This method gives new basic information on electrochemical cells, which can be applied to mathematical models of single electrodes. The physical meaning of for half‐cell reactions is illustrated by Poyinting's vector.
+---
+
+---
+DOI: 10.1021/es501955g
+Title: Application of Mass Balance Models and the Chemical Activity Concept To Facilitate the Use of in Vitro Toxicity Data for Risk Assessment
+Year: 2014
+Abstract: Practical, financial, and ethical considerations related to conducting extensive animal testing have resulted in various initiatives to promote and expand the use of in vitro testing data for chemical evaluations. Nominal concentrations in the aqueous phase corresponding to an effect (or biological activity) are commonly reported and used to characterize toxicity (or biological response). However, the true concentration in the aqueous phase can be substantially different from the nominal. To support in vitro test design and aid the interpretation of in vitro toxicity data, we developed a mass balance model that can be parametrized and applied to represent typical in vitro test systems. The model calculates the mass distribution, freely dissolved concentrations, and cell/tissue concentrations corresponding to the initial nominal concentration and experimental conditions specified by the user. Chemical activity, a metric which can be used to assess the potential for baseline toxicity to occur, is also calculated. The model is first applied to a set of hypothetical chemicals to illustrate the degree to which test conditions (e.g., presence or absence of serum) influence the distribution of the chemical in the test system. The model is then applied to set of 1194 real substances (predominantly from the ToxCast chemical database) to calculate the potential range of concentrations and chemical activities under assumed test conditions. The model demonstrates how both concentrations and chemical activities can vary by orders of magnitude for the same nominal concentration.
+---
+
+---
+DOI: 10.1016/bs.ai.2014.12.001
+Title: Innate Memory T cells
+Year: 2015
+Abstract: Memory T cells are usually considered to be a feature of a successful immune response against a foreign antigen, and such cells can mediate potent immunity. However, in mice, alternative pathways have been described, through which naïve T cells can acquire the characteristics and functions of memory T cells without encountering specific foreign antigen or the typical signals required for conventional T cell differentiation. Such cells reflect a response to the internal rather the external environment, and hence such cells are called innate memory T cells. In this review, we describe how innate memory subsets were identified, the signals that induce their generation and their functional properties and potential role in the normal immune response. The existence of innate memory T cells in mice raises questions about whether parallel populations exist in humans, and we discuss the evidence for such populations during human T cell development and differentiation.
+---
+
+---
+DOI: 10.1529/biophysj.104.045484
+Title: Two Complementary, Local Excitation, Global Inhibition Mechanisms Acting in Parallel Can Explain the Chemoattractant-Induced Regulation of PI(3,4,5)P3 Response in Dictyostelium Cells
+Year: 2004
+Abstract: Chemotaxing cells, such as Dictyostelium and mammalian neutrophils, sense shallow chemoattractant gradients and respond with highly polarized changes in cell morphology and motility. Uniform chemoattractant stimulation induces the transient translocations of several downstream signaling components, including phosphoinositide 3-kinase (PI3K), tensin homology protein (PTEN), and phosphatidylinositol 3,4,5-trisphosphate (PI(3,4,5)P3). In contrast, static spatial chemoattractant gradients elicit the persistent, amplified localization of these molecules. We have proposed a model in which the response to chemoattractant is regulated by a balance of a local excitation and a global inhibition, both of which are controlled by receptor occupancy. This model can account for both the transient and spatial responses to chemoattractants, but alone does not amplify the external gradient. In this article, we develop a model in which parallel local excitation, global inhibition mechanisms control the membrane binding of PI3K and PTEN. Together, the action of these enzymes induces an amplified PI(3,4,5)P3 response that agrees quantitatively with experimentally obtained plekstrin homology-green fluorescent protein distributions in latrunculin-treated cells. We compare the model's performance with that of several mutants in which one or both of the enzymes are disrupted. The model accounts for the observed response to multiple, simultaneous chemoattractant cues and can recreate the cellular response to combinations of temporal and spatial stimuli. Finally, we use the model to predict the response of a cell where only a fraction is stimulated by a saturating dose of chemoattractant.
+---
+
+---
+DOI: 10.1016/s0006-3495(03)70062-9
+Title: The Mechanics of Neutrophils: Synthetic Modeling of Three Experiments
+Year: 2003
+Abstract: Much experimental data exist on the mechanical properties of neutrophils, but so far, they have mostly been approached within the framework of liquid droplet models. This has two main drawbacks: 1), It treats the cytoplasm as a single phase when in reality, it is a composite of cytosol and cytoskeleton; and 2), It does not address the problem of active neutrophil deformation and force generation. To fill these lacunae, we develop here a comprehensive continuum-mechanical paradigm of the neutrophil that includes proper treatment of the membrane, cytosol, and cytoskeleton components. We further introduce two models of active force production: a cytoskeletal swelling force and a polymerization force. Armed with these tools, we present computer simulations of three classic experiments: the passive aspiration of a neutrophil into a micropipette, the active extension of a pseudopod by a neutrophil exposed to a local stimulus, and the crawling of a neutrophil inside a micropipette toward a chemoattractant against a varying counterpressure. Principal results include: 1), Membrane cortical tension is a global property of the neutrophil that is affected by local area-increasing shape changes. We argue that there exists an area dilation viscosity caused by the work of unfurling membrane-storing wrinkles and that this viscosity is responsible for much of the regulation of neutrophil deformation. 2), If there is no swelling force of the cytoskeleton, then it must be endowed with a strong cohesive elasticity to prevent phase separation from the cytosol during vigorous suction into a capillary tube. 3), We find that both swelling and polymerization force models are able to provide a unifying fit to the experimental data for the three experiments. However, force production required in the polymerization model is beyond what is expected from a simple short-range Brownian ratchet model. 4), It appears that, in the crawling of neutrophils or other amoeboid cells inside a micropipette, measurement of velocity versus counterpressure curves could provide a determination of whether cytoskeleton-to-cytoskeleton interactions (such as swelling) or cytoskeleton-to-membrane interactions (such as polymerization force) are predominantly responsible for active protrusion.
+---
+
+---
+DOI: 10.1145/3065386
+Title: ImageNet classification with deep convolutional neural networks
+Year: 2017
+Abstract: We trained a large, deep convolutional neural network to classify the 1.2 million high-resolution images in the ImageNet LSVRC-2010 contest into the 1000 different classes. On the test data, we achieved top-1 and top-5 error rates of 37.5% and 17.0%, respectively, which is considerably better than the previous state-of-the-art. The neural network, which has 60 million parameters and 650,000 neurons, consists of five convolutional layers, some of which are followed by max-pooling layers, and three fully connected layers with a final 1000-way softmax. To make training faster, we used non-saturating neurons and a very efficient GPU implementation of the convolution operation. To reduce overfitting in the fully connected layers we employed a recently developed regularization method called "dropout" that proved to be very effective. We also entered a variant of this model in the ILSVRC-2012 competition and achieved a winning top-5 test error rate of 15.3%, compared to 26.2% achieved by the second-best entry.
+---
+
+---
+DOI: 10.1159/000455014
+Title: Adverse Renal Effects of Immune Checkpoint Inhibitors: A Narrative Review
+Year: 2017
+Abstract: &lt;b&gt;&lt;i&gt;Background:&lt;/i&gt;&lt;/b&gt; Cancer immunotherapy, such as anti-cytotoxic T-lymphocyte-associated protein 4 (CTLA-4) and anti-programmed death 1 (PD-1), has revolutionized the treatment of malignancies by engaging the patient's own immune system against the tumor rather than targeting the cancer directly. These therapies have demonstrated a significant benefit in the treatment of melanomas and other cancers. &lt;b&gt;&lt;i&gt;Summary:&lt;/i&gt;&lt;/b&gt; In order to provide an extensive overview of the renal toxicities induced by these agents, a Medline search was conducted of published literature related to ipilimumab-, pembrolizumab-, and nivolumab-induced kidney toxicity. In addition, primary data from the initial clinical trials of these agents and the FDA adverse reporting system database were also reviewed to determine renal adverse events. Acute interstitial nephritis (AIN), podocytopathy, and hyponatremia were toxicities caused by ipilimumab. The main adverse effect associated with both the PD-1 inhibitors was AIN. The onset of kidney injury seen with PD-1 inhibitors is usually late (3-10 months) compared to CTLA-4 antagonists related renal injury, which happens earlier (2-3 months). PD-1 as opposed to CTLA-4 inhibitors has been associated with kidney rejection in transplantation. Steroids appear to be effective in treating the immune-related adverse effects noted with these agents. &lt;b&gt;&lt;i&gt;Key Message:&lt;/i&gt;&lt;/b&gt; Although initially thought to be rare, the incidence rates of renal toxicities might be higher (9.9-29%) as identified by recent studies. As a result, obtaining knowledge about renal toxicities of immune checkpoint inhibitors is extremely important.
+---
+
+---
+DOI: 10.1126/science.1151526
+Title: Induced Pluripotent Stem Cell Lines Derived from Human Somatic Cells
+Year: 2007
+Abstract: Somatic cell nuclear transfer allows trans-acting factors present in the mammalian oocyte to reprogram somatic cell nuclei to an undifferentiated state. We show that four factors ( OCT4, SOX2, NANOG , and LIN28 ) are sufficient to reprogram human somatic cells to pluripotent stem cells that exhibit the essential characteristics of embryonic stem (ES) cells. These induced pluripotent human stem cells have normal karyotypes, express telomerase activity, express cell surface markers and genes that characterize human ES cells, and maintain the developmental potential to differentiate into advanced derivatives of all three primary germ layers. Such induced pluripotent human cell lines should be useful in the production of new disease models and in drug development, as well as for applications in transplantation medicine, once technical limitations (for example, mutation through viral integration) are eliminated.
+---
+
+---
+DOI: 10.1038/nrg1272
+Title: Network biology: understanding the cell's functional organization
+Year: 2004
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1515/znc-1973-11-1209
+Title: Elastic Properties of Lipid Bilayers: Theory and Possible Experiments
+Year: 1973
+Abstract: Abstract A theory of the elasticity of lipid bilayers is proposed. Three types of strain, i. e. stretching, tilt and curvature, are distinguished and the associated stresses are identified. It is argued that in the case of vesicles (= closed bilayer films) the only elasticity controlling nonspherical shapes is that of curvature. Euler-Lagrange equations are derived for the shape in magnetic fields and under excess outside pressure. It is shown that magnetic fields can deform spherical vesicles into ellipsoids of revolution. Under excess outside pressure the spherical shape becomes unstable at a certain threshold pressure. Both effects can be influenced by a spontaneous curvature of the bilayer. Some possible experiments to determine the elastic properties are also discussed
+---
+
+---
+DOI: 10.1126/science.1070919
+Title: Stochastic Gene Expression in a Single Cell
+Year: 2002
+Abstract: Clonal populations of cells exhibit substantial phenotypic variation. Such heterogeneity can be essential for many biological processes and is conjectured to arise from stochasticity, or noise, in gene expression. We constructed strains of Escherichia coli that enable detection of noise and discrimination between the two mechanisms by which it is generated. Both stochasticity inherent in the biochemical process of gene expression (intrinsic noise) and fluctuations in other cellular components (extrinsic noise) contribute substantially to overall variation. Transcription rate, regulatory dynamics, and genetic factors control the amplitude of noise. These results establish a quantitative foundation for modeling noise in genetic networks and reveal how low intracellular copy numbers of molecules can fundamentally limit the precision of gene regulation.
+---
+
+---
+DOI: 10.1038/nature12213
+Title: Mutational heterogeneity in cancer and the search for new cancer-associated genes
+Year: 2013
+Abstract: Major international projects are underway that are aimed at creating a comprehensive catalogue of all the genes responsible for the initiation and progression of cancer. These studies involve the sequencing of matched tumour–normal samples followed by mathematical analysis to identify those genes in which mutations occur more frequently than expected by random chance. Here we describe a fundamental problem with cancer genome studies: as the sample size increases, the list of putatively significant genes produced by current analytical methods burgeons into the hundreds. The list includes many implausible genes (such as those encoding olfactory receptors and the muscle protein titin), suggesting extensive false-positive findings that overshadow true driver events. We show that this problem stems largely from mutational heterogeneity and provide a novel analytical methodology, MutSigCV, for resolving the problem. We apply MutSigCV to exome sequences from 3,083 tumour–normal pairs and discover extraordinary variation in mutation frequency and spectrum within cancer types, which sheds light on mutational processes and disease aetiology, and in mutation frequency across the genome, which is strongly correlated with DNA replication timing and also with transcriptional activity. By incorporating mutational heterogeneity into the analyses, MutSigCV is able to eliminate most of the apparent artefactual findings and enable the identification of genes truly associated with cancer.
+---
+
+---
+DOI: 10.1017/s0962492902000077
+Title: The immersed boundary method
+Year: 2002
+Abstract: This paper is concerned with the mathematical structure of the immersed boundary (IB) method, which is intended for the computer simulation of fluid–structure interaction, especially in biological fluid dynamics. The IB formulation of such problems, derived here from the principle of least action, involves both Eulerian and Lagrangian variables, linked by the Dirac delta function. Spatial discretization of the IB equations is based on a fixed Cartesian mesh for the Eulerian variables, and a moving curvilinear mesh for the Lagrangian variables. The two types of variables are linked by interaction equations that involve a smoothed approximation to the Dirac delta function. Eulerian/Lagrangian identities govern the transfer of data from one mesh to the other. Temporal discretization is by a second-order Runge–Kutta method. Current and future research directions are pointed out, and applications of the IB method are briefly discussed.
+---
+
+---
+DOI: 10.1002/9781118706992
+Title: Fuel Cell Systems Explained
+Year: 2018
+Abstract: Preface. Foreword to the first edition. Acknowledgements. Abbreviations. Symbols. Introduction. Efficiency and Open Circuit Voltage. Operational Fuel Cell Voltages. Proton Exchange Membrane Fuel Cells. Alkaline Electrolyte Fuel Cells. Direct Methanol Fuel Cells. Medium and High Temperature Fuel Cells. Fuelling Fuel Cells. Compressors, Turbines, Ejectors, Fans, Blowers, and Pumps. Delivering Fuel Cell Power. Fuel Cell Systems Analysed. Appendix 1: Change in Molar Gibbs Free Energy Calculations. Appendix 2: Useful Fuel Cell Equations. Index.
+---
+
+---
+DOI: 10.1093/nar/gkv1164
+Title: The MetaCyc database of metabolic pathways and enzymes and the BioCyc collection of pathway/genome databases
+Year: 2015
+Abstract: The MetaCyc database (MetaCyc.org) is a freely accessible comprehensive database describing metabolic pathways and enzymes from all domains of life. The majority of MetaCyc pathways are small-molecule metabolic pathways that have been experimentally determined. MetaCyc contains more than 2400 pathways derived from >46,000 publications, and is the largest curated collection of metabolic pathways. BioCyc (BioCyc.org) is a collection of 5700 organism-specific Pathway/Genome Databases (PGDBs), each containing the full genome and predicted metabolic network of one organism, including metabolites, enzymes, reactions, metabolic pathways, predicted operons, transport systems, and pathway-hole fillers. The BioCyc website offers a variety of tools for querying and analyzing PGDBs, including Omics Viewers and tools for comparative analysis. This article provides an update of new developments in MetaCyc and BioCyc during the last two years, including addition of Gibbs free energy values for compounds and reactions; redesign of the primary gene/protein page; addition of a tool for creating diagrams containing multiple linked pathways; several new search capabilities, including searching for genes based on sequence patterns, searching for databases based on an organism's phenotypes, and a cross-organism search; and a metabolite identifier translation service.
+---
+
+---
+DOI: 10.1038/s41586-018-0590-4
+Title: Single-cell transcriptomics of 20 mouse organs creates a Tabula Muris
+Year: 2018
+Abstract: Here we present a compendium of single-cell transcriptomic data from the model organism Mus musculus that comprises more than 100,000 cells from 20 organs and tissues. These data represent a new resource for cell biology, reveal gene expression in poorly characterized cell populations and enable the direct and controlled comparison of gene expression in cell types that are shared between tissues, such as T lymphocytes and endothelial cells from different anatomical locations. Two distinct technical approaches were used for most organs: one approach, microfluidic droplet-based 3'-end counting, enabled the survey of thousands of cells at relatively low coverage, whereas the other, full-length transcript analysis based on fluorescence-activated cell sorting, enabled the characterization of cell types with high sensitivity and coverage. The cumulative data provide the foundation for an atlas of transcriptomic cell biology.
+---
+
+---
+DOI: 10.1038/nmeth.2639
+Title: Smart-seq2 for sensitive full-length transcriptome profiling in single cells
+Year: 2013
+Abstract: Single-cell gene expression analyses hold promise for characterizing cellular heterogeneity, but current methods compromise on either the coverage, the sensitivity or the throughput. Here, we introduce Smart-seq2 with improved reverse transcription, template switching and preamplification to increase both yield and length of cDNA libraries generated from individual cells. Smart-seq2 transcriptome libraries have improved detection, coverage, bias and accuracy compared to Smart-seq libraries and are generated with off-the-shelf reagents at lower cost.
+---
+
+---
+DOI: 10.1016/0014-5793(90)80535-q
+Title: A semi‐empirical method for prediction of antigenic determinants on protein antigens
+Year: 1990
+Abstract: Analysis of data from experimentally determined antigenic sites on proteins has revealed that the hydrophobic residues Cys , Leu and Val , if they occur on the surface of a protein, are more likely to be a part of antigenic sites. A semi‐empirical method which makes use of physicochemical properties of amino acid residues and their frequencies of occurrence in experimentally known segmental epitopes was developed to predict antigenic determinants on proteins. Application of this method to a large number of proteins has shown that our method can predict antigenic determinants with about 75% accuracy which is better than most of the known methods. This method is based on a single parameter and thus very simple to use.
+---
+
+---
+DOI: 10.1152/ajpheart.1998.275.1.h301
+Title: Ionic mechanisms underlying human atrial action potential properties: insights from a mathematical model
+Year: 1998
+Abstract: The mechanisms underlying many important properties of the human atrial action potential (AP) are poorly understood. Using specific formulations of the K + , Na + , and Ca 2+ currents based on data recorded from human atrial myocytes, along with representations of pump, exchange, and background currents, we developed a mathematical model of the AP. The model AP resembles APs recorded from human atrial samples and responds to rate changes, L-type Ca 2+ current blockade, Na + /Ca 2+ exchanger inhibition, and variations in transient outward current amplitude in a fashion similar to experimental recordings. Rate-dependent adaptation of AP duration, an important determinant of susceptibility to atrial fibrillation, was attributable to incomplete L-type Ca 2+ current recovery from inactivation and incomplete delayed rectifier current deactivation at rapid rates. Experimental observations of variable AP morphology could be accounted for by changes in transient outward current density, as suggested experimentally. We conclude that this mathematical model of the human atrial AP reproduces a variety of observed AP behaviors and provides insights into the mechanisms of clinically important AP properties.
+---
+
+---
+DOI: 10.1110/ps.0239403
+Title: Reliable prediction of T‐cell epitopes using neural networks with novel sequence representations
+Year: 2003
+Abstract: Abstract In this paper we describe an improved neural network method to predict T‐cell class I epitopes. A novel input representation has been developed consisting of a combination of sparse encoding, Blosum encoding, and input derived from hidden Markov models. We demonstrate that the combination of several neural networks derived using different sequence‐encoding schemes has a performance superior to neural networks derived using a single sequence‐encoding scheme. The new method is shown to have a performance that is substantially higher than that of other methods. By use of mutual information calculations we show that peptides that bind to the HLA A*0204 complex display signal of higher order sequence correlations. Neural networks are ideally suited to integrate such higher order correlations when predicting the binding affinity. It is this feature combined with the use of several neural networks derived from different and novel sequence‐encoding schemes and the ability of the neural network to be trained on data consisting of continuous binding affinities that gives the new method an improved performance. The difference in predictive performance between the neural network methods and that of the matrix‐driven methods is found to be most significant for peptides that bind strongly to the HLA molecule, confirming that the signal of higher order sequence correlation is most strongly present in high‐binding peptides. Finally, we use the method to predict T‐cell epitopes for the genome of hepatitis C virus and discuss possible applications of the prediction method to guide the process of rational vaccine design.
+---
+
+---
+DOI: 10.1038/nrmicro1023
+Title: Genome-scale models of microbial cells: evaluating the consequences of constraints
+Year: 2004
+Abstract: Microbial cells operate under governing constraints that limit their range of possible functions. With the availability of annotated genome sequences, it has become possible to reconstruct genome-scale biochemical reaction networks for microorganisms. The imposition of governing constraints on a reconstructed biochemical network leads to the definition of achievable cellular functions. In recent years, a substantial and growing toolbox of computational analysis methods has been developed to study the characteristics and capabilities of microorganisms using a constraint-based reconstruction and analysis (COBRA) approach. This approach provides a biochemically and genetically consistent framework for the generation of hypotheses and the testing of functions of microbial cells.
+---
+
+---
+DOI: 10.1016/j.procir.2016.11.152
+Title: The Digital Twin: Realizing the Cyber-Physical Production System for Industry 4.0
+Year: 2017
+Abstract: Abstract Concerning current approaches to planning of manufacturing processes, the acquisition of a sufficient data basis of the relevant process information and subsequent development of feasible layout options requires 74% of the overall time-consumption. However, the application of fully automated techniques within planning processes is not yet common practice. Deficits are to be observed in the course of the use of a fully automated data acquisition of the underlying process data, a key element of Industry 4.0, as well as the evaluation and quantification and analysis of the gathered data. As the majority of the planning operations are conducted manually, the lack of any theoretical evaluation renders a benchmarking of the results difficult. Current planning processes analyze the manually achieved results with the aid of simulation. Evaluation and quantification of the planning procedure are limited by complexity that defies manual controllability. Research is therefore required with regard to automated data acquisition and selection, as the near real-time evaluation and analysis of a highly complex production systems relies on a real-time generated database. The paper presents practically feasible approaches to a multi-modal data acquisition approach, its requirements and limitations. The further concept of the Digital Twin for a production process enables a coupling of the production system with its digital equivalent as a base for an optimization with a minimized delay between the time of data acquisition and the creation of the Digital Twin. Therefore a digital data acquisition approach is necessary. As a consequence a cyber-physical production system can be generated, that opens up powerful applications. To ensure a maximum concordance of the cyber-physical process with its real-life model a multimodal data acquisition and evaluation has to be conducted. The paper therefore presents a concept for the composition of a database and proposes guidelines for the implementation of the Digital Twin in production systems in small and medium-sized enterprises.
+---
+
+---
+DOI: 10.1038/nrmicro1949
+Title: Reconstruction of biochemical networks in microorganisms
+Year: 2008
+Abstract: Systems analysis of metabolic and growth functions in microbial organisms is rapidly developing and maturing. Such studies are enabled by reconstruction, at the genomic scale, of the biochemical reaction networks that underlie cellular processes. The network reconstruction process is organism specific and is based on an annotated genome sequence, high-throughput network-wide data sets and bibliomic data on the detailed properties of individual network components. Here we describe the process that is currently used to achieve comprehensive network reconstructions and discuss how these reconstructions are curated and validated. This review should aid the growing number of researchers who are carrying out reconstructions for particular target organisms.
+---
+
+---
+DOI: 10.1093/bioinformatics/17.12.1236
+Title: ProPred: prediction of HLA-DR binding sites
+Year: 2001
+Abstract: Abstract Summary: ProPred is a graphical web tool for predicting MHC class II binding regions in antigenic protein sequences. The server implement matrix based prediction algorithm, employing amino-acid/position coefficient table deduced from literature. The predicted binders can be visualized either as peaks in graphical interface or as colored residues in HTML interface. This server might be a useful tool in locating the promiscuous binding regions that can bind to several HLA-DR alleles. Availability: The server is available at http://www.imtech.res.in/raghava/propred/ Contact: raghava@imtech.res.in Supplementary information: http://www.imtech.res.in/raghava/propred/page3.html * To whom correspondence should be addressed.
+---
+
+---
+DOI: 10.1016/s0360-3199(02)00284-7
+Title: A parametric study of PEM fuel cell performances
+Year: 2003
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/access.2019.2909828
+Title: A Novel Cloud-Based Framework for the Elderly Healthcare Services Using Digital Twin
+Year: 2019
+Abstract: With the development of technologies, such as big data, cloud computing, and the Internet of Things (IoT), digital twin is being applied in industry as a precision simulation technology from concept to practice. Further, simulation plays a very important role in the healthcare field, especially in research on medical pathway planning, medical resource allocation, medical activity prediction, etc. By combining digital twin and healthcare, there will be a new and efficient way to provide more accurate and fast services for elderly healthcare. However, how to achieve personal health management throughout the entire lifecycle of elderly patients, and how to converge the medical physical world and the virtual world to realize real smart healthcare, are still two key challenges in the era of precision medicine. In this paper, a framework of the cloud healthcare system is proposed based on digital twin healthcare (CloudDTH). This is a novel, generalized, and extensible framework in the cloud environment for monitoring, diagnosing and predicting aspects of the health of individuals using, for example, wearable medical devices, toward the goal of personal health management, especially for the elderly. CloudDTH aims to achieve interaction and convergence between medical physical and virtual spaces. Accordingly, a novel concept of digital twin healthcare (DTH) is proposed and discussed, and a DTH model is implemented. Next, a reference framework of CloudDTH based on DTH is constructed, and its key enabling technologies are explored. Finally, the feasibility of some application scenarios and a case study for real-time supervision are demonstrated.
+---
+
+---
+DOI: 10.1109/access.2017.2657006
+Title: C2PS: A Digital Twin Architecture Reference Model for the Cloud-Based Cyber-Physical Systems
+Year: 2017
+Abstract: Cyber-physical system (CPS) is a new trend in the Internet-of-Things related research works, where physical systems act as the sensors to collect real-world information and communicate them to the computation modules (i.e. cyber layer), which further analyze and notify the findings to the corresponding physical systems through a feedback loop. Contemporary researchers recommend integrating cloud technologies in the CPS cyber layer to ensure the scalability of storage, computation, and cross domain communication capabilities. Though there exist a few descriptive models of the cloud-based CPS architecture, it is important to analytically describe the key CPS properties: computation, control, and communication. In this paper, we present a digital twin architecture reference model for the cloud-based CPS, C2PS, where we analytically describe the key properties of the C2PS. The model helps in identifying various degrees of basic and hybrid computation-interaction modes in this paradigm. We have designed C2PS smart interaction controller using a Bayesian belief network, so that the system dynamically considers current contexts. The composition of fuzzy rule base with the Bayes network further enables the system with reconfiguration capability. We also describe analytically, how C2PS subsystem communications can generate even more complex system-of-systems. Later, we present a telematics-based prototype driving assistance application for the vehicular domain of C2PS, VCPS, to demonstrate the efficacy of the architecture reference model.
+---
+
+---
+DOI: 10.1016/j.bpj.2010.02.002
+Title: A Multiscale Red Blood Cell Model with Accurate Mechanics, Rheology, and Dynamics
+Year: 2010
+Abstract: Red blood cells (RBCs) have highly deformable viscoelastic membranes exhibiting complex rheological response and rich hydrodynamic behavior governed by special elastic and bending properties and by the external/internal fluid and membrane viscosities. We present a multiscale RBC model that is able to predict RBC mechanics, rheology, and dynamics in agreement with experiments. Based on an analytic theory, the modeled membrane properties can be uniquely related to the experimentally established RBC macroscopic properties without any adjustment of parameters. The RBC linear and nonlinear elastic deformations match those obtained in optical-tweezers experiments. The rheological properties of the membrane are compared with those obtained in optical magnetic twisting cytometry, membrane thermal fluctuations, and creep followed by cell recovery. The dynamics of RBCs in shear and Poiseuille flows is tested against experiments and theoretical predictions, and the applicability of the latter is discussed. Our findings clearly indicate that a purely elastic model for the membrane cannot accurately represent the RBC's rheological properties and its dynamics, and therefore accurate modeling of a viscoelastic membrane is necessary.
+---
+
+---
+DOI: 10.1016/j.mfglet.2018.02.006
+Title: Digital twin – Proof of concept
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0960-9822(99)80042-6
+Title: Self-polarization and directional motility of cytoplasm
+Year: 1999
+Abstract: BackgroundDirectional cell motility implies the presence of a steering mechanism and a functional asymmetry between the front and rear of the cell. How this functional asymmetry arises and is maintained during cell locomotion is, however, unclear. Lamellar fragments of fish epidermal keratocytes, which lack nuclei, microtubules and most organelles, present a simplified, perhaps minimal, system for analyzing this problem because they consist of little other than the motile machinery enclosed by a membrane and yet can move with remarkable speed and persistence.ResultsWe have produced two types of cellular fragments: discoid stationary fragments and polarized fragments undergoing locomotion. The organization and dynamics of the actin-myosin II system were isotropic in stationary fragments and anisotropic in the moving fragments. To investigate whether the creation of asymmetry could result in locomotion, a transient mechanical stimulus was applied to stationary fragments. The stimulus induced localized contraction and the formation of an actin-myosin II bundle at one edge of the fragment. Remarkably, stimulated fragments started to undergo locomotion and the locomotion and associated anisotropic organization of the actin-myosin II system were sustained after withdrawal of the stimulus.ConclusionsWe propose a model in which lamellar cytoplasm is considered a dynamically bistable system capable of existing in a non-polarized or polarized state and interconvertible by mechanical stimulus. The model explains how the anisotropic organization of the lamellum is maintained in the process of locomotion. Polarized locomotion is sustained through a positive-feedback loop intrinsic to the actin-myosin II machinery: anisotropic organization of the machinery drives translocation, which then reinforces the asymmetry of the machinery, favoring further translocation.
+---
+
+---
+DOI: 10.1088/1478-3975/2/3/001
+Title: A single-cell-based model of tumor growth<i>in vitro</i>: monolayers and spheroids
+Year: 2005
+Abstract: To what extent the growth dynamics of tumors is controlled by nutrients, biomechanical forces and other factors at different stages and in different environments is still largely unknown. Here we present a biophysical model to study the spatio-temporal growth dynamics of two-dimensional tumor monolayers and three-dimensional tumor spheroids as a complementary tool to in vitro experiments. Within our model each cell is represented as an individual object and parametrized by cell-biophysical and cell-kinetic parameters that can all be experimentally determined. Hence our modeling strategy allows us to study which mechanisms on the microscopic level of individual cells may affect the macroscopic properties of a growing tumor. We find the qualitative growth kinetics and patterns at early growth stages to be remarkably robust. Quantitative comparisons between computer simulations using our model and published experimental observations on monolayer cultures suggest a biomechanically-mediated form of growth inhibition during the experimentally observed transition from exponential to sub-exponential growth at sufficiently large tumor sizes. Our simulations show that the same transition during the growth of avascular tumor spheroids can be explained largely by the same mechanism. Glucose (or oxygen) depletion seems to determine mainly the size of the necrotic core but not the size of the tumor. We explore the consequences of the suggested biomechanical form of contact inhibition, in order to permit an experimental test of our model. Based on our findings we propose a phenomenological growth law in early expansion phases in which specific biological small-scale processes are subsumed in a small number of effective parameters.
+---
+
+---
+DOI: 10.1529/biophysj.104.047332
+Title: Spectrin-Level Modeling of the Cytoskeleton and Optical Tweezers Stretching of the Erythrocyte
+Year: 2005
+Abstract: We present a three-dimensional computational study of whole-cell equilibrium shape and deformation of human red blood cell (RBC) using spectrin-level energetics. Random network models consisting of degree-2, 3, ..., 9 junction complexes and spectrin links are used to populate spherical and biconcave surfaces and intermediate shapes, and coarse-grained molecular dynamics simulations are then performed with spectrin connectivities fixed. A sphere is first filled with cytosol and gradually deflated while preserving its total surface area, until cytosol volume consistent with the real RBC is reached. The equilibrium shape is determined through energy minimization by assuming that the spectrin tetramer links satisfy the worm-like chain free-energy model. Subsequently, direct stretching by optical tweezers of the initial equilibrium shape is simulated to extract the variation of axial and transverse diameters with the stretch force. At persistence length p = 7.5 nm for the spectrin tetramer molecule and corresponding in-plane shear modulus mu(0) approximately 8.3 microN/m, our models show reasonable agreement with recent experimental measurements on the large deformation of RBC with optical tweezers. We find that the choice of the reference state used for the in-plane elastic energy is critical for determining the equilibrium shape. If a position-independent material reference state such as a full sphere is used in defining the in-plane energy, then the bending modulus kappa needs to be at least a decade larger than the widely accepted value of 2 x 10(-19) J to stabilize the biconcave shape against the cup shape. We demonstrate through detailed computations that this paradox can be avoided by invoking the physical hypothesis that the spectrin network undergoes constant remodeling to always relax the in-plane shear elastic energy to zero at any macroscopic shape, at some slow characteristic timescale. We have devised and implemented a liquefied network structure evolution algorithm that relaxes shear stress everywhere in the network and generates cytoskeleton structures that mimic experimental observations.
+---
+
+---
+DOI: 10.1073/pnas.1005139107
+Title: Probabilistic integrative modeling of genome-scale metabolic and regulatory networks in <i>Escherichia coli</i> and <i>Mycobacterium tuberculosis</i>
+Year: 2010
+Abstract: Prediction of metabolic changes that result from genetic or environmental perturbations has several important applications, including diagnosing metabolic disorders and discovering novel drug targets. A cardinal challenge in obtaining accurate predictions is the integration of transcriptional regulatory networks with the corresponding metabolic network. We propose a method called probabilistic regulation of metabolism (PROM) that achieves this synthesis and enables straightforward, automated, and quantitative integration of high-throughput data into constraint-based modeling, making it an ideal tool for constructing genome-scale regulatory-metabolic network models for less-studied organisms. PROM introduces probabilities to represent gene states and gene–transcription factor interactions. By using PROM, we constructed an integrated regulatory-metabolic network for the model organism, Escherichia coli , and demonstrated that our method based on automated inference is more accurate and comprehensive than the current state of the art, which is based on manual curation of literature. After validating the approach, we used PROM to build a genome-scale integrated metabolic-regulatory model for Mycobacterium tuberculosis , a critically important human pathogen. This study incorporated data from more than 1,300 microarrays, 2,000 transcription factor–target interactions regulating 3,300 metabolic reactions, and 1,905 KO phenotypes for E. coli and M. tuberculosis . PROM identified KO phenotypes with accuracies as high as 95%, and predicted growth rates quantitatively with correlation of 0.95. Importantly, PROM represents the successful integration of a top-down reconstructed, statistically inferred regulatory network with a bottom-up reconstructed, biochemically detailed metabolic network, bridging two important classes of systems biology models that are rarely combined quantitatively.
+---
+
+---
+DOI: 10.1149/1.1838431
+Title: An Along‐the‐Channel Model for Proton Exchange Membrane Fuel Cells
+Year: 1998
+Abstract: An along‐the‐channel model is developed for evaluating the effects of various design and operating parameters on the performance of a proton exchange membrane (PEM) fuel cell. The model, which is based on a previous one, has been extended to include the convective water transport across the membrane by a pressure gradient, temperature distribution in the solid phase along the flow channel, and heat removal by natural convection and coflow and counterflow heat exchangers. Results from the model show that the performance of a PEM fuel cell could be improved by anode humidification and positive differential pressure between the cathode and anode to increase the back transport rate of water across the membrane. Results also show that effective heat removal is necessary for preventing excessive temperature which could lead to local membrane dehydration. For heat removal and distribution, the counterflow heat exchanger is most effective.
+---
+
+---
+DOI: 10.1149/1.1641033
+Title: Water Management in PEM Fuel Cells
+Year: 2004
+Abstract: A simplified model for water management in a polymer electrolyte membrane (PEM) fuel cell operating under prescribed current with iso-potential plates is presented. The consumption of gases in the flow field channels, coupled to the electric potential and water content in the polymer membrane, is modeled in a two-dimensional slice from inlet to outlet and through the membrane. Both co- and counter-flowing air and fuel streams are considered, with attention paid to sensitivity of along-the-channel current density to inlet humidities, gas stream composition, and fuel and oxygen stoichiometries. The parameters describing the nonequilibrium kinetics of the membrane/catalyst interface are found to be fundamental to accurate fuel cell modeling. A new parameter which models nonequilibrium membrane water uptake rates is introduced. Four parameters, the exchange current, a membrane water transfer coefficient, an effective oxygen diffusivity, and an average membrane resistance, are fit to a subset of data and then held constant in subsequent runs which compare polarization curves, current density and membrane hydration distributions, water transfer, and stoichiometric sensitivity to the balance of the experimental data. © 2004 The Electrochemical Society. All rights reserved.
+---
+
+---
+DOI: 10.1149/1.1615608
+Title: Rigorous 3-D Mathematical Modeling of PEM Fuel Cells
+Year: 2003
+Abstract: This article presents a rigorous mathematical model to predict performance of proton exchange membrane (PEM) fuel cells (FCs) of arbitrary three-dimensional (3-D) geometry. Mathematical modeling of FCs is necessary in order to understand the precise effect of operating conditions and material properties on the performance of fuel cells. The model is based on solution of the conservation equations of mass, momentum, energy, species, and electric current in a fully integrated finite-volume solver. Simulations are performed in 2-D and 3-D geometries assuming that water stays in its vapor phase and that no liquid water is formed. Results are compared against experimental data under various operating conditions, and show that 3-D modeling is key to predicting performance of PEM FCs at high current densities. © 2003 The Electrochemical Society. All rights reserved.
+---

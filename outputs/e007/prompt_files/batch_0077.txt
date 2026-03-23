@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.2514/6.2003-1031
+Title: Virtual Sub-Cells for the Direct Simulation Monte Carlo Method
+Year: 2003
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.matdes.2018.03.022
+Title: Investigation of the relationship between morphology and permeability for open-cell foams using virtual materials testing
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/vtcspring.2015.7146159
+Title: Virtual Cell Sectoring for Enhancing Resource Allocation and Reuse in Network Controlled D2D Communication
+Year: 2015
+Abstract: Device-to-Device (D2D) communication underlaying cellular communications takes advantage of physical proximity of devices to improve coverage, resource utilization, data rates, QoS,and offers network operators the possibility to offload normally network-routed traffic to direct P2P links. This paper presents a novel Resource Allocation (RA) concept for D2D User Equipment(D-UEs) reusing the Physical Resource Blocks (PRBs) of the Cellular UEs (C-UEs). The RA algorithm is based on a virtual sectoring concept that relies on network assisted positioning technologies. By means of system level simulations, we show that this novel RA scheme yields significant performance and efficiency gains. To this end, we show the gains when such a RA scheme is employed along with some potential future directions.
+---
+
+---
+DOI: 10.3390/app11020762
+Title: A Virtual Experiment for Learning the Principle of Daniell Cell Based on Augmented Reality
+Year: 2021
+Abstract: Chemistry is a science emphasizing both theory and experimentation. After learning the theoretical knowledge, experimental operation can help students understand chemical concepts and transform them into practical knowledge. Considering the safety issue and the lack of teaching time and experimental equipment, some teachers often choose to demonstrate an experiment instead of letting students conduct it by themselves. This may affect their learning motivation as well as the construction of chemical concepts and hands-on skills. This study combined the augmented reality (AR) technology with the operating principle of the Daniell cell to develop a virtual experiment for the application in high school chemistry courses. Students can conduct the virtual experiment using mobile devices by selecting the required equipment and materials from a deck of cards to set up the experimental environment. In the virtual experiment, students can use the galvanometer to measure the current after mounting the salt bridge on the beakers containing zinc sulfate and copper sulfate solutions. They can also see the change of molecular structures and movement of electrons and ions during the redox reactions to understand the important concepts and knowledge. An empirical research has been performed, and the analytical results show that both the virtual experiment and the real experiment could improve students’ learning achievement, but the former was more effective for the low-achievement students because they could explore autonomously to enhance cognition by observing the submicroscopic view of the redox reactions. The post-test results show that the average score of the low-achievement students in the experimental group (41.60) was significantly higher than that of the control group (27.67). Questionnaire results reveal that most students were satisfied with the learning contents, user interface, learning motivation, system reality, and practicality of the virtual experiment, and the average satisfaction score was 3.98 out of 5. The application of virtual experiments is not limited by time or space. Students only need to download the application (APP) software and print out the AR cards to practice at home, so it is suitable for large-scale promotion in rural areas.
+---
+
+---
+DOI: 10.1504/ijsoi.2010.034039
+Title: Evaluation of the virtual cell layout through simulation and design of experiments with regard to queue time
+Year: 2010
+Abstract: Virtual cellular manufacturing combines the high production routing flexibility of the job shop layout with the efficiency in terms of set-up of traditional cells. However, since this is a relatively recent concept, the implementation of the virtual cell layout in industry is still almost inexistent, despite the significant potential that this layout can provide for manufacturing systems. Considering the above, this work seeks to evaluate, through simulation and design of experiments, the performance of job shop and traditional cell layouts in comparison with a virtual cell manufacturing system, identifying the conditions in which the application of the latter is advantageous. These layouts are evaluated through models with identical capacities and subject to the same demand, and whose production sequences are generated by priority rules. A significant number of factors, levels and replications are used seeking to delimit appropriately the range in which the virtual cells effectively lead to competitive advantages.
+---
+
+---
+DOI: 10.1002/eji.201545761
+Title: Innate and virtual memory T cells in man
+Year: 2015
+Abstract: A hallmark of the antigen‐specific B and T lymphocytes of the adaptive immune system is their capacity to “remember” pathogens long after they are first encountered, a property that forms the basis for effective vaccine development. However, studies in mice have provided strong evidence that some naive T cells can develop characteristics of memory T cells in the absence of foreign antigen encounters. Such innate memory T cells may develop in response to lymphopenia or the presence of high levels of the cytokine IL‐4, and have also been identified in unmanipulated animals, a phenomenal referred to as “virtual memory.” While the presence of innate memory T cells in mice is now widely accepted, their presence in humans has not yet been fully validated. In this issue of the European Journal of Immunology , Jacomet et al. [Eur. J. Immunol. 2015. 45:1926‐1933] provide the best evidence to date for innate memory T cells in humans. These findings may contribute significantly to our understanding of human immunity to microbial pathogens and tumors.
+---
+
+---
+DOI: 10.1109/vtcfall.2018.8690556
+Title: Downlink Multiuser Detection of Ultra-Low Latency Virtual-Cell Vehicular Networks
+Year: 2018
+Abstract: Forming small virtual cells by using open-loop radio communications and proactive network association has been recently shown effective to realize the ultra-low latency vehicular networking. However, multiple access emerges as another technical challenge, particularly in the downlink losing perfect synchronization for proactive radio access. Traditional beam-forming and interference alignment (IA) to suppress intercell interference could not satisfy ultra-low latency vehicular networking to enable autonomous vehicles due to the difficulty of obtaining channel state information (CSI) in open-loop communications. Multiuser detection (MUD) shall be employed in the downlink to accommodate interference from multiple co-existing virtual cells. By looking into bit-error rate (BER) in terms of power and modulation order of interference, we note that the performance gap between maximum likelihood-MUD (ML-MUD) and ideal single-user detection (SUD) heavily depends on the modulation schemes adopted by interferers. This modulation sensitivity can be easily relieved by introducing multi-antenna technique, which suggests robustness against multiple-access interference by diversity.
+---
+
+---
+DOI: 10.1016/j.sbi.2019.06.012
+Title: Soft X-ray tomography: virtual sculptures from cell cultures
+Year: 2019
+Abstract: Cellular complexity is represented best in high-spatial resolution, three-dimensional (3D) reconstructions. Soft X-ray tomography (SXT) generates detailed volumetric reconstructions of cells preserved in a near-to-native, frozen-hydrated state. SXT is broadly applicable and can image specimens ranging from bacteria to large mammalian cells. As a reference, we summarize light and electron microscopic methods. We then present an overview of SXT and discuss its role in cellular imaging. We detail the methods used to image biological specimens and present recent highlights that illustrate the capabilities of the technique. We conclude by discussing correlative imaging, specifically the combination of SXT and fluorescence microscopy performed on the same specimen. This correlated approach combines the structural morphology of a cell with its physiological characteristics to build a deeply informative composite view.
+---
+
+---
+DOI: 10.1007/978-3-642-41281-3_10
+Title: Network Analysis and Integration in a Virtual Cell Environment
+Year: 2013
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/35024247
+Title: US grant glues ‘virtual cell’ together
+Year: 2000
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1073/pnas.95.16.9448
+Title: Impaired B-lymphopoiesis, myelopoiesis, and derailed cerebellar neuron migration in CXCR4- and SDF-1-deficient mice
+Year: 1998
+Abstract: The chemokine stromal cell-derived factor 1, SDF-1, is an important regulator of leukocyte and hematopoietic precursor migration and pre-B cell proliferation. The receptor for SDF-1, CXCR4, also functions as a coreceptor for T-tropic HIV-1 entry. We find that mice deficient for CXCR4 die perinatally and display profound defects in the hematopoietic and nervous systems. CXCR4-deficient mice have severely reduced B-lymphopoiesis, reduced myelopoiesis in fetal liver, and a virtual absence of myelopoiesis in bone marrow. However, T-lymphopoiesis is unaffected. Furthermore, the cerebellum develops abnormally with an irregular external granule cell layer, ectopically located Purkinje cells, and numerous chromophilic cell clumps of abnormally migrated granule cells within the cerebellar anlage. Identical defects are observed in mice lacking SDF-1, suggesting a monogamous relationship between CXCR4 and SDF-1. This receptor-ligand selectivity is unusual among chemokines and their receptors, as is the function in migration of nonhematopoietic cells.
+---
+
+---
+DOI: 10.3390/app12063164
+Title: Engineering Method and Tool for the Complete Virtual Commissioning of Robotic Cells
+Year: 2022
+Abstract: Intelligent robotic manufacturing cells must adapt to ever-varying operating conditions, developing autonomously optimal manufacturing strategies to achieve the best quality and overall productivity. Intelligent and cognitive behaviors are realized by using distributed controllers, in which complex control logics must interact and process a wide variety of input/output signals. In particular, programmable logic controllers (PLCs) and robot controllers must be coordinated and integrated. Then, there is the need to simulate the robotic cells’ behavior for performance verification and optimization by evaluating the effects of both PLC and robot control codes. In this context, this work proposes a method, and its implementation into an integrated tool, to exploit the potential of ABB RobotStudio software as a virtual prototyping platform for robotic cells, in which real robots control codes are executed on a virtual controller and integrated with Beckhoff PLC environment. For this purpose, a PLC Smart Component was conceived as an extension of RobotStudio functionalities to exchange signals with a TwinCAT instance. The new module allows the virtual commissioning of a complete robotic cell to be performed, assessing the control logics effects on the overall productivity. The solution is demonstrated on a robotic assembly cell, showing its feasibility and effectiveness in optimizing the final performance.
+---
+
+---
+DOI: 10.1021/acsenergylett.7b01134
+Title: Hybrid Perovskites for Multijunction Tandem Solar Cells and Solar Fuels. A Virtual Issue
+Year: 2017
+Abstract: ADVERTISEMENT RETURN TO ISSUEPREVEnergy FocusNEXTHybrid Perovskites for Multijunction Tandem Solar Cells and Solar Fuels. A Virtual IssuePrashant V. KamatPrashant V. KamatUniversity of Notre DameMore by Prashant V. Kamathttp://orcid.org/0000-0002-2465-6819Cite this: ACS Energy Lett. 2018, 3, 1, 28–29Publication Date (Web):November 22, 2017Publication History Received16 November 2017Accepted16 November 2017Published online22 November 2017Published inissue 12 January 2018https://pubs.acs.org/doi/10.1021/acsenergylett.7b01134https://doi.org/10.1021/acsenergylett.7b01134article-commentaryACS PublicationsCopyright © 2017 American Chemical Society. This publication is available under these Terms of Use. Request reuse permissions This publication is free to access through this site. Learn MoreArticle Views4236Altmetric-Citations37LEARN ABOUT THESE METRICSArticle Views are the COUNTER-compliant sum of full text article downloads since November 2008 (both PDF and HTML) across all institutions and individuals. These metrics are regularly updated to reflect usage leading up to the last few days.Citations are the number of other articles citing this article, calculated by Crossref and updated daily. Find more information about Crossref citation counts.The Altmetric Attention Score is a quantitative measure of the attention that a research article has received online. Clicking on the donut icon will load a page at altmetric.com with additional details about the score and the social media presence for the given article. Find more information on the Altmetric Attention Score and how the score is calculated. Share Add toView InAdd Full Text with ReferenceAdd Description ExportRISCitationCitation and abstractCitation and referencesMore Options Share onFacebookTwitterWechatLinked InRedditEmail PDF (1 MB) Get e-AlertscloseSUBJECTS:Perovskites,Photovoltaics,Semiconductors,Solar cells,Solar fuels Get e-Alerts
+---
+
+---
+DOI: 10.1021/acs.jmedchem.7b00587
+Title: Potent, Selective, and Cell Active Protein Arginine Methyltransferase 5 (PRMT5) Inhibitor Developed by Structure-Based Virtual Screening and Hit Optimization
+Year: 2017
+Abstract: PRMT5 plays important roles in diverse cellular processes and is upregulated in several human malignancies. Besides, PRMT5 has been validated as an anticancer target in mantle cell lymphoma. In this study, we found a potent and selective PRMT5 inhibitor by performing structure-based virtual screening and hit optimization. The identified compound 17 (IC<sub>50</sub> = 0.33 μM) exhibited a broad selectivity against a panel of other methyltransferases. The direct binding of 17 to PRMT5 was validated by surface plasmon resonance experiments, with a K<sub>d</sub> of 0.987 μM. Kinetic experiments indicated that 17 was a SAM competitive inhibitor other than the substrate. In addition, 17 showed selective antiproliferative effects against MV4-11 cells, and further studies indicated that the mechanism of cellular antitumor activity was due to the inhibition of PRMT5 mediated SmD3 methylation. 17 may represent a promising lead compound to understand more about PRMT5 and potentially assist the development of treatments for leukemia indications.
+---
+
+---
+DOI: 10.1038/304035a0
+Title: Platelet-derived growth factor is structurally related to the putative transforming protein p28sis of simian sarcoma virus
+Year: 1983
+Abstract: A partial amino acid sequence of human platelet-derived growth factor, the major mitogen in serum for cells of mesenchymal origin, has been determined. A region of 104 contiguous amino acids shows virtual identity with the predicted sequence of p28sis, the putative transforming protein of simian sarcoma virus (SSV). This similarity suggests a mechanism for transformation by SSV and other agents, involving expression of growth factors.
+---
+
+---
+DOI: 10.1002/hipo.23534
+Title: View cells in the hippocampus and prefrontal cortex of macaques during virtual navigation
+Year: 2023
+Abstract: Abstract Cells selectively activated by a particular view of an environment have been found in the primate hippocampus (HPC). Whether view cells are present in other brain areas, and how view selectivity interacts with other variables such as object features and place remain unclear. Here, we explore these issues by recording the responses of neurons in the HPC and the lateral prefrontal cortex (LPFC) of rhesus macaques performing a task in which they learn new context‐object associations while navigating a virtual environment using a joystick. We measured neuronal responses at different locations in a virtual maze where animals freely directed gaze to different regions of the visual scenes. We show that specific views containing task relevant objects selectively activated a proportion of HPC units, and an even higher proportion of LPFC units. Place selectivity was scarce and generally dependent on view. Many view cells were not affected by changing the object color or the context cue, two task relevant features. However, a small proportion of view cells showed selectivity for these two features. Our results show that during navigation in a virtual environment with complex and dynamic visual stimuli, view cells are found in both the HPC and the LPFC. View cells may have developed as a multiarea specialization in diurnal primates to encode the complexities and layouts of the environment through gaze exploration which ultimately enables building cognitive maps of space that guide navigation.
+---
+
+---
+DOI: 10.1007/978-3-319-60922-5_16
+Title: Exploiting Factory Telemetry to Support Virtual Reality Simulation in Robotics Cell
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.ijhydene.2015.09.152
+Title: A multi-timescale modeling methodology for PEMFC performance and durability in a virtual fuel cell car
+Year: 2015
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.48550/arxiv.2509.18220
+Title: Virtual Cells: From Conceptual Frameworks to Biomedical Applications
+Year: 2025
+Abstract: The challenge of translating vast, multimodal biological data into predictive and mechanistic understanding of cellular function is a central theme in modern biology. Virtual cells, or digital cellular twins, have emerged as a critical paradigm to meet this challenge by creating integrative computational models of cellular processes. This review synthesizes the evolution and current state of the virtual cell, from foundational mechanistic frameworks like the Virtual Cell that employ deterministic and stochastic simulations to the recent transformative impact of artificial intelligence and foundation models. We examine the core technological pillars required to build these models, including the integration of various data types, such as single-cell and spatial omics, the spectrum of modeling approaches, and the bioengineering principles that connect simulation to application. We further discuss key applications, frameworks for model benchmarking and validation, and the significant hurdles that remain, including computational scalability, parameter inference, and ethical considerations, which provides a roadmap for development of predictive virtual cells that promise to revolutionize biomedical research and clinical practice.
+---
+
+---
+DOI: 10.1002/solr.202000110
+Title: Accelerated Discovery of Potential Organic Dyes for Dye‐Sensitized Solar Cells by Interpretable Machine Learning Models and Virtual Screening
+Year: 2020
+Abstract: The development of highly efficient dye‐sensitized solar cells (DSSCs) is greatly hindered by the lack of a reliable and understandable quantitative structure–property relationship (QSPR) model. Herein, an accurate, robust, and interpretable QSPR model is established by combining the machine learning technique and computational quantum chemistry, and with this model, virtual screening as well as the assessment of synthetic accessibility is performed to identify new efficient and synthetically accessible organic dyes for DSSCs. Finally, eight promising organic dyes with high power conversion efficiency and synthetic accessibility are screened out from ≈10 000 candidates. Meanwhile, the interpretability of the model is used for deducing reasonable chemical rules for high‐performance organic dyes, which are expected to contribute to further innovations for the practical applications of DSSCs.
+---
+
+---
+DOI: 10.1016/j.asoc.2020.106719
+Title: Joint cell formation, cell scheduling, and group layout problem in virtual and classical cellular manufacturing systems
+Year: 2020
+Abstract: Abstract Cell formation, cell scheduling, and group layout are three important problems in designing and configuring a Cellular Manufacturing System (CMS). This paper addresses the integration of these problems in virtual and classical CMSs considering alternative processing routes. The objective is to minimize the total handling costs and cycle time. Due to the computational complexity of the problem, hybrid metaheuristic algorithms are proposed to solve the problem. Depending on the type of cells, which is either classical or virtual, an encoding scheme is proposed to effectively represent candidate solutions. Placement algorithms are developed to obtain the layout from an encoded solution; these algorithms are either based on running a heuristic or a linear program. A computer software, called ICFLSD (Integrated Cell Formation, Layout, and Scheduling Designer) is developed to simplify the problem-solving process from the data entry to getting results. Numerical examples adopted from the literature are solved using the ICFLSD and CPLEX to assess the performance of the metaheuristic algorithms. The comparison results demonstrated the superiority of the simulated annealing to the other solution approaches considered in this study.
+---
+
+---
+DOI: 10.1038/nprot.2013.051
+Title: Virtual karyotyping of pluripotent stem cells on the basis of their global gene expression profiles
+Year: 2013
+Abstract: The genomic instability of stem cells in culture, caused by their routine in vitro propagation or by their genetic manipulation, is deleterious both for their clinical application and for their use in basic research. Frequent evaluation of the genomic integrity of stem cells is thus required, and it is usually performed using cytogenetic or DNA-based methods at variable sensitivities, resolutions and costs. Here we present a detailed protocol for determining the genomic integrity of pluripotent stem cells (PSCs) using their global gene expression profiles. This expression-based karyotyping (e-karyotyping) protocol uses gene expression microarray data (either originally generated or derived from the literature) and describes how to organize it properly, subject it to two complementary bioinformatic analyses and conservatively interpret the results in order to generate an accurate estimation of the chromosomal aberrations in the autosomal genome of examined stem cell lines. The experimental steps of e-karyotyping can be carried out in ∼20-30 h.
+---
+
+---
+DOI: 10.1145/256562.256906
+Title: Controlling activities in a virtual manufacturing cell
+Year: 1996
+Abstract: Researchers at the National Institute of Standards and Technology are developing a virtual manufacturing cell. This cell will contain simulation models of a wide range of manufacturing equipment, processes, and systems. It will have commercial and prototype applications software which implement production functions from order release to final inspection. There will be an information base and a collection of interfaces which will provide the integrating infrastructure for these applications. These interfaces will be based on information models and exchange protocols, and will specify what information is shared across those applications and how it is exchanged. This paper describes the current virtual manufacturing cell, with special emphasis on the hierarchy we are developing to control activities within the cell.
+---
+
+---
+DOI: 10.1016/j.rcim.2004.11.014
+Title: Development of a virtual and physical work cell to assemble micro-devices
+Year: 2005
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/s41587-025-02583-2
+Title: Virtual cells for predictive immunotherapy
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.5860/choice.50-3840
+Title: Virtual Cell Animation Collection
+Year: 2013
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/twc.2021.3065645
+Title: Virtual Cell Clustering With Optimal Resource Allocation to Maximize Capacity
+Year: 2021
+Abstract: This work proposes a new resource allocation optimization and network management framework for wireless networks using neighborhood-based optimization rather than fully centralized or fully decentralized methods. We propose hierarchical clustering with a minimax linkage criterion for the formation of the virtual cells. Once the virtual cells are formed, we consider two cooperation models: the interference coordination model and the coordinated multi-point decoding model. In the first model base stations in a virtual cell decode their signals independently, but allocate the communication resources cooperatively. In the second model base stations in the same virtual cell allocate the communication resources and decode their signals cooperatively. We address the resource allocation problem for each of these cooperation models. For the interference coordination model this problem is an NP-hard mixed-integer optimization problem whereas for the coordinated multi-point decoding model it is convex. Our numerical results indicate that proper design of the neighborhood-based optimization leads to significant gains in sum rate over fully decentralized optimization, yet may also have a significant sum rate penalty compared to fully centralized optimization. In particular, neighborhood-based optimization has a significant sum rate penalty compared to fully centralized optimization in the coordinated multi-point model, but not the interference coordination model.
+---
+
+---
+DOI: 10.1109/tcomm.2017.2666182
+Title: Energy Efficient Optimization for Wireless Virtualized Small Cell Networks With Large-Scale Multiple Antenna
+Year: 2017
+Abstract: Wireless network virtualization is envisioned as a promising framework to provide efficient and customized services for next-generation wireless networks. In wireless virtualized networks (WVNs), limited radio resources are shared among different services providers for providing services to different users with heterogeneous demands. In this paper, we propose a resource allocation scheme for an orthogonal frequency division multiplexing-based WVN, where one small cell base station equipped with a large number of antennas serves the users with different service requirements. In particular, with the objective to obtain the energy efficiency in the uplink, a joint power, subcarrier, and antenna allocation problem is presented considering availability of both perfect and imperfect channel state information. Subsequently, relaxation and variable transformation are applied to develop the efficient algorithm to solve the formulated non-convex and combinational optimization problem. Extensive simulation studies demonstrate the advantages of our presented system architecture and proposed schemes.
+---
+
+---
+DOI: 10.1002/cncy.21269
+Title: Morphology of 9p21 homozygous deletion‐positive pleural mesothelioma cells analyzed using fluorescence in situ hybridization and virtual microscope system in effusion cytology
+Year: 2013
+Abstract: BACKGROUND In malignant pleural mesothelioma (MPM), most patients first present with pleural effusion; thus, cytologic analysis is the primary diagnostic approach. However, the cytologic distinction between MPM and reactive mesothelial cells (RMCs) in effusions can be extremely difficult due to the lack of both well‐established immunocytochemical markers and definite cytological criteria for MPM. Moreover, the existence of both MPM cells and RMCs in effusions from the same patient makes the differentiation even more challenging. Homozygous deletion of the 9p21 locus, the site of the cyclin‐dependent kinase inhibitor 2A/p16 ( CDKN2A/p16 ) gene, frequently occurs in MPM but has never been reported in RMCs. The aim of this study was to define the cytomorphological characteristics of MPM cells, identified by the presence of 9p21 homozygous deletion by fluorescence in situ hybridization (FISH). METHODS For this purpose, cells on smear preparations were recorded using a virtual microscope system and were subjected to FISH analysis. Thereafter, 9p21 homozygous deletion‐positive cells were identified in the recorded virtual slides, followed by analysis of their morphological characteristics. RESULTS Mesothelioma cells positive for the 9p21 homozygous deletion exhibited significantly more frequent cell‐in‐cell engulfment, multinucleation (more than 2 nuclei), and larger multicellular clusters composed of more than 10 cells than did 9p21 deletion‐negative RMCs. Possible cutoff values are also proposed for these morphological markers to differentiate MPM cells from RMCs. CONCLUSIONS These morphological differences and cutoff values are useful for cytological differentiation of mesothelioma cells from RMCs. In addition, the novel technique of a combination of virtual microscopy and FISH is introduced for tumor morphological analysis. Cancer (Cancer Cytopathol) 2013;121:415–22. © 2013 American Cancer Society .
+---
+
+---
+DOI: 10.1021/ci100490w
+Title: Target-Specific Support Vector Machine Scoring in Structure-Based Virtual Screening: Computational Validation, In Vitro Testing in Kinases, and Effects on Lung Cancer Cell Proliferation
+Year: 2011
+Abstract: We assess the performance of our previously reported structure-based support vector machine target-specific scoring function across 41 targets, 40 among them from the Directory of Useful Decoys (DUD). The area under the curve of receiver operating characteristic plots (ROC-AUC) revealed that scoring with SVM-SP resulted in consistently better enrichment over all target families, outperforming Glide and other scoring functions, most notably among kinases. In addition, SVM-SP performance showed little variation among protein classes, exhibited excellent performance in a test case using a homology model, and in some cases showed high enrichment even with few structures used to train a model. We put SVM-SP to the test by virtual screening 1125 compounds against two kinases, EGFR and CaMKII. Among the top 25 EGFR compounds, three compounds (1-3) inhibited kinase activity in vitro with IC₅₀ of 58, 2, and 10 μM. In cell cultures, compounds 1-3 inhibited nonsmall cell lung carcinoma (H1299) cancer cell proliferation with similar IC₅₀ values for compound 3. For CaMKII, one compound inhibited kinase activity in a dose-dependent manner among 20 tested with an IC₅₀ of 48 μM. These results are encouraging given that our in-house library consists of compounds that emerged from virtual screening of other targets with pockets that are different from typical ATP binding sites found in kinases. In light of the importance of kinases in chemical biology, these findings could have implications in future efforts to identify chemical probes of kinases within the human kinome.
+---
+
+---
+DOI: 10.1016/j.envres.2018.05.013
+Title: Absorption of wireless radiation in the child versus adult brain and eye from cell phone conversation or virtual reality
+Year: 2018
+Abstract: Children's brains are more susceptible to hazardous exposures, and are thought to absorb higher doses of radiation from cell phones in some regions of the brain. Globally the numbers and applications of wireless devices are increasing rapidly, but since 1997 safety testing has relied on a large, homogenous, adult male head phantom to simulate exposures; the "Standard Anthropomorphic Mannequin" (SAM) is used to estimate only whether tissue temperature will be increased by more than 1 Celsius degree in the periphery. The present work employs anatomically based modeling currently used to set standards for surgical and medical devices, that incorporates heterogeneous characteristics of age and anatomy. Modeling of a cell phone held to the ear, or of virtual reality devices in front of the eyes, reveals that young eyes and brains absorb substantially higher local radiation doses than adults'. Age-specific simulations indicate the need to apply refined methods for regulatory compliance testing; and for public education regarding manufacturers' advice to keep phones off the body, and prudent use to limit exposures, particularly to protect the young.
+---
+
+---
+DOI: 10.1016/s0140-6736(11)60325-5
+Title: Stroke rehabilitation
+Year: 2011
+Abstract: Stroke is a common, serious, and disabling global health-care problem, and rehabilitation is a major part of patient care. There is evidence to support rehabilitation in well coordinated multidisciplinary stroke units or through provision of early supported provision of discharge teams. Potentially beneficial treatment options for motor recovery of the arm include constraint-induced movement therapy and robotics. Promising interventions that could be beneficial to improve aspects of gait include fitness training, high-intensity therapy, and repetitive-task training. Repetitive-task training might also improve transfer functions. Occupational therapy can improve activities of daily living; however, information about the clinical effect of various strategies of cognitive rehabilitation and strategies for aphasia and dysarthria is scarce. Several large trials of rehabilitation practice and of novel therapies (eg, stem-cell therapy, repetitive transcranial magnetic stimulation, virtual reality, robotic therapies, and drug augmentation) are underway to inform future practice.
+---
+
+---
+DOI: 10.1109/icupc.1996.557936
+Title: ATM virtual cell area determination in PCS networks
+Year: 2002
+Abstract: This paper proposes three virtual cell area (VCA) determination schemes while considering different subscriber mobility patterns. The VCA creation is supported under a new cellular architecture based on ATM backbone which presents certain advantages in a microcell environment. Both fixed and adaptive strategies are described. The impact of the proposed schemes on network signaling and resource utilization is investigated.
+---
+
+---
+DOI: 10.1109/twc.2012.011012.110156
+Title: New Beamforming Techniques Based on Virtual SINR Maximization for Coordinated Multi-Cell Transmission
+Year: 2012
+Abstract: In this paper, we propose new beamforming techniques based on virtual signal-to-interference-plus-noise ratio (VSINR) for weighted sum-rate (WSR) maximization in coordinated multi-cell transmission. In earlier works based on the VSINR maximization, the parameters which control the interference power and the noise variance were set to fixed values regardless of channel realizations and the signal-to-noise ratio level. In order to obtain an improved WSR performance, we propose a method which adaptively adjusts the parameters after establishing a connection between the WSR and VSINR. Our proposed method can be applied to the cases of various coordination levels among base stations. To address practical implementation issues, a decentralized implementation of the beamforming techniques is also proposed based on local channel state information. Numerical results confirm that the proposed centralized schemes provide near-optimal WSR performance and the proposed decentralized methods show a negligible performance loss compared to the centralized algorithms with reduced system complexity.
+---
+
+---
+DOI: 10.1038/s41586-019-1385-y
+Title: Comprehensive single-cell transcriptome lineages of a proto-vertebrate
+Year: 2019
+Abstract: Ascidian embryos highlight the importance of cell lineages in animal development. As simple proto-vertebrates, they also provide insights into the evolutionary origins of cell types such as cranial placodes and neural crest cells. Here we have determined single-cell transcriptomes for more than 90,000 cells that span the entirety of development—from the onset of gastrulation to swimming tadpoles—in Ciona intestinalis. Owing to the small numbers of cells in ascidian embryos, this represents an average of over 12-fold coverage for every cell at every stage of development. We used single-cell transcriptome trajectories to construct virtual cell-lineage maps and provisional gene networks for 41 neural subtypes that comprise the larval nervous system. We summarize several applications of these datasets, including annotating the synaptome of swimming tadpoles and tracing the evolutionary origin of cell types such as the vertebrate telencephalon. Comprehensive single-cell transcriptomes in the proto-vertebrate Ciona intestinalis identified provisional gene networks for 41 different neural subtypes, providing insights into the swimming circuit of tadpoles and the evolution of the vertebrate telencephalon.
+---
+
+---
+DOI: 10.1039/c9se00500e
+Title: Virtual unrolling of spirally-wound lithium-ion cells for correlative degradation studies and predictive fault detection
+Year: 2019
+Abstract: This method for virtually unrolling the jelly roll of a lithium ion cell using X-ray CT highlights the predictability of macro deformations formed while cycling. The failure is shown to propagate from nucleation points present since production.
+---
+
+---
+DOI: 10.1109/tcset.2018.8336397
+Title: Method of centralized resource allocation in virtualized small cells network with IoT overlay
+Year: 2018
+Abstract: In this paper, the centralized dynamic resources allocation method for LTE networks is proposed. This method provides dynamic resource allocation according to the users' requirements by small cell virtualization and resource reusing to avoid co-channel interference. The additional novelty of our proposed approach is the additional IoT (Internet of Things) slice overlaying the traditional cellular coverage. This slice provides the transmission of the IoT data by using resource elements, which have not been utilized by mobile users. Thus, important IoT data is transmitted in opportunistic manner, while maintaining the quality of service requirements and throughput demands of mobile users. Resource allocation in proposed method is handled by centralized controller based on C-RAN (cloud radio access network) architecture. Proposed approach improves the bandwidth utilization of the small cells network.
+---
+
+---
+DOI: 10.1109/ictee.2012.6208653
+Title: Remote triggered photovoltaic solar cell lab: Effective implementation strategies for Virtual Labs
+Year: 2012
+Abstract: Remote triggered laboratories are an excellent way to provide access to costly labs and equipment for students in areas without such facilities. A novel remote triggered photovoltaic solar cell experiment is presented here. This experiment enables the student to learn in a hands-on, practical way about the fundamental characteristics of photovoltaic solar cells. The experiment has a web interface in which the student can turn a number of light bulbs on and off, adjust the load voltage of the solar cell, and view the experiment in real-time via a web-cam. In addition, the characteristics of the solar cells under these various conditions are measured and displayed on the web interface in a spreadsheet and are plotted in a novel and learning-effective manner. This experiment has been hosted on our Virtual Labs website for over a year, with a large number of students using the site. This paper presents implementation strategies and methods used which have proven effective for Virtual Labs, along with a technical description of the experiment and the system used to create and host the experiment.
+---
+
+---
+DOI: 10.2174/1568026619666181130142237
+Title: Structure-Based Virtual Screening for the Identification of High Affinity Compounds as Potent VEGFR2 Inhibitors for the Treatment of Renal Cell Carcinoma
+Year: 2018
+Abstract: Introduction: Renal Cell Carcinoma is a common type of renal cancer-causing deaths worldwide which is characterized by sustained angiogenesis. VEGF and its receptors play a major role in physiologic and pathologic angiogenesis, which is marked in tumour progression and metastasis development. Induction of VEGF genes occur due to hypoxic condition induced by tumour growth after a critical size in cancerous cell. Signal transduction networks originated by VEGFA/VEGFR2, (a notable ligand-receptor complex in the VEGF system) leads to major angiogenesis events ranging from endothelial cell proliferation, to new vessel formation, Furthermore, differential expression of VEGF-VEGFR mRNA also found in different types of RCC. Aim: The aim of present study is to inhibit the VEGFR2 protein by the action of certain inhibitors and then to search an efficient inhibitor. Materials and Methods: A total of 23 potential inhibitors were searched and used to target the protein using the concept of molecular docking. Among 23 inhibitors, CHEMBL346631 shows best affinity with the target protein and was used for high throughput virtual screening to find similar compounds. The compound obtained from virtual screeningSCHEMBL469307, shows much more better affinity with VEGFR2 than CHEMBL346631. Conclusion: Relative study for both the compounds showed a minor difference in relevant properties. The compound SCHEMBL469307 have a high potential to inhibit the VGFR2 protein and can be backed for future studies in Renal Cell Carcinoma.
+---
+
+---
+DOI: 10.1155/2017/9640546
+Title: Power Cell SOC Modelling for Intelligent Virtual Sensor Implementation
+Year: 2017
+Abstract: Batteries are one of the principal components in electric vehicles and mobile electronic devices. They operate based on electrochemical reactions, which are exhaustively tested to check their behavior and to determine their characteristics at each working point. One remarkable issue of batteries is their complex behavior. The power cell type under analysis in this research is a LFP (Lithium Iron Phosphate LiFePO4). The purpose of this research is to predict the power cell State of Charge (SOC) by creating a hybrid intelligent model. All the operating points measured from a real system during a capacity confirmation test make up the dataset used to obtain the model. This dataset is clustered to obtain different behavior groups, which are used to develop the final model. Different regression techniques such as polynomial regression, support vector regression (SVR), and artificial neural networks (ANN) have been implemented for each cluster. A combination of these methods is performed to achieve an intelligent model. The SOC of the power cell can be predicted by this hybrid intelligent model, and good results are achieved.
+---
+
+---
+DOI: 10.1136/bmj.284.6318.825-d
+Title: Sexually transmitted disease surveillance
+Year: 1982
+Abstract: cell count is of no value in such situations in evaluating the probability of acute bacterial infection, as in a proportion of patients with infectious mononucleosis the first change evi- dent is a neutrophil leucocytosis.'To put my point in the language of clinical epidemiology, the positive predictive value of a neutrophil leucocytosis in diagnosing bacterial throat infection is low when the prevalence of infectious mononucleosis is high.This has obvious implications for those who care for young populations.Secondly, since this study was presumably designed to emphasise the importance of rational therapy of sore throats, I would like to ponder on the possible importance of irrational therapy in the dramatic reduction in poststreptococcal glomerulonephritis and rheu- matic fever which has taken place in the last three decades.Did wholesale prescription of antibiotics when they were available have a valuable role to play in the virtual dis- appearance of these diseases ?Is it only now that we can afford the luxury of a sophisticated rational therapy ?
+---
+
+---
+DOI: 10.5220/0002692500900095
+Title: CELLMICROCOSMOS 4.1 - An Interactive Approach to Integrating Spatially Localized Metabolic Networks into a Virtual 3D Cell Environment
+Year: 2010
+Abstract: The high potential of Bioinformatics research concerning quantitative and qualitative data acquisition such as data warehouses, spatial structure prediction and 3D microscopy conveys the vision of generating a computational virtual cell. This paper discusses an approach which allows the creation and exploration of an abstract compartmented cell environment, which can be used for (semi-)automatic, species- and organelle-specific mapping and the comparison of metabolic data.
+---
+
+---
+DOI: 10.1017/s1551929509991039
+Title: Using the Virtual Cell Simulation Environment for Extracting Quantitative Parameters from Live Cell Fluorescence Imaging Data
+Year: 2009
+Abstract: Abstract Rapid advances in fluorescence probe and imaging technologies now provide easily accessible tools for biologists to perform highly detailed analysis of molecular interactions in living cells. However it can be difficult to extract accurate parameters from these experiments because of the complex interplay of diffusion-reaction events with the morphology of the cell. As a result, only a small fraction of the available spatiotemporal information is utilized, and in many cases analysis remains at a qualitative level. The Virtual Cell (VCell, http://vcell.org) simulation environment is uniquely suited to analyzing these types of fluorescence imaging experiments because it is designed to solve reaction-diffusion equations within any given geometry [1]
+---
+
+---
+DOI: 10.1007/s001700200136
+Title: Production Scheduling and Cell Formation for Virtual Cellular Manufacturing Systems
+Year: 2002
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/tste.2020.3019494
+Title: Energy Pricing and Sharing Strategy Based on Hybrid Stochastic Robust Game Approach for a Virtual Energy Station With Energy Cells
+Year: 2020
+Abstract: In this paper, a novel energy pricing and sharing strategy is proposed to solve the energy management and market bidding problems of a virtual energy station (VES) in multi-carrier energy systems. First, the energy cell-tissue-based group interaction framework and the multiagent-based communication and control architecture are established in the VES. Second, the general model of an energy cell is built, in which the integrated demand response process and the automatic generation control mode of a combined heat and power unit are designed. Third, according to the classification of energy cells, the aggregation rules of the VES without the participation of third-party agents are proposed, and the internal trading mechanism of the VES led by a higher energy cell is designed based on a Stackelberg game. Moreover, a three-stage hybrid stochastic robust optimization strategy is proposed to address uncertainties in market prices and renewable energy output. Finally, the optimization model is linearized and solved by duality theory, KKT conditions, and column-and-constraint generation (C&CG) algorithm. Simulation results prove the rationality and effectiveness of the framework and business model for the VES.
+---

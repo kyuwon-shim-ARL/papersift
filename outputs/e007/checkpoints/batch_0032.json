@@ -1,0 +1,119 @@
+{
+  "batch_index": 32,
+  "dois": [
+    "10.1016/j.hrthm.2017.07.026",
+    "10.1038/s41467-018-07466-6",
+    "10.1111/jcmm.14689",
+    "10.3390/pharmaceutics13050704",
+    "10.1186/1471-2105-7-282",
+    "10.3389/fmicb.2016.00110",
+    "10.1038/s41598-023-28286-9",
+    "10.3390/ijms22094436",
+    "10.1080/15592294.2019.1695333",
+    "10.1186/1471-2164-10-314"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1016/j.hrthm.2017.07.026",
+      "problem": "Understanding phenotypic variability in LQT3 hiPSC-CMs and evaluating antiarrhythmic drug responses (mexiletine, ranolazine) using in silico population models.",
+      "method": "Populations of in silico hiPSC-CM models (modified Paci2015) calibrated with experimental data; simulated mexiletine and ranolazine multichannel effects at 5/10/20 μM using single pore block model.",
+      "finding": "LQT3 models reproduce APD prolongation (+34.3%) matching experiments; symptomatic phenotypes show overexpression of ICaL, IK1, INaL and underexpression of IKr; mexiletine terminates spontaneous APs in far more models than ranolazine (784 vs 53 out of 1,401).",
+      "dataset": "LQT3 V1763M mutation hiPSC-CMs, control n=1,463 models, mutant n=1,401 models",
+      "metric": "APD90, APD prolongation (%), AP termination count",
+      "baseline": "Control hiPSC-CM population, experimental data from Ma et al.",
+      "result": "ΔAPD90=+34.3% (sim) vs +48% (exp); mexiletine 784/1401 vs ranolazine 53/1401 AP termination"
+    },
+    {
+      "doi": "10.1038/s41467-018-07466-6",
+      "problem": "Determining the tissue origins of circulating cell-free DNA (cfDNA) in health and disease using an unbiased methylation deconvolution approach.",
+      "method": "Reference methylation atlas of 25 human tissues/cell types from Illumina 450K/EPIC arrays; quadratic programming deconvolution of genome-wide cfDNA methylomes; validated with in silico simulations and in vitro DNA mixes at known proportions.",
+      "finding": "Healthy plasma cfDNA originates from WBCs (55%), erythrocyte progenitors (30%), vascular endothelial cells (10%), hepatocytes (1%); disease-specific tissue contributions detected in sepsis, islet transplantation, and multiple cancer types agreeing with clinical findings.",
+      "dataset": "25 human tissues/cell types methylation atlas, plasma cfDNA from healthy donors and patients (sepsis, islet transplant, colon/lung/breast/prostate cancer)",
+      "metric": "Tissue contribution percentage, deconvolution accuracy",
+      "baseline": "In vitro DNA mixes at known proportions, in silico simulations",
+      "result": "WBCs 55%, erythrocyte progenitors 30%, endothelial 10%, hepatocytes 1% in healthy plasma"
+    },
+    {
+      "doi": "10.1111/jcmm.14689",
+      "problem": "Identifying effective anti-cancer stem cell (CSC) agents to overcome treatment resistance and disease progression in non-small cell lung cancer (NSCLC).",
+      "method": "Connectivity Map (CMap) analysis with CSC-associated gene signatures querying 11,641 L1000 profiles and LINCS database (1.3M profiles); validated with in vitro CSC growth/EMT assays and in vivo xenograft models.",
+      "finding": "Thiostrepton identified as top anti-CSC candidate; inhibits CSC growth, reduces CD133/Nanog/Oct4A, suppresses EMT and Src signaling, elevates tumor suppressor miR-98; synergistic with gemcitabine in suppressing NSCLC growth.",
+      "dataset": "NSCLC cell lines (A549, H460, H1299, CL141, CL152), 11,641 L1000 profiles, CMap 2.0 (6,100 profiles), LINCS (1.3M profiles)",
+      "metric": "Normalized enrichment score (NES), connectivity score, P-value",
+      "baseline": "CMap database ranking, LINCS database ranking, anti-CSC gene signature (GSE18150)",
+      "result": "NES=1.914 (P<0.0001), CMap enrichment=0.797 (P<0.001), LINCS rank 22nd (score_best4=97.368)"
+    },
+    {
+      "doi": "10.3390/pharmaceutics13050704",
+      "problem": "Bridging the gap between in vitro cell culture data and clinical outcomes in drug development by integrating novel cell culture technologies with computational in silico models.",
+      "method": "Review of hiPSCs, 3D cells, organoids, and microphysiological systems combined with PBPK, PK/PD, QSP models and virtual clinical trials for in vitro to in vivo translation.",
+      "finding": "Synergizing high-quality in vitro data from novel cell culture platforms with mathematical models (PBPK, QSP) can better guide drug development, predict clinical outcomes, and optimize dose regimens.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/1471-2105-7-282",
+      "problem": "Automating detection of leukemic cell populations in multi-parameter flow cytometry readouts, replacing labor-intensive and subjective manual gating of low-dimensional projections.",
+      "method": "Support Vector Machines (SVM) with RBF kernel for multivariate classification of 4-color flow cytometry data (CD10, CD20, CD34, CD19); trained on manually gated data with sample-wise normalization.",
+      "finding": "SVM classification recovers manually gated leukemic cells with high accuracy; multivariate classification captures higher-order marker dependencies missed by 1D/2D gating and enables reliable detection of small cell populations.",
+      "dataset": "37 leukemic samples from childhood precursor B-cell ALL (d0/d8/d15) + 6 artificial dilution mixes, 4-color flow cytometry",
+      "metric": "Sensitivity, specificity",
+      "baseline": "Manual expert gating on 2D dot-plots",
+      "result": "99.78% sensitivity, 98.87% specificity"
+    },
+    {
+      "doi": "10.3389/fmicb.2016.00110",
+      "problem": "Elucidating the molecular bases of how V1/V2 and V3 loops on HIV-1 gp120 modulate viral receptor recognition (CD4, CCR5) and contribute to viral adaptation in growth-restrictive cells.",
+      "method": "Homology modeling of full-length glycosylated gp120 in CD4-free and -bound states; 50 ns molecular dynamics simulation (AMBER 10, ff99SB-ILDN + GLYCAM06); cell-based adaptation experiments identifying enhancing substitutions.",
+      "finding": "V1/V2 loop settles near V3 for conformational masking of neutralization epitope in CD4-free state and rearranges near CD4 upon binding; adaptation substitutions on receptor binding surfaces in V1/V2 and V3 enhance viral entry with reduced sensitivity to CCR5 antagonist TAK-779.",
+      "dataset": "HIV-1 JRFL strain gp120 (GenBank U63632), PDB structures (3JWD, 3IDX, 3U4E, 2QAD, 2B4C, 1MEQ)",
+      "metric": "RMSD, inter-residue distances, viral entry/growth efficiency, TAK-779 sensitivity",
+      "baseline": "Wild-type JRFL gp120",
+      "result": "RMSD plateau after 20 ns; V1/V2-V3 thermodynamically stable arrangement confirmed"
+    },
+    {
+      "doi": "10.1038/s41598-023-28286-9",
+      "problem": "Predicting and optimizing post-printing cellular behavior in 3D bioprinted cancer cell constructs without extensive trial-and-error experimentation.",
+      "method": "Cellular automata (CA) model simulating post-printing cell behavior; validated with 3D bioprinted MDA-MB-231 cell-laden gelatin/alginate hydrogel constructs monitored over 11 days (MTT, live/dead, Ki-67).",
+      "finding": "CA model successfully simulated 3D bioprinted structure and captured in vitro observations including viability and proliferation dynamics; can predict behavior for different initial cell numbers and bioink formulations without replicating experiments.",
+      "dataset": "MDA-MB-231 breast cancer cells in 4% gelatin/4% alginate hydrogel, 2-2.5×10^6 cells",
+      "metric": "Cell viability (%), proliferation fold-change, Ki-67 index, doubling time",
+      "baseline": "2D cell culture (3× faster doubling time), in vitro measurements",
+      "result": "Viability 76±2% (day 0) → 99±1% (day 7) → 96±2% (day 11); 2.8-fold proliferation by day 11"
+    },
+    {
+      "doi": "10.3390/ijms22094436",
+      "problem": "Evaluating the potential of platinum nanoparticles (PtNPs) as radiation dose enhancers in breast cancer cell lines and understanding cell-type-dependent efficacy.",
+      "method": "In vitro experiments (clonogenicity, cell-cycle, oxidative stress, DNA DSBs) and Monte Carlo in silico simulation of ionization processes with 3.2 nm PEGylated PtNPs in T47D and MDA-MB-231 cells irradiated with 137Cs gamma rays.",
+      "finding": "No significant radio-enhancement effect of PtNPs in breast cancer cells, unlike previously observed in HeLa cells; simulation predicted only ~3% dose increase near NPs; PtNPs exhibited antioxidant properties that may counteract the radio-enhancement effect.",
+      "dataset": "T47D and MDA-MB-231 breast cancer cell lines, 0.5 mM PtNPs, 0-6 Gy gamma irradiation",
+      "metric": "Clonogenic survival fraction, dose enhancement ratio, intracellular Pt mass (pg/cell)",
+      "baseline": "Radiation alone (without PtNPs), previous HeLa cell study under same conditions",
+      "result": "~3% simulated dose increase near NPs; no significant biological enhancement; Pt uptake 0.5 pg/cell (MDA-MB-231), 0.2 pg/cell (T47D)"
+    },
+    {
+      "doi": "10.1080/15592294.2019.1695333",
+      "problem": "Developing non-invasive DNA methylation biomarkers for detecting NSCLC and other common carcinomas from circulating cell-free DNA in liquid biopsies.",
+      "method": "In silico identification of cancer-specific hypermethylated CpG loci from TCGA data; validated with methylation-specific qPCR on plasma cfDNA from NSCLC patients and healthy controls; cross-validated on 8 independent GEO cancer cohorts.",
+      "finding": "10 DNA methylation biomarkers distinguish NSCLC from controls with high accuracy; signal correlates with tumor size and decreases after surgical resection; validated across 8 additional carcinoma types from independent GEO data.",
+      "dataset": "NSCLC patient plasma cfDNA, healthy controls, 8 GEO cancer cohorts (n=1,471 tumors), normal blood (n=310, GSE72773), normal tissues (n=571)",
+      "metric": "AUC (ROC analysis)",
+      "baseline": "Normal blood cohort (n=310), respective normal tissue cohorts",
+      "result": "AUC=0.956 (clinical cfDNA), AUC=0.987-1.0 (GEO blood ref), AUC=0.972-1.0 (GEO tissue ref), 5-marker subset AUC=0.97"
+    },
+    {
+      "doi": "10.1186/1471-2164-10-314",
+      "problem": "Reconstructing the core gene regulatory network of OCT4 in human embryonic stem cells by integrating heterogeneous high-throughput functional data.",
+      "method": "Integrated analysis of ChIP-on-chip (OCT4/SOX2/NANOG binding), RNAi-mediated OCT4 silencing, and promoter sequence analysis (octamer/SOX-OCT motif scanning) with de novo motif discovery in hESCs.",
+      "finding": "Identified a core OCT4 network of 33 target genes important for pluripotency and differentiation; integration increased functional information 1.3-4.7× over individual methods; de novo motif analysis revealed known regulators and novel candidates including C-MYC/MAX heterodimer.",
+      "dataset": "Human ESCs (WA09, H1), ChIP-on-chip (308 targets), RNAi expression (1,104 targets)",
+      "metric": "Functional enrichment fold (vs individual methods), overlap percentage between methods",
+      "baseline": "Individual experimental methods alone (ChIP-on-chip, RNAi, motif analysis separately)",
+      "result": "33 core target genes identified; functional enrichment 1.3-4.7× vs individual methods; <4% overlap between ChIP-on-chip and RNAi"
+    }
+  ],
+  "timestamp": "2026-03-05T14:24:14.365384",
+  "extraction_count": 10
+}

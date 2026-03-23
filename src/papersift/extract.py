@@ -18,6 +18,9 @@ EXTRACTION_PROMPT_TEMPLATE = """You are a scientific paper analyst. For each pap
 - metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
 - baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
 - result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+- enables: What downstream research or applications does this work enable? (1 sentence, e.g., "Enables targeted drug screening for patient-specific tumor models")
+- limits: What are the key limitations or constraints? (1 sentence, e.g., "Limited to single-cell resolution; cannot capture tissue-level interactions")
+- open_questions: What questions remain unanswered? (1 sentence, e.g., "Whether the model generalizes to non-mammalian organisms is unknown")
 
 If information is not available for a field, use empty string.
 
@@ -33,7 +36,10 @@ Return a JSON array with one object per paper:
     "dataset": "...",
     "metric": "...",
     "baseline": "...",
-    "result": "..."
+    "result": "...",
+    "enables": "...",
+    "limits": "...",
+    "open_questions": "..."
   }},
   ...
 ]
@@ -50,6 +56,9 @@ FULLTEXT_EXTRACTION_PROMPT_TEMPLATE = """You are a scientific paper analyst. For
 - metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
 - baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
 - result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+- enables: What downstream research or applications does this work enable? (1 sentence, e.g., "Enables targeted drug screening for patient-specific tumor models")
+- limits: What are the key limitations or constraints? (1 sentence, e.g., "Limited to single-cell resolution; cannot capture tissue-level interactions")
+- open_questions: What questions remain unanswered? (1 sentence, e.g., "Whether the model generalizes to non-mammalian organisms is unknown")
 
 Extract from the fulltext sections below. The fulltext provides richer detail than abstracts alone.
 If information is not available for a field, use empty string.
@@ -64,7 +73,10 @@ Return a JSON array with one object per paper:
     "dataset": "...",
     "metric": "...",
     "baseline": "...",
-    "result": "..."
+    "result": "...",
+    "enables": "...",
+    "limits": "...",
+    "open_questions": "..."
   }},
   ...
 ]
@@ -266,6 +278,9 @@ def parse_llm_response(response: str) -> list[dict]:
                     "metric": item.get("metric", ""),
                     "baseline": item.get("baseline", ""),
                     "result": item.get("result", ""),
+                    "enables": item.get("enables", ""),
+                    "limits": item.get("limits", ""),
+                    "open_questions": item.get("open_questions", ""),
                 }
                 valid_extractions.append(extraction)
 
@@ -285,7 +300,8 @@ def filter_extraction_quality(extractions: list[dict], max_field_length: int = 2
     - Flags fields that appear to be raw abstract text (contain 3+ sentences)
     """
     for ext in extractions:
-        for field in ["problem", "method", "finding", "dataset", "metric", "baseline", "result"]:
+        for field in ["problem", "method", "finding", "dataset", "metric", "baseline", "result",
+                      "enables", "limits", "open_questions"]:
             value = ext.get(field, "")
             if len(value) > max_field_length:
                 # Truncate and mark
@@ -316,6 +332,9 @@ def merge_extractions(papers: list[dict], extractions: list[dict]) -> list[dict]
                 "metric": ext.get("metric", ""),
                 "baseline": ext.get("baseline", ""),
                 "result": ext.get("result", ""),
+                "enables": ext.get("enables", ""),
+                "limits": ext.get("limits", ""),
+                "open_questions": ext.get("open_questions", ""),
             }
 
     # Merge into papers
@@ -324,22 +343,13 @@ def merge_extractions(papers: list[dict], extractions: list[dict]) -> list[dict]
 
         if doi in extraction_lookup:
             ext = extraction_lookup[doi]
-            paper["problem"] = ext["problem"]
-            paper["method"] = ext["method"]
-            paper["finding"] = ext["finding"]
-            paper["dataset"] = ext["dataset"]
-            paper["metric"] = ext["metric"]
-            paper["baseline"] = ext["baseline"]
-            paper["result"] = ext["result"]
+            for field in ["problem", "method", "finding", "dataset", "metric",
+                          "baseline", "result", "enables", "limits", "open_questions"]:
+                paper[field] = ext[field]
         else:
-            # Set empty strings for missing extractions
-            paper["problem"] = ""
-            paper["method"] = ""
-            paper["finding"] = ""
-            paper["dataset"] = ""
-            paper["metric"] = ""
-            paper["baseline"] = ""
-            paper["result"] = ""
+            for field in ["problem", "method", "finding", "dataset", "metric",
+                          "baseline", "result", "enables", "limits", "open_questions"]:
+                paper[field] = ""
 
     return papers
 

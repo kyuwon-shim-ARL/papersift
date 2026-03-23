@@ -1,0 +1,356 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1016/j.ymben.2019.06.001
+Title: Automated generation of bacterial resource allocation models
+Year: 2019
+Abstract: Resource Balance Analysis (RBA) is a computational method based on resource allocation, which performs accurate quantitative predictions of whole-cell states (i.e. growth rate, metabolic fluxes, abundances of molecular machines including enzymes) across growth conditions. We present an integrated workflow of RBA together with the Python package RBApy. RBApy builds bacterial RBA models from annotated genome-scale metabolic models by adding descriptions of cellular processes relevant for growth and maintenance. The package includes functions for model simulation and calibration and for interfacing to Escher maps and Proteomaps for visualization. We demonstrate that RBApy faithfully reproduces results obtained by a hand-curated and experimentally validated RBA model for Bacillus subtilis. We also present a calibrated RBA model of Escherichia coli generated from scratch, which obtained excellent fits to measured flux values and enzyme abundances. RBApy makes whole-cell modelling accessible for a wide range of bacterial wild-type and engineered strains, as illustrated with a CO2-fixing Escherichia coli strain. AVAILABILITY: RBApy is available at /https://github.com/SysBioInra/RBApy, under the licence GNU GPL version 3, and runs on Linux, Mac and Windows distributions.
+---
+
+---
+DOI: 10.1073/pnas.1221294110
+Title: Calcium-dependent protein kinase/NADPH oxidase activation circuit is required for rapid defense signal propagation
+Year: 2013
+Abstract: In animals and plants, pathogen recognition triggers the local activation of intracellular signaling that is prerequisite for mounting systemic defenses in the whole organism. We identified that Arabidopsis thaliana isoform CPK5 of the plant calcium-dependent protein kinase family becomes rapidly biochemically activated in response to pathogen-associated molecular pattern (PAMP) stimulation. CPK5 signaling resulted in enhanced salicylic acid–mediated resistance to the bacterial pathogen Pst DC3000, differential plant defense gene expression, and synthesis of reactive oxygen species (ROS). Using selected reaction monitoring MS, we identified the plant NADPH oxidase, respiratory burst oxidase homolog D (RBOHD), as an in vivo phosphorylation target of CPK5. Remarkably, CPK5-dependent in vivo phosphorylation of RBOHD occurs on both PAMP- and ROS stimulation. Furthermore, rapid CPK5-dependent biochemical and transcriptional activation of defense reactions at distal sites is compromised in cpk5 and rbohd mutants. Our data not only identify CPK5 as a key regulator of innate immune responses in plants but also support a model of ROS-mediated cell-to-cell communication, where a self-propagating mutual activation circuit consisting of the protein kinase, CPK5, and the NADPH oxidase RBOHD facilitates rapid signal propagation as a prerequisite for defense response activation at distal sites within the plant.
+---
+
+---
+DOI: 10.1242/jcs.00825
+Title: An inhibition of cyclin-dependent kinases that lengthens, but does not arrest, neuroepithelial cell cycle induces premature neurogenesis
+Year: 2003
+Abstract: The G1 phase of the cell cycle of neuroepithelial cells, the progenitors of all neurons of the mammalian central nervous system, has been known to lengthen concomitantly with the onset and progression of neurogenesis. We have investigated whether lengthening of the G1 phase of the neuroepithelial cell cycle is a cause, rather than a consequence, of neurogenesis. As an experimental system, we used whole mouse embryo culture, which was found to exactly reproduce the temporal and spatial gradients of the onset of neurogenesis occurring in utero. Olomoucine, a cell-permeable, highly specific inhibitor of cyclin-dependent kinases and G1 progression, was found to significantly lengthen, but not arrest, the cell cycle of neuroepithelial cells when used at 80 μM. This olomoucine treatment induced, in the telencephalic neuroepithelium of embryonic day 9.5 to 10.5 mouse embryos developing in whole embryo culture to embryonic day 10.5, (i) the premature up-regulation of TIS21, a marker identifying neuroepithelial cells that have switched from proliferative to neuron-generating divisions, and (ii) the premature generation of neurons. Our data indicate that lengthening G1 can alone be sufficient to induce neuroepithelial cell differentiation. We propose a model that links the effects of cell fate determinants and asymmetric cell division to the length of the cell cycle.
+---
+
+---
+DOI: 10.1016/s1388-1981(00)00046-9
+Title: The fatty acid transport function of fatty acid-binding proteins
+Year: 2000
+Abstract: The intracellular fatty acid-binding proteins (FABPs) comprise a family of 14-15 kDa proteins which bind long-chain fatty acids. A role for FABPs in fatty acid transport has been hypothesized for several decades, and the accumulated indirect and correlative evidence is largely supportive of this proposed function. In recent years, a number of experimental approaches which more directly examine the transport function of FABPs have been taken. These include molecular level in vitro modeling of fatty acid transfer mechanisms, whole cell studies of fatty acid uptake and intracellular transfer following genetic manipulation of FABP type and amount, and an examination of cells and tissues from animals engineered to lack expression of specific FABPs. Collectively, data from these studies have provided strong support for defining the FABPs as fatty acid transport proteins. Further studies are necessary to elucidate the fundamental mechanisms by which cellular fatty acid trafficking is modulated by the FABPs.
+---
+
+---
+DOI: 10.1111/j.1365-246x.2009.04226.x
+Title: Seismic tomography with the reversible jump algorithm
+Year: 2009
+Abstract: The reversible jump algorithm is a statistical method for Bayesian inference with a variable number of unknowns. Here, we apply this method to the seismic tomography problem. The approach lets us consider the issue of model parametrization (i.e. the way of discretizing the velocity field) as part of the inversion process. The model is parametrized using Voronoi cells with mobile geometry and number. The size, position and shape of the cells defining the velocity model are directly determined by the data. The inverse problem is tackled within a Bayesian framework and explicit regularization of model parameters is not required. The mobile position and number of cells means that global damping procedures, controlled by an optimal regularization parameter, are avoided. Many velocity models with variable numbers of cells are generated via a transdimensional Markov chain and information is extracted from the ensemble as a whole. As an aid to interpretation we visualize the expected earth model that is obtained via Monte Carlo integration in a straightforward manner. The procedure is particularly adept at imaging rapid changes or discontinuities in wave speed. While each velocity model in the final ensemble consists of many discontinuities at cell boundaries, these are smoothed out in the averaged ensemble solution while those required by the data are reinforced. The ensemble of models can also be used to produce uncertainty estimates and experiments with synthetic data suggest that they represent actual uncertainty surprisingly well. We use the fast marching method in order to iteratively update the ray geometry and account for the non-linearity of the problem. The method is tested here with synthetic data in a 2-D application and compared with a subspace method that is a more standard matrix-based inversion scheme. Preliminary results illustrate the advantages of the reversible jump algorithm. A real data example is also shown where a tomographic image of Rayleigh wave group velocity for the Australian continent is constructed together with uncertainty estimates.
+---
+
+---
+DOI: 10.1007/978-3-540-44928-7_14
+Title: Towards Whole Cell “in Silico” Models for Cellular Systems: Model Set-up and Model Validation
+Year: 2004
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/nrg2364
+Title: The art and design of genetic screens: RNA interference
+Year: 2008
+Abstract: The remarkable gene knockdown technique of RNAi has opened exciting new avenues for genetic screens in model organisms and human cells. Here we describe the current state of the art for RNAi screening, and stress the importance of well-designed assays and of analytical approaches for large-scale screening experiments, from high-throughput screens using simplified homogenous assays to microscopy and whole-animal experiments. Like classical genetic screens in the past, the success of large-scale RNAi surveys depends on a careful development of phenotypic assays and their interpretation in a relevant biological context.
+---
+
+---
+DOI: 10.1038/mi.2012.121
+Title: Anti-bacterial and anti-toxic immunity induced by a killed whole-cell-cholera toxin B subunit cholera vaccine is essential for protection against lethal bacterial infection in mouse pulmonary cholera model
+Year: 2012
+Abstract: The lack of appropriate animal model for studying protective immunity has limited vaccine development against cholera. Here, we demonstrate a pulmonary cholera model conferred by intranasal administration of mice with live Vibrio cholerae. The bacterial components, but not cholera toxin, caused lethal and acute pneumonia by inducing massive inflammation. Intranasal immunization with Dukoral, comprising killed whole bacteria and recombinant cholera toxin B subunit (rCTB), developed both mucosal and systemic antibody responses with protection against the lethal challenge. Either rCTB-free Dukoral or rCTB alone partially protected the mice against the challenge. However, reconstitution of rCTB-free Dukoral with rCTB restored full protection. Parenteral immunization with Dukoral evoked strong systemic immunity without induction of mucosal immunity or protection from the challenge. These results suggest that both anti-bacterial and anti-toxic immunity are required for protection against V. cholerae-induced pneumonia, and this animal model is useful for pre-clinical evaluation of candidate cholera vaccines.
+---
+
+---
+DOI: 10.1146/annurev.biochem.74.050304.091637
+Title: GENE THERAPY: Twenty-First Century Medicine
+Year: 2005
+Abstract: ▪ Abstract Broadly defined, the concept of gene therapy involves the transfer of genetic material into a cell, tissue, or whole organ, with the goal of curing a disease or at least improving the clinical status of a patient. A key factor in the success of gene therapy is the development of delivery systems that are capable of efficient gene transfer in a variety of tissues, without causing any associated pathogenic effects. Vectors based upon many different viral systems, including retroviruses, lentiviruses, adenoviruses, and adeno-associated viruses, currently offer the best choice for efficient gene delivery. Their performance and pathogenicity has been evaluated in animal models, and encouraging results form the basis for clinical trials to treat genetic disorders and acquired diseases. Despite some initial success in these trials, vector development remains a seminal concern for improved gene therapy technologies.
+---
+
+---
+DOI: 10.1016/j.jpowsour.2010.08.035
+Title: State-of-health monitoring of lithium-ion batteries in electric vehicles by on-board internal resistance estimation
+Year: 2010
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.arthro.2022.02.020
+Title: Adipose-Derived Stem Cell Sheets Promote Meniscus Regeneration Regardless of Whether the Defect Involves the Inner Half or the Whole Width of the Anterior Half of the Medial Meniscus in a Rabbit Model
+Year: 2022
+Abstract: PURPOSE
+To investigate regenerative effect of adipose-derived stem cell (ADSC) sheets in two different rabbit models of meniscal defects.
+
+
+METHODS
+Forty-two rabbits were randomly divided into two groups: the whole (Group 1) or the inner half (Group 2) of anterior half of the medial meniscus was removed from both knees. The ADSC sheets were transplanted into one knee, whereas in the other knee the meniscal defect was left untreated (self-control). The histological score and expression of genes encoding collagen type I and II (COL1/2), SRY-box transcription factor 9 (SOX9), and aggrecan (ACAN) were compared between the ADSC sheet-treated and untreated menisci at 4 and 12 weeks. The ADSC sheet-treated menisci at 12 weeks were also analyzed immunohistochemically to assess the collagen component.
+
+
+RESULTS
+The histological score was significantly higher in the treated side than in the control side at 4 and 12 weeks in both groups (Group 1, P = 0.016 and 0.032; Group 2, P = 0.030 and 0.016, respectively). All genes evaluated showed significantly higher expression in the treated side than in the control side in both groups, except COL2 and SOX9 at 4 weeks and COL2 at 12 weeks in Group 1, and COL1 in Group 2 at 4 weeks. The ADSC sheet-treated meniscus in Group 1 contained mostly COL1, whereas the Group 2 had less COL1 but was rich in COL2.
+
+
+CONCLUSIONS
+ADSC sheets can promote meniscal regeneration regardless of whether the defect involves the inner half or whole width of the anterior half of the medial meniscus. However, the collagen component of the ADSC sheet-treated tissue differs depending on the defect site.
+---
+
+---
+DOI: 10.1038/s41573-021-00210-8
+Title: Zebrafish disease models in drug discovery: from preclinical modelling to clinical trials
+Year: 2021
+Abstract: Numerous drug treatments that have recently entered the clinic or clinical trials have their genesis in zebrafish. Zebrafish are well established for their contribution to developmental biology and have now emerged as a powerful preclinical model for human disease, as their disease characteristics, aetiology and progression, and molecular mechanisms are clinically relevant and highly conserved. Zebrafish respond to small molecules and drug treatments at physiologically relevant dose ranges and, when combined with cell-specific or tissue-specific reporters and gene editing technologies, drug activity can be studied at single-cell resolution within the complexity of a whole animal, across tissues and over an extended timescale. These features enable high-throughput and high-content phenotypic drug screening, repurposing of available drugs for personalized and compassionate use, and even the development of new drug classes. Often, drugs and drug leads explored in zebrafish have an inter-organ mechanism of action and would otherwise not be identified through targeted screening approaches. Here, we discuss how zebrafish is an important model for drug discovery, the process of how these discoveries emerge and future opportunities for maximizing zebrafish potential in medical discoveries.
+---
+
+---
+DOI: 10.1158/2326-6066.cir-16-0114
+Title: Rational Selection of Syngeneic Preclinical Tumor Models for Immunotherapeutic Drug Discovery
+Year: 2016
+Abstract: Abstract Murine syngeneic tumor models are critical to novel immuno-based therapy development, but the molecular and immunologic features of these models are still not clearly defined. The translational relevance of differences between the models is not fully understood, impeding appropriate preclinical model selection for target validation, and ultimately hindering drug development. Across a panel of commonly used murine syngeneic tumor models, we showed variable responsiveness to immunotherapies. We used array comparative genomic hybridization, whole-exome sequencing, exon microarray analysis, and flow cytometry to extensively characterize these models, which revealed striking differences that may underlie these contrasting response profiles. We identified strong differential gene expression in immune-related pathways and changes in immune cell–specific genes that suggested differences in tumor immune infiltrates between models. Further investigation using flow cytometry showed differences in both the composition and magnitude of the tumor immune infiltrates, identifying models that harbor “inflamed” and “non-inflamed” tumor immune infiltrate phenotypes. We also found that immunosuppressive cell types predominated in syngeneic mouse tumor models that did not respond to immune-checkpoint blockade, whereas cytotoxic effector immune cells were enriched in responsive models. A cytotoxic cell–rich tumor immune infiltrate has been correlated with increased efficacy of immunotherapies in the clinic, and these differences could underlie the varying response profiles to immunotherapy between the syngeneic models. This characterization highlighted the importance of extensive profiling and will enable investigators to select appropriate models to interrogate the activity of immunotherapies as well as combinations with targeted therapies in vivo. Cancer Immunol Res; 5(1); 29–41. ©2016 AACR.
+---
+
+---
+DOI: 10.1242/jcs.112.17.2867
+Title: Orientation of chemotactic cells and growth cones: models and mechanisms
+Year: 1999
+Abstract: ABSTRACT A model is proposed for an amplification step in chemotactically sensitive cells or growth cones that accounts for their extraordinary directional sensitivity. It is assumed that cells have an intrinsic pattern forming system that generates the signals for extension of filopods and lamellipods. An external signal such as a graded cue is assumed to impose some directional preference onto the pattern formed. According to the model, a saturating, self-enhancing reaction is coupled with two antagonistic reactions. One antagonist equilibrates rapidly over the whole cell, causing competition between different surface elements of the cell cortex for activation. It will be won by those cortical regions of the cell that are exposed to the highest concentrations of the external graded cues. The second antagonistic reaction is assumed to act more locally and has a longer time constant. It causes a destabilization of peaks after they have formed. While the total activated area on the cell surface is maintained, the disappearance of some hot spots allows the formation of new ones, preferentially at positions specified by the actual external guiding signal. Computer simulations show that the model accounts for the highly dynamic behaviour of chemotactic cells and growth cones. In the absence of external signals, maxima of the internal signals emerge at random positions and disappear after some time. Travelling waves or oscillations in counter phase can emerge on the cell cortex, in agreement with observations reported in the literature. In other ranges of parameters, the model accounts for the generation of a stable cell polarity.
+---
+
+---
+DOI: 10.1016/j.cmet.2013.11.001
+Title: Obesity Activates a Program of Lysosomal-Dependent Lipid Metabolism in Adipose Tissue Macrophages Independently of Classic Activation
+Year: 2013
+Abstract: Obesity activates a complex systemic immune response that includes the recruitment of macrophages and other immune cells to key metabolic tissues. Current models postulate that obesity and excess lipids classically activate macrophages, polarizing them toward an M1 (inflammatory) state. Little is known about noninflammatory functions of adipose tissue macrophages (ATMs). Here, we show that the expansion of adipose tissue (AT) across models of obesity induces a program of lysosome biogenesis in ATMs and is associated with lipid catabolism but not a classic inflammatory phenotype. This program is induced by factors produced by AT and is tightly coupled to lipid accumulation by ATMs. Inhibition of ATM lysosome function impairs lipid metabolism and increases lipid content in ATMs and reduces whole AT lipolysis. These data argue that ATMs contribute quantitatively to the development of obesity-induced inflammation but also serve an important role in lipid trafficking independent of their inflammatory phenotype.
+---
+
+---
+DOI: 10.1101/gad.1213504
+Title: Reprogramming of a melanoma genome by nuclear transplantation
+Year: 2004
+Abstract: We have used nuclear transplantation to test whether the reprogramming activity of oocytes can reestablish developmental pluripotency of malignant cancer cells. We show here that the nuclei of leukemia, lymphoma, and breast cancer cells could support normal preimplantation development to the blastocyst stage but failed to produce embryonic stem (ES) cells. However, a blastocyst cloned from a RAS-inducible melanoma nucleus gave rise to ES cells with the potential to differentiate into multiple cell types in vivo including melanocytes, lymphocytes, and fibroblasts. Chimeras produced from these ES cells developed cancer with higher penetrance, shorter latency, and an expanded tumor spectrum when compared with the donor mouse model. These results demonstrate that the secondary changes of a melanoma nucleus are compatible with a broad developmental potential but predispose mice to melanomas and other malignant tumors on reactivation of RAS. Our findings serve as a paradigm for studying the tumorigenic effect of a given cancer genome in the context of a whole animal.
+---
+
+---
+DOI: 10.1039/c2lc40679a
+Title: Double spiral microchannel for label-free tumor cell separation and enrichment
+Year: 2012
+Abstract: This work reports on a passive double spiral microfluidic device allowing rapid and label-free tumor cell separation and enrichment from diluted peripheral whole blood, by exploiting the size-dependent hydrodynamic forces. A numerical model is developed to simulate the Dean flow inside the curved geometry and to track the particle/cell trajectories, which is validated against the experimental observations and serves as a theoretical foundation for optimizing the operating conditions. Results from separating tumor cells (MCF-7 and Hela) spiked into whole blood indicate that 92.28% of blood cells and 96.77% of tumor cells are collected at the inner and the middle outlet, respectively, with 88.5% tumor recovery rate at a throughput of 3.33 × 10(7) cells min(-1). We expect that this label-free microfluidic platform, driven by purely hydrodynamic forces, would have an impact on fundamental and clinical studies of circulating tumor cells.
+---
+
+---
+DOI: 10.1093/annonc/mdf280
+Title: Heating the patient: a promising approach?
+Year: 2002
+Abstract: There is a clear rationale for using hyperthermia in cancer treatment. Treatment at temperatures between 40 and 44 degrees C is cytotoxic for cells in an environment with a low pO(2) and low pH, conditions that are found specifically within tumour tissue, due to insufficient blood perfusion. Under such conditions radiotherapy is less effective, and systemically applied cytotoxic agents will reach such areas in lower concentrations than in well perfused areas. Therefore, the addition of hyperthermia to radiotherapy or chemotherapy will result in at least an additive effect. Furthermore, the effects of both radiotherapy and many drugs are enhanced at an increased temperature. Hyperthermia can be applied by several methods: local hyperthermia by external or internal energy sources, regional hyperthermia by perfusion of organs or limbs, or by irrigation of body cavities, and whole body hyperthermia. The use of hyperthermia alone has resulted in complete overall response rates of 13%. The clinical value of hyperthermia in addition to other treatment modalities has been shown in randomised trials. Significant improvement in clinical outcome has been demonstrated for tumours of the head and neck, breast, brain, bladder, cervix, rectum, lung, oesophagus, vulva and vagina, and also for melanoma. Additional hyperthermia resulted in remarkably higher (complete) response rates, accompanied by improved local tumour control rates, better palliative effects and/or better overall survival rates. Generally, when combined with radiotherapy, no increase in radiation toxicity could be demonstrated. Whether toxicity from chemotherapy is enhanced depends on sequence of the two modalities, and on which tissues are heated. Toxicity from hyperthermia cannot always be avoided, but is usually of limited clinical relevance. Recent developments include improvements in heating techniques and thermometry, development of hyperthermia treatment planning models, studies on heat shock proteins and an effect on anti-cancer immune responses, drug targeting to tumours, bone marrow purging, combination with drugs targeting tumour vasculature, and the role of hyperthermia in gene therapy. The clinical results achieved to date have confirmed the expectations raised by results from experimental studies. These findings justify using hyperthermia as part of standard treatment in tumour sites for which its efficacy has been proven and, furthermore, to initiate new studies with other tumours. Hyperthermia is certainly a promising approach and deserves more attention than it has received until now.
+---
+
+---
+DOI: 10.1021/acsnano.9b09119
+Title: Early-Stage Lung Cancer Diagnosis by Deep Learning-Based Spectroscopic Analysis of Circulating Exosomes
+Year: 2020
+Abstract: Lung cancer has a high mortality rate, but an early diagnosis can contribute to a favorable prognosis. A liquid biopsy that captures and detects tumor-related biomarkers in body fluids has great potential for early-stage diagnosis. Exosomes, nanosized extracellular vesicles found in blood, have been proposed as promising biomarkers for liquid biopsy. Here, we demonstrate an accurate diagnosis of early-stage lung cancer, using deep learning-based surface-enhanced Raman spectroscopy (SERS) of the exosomes. Our approach was to explore the features of cell exosomes through deep learning and figure out the similarity in human plasma exosomes, without learning insufficient human data. The deep learning model was trained with SERS signals of exosomes derived from normal and lung cancer cell lines and could classify them with an accuracy of 95%. In 43 patients, including stage I and II cancer patients, the deep learning model predicted that plasma exosomes of 90.7% patients had higher similarity to lung cancer cell exosomes than the average of the healthy controls. Such similarity was proportional to the progression of cancer. Notably, the model predicted lung cancer with an area under the curve (AUC) of 0.912 for the whole cohort and stage I patients with an AUC of 0.910. These results suggest the great potential of the combination of exosome analysis and deep learning as a method for early-stage liquid biopsy of lung cancer.
+---
+
+---
+DOI: 10.1126/science.1120792
+Title: Optical Detection of DNA Conformational Polymorphism on Single-Walled Carbon Nanotubes
+Year: 2006
+Abstract: The transition of DNA secondary structure from an analogous B to Z conformation modulates the dielectric environment of the single-walled carbon nanotube (SWNT) around which it is adsorbed. The SWNT band-gap fluorescence undergoes a red shift when an encapsulating 30-nucleotide oligomer is exposed to counter ions that screen the charged backbone. The transition is thermodynamically identical for DNA on and off the nanotube, except that the propagation length of the former is shorter by five-sixths. The magnitude of the energy shift is described by using an effective medium model and the DNA geometry on the nanotube sidewall. We demonstrate the detection of the B-Z change in whole blood, tissue, and from within living mammalian cells.
+---
+
+---
+DOI: 10.1016/j.cels.2021.05.015
+Title: Advances in systems biology modeling: 10 years of crowdsourcing DREAM challenges
+Year: 2021
+Abstract: Computational and mathematical models are key to obtain a system-level understanding of biological processes, but their limitations have to be clearly defined to allow their proper application and interpretation. Crowdsourced benchmarks in the form of challenges provide an unbiased assessment of methods, and for the past decade, the Dialogue for Reverse Engineering Assessment and Methods (DREAM) organized more than 15 systems biology challenges. From transcription factor binding to dynamical network models, from signaling networks to gene regulation, from whole-cell models to cell-lineage reconstruction, and from single-cell positioning in a tissue to drug combinations and cell survival, the breadth is broad. To celebrate the 5-year anniversary of Cell Systems, we review the genesis of these systems biology challenges and discuss how interlocking the forward- and reverse-modeling paradigms allows to push the rim of systems biology. This approach will persist for systems levels approaches in biology and medicine.
+---
+
+---
+DOI: 10.1523/jneurosci.16-06-02034.1996
+Title: NMDA-dependent modulation of CA1 local circuit inhibition
+Year: 1996
+Abstract: Whole-cell and extracellular recording techniques were used to examine local circuit inhibition in the CA1 region of the rat hippocampus in vitro. Activation, primarily of the recurrent inhibitory circuit by alvear stimulation, elicited an IPSP in pyramidal neurons that was dependent, in part, on NMDA receptor activation. Application of a tetanizing stimulus to the alveus evoked long-term potentiation (LTP) of the intracellularly recorded recurrent IPSPs. This LTP also was NMDA- dependent and was more sensitive to blockade by the NMDA antagonists 2- amino-5-phosphonovalerate (APV) and N-acetyl-aspartyl-glutamate, than the excitatory LTP produced by Schaffer collateral stimulation. With regard to APV, the sensitivity of inhibitory LTP was an order of magnitude greater. A biophysical simulation of hippocampal CA1 circuitry was used in a model of learned pattern recognition that included LTP in both excitatory and inhibitory recurrent circuits. In this model, selective blockade of inhibitory LTP produced aberrant spread of lateral excitation, resulting in confusion of normally distinguishable patterns of neuronal activity. Consideration is given to the possibility that selective disruption of NMDA-dependent modulation of local circuit inhibition may serve as a model for some aspects of dysfunction associated with NMDA-antagonist exposure and schizophrenia.
+---
+
+---
+DOI: 10.1038/nrrheum.2010.197
+Title: The bone–cartilage unit in osteoarthritis
+Year: 2010
+Abstract: Osteoarthritis (OA) refers to a group of mechanically-induced joint disorders to which both genetic and acquired factors contribute. Current pathophysiological concepts focus on OA as a disease of the whole joint. Within these models, the functional unit formed by the articular cartilage and the subchondral bone seems to be of particular interest. Cartilage and bone receive and dissipate the stress associated with movement and loading, and are therefore continuously challenged biomechanically. Recent data support the view that cartilage and bone can communicate over the calcified tissue barrier; vessels reach out from bone into the cartilage zone, patches of uncalcified cartilage are in contact with bone, and microcracks and fissures further facilitate transfer of molecules. Several molecular signaling pathways such as bone morphogenetic proteins and Wnts are hypothesized to have a role in OA and can activate cellular and molecular processes in both cartilage and bone cells. In addition, intracellular activation of different kinase cascades seems to be involved in the molecular crosstalk between cartilage and bone cells. Further research is required to integrate these different elements into a comprehensive approach that will increase our understanding of the disease processes in OA, and that could lead to the development of specific therapeutics or treatment strategies.
+---
+
+---
+DOI: 10.1039/c9fo02290b
+Title: Integrated anti-hyperlipidemic bioactivity of whole<i>Citrus grandis</i>[L.] osbeck fruits—multi-action mechanism evidenced using animal and cell models
+Year: 2020
+Abstract: <bold>Multi- antihyperlipidemic mechanism revealed by the pomelo phytonutrients</bold>. Both the sterol synthesis and lipogenesis pathways are affected by the pomelo phytonutrients. Dotted line: from citation. Solid line: verified in this experiment.
+---
+
+---
+DOI: 10.1073/pnas.0501254102
+Title: CD4 <sup>+</sup> T cells mediate antibody-independent acquired immunity to pneumococcal colonization
+Year: 2005
+Abstract: Acquired immunity to Streptococcus pneumoniae (pneumococcus) has long been assumed to depend on the presence of anticapsular antibodies. We found, however, that colonization with live pneumococci of serotypes 6B, 7F, or 14 protected mice against recolonization by any of the serotypes and that protection from acquisition of a heterologous or homologous strain did not depend on anticapsular antibody. Further, intranasal immunization by live pneumococcal colonization or by a killed, nonencapsulated whole-cell vaccine protected antibody-deficient mice against colonization, suggesting independence of antibodies to any pneumococcal antigens. Protection by intranasal immunization with whole-cell vaccine was completely abrogated in T cell-deficient mice, and in mice that were congenitally deficient in CD4 + T cells or depleted of these cells at the time of challenge. In contrast, mice congenitally deficient in, or depleted of, CD8 + T cells were fully protected. Protection in this model was observed beyond 2 months after immunization, arguing against innate or nonspecific immune mechanisms. Thus, we find that immunity to pneumococcal colonization can be induced in the absence of antibody, independent of the capsular type, and this protection requires the presence of CD4 + T cells at the time of challenge.
+---
+
+---
+DOI: 10.1016/s0091-679x(07)84029-5
+Title: Mathematical Modeling of Cell Migration
+Year: 2007
+Abstract: Mathematical modeling has become increasingly important in many areas of biology during the past two decades, and the area of cell migration and motility has seen significant contributions from a wide range of modeling approaches. In this chapter, we cover examples from the broad range of work in this area, emphasizing the models' biological significance and the relationships between them. We focus on three specific areas: cell protrusion, cell adhesion, and retraction/whole-cell models. At the end of this chapter, we provide our perspective on issues that future models and experiments should consider in order to advance the boundaries of this field.
+---
+
+---
+DOI: 10.1046/j.1365-3040.2003.01094.x
+Title: A hydromechanical and biochemical model of stomatal conductance
+Year: 2003
+Abstract: ABSTRACT A mathematical model of stomatal conductance is presented. It is based on whole‐plant and epidermal hydromechanics, and on two hypotheses: (1) the osmotic gradient across guard cell membranes is proportional to the concentration of ATP in the guard cells; and (2) the osmotic gradient that can be sustained per unit of ATP is proportional to the turgor pressure of adjacent epidermal cells. In the present study, guard cell [ATP] is calculated using a previously published model that is based on a widely used biochemical model of C 3 mesophyll photosynthesis. The conductance model for Vicia faba L. is parameterized and tested As with most other stomatal models, the present model correctly predicts the stomatal responses to variations in transpiration rate, irradiance and intercellular CO 2 . Unlike most other models, however, this model can predict the transient stomatal opening often observed before conductance declines in response to decreases in humidity, soil water potential, or xylem conductance. The model also explicitly accommodates the mechanical advantage of the epidermis and correctly predicts that stomata are relatively insensitive to the ambient partial pressure of oxygen, as a result of the assumed dependence on ATP concentration.
+---
+
+---
+DOI: 10.1016/s0165-0270(02)00198-x
+Title: Parameter-extraction of a two-compartment model for whole-cell data analysis
+Year: 2002
+Abstract: Neuronal modeling of patch-clamp data is based on approximations which are valid under specific assumptions regarding cell properties and morphology. Certain cells, which show a biexponential capacitance transient decay, can be modeled with a two-compartment model. However, for parameter-extraction in such a model, approximations are required regarding the relative sizes of the various model parameters. These approximations apply to certain cell types or experimental conditions and are not valid in the general case. In this paper, we present a general method for the extraction of the parameters in a two-compartment model without assumptions regarding the relative size of the parameters. All the passive electrical parameters of the two-compartment model are derived in terms of the available experimental data. The experimental data is obtained from a DC measurement (where the command potential is a hyperpolarizing DC voltage) and an AC measurement (where the command potential is a sinusoidal stimulus on a hyperpolarized DC potential) performed on the cell under test. Computer simulations are performed with a circuit simulator, XSPICE, to observe the effects of varying the two-compartment model parameters on the capacitive transients of the current response. Our general solution for the parameter-estimation of a two-compartment model may be used to model any neuron, which has a biexponential capacitive current decay. In addition, our model avoids the need for simplifying and perhaps erroneous approximations. Our equations may be easily implemented in hardware/software compensation schemes to correct the recorded currents for any series resistance or capacitive transient errors. Our general solution reduces to the results of previous researchers under their approximations.
+---
+
+---
+DOI: 10.1101/153965
+Title: Whole genome amplification and sequencing of low cell numbers directly from a bacteria spiked blood model
+Year: 2017
+Abstract: Abstract Whilst next generation sequencing is frequently used to whole genome sequence bacteria from cultures, it’s rarely applied directly to clinical samples. Therefore, this study addresses the issue of applying NGS microbial diagnostics directly to blood samples. To demonstrate the potential of direct from blood sequencing a bacteria spiked blood model was developed. Horse blood was spiked with clinical samples of E. coli and S. aureus , and a process developed to isolate bacterial cells whilst removing the majority of host DNA. One sample of each isolate was then amplified using ϕ29 multiple displacement amplification (MDA) and sequenced. The total processing time, from sample to amplified DNA ready for sequencing was 3.5 hours, significantly faster than the 18-hour overnight culture step which is typically required. Both bacteria showed 100% survival through the processing. The direct from sample sequencing resulted in greater than 92% genome coverage of the pathogens whilst limiting the sequencing of host genome (less than 7% of all reads). Analysis of de novo assembled reads allowed accurate genotypic antibiotic resistance prediction. The sample processing is easily applicable to multiple sequencing platforms. Overall this model demonstrates potential to rapidly generate whole genome bacterial data directly from blood.
+---
+
+---
+DOI: 10.1098/rsif.2014.0970
+Title: Investigating cell mechanics with atomic force microscopy
+Year: 2015
+Abstract: Transmission of mechanical force is crucial for normal cell development and functioning. However, the process of mechanotransduction cannot be studied in isolation from cell mechanics. Thus, in order to understand how cells ‘feel’, we must first understand how they deform and recover from physical perturbations. Owing to its versatility, atomic force microscopy (AFM) has become a popular tool to study intrinsic cellular mechanical properties. Used to directly manipulate and examine whole and subcellular reactions, AFM allows for top-down and reconstitutive approaches to mechanical characterization. These studies show that the responses of cells and their components are complex, and largely depend on the magnitude and time scale of loading. In this review, we generally describe the mechanotransductive process through discussion of well-known mechanosensors. We then focus on discussion of recent examples where AFM is used to specifically probe the elastic and inelastic responses of single cells undergoing deformation. We present a brief overview of classical and current models often used to characterize observed cellular phenomena in response to force. Both simple mechanistic models and complex nonlinear models have been used to describe the observed cellular behaviours, however a unifying description of cell mechanics has not yet been resolved.
+---
+
+---
+DOI: 10.1073/pnas.74.9.3903
+Title: Synthesis of fibrinolytic activator and inhibitor by endothelial cells
+Year: 1977
+Abstract: Vascular endothelial cells derived from rabbit vena cava and maintained in continuous culture exhibited properties characteristic of the intact endothelium. These cells were used as a model for characterizing the fibrinolytic components specified by the endothelium. Endothelial cells in culture digested radiolabeled fibrinogen. Digestion resulted from the synthesis and secretion of a plasminogen activator. Fibrinolysis was not detected when cells were grown in medium lacking plasminogen, indicating the absence of plasminogen-independent fibrinolytic enzymes. Phorbol-myristate-acetate increased extracellular plasminogen activator activity dramatically. This increase was prevented when actinomycin D or cycloheximide was included in the growth medium, indicating that new gene expression was required for it. Intracellular plasminogen activator could not be detected unless the cell extracts were exposed briefly to mildly acidic conditions. Mixing experiments between acid-treated and untreated extracts suggested that the cells contained a potent, acid-labile inhibitor of fibrinolysis. As little as 10 μg of protein from whole cell extracts inhibited both cell and urokinase-mediated fibrinolysis by more than 70%. Cell fractionation studies localized the inhibitor to the cytosol whereas plasminogen activator activity was restricted to the membrane-rich fraction. This membrane fraction did not require acidification for activity, suggesting that the inhibitor had been removed and that acidification did not activate a plasminogen proactivator. These observations demonstrate that regulation of endothelial fibrinolytic activity is far more complex than had been anticipated and raise several uncertainties in regard to detecting the presence of plasminogen activators in cells and tissues.
+---
+
+---
+DOI: 10.1111/j.1469-8137.2010.03214.x
+Title: Biological stoichiometry of plant production: metabolism, scaling and ecological response to global change
+Year: 2010
+Abstract: Summary Biological stoichiometry theory considers the balance of multiple chemical elements in living systems, whereas metabolic scaling theory considers how size affects metabolic properties from cells to ecosystems. We review recent developments integrating biological stoichiometry and metabolic scaling theories in the context of plant ecology and global change. Although vascular plants exhibit wide variation in foliar carbon : nitrogen : phosphorus ratios, they exhibit a higher degree of ‘stoichiometric homeostasis’ than previously appreciated. Thus, terrestrial carbon : nitrogen : phosphorus stoichiometry will reflect the effects of adjustment to local growth conditions as well as species’ replacements. Plant stoichiometry exhibits size scaling, as foliar nutrient concentration decreases with increasing plant size, especially for phosphorus. Thus, small plants have lower nitrogen : phosphorus ratios. Furthermore, foliar nutrient concentration is reflected in other tissues (root, reproductive, support), permitting the development of empirical models of production that scale from tissue to whole‐plant levels. Plant stoichiometry exhibits large‐scale macroecological patterns, including stronger latitudinal trends and environmental correlations for phosphorus concentration (relative to nitrogen) and a positive correlation between nutrient concentrations and geographic range size. Given this emerging knowledge of how plant nutrients respond to environmental variables and are connected to size, the effects of global change factors (such as carbon dioxide, temperature, nitrogen deposition) can be better understood. Contents Summary 593 I. Introduction 594 II. Variation in plant C : N : ratios: how much and what are the sources? 595 III. The growth rate hypothesis in terrestrial plants and the scaling of whole‐plant N : P stoichiometry and production 597 IV. Scaling from tissues to whole plants 599 V. Applications: large‐scale patterns and processes associated with plant stoichiometry 601 VI. Global change and plants: a stoichiometric scaling perspective 603 VII. Synthesis and summary 604 Acknowledgements 605 References 605
+---
+
+---
+DOI: 10.1073/pnas.73.10.3628
+Title: Evidence for somatic rearrangement of immunoglobulin genes coding for variable and constant regions.
+Year: 1976
+Abstract: A high-molecular-weight DNA from Balb/c mouse early embryo or from MOPC 321 plasmacytoma (a k-chain producer) was digested to completion with Bacillus amyloliquefaciens strain H restriction enzyme (BamH I). The resulting DNA fragments were fractionated according to size in preparative agarose gel electrophoresis. DNA fragments carrying gene sequences coding for the variable or constant region of k chains were detected by hybridization with purified, 125I-labeled, whole MOPC 321 K MRNA and with its 3'-end half. The pattern of hybridization was completely different in the genomes of embryo cells and of the plasmacytoma. The pattern of embryo DNA showed two components, one of which (molecular weight=6.0 million) hybridized with C-gene sequences and the other (molecular weight=3.9 million) with V-gene sequences. The pattern of the tumor DNA showed a single component that hybridized with both V-gene and C-gene sequences and that is smaller (molecular weight=2.4 million) than either of the components in embryo DNA. The results were interpreted to mean that the Vk and Ck genes, which are some distance away from each other in the embryo cells, are joined to form a contiguous polynucleotide stretch during differentiation of lymphocytes. Such joining occurs in both of the homologous chromosomes. Relevance of these findings with respect to models for V-C gene joining, activation of a specific V k gene, and allelic exclusion in immunoglobulin gene loci is discussed.
+---
+
+---
+DOI: 10.1002/ar.1091690306
+Title: The spermatogonial stem cell population in adult rats. I. Their morphology, proliferation and maturation
+Year: 1971
+Abstract: Abstract Whole mounted segments of seminiferous tubules from rat testes have been used to investigate the morphology and proliferative activity of the undifferentiated type A spermatogonial population. This has led to the formulation of a new model for spermatogonial stem cell renewal. Three groups of undifferentiated A spermatogonia were classified according to their topographical arrangements as isolated, paired, and aligned spermatogonia. It was proposed that the isolated (as well as a few paired) spermatogonia, which were always present throughout the seminiferous epithelium, are the functional stem cells and should therefore be designated as A s . Through sporadic divisions, the A s spermatogonia both maintain their own numbers and give rise to pairs of cells which are destined to eventually differentiate. The latter undergo several synchronous divisions in succession, thereby forming increasingly longer chains of aligned spermatogonia. The proliferation of these chains, primarily in stages I–V, leads to a gradual expansion in the size of the undifferentiated type A population. When the population attains its maximal size in stage V, mitotic activity among the aligned cells ceases, and all of these cells morphologically transform without further division into typical A 1 spermatogonia. Subsequently, the cohort of A 1 cells synchronously divides in stage IX to begin the long process of spermatogonial maturation. The isolated (and a few paired) cells, which do not undergo this transformation and remain quiescent during the stage IX peak of mitosis, form a residual stock of stem cells, that, during the course of another cycle, rebuild the population of aligned A spermatogonia. In this way, a continual supply of type A 1 spermatogonia which will cyclically differentiate is insured.
+---
+
+---
+DOI: 10.1182/blood-2006-04-017251
+Title: Soluble CD40 ligand accumulates in stored blood components, primes neutrophils through CD40, and is a potential cofactor in the development of transfusion-related acute lung injury
+Year: 2006
+Abstract: Abstract Transfusion-related acute lung injury (TRALI) is a form of posttransfusion acute pulmonary insufficiency that has been linked to the infusion of biologic response modifiers (BRMs), including antileukocyte antibodies and lipids. Soluble CD40 ligand (sCD40L) is a platelet-derived proinflammatory mediator that accumulates during platelet storage. We hypothesized that human polymorpho-nuclear leukocytes (PMNs) express CD40, CD40 ligation rapidly primes PMNs, and sCD40L induces PMN-mediated cytotoxicity of human pulmonary microvascular endothelial cells (HMVECs). Levels of sCD40L were measured in blood components and in platelet concentrates (PCs) implicated in TRALI or control PCs that did not elicit a transfusion reaction. All blood components contained higher levels of sCD40L than fresh plasma, with apheresis PCs evidencing the highest concentration of sCD40L followed by PCs from whole blood, whole blood, and packed red blood cells (PRBCs). PCs implicated in TRALI reactions contained significantly higher sCD40L levels than control PCs. PMNs express functional CD40 on the plasma membrane, and recombinant sCD40L (10 ng/mL-1 μg/mL) rapidly (5 minutes) primed the PMN oxidase. Soluble CD40L promoted PMN-mediated cytotoxicity of HMVECs as the second event in a 2-event in vitro model of TRALI. We concluded that sCD40L, which accumulates during blood component storage, has the capacity to activate adherent PMNs, causing endothelial damage and possibly TRALI in predisposed patients.
+---
+
+---
+DOI: 10.2741/s321
+Title: The formation and mineralization of mollusk shell
+Year: 2012
+Abstract: In the last years, the field of mollusk biomineralization has known a tremendous mutation. The most recent advances deal with the nanostructure of shell biominerals, and with the identification of several shell matrix proteins: on one hand, the complex hierarchical organization of shell biominerals has been deciphered in few models, like nacre. On the other hand, although proteins represent a minor shell component, they are the major macromolecules that control biocrystal synthesis. Until recently, the paradigm was to consider that this control occurs by two antagonist mechanisms: crystal nucleation and growth inhibition. Emerging models try to translate a more complex reality, illustrated by the huge variety of shell proteins, characterized so far. The primary structure of many of them is composed of different functional domains, some of which exhibit enzymatic activity, while others may be involved in cell signalling. Many of them have unknown functions. Today, the shell matrix appears as a whole system, which regulates protein-mineral, protein-protein, and epithelium-mineral interactions. These aspects should be taken in account for the future models of shell formation.
+---
+
+---
+DOI: 10.1016/s0092-8674(00)80564-4
+Title: Cell Death in Development
+Year: 1999
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.4319/lo.2002.47.2.0404
+Title: Assessment of the relationships between dominant cell size in natural phytoplankton communities and the spectral shape of the absorption coefficient
+Year: 2002
+Abstract: Size‐fractionated chlorophyll concentration and phytoplankton absorption spectra were compared for a wide variety of natural communities. We found that, in general, when phytoplankton abundance increases, larger sizeclasses are added incrementally to a background of smaller cells. Natural phytoplankton communities from surface waters were explicitly characterized according to their dominant cell size and taxonomic group, and the relationships between this classification and the spectral shape of the phytoplankton absorption coefficient for the whole assemblage was described. By specifying the cell size of the dominant organism (pico‐, ultra‐, nano‐, or microplankton), more than 80% of the variability in spectral shape of the phytoplankton absorption coefficient from 400 to 700 nm could be explained. This is a result of the strong covariation of the size of dominant organisms and several factors controlling the spectral shape of the phytoplankton absorption coefficient, such as pigment packaging and concentration of accessory pigments. Consequently, the shapes of phytoplankton absorption spectra can be reproduced using a spectral mixing model, where two spectra, representing the normalized phytoplankton absorption coefficients for the smallest and the largest cells found in our data set, are combined additively, using a single parameter to specify the complementary contribution of each. The differences between reproduced and measured spectra contain taxonomic and physiological information. This parameterization provides a simple tool for extracting ecological information from optical measurements. It can also be used in sensitivity analyses to describe the influence of the dominant cell size of phytoplankton on optical properties of surface waters.
+---
+
+---
+DOI: 10.1159/000496426
+Title: Beneficial Effects of Probiotic Consumption on the Immune System
+Year: 2019
+Abstract: &lt;b&gt;&lt;i&gt;Background:&lt;/i&gt;&lt;/b&gt; The gastrointestinal tract is one of the most microbiologically active ecosystems that plays a crucial role in the working of the mucosal immune system (MIS). In this ecosystem, the consumed probiotics stimulate the immune system and induce a network of signals mediated by the whole bacteria or their cell wall structure. This review is aimed at describing the immunological mechanisms of probiotics and their beneficial effects on the host. &lt;b&gt;&lt;i&gt;Summary:&lt;/i&gt;&lt;/b&gt; Once administered, oral probiotic bacteria interact with the intestinal epithelial cells (IECs) or immune cells associated with the lamina propria, through Toll-like receptors, and induce the production of different cytokines or chemokines. Macrophage chemoattractant protein 1, produced by the IECs, sends signals to other immune cells leading to the activation of the MIS, characterized by an increase in immunoglobulin A&lt;sup&gt;+&lt;/sup&gt; cells of the intestine, bronchus and mammary glands, and the activation of T cells. Specifically, probiotics activate regulatory T cells that release IL-10. Interestingly, probiotics reinforce the intestinal barrier by an increase of the mucins, the tight junction proteins and the Goblet and Paneth cells. Another proposed mechanism of probiotics is the modulation of intestinal microbiota by maintaining the balance and suppressing the growth of potential pathogenic bacteria in the gut. Furthermore, it has been demonstrated that long-term probiotics consumption does not affect the intestinal homeostasis. The viability of probiotics is crucial in the interaction with IECs and macrophages favoring, mainly, the innate immune response. Macrophages and Dendritic cells (DCs) play an important role in this immune response without inducing an inflammatory pattern, just a slight increase in the cellularity of the lamina propria. Besides, as part of the machinery that probiotics activate to protect against different pathogens, an increase in the microbicidal activity of peritoneal and spleen macrophages has been reported. In malnutrition models, such as undernourishment and obesity, probiotic was able to increase the intestinal and systemic immune response. Furthermore, probiotics contribute to recover the histology of both the intestine and the thymus damaged in these conditions. Probiotic bacteria are emerging as a safe and natural strategy for allergy prevention and treatment. Different mechanisms such as the generation of cytokines from activated pro-T-helper type 1, which favor the production of IgG instead of IgE, have been proposed. &lt;b&gt;&lt;i&gt;Key Messages:&lt;/i&gt;&lt;/b&gt; Probiotic bacteria, their cell walls or probiotic fermented milk have significant effects on the functionality of the mucosal and systemic immune systems through the activation of multiple immune mechanisms.
+---
+
+---
+DOI: 10.1098/rsif.2017.0502
+Title: Mathematical modelling of microbes: metabolism, gene expression and growth
+Year: 2017
+Abstract: The growth of microorganisms involves the conversion of nutrients in the environment into biomass, mostly proteins and other macromolecules. This conversion is accomplished by networks of biochemical reactions cutting across cellular functions, such as metabolism, gene expression, transport and signalling. Mathematical modelling is a powerful tool for gaining an understanding of the functioning of this large and complex system and the role played by individual constituents and mechanisms. This requires models of microbial growth that provide an integrated view of the reaction networks and bridge the scale from individual reactions to the growth of a population. In this review, we derive a general framework for the kinetic modelling of microbial growth from basic hypotheses about the underlying reaction systems. Moreover, we show that several families of approximate models presented in the literature, notably flux balance models and coarse-grained whole-cell models, can be derived with the help of additional simplifying hypotheses. This perspective clearly brings out how apparently quite different modelling approaches are related on a deeper level, and suggests directions for further research.
+---
+
+---
+DOI: 10.1006/anbo.1999.0996
+Title: Modelling the Components of Plant Respiration: Some Guiding Principles
+Year: 2000
+Abstract: Respiration is poorly represented in whole plant or ecosystem models relative to photosynthesis. This paper reviews the principles underlying the development of a more mechanistic approach to modelling plant respiration and the criteria by which model behaviour might be judged. The main conclusions are as follows: (1) Models should separate C substrate from structure so that direct or indirect C substrate dependence of the components of respiration can be represented. (2) Account should be taken of the fact that some of the energy for leaf respiration is drawn from the light reactions of photosynthesis. (3) It is possible to estimate respiration associated with growth, nitrate reduction, symbiotic N 2 fixation, N-uptake, other ion uptake and phloem loading, because reasonable estimates are available of average specific unit respiratory costs and the rates of these processes can be quantified. (4) At present, it is less easy to estimate respiration associated with protein turnover, maintenance of cell ion concentrations and gradients and all forms of respiration involving the alternative pathway and futile cycles. (5) The growth-maintenance paradigm is valuable but ‘maintenance ' is an approximate concept and there is no rigorous division between growth and maintenance energy-requiring processes. (6) An alternative ‘process-residual’ approach would be to estimate explicitly respiratory fluxes associated with the six processes listed in (3) above and treat the remainder as a residual with a phenomenological ‘ residual maintenance’ coefficient. (7) Maintenance or ‘residual maintenance’ respiration rates are often more closely related to tissue N content than biomass, volume or surface area. (8) Respiratory fluxes associated with different processes vary independently, seasonally and during plant development, and so should be represented separately if possible. (9) An unforced outcome of mechanistic models should be a constrained, but non-constant, ratio between whole plant gross photosynthesis and respiration. Copyright 2000 Annals of Botany Company
+---
+
+---
+DOI: 10.1371/journal.pcbi.0030169.eor
+Title: A Numerical Approach to Ion Channel Modelling Using Whole-Cell Voltage-Clamp Recordings and a Genetic Algorithm
+Year: 2005
+Abstract: The activity of trans-membrane proteins such as ion channels is the essence of neuronal transmission. The currently most accurate method for determining ion channel kinetic mechanisms is single-channel recording and analysis. Yet, the limitations and complexities in interpreting single-channel recordings discourage many physiologists from using them. Here we show that a genetic search algorithm in combination with a gradient descent algorithm can be used to fit whole-cell voltage-clamp data to kinetic models with a high degree of accuracy. Previously, ion channel stimulation traces were analyzed one at a time, the results of these analyses being combined to produce a picture of channel kinetics. Here the entire set of traces from all stimulation protocols are analysed simultaneously. The algorithm was initially tested on simulated current traces produced by several Hodgkin-Huxley–like and Markov chain models of voltage-gated potassium and sodium channels. Currents were also produced by simulating levels of noise expected from actual patch recordings. Finally, the algorithm was used for finding the kinetic parameters of several voltage-gated sodium and potassium channels models by matching its results to data recorded from layer 5 pyramidal neurons of the rat cortex in the nucleated outside-out patch configuration. The minimization scheme gives electrophysiologists a tool for reproducing and simulating voltage-gated ion channel kinetics at the cellular level.
+---
+
+---
+DOI: 10.1210/endo.141.12.7806
+Title: Glucagon-Like Peptide-1 Induces Cell Proliferation and Pancreatic-Duodenum Homeobox-1 Expression and Increases Endocrine Cell Mass in the Pancreas of Old, Glucose-Intolerant Rats
+Year: 2000
+Abstract: Abstract Glucose homeostasis in mammals is maintained by insulin secretion from the β-cells of the islets of Langerhans. Type 2 diabetes results either from primary β-cell failure alone and/or a failure to secrete enough insulin to overcome insulin resistance. Here, we show that continuous infusion of glucagon-like peptide-1 (7–36) (GLP-1; an insulinotropic agent), to young and old animals, had effects on the β-cell of the pancreas other than simply on the insulin secretory apparatus. Our previous studies on a rodent model of glucose intolerance, the aging Wistar rat, show that a plateau in islet size, insulin content, and β-cell mass is reached at 13 months, despite a continuing increase in body weight. Continuous sc infusion of GLP-1 (1.5 pm/kg·min), over 5 days, resulted in normal glucose tolerance. Our current results in both young and old rats demonstrate that treatment caused an up-regulation of pancreatic-duodenum homeobox-1 (PDX-1) expression in islets and total pancreas, induced pancreatic cell proliferation, and β-cell neogenesis. The effects on levels of PDX-1 messenger RNA were abrogated by simultaneous infusion of Exendin (9–39), a specific antagonist of GLP-1. PDX-1 protein levels increased 4-fold in whole pancreata and 6-fold in islets in response to treatment.β -cell mass increased to 7.2 ± 0.58 from 4.88 ± 0.38 mg, treated vs. control, respectively, P&amp;lt; 0.02. Total pancreatic insulin content also increased from 0.55± 0.02 to 1.32 ± 0.11 μg/mg total pancreatic protein. Therefore, GLP-1 would seem to be a unique therapy that can stimulate pancreatic cell proliferation and β-cell differentiation in the pancreas of rodents.
+---
+
+---
+DOI: 10.1021/acs.iecr.1c02343
+Title: Cascade Synthesis of <scp>l</scp>-Homoserine Catalyzed by Lyophilized Whole Cells Containing Transaminase and Aldolase Activities: The Mathematical Modeling Approach
+Year: 2021
+Abstract: Aldolase and transaminase coexpressed in Escherichia coli cells and lyophilized (i.e., lyophilized whole-cell biocatalyst (LWCB)) were used as biocatalysts for the one-pot cascade synthesis of l-homoserine with substrate cycling. The kinetic analysis of enzymes within lyophilized cells was performed to evaluate the behavior of the system. The best result among the performed fed-batch reactor experiments achieved was 640.8 mM (76.3 g L–1) of l-homoserine with a volume productivity of 2.6 g L–1 h–1. This is comparable with the results of the same cascade synthesis using cell-free extracts (CFEs) and significantly better than the reports in the literature applying fermentation technology. The approach applied here can serve as guidance for the design of microbial cells with an optimal ratio of expressed enzymes that act as biocatalysts in the cascade, resulting in lower biocatalyst cost, no need for the addition of expensive coenzymes, and enhanced enzyme stability as compared with cell-free extracts.
+---
+
+---
+DOI: 10.1152/ajpendo.1998.275.2.e249
+Title: Organ-tissue mass measurement allows modeling of REE and metabolically active tissue mass
+Year: 1998
+Abstract: Investigators have expressed interest in the associations between resting energy expenditure (REE) and body mass for over a century. Traditionally, descriptive models using regression analysis are applied, linking REE with metabolically active compartments such as body cell mass (BCM) and fat-free body mass (FFM). Recently developed whole body magnetic resonance imaging (MRI) and echocardiography methods now allow estimation of all major organs and tissue volumes in vivo. Because measured values are available for REE, BCM, and FFM content of individual organs and tissues, it should now be possible to develop energy expenditure-body composition estimation models based on MRI-measured organ-tissue volumes. Specifically, the present investigation tested the hypothesis that in vivo estimation of whole body REE, BCM, and FFM is possible using MRI- and echocardiography-derived organ volumes combined with previously reported organ-tissue metabolic rates and chemical composition. Thirteen subjects (5 females, 8 males) had REE, BCM, and FFM measured by indirect calorimetry, whole body 40 K counting, and dual-energy X-ray absorptiometry, respectively. Models developed from estimated and measured variables were highly correlated, with no significant differences between those estimated and measured [e.g., calculated vs. measured REE: r = 0.92, P &lt; 0.001; (mean ± SD) 6,962 ± 1,455 and 7,045 ± 1,450 kJ/day, respectively ( P = not significant)]. Strong associations were observed between REE, individual or combined organ weights, BCM, and FFM that provide new insights into earlier observed metabolic phenomona. The present approach, the first to establish an energy expenditure-body composition link with a mechanistic model in vivo, has the potential to greatly expand our knowledge of energy expenditure-body size relationships in humans.
+---

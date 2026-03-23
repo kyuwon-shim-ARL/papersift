@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1016/j.jpowsour.2010.11.115
+Title: Computational modeling of a direct propane fuel cell
+Year: 2010
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1523/jneurosci.1319-09.2009
+Title: Boundary Vector Cells in the Subiculum of the Hippocampal Formation
+Year: 2009
+Abstract: “Boundary vector cells” were predicted to exist by computational models of the environmental inputs underlying the spatial firing patterns of hippocampal place cells (O'Keefe and Burgess, 1996; Burgess et al., 2000; Hartley et al., 2000). Here, we report the existence of cells fulfilling this description in recordings from the subiculum of freely moving rats. These cells may contribute environmental information to place cell firing, complementing path integrative information. Their relationship to other cell types, including medial entorhinal “border cells,” is discussed.
+---
+
+---
+DOI: 10.1080/09553002.2019.1642537
+Title: Development of computational model for cell dose and DNA damage quantification of multicellular system
+Year: 2019
+Abstract: <b>Purpose:</b> The aim of this study is to build a computational model to investigate the cell dose and cell DNA damage distribution of a multicellular tissue system under the irradiation.<b>Materials and methods:</b> In this work, we developed a computational model for quantifying cell dose and double strand break (DSB) number in a multicellular system by simulating the radiation transport in 2D and 3D cell culture. The model was based on an open-source radiation transport package, Geant4 with Geant4-DNA physics. First, the computational multicellular system was created using a developed program, CelllMaker. Second, the radiation transport simulation for cells was conducted using Geant4 package with the Geant4-DNA physics to obtain the cellular dose and cellular DSB yield.<b>Results:</b> Using the method described in this work, it is possible to obtain the cellular dose and DNA damage simultaneously. The developed model provides a solution for quantifying the cellular dose and cellular DNA damage which are not easily determined in a radiobiological experiment.<b>Conclusions:</b> With limited validation data for the model, this preliminary study provides a roadmap for building a comprehensive toolkit for simulating cellular dose and DNA damage of multicellular tissue systems.
+---
+
+---
+DOI: 10.1038/ncb2103
+Title: Endothelial cells dynamically compete for the tip cell position during angiogenic sprouting
+Year: 2010
+Abstract: Sprouting angiogenesis requires the coordinated behaviour of endothelial cells, regulated by Notch and vascular endothelial growth factor receptor (VEGFR) signalling. Here, we use computational modelling and genetic mosaic sprouting assays in vitro and in vivo to investigate the regulation and dynamics of endothelial cells during tip cell selection. We find that endothelial cells compete for the tip cell position through relative levels of Vegfr1 and Vegfr2, demonstrating a biological role for differential Vegfr regulation in individual endothelial cells. Differential Vegfr levels affect tip selection only in the presence of a functional Notch system by modulating the expression of the ligand Dll4. Time-lapse microscopy imaging of mosaic sprouts identifies dynamic position shuffling of tip and stalk cells in vitro and in vivo, indicating that the VEGFR-Dll4-Notch signalling circuit is constantly re-evaluated as cells meet new neighbours. The regular exchange of the leading tip cell raises novel implications for the concept of guided angiogenic sprouting.
+---
+
+---
+DOI: 10.1021/jp106469x
+Title: Improved Description of the Structure of Molecular and Layered Crystals: Ab Initio DFT Calculations with van der Waals Corrections
+Year: 2010
+Abstract: The implementation of technique for full structural optimizations of complex periodic systems in the DFT-PAW package VASP, including the volume and shape of the unit cell and the internal coordinates of the atoms, together with a correction that allows an appropriate modeling of London dispersion forces, as given by the DFT-D2 approach of Grimme [Grimme, S. J. Comp. Chem. 2006, 27, 1787], is reported. Dispersion corrections are calculated not only for the forces acting on the atoms, but also for the stresses on the unit cell. This permits a simultaneous optimization of all degrees of freedom. Benchmark results on a series of prototype systems are presented and compared to results obtained by other methods and experimental data. It is demonstrated that the computationally inexpensive DFT-D2 scheme yields reasonable predictions for the structure, bulk moduli, and cohesive energies of weakly bonded materials.
+---
+
+---
+DOI: 10.1016/j.jtbi.2007.10.030
+Title: Simple computational models of type I/type II cells in Fas signaling-induced apoptosis
+Year: 2007
+Abstract: Distinct apoptotic response of the type I/type II cells against Fas-ligand stimulation is considered to arise from the difference in dominant signaling pathways involved. In the type I cells, apoptotic signaling predominantly takes place via the direct activation of caspase-3 by activated caspase-8 (D channel) while mitochondrial pathway (M channel) plays a major role in the type II cells. To elucidate the selection mechanism of dominant pathway, we carried out systematic model analysis of the Fas signaling-induced apoptosis network. An increase in the expression level of caspase-8 induced a switch of dominant pathway from M- to D-channel (M-D transition), showing a phenotypic change from type II to type I cells. With the aid of sensitivity analysis and kinetic considerations, we succeeded in constructing a minimal network model relevant for the M-D transition, which revealed that mechanistic origin of the transition lies in the competition between the activated forms of caspase-8 and caspase-9 for their common substrate caspase-3. The pathway dominance was found to be primarily controlled by the balance between the activation rate of caspase-8 and the initial level of caspase-9. In the full network model, we showed that differential formation ability of the death-inducing signaling complex (DISC) can also induce M-D transition, in accordance with the experimental observations.
+---
+
+---
+DOI: 10.1007/978-1-4939-3569-7_19
+Title: Computational Modeling of T Cell Receptor Complexes
+Year: 2016
+Abstract: T-cell receptor (TCR) binding to peptide/MHC determines specificity and initiates signaling in antigen-specific cellular immune responses. Structures of TCR-pMHC complexes have provided enormous insight to cellular immune functions, permitted a rational understanding of processes such as pathogen escape, and led to the development of novel approaches for the design of vaccines and other therapeutics. As production, crystallization, and structure determination of TCR-pMHC complexes can be challenging, there is considerable interest in modeling new complexes. Here we describe a rapid approach to TCR-pMHC modeling that takes advantage of structural features conserved in known complexes, such as the restricted TCR binding site and the generally conserved diagonal docking mode. The approach relies on the powerful Rosetta suite and is implemented using the PyRosetta scripting environment. We show how the approach can recapitulate changes in TCR binding angles and other structural details, and highlight areas where careful evaluation of parameters is needed and alternative choices might be made. As TCRs are highly sensitive to subtle structural perturbations, there is room for improvement. Our method nonetheless generates high-quality models that can be foundational for structure-based hypotheses regarding TCR recognition.
+---
+
+---
+DOI: 10.1017/s0001924000025914
+Title: Computational modelling of shock wave/boundary layer interaction with a cell-vertex scheme and transport models of turbulence
+Year: 1993
+Abstract: Abstract A calculation procedure for modelling the interaction between shock waves and attached or separated turbulent boundary layers is introduced. The numerical framework, applicable to general curved grids, combines cell-vertex storage, a Lax-Wendroff time-marching scheme and multigrid convergence acceleration. The main numerical ingredients of the procedure are documented in some detail, with particular emphasis placed on the inclusion of viscous and turbulence transport within the cell-vertex framework, which was originally formulated for inviscid flow. An investigation of the predictive performance of alternative transport models of turbulence has been the primary objective of the present work. Particular attention has been focused on a comparison between variants of low Reynolds number k-ε models and an algebraic variant of a Reynolds-stress transport closure in strong interaction situations, including shock-induced separation. The turbulence models are introduced, and important numerical issues affecting their stable implementation are discussed. The calculation procedure is then applied to two confined transonic flows over bumps — one incipiently and the other extensively separated (Delery Cases A and C) — and to the transonic flow around the RAE 2822 aerofoil at two angles of incidence (Cases 9 and 10). The investigation demonstrates that the eddy-viscosity models tend to seriously underestimate the strength of interaction, particularly when separation is extensive. The performance of the Reynolds-stress model is not entirely consistent across the range of conditions examined. In the case of bump flows, the model displays strong sensitivity to the shock, predicting excessive boundary layer displacement in Case A, a broadly correct separation pattern in Case C and insufficient rate of post shock recovery in both cases. The aerofoil flows are either attached or incipiently separated, and the benefits arising from Reynolds-stress modelling are modest. Neither the k-ε model nor the Reynolds-stress closure is able to return a satisfactory representation of the most challenging RAE 2822 Case 10; at least not with the recommended windtunnel corrections for freestream Mach number and angle of incidence.
+---
+
+---
+DOI: 10.1016/j.yjmcc.2021.11.005
+Title: Computational model of brain endothelial cell signaling pathways predicts therapeutic targets for cerebral pathologies
+Year: 2021
+Abstract: Brain endothelial cells serve many critical homeostatic functions. In addition to sensing and regulating blood flow, they maintain blood-brain barrier function, including precise control of nutrient exchange and efflux of xenobiotics. Many signaling pathways in brain endothelial cells have been implicated in both health and disease; however, our understanding of how these signaling pathways functionally integrate is limited. A model capable of integrating these signaling pathways could both advance our understanding of brain endothelial cell signaling networks and potentially identify promising molecular targets for endothelial cell-based drug or gene therapies. To this end, we developed a large-scale computational model, wherein brain endothelial cell signaling pathways were reconstructed from the literature and converted into a network of logic-based differential equations. The model integrates 63 nodes (including proteins, mRNA, small molecules, and cell phenotypes) and 82 reactions connecting these nodes. Specifically, our model combines signaling pathways relating to VEGF-A, BDNF, NGF, and Wnt signaling, in addition to incorporating pathways relating to focused ultrasound as a therapeutic delivery tool. To validate the model, independently established relationships between selected inputs and outputs were simulated, with the model yielding correct predictions 73% of the time. We identified influential and sensitive nodes under different physiological or pathological contexts, including altered brain endothelial cell conditions during glioma, Alzheimer's disease, and ischemic stroke. Nodes with the greatest influence over combinations of desired model outputs were identified as potential druggable targets for these disease conditions. For example, the model predicts therapeutic benefits from inhibiting AKT, Hif-1α, or cathepsin D in the context of glioma - each of which are currently being studied in clinical or pre-clinical trials. Notably, the model also permits testing multiple combinations of node alterations for their effects on the network and the desired outputs (such as inhibiting AKT and overexpressing the P75 neurotrophin receptor simultaneously in the context of glioma), allowing for the prediction of optimal combination therapies. In all, our approach integrates results from over 100 past studies into a coherent and powerful model, capable of both revealing network interactions unapparent from studying any one pathway in isolation and predicting therapeutic targets for treating devastating brain pathologies.
+---
+
+---
+DOI: 10.1080/19336918.2016.1180487
+Title: Binding equilibrium and kinetics of membrane-anchored receptors and ligands in cell adhesion: Insights from computational model systems and theory
+Year: 2016
+Abstract: The adhesion of cell membranes is mediated by the binding of membrane-anchored receptor and ligand proteins. In this article, we review recent results from simulations and theory that lead to novel insights on how the binding equilibrium and kinetics of these proteins is affected by the membranes and by the membrane anchoring and molecular properties of the proteins. Simulations and theory both indicate that the binding equilibrium constant [Formula: see text] and the on- and off-rate constants of anchored receptors and ligands in their 2-dimensional (2D) membrane environment strongly depend on the membrane roughness from thermally excited shape fluctuations on nanoscales. Recent theory corroborated by simulations provides a general relation between [Formula: see text] and the binding constant [Formula: see text] of soluble variants of the receptors and ligands that lack the membrane anchors and are free to diffuse in 3 dimensions (3D).
+---
+
+---
+DOI: 10.1007/978-3-642-01932-6_40
+Title: A Global Sensitivity Index for Biophysically Detailed Cardiac Cell Models: A Computational Approach
+Year: 2009
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.rechem.2020.100069
+Title: Computational modelling and characterisation of phosphole adopted in triphenyl amine photosensitisers for solar cell applications
+Year: 2020
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1093/toxsci/kfl103
+Title: The ToxCast Program for Prioritizing Toxicity Testing of Environmental Chemicals
+Year: 2006
+Abstract: The U.S. Environmental Protection Agency (EPA) is developing methods for utilizing computational chemistry, high-throughput screening (HTS), and various toxicogenomic technologies to predict potential for toxicity and prioritize limited testing resources toward chemicals that likely represent the greatest hazard to human health and the environment. This chemical prioritization research program, entitled "ToxCast," is being initiated with the purpose of developing the ability to forecast toxicity based on bioactivity profiling. The proof-of-concept phase of ToxCast will focus upon chemicals with an existing, rich toxicological database in order to provide an interpretive context for the ToxCast data. This set of several hundred reference chemicals will represent numerous structural classes and phenotypic outcomes, including tumorigens, developmental and reproductive toxicants, neurotoxicants, and immunotoxicants. The ToxCast program will evaluate chemical properties and bioactivity profiles across a broad spectrum of data domains: physical-chemical, predicted biological activities based on existing structure-activity models, biochemical properties based on HTS assays, cell-based phenotypic assays, and genomic and metabolomic analyses of cells. These data will be generated through a series of external contracts, along with collaborations across EPA, with the National Toxicology Program, and with the National Institutes of Health Chemical Genomics Center. The resulting multidimensional data set provides an informatics challenge requiring appropriate computational methods for integrating various chemical, biological, and toxicological data into profiles and models predicting toxicity.
+---
+
+---
+DOI: 10.1007/s11047-006-9023-7
+Title: Orientation contrast sensitive cells in primate V1 a computational model
+Year: 2007
+Abstract: Many cells in the primary visual cortex respond differently when a stimulus is placed outside their classical receptive field (CRF) compared to the stimulus within the CRF alone, permitting integration of information at early levels in the visual processing stream that may play a key role in intermediate-level visual tasks, such a perceptual pop-out [Knierim JJ, van Essen DC (1992) J Neurophysiol 67(5):961–980; Nothdurft HC, Gallant JL, Essen DCV (1999) Visual Neurosci 16:15–34], contextual modulation [Levitt JB, Lund JS (1997) Nature 387:73–76; Das A, Gilbert CD (1999) Nature 399:655–661; Dragoi V, Sur M (2000) J Neurophysiol 83:1019–1030], and junction detection [Sillito AM, Grieve KL, Jones HE, Cudiero J, Davis J (1995) Nature 378:492–496; Das A, Gilbert CD (1999) Nature 399:655–661; Jones HE, Wang W, Sillito AM (2002) J Neurophysiol 88:2797–2808]. In this article, we construct a computational model in programming environment TiViPE [Lourens T (2004) TiViPE—Tino’s visual programming environment. In: The 28th Annual International Computer Software &amp; Applications Conference, IEEE COMPSAC 2004, pp 10–15] of orientation contrast type of cells and demonstrate that the model closely resembles the functional behavior of the neuronal responses of non-orientation (within the CRF) sensitive 4Cß cells [Jones HE, Wang W, Sillito AM (2002) J Neurophysiol 88:2797–2808], and give an explanation of the indirect information flow in V1 that explains the behavior of orientation contrast sensitivity. The computational model of orientation contrast cells demonstrates excitatory responses at edges near junctions that might facilitate junction detection, but the model does not reveal perceptual pop-out.
+---
+
+---
+DOI: 10.1016/j.rser.2016.03.049
+Title: Parameter estimation of solar photovoltaic (PV) cells: A review
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/nature09818
+Title: Wiring specificity in the direction-selectivity circuit of the retina
+Year: 2011
+Abstract: The proper connectivity between neurons is essential for the implementation of the algorithms used in neural computations, such as the detection of directed motion by the retina. The analysis of neuronal connectivity is possible with electron microscopy, but technological limitations have impeded the acquisition of high-resolution data on a large enough scale. Here we show, using serial block-face electron microscopy and two-photon calcium imaging, that the dendrites of mouse starburst amacrine cells make highly specific synapses with direction-selective ganglion cells depending on the ganglion cell's preferred direction. Our findings indicate that a structural (wiring) asymmetry contributes to the computation of direction selectivity. The nature of this asymmetry supports some models of direction selectivity and rules out others. It also puts constraints on the developmental mechanisms behind the formation of synaptic connections. Our study demonstrates how otherwise intractable neurobiological questions can be addressed by combining functional imaging with the analysis of neuronal connectivity using large-scale electron microscopy.
+---
+
+---
+DOI: 10.1016/j.jpowsour.2021.230023
+Title: A computational model of a liquid e-fuel cell
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/nbt0402-370
+Title: Computational modeling of the dynamics of the MAP kinase cascade activated by surface and internalized EGF receptors
+Year: 2002
+Abstract: We present a computational model that offers an integrated quantitative, dynamic, and topological representation of intracellular signal networks, based on known components of epidermal growth factor (EGF) receptor signal pathways. The model provides insight into signal-response relationships between the binding of EGF to its receptor at the cell surface and the activation of downstream proteins in the signaling cascade. It shows that EGF-induced responses are remarkably stable over a 100-fold range of ligand concentration and that the critical parameter in determining signal efficacy is the initial velocity of receptor activation. The predictions of the model agree well with experimental analysis of the effect of EGF on two downstream responses, phosphorylation of ERK-1/2 and expression of the target gene, c-fos.
+---
+
+---
+DOI: 10.1038/nrm1925
+Title: Lipid rafts: contentious only from simplistic standpoints
+Year: 2006
+Abstract: The hypothesis that lipid rafts exist in plasma membranes and have crucial biological functions remains controversial. The lateral heterogeneity of proteins in the plasma membrane is undisputed, but the contribution of cholesterol-dependent lipid assemblies to this complex, non-random organization promotes vigorous debate. In the light of recent studies with model membranes, computational modelling and innovative cell biology, I propose an updated model of lipid rafts that readily accommodates diverse views on plasma-membrane micro-organization.
+---
+
+---
+DOI: 10.1002/bit.25678
+Title: A mathematical model and computational framework for three‐dimensional chondrocyte cell growth in a porous tissue scaffold placed inside a bi‐directional flow perfusion bioreactor
+Year: 2015
+Abstract: ABSTRACT The in vitro chondrocyte cell culture for cartilage tissue regeneration in a perfusion bioreactor is a complex process. Mathematical modeling and computational simulation can provide important insights into the culture process, which would be helpful for selecting culture conditions to improve the quality of the developed tissue constructs. However, simulation of the cell culture process is a challenging task due to the complicated interaction between the cells and local fluid flow and nutrient transport inside the complex porous scaffolds. In this study, a mathematical model and computational framework has been developed to simulate the three‐dimensional (3D) cell growth in a porous scaffold placed inside a bi‐directional flow perfusion bioreactor. The model was developed by taking into account the two‐way coupling between the cell growth and local flow field and associated glucose concentration, and then used to perform a resolved‐scale simulation based on the lattice Boltzmann method (LBM). The simulation predicts the local shear stress, glucose concentration, and 3D cell growth inside the porous scaffold for a period of 30 days of cell culture. The predicted cell growth rate was in good overall agreement with the experimental results available in the literature. This study demonstrates that the bi‐directional flow perfusion culture system can enhance the homogeneity of the cell growth inside the scaffold. The model and computational framework developed is capable of providing significant insight into the culture process, thus providing a powerful tool for the design and optimization of the cell culture process. Biotechnol. Bioeng. 2015;112: 2601–2610. © 2015 Wiley Periodicals, Inc.
+---
+
+---
+DOI: 10.1149/10408.0003ecst
+Title: Modeling of Fuel Cell Stack for High-Speed Computation and Implementation to Integrated System Model
+Year: 2021
+Abstract: Modeling methods for high-speed computation of fuel cell mass transport and polarization are investigated. To ensure dynamic numerical simulation of life-long system operation in permissible calculation time and accuracy. Physical and empirical models of mass transfer, heat transfer, and electrochemistry in fuel cell stack with proper resolution are developed and integrated. This model is validated and verified by the experimental data collected with commercial fuel cell system of 2nd-generation MIRAI, a fuel cell electric vehicle (FCEV) in a variety of operating conditions, such as low to high loads, operating temperatures, and total pressures.
+---
+
+---
+DOI: 10.1038/nature08753
+Title: A synchronized quorum of genetic clocks
+Year: 2010
+Abstract: The engineering of genetic circuits with predictive functionality in living cells represents a defining focus of the expanding field of synthetic biology. This focus was elegantly set in motion a decade ago with the design and construction of a genetic toggle switch and an oscillator, with subsequent highlights that have included circuits capable of pattern generation, noise shaping, edge detection and event counting. Here we describe an engineered gene network with global intercellular coupling that is capable of generating synchronized oscillations in a growing population of cells. Using microfluidic devices tailored for cellular populations at differing length scales, we investigate the collective synchronization properties along with spatiotemporal waves occurring at millimetre scales. We use computational modelling to describe quantitatively the observed dependence of the period and amplitude of the bulk oscillations on the flow rate. The synchronized genetic clock sets the stage for the use of microbes in the creation of a macroscopic biosensor with an oscillatory output. Furthermore, it provides a specific model system for the generation of a mechanistic description of emergent coordinated behaviour at the colony level.
+---
+
+---
+DOI: 10.1016/j.jtbi.2018.10.003
+Title: A Computational model of the mammalian external tufted cell
+Year: 2018
+Abstract: We introduce a novel detailed conductance-based model of the bursting activity in external tufted (ET) cells of the olfactory bulb. We investigate the mechanisms underlying their bursting, and make experimentally-testable predictions. The ionic currents included in the model are specific to ET cells, and their kinetic and other parameters are based on experimental recordings. We validate the model by showing that its bursting characteristics under various conditions (e.g. blocking various currents) are consistent with experimental observations. Further, we identify the bifurcation structure and dynamics that explain bursting behavior. This analysis allows us to make predictions of the response of the cell to current pulses at different burst phases. We find that depolarizing (but not hyperpolarizing) inputs received during the interburst interval can advance burst timing, creating the substrate for synchronization by excitatory connections. It has been hypothesized that such synchronization among the ET cells within one glomerulus might help coordinate the glomerular output. Next we investigate model parameter sensitivity and identify parameters that play the most prominent role in controlling each burst characteristic, such as the burst frequency and duration. Finally, the response of the cell to periodic inputs is examined, reflecting the sniffing-modulated input that these cell receive in vivo. We find that individual cells can be better entrained by inputs with higher, rather than lower, frequencies than the intrinsic bursting frequency of the cell. Nevertheless, a heterogeneous population of ET cells (as may be found in a glomerulus) is able to produce reliable periodic population responses even at lower input frequencies.
+---
+
+---
+DOI: 10.1016/j.ijmecsci.2019.105298
+Title: Efficient computational modelling of closed cell metallic foams using a morphologically controlled shell geometry
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1089/ten.tea.2016.0175
+Title: A Computational Model of Osteochondral Defect Repair Following Implantation of Stem Cell-Laden Multiphase Scaffolds
+Year: 2016
+Abstract: Developing successful tissue engineering strategies requires an understanding of how cells within an implanted scaffold interact with the host environment. The objective of this study was to use a computational mechanobiological model to explore how the design of a cell-laden scaffold influences the spatial formation of cartilage and bone within an osteochondral defect. Tissue differentiation was predicted using a previously developed model, in which cell fate depends on the local oxygen tension and the mechanical environment within a damaged joint. This model was first updated to include a rule through which mature cartilage was resistant to both terminal differentiation and vascularization, and then used to simulate osteochondral defect repair following the implantation of various cell-free and cell-laden scaffolds. While delivery of a cell-free scaffold led to only marginal improvements in joint repair, implantation of a cell-laden bilayered scaffold was predicted to significantly increase cartilage formation in the chondral phase of the scaffold. Despite these improvements, bone still progressed into the chondral regions of these engineered implants by means of endochondral ossification during the later stages of repair. This led to thinning of the cartilage tissue, which in turn resulted in a prediction of increased tissue strain and, eventually, increases in fibrocartilage formation as a result of this altered mechanical stimulus. In contrast to this, the model predicted that implantation of a trilayered scaffold, which included a compact layer to confine angiogenesis to the osseous phase of the defect, further improves joint regeneration. This is achieved by allowing chondrogenically primed mesenchymal stem cells, which are seeded into the chondral phase of the implant, to form stable cartilage, which was ultimately resistant to both vascularization and endochondral ossification. These models provide a framework for exploring how environmental factors impact bone, cartilage, and joint regeneration and can be used to inform the design of new tissue engineering strategies for use in orthopedic medicine.
+---
+
+---
+DOI: 10.1007/s11831-017-9243-2
+Title: Challenges in Computational Modeling of Two-Phase Transport in Polymer Electrolyte Fuel Cells Flow Channels: A Review
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1111/j.1540-8167.2006.00389.x
+Title: ATX‐II Effects on the Apparent Location of M Cells in a Computational Model of a Human Left Ventricular Wedge
+Year: 2006
+Abstract: Introduction: The apparent location of the myocytes (M cells) with the longest action potential duration (APD) in a canine left ventricular (LV) wedge have been reported to shift after application of a sea anemone toxin, ATX‐II. This toxin slows inactivation of I Na and thus prolongs APD. Thus, M cells may exhibit dynamic functional states, rather than being a static, anatomically discrete, myocyte population. In this study, we attempted to further define and understand this phenomenon using a mathematical model of the human ventricular myocyte action potential incorporated into an in silico “wedge” preparation. Our simulations demonstrate that even under conditions of a fixed population and ratio of epicardial, M, and endocardial myocytes, the apparent anatomical position (transmural location) of the myocytes with the longest APD can shift following ATX‐II treatment. This arises because the ATX‐II effect, modeled as a small increase in the late or persistent Na + current, and consequent prolongation of APD significantly changes the electrotonic interactions between ventricular myocytes in this LV wedge preparation. Methods and Results: This LV wedge model is based on bidomain equations. It corresponds to a rectangular tissue immersed in a passive and isotropic medium that represents the superfusion bath. In this theoretical work, the three known different and discrete populations of myocytes in the human left ventricle have been included: the epicardial, M, and endocardial cells. The effects of ATX‐II on I Na were simulated by altering the voltage‐dependent steady‐state inactivation of the parameters h (fast gate) and j (slow gate). As a result, in these ATX‐II simulations a persistent late Na + current was generated in all three types of ventricular myocytes. However, the APDs were prolonged in a heterogeneous pattern. Our simulations demonstrate that after the ATX‐II effects develop, alterations in transmural electrotonic interactions can produce changes in the transmural location of myocytes with the longest APD. Conclusions: The combination of intercellular electrotonic interactions, which tend to reduce and smooth out the discrete transmural APD variations, and the heterogeneous effects of ATX‐II, which preferentially prolong the APD of M cells, can shift the location of the ventricular myocytes. This shift results in significantly altered transmural patterns of action potential durations, which would be expected to change localized refractory period and excitability. These cellular changes give rise to alterations in the corresponding surface electrograms and may change the overall substrates for conduction and rhythm disturbances.
+---
+
+---
+DOI: 10.2174/1574893614666190723120716
+Title: MD-LBP: An Efficient Computational Model for Protein Subcellular Localization from HeLa Cell Lines Using SVM
+Year: 2019
+Abstract: Background: The knowledge of subcellular location of proteins is essential to the comprehension of numerous protein functions. Objective: Accurate as well as computationally efficient and reliable automated analysis of protein localization imagery greatly depend on the calculation of features from these images. Methods: In the current work, a novel method termed as MD-LBP is proposed for feature extraction from fluorescence microscopy protein images. For a given neighborhood, the value of central pixel is computed as the difference of global and local means of the input image that is further used as threshold to generate a binary pattern for that neighborhood. Results: The performance of our method is assessed for 2D HeLa dataset using 5-fold crossvalidation protocol. The performance of MD-LBP method with RBF-SVM as base classifier, is superior to that of standard LBP algorithm, Threshold Adjacency Statistics, and Haralick texture features. Conclusion: Development of specialized systems for different kinds of medical imagery will certainly pave the path for effective drug discovery in pharmaceutical industry. Furthermore, biological and bioinformatics based procedures can be simplified to facilitate pharmaceutical industry for drug designing.
+---
+
+---
+DOI: 10.1063/1.5130246
+Title: A review on computational modelling of individual device components and interfaces of perovskite solar cells using DFT
+Year: 2019
+Abstract: Perovskite structures with the same crystal structure as CaTiO3, are of importance in the field of Materials Science right from the discovery of ceramic high-temperature superconductors to the organic–inorganic semiconductors for high-efficiency photovoltaics. Owing to their unique crystal structure, perovskites display a variety of interesting properties like ferroelectricity, superconductivity, magnetoresistance, birefringence, piezoelectricity etc. Moreover, the efficiency of perovskite solar cells has increased from 3.1% in 2009 to 22.1% in 2017. Since a large number of elements can be combined to form perovskite structures, one can selectively design and optimize perovskite's physical, optical and electrical characteristics. Through theoretical and computational modelling, it is possible to access the hitherto unknown atomistic properties, opto-electronic properties and operational mechanisms of these materials with high accuracy. This paper aims at explaining some of the potentialities of DFT hybrid functionals to analyze the electronic, structural and optical properties of compounds constituting various layers of a perovskite solar cell with the help of software packages like VASP, Wien 2k. Gaussian 09 etc. This paper also reviews the effect of doping on the electronic properties of various layers of perovskite solar cells including the band gap, visible light absorption, relaxation time of holes and electrons using DFT, which in turn determines the optimum charge separation. The effect of introduction of an Intermediate Band Gap in the perovskite structure using DFT methods based on G0W0+SOC approach is also discussed here. A study on the effect of various intrinsic defects present in perovskite structures using DFT calculations with VASP package is also discussed. The relevance of modelling the interfaces of various layers of perovskite solar cells with DFT packages is discussed with the help of selected examples of materials and representative interfaces.
+---
+
+---
+DOI: 10.1038/s41586-019-0924-x
+Title: Spatial and temporal heterogeneity of mouse and human microglia at single-cell resolution
+Year: 2019
+Abstract: Microglia have critical roles not only in neural development and homeostasis, but also in neurodegenerative and neuroinflammatory diseases of the central nervous system1-4. These highly diverse and specialized functions may be executed by subsets of microglia that already exist in situ, or by specific subsets of microglia that develop from a homogeneous pool of cells on demand. However, little is known about the presence of spatially and temporally restricted subclasses of microglia in the central nervous system during development or disease. Here we combine massively parallel single-cell analysis, single-molecule fluorescence in situ hybridization, advanced immunohistochemistry and computational modelling to comprehensively characterize subclasses of microglia in multiple regions of the central nervous system during development and disease. Single-cell analysis of tissues of the central nervous system during homeostasis in mice revealed specific time- and region-dependent subtypes of microglia. Demyelinating and neurodegenerative diseases evoked context-dependent subtypes of microglia with distinct molecular hallmarks and diverse cellular kinetics. Corresponding clusters of microglia were also identified in healthy human brains, and the brains of patients with multiple sclerosis. Our data provide insights into the endogenous immune system of the central nervous system during development, homeostasis and disease, and may also provide new targets for the treatment of neurodegenerative and neuroinflammatory pathologies.
+---
+
+---
+DOI: 10.1038/nature23884
+Title: The 4D nucleome project
+Year: 2017
+Abstract: The 4D Nucleome Network aims to develop and apply approaches to map the structure and dynamics of the human and mouse genomes in space and time with the goal of gaining deeper mechanistic insights into how the nucleus is organized and functions. The project will develop and benchmark experimental and computational approaches for measuring genome conformation and nuclear organization, and investigate how these contribute to gene regulation and other genome functions. Validated experimental technologies will be combined with biophysical approaches to generate quantitative models of spatial genome organization in different biological states, both in cell populations and in single cells.
+---
+
+---
+DOI: 10.1016/j.jpowsour.2011.02.076
+Title: Reciprocating air flow for Li-ion battery thermal management to improve temperature uniformity
+Year: 2011
+Abstract: Abstract The thermal management of traction battery systems for electrical-drive vehicles directly affects vehicle dynamic performance, long-term durability and cost of the battery systems. In this paper, a new battery thermal management method using a reciprocating air flow for cylindrical Li-ion (LiMn 2 O 4 /C) cells was numerically analyzed using (i) a two-dimensional computational fluid dynamics (CFD) model and (ii) a lumped-capacitance thermal model for battery cells and a flow network model. The battery heat generation was approximated by uniform volumetric joule and reversible (entropic) losses. The results of the CFD model were validated with the experimental results of in-line tube-bank systems which approximates the battery cell arrangement considered for this study. The numerical results showed that the reciprocating flow can reduce the cell temperature difference of the battery system by about 4 °C (72% reduction) and the maximum cell temperature by 1.5 °C for a reciprocation period of τ  = 120 s as compared with the uni-directional flow case ( τ  = ∞). Such temperature improvement attributes to the heat redistribution and disturbance of the boundary layers on the formed on the cells due to the periodic flow reversal.
+---
+
+---
+DOI: 10.1111/j.2517-6161.1995.tb02031.x
+Title: Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing
+Year: 1995
+Abstract: SUMMARY The common approach to the multiplicity problem calls for controlling the familywise error rate (FWER). This approach, though, has faults, and we point out a few. A different approach to problems of multiple significance testing is presented. It calls for controlling the expected proportion of falsely rejected hypotheses — the false discovery rate. This error rate is equivalent to the FWER when all hypotheses are true but is smaller otherwise. Therefore, in problems where the control of the false discovery rate rather than that of the FWER is desired, there is potential for a gain in power. A simple sequential Bonferronitype procedure is proved to control the false discovery rate for independent test statistics, and a simulation study shows that the gain in power is substantial. The use of the new procedure and the appropriateness of the criterion are illustrated with examples.
+---
+
+---
+DOI: 10.1016/j.cell.2011.02.013
+Title: Hallmarks of Cancer: The Next Generation
+Year: 2011
+Abstract: The hallmarks of cancer comprise six biological capabilities acquired during the multistep development of human tumors. The hallmarks constitute an organizing principle for rationalizing the complexities of neoplastic disease. They include sustaining proliferative signaling, evading growth suppressors, resisting cell death, enabling replicative immortality, inducing angiogenesis, and activating invasion and metastasis. Underlying these hallmarks are genome instability, which generates the genetic diversity that expedites their acquisition, and inflammation, which fosters multiple hallmark functions. Conceptual progress in the last decade has added two emerging hallmarks of potential generality to this list-reprogramming of energy metabolism and evading immune destruction. In addition to cancer cells, tumors exhibit another dimension of complexity: they contain a repertoire of recruited, ostensibly normal cells that contribute to the acquisition of hallmark traits by creating the "tumor microenvironment." Recognition of the widespread applicability of these concepts will increasingly affect the development of new means to treat human cancer.
+---
+
+---
+DOI: 10.1016/0263-7855(96)00018-5
+Title: VMD: Visual molecular dynamics
+Year: 1996
+Abstract: VMD is a molecular graphics program designed for the display and analysis of molecular assemblies, in particular biopolymers such as proteins and nucleic acids. VMD can simultaneously display any number of structures using a wide variety of rendering styles and coloring methods. Molecules are displayed as one or more "representations," in which each representation embodies a particular rendering method and coloring scheme for a selected subset of atoms. The atoms displayed in each representation are chosen using an extensive atom selection syntax, which includes Boolean operators and regular expressions. VMD provides a complete graphical user interface for program control, as well as a text interface using the Tcl embeddable parser to allow for complex scripts with variable substitution, control loops, and function calls. Full session logging is supported, which produces a VMD command script for later playback. High-resolution raster images of displayed molecules may be produced by generating input scripts for use by a number of photorealistic image-rendering applications. VMD has also been expressly designed with the ability to animate molecular dynamics (MD) simulation trajectories, imported either from files or from a direct connection to a running MD simulation. VMD is the visualization component of MDScope, a set of tools for interactive problem solving in structural biology, which also includes the parallel MD program NAMD, and the MDCOMM software used to connect the visualization and simulation programs. VMD is written in C++, using an object-oriented design; the program, including source code and extensive documentation, is freely available via anonymous ftp and through the World Wide Web.
+---
+
+---
+DOI: 10.1016/0022-1759(83)90303-4
+Title: Rapid colorimetric assay for cellular growth and survival: Application to proliferation and cytotoxicity assays
+Year: 1983
+Abstract: A tetrazolium salt has been used to develop a quantitative colorimetric assay for mammalian cell survival and proliferation. The assay detects living, but not dead cells and the signal generated is dependent on the degree of activation of the cells. This method can therefore be used to measure cytotoxicity, proliferation or activation. The results can be read on a multiwell scanning spectrophotometer (ELISA reader) and show a high degree of precision. No washing steps are used in the assay. The main advantages of the colorimetric assay are its rapidity and precision, and the lack of any radioisotope. We have used the assay to measure proliferative lymphokines, mitogen stimulations and complement-mediated lysis.
+---
+
+---
+DOI: 10.1073/pnas.0506580102
+Title: Gene set enrichment analysis: A knowledge-based approach for interpreting genome-wide expression profiles
+Year: 2005
+Abstract: Although genomewide RNA expression analysis has become a routine tool in biomedical research, extracting biological insight from such information remains a major challenge. Here, we describe a powerful analytical method called Gene Set Enrichment Analysis (GSEA) for interpreting gene expression data. The method derives its power by focusing on gene sets, that is, groups of genes that share common biological function, chromosomal location, or regulation. We demonstrate how GSEA yields insights into several cancer-related data sets, including leukemia and lung cancer. Notably, where single-gene analysis finds little similarity between two independent studies of patient survival in lung cancer, GSEA reveals many biological pathways in common. The GSEA method is embodied in a freely available software package, together with an initial database of 1,325 biologically defined gene sets.
+---
+
+---
+DOI: 10.1002/jcc.20084
+Title: UCSF Chimera—A visualization system for exploratory research and analysis
+Year: 2004
+Abstract: Abstract The design, implementation, and capabilities of an extensible visualization system, UCSF Chimera, are discussed. Chimera is segmented into a core that provides basic services and visualization, and extensions that provide most higher level functionality. This architecture ensures that the extension mechanism satisfies the demands of outside developers who wish to incorporate new features. Two unusual extensions are presented: Multiscale, which adds the ability to visualize large‐scale molecular assemblies such as viral coats, and Collaboratory, which allows researchers to share a Chimera session interactively despite being at separate locales. Other extensions include Multalign Viewer, for showing multiple sequence alignments and associated structures; ViewDock, for screening docked ligand orientations; Movie, for replaying molecular dynamics trajectories; and Volume Viewer, for display and analysis of volumetric data. A discussion of the usage of Chimera in real‐world situations is given, along with anticipated future directions. Chimera includes full user documentation, is free to academic and nonprofit users, and is available for Microsoft Windows, Linux, Apple Mac OS X, SGI IRIX, and HP Tru64 Unix from http://www.cgl.ucsf.edu/chimera/ . © 2004 Wiley Periodicals, Inc. J Comput Chem 25: 1605–1612, 2004
+---
+
+---
+DOI: 10.1093/nar/28.1.235
+Title: The Protein Data Bank
+Year: 2000
+Abstract: The Protein Data Bank (PDB; http://www.rcsb.org/pdb/ ) is the single worldwide archive of structural data of biological macromolecules. This paper describes the goals of the PDB, the systems in place for data deposition and access, how to obtain further information, and near-term plans for the future development of the resource.
+---
+
+---
+DOI: 10.1093/nar/28.1.27
+Title: KEGG: Kyoto Encyclopedia of Genes and Genomes
+Year: 2000
+Abstract: KEGG (Kyoto Encyclopedia of Genes and Genomes) is a knowledge base for systematic analysis of gene functions, linking genomic information with higher order functional information. The genomic information is stored in the GENES database, which is a collection of gene catalogs for all the completely sequenced genomes and some partial genomes with up-to-date annotation of gene functions. The higher order functional information is stored in the PATHWAY database, which contains graphical representations of cellular processes, such as metabolism, membrane transport, signal transduction and cell cycle. The PATHWAY database is supplemented by a set of ortholog group tables for the information about conserved subpathways (pathway motifs), which are often encoded by positionally coupled genes on the chromosome and which are especially useful in predicting gene functions. A third database in KEGG is LIGAND for the information about chemical compounds, enzyme molecules and enzymatic reactions. KEGG provides Java graphics tools for browsing genome maps, comparing two genome maps and manipulating expression maps, as well as computational tools for sequence comparison, graph comparison and path computation. The KEGG databases are daily updated and made freely available (http://www. genome.ad.jp/kegg/).
+---
+
+---
+DOI: 10.1002/jcc.21334
+Title: AutoDock Vina: Improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading
+Year: 2009
+Abstract: Abstract AutoDock Vina, a new program for molecular docking and virtual screening, is presented. AutoDock Vina achieves an approximately two orders of magnitude speed‐up compared with the molecular docking software previously developed in our lab (AutoDock 4), while also significantly improving the accuracy of the binding mode predictions, judging by our tests on the training set used in AutoDock 4 development. Further speed‐up is achieved from parallelism, by using multithreading on multicore machines. AutoDock Vina automatically calculates the grid maps and clusters the results in a way transparent to the user. © 2009 Wiley Periodicals, Inc. J Comput Chem 2010
+---
+
+---
+DOI: 10.1093/nar/27.1.29
+Title: KEGG: Kyoto Encyclopedia of Genes and Genomes
+Year: 1999
+Abstract: Kyoto Encyclopedia of Genes and Genomes (KEGG) is a knowledge base for systematic analysis of gene functions in terms of the networks of genes and molecules. The major component of KEGG is the PATHWAY database that consists of graphical diagrams of biochemical pathways including most of the known metabolic pathways and some of the known regulatory pathways. The pathway information is also represented by the ortholog group tables summarizing orthologous and paralogous gene groups among different organisms. KEGG maintains the GENES database for the gene catalogs of all organisms with complete genomes and selected organisms with partial genomes, which are continuously re-annotated, as well as the LIGAND database for chemical compounds and enzymes. Each gene catalog is associated with the graphical genome map for chromosomal locations that is represented by Java applet. In addition to the data collection efforts, KEGG develops and provides various computational tools, such as for reconstructing biochemical pathways from the complete genome sequence and for predicting gene regulatory networks from the gene expression profiles. The KEGG databases are daily updated and made freely available (http://www.genome.ad.jp/kegg/).
+---
+
+---
+DOI: 10.1159/000453569
+Title: PD-1 and PD-L1 Immune Checkpoint Blockade to Treat Breast Cancer
+Year: 2016
+Abstract: Immune checkpoint inhibition represents a major recent breakthrough in the treatment of malignant diseases including breast cancer. Blocking the programmed death receptor-1 (PD-1) and its ligand, PD-L1, has shown impressive antitumor activity and may lead to durable long-term disease control, especially in the triple-negative subtypes of breast cancer (TNBC). Although immune checkpoint blockade is generally well tolerated, specific immune-related adverse events (irAEs) may occur. This review summarizes the clinical efficacy, perspectives, and future challenges of using PD-1/PD-L1-directed antibodies in the treatment of breast cancer.
+---
+
+---
+DOI: 10.1002/jcc.21256
+Title: AutoDock4 and AutoDockTools4: Automated docking with selective receptor flexibility
+Year: 2009
+Abstract: Abstract We describe the testing and release of AutoDock4 and the accompanying graphical user interface AutoDockTools. AutoDock4 incorporates limited flexibility in the receptor. Several tests are reported here, including a redocking experiment with 188 diverse ligand‐protein complexes and a cross‐docking experiment using flexible sidechains in 87 HIV protease complexes. We also report its utility in analysis of covalently bound ligands, using both a grid‐based docking method and a modification of the flexible sidechain technique. © 2009 Wiley Periodicals, Inc. J Comput Chem, 2009
+---
+
+---
+DOI: 10.1113/jphysiol.1952.sp004764
+Title: A quantitative description of membrane current and its application to conduction and excitation in nerve
+Year: 1952
+Abstract: (no abstract available)
+---

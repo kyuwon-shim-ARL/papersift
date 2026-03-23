@@ -1,0 +1,209 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+- enables: What downstream research or applications does this work enable? (1 sentence, e.g., "Enables targeted drug screening for patient-specific tumor models")
+- limits: What are the key limitations or constraints? (1 sentence, e.g., "Limited to single-cell resolution; cannot capture tissue-level interactions")
+- open_questions: What questions remain unanswered? (1 sentence, e.g., "Whether the model generalizes to non-mammalian organisms is unknown")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "...",
+    "enables": "...",
+    "limits": "...",
+    "open_questions": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1002/bit.28405
+Title: Data‐driven prediction models for forecasting multistep ahead profiles of mammalian cell culture toward bioprocess digital twins
+Year: 2023
+Abstract: Abstract Recently, the advancement in process analytical technology and artificial intelligence (AI) has enabled the generation of enormous culture data sets from biomanufacturing processes that produce various recombinant therapeutic proteins (RTPs), such as monoclonal antibodies (mAbs). Thus, now it is very important to exploit them for the enhanced reliability, efficiency, and consistency of the RTP‐producing culture processes and for the reduced incipient or abrupt faults. It is achievable by AI‐based data‐driven models (DDMs), which allow us to correlate biological and process conditions and cell culture states. In this work, we provide practical guidelines for choosing the best combination of model elements to design and implement successful DDMs for given hypothetical in‐line data sets during mAb‐producing Chinese hamster ovary cell culture, as such enabling us to forecast dynamic behaviors of culture performance such as viable cell density, mAb titer as well as glucose, lactate and ammonia concentrations. To do so, we created DDMs that balance computational load with model accuracy and reliability by identifying the best combination of multistep ahead forecasting strategies, input features, and AI algorithms, which is potentially applicable to implementation of interactive DDM within bioprocess digital twins. We believe this systematic study can help bioprocess engineers start developing predictive DDMs with their own data sets and learn how their cell cultures behave in near future, thereby rendering proactive decision possible.
+---
+
+---
+DOI: 10.1016/j.patter.2022.100434
+Title: scTenifoldKnk: An efficient virtual knockout tool for gene function predictions via single-cell gene regulatory network perturbation
+Year: 2022
+Abstract: Gene knockout (KO) experiments are a proven, powerful approach for studying gene function. However, systematic KO experiments targeting a large number of genes are usually prohibitive due to the limit of experimental and animal resources. Here, we present scTenifoldKnk, an efficient virtual KO tool that enables systematic KO investigation of gene function using data from single-cell RNA sequencing (scRNA-seq). In scTenifoldKnk analysis, a gene regulatory network (GRN) is first constructed from scRNA-seq data of wild-type samples, and a target gene is then virtually deleted from the constructed GRN. Manifold alignment is used to align the resulting reduced GRN to the original GRN to identify differentially regulated genes, which are used to infer target gene functions in analyzed cells. We demonstrate that the scTenifoldKnk-based virtual KO analysis recapitulates the main findings of real-animal KO experiments and recovers the expected functions of genes in relevant cell types.
+---
+
+---
+DOI: 10.1146/annurev-biodatasci-080917-013356
+Title: Opportunities and Challenges of Whole-Cell and -Tissue Simulations of the Outer Retina in Health and Disease
+Year: 2018
+Abstract: Visual processing starts in the outer retina, where photoreceptor cells sense photons that trigger electrical responses. Retinal pigment epithelial cells are located external to the photoreceptor layer and have critical functions in supporting cell and tissue homeostasis and thus sustaining a healthy retina. The high level of specialization makes the retina vulnerable to alterations that promote retinal degeneration. In this review, we discuss opportunities and challenges in proposing whole-cell and -tissue simulations of the human outer retina. An implicit position taken throughout this review is that mapping diverse data sets onto integrative computational models is likely to be a pivotal approach to understanding complex disease and developing novel interventions.
+---
+
+---
+DOI: 10.1371/journal.pone.0278848
+Title: Whole-body analysis of TRPML3 (MCOLN3) expression using a GFP-reporter mouse model reveals widespread expression in secretory cells and endocrine glands
+Year: 2022
+Abstract: TRPML3 (mucolipin 3, MCOLN3) is an endolysosomal cation channel belonging to the TRPML subfamily of transient receptor potential channels. Gain-of-function mutations in the Trpml3 gene cause deafness, circling behavior and coat color dilution in mice due to cell death of TRPML3-expressing hair cells of the inner ear or skin melanocytes, respectively. Furthermore, TRPML3 was found to play a role in the long term survival of cochlear hair cells (its absence contributing to presbycusis), in specialized giant lysosomes that neonatal (birth to weaning) enterocytes used for the uptake and digestion of maternal milk nutrients, and in the expulsion of exosome-encased bacteria such as uropathogenic E. coli, infecting bladder epithelial cells. Recently, TRPML3 was found to be expressed at high levels in alveolar macrophages and loss of TRPML3 results in a lung emphysema phenotype, confirmed in two independently engineered Trpml3 knockout lines. TRPML3 is not ubiquitously expressed like its relative TRPML1 and thus cellular expression of TRPML3 on a whole-tissue level remains, with the exceptions mentioned above, largely elusive. To overcome this problem, we generated a τGFP reporter mouse model for TRPML3 and compared expression data obtained from this model by immunofluorescence on tissue sections with immunohistochemistry using TRPML3 antibodies and in situ hybridization. We thus uncovered expression in several organs and distinct cell types. We confirmed TRPML3 expression in both neonatal and adult alveolar macrophages, in melanocytes of hair follicles and glabrous skin, in principle cells of the collecting duct of the neonatal and adult kidney, and in olfactory sensory neurons of the olfactory epithelium, including its fibres protruding to the glomeruli of the olfactory bulb. Additionally, we localized TRPML3 in several glands including parathyroid, thyroid, salivary, adrenal, and pituitary gland, testes and ovaries, suggestive of potential roles for the channel in secretion or uptake of different hormones.
+---
+
+---
+DOI: 10.1186/s13065-019-0558-y
+Title: Synthesis and evaluation of novel naphthol diazenyl scaffold based Schiff bases as potential antimicrobial and cytotoxic agents against human colorectal carcinoma cell line (HT-29)
+Year: 2019
+Abstract: BackgroundIn search of new antimicrobial and cytotoxic agents, a series of new naphthol diazenyl scaffold based Schiff bases (NS1–NS23) was efficiently synthesized by condensation of 2-hydroxy naphthaldehyde azo dyes with various substituted aromatic/heteroaromatic/aliphatic amines.MethodologyThe synthesized derivatives were characterized by various physicochemical and spectral techniques and assessed for in vitro antimicrobial and cytotoxic potential against human colorectal carcinoma cell line (HT-29). The active derivatives were further evaluated for their apoptotic potential by Annexin-V/propidium iodide double staining assay using flow cytometer and analyzed for cell-cycle arrest studies.Results and conclusionThe derivative NS-2 was found maximum active against E. coli, S. enterica and B. subtilis. The derivatives NS-12, NS-15, NS-21, and NS-23 showed maximum antifungal activity against A. fumigatus. The maximum cytotoxicity was observed from the derivatives NS-2, NS-8, NS-21, and NS-23 towards HT-29 cell line with IC50 between 4 and 19 μg/ml. More than 90% and 62% of the cells were found in the apoptotic phase on treatment with NS-2 and NS-21 respectively in comparison to the 68% for doxorubicin. Further, these derivatives arrested the cell growth in S and G2/M phase of the cell cycle.
+---
+
+---
+DOI: 10.1016/j.cell.2025.06.048
+Title: Human interpretable grammar encodes multicellular systems biology models to democratize virtual cell laboratories
+Year: 2025
+Abstract: Cells interact as dynamically evolving ecosystems. While recent single-cell and spatial multi-omics technologies quantify individual cell characteristics, predicting their evolution requires mathematical modeling. We propose a conceptual framework-a cell behavior hypothesis grammar-that uses natural language statements (cell rules) to create mathematical models. This enables systematic integration of biological knowledge and multi-omics data to generate in silico models, enabling virtual "thought experiments" that test and expand our understanding of multicellular systems and generate new testable hypotheses. This paper motivates and describes the grammar, offers a reference implementation, and demonstrates its use in developing both de novo mechanistic models and those informed by multi-omics data. We show its potential through examples in cancer and its broader applicability in simulating brain development. This approach bridges biological, clinical, and systems biology research for mathematical modeling at scale, allowing the community to predict emergent multicellular behavior.
+---
+
+---
+DOI: 10.1016/j.sbi.2022.102392
+Title: Integrating cellular and molecular structures and dynamics into whole-cell models
+Year: 2022
+Abstract: A complete description of the state of the cell requires knowledge of its size, shape, components, intracellular reactions, and interactions with its environment-all of these as a function of time and cell growth. Adding to this list is the need for theoretical models and simulations that integrate and help to interpret this daunting amount of experimental data. It seems like an overwhelming list of requirements, but progress is being made on many fronts. In this review, we discuss the current challenges and problems in obtaining sufficient information about each aspect of a dynamical whole-cell model (DWCM) for simple and well-studied bacterial systems.
+---
+
+---
+DOI: 10.1371/journal.pone.0256930
+Title: Correction: Biophysical modeling of C. elegans neurons: Single ion currents and whole-cell dynamics of AWCon and RMD
+Year: 2021
+Abstract: [This corrects the article DOI: 10.1371/journal.pone.0218738.].
+---
+
+---
+DOI: 10.1128/ecosalplus.esp-0001-2020
+Title: The E. coli Whole-Cell Modeling Project
+Year: 2021
+Abstract: The Escherichia coli whole-cell modeling project seeks to create the most detailed computational model of an E. coli cell in order to better understand and predict the behavior of this model organism. Details about the approach, framework, and current version of the model are discussed.
+---
+
+---
+DOI: 10.1016/j.bpj.2024.11.3209
+Title: BPS2025 - Hybrid stochastic/deterministic whole-cell model of minimal cell, JCVI-syn3A
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1101/435628
+Title: An <i>In-Silico</i> Mammalian Whole-Cell Model Reveals the Influence of Spatial Organization on RNA Splicing Efficiency
+Year: 2018
+Abstract: Spatial organization is a characteristic of eukaryotic cells, achieved by utilizing both membrane-bound and non-bound organelles. We model the effects of this organization and of organelle heterogeneity on RNA splicing (the process of making translationally-ready messenger RNA) and on splicing particles (the building blocks of splicing machinery) in mammalian cells. We constructed a spatially-resolved whole HeLa cell model from various experimental data and developed reaction networks to describe the RNA splicing processes. We incorporated these networks into our whole-cell model and performed stochastic simulations for up to 15 minutes of biological time. We find that the number of nuclear pore complexes affects the number of assembled splicing particles; that a slight increase of splicing particle localization in nuclear speckles (non-membrane-bound or- ganelles) leads to disproportionate enhancement in the mRNA splicing and reduction in the transcript noise; and that compartmentalization is critical for a correctly-assembled particle yield. Our model also predicts that the distance between genes and speckles has a considerable effect on effective mRNA production rate, further emphasizing the importance of genome organization around speckles. The HeLa cell model, including organelles and subcompartments, provides an adaptable foundation to study other cellular processes which are strongly modulated by spatio-temporal heterogeneity. Significance Statement The spliceosome is one of the most complex cellular machineries that cuts and splices the RNA code in eukaryotic cells. It dynamically assembles, disassembles, and its components are formed in multiple compartments. The efficiency of splicing process depends on localization of its components in nuclear membrane-less organelles. Therefore, a computational model of spliceosomal function must contain a spatial model of the entire cell. However, building such a model is a challenging task, mainly due to the lack of homogeneous experimental data and a suitable computational framework. Here, we overcome these challenges and present a whole HeLa cell model, with nuclear, subnuclear, and extensive cytoplasmic structures. The three-dimensional model is supplemented by reaction-diffusion processes to shed light on the function of the spliceosome.
+---
+
+---
+DOI: 10.1016/j.coisb.2017.10.005
+Title: A blueprint for human whole-cell modeling
+Year: 2017
+Abstract: Whole-cell dynamical models of human cells are a central goal of systems biology. Such models could help researchers understand cell biology and help physicians treat disease. Despite significant challenges, we believe that human whole-cell models are rapidly becoming feasible. To develop a plan for achieving human whole-cell models, we analyzed the existing models of individual cellular pathways, surveyed the biomodeling community, and reflected on our experience developing whole-cell models of bacteria. Based on these analyses, we propose a plan for a project, termed the <i>Human Whole-Cell Modeling Project</i>, to achieve human whole-cell models. The foundations of the plan include technology development, standards development, and interdisciplinary collaboration.
+---
+
+---
+DOI: 10.1016/j.tiv.2016.07.013
+Title: Theoretical and mathematical foundation of the Virtual Cell Based Assay – A review
+Year: 2016
+Abstract: There is a need to interpret in vitro concentration-viability data in terms of the actual concentration that the cells are exposed to, rather than the nominal concentration applied to the test system. We have developed a process-based model to simulate the kinetics and dynamics of a chemical compound in cell-based in vitro assays. In the present paper we describe the mathematical equations governing this model as well as the parameters that are needed to run the model. The Virtual Cell Based Assay (VCBA) is an integrated model composed of: [1] a fate and transport model; [2] a cell partitioning model; [3] a cell growth and division model; [4] a toxicity and effects model; [5] the experimental set up. The purpose of the VCBA is to simulate the medium and intracellular concentrations, which can be used on its own to design and interpret in vitro experiments, and in combination with physiologically based kinetic (PBK) models to perform in vitro to in vivo extrapolation. The results can be used in chemical risk assessment to link an external dose to an internal effect or vice versa, using solely in vitro and in silico tools and thereby avoiding animal testing.
+---
+
+---
+DOI: 10.1016/j.tiv.2017.01.009
+Title: The virtual cell based assay: Current status and future perspectives
+Year: 2017
+Abstract: In order to replace the use of animals in toxicity testing, there is a need to predict in vivo toxic doses from concentrations that cause toxicological effects in relevant in vitro systems. The Virtual Cell Based Assay (VCBA) estimates time-dependent concentration of a test chemical in the cell and cell culture for a given in vitro system. The concentrations in the different compartments of the cell and test system are derived from ordinary differential equations, physicochemical parameters of the test chemical and properties of the cell line. The VCBA has been developed for a range of cell lines including BALB/c 3T3 cells, HepG2, HepaRG, lung A459 cells, and cardiomyocytes. The model can be used to design and refine in vitro experiments and extrapolate in vitro effective concentrations to in vivo doses that can be applied in risk assessment. In this paper, we first discuss potential applications of the VCBA: i) design of in vitro High Throughput Screening (HTS) experiments; ii) hazard identification (based on acute systemic toxicity); and iii) risk assessment. Further extension of the VCBA is discussed in the second part, exploring potential application to i) manufactured nanomaterials, ii) additional cell lines and endpoints, and considering iii) other opportunities.
+---
+
+---
+DOI: 10.1101/2025.02.07.637070
+Title: A perturbation proteomics-based foundation model for virtual cell construction
+Year: 2025
+Abstract: Abstract Building a virtual cell requires comprehensive understanding of protein network dynamics of a cell which necessitates large-scale perturbation proteome data and intelligent computational models learned from the proteome data corpus. Here, we generate a large-scale dataset of over 38 million perturbed protein measurements in breast cancer cell lines and develop a neural ordinary differential equation-based foundation model, namely ProteinTalks. During pretraining, ProteinTalks gains a fundamental understanding of cellular protein network dynamics. Our model encodes protein networks and exhibits consistently improved predictive accuracy across various downstream tasks, highlighting its generalization capabilities and adaptability. In cancer cells, ProteinTalks robustly predicts drug efficacy and synergy, identifies novel drug combinations, and, through its interpretability, uncovers resistance-associated proteins. When applied to more complex system, patient-derived tumor xenografts, ProteinTalks predicts potential responses to drugs. Its integration with clinical patient data enhances the prognosis prediction of breast cancer patients. Collectively, we present a foundational model based on proteome dynamics, offering potential for various downstream applications, including drug discovery, and providing a basis for developing virtual cells.
+---
+
+---
+DOI: 10.1177/02611929221082200
+Title: Extension of the Virtual Cell Based Assay from a 2-D to a 3-D Cell Culture Model
+Year: 2022
+Abstract: Prediction of chemical toxicity is very useful in risk assessment. With the current paradigm shift towards the use of in vitro and in silico systems, we present herein a theoretical mathematical description of a quasi-diffusion process to predict chemical concentrations in 3-D spheroid cell cultures. By extending a 2-D Virtual Cell Based Assay (VCBA) model into a 3-D spheroid cell model, we assume that cells are arranged in a series of concentric layers within the sphere. We formulate the chemical quasi-diffusion process by simplifying the spheroid with respect to the number of cells in each layer. The system was calibrated and tested with acetaminophen (APAP). Simulated predictions of APAP toxicity were compared with empirical data from in vitro measurements by using a 3-D spheroid model. The results of this first attempt to extend the VCBA model are promising — they show that the VCBA model simulates close correlation between the influence of compound concentration and the viability of the HepaRG 3-D cell culture. The 3-D VCBA model provides a complement to current in vitro procedures to refine experimental setups, to fill data gaps and help in the interpretation of in vitro data for the purposes of risk assessment.
+---
+
+---
+DOI: 10.1016/j.jbc.2024.105919
+Title: Abstract 1497 Development and Evaluation of an Immersive and Interactive Virtual Cell Culture Training for Accessible Biotechnology
+Year: 2024
+Abstract: This study explores the design and assessment of an interactive and immersive 3D browser-based virtual mammalian cell culture simulation created to replace or supplement traditional in-person laboratories. Unique to the virtual labs, users are afforded the ability to make independent decisions that drive laboratory outcomes within the virtual environment, thus closely recapitulating the in-person experience while also providing technical feedback. In the fall and spring of 2022, four sections of an upper-level, dual enrollment undergraduate/graduate course in biotechnology tested the simulation that supplemented existing face-to-face cell culture labs focused on sterile mammalian cell culture techniques. Using a qualitative study design, consenting students were surveyed on their perceptions of the simulation and user experience immediately after the virtual lab (n=87 fall, n=96 spring) as well as at the conclusion of the course (n=73 fall, n=74 spring). Seventy-three percent of students surveyed felt the virtual simulation had clear connections to real-world applications and 57% of students agreed that it aided in their understanding of cell culture experiments. Moreover, by the end of the course more than half of students agreed that the virtual experience was realistic and required critical thinking, drawing connections between their existing and new knowledge. These data suggest that the interactive and immersive cell culture simulation may serve as a useful tool in courses such as biochemistry or chemical biology laboratories where expertise in mammalian cell culture techniques is required. Additionally, the virtual experience lowers accessibility barriers to skills training for students who may not be able to participate in traditional labs or at institutions where cost, infrastructure and expertise are prohibitive. This work was funded by BioMADE and an NC State University DELTA grant.
+---
+
+---
+DOI: 10.1038/s41576-026-00940-8
+Title: Revisiting the blueprint for an interpretable virtual cell
+Year: 2026
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.7551/978-0-262-33936-0-ch090
+Title: Eukaryo: An Agent-based, Interactive Simulation of a Eukaryotic Cell
+Year: 2016
+Abstract: Eukaryo is a 3D, interactive simulation of a eukaryotic cell. In comparison to existing cell simulations, our model illustrates the structures and processes within a biological cell with increased fidelity and a higher degree of real-time interactivity using a virtual reality environment. Implemented in a game engine, Eukaryo is a hybrid model that combines agent-based and mathematical modelling. Through the use of visual scripting, Eukaryo incorporates both agent-based modelling and mathematical representations to describe gene expression, energy production and waste removal within the cell in a highly visual, interactive simulation environment. With the help of virtual reality displays, users can be immersed in the crowded spaces of biomolecular worlds and observe metabolic reactions at a high level of detail. Compared to traditional media, such as illustrations and videos, Eukaryo offers superior representations of cellular architecture, its components and dynamics of the machineries of life.
+---
+
+---
+DOI: 10.1371/journal.pcbi.1009097
+Title: Agent-based modeling of the central amygdala and pain using cell-type specific physiological parameters
+Year: 2021
+Abstract: The amygdala is a brain area involved in emotional regulation and pain. Over the course of the last 20 years, multiple researchers have studied sensory and motor connections within the amygdala in trying to understand the ultimate role of this structure in pain perception and descending control of pain. A number of investigators have been using cell-type specific manipulations to probe the underlying circuitry of the amygdala. As data have accumulated in this research space, we recognized a critical need for a single framework to integrate these data and evaluate emergent system-level responses. In this manuscript, we present an agent-based computational model of two distinct inhibitory neuron populations in the amygdala, those that express protein kinase C delta (PKC δ ) and those that express somatostatin (SOM). We utilized a network of neural links to simulate connectivity and the transmission of inhibitory signals between neurons. Type-specific parameters describing the response of these neurons to noxious stimuli were estimated from published physiological and immunological data as well as our own wet-lab experiments. The model outputs an abstract measure of pain, which is calculated in terms of the cumulative pro-nociceptive and anti-nociceptive activity across neurons in both hemispheres of the amygdala. Results demonstrate the ability of the model to produce changes in pain that are consistent with published studies and highlight the importance of several model parameters. In particular, we found that the relative proportion of PKC δ and SOM neurons within each hemisphere is a key parameter in predicting pain and we explored model predictions for three possible values of this parameter. We compared model predictions of pain to data from our earlier behavioral studies and found areas of similarity as well as distinctions between the data sets. These differences, in particular, suggest a number of wet-lab experiments that could be done in the future.
+---
+
+---
+DOI: 10.1007/978-3-031-36024-4_20
+Title: Coupling Between a Finite Element Model of Coronary Artery Mechanics and a Microscale Agent-Based Model of Smooth Muscle Cells Through Trilinear Interpolation
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s1465-3249(22)00421-2
+Title: Tissue Engineering, Embryonic, Organ and Other Tissue Specific Stem Cells: Late Breaking Abstract: ELUCIDATION OF CHAIN-MIGRATION MEDIATED JAMMING-UNJAMMING TRANSITION IN CORNEAL EPITHELIAL CELL SHEET USING AGENT-BASED MODEL
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1145/3518997.3534990
+Title: ACESO: A 3D Agent-Based Simulation of the Interaction Between Immune and Tumor Cells
+Year: 2022
+Abstract: Immunotherapy consists of assisting or augmenting the immune system to prevent or treat diseases and has shown great promise in improving upon the conventional methods of treating cancer, namely radiation therapy, chemotherapy, and surgery [2]. However, conducting preclinical studies in this field can take months to years and often require costly equipment and training to execute. Researchers have used in-silico methods to reduce the time to conduct these studies, computationally exploring many different experimental configurations in a fraction of the time needed in a wet lab [1]. A common method used to describe the interaction of the immune system with tumor cells is through ordinary and partial differential equations of the evolution in the populations, but these top-down approaches often cannot capture the necessary detail required to understand the dynamics that operate at the cellular level [3]. Appropriately, studies that approach these systems from the bottom-up, particularly agent-based simulations, have shown success in capturing the dynamics of cell-to-cell interactions [4].
+---
+
+---
+DOI: 10.1109/bibe.2019.00170
+Title: Investigating Motility and Pattern Formation in Pluripotent Stem Cells Through Agent-Based Modeling
+Year: 2019
+Abstract: Understanding and predicting the pattern formation in groups of pluripotent stem cells has the potential to improve efficiency and efficacy of stem cell therapies. However, the underlying molecular mechanisms of pluripotent stem cell behaviors are highly complex and are currently still not fully understood. A key practical question is whether deep biological modelling of the cells is essential to predict their pattern formation, or whether there is sufficient predictive power in simply modelling their behaviors and interactions at a higher level. This study focuses on the social interactions and behaviors of pluripotent stem cells at a high-level to predict aggregate crowd behaviors within a level of uncertainty. Agent-based modelling was applied to study the pattern formation in pluripotent stem cells. Five models were established to test four biologically plausible rules of cell motility in terms of: a) velocity, b) directional persistence time, c) directional movements, and d) border effect. We found that it is possible that cells' directional movements based on local density play an important role of the pattern formation, and pattern formation in pluripotent stem cells is governed by a complex combination of rules in our agent-based model simulations, which account for much of the variability observed in experimental findings.
+---
+
+---
+DOI: 10.3389/fmolb.2021.732079
+Title: Understanding Metabolic Flux Behaviour in Whole-Cell Model Output
+Year: 2021
+Abstract: Whole-cell modelling is a newly expanding field that has many applications in lab experiment design and predictive drug testing. Although whole-cell model output contains a wealth of information, it is complex and high dimensional and thus hard to interpret. Here, we present an analysis pipeline that combines machine learning, dimensionality reduction, and network analysis to interpret and visualise metabolic reaction fluxes from a set of single gene knockouts simulated in the Mycoplasma genitalium whole-cell model. We found that the reaction behaviours show trends that correlate with phenotypic classes of the simulation output, highlighting particular cellular subsystems that malfunction after gene knockouts. From a graphical representation of the metabolic network, we saw that there is a set of reactions that can be used as markers of a phenotypic class, showing their importance within the network. Our analysis pipeline can support the understanding of the complexity of in silico cells without detailed knowledge of the constituent parts, which can help to understand the effects of gene knockouts and, as whole-cell models become more widely built and used, aid genome design.
+---

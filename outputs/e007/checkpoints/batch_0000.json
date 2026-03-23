@@ -1,0 +1,119 @@
+{
+  "batch_index": 0,
+  "dois": [
+    "10.1093/bioinformatics/bty766",
+    "10.1038/s41467-022-28467-6",
+    "10.7554/elife.34789",
+    "10.1016/j.patter.2022.100434",
+    "10.1093/nar/gkaa725",
+    "10.1038/s41467-020-14545-0",
+    "10.1109/tbme.2016.2560762",
+    "10.1088/1367-2630/aa5483",
+    "10.1371/journal.pone.0218738",
+    "10.3389/fbioe.2020.00249"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1093/bioinformatics/bty766",
+      "problem": "Multicellular biological systems require models integrating cell signalling, population behaviour, and the extracellular environment, but existing tools do not bridge intracellular Boolean signalling with agent-based multicellular modelling.",
+      "method": "Combined Boolean modelling (MaBoSS) for intracellular signalling with agent-based modelling (PhysiCell) using OpenMP parallelization and BioFVM diffusion solver, simulating off-lattice cells as soft spheres in 2D/3D.",
+      "finding": "PhysiBoSS bridges single-cell genotype to emergent multicellular behaviour; demonstrated heterogeneous cell fate decisions under TNF treatment and showed spatial resource competition (oxygen) critically influences population dynamics.",
+      "dataset": "Simulated tumour cell populations with TNF-induced cell fate Boolean model (Calzone et al. 2010)",
+      "metric": "Cell fate ratios (survival/apoptosis/NonACD), population dynamics over time",
+      "baseline": "MaBoSS isolated-cell simulations (Calzone et al. 2010)",
+      "result": "Scales to 10^5–10^6 cells; hours of compute for thousands of cells over several simulated days"
+    },
+    {
+      "doi": "10.1038/s41467-022-28467-6",
+      "problem": "The nature of cellular constraints driving metabolic rewiring in compartmentalised eukaryal cells, particularly the Crabtree effect and overflow metabolism in yeast, remains undetermined.",
+      "method": "Comprehensive proteome-constrained genome-scale metabolic model (pcYeast) of S. cerevisiae coupling metabolic fluxes to enzyme synthesis/degradation with compartment-specific protein pool constraints and growth rate maximisation; validated with chemostat and batch experiments.",
+      "finding": "Under glucose limitation a mitochondrial protein constraint triggers ethanol formation (Crabtree effect); under sugar excess a cytosolic volume constraint dictates overflow metabolism. Active constraints are condition-dependent.",
+      "dataset": "S. cerevisiae CEN.PK 113-7D, chemostats at D=0.2–0.34 h⁻¹, ~3000 proteins quantified by label-free proteomics",
+      "metric": "Growth rate (h⁻¹), metabolic fluxes (mmol/gDW/h), proteome mass fractions",
+      "baseline": "Previous enzyme-constrained GEMs (GECKO, FBAwMC)",
+      "result": "Correctly predicted mCherry overexpression growth rate reduction; identified distinct mitochondrial vs cytosolic constraints at critical dilution rate"
+    },
+    {
+      "doi": "10.7554/elife.34789",
+      "problem": "Whether a head-restrained mouse virtual reality system permitting horizontal rotations can reproduce the 2D spatial firing patterns of place, grid, and head-direction cells characteristic of real open arenas.",
+      "method": "Novel VR system with air-supported Styrofoam ball, 4 LCD screens + 2 projectors, and tetrode electrophysiology from hippocampal CA1 and entorhinal cortex; compared spatial firing properties between VR and matched real environment.",
+      "finding": "Place and grid cells fired with ~1.4× broader spatial tuning in VR; place cells were more directional in VR; theta-speed relationship was reduced; but firing rate–speed modulation and theta phase precession were similar between VR and real.",
+      "dataset": "231 CA1 cells from 7 mice (179 place cells in real, 185 in VR, 154 in both); 11 mice total",
+      "metric": "Spatial information (bits/spike), spatial tuning width, directional selectivity, theta frequency, phase precession slope",
+      "baseline": "Real environment (60×60 cm square arena)",
+      "result": "Spatial scale ~1.4× larger in VR vs real; fading-beacon task learned within 2–3 weeks (p<0.001, F(3,30)=39.03)"
+    },
+    {
+      "doi": "10.1016/j.patter.2022.100434",
+      "problem": "Systematic gene knockout experiments are prohibitively expensive; a computational virtual KO tool is needed to infer gene function from single-cell RNA-seq data without requiring KO samples.",
+      "method": "scTenifoldKnk constructs a gene regulatory network from wild-type scRNA-seq via principal component regression and tensor decomposition, virtually deletes a target gene, then uses manifold alignment to identify differentially regulated genes.",
+      "finding": "Virtual KO analysis recapitulates main findings of three real in vivo KO experiments (Nkx2-1, Klf5, Foxl1) and recovers expected gene functions in relevant cell types using only wild-type data.",
+      "dataset": "Mouse lung epithelial cells (2,312 WT cells, Nkx2-1 KO), mouse intestinal cells (Klf5, Foxl1 KO studies)",
+      "metric": "Gene set enrichment analysis (GSEA), differentially regulated (DR) gene overlap",
+      "baseline": "Real in vivo KO experiments with scRNA-seq + bulk RNA-seq + ChIP-seq + immunostaining",
+      "result": "Overall consistency across 3 KO validations; DR genes enriched for expected biological functions (AT1/AT2 markers, gastrointestinal markers)"
+    },
+    {
+      "doi": "10.1093/nar/gkaa725",
+      "problem": "Need integrative tools to identify individual cells making transitions between states, infer transition-driving genes, and uncover the role of intermediate cell states (ICS) in epithelial-to-mesenchymal transition.",
+      "method": "QuanTC: unsupervised learning combining consensus clustering, NMF soft clustering, and Cell Plasticity Index (CPI) with multiscale agent-based stochastic modelling of a core EMT gene regulatory network.",
+      "finding": "ICS-mediated transition trajectories attenuate noise and enhance signal adaptation in EMT; cancer EMT strengthens adaptation while embryogenesis EMT favours effective population transition toward mesenchymal states.",
+      "dataset": "12 published single-cell EMT datasets in cancer and embryogenesis (including SCC, A549 lung cancer)",
+      "metric": "Cell Plasticity Index (CPI), Spearman's rank correlation (threshold 0.64), transition efficiency",
+      "baseline": "Monocle 3 pseudotime inference, direct clustering methods",
+      "result": "QuanTC distinguishes transition cells with higher resolution than Monocle 3; reveals trade-off between adaptation, noise attenuation, and transition efficiency"
+    },
+    {
+      "doi": "10.1038/s41467-020-14545-0",
+      "problem": "Computational tools for genome design are scarce; algorithms are needed to enable design-simulate-test cycles for genome minimisation using whole-cell models.",
+      "method": "Two algorithms—Minesweeper (divide-and-conquer) and GAMA (biased genetic algorithm)—iteratively delete genes from the M. genitalium whole-cell model, simulating cell division as the functional assay.",
+      "finding": "Discovered in silico minimal genomes smaller than JCVI-Syn3.0; identified 10 low essential genes and evidence for at least two distinct M. genitalium in silico minimal genomes.",
+      "dataset": "M. genitalium whole-cell model (401 genes, 359 protein-coding)",
+      "metric": "Genome size (gene count), cell division (binary pass/fail), replicate consistency (10 replicates)",
+      "baseline": "JCVI-Syn3.0 (473 genes), previous reduced Mycoplasma predictions (413 genes)",
+      "result": "Minesweeper_256 (36% reduction), GAMA_237 (41% reduction); 58,071 total genomes simulated"
+    },
+    {
+      "doi": "10.1109/tbme.2016.2560762",
+      "problem": "Whole-cell modelling lacks community standards and software tools, hindering construction and sharing of comprehensive computational cell models.",
+      "method": "Organised the 2015 Whole-Cell Modeling Summer School to evaluate needs by recoding the M. genitalium whole-cell model in SBML; conducted community discussions to identify gaps.",
+      "finding": "Identified critical needs: high-performance parallel simulator supporting SBML Multistate/Spatial packages, model design software, data curation tools, and extended SBGN for hybrid diagrams.",
+      "dataset": "M. genitalium whole-cell model (Karr et al. 2012)",
+      "metric": "",
+      "baseline": "Existing SBML standards and Karr et al. whole-cell model implementation",
+      "result": ""
+    },
+    {
+      "doi": "10.1088/1367-2630/aa5483",
+      "problem": "The mechanisms by which type IV pili govern formation and dynamics of Neisseria gonorrhoeae microcolonies—from single-cell motility to colony self-assembly—are poorly understood.",
+      "method": "Agent-based model with explicit pili dynamics, force generation, and pili-pili interactions; Langevin-type equations for cell motion driven by pili retraction forces on surfaces and between cells.",
+      "finding": "Pili-generated forces are central to colony formation; model reproduces bimodal velocity distributions, persistent motion, and colony merging dynamics consistent with experimental observations.",
+      "dataset": "N. gonorrhoeae microcolonies (simulated single cells to multi-colony aggregates)",
+      "metric": "Cell velocity distribution, velocity autocorrelation function (double-exponential fit), colony merging dynamics",
+      "baseline": "Available experimental observations of N. gonorrhoeae surface motility and colony formation",
+      "result": "Single-pilus peak velocity ~2 μm/s; short correlation time τ₁~0.1s, long persistence τ₂~seconds; agreement with experiments"
+    },
+    {
+      "doi": "10.1371/journal.pone.0218738",
+      "problem": "Refined biophysical models of C. elegans neuron dynamics are needed to describe electrophysiological processes at cellular and network scales, given the fully mapped nervous system.",
+      "method": "Hodgkin-Huxley-based models of 15 ion channel types fitted to C. elegans and homologous organism data, combined into whole-cell models of AWCon (chemosensory) and RMD (motor) neurons with intracellular calcium dynamics.",
+      "finding": "Model reproduces regenerative responses of both neurons; RMD exhibits heterogeneous dynamics including bistable regimes and sustained oscillations, critically regulated by CCA-1 T-type calcium and leakage currents.",
+      "dataset": "C. elegans neurons AWCon and RMD (electrophysiology data from C. elegans and homologous organisms)",
+      "metric": "Peak/steady-state current amplitudes, activation/inactivation time constants (least-squares nonlinear fitting)",
+      "baseline": "Experimental voltage-clamp recordings from C. elegans and heterologous expression systems",
+      "result": "Reproduced regenerative responses; identified bistable and oscillatory regimes in RMD via CCA-1 and leak current modulation"
+    },
+    {
+      "doi": "10.3389/fbioe.2020.00249",
+      "problem": "Rules-based models are needed to explain non-intuitive emergent behaviour of heterogeneous cell populations in dynamic microenvironments, encouraging computational-experimental collaboration.",
+      "method": "ARCADE: multi-scale agent-based model in Java/MASON with interface-based extensible framework incorporating intracellular metabolism (Michaelis-Menten) and signalling (PLCγ) modules for cell agents in hexagonal grid environments.",
+      "finding": "Emergent behaviour differs between colony and tissue contexts; parameter variation produces linear, non-linear, and multimodal effects on co-culture competition; cell and population heterogeneity variably impact outcomes.",
+      "dataset": "Simulated tissue cell populations (healthy, cancerous, cancer stem cell subtypes)",
+      "metric": "Growth dynamics, population cell counts, spatial distribution over 14-day simulations",
+      "baseline": "Literature-derived parameters with no additional fitting",
+      "result": "14-day simulation runs in 5–10 min CPU; biologically realistic growth dynamics without parameter fitting"
+    }
+  ],
+  "timestamp": "2026-03-05T14:07:59.382052",
+  "extraction_count": 10
+}

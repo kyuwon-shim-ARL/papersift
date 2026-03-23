@@ -1,0 +1,119 @@
+{
+  "batch_index": 58,
+  "dois": [
+    "10.1084/jem.20081829",
+    "10.1038/srep42717",
+    "10.1186/s13059-017-1382-0",
+    "10.1038/ncomms14049",
+    "10.1371/journal.pcbi.1002061",
+    "10.1038/msb.2011.65",
+    "10.1371/journal.pcbi.1000694",
+    "10.1371/journal.pcbi.1002970",
+    "10.1371/journal.pcbi.1000312",
+    "10.1093/bioinformatics/btp352"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1084/jem.20081829",
+      "problem": "Whether the unprimed antigen-specific CD8+ T cell repertoire contains memory phenotype cells, and how such cells arise in the absence of prior immunization.",
+      "method": "MHC class I tetramer staining with anti-PE magnetic bead enrichment to isolate antigen-specific CD8+ T cells from unprimed mice, flow cytometry phenotyping, adoptive transfer into RAG-/- hosts, and analysis in germ-free mice.",
+      "finding": "The unprimed CD8+ T cell repertoire contains 'virtual memory' (VM) CD44hi cells specific for foreign antigens, arising via homeostatic proliferation rather than microbial exposure, with rapid proliferation and IFN-γ production capacity distinct from naive CD44lo counterparts.",
+      "dataset": "C57BL/6J mice, germ-free C57BL/6J mice, RAG-/- OT-1 and gBT1 TCR transgenic mice; OVA-Kb, B8R-Kb, gB-Kb specificities",
+      "metric": "percentage of tetramer+ cells that are CD44hi, absolute cell counts per mouse",
+      "baseline": "CD44lo naive phenotype counterparts within the same antigen-specific population",
+      "result": "~10-25% of antigen-specific CD8+ T cells in unprimed mice are CD44hi VM phenotype (varies by specificity)"
+    },
+    {
+      "doi": "10.1038/srep42717",
+      "problem": "Need for freely accessible, rapid computational prediction of ADME properties, drug-likeness, and medicinal chemistry friendliness of small molecules during early drug discovery when physical samples are limited.",
+      "method": "Web tool integrating predictive models including BOILED-Egg (GI absorption and BBB permeation), iLOGP (lipophilicity), Bioavailability Radar, ESOL solubility, and drug-likeness filters (Lipinski, Ghose, Veber, Egan, Muegge), built with Python 2.7 backend and OpenBabel/JChem.",
+      "finding": "SwissADME provides free, login-free access to a comprehensive suite of validated ADME prediction models with user-friendly interface, interoperable with other SwissDrugDesign web tools for end-to-end drug discovery support.",
+      "dataset": "user-submitted small molecules (SMILES input)",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/s13059-017-1382-0",
+      "problem": "Existing single-cell gene expression analysis tools lack scalability to datasets exceeding one million cells and a unified Python-based framework integrating preprocessing through trajectory inference.",
+      "method": "Python toolkit built on AnnData (HDF5-backed annotated data matrices) integrating preprocessing, t-SNE/graph-drawing/diffusion map visualization, Louvain clustering, differential expression testing, and diffusion pseudotime for trajectory inference.",
+      "finding": "Scanpy achieves 5-16x speedup over Cell Ranger R kit and 5-90x over Seurat per analysis step, enabling analysis of 1.3 million cells without subsampling in a few hours on 8 cores, with interactive runtimes for ~100k cells.",
+      "dataset": "68,579 PBMCs, 2,700 PBMCs, 1.3 million mouse brain cells (E18, 10x Genomics)",
+      "metric": "runtime speedup per analysis step, scalability (max cells analyzed)",
+      "baseline": "Cell Ranger R kit, Seurat",
+      "result": "5-16x speedup vs Cell Ranger, 5-90x vs Seurat; 1.3M cells analyzed in hours on 8 cores"
+    },
+    {
+      "doi": "10.1038/ncomms14049",
+      "problem": "Existing single-cell RNA-seq methods lack throughput, speed, and efficiency for profiling tens of thousands of cells per sample, and cannot resolve host-donor chimerism at single-cell resolution without prior genotype information.",
+      "method": "GemCode droplet-based scRNA-seq with gel bead barcoding in 8-channel microfluidic chip (~100k GEMs per channel in ~6 min), UMI-based 3' mRNA counting, and de novo SNV calling from transcriptome data for genotype-based cell classification.",
+      "finding": "System achieves ~50% cell capture efficiency, profiled ~250k cells across 29 samples; SNV-based genotype method detects minor populations as low as 3% from mixed transcriptome data without prior genotype knowledge.",
+      "dataset": "293T and 3T3 cell lines, synthetic ERCC RNAs, 68k PBMCs, bone marrow mononuclear cells from HSCT patients",
+      "metric": "cell capture efficiency, sensitivity, positive predictive value (PPV)",
+      "baseline": "existing droplet-based scRNA-seq (Drop-seq, inDrop)",
+      "result": "~50% cell capture, ~80% GEM fill rate, >95% sensitivity and PPV for minor genotypes ≥3%"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1002061",
+      "problem": "No existing human ventricular action potential model accurately uses undiseased human data and reproduces the full range of physiological behaviors including early afterdepolarizations (EADs) and alternans critical for arrhythmia studies.",
+      "method": "Hodgkin-Huxley style ionic model formulated with new undiseased human ventricular data separating Ca2+-dependent from voltage-dependent ICaL inactivation, validated against AP morphology, APD rate dependence, restitution, and Ca2+ transients, with CaMK modulation of Ca2+ cycling.",
+      "finding": "Model reproduces experimental AP morphology, APD rate dependence, and restitution; generates EADs under IKr block during slow pacing and AP/Ca2+ alternans at >200 bpm. CaMK suppression or SERCA upregulation eliminates alternans; INaCa links Ca2+ alternation to AP alternans.",
+      "dataset": "undiseased human ventricular myocytes and tissue from 140 donor hearts (56% male, age 41±12 years)",
+      "metric": "APD rate dependence, restitution curves, Ca2+ transient peak and decay, [Na+]i rate dependence",
+      "baseline": "TP model, GB model, Priebe-Beuckelmann model, Iyer model",
+      "result": "First human model to reproduce both EADs and alternans (>200 bpm); predecessors failed on one or both"
+    },
+    {
+      "doi": "10.1038/msb.2011.65",
+      "problem": "The genome-scale metabolic reconstruction of E. coli K-12 MG1655 needed updating with new genomic and biochemical knowledge and experimental validation of gene essentiality predictions.",
+      "method": "Constraint-based modeling (FBA) with experimental phenotypic screening of 1,075 Keio Collection gene knockout strains on glucose/lactate/succinate under aerobic/anaerobic conditions, GapFind gap analysis, and comparative genomic mapping to all sequenced E. coli strains.",
+      "finding": "iJO1366 accounts for 1,366 genes, 2,251 reactions, and 1,136 unique metabolites; accurately predicts growth phenotypes for knockout strains; mapping to sequenced E. coli genomes identified hundreds of unannotated genes in pathogenic strains.",
+      "dataset": "E. coli K-12 MG1655, Keio Collection (1,075 knockouts), all available sequenced E. coli genomes",
+      "metric": "growth/no-growth prediction accuracy (gene essentiality), growth threshold <5% of wild-type",
+      "baseline": "iAF1260/iAF1260b predecessor reconstruction",
+      "result": "1,366 genes (107 new), 2,251 reactions, 1,136 metabolites; accurate essentiality predictions across 4 conditions"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1000694",
+      "problem": "Whether macromolecular behavior observed in vitro accurately reflects in vivo behavior, and whether simple excluded-volume crowding models are sufficient to explain intracellular effects on protein stability and diffusion.",
+      "method": "Atomically detailed Brownian dynamics simulation of E. coli cytoplasm containing 50 most abundant macromolecule types (1,008 molecules, 275 g/L), calibrated to in vivo GFP diffusion (FRAP data), with steric, electrostatic, and short-range hydrophobic interaction models.",
+      "finding": "Steric-only crowding models overestimate GFP diffusion 3-6x relative to experiment; short-range hydrophobic (quinary) interactions are essential for reproducing in vivo diffusion and protein thermodynamic stabilities. Effects beyond simple crowding must be considered.",
+      "dataset": "E. coli cytoplasmic proteome (Link et al., 50 most abundant macromolecules), in vivo GFP FRAP data",
+      "metric": "translational diffusion coefficient (DLtrans), thermodynamic stability (ΔΔG of folding/association)",
+      "baseline": "steric-only excluded volume crowding model",
+      "result": "Steric-only model: DLtrans 3-6x too high; full model with ε≈0.1 kcal/mol reproduces experimental GFP diffusion"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1002970",
+      "problem": "Researchers in computational physiology and biology repeatedly re-implement common components (meshes, ODE/PDE solvers), slowing progress; need for a reliable, open-source, tested simulation framework.",
+      "method": "Open source C++ library (BSD licence) with modules for cell-based simulations (on-lattice cellular automata/Potts, off-lattice centre/vertex), cardiac electrophysiology (monodomain/bidomain), ODE/PDE solvers, developed using test-driven development and continuous integration.",
+      "finding": "Chaste has enabled high-performance defibrillation studies on realistic human cardiac geometries and novel insights into stem cell dynamics in colorectal crypts; its modular design accelerates new applications across physiology and biology.",
+      "dataset": "human cardiac geometries, colorectal crypt models, tumour spheroid models",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1000312",
+      "problem": "Metabolic network reconstructions do not explicitly account for macromolecular synthesis; a genome-scale reconstruction of E. coli's transcriptional and translational machinery is needed to enable quantitative omics data integration.",
+      "method": "Constraint-based modeling of the 'E-matrix' (12,766 reactions, 423 gene products) reconstructed from >500 publications and 3 databases using template-based reaction formulation in Perl, with gene expression data integrated as flux constraints via FBA.",
+      "finding": "Model accurately predicted ribosome production without parameterization; in silico rRNA operon deletion showed high RNA polymerase density is needed on remaining operons to maintain ribosome numbers; functional protein modules span multiple subsystems.",
+      "dataset": "E. coli K-12 MG1655 (genome m56, EcoCyc v10.6)",
+      "metric": "ribosome production rate, functional module composition, gene expression constraint satisfaction",
+      "baseline": "",
+      "result": "Predicted ribosome numbers match experimental data without parameterization; 303 components across 26 subsystems"
+    },
+    {
+      "doi": "10.1093/bioinformatics/btp352",
+      "problem": "Need for a generic, compact, and efficient alignment format supporting diverse sequencing platforms and read lengths, with universal post-processing tools for downstream analysis.",
+      "method": "SAM/BAM format specification with extended CIGAR notation (supporting splicing, clipping, padding), positional sorting, BGZF-based indexing for random access; SAMtools implements indexing, variant calling, pileup generation, and alignment viewing.",
+      "finding": "SAM/BAM format with SAMtools enables modular, stream-based processing of genomic alignments without loading entire files into memory; adopted as the standard format for the 1000 Genomes Project.",
+      "dataset": "1000 Genomes Project read alignments",
+      "metric": "",
+      "baseline": "",
+      "result": "supports reads up to 128 Mbp, random access via BAM indexing"
+    }
+  ],
+  "timestamp": "2026-03-05T14:36:41.314264",
+  "extraction_count": 10
+}

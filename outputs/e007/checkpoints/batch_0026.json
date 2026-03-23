@@ -1,0 +1,119 @@
+{
+  "batch_index": 26,
+  "dois": [
+    "10.1186/1479-5876-11-74",
+    "10.3389/fphys.2017.00616",
+    "10.1038/s41467-019-14018-z",
+    "10.1038/nbt.1711",
+    "10.1186/s13059-017-1349-1",
+    "10.1371/journal.pone.0191838",
+    "10.1038/s41467-023-37844-8",
+    "10.1038/s41467-018-05896-w",
+    "10.1038/s41587-022-01612-8",
+    "10.1002/sctm.20-0453"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1186/1479-5876-11-74",
+      "problem": "Predicting and designing effective cell penetrating peptides",
+      "method": "SVM-based models using amino acid composition features",
+      "finding": "High accuracy prediction of cell penetrating peptides",
+      "dataset": "708 peptides",
+      "metric": "accuracy",
+      "baseline": "existing methods",
+      "result": "97.40%"
+    },
+    {
+      "doi": "10.3389/fphys.2017.00616",
+      "problem": "Drug-induced Torsade-de-Pointes prediction",
+      "method": "Optimized IKr-dynamic ORd cardiac model",
+      "finding": "Improved cardiac safety pharmacology predictions",
+      "dataset": "",
+      "metric": "ROC",
+      "baseline": "original model",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41467-019-14018-z",
+      "problem": "Low observation numbers in biomedical research",
+      "method": "scGAN for generating realistic scRNA-seq data",
+      "finding": "GANs produce realistic single-cell RNA-seq data",
+      "dataset": "68,579 PBMCs",
+      "metric": "correlation",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/nbt.1711",
+      "problem": "Modeling metabolic interactions between multiple cell types",
+      "method": "Multi-cell type constraint-based metabolic reconstruction",
+      "finding": "Omics-driven mechanistic models of brain metabolism",
+      "dataset": "brain cell types",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/s13059-017-1349-1",
+      "problem": "Deconvolution of complex tissue cell type composition",
+      "method": "Gene signature compendium from FANTOM5 and other sources",
+      "finding": "Cell type gene signatures for tissue deconvolution",
+      "dataset": "39 cell types",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pone.0191838",
+      "problem": "In silico phenotypic screening of anticancer agents",
+      "method": "PASS activity spectrum prediction from chemical structure",
+      "finding": "SAR models for cell line cytotoxicity prediction",
+      "dataset": "59,882 compounds",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41467-023-37844-8",
+      "problem": "Cell type identification from in vivo electrophysiology",
+      "method": "EAP waveform analysis with biophysical models",
+      "finding": "Cell type classification from extracellular recordings",
+      "dataset": "24 neurons",
+      "metric": "specificity",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41467-018-05896-w",
+      "problem": "Modeling nanoscopic astroglial processes and calcium signaling",
+      "method": "Stochastic generation of realistic astrocyte morphology",
+      "finding": "Stem tree reconstruction of live astroglia",
+      "dataset": "13 cells",
+      "metric": "correlation",
+      "baseline": "",
+      "result": "35%"
+    },
+    {
+      "doi": "10.1038/s41587-022-01612-8",
+      "problem": "Predicting cell-type-specific chromatin organization",
+      "method": "C.Origami multimodal deep learning architecture",
+      "finding": "Accurate prediction of 3D chromatin organization",
+      "dataset": "90 cell types",
+      "metric": "ROC",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1002/sctm.20-0453",
+      "problem": "Scaling hPSC expansion in stirred tank bioreactors",
+      "method": "Instrumented bioreactor with in silico process modeling",
+      "finding": "pH control improves hPSC yield 2-fold",
+      "dataset": "hPSC cultures",
+      "metric": "F1",
+      "baseline": "pH uncontrolled",
+      "result": "75%"
+    }
+  ],
+  "timestamp": "2026-03-09T01:53:16.080356",
+  "extraction_count": 10
+}

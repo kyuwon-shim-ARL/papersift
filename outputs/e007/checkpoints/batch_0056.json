@@ -1,0 +1,119 @@
+{
+  "batch_index": 56,
+  "dois": [
+    "10.3390/molecules27061766",
+    "10.1371/journal.pone.0100702",
+    "10.1038/s41467-019-13726-w",
+    "10.3389/fgene.2021.652974",
+    "10.3390/biomimetics7010015",
+    "10.1098/rsfs.2016.0036",
+    "10.1371/journal.pone.0070304",
+    "10.1016/j.chaos.2020.110092",
+    "10.1038/s41598-019-47381-4",
+    "10.7554/elife.73031"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3390/molecules27061766",
+      "problem": "Developing a computational model to predict mucin-type O-linked glycan biosynthesis pathways in CHO cells transfected with various glycosyltransferase combinations.",
+      "method": "ODE-based kinetic modeling using GlycoSim (XML) and COPASI simulator with Evolution Strategy (SRES) parameter estimation and LSODA deterministic time-course simulations.",
+      "finding": "The optimized model accurately predicted highly processed glycan abundances but was less accurate for early-pathway structures; a combined multi-experiment model could not accurately predict all glycome profiles, suggesting additional factors (Golgi pH, hypoxia) need incorporation.",
+      "dataset": "CHO-K1 cells, 25 glycosyltransferase combinations, PSGL-1/mIgG2b with 53+ O-glycosylation sites",
+      "metric": "Simulated vs observed glycan abundance (concentration at TGN compartment), standard deviation weighting",
+      "baseline": "Experimental glycan profiles from mass spectrometry (intensity-adjusted for charged glycans: 0.3x singly, 0.4x doubly charged)",
+      "result": "Per-experiment model closely matched experimental data; combined 4-experiment model showed discrepancies across conditions"
+    },
+    {
+      "doi": "10.1371/journal.pone.0100702",
+      "problem": "Understanding the dynamic interplay between cadherin-mediated cell adhesion and Wnt signaling pathway through the balance of β-catenin distributions.",
+      "method": "Network model decomposed into three modules (cell adhesion, degradation circle, transcriptional regulation) using stochastic simulations with calibrated kinetic parameters from experimental measurements.",
+      "finding": "Cell adhesion affects Wnt signaling both negatively (sequestering β-catenins, slowing release from membrane destruction complexes) and positively (cadherin clustering increases β-catenin phosphorylation rate promoting nuclear signaling); cadherin switch and Axin oscillation phenomena were reproduced.",
+      "dataset": "Parameterized from multiple cell lines, subcellular system at 2.5% cell volume (~10^-12 L), 30 initial free ABC molecules",
+      "metric": "Semi-quantitative accuracy reproducing experimental kinetic responses (β-catenin fold changes, phosphorylation dynamics)",
+      "baseline": "Experimental measurements: β-catenin 6-fold increase under Wnt, GSK3-phosphorylated β-catenin recovery in 2hr, CK1-phosphorylated 3-fold increase",
+      "result": "Qualitatively reproduced 5 key experimental kinetic phenomena with semi-quantitative accuracy"
+    },
+    {
+      "doi": "10.1038/s41467-019-13726-w",
+      "problem": "Investigating whether exploratory adaptation explains how glioblastoma cells from different tumor anatomic regions cope with micro-environmental pressures and achieve phenotypic diversity.",
+      "method": "Dynamical model simulating gene regulatory network perturbations (4121 nodes, 78,686 edges) with pathway activity-based phenotype definitions, using TCGA RNA-Seq (672 gliomas) and Ivy-GAP spatial transcriptomics (270 samples, 41 tumors).",
+      "finding": "Stochastic exploration of regulatory network structure confers adaptive capacity; some phenotypes are inherently plastic while others are rigid; phenotypic paths are constrained to pass through specific spatial-phenotypic ranges even with exploratory capacity.",
+      "dataset": "TCGA LGG+GBM (516 LGG, 156 GBM), Ivy-GAP (122 samples from 10 tumors, 5 anatomic regions), 186 KEGG pathways",
+      "metric": "Phenotype distance (pathway activity vectors), fold change ≥2, -log10 FDR ≥5",
+      "baseline": "Intrinsic phenotypic drift without environmental challenge (control simulation)",
+      "result": "2975 differentially expressed genes identified; demonstrated CT→CTpan, CTpan→LE, CT→CTmvp, CTmvp→LE, CTmvp→IT, CT→LE phenotypic transitions"
+    },
+    {
+      "doi": "10.3389/fgene.2021.652974",
+      "problem": "Reviewing how cell-based computational modeling can integrate single-cell transcriptomic data with morphogenetic models in plants, particularly addressing spatial localization reconstruction.",
+      "method": "Review of cell-based computational modeling approaches (vertex models, cell-centered models) combined with single-cell RNA-seq and cell-resolution imaging techniques for plant morphogenesis.",
+      "finding": "Cell-based computational models can help solve the inverse problem of restoring individual cells' spatial localization from single-cell transcriptomic data; plasmodesmata-mediated cell-to-cell communication topology must be considered in plant scRNA-seq analysis.",
+      "dataset": "Plant tissues (Arabidopsis root tip, various plant organs)",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/biomimetics7010015",
+      "problem": "Reviewing computational modeling approaches to investigate the abnormal biomechanics and biorheology of diabetic red blood cells and their adverse effects on microcirculation in type 2 diabetes.",
+      "method": "Review of multiscale numerical frameworks including dissipative particle dynamics (DPD), transport DPD, coarse-grained RBC models, and coagulation cascade modeling (23 factors, 21 coupled advection-diffusion reaction equations).",
+      "finding": "Diabetic RBCs show reduced deformability, enhanced aggregation, and altered tank-treading dynamics; the area-to-volume (A/V) ratio is a key determinant of RBC traversal across small capillaries; increased flow resistance in diabetic blood exceeds normal blood.",
+      "dataset": "Normal and diabetic RBC models (N-RBC, D-RBC1-3), 3D rectangular microchannel (110×20×20 μm), patient-specific microfluidic experiments",
+      "metric": "Axial/transverse diameter, membrane fluctuation height, cell transition speed, tank-treading frequency",
+      "baseline": "Normal RBC (N-RBC) biomechanical properties",
+      "result": "D-RBC1 and D-RBC2 show faster tank-treading than N-RBC; D-RBC3 exhibits slower rotation; decreased A/V ratio leads to decreased cell transition speed"
+    },
+    {
+      "doi": "10.1098/rsfs.2016.0036",
+      "problem": "Understanding how single cells locally modulate chemoattractant concentrations through membrane-bound enzyme breakdown, enabling chemotaxis in otherwise saturating gradient conditions.",
+      "method": "Bulk-surface computational model extending a pseudopod-centred cell polarization model with extracellular attractant breakdown by membrane-bound phosphodiesterase, parametrized using Dictyostelium/cAMP data.",
+      "finding": "Individual cells can substantially modulate their local attractant field under physiological conditions; membrane-bound enzyme breakdown reduces receptor occupancy from saturating levels to near-Kd concentrations, enabling efficient chemotaxis in otherwise saturating fields.",
+      "dataset": "Dictyostelium cells chemotaxing toward cyclic AMP, Kd=30 nM",
+      "metric": "Receptor occupancy, ligand concentration field, chemotactic efficiency",
+      "baseline": "No-breakdown condition (receptor interaction alone has limited effect on linear ligand field)",
+      "result": "At Vmax=1000 nmoles/10^7 cells/min, receptor occupancy reduced from 95% saturation to Kd-comparable levels (~30 nM)"
+    },
+    {
+      "doi": "10.1371/journal.pone.0070304",
+      "problem": "Quantifying the mechanism by which neuronal growth cones sense and align with nanograting topography through filopodial mechanosensing.",
+      "method": "Synergistic approach combining finite element (FE) stress analysis, closed-form analytic equations, and in silico simulations (CX3D Java environment) to model filopodial interaction with nanogratings.",
+      "finding": "Neuritic terminal geometry and adhesion constraint distribution are key for cell/substrate coupling; analytic equations accurately predicted alignment as a function of ridge width and depth; in silico simulations matched biological experiments.",
+      "dataset": "PC12 cells on nanogratings (periods 1, 1.5, 2 μm) and flat substrate, 323 terminals analyzed",
+      "metric": "R², alignment angle, tortuosity, p-value (Mann-Whitney U test)",
+      "baseline": "Biological experiments on PC12 cells growing on nanogratings and flat substrates",
+      "result": "R²=0.96 (ridge width vs alignment), R²=0.97 (ridge depth vs alignment); no significant difference from biology (alignment p=0.3571, tortuosity p=0.2236)"
+    },
+    {
+      "doi": "10.1016/j.chaos.2020.110092",
+      "problem": "Finding exact traveling wave solutions and validating numerical schemes for the fractional mathematical model of HIV-1 infection of CD4+ T-cells with antiviral drug therapy.",
+      "method": "Three analytical methods (modified Khater, extended simplest equation, sech-tanh) through Atangana-Baleanu fractional derivative, validated numerically via septic-B-spline scheme.",
+      "finding": "The modified Khater method produced the most accurate solutions among the three analytical approaches; septic B-spline is the only B-spline family member applicable to equations with higher order derivative terms.",
+      "dataset": "HIV-1 infection of CD4+ T-cells fractional mathematical model",
+      "metric": "Absolute error between exact and numerical solutions",
+      "baseline": "Exact analytical solutions from modified Khater, extended simplest equation, and sech-tanh methods",
+      "result": "Modified Khater: absolute error ~1.24E-06; extended simplest equation: ~1.25E-09; sech-tanh: ~2.15E-04"
+    },
+    {
+      "doi": "10.1038/s41598-019-47381-4",
+      "problem": "Creating and validating multi-cell computational models that predict collective chemokine, cytokine, and cellular biomarker profiles in inflamed or cancerous tissue microenvironments.",
+      "method": "ODE-based single-cell computational models (using Michaelis-Menten and mass action kinetics) combined into multi-cell models incorporating autocrine/paracrine signaling, with machine learning for parameter estimation.",
+      "finding": "Multi-cell computational models accurately predicted collective biomarker profiles; models became personalized when cell line-specific genomic data were included, correctly predicting MM cell line-specific immunosuppressive effects on dendritic cells.",
+      "dataset": "GE keratinocytes + dendritic cells + helper T lymphocytes; MM cell lines MM.1S and U266B1; 18+ cell type models",
+      "metric": "Prediction accuracy (% matched chemokine/cytokine responses), Fisher's exact test p-value",
+      "baseline": "Observed chemokine/cytokine responses from laboratory multi-cell cultures",
+      "result": "LPS: 75% accuracy (15/20, p=0.02069); Pam3CSK4: 80% (16/20, p=0.005909); MM co-culture: 75% (3/4) cytokine + 100% (6/6) DC marker inhibition"
+    },
+    {
+      "doi": "10.7554/elife.73031",
+      "problem": "Understanding how the BR-induced fast response pathway components at the plasma membrane are sufficient to initiate cellular elongation processes in Arabidopsis root epidermis cells.",
+      "method": "ODE-based mathematical model of BR perception and signaling (4 compartments: cytosol, cell wall, vacuole, PM) combined with HPTS pH measurements and MIFE electrophysiology in Arabidopsis root tips.",
+      "finding": "BR response competence predominantly depends on H+-ATPase amount and activity in the PM; the model predicted a required cation influx channel to compensate apoplastic acidification, which was subsequently identified and experimentally validated as a potassium channel.",
+      "dataset": "Arabidopsis thaliana root tip epidermis (Col-0 wild type, bri1-301 mutant), meristematic and elongation zones",
+      "metric": "Apoplastic pH (HPTS ratio 458/405), H+ flux (MIFE), membrane potential hyperpolarization, p-value",
+      "baseline": "Mock treatment, bri1-301 kinase-dead mutant",
+      "result": "Statistically significant BR-induced apoplastic acidification in EZ (p≤0.001); model correctly predicted potassium channel requirement confirmed experimentally"
+    }
+  ],
+  "timestamp": "2026-03-05T14:35:01.538114",
+  "extraction_count": 10
+}

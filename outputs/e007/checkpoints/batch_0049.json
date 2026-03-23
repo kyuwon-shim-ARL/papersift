@@ -1,0 +1,119 @@
+{
+  "batch_index": 49,
+  "dois": [
+    "10.3389/fnagi.2019.00206",
+    "10.1371/journal.pcbi.1004626",
+    "10.1007/s10237-019-01204-7",
+    "10.3389/fncir.2019.00011",
+    "10.1208/s12248-019-0350-x",
+    "10.1038/s41540-024-00397-7",
+    "10.1016/j.biopsych.2021.07.024",
+    "10.3389/fninf.2018.00099",
+    "10.3389/fphys.2018.00878",
+    "10.1002/bit.26813"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3389/fnagi.2019.00206",
+      "problem": "Current Alzheimer's disease therapeutics (AChE inhibitors) provide only symptomatic relief; natural compounds with dual AChE inhibition and anti-amyloid activity are needed.",
+      "method": "Computational molecular docking (AutoDock Vina) to screen four natural compounds against AChE, followed by in vitro AChE inhibition assay, MTT cell viability, ThT amyloid aggregation assay, and oxidative stress biochemical analysis in SH-SY5Y neuronal cells.",
+      "finding": "Combined curcumin and piperine showed synergistic AChE inhibition (IC50 comparable to donepezil), preserved cell viability up to 85% against Aβ-induced damage, inhibited Aβ42 fibril aggregation and disaggregation, and reversed Aβ-induced oxidative stress; bacoside A and chebulinic acid were unsuitable.",
+      "dataset": "SH-SY5Y human neuroblastoma cell line, Aβ42 peptide",
+      "metric": "IC50, binding affinity (kcal/mol), synergism quotient (SQ), cell viability (%), ThT fluorescence intensity (a.u.), p-value",
+      "baseline": "Donepezil (IC50 54.79 μg/ml), individual curcumin and piperine treatments",
+      "result": "Combined IC50=62.81 μg/ml (vs donepezil 54.79), SQ=1.824 at 35μM, cell viability 85%, ThT aggregation 0.432 a.u., disaggregation 0.532 a.u. (p<0.01)"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1004626",
+      "problem": "The standard theory of metastatic colonization assumes metastases grow independently, but this has not been rigorously tested against quantitative multi-modal data.",
+      "method": "Mathematical modeling (ODE-based tumor growth and metastatic dissemination) calibrated on GFP-tracking data of primary kidney tumors and lung metastases in orthotopic murine renal cell carcinoma, validated against MRI size distributions; spatial tumor growth model for merging metastases.",
+      "finding": "The standard theory of independent metastatic growth was rejected—predicted size distributions did not match MRI observations, and proliferation alone could not explain metastatic volume increases. Spatial interactions (merging) between metastatic foci significantly impact global metastatic burden dynamics.",
+      "dataset": "Orthotopic RENCA-GFP murine renal cell carcinoma model (n=31 GFP-tracked mice, n=6 MRI mice), Balb/c mice",
+      "metric": "Tumor volume (mm³), metastatic size distribution, doubling time (hours), predicted vs observed macro-metastasis count",
+      "baseline": "Standard theory of independent metastatic growth (single-cell seeding, autonomous expansion)",
+      "result": "Required doubling times of 5-8 hours (impossible, minimum mammalian cell cycle ~10h); predicted size distributions inconsistent with MRI at days 19 and 26"
+    },
+    {
+      "doi": "10.1007/s10237-019-01204-7",
+      "problem": "Understanding how cell biomechanical effects impact tissue regeneration requires quantitative 3D models, but existing center-based models oversimplify cell shape and mechanics.",
+      "method": "3D high-resolution deformable cell model (DCM) with triangulated cell surfaces, viscoelastic elements (Kelvin-Voigt/Maxwell), calibrated against optical stretcher experiments on MDA-MB-231 cells; applied to liver lesion closure, monolayer growth, and multicellular spheroid simulations.",
+      "finding": "The DCM predicts that migration forces needed to close tissue lesions are much smaller than those predicted by center-based models. Maxwell rheological elements better capture cell relaxation behavior. The model quantitatively reproduces optical stretcher deformation data and liver regeneration dynamics.",
+      "dataset": "MDA-MB-231 breast cancer cells (optical stretcher, N=100), CCl4-induced liver lesion regeneration in mice",
+      "metric": "Cell deformation (long/short axis lengths), migration force, cortex thickness, cell radius",
+      "baseline": "Center-based models (CBM) with rigid cell shapes",
+      "result": "DCM migration forces much smaller than CBM predictions; cell radius 8.8±1.3μm, cortex ~500nm; Maxwell model superior for relaxation"
+    },
+    {
+      "doi": "10.3389/fncir.2019.00011",
+      "problem": "The root cause of progressive dopaminergic cell loss in Parkinson's disease SNc is unknown; the role of STN-induced glutamate excitotoxicity needs computational investigation.",
+      "method": "Spiking neuron network model (Izhikevich 2D neurons) of SNc-STN-GPe system with stress accumulation and cell death mechanisms, simulated in MATLAB with 0.1s timestep; tested conventional therapies (glutamate inhibition, dopamine restoration, subthalamotomy, DBS).",
+      "finding": "A positive-feedback loop between SNc cell loss and STN disinhibition creates a runaway neurodegeneration effect once a threshold is crossed. Excitotoxicity initiates via weak excitotoxicity (energy deficit) then transitions to strong excitotoxicity (disinhibited STN). Glutamate inhibition, dopamine restoration, subthalamotomy, and DBS showed superior neuroprotective effects.",
+      "dataset": "Rat basal ganglia neuronal population model (SNc-STN-GPe), published firing rate data",
+      "metric": "Firing rate (Hz), synchrony, burst index, SNc cell loss progression (%)",
+      "baseline": "Healthy basal ganglia state (100% SNc cells), published firing rate data from Modolo et al. 2007 and Tripathy et al. 2014",
+      "result": "PD symptoms onset after >50% SNc cell loss; threshold-like relationship between SNc loss and STN synchrony"
+    },
+    {
+      "doi": "10.1208/s12248-019-0350-x",
+      "problem": "No reliable biomarkers can separate responders from non-responders before anti-PD-1 immunotherapy in NSCLC; quantitative understanding of the anti-tumor immune response is needed.",
+      "method": "Quantitative systems pharmacology (QSP) model with 55 ODEs and 53 algebraic equations integrating tumor growth, antigen processing/presentation, T cell dynamics, antibody PK, and immune checkpoint dynamics; calibrated with clinical data; simulated 12 patients from NCT02259621 neoadjuvant nivolumab trial.",
+      "finding": "In addition to TMB, effector and regulatory T cell counts in tumor and blood predict responders. The model predicted augmented durable response with adjuvant nivolumab after neoadjuvant treatment plus resection. The model captures the variety of clinical responses including fast responders.",
+      "dataset": "12 NSCLC patients from NCT02259621 neoadjuvant nivolumab trial, human clinical and experimental data",
+      "metric": "Tumor size change, T cell counts (Teff/Treg), TMB, MHC/antigen-binding affinity",
+      "baseline": "Neoadjuvant nivolumab + resection alone (clinical trial protocol NCT02259621)",
+      "result": "Predicted augmented durable response with added adjuvant nivolumab; TMB + Teff/Treg as combined biomarker"
+    },
+    {
+      "doi": "10.1038/s41540-024-00397-7",
+      "problem": "Computational cell cycle models vary widely in paradigm and application; a comprehensive comparative analysis is needed to guide their use in cancer treatment strategy optimization.",
+      "method": "Systematic review comparing deterministic vs stochastic, single-cell vs population, and mechanistic vs abstract computational cell cycle models; analysis of applications to drug efficacy, drug discovery, resistance, and dose optimization.",
+      "finding": "Different modeling paradigms have distinct strengths: deterministic models for well-characterized pathways, stochastic for cellular heterogeneity, agent-based for tumor microenvironment interactions. Integration of computational models with clinical data enhances precision oncology and personalized treatment design.",
+      "dataset": "Published computational cell cycle models and cancer therapy literature (review)",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.biopsych.2021.07.024",
+      "problem": "Whether diminished synaptic gain in schizophrenia affects pyramidal cells or interneurons is unclear, and the relationship between synaptic deficits and symptoms is not established across paradigms.",
+      "method": "Dynamic causal modeling (DCM) of 3 EEG paradigms (resting state, mismatch negativity, 40-Hz ASSR) and resting-state fMRI in PScz (n=108), relatives (n=57), and controls (n=107); parametric empirical Bayes for group-level inference on cortical microcircuit parameters.",
+      "finding": "All characteristic EEG changes in schizophrenia across 4 paradigms are explained by increased self-inhibition (decreased synaptic gain) in pyramidal cells. Psychotic symptoms relate to disinhibition (decreased self-inhibition) in auditory cortical areas, supporting a primary pyramidal cell deficit compensated by interneuron downregulation.",
+      "dataset": "PScz (n=108), first-degree relatives (n=57), healthy controls (n=107); EEG + fMRI",
+      "metric": "EEG spectral power (θ/α/β/γ), MMN amplitude, 40-Hz ASSR power, DCM self-inhibition parameters, BPRS positive/negative symptom scores, p-value (Bonferroni-corrected)",
+      "baseline": "Healthy control subjects (n=107)",
+      "result": "PScz: increased θ (Z=2.63, pCorr=.035), decreased β (Z=−2.77, pCorr=.022), increased γ (Z=2.58, pCorr=.040); all explained by pyramidal self-inhibition increase"
+    },
+    {
+      "doi": "10.3389/fninf.2018.00099",
+      "problem": "No whole-brain spiking network model exists for Drosophila despite abundant connectome data; understanding fundamental neural network properties requires such a model.",
+      "method": "Flysim platform using FlyCircuit database: SPIN machine-learning for arbor polarity prediction, overlap-based synapse prediction, morphology-to-physiology translation, whole-brain spiking network reconstruction (20,089 neurons, 1,044,020 synapses) with synaptic short-term depression; resting state simulation.",
+      "finding": "The reconstructed brain network was easily stabilized with synaptic short-term depression while a randomized network exhibited seizure-like activity. The reconstructed brain showed structurally and dynamically more diverse activity including both Poisson-like and patterned firing, with broadly distributed E-I indices.",
+      "dataset": "FlyCircuit database (Drosophila melanogaster), 20,089 neurons, 1,044,020 synapses",
+      "metric": "Polarity prediction accuracy, firing rate, synchrony, hyperactivity prevalence, E-I balance index distribution",
+      "baseline": "Randomized brain network (shuffled connections preserving degree)",
+      "result": "Polarity prediction ~84-92% accuracy; reconstructed brain stable vs randomized seizure-like; two distinct neuron size peaks (local ~858μm vs projection ~1753μm)"
+    },
+    {
+      "doi": "10.3389/fphys.2018.00878",
+      "problem": "CD4+ T cell differentiation produces complex hybrid phenotypes beyond classical lineages, but the environmental conditions driving these mixed phenotypes are poorly characterized.",
+      "method": "Mechanistic logic-based (probabilistic Boolean control network) computational model of 38 signaling components and 96 interactions regulating Th1/Th2/Th17/iTreg differentiation; state space analysis under 511 environmental conditions with varying cytokine compositions and dosages via Cell Collective platform.",
+      "finding": "The model predicts classical plus novel mixed T cell phenotypes (Th1-Th2, Th1-iTreg, Th17-iTreg, etc.) that match experimentally observed hybrid states. Lineage decisions are regulated by both composition and dosage of extracellular signals, with specific input patterns enabling transitions between canonical and complex phenotypes.",
+      "dataset": "In silico CD4+ T cell differentiation model (38 components, 9 inputs, 511 conditions)",
+      "metric": "Transcription factor activity levels (Tbet, GATA3, RORγt, Foxp3), ergodic set analysis, dose-response curves",
+      "baseline": "Classical single-lineage T cell phenotypes (Th0, Th1, Th2, Th17, iTreg)",
+      "result": "511 conditions yielded classical + 6 novel mixed phenotypes; dose-dependent transitions between canonical and hybrid states"
+    },
+    {
+      "doi": "10.1002/bit.26813",
+      "problem": "ATF filtration modeling relies on empirically derived formulas with oversimplified lumped parameters, failing to capture localized fluid behavior and fouling dynamics in perfusion cell culture.",
+      "method": "2D axisymmetric porous CFD model validated against experimental ATF pressure profiles using water and CHO cell culture supernatant at multiple cross-flow velocities (0.11-0.70 m/s); analysis of localized flux, Starling flow, and fouling resistance distribution.",
+      "finding": "CFD provided first numerical evidence of Starling flow in ATF systems. Higher feed cross-flow velocity increases localized permeate flux but also increases reversible and irreversible fouling. At typical 2 L/m²/h flux, only ~50% of membrane length is utilized per phase, achieving full utilization over one complete ATF cycle.",
+      "dataset": "CHO cell line perfusion bioreactor (2L, 29 days, ~30M cells/ml), polysulfone hollow fiber membrane (0.2μm, 470cm²)",
+      "metric": "RMSE (inlet/permeate pressure), localized flux (L/m²/h), fouling resistance, membrane utilization (%)",
+      "baseline": "Empirically derived ATF models with lumped average parameters (Kelly et al. 2014)",
+      "result": "RMSE 0.02-0.19 psi (water validation); ~50% membrane utilization per phase; Starling flow numerically confirmed"
+    }
+  ],
+  "timestamp": "2026-03-05T14:30:40.301528",
+  "extraction_count": 10
+}

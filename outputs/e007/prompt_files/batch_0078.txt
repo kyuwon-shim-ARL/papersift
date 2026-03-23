@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1109/vtcspring.2015.7146061
+Title: RMSC: A Cell Slicing Controller for Virtualized Multi-Tenant Mobile Networks
+Year: 2015
+Abstract: The traditional model of single ownership of the mobile network infrastructure is being challenged by the forecasted mobile data tsunami and the resulting CAPEX and OPEX costs. In this context, the sharing of network infrastructure among operators has emerged as a way to ensure operators' future cost competitiveness. While the elementary concepts related to passive network sharing are already being exploited today, active network sharing is raising in importance to enable further reduction of network expenses in a substantial and sustainable way. The work presented in this paper addresses this challenge by designing a RAN Multi- tenant cell Slicing Controller (RMSC) that allows to flexibly share the RAN resources among multiple virtual operators (tenants). Three different possible designs for the RMSC controller are proposed, ranging from a fully distributed system with no inter-base station communication to a fully centralized solution with all information available. The proposed solutions are benchmarked against a distributed static slicing solution and a centralized load balancing solution, considering realistic scenarios of uneven user location distribution per tenant. The performance results obtained indicate that the proposed RMSC schemes can significantly outperform traditional solutions for multi-tenant mobile networks.
+---
+
+---
+DOI: 10.2477/jchemsoft.8.47
+Title: Virtual Device Simulator of Bipolar Photogalvanic Cell
+Year: 2002
+Abstract: A virtual bipolar photogalvanic cell was developed using Visual Basic. On the basis of the simulation, it is indicated that the charge separation (kd) and the charge recombination (kr) rate constants can be estimated using the photocurrent response. The thickness of the charge separation region can be anticipated by photocurrent response at various layer thicknesses. The increase in diffusion coefficients raises the short-circuit photocurrent to enhance the performance of the photogalvanic cell. An actual device was fabricated using tris(bipyridine)ruthenium(II) complex ([Ru(bpy)32+]) as a sensitizer and Prussian Blue as a mediator. This device worked as a photogalvanic cell: short-circuit photocurrent (JSC), 2.3μA/cm2; open-circuit photovoltage (VOC), 0.118V; fill-factor, 20.5 %. It was shown from the action spectrum that electrons are transferred from [Ru(bpy)32+*] to Prussian Blue. The charge separation and the recombination rate constants were estimated, using the virtual device, to be 5 × 102 mol-1cm3s-1 and 6 × 109 mol-1cm3s-1, respectively.
+---
+
+---
+DOI: 10.1109/icesa.2015.7503352
+Title: Energy efficient BASE STATIONs with using virtual cell concept
+Year: 2015
+Abstract: In this paper we discussed the power consumption of BASE STATIONs, which become a important issue of ITC sector. In this paper we deal with the study and analysis of investigating power consumption of BASE STATION and also investigating possible ways to reduce of power consumption in wireless networks. We also implement the virtual cell concept on the BS for making the energy efficient BS and show a algorithm for the low traffic conditions.
+---
+
+---
+DOI: 10.1126/sciimmunol.abg9433
+Title: Virtual memory T cells orchestrate extralymphoid responses conducive to resident memory
+Year: 2021
+Abstract: CCR2 + and CCR2 − virtual memory T cells differentially contribute to effector and resident memory responses within infected tissues.
+---
+
+---
+DOI: 10.1147/sj.52.0078
+Title: A study of replacement algorithms for a virtual-storage computer
+Year: 1966
+Abstract: One of the basic limitations of a digital computer is the size of its available memory. <sup xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">1</sup> In most cases, it is neither feasible nor economical for a user to insist that every problem program fit into memory. The number of words of information in a program often exceeds the number of cells (i.e., word locations) in memory. The only way to solve this problem is to assign more than one program word to a cell. Since a cell can hold only one word at a time, extra words assigned to the cell must be held in external storage. Conventionally, overlay techniques are employed to exchange memory words and external-storage words whenever needed; this, of course, places an additional planning and coding burden on the programmer. For several reasons, it would be advantageous to rid the programmer of this function by providing him with a “virtual” memory larger than his program. An approach that permits him to use a sufficiently large address range can accomplish this objective, assuming that means are provided for automatic execution of the memory-overlay functions.
+---
+
+---
+DOI: 10.1109/wcnc.2015.7127600
+Title: LTE multi-cell dynamic resource allocation for wireless network virtualization
+Year: 2015
+Abstract: The development of native wireless network virtualization implies introducing a new set of base station schedulers that considers the efficient allocation of wireless resources to different Service Providers (SPs) based on flexible Service Level Agreements (SLAs). In this paper we develop an efficient and fast centralized heuristic to allocate the radio resource blocks in multi-cell LTE networks. The scheme maximizes the network-wide sum rate while keeping track of the SLA of each SP expressed as a minimum bandwidth allocation in each cell. We also propose an iterative solution procedure for the non-convex power allocation problem based on DC programming. We find that the results of the heuristic are quite close to those of the iterative method. We also show that there is a significant rate reduction due to the service contracts. Finally, we find that even if the heuristic cannot meet all the requirements in one particular scheduling period, it does provide the required rate over a large number of periods.
+---
+
+---
+DOI: 10.1038/nature13186
+Title: A mesoscale connectome of the mouse brain
+Year: 2014
+Abstract: Comprehensive knowledge of the brain's wiring diagram is fundamental for understanding how the nervous system processes information at both local and global scales. However, with the singular exception of the C. elegans microscale connectome, there are no complete connectivity data sets in other species. Here we report a brain-wide, cellular-level, mesoscale connectome for the mouse. The Allen Mouse Brain Connectivity Atlas uses enhanced green fluorescent protein (EGFP)-expressing adeno-associated viral vectors to trace axonal projections from defined regions and cell types, and high-throughput serial two-photon tomography to image the EGFP-labelled axons throughout the brain. This systematic and standardized approach allows spatial registration of individual experiments into a common three dimensional (3D) reference space, resulting in a whole-brain connectivity matrix. A computational model yields insights into connectional strength distribution, symmetry and other network properties. Virtual tractography illustrates 3D topography among interconnected regions. Cortico-thalamic pathway analysis demonstrates segregation and integration of parallel pathways. The Allen Mouse Brain Connectivity Atlas is a freely available, foundational resource for structural and functional investigations into the neural circuits that support behavioural and cognitive processes in health and disease.
+---
+
+---
+DOI: 10.7840/kics.2012.37.6b.483
+Title: Performance Analysis of Operation Strategy of Dual Virtual Cell-based System under The Overlay Convergent Networks of Cognitive Networking
+Year: 2012
+Abstract: 데이터 트래픽의 증가와 더불어 인지 기반 중첩 융합 네트워크 환경 하에서의 서비스 성능이 중요한 이슈로 떠오르고 있다. 이에 따라 다양한 이종 네트워크(HetNet)가 결합된 환경 하에서 주변상황의 인지 기능을 활용하는 이중 가상 셀의 구성과 특징에 대해 살펴보고 자원의 효과적 활용에 적합한 개별 이종 네트워크의 특성분석과 특성을 반영하는 시스템측면의 최적화를 고려하여 성능측면의 분석을 다루고자 한다. 이를 위해 가상 이중 셀 시스템의 구성과 운영이 필수적으로 요구된다. 본 논문에서는 기지국의 소형화와 지능화가 진행됨에 따른 활용도 측면의 성능을 분석하였다. 고려하는 시스템은 유용한 가상의 신호를 찾을 수 있는 능력을 활용하여 가상의 이중 셀을 구성하고 고속이동에 따른 무선링크에서의 성능열하를 방지하고 고속의 데이터 전송을 위한 시-공간 트렐리스 코드를 적용한 시스템의 성능을 분석하여 그 유용성에 대해서 시뮬레이션을 통하여 정량적인 분석결과를 얻었다. 이를 바탕으로 다양한 파라메터가 주어진 환경 하에서 전체 시스템에 어떤 영향를 미치는지를 해석하고 고려하는 시스템의 특징을 고찰하였다. With the fast growing data traffic, the performance of the convergent overlay network environment under the cognitive networking environment is crucial for the implementation of the efficient network structure. In order to achieve high capacity and reliable link quality in wireless communication of the overlay convergent networks with the cognitive networking based on the advanced capability of the mobile terminal, a Distributed Wireless Communication System (DWCS) can provide the capability of ambient-aware dual cell system's operation. This paper has considered virtual cell: the Dual Virtual Cell (DVC), and also proposes DVC employment strategy based on DWCS network. One is the Active Virtual Cell which exists for user's actual data traffic and the other is the Candidate Virtual Cell which contains a set of candidate antennas to protect user's link quality from performance degradation or interruption. The considered system constructs DVC by using cognitive ability of finding useful virtual signals. Also, for multi-user high-rate data transmission, the DWCS system exploits Space-Time Trellis Codes. The effects of changing environments on the system performance has been investigated thereafter.
+---
+
+---
+DOI: 10.1016/j.ejps.2016.04.012
+Title: Identifying GSK-3β kinase inhibitors of Alzheimer's disease: Virtual screening, enzyme, and cell assays
+Year: 2016
+Abstract: Glycogen synthase kinase 3β (GSK-3β) is widely known as a critical target protein for treating Alzheimer's disease (AD). We utilized virtual screening to search databases for compounds with the potential to be used in drugs targeting GSK-3β kinase, and kinase as well as cell assays to investigate top-scored, selected compounds. Virtual screening of >1.1 million compounds in the ZINC and in-house databases was conducted using an optimized computational protocol in the docking program GOLD. Of the top-ranked compounds, 16 underwent a luminescent kinase assay and a cell assay using HEK293 cells expressing DsRed-tagged ΔK280 in the repeat domain of tau (tauRD). The compounds VB-003 (a potent GSK-3β inhibitor) and VB-008 (AM404, an anandamide transport inhibitor), with determined IC50 values of 0.25 and 5.4μM, respectively, were identified as reducing tau aggregation. Both compounds increased expression of phospho-GSK-3β (Ser9) and reduced endogenous tau phosphorylation at the sites of Ser202, Thr231, and Ser396. In the ∆K280 tauRD-DsRed SH-SY5Y cells, VB-008, but not VB-003, enhanced HSPB1 and GRP78 expression, increased ∆K280 tauRD-DsRed solubility, and promoted neurite outgrowth. Thus VB-008 performed best to the end of the present study. The identified compound VB-008 may guide the identification and synthesis of potential inhibitors analogous to this compound.
+---
+
+---
+DOI: 10.1016/b978-0-08-029946-4.50032-7
+Title: THE VIRTUAL MANUFACTURING CELL
+Year: 1983
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.4110/in.2023.23.e11
+Title: Roles of Virtual Memory T Cells in Diseases
+Year: 2023
+Abstract: Memory T cells that mediate fast and effective protection against reinfections are usually generated upon recognition on foreign Ags. However, a "memory-like" T-cell population, termed virtual memory T (T<sub>VM</sub>) cells that acquire a memory phenotype in the absence of foreign Ag, has been reported. Although, like innate cells, T<sub>VM</sub> cells reportedly play a role in first-line defense to bacterial or viral infections, their protective or pathological roles in immune-related diseases are largely unknown. In this review, we discuss the current understanding of T<sub>VM</sub> cells, focusing on their distinct characteristics, immunological properties, and roles in various immune-related diseases, such as infections and cancers.
+---
+
+---
+DOI: 10.1109/iccchina.2017.8330509
+Title: Hierarchical beamforming scheme based on virtual cell cluster in ultra dense network
+Year: 2017
+Abstract: Considering virtual cell clusters formed by several overlapping virtual cells in ultra dense network (UDN), virtual cells which are in the same virtual cell cluster coordinate transmissions to reduce inter-virtual cell interference. However, general beamforming scheme design for channel state information (CSI) demand still remains large, and system overhead for high-dimensional channel training and channel state information feedback is explosively-increased. To solve this problem, this paper focuses on hierarchical beamforming scheme based on virtual cell cluster. Specifically, based on perfect intra-cluster CSI, beamforming direction vector is designed by optimizing the achievable rate of each cluster with Zero-Forming block diagonalization method. Based on the large-scale inter-cluster CSI, the strength of beamforming can be devised by solving the sum rate maximization problem and mitigating the residual co-channel interference among different clusters with an iterative power allocation algorithm via a generalized weighted minimum mean square error (WMMSE) approach. Simulation results demonstrate that the proposed scheme achieves significant performance gain and requires less CSI than traditional schemes.
+---
+
+---
+DOI: 10.1038/nature01964
+Title: Cellular networks underlying human spatial navigation
+Year: 2003
+Abstract: Place cells of the rodent hippocampus constitute one of the most striking examples of a correlation between neuronal activity and complex behaviour in mammals. These cells increase their firing rates when the animal traverses specific regions of its surroundings, providing a context-dependent map of the environment. Neuroimaging studies implicate the hippocampus and the parahippocampal region in human navigation. However, these regions also respond selectively to visual stimuli. It thus remains unclear whether rodent place coding has a homologue in humans or whether human navigation is driven by a different, visually based neural mechanism. We directly recorded from 317 neurons in the human medial temporal and frontal lobes while subjects explored and navigated a virtual town. Here we present evidence for a neural code of human spatial navigation based on cells that respond at specific spatial locations and cells that respond to views of landmarks. The former are present primarily in the hippocampus, and the latter in the parahippocampal region. Cells throughout the frontal and temporal lobes responded to the subjects' navigational goals and to conjunctions of place, goal and view.
+---
+
+---
+DOI: 10.1109/vtcfall.2018.8690795
+Title: Low Complexity Multiuser Detection in the Downlink of Ultra-Low Latency Virtual-Cell Based Vehicular Networks
+Year: 2018
+Abstract: Ultra-low latency communication serves a pillar technology of 5G mobile communications and still requires breakthroughs to successfully facilitate. Very recent efforts to integrate virtual cell with open-loop wireless transmission, proactive network association, and anticipatory mobility management suggests a fundamentally new approach to achieve ultra-low latency vehicular networking. However, realistic multiple access in this configuration is very much wanted, particularly in the downlink. Using beam-forming or interference alignment to suppress inter-cell interference is not suitable for this scenario because channel state information (CSI) feedback is disadvantageous to ultra-low latency applications. Multiuser detection (MUD) is suggested to deal with downlink interference. A major concern in MUD is computational complexity especially for high-order modulation. Exploiting the characteristic of downlink transmission, we happily note the tradeoff between bit error rate (BER) performance and detection complexity to practically develop low-complexity MUD in the downlink receiver. Applying sphere decoding realizes further reliability and even lower latency in the downlink.
+---
+
+---
+DOI: 10.1017/s1431927609094835
+Title: Using the Virtual Cell Simulation Environment for Extracting Quantitative Parameters from Live Cell Fluorescence Imaging Data
+Year: 2009
+Abstract: Extended abstract of a paper presented at Microscopy and Microanalysis 2009 in Richmond, Virginia, USA, July 26 – July 30, 2009
+---
+
+---
+DOI: 10.1109/twc.2017.2689760
+Title: Dynamic User Grouping and Joint Resource Allocation With Multi-Cell Cooperation for Uplink Virtual MIMO Systems
+Year: 2017
+Abstract: This paper proposes a novel joint resource allocation algorithm combining dynamic user grouping, multi-cell cooperation, and resource block (RB) allocation for single carrier-frequency division multiple access uplink in multi-cell virtual MIMO systems. We first develop the dynamic multi-cell user grouping criteria using minimum mean square error equalization and adaptive modulation with bit error rate (BER) constraint. Then, we formulate and solve a new throughput maximization problem whose resource allocation includes cell selection, dynamic user grouping, and RB pattern assignment. Furthermore, to reduce the computational complexity significantly, especially in the case of large numbers of users and RBs, we present an efficient iterative Hungarian algorithm based on user and resource partitions to solve the problem by decomposing the large scale problem into a series of small scale sub-problems, which can obtain close-to-optimal solution with much lower complexity. The simulation results show that our proposed joint resource allocation algorithm with dynamic multi-cell user grouping scheme achieves better system throughput with BER guarantee than fixed user grouping algorithm and other proposed schemes in the literature.
+---
+
+---
+DOI: 10.1016/s0360-8352(97)00047-8
+Title: Virtual reality software for robotics and manufacturing cell simulation
+Year: 1997
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1051/matecconf/20152201046
+Title: Research on Detection and Resolution of Resource Conflict of Virtual Cell Considering New Task Insertion
+Year: 2015
+Abstract: \nSpecific to dynamic adjustment of initial scheduling of virtual cell with new task insertion, we use Bayesian network to detect resource conflict process which may appear in virtual cell due to contention of production tasks on finite resources within specified time period, and then adopt critical chain method to resolute resource conflict based on priority of virtual cell and priority of process. At last, the feasibility and effectiveness of proposed methods through case study are verified.\n
+---
+
+---
+DOI: 10.1038/s41423-020-0463-2
+Title: MHC class I-independent activation of virtual memory CD8 T cells induced by chemotherapeutic agent-treated cancer cells
+Year: 2020
+Abstract: Cancer cells can evade immune recognition by losing major histocompatibility complex (MHC) class I. Hence, MHC class I-negative cancers represent the most challenging cancers to treat. Chemotherapeutic drugs not only directly kill tumors but also modulate the tumor immune microenvironment. However, it remains unknown whether chemotherapy-treated cancer cells can activate CD8 T cells independent of tumor-derived MHC class I and whether such MHC class I-independent CD8 T-cell activation can be exploited for cancer immunotherapy. Here, we showed that chemotherapy-treated cancer cells directly activated CD8 T cells in an MHC class I-independent manner and that these activated CD8 T cells exhibit virtual memory (VM) phenotypes. Consistently, in vivo chemotherapeutic treatment preferentially increased tumor-infiltrating VM CD8 T cells. Mechanistically, MHC class I-independent activation of CD8 T cells requires cell-cell contact and activation of the PI3K pathway. VM CD8 T cells contribute to a superior therapeutic effect on MHC class I-deficient tumors. Using humanized mouse models or primary human CD8 T cells, we also demonstrated that chemotherapy-treated human lymphomas activated VM CD8 T cells independent of tumor-derived MHC class I. In conclusion, CD8 T cells can be directly activated in an MHC class I-independent manner by chemotherapy-treated cancers, and these activated CD8 T cells may be exploited for developing new strategies to treat MHC class I-deficient cancers.
+---
+
+---
+DOI: 10.1142/s0218127403008843
+Title: DYNAMICS OF CARDIAC INTRACELLULAR<font>Ca</font><sup>2+</sup>HANDLING — FROM EXPERIMENTS TO VIRTUAL CELLS
+Year: 2003
+Abstract: Intracellular cardiac Ca 2+ handling involves interactions of numerous distinct cellular and macromolecular structures. Such interactions coordinate the complicated behaviors of individual processes into spatial and temporal coherent patterns of Ca 2+ sparks, oscillations and traveling waves. Understanding the dynamical behaviors and functional roles of intracellular Ca 2+ handling requires not only detailed experimental information about subcellular structures and dynamics, but also useful tools to integrate and analyze this information. This requires interactions between experimental and simulation results within a virtual cell.
+---
+
+---
+DOI: 10.1109/etfa.2019.8869373
+Title: Virtual commissioning of a robotic cell: an educational case study
+Year: 2019
+Abstract: The emergence of software tools for testing control programs and virtual commissioning (VC) in industrial automation projects makes it possible to shorten lead times and improve product quality, but it also brings to light the need for competent technicians in these technologies. The academic environment can support the education of future professionals by reproducing and solving industrial problems in the classroom. This article presents a use case in which students work on a project to develop and validate the control system of a robotic cell. The study compares the conventional way of working against the use of a digital twin and exposes the benefits of it.
+---
+
+---
+DOI: 10.1080/15216540152845885
+Title: Topology of the Mitochondrial Inner Membrane: Dynamics and Bioenergetic Implications
+Year: 2001
+Abstract: Abstract Electron tomography indicates that the mitochondrial inner membrane is not normally comprised of baffle‐like folds as depicted in textbooks. In actuality, this membrane is pleomorphic, with narrow tubular regions connecting the internal compartments (cristae) to each other and to the membrane periphery. The membrane topologies observed in condensed (matrix contracted) and orthodox (matrix expanded) mitochondria cannot be interconverted by passive folding and unfolding. Instead, transitions between these morphological states likely involve membrane fusion and fission. Formation of tubular junctions in the inner membrane appears to be energetically favored, because they form spontaneously in yeast mitochondria following large‐amplitude swelling and recontraction. However, aberrant, unattached, vesicular cristae are also observed in these mitochondria, suggesting that formation of cristae junctions depends on factors (such as the distribution of key proteins and/or lipids) that are disrupted during extreme swelling. Computer modeling studies using the “Virtual Cell” program suggest that the shape of the inner membrane can influence mitochondrial function. Simulations indicate that narrow cristae junctions restrict diffusion between intracristal and external compartments, causing depletion of ADP and decreased ATP output inside the cristae.
+---
+
+---
+DOI: 10.1016/0168-9525(93)90202-s
+Title: In vivo, in vitro, in silicio: towards a virtual cell
+Year: 1993
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jprocont.2016.06.001
+Title: Fault tolerant control of a proton exchange membrane fuel cell using Takagi–Sugeno virtual actuators
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3389/frvir.2021.670909
+Title: The Use of Virtual Reality in the Teaching of Challenging Concepts in Virology, Cell Culture and Molecular Biology
+Year: 2021
+Abstract: The rapidly expanding biotechnology sector horizon is expected to create a surge in demand for expertise underpinning cell and gene therapies, which are recognized as the next generation of medicines. New and innovative approaches to implement active and performative learning in the Molecular Life Sciences are required to support this and to address limitations associated with traditional “front of class” lectern delivery of challenging, three dimensional molecular concepts. Therefore, an immediate need exists for the development and implementation of immersive learning approaches in Virology, Cellular Sciences and Molecular Biology to underpin sustainable development of graduate students for academic and industrial research careers. The Covid-19 pandemic has led to significant changes in the delivery of education globally, with online engagement and accelerated uptake of novel teaching and assessment modalities into majority practice within institutions. This development has been driven by externally imposed necessity and it remains to be seen what form teaching and learning will take post-Covid. Irrespective of the pandemic, technologies are available which can serve intrinsically motivated, discipline specific shifts toward enhanced learner experiences and learning outcomes. Immersive virtual reality offers one such approach to open new entry points for student learning of abstract molecular concepts, which will be just as relevant upon our return to face-to-face teaching. Key to delivering this will be engagement and collaboration by disciplinary and technical experts. Here, we discuss global advances in the area of VR and Molecular Science education and assess potential paths forward for teaching and learning impact and innovative education.
+---
+
+---
+DOI: 10.1136/bmj.284.6318.825-c
+Title: Sexually transmitted disease surveillance.
+Year: 1982
+Abstract: cell count is of no value in such situations in evaluating the probability of acute bacterial infection, as in a proportion of patients with infectious mononucleosis the first change evi- dent is a neutrophil leucocytosis.'To put my point in the language of clinical epidemiology, the positive predictive value of a neutrophil leucocytosis in diagnosing bacterial throat infection is low when the prevalence of infectious mononucleosis is high.This has obvious implications for those who care for young populations.Secondly, since this study was presumably designed to emphasise the importance of rational therapy of sore throats, I would like to ponder on the possible importance of irrational therapy in the dramatic reduction in poststreptococcal glomerulonephritis and rheu- matic fever which has taken place in the last three decades.Did wholesale prescription of antibiotics when they were available have a valuable role to play in the virtual dis- appearance of these diseases ?Is it only now that we can afford the luxury of a sophisticated rational therapy ?
+---
+
+---
+DOI: 10.2507/ijsimm15(2)8.337
+Title: Period Batch Control - A Production Planning System Applied to Virtual Manufacturing Cells
+Year: 2016
+Abstract: Period Batch Control (PBC) system has been known for its implementation with the classical group technology (GT) cells, and it has been known for its simplicity. The main production planning decisions concern the choice of the period length and the stage number and contents. Also, in order to better integrate the production planning with the application of GT cells at the shop floor, the concept of virtual manufacturing cells has been applied. Since virtual cells configurations are changing periodically, a model for implementing the PBC system into virtual manufacturing cells environment is developed. The model enables alignment of the PBC principles and rules with virtual cell design goals. Model is tested on the case study of furniture production. With the use of scheduling software, different scheduling rules were simulated for four production weeks. The experimental results from these for production weeks show how the choice of PBC parameters impacts the virtual cells configurations, machine sharing and utilization.
+---
+
+---
+DOI: 10.1002/advs.202200825
+Title: Virtual Screening for Organic Solar Cells and Light Emitting Diodes
+Year: 2022
+Abstract: Abstract The field of organic semiconductors is multifaceted and the potentially suitable molecular compounds are very diverse. Representative examples include discotic liquid crystals, dye‐sensitized solar cells, conjugated polymers, and graphene‐based low‐dimensional materials. This huge variety not only represents enormous challenges for synthesis but also for theory, which aims at a comprehensive understanding and structuring of the plethora of possible compounds. Eventually computational methods should point to new, better materials, which have not yet been synthesized. In this perspective, it is shown that the answer to this question rests upon the delicate balance between computational efficiency and accuracy of the methods used in the virtual screening. To illustrate the fundamentals of virtual screening, chemical design of non‐fullerene acceptors, thermally activated delayed fluorescence emitters, and nanographenes are discussed.
+---
+
+---
+DOI: 10.1002/nme.6062
+Title: A cell‐based smoothed radial point interpolation method with virtual nodes for three‐dimensional mid‐frequency acoustic problems
+Year: 2019
+Abstract: Summary It is well known that the finite element method (FEM) encounters dispersion errors in coping with mid‐frequency acoustic problems due to its “overly stiff” nature. By introducing the generalized gradient smoothing technique and the idea of condensed shape functions with virtual nodes, a cell‐based smoothed radial point interpolation method is proposed to solve the Helmholtz equation for the purpose of reducing dispersion errors. With the properly selected virtual nodes, the proposed method can provide a close‐to‐exact stiffness of continuum, leading to a conspicuous decrease in dispersion errors and a significant improvement in accuracy. Numerical examples are examined using the present method by comparing with both the traditional FEM using four‐node tetrahedral elements (FEM‐T4) and the FEM model using eight‐node hexahedral elements with modified integration rules (MIR‐H8). The present cell‐based smoothed radial point interpolation method has been demonstrated to possess a number of superiorities, including the automatically generated tetrahedral background mesh, high computational efficiency, and insensitivity to mesh distortion, which make the method a good potential for practical analysis of acoustic problems.
+---
+
+---
+DOI: 10.1016/s0925-5273(03)00118-x
+Title: Combining lean and agile characteristics: Creation of virtual groups by enhanced production flow analysis
+Year: 2003
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/s41590-023-01547-5
+Title: A virtual memory CD8+ T cell-originated subset causes alopecia areata through innate-like cytotoxicity
+Year: 2023
+Abstract: Virtual memory T (TVM) cells are a T cell subtype with a memory phenotype but no prior exposure to foreign antigen. Although TVM cells have antiviral and antibacterial functions, whether these cells can be pathogenic effectors of inflammatory disease is unclear. Here we identified a TVM cell-originated CD44super-high(s-hi)CD49dlo CD8+ T cell subset with features of tissue residency. These cells are transcriptionally, phenotypically and functionally distinct from conventional CD8+ TVM cells and can cause alopecia areata. Mechanistically, CD44s-hiCD49dlo CD8+ T cells could be induced from conventional TVM cells by interleukin (IL)-12, IL-15 and IL-18 stimulation. Pathogenic activity of CD44s-hiCD49dlo CD8+ T cells was mediated by NKG2D-dependent innate-like cytotoxicity, which was further augmented by IL-15 stimulation and triggered disease onset. Collectively, these data suggest an immunological mechanism through which TVM cells can cause chronic inflammatory disease by innate-like cytotoxicity.
+---
+
+---
+DOI: 10.1109/glocom.2018.8648085
+Title: Multilayer Virtual-Cell-Based Resource Allocation in Unmanned Aircraft Systems
+Year: 2018
+Abstract: Unmanned aircraft systems (UASs) have attracted considerable attention in various industries. Furthermore, the use of unmanned aircrafts (UAs) is expected to spread rapidly and change our daily lives, in the future. However, while the number of UAs is increasing, the available frequency allocated to the UASs remains limited. Thus, when numerous UAs are used at high densities, the wireless communication between the UAs and the ground stations (GSs) may fail because of interference. To solve this issue, a time-division multiple access scheme can be adopted in the UASs. For efficient use of the allocated frequency, it is desirable that the UAs free from interference communicate simultaneously. Therefore, in this paper, we propose an efficient resource allocation scheme that increases the number of UAs that communicate simultaneously and improves the throughput. Our proposed scheme is based on the concept of multilayer virtual cells, and can increase the number of UAs that communicate simultaneously by considering the distance between the UAs and the GSs. The effectiveness of our proposed resource allocation scheme is evaluated through simulations. Our proposed scheme is found to be more efficient than other existing schemes, in terms of the number of UAs that can communicate simultaneously.
+---
+
+---
+DOI: 10.1002/dc.24344
+Title: Virtual multiplex immunohistochemistry: Application on cell block of effusion and aspiration cytology
+Year: 2020
+Abstract: Abstract Background With the continuous development of new antibodies, the use of immunohistochemistry (IHC) is becoming more often a requirement. IHC is frequently necessary for establishing cancer diagnosis and making therapeutic decisions. However, cytology specimens such as effusion fluid and fine‐needle aspiration are highly variable in cellularity and contain background inflammatory and mesothelial cells. Compared to biopsy or excision specimens, tissue exhaustion and levels of sections not matching are more commonly encountered. We present a method of integrating whole‐slide cell block image of multiple antibodies by digital image processing and reconstructing a virtual multiplex IHC image for enhanced interpretation. Methods Historic archived cell block preparations of carcinomas (n = 19) and melanoma (n = 1) and IHC performed with 3,3′‐diaminobenzidine chromogen were reviewed. The slides were digitized by a whole‐slide image scanner. Using ImageJ and self‐developed code, the slides were aligned by image registration, layered, and recolored to reconstruct a virtual multiplex image, simulating a multiplex preparation with multiple chromogens. To quantity the performance of the image registration, the mean distance between the same cell clusters in aligned images were measured. Results All 20 cases were successfully registered. The mean distance between cell clusters after image registration was 8.40 +/− 5.52 μm. The reconstructed images were able to demonstrate coexpression of membranous, cytoplasmic, and nuclear antibodies. Conclusion With virtual multiplex IHC, we were able to visualize coexpression of multiple antibodies without the added cost of multiplex IHC. Routine and historic slides, without additional tissue consumption, can be retrieved for image reconstruction. This technique is a low‐cost adjunct to diagnosis in cytology for more efficient and accurate assessment of antibody coexpression and histochemical stains.
+---
+
+---
+DOI: 10.1063/1.1750822
+Title: Molecular Distribution
+Year: 1941
+Abstract: Various functions, by means of which the distribution of molecules in a system may be described, are defined, and the relations between them are derived. Equations, by means of which these functions may be calculated from a knowledge of the mutual potential energy between pairs of molecules, are also derived. The equations applicable to gaseous systems, which are derived by a development previously used in the theory of condensing systems, enable the calculation of the distribution functions by means of a power series in either the fugacity or the inverse volume. The coefficients of these power series are direct integrals involving the pair potentials between molecules. In condensed systems an alternative procedure is required. The equations then appear in the form of integral equations involving the unknown functions under the integral signs. These equations are not readily solved, due primarily to the difficulties of performing multiple coordinate integrations. By the use of functions involving the probabilities of population of virtual cells, the cell equation frequently used for the calculation of the thermodynamic properties of liquids is derived as a consequence of the method used here. The direct connection between the equations derived in the theory of condensing systems, and in the usual cell approximations, is thus established. The equations derived here, however, permit consistent use of the cell method to arrive at higher approximations. This development may possibly be of value in making numerical evaluations of the thermodynamic functions of liquids.
+---
+
+---
+DOI: 10.1007/978-3-319-01781-5_5
+Title: Multi Objective Optimization Strategy Suitable for Virtual Cells as a Service
+Year: 2013
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1149/2.0921807jes
+Title: Virtual Liquid Water Intrusion in Fuel Cell Gas Diffusion Media
+Year: 2018
+Abstract: A cluster based full morphology (CFM) model is developed to predict liquid water intrusion in GDLs. The CFM model is used to simulate water intrusion into a dry GDL microstructure obtained from μ-CT. Numerical water saturation distributions are compared to experimental μ-CT reconstructions of the same GDL sample at varying saturation levels. A quantitative validation of the CFM model results is then provided by studying the number of voxels in the image that contain water in both the CFM model results and the μ-CT reconstructions. Results reveal that CFM simulations showed 56–95.7% agreement in the liquid water voxels when compared to the μ-CT simulations for saturations in the range of 29–92.3%. Gas transport simulations are then performed on μ-CT and CFM partially saturated GDLs in order to study the validity of the CFM model images to estimate transport properties of partially saturated GDLs. A maximum error of 20% was observed between the predicted effective diffusivities obtained from CFM simulations and those obtained directly from simulations on the μ-CT data for saturations below 40%. Effective diffusivity predictions from the CFM simulations agree well with in-plane effective diffusivities in literature while the through-plane effective diffusivities were underpredicted by a factor of 2.
+---
+
+---
+DOI: 10.1016/j.engappai.2018.08.012
+Title: Intelligent virtual manufacturing cell formation in cloud-based design and manufacturing
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1073/pnas.2104191118
+Title: Topological braiding and virtual particles on the cell membrane
+Year: 2021
+Abstract: Significance Topological defects are robust particle-like structures that essentially determine the mechanics and dynamics of physical and biological matter. Examples range from vortices in quantum superfluids to the cores of spiral wave patterns in the brain. In biological systems, such defects play important roles as organizers of biochemical signaling patterns, cellular forces, and even cell death. Combining direct experimental observations with mathematical modeling and chemical perturbations, we investigated the dynamics of spiral wave defects on the surfaces of starfish egg cells. Our quantitative analysis showed that these defects exhibit complex braiding, pair creation, and annihilation dynamics, in agreement with predictions from a generic continuum theory. More broadly, these results suggest interesting parallels between information transport in living and quantum systems.
+---
+
+---
+DOI: 10.1016/j.stem.2014.10.018
+Title: Virtual Karyotyping Reveals Greater Chromosomal Stability in Neural Cells Derived by Transdifferentiation than Those from Stem Cells
+Year: 2014
+Abstract: Neural cells can be derived either from pluripotent or adult stem cells via differentiation or by transdifferentiation from other cell types with the aid of tissue regulators. We compared the chromosomal stability of over 500 neural cell samples from human and mouse with virtual karyotyping (e-karyotyping). We detected notable genomic instability in cells derived from pluripotent or adult stem cells, but surprisingly, transdifferentiated cells seemed more chromosomally stable, except if they were reprogrammed using pluripotency factors.
+---
+
+---
+DOI: 10.1152/ajpheart.2000.279.4.h1579
+Title: Virtual sources associated with linear and curved strands of cardiac cells
+Year: 2000
+Abstract: Transmembrane potential ( V m ) responses in cardiac strands with different curvature were characterized during uniform electric-field stimulation with the use of modeling and experimental approaches. Linear and U-shaped strands (width 100–150 μm) were stained with voltage-sensitive dye. V m was measured by optical mapping across the width and at sites of beginning curvature. Field pulses were applied transverse to the strands during the action-potential plateau. For linear strands, V m contained 1) a rapid passive component ( V m ar ) nearly linear and symmetric across the width, 2) a slower hyperpolarizing component ( V m as ) greater and faster on the anodal side, and 3) at high field strengths a delayed depolarizing component ( V m ad ) greater on the anodal side. For U-shaped strands, V m at sites of beginning curvature also contained rapid and slow components ( V m br and V m bs , respectively) that included contributions from the linear strand response and from the fiber curvature. V m ar , V m br , and part of V m bs could be attributed to passive behavior that was modeled, and V m as , V m ad , and part of V m bs could be attributed to active membrane currents. Thus curved strands exhibit field responses separable into components with characteristic amplitude, spatial, and temporal signatures.
+---
+
+---
+DOI: 10.1016/j.imlet.2018.09.003
+Title: Opinion: Virtual memory CD8 T cells and lymphopenia-induced memory CD8 T cells represent a single subset: Homeostatic memory T cells
+Year: 2018
+Abstract: It is well established that lymphopenia induces the formation of the memory-phenotype T cells without the exposure to foreign antigens. More recently, the memory-phenotype antigen-inexperienced memory T cells were described in lymphoreplete mice and called virtual memory T cells. In this review, we compare multiple aspects of the biology of lymphopenia-induced memory T cells and virtual memory T cells, including cytokine requirements, the role of T-cell receptor specificity in the differentiation process, gene expression signature, and the immune response. Based on this comparison, we conclude that lymphopenia-induced memory T cells and virtual memory T cells most likely represent a single T-cell subset, for which we propose a term 'homeostatic memory T cells'.
+---
+
+---
+DOI: 10.1109/fskd.2017.8393230
+Title: Multi-dimensional resource allocation aware user clustering in user-centric overlapped virtual cells
+Year: 2017
+Abstract: It is highly possible that the fifth generation (5G) wireless communication system adopts a ultra-dense networks (UDNs) which can provide extremely high throughput and data rates. However, due to irregular deployment of numerous base stations (BSs), the interference environment becomes rather complex, thus causing severe inter-cell interference and spectrum deficiency. Virtual cell can be foreseen as an effective way to solve such challenges and to improve spectrum efficiency (SE) by cooperative and coordinated transmission of the BS in virtual cells. However, virtual cell with overlapped BSs has constraints set by the antenna number of transmitter and receiver, so we propose a new user clustering scheme based on a mathematic graph approach for such case. Considering a user can act as the role of both interfering and interfered, we design a novel edge weight with a balanced cooperative transmission strategy. We also incorporate into edge weight design the gain of space and power dimensional cooperation in the sub-sequent resource allocation. To form user clustering dynamically, we utilize the clustering algorithm entitled Greedy Tree Growing Algorithm (GTGA) which is based on the K-means clustering algorithm. The proposed algorithm adjusts the size of user-clusters by a threshold depending on the statistics of edge weight which is shown by simulation to follow a Gaussian distribution. The simulation results demonstrate that the proposed approach can effectively reduce the complexity, mitigate interference and improve SE of UDN.
+---
+
+---
+DOI: 10.1109/mcomstd.001.2000019
+Title: Secure Virtual Mobile Small Cells: A Stepping Stone Toward 6G
+Year: 2021
+Abstract: As 5th Generation research reaches the twilight, the research community must\ngo beyond 5G and look towards the 2030 connectivity landscape, namely 6G. In\nthis context, this work takes a step towards the 6G vision by proposing a next\ngeneration communication platform, which aims to extend the rigid coverage area\nof fixed deployment networks by considering virtual mobile small cells (MSC)\nthat are created on demand. Relying on emerging computing paradigms such as NFV\n(Network Function Virtualization) and SDN (Software Defined Networking), these\ncells can harness radio and networking capability locally reducing protocol\nsignaling latency and overhead. These MSCs constitute an intelligent pool of\nnetworking resources that can collaborate to form a wireless network of MSCs\nproviding a communication platform for localized, ubiquitous and reliable\nconnectivity. The technology enablers for implementing the MSC concept are also\naddressed in terms of virtualization, lightweight wireless security, and energy\nefficient RF. The benefits of the MSC architecture towards reliable and\nefficient cell offloading are demonstrated as a use-case.\n
+---
+
+---
+DOI: 10.1016/j.snb.2020.127749
+Title: A virtual-droplet system for sensing MMP9 activity of single suspended and adhered cancer cells
+Year: 2020
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1515/auto-2017-0108
+Title: Semi-automatic generation of a virtual representation of a production cell
+Year: 2018
+Abstract: Abstract Nowadays there are commercial tools and academic solutions that support and contribute to Virtual Commissioning (VC). However, the main obstacle which hinders the broader application of VC in practice is the modeling time and effort required to create a proper simulation model. The modeling is also separated from the current project development lifecycle. This paper presents a semi-automatic method to transform the 3D geometry model of a production cell into a simulation-enabled virtual representation (i. e., a high fidelity simulation model of the cell). The geometry is combined with dynamic behavior which is a behavior description modeled intuitively based on VDI 2860. The entire method is embedded into a virtual commissioning workflow and is exemplified by a production cell with conveyors. Several commercial modeling and simulation tools are used and combined in the workflow to demonstrate the applicability. The presented methodology bases on AutomationML.
+---

@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.3390/app12062972
+Title: Closed-Loop Robotic Arm Manipulation Based on Mixed Reality
+Year: 2022
+Abstract: Robotic manipulators have become part of manufacturing systems in recent decades. However, in the realm of Industry 4.0, a new type of manufacturing cell has been introduced—the so-called collaborative manufacturing cell. In such collaborative environments, communication between a human operator and robotic manipulators must be flawless, so that smooth collaboration, i.e., human safety, is ensured constantly. Therefore, engineers have focused on the development of suitable human–robot interfaces (HRI) in order to tackle this issue. This research work proposes a closed-loop framework for the human–robot interface based on the utilization of digital technologies, such as Mixed Reality (MR). Concretely, the framework can be realized as a methodology for the remote and safe manipulation of the robotic arm in near real-time, while, simultaneously, safety zones are displayed in the field of view of the shop-floor technician. The method is based on the creation of a Digital Twin of the robotic arm and the setup of a suitable communication framework for continuous and seamless communication between the user interface, the physical robot, and the Digital Twin. The development of the method is based on the utilization of a ROS (Robot Operating System) for the modelling of the Digital Twin, a Cloud database for data handling, and Mixed Reality (MR) for the Human–Machine Interface (HMI). The developed MR application is tested in a laboratory-based machine shop, incorporating collaborative cells.
+---
+
+---
+DOI: 10.1109/lsens.2024.3400009
+Title: A Practical Guide for Noise Characterization of Back Pressure Sensors: Toward Digital Twin for an Industrial High-Horse Power Engine Test Cell
+Year: 2024
+Abstract: Extensive testing is crucial to ensure exhaust emission compliance for high-horsepower (H-hp) commercial engines. Back pressure sensors, integral to the exhaust system, are prone to producing noisy measurements due to the turbulent nature of the exhaust gas flow and other testing inaccuracies, mandating the use of a noise reduction filter. The time-consuming process of filter tuning, required to remove excessive process/measurement noise, often involves trial-and-error. This practice, entailing numerous experiments with live engines, results in high financial costs and emissions due to challenges in extracting the ground truth signal from noisy measurements. Developing a digital twin (DT) of this system is proposed to expedite filter tuning, hence reducing cost and emissions output. Creating such a DT necessitates a method of back pressure sensor noise classification to accurately simulate the signal. This letter introduces a step-by-step procedure for characterising the H-hp engine back pressure sensor through statistical measures, leading to the development of the DT. This letter demonstrates the potential of this approach in an industrial case study, showcasing its viability for application in engine test-bed facilities and across industries. The economic calculation estimates a potential £184,400 reduction in diesel fuel costs and 321,600 kg of CO2 emissions by tuning the filter through the DT compared to current industrial practice. Keywords: flowering time; hypocotyl elongation; light quality; light intensity; light ratio; light order; plant growth; smart greenhouse farming.
+---
+
+---
+DOI: 10.3390/en18236318
+Title: Experimental Assessment and Digital Twin Modeling of Integrated AEM Electrolyzer–PEM Fuel Cell–BESS for Smart Hydrogen Energy Applications
+Year: 2025
+Abstract: Rising energy demand, fossil fuel depletion, and global warming are accelerating research into sustainable energy solutions, with growing interest in hydrogen as a promising alternative. This research presents a detailed experimental investigation and novel digital twin (DT) models for an integrated hydrogen-based energy system consisting of an Anion Exchange Membrane Electrolyzer (AEMEL), Proton Exchange Membrane Fuel Cell (PEMFC), hydrogen storage, and Battery Energy Storage System (BESS). Conducted at a real-world facility in Risavika, Norway, the study employed commercial units: the Enapter EL 4.1 AEM electrolyzer and Intelligent Energy IE-Lift 1T/1U PEMFC. Experimental tests under dynamic load conditions demonstrated stable operation, achieving hydrogen production rates of up to 512 NL/h and a specific power consumption of 4.2 kWh/Nm3, surpassing the manufacturer’s specifications. The PEMFC exhibited a unique cyclic operational mechanism addressing cathode water flooding, a critical issue in fuel cell systems, achieving steady-state efficiencies around 43.6% under prolonged (190 min) rated-power operation. Subsequently, advanced DT models were developed for both devices: a physics-informed interpolation model for the AEMEL, selected due to its linear and steady operational behavior, and an ANN-based model for the PEMFC to capture its inherently nonlinear, dynamically fluctuating characteristics. Both models were validated, showing excellent predictive accuracy (&lt;3.8% deviation). The DTs integrated manufacturer constraints, accurately modeling transient behaviors, safety logic, and operational efficiency. The round-trip efficiency of the integrated system was calculated (~27%), highlighting the inherent efficiency trade-offs for autonomous hydrogen-based energy storage. This research significantly advances our understanding of integrated H2 systems, providing robust DT frameworks for predictive diagnostics, operational optimization, and performance analysis, supporting the broader deployment and management of hydrogen technologies.
+---
+
+---
+DOI: 10.1007/s10845-022-01928-x
+Title: Digital Twin and web services for robotic deburring in intelligent manufacturing
+Year: 2022
+Abstract: The development of modern manufacturing requires key solutions to enhance the intelligence of manufacturing such as digitalization, real-time monitoring, or simulation techniques. For smart robotic manufacturing, the modern approach regarding robot programming and process planning aims for both high efficiency and energy-awareness. During the design and manufacturing stages, optimization becomes crucial and can be fulfilled by means of appropriate digital manufacturing tools. This paper presents the development of a Digital Twin for a robotic deburring workcell along with the process planning and robot programming. Considering a large size workpiece, a new robot programming solution was implemented, based on image processing to safely re-machine only areas where burrs could not be completely removed in the main deburring routine. The work also covers the development of a new web platform to remotely monitor the robotic workcell, to trigger alerts for unexpected events and to allow the control to authorized personnel enabled by the employment of robot web services following an architectural RESTful style which establishes a communication link to the robot virtual controller. The aim of this research is to integrate the Digital Twin with the innovative proposals of Industry 4.0, offering a project-based model of smart robotic manufacturing and experience concepts such as Cyber-Physical System, digitalization, data acquisition, continuous monitoring, and intelligent solutions in a novel approach. Furthermore, the work covers energy consumption strategies for energy-aware robotic manufacturing. Finally, the results of an energy-efficient motion planning along with signal-based scheduling optimization of the robotic deburring cell are discussed.
+---
+
+---
+DOI: 10.1016/j.cell.2023.12.017
+Title: Understanding the cell: Future views of structural biology
+Year: 2024
+Abstract: Determining the structure and mechanisms of all individual functional modules of cells at high molecular detail has often been seen as equal to understanding how cells work. Recent technical advances have led to a flush of high-resolution structures of various macromolecular machines, but despite this wealth of detailed information, our understanding of cellular function remains incomplete. Here, we discuss present-day limitations of structural biology and highlight novel technologies that may enable us to analyze molecular functions directly inside cells. We predict that the progression toward structural cell biology will involve a shift toward conceptualizing a 4D virtual reality of cells using digital twins. These will capture cellular segments in a highly enriched molecular detail, include dynamic changes, and facilitate simulations of molecular processes, leading to novel and experimentally testable predictions. Transferring biological questions into algorithms that learn from the existing wealth of data and explore novel solutions may ultimately unveil how cells work.
+---
+
+---
+DOI: 10.1109/jsac.2023.3310080
+Title: Cooperative Task Offloading and Service Caching for Digital Twin Edge Networks: A Graph Attention Multi-Agent Reinforcement Learning Approach
+Year: 2023
+Abstract: Mobile edge computing (MEC) enables various services to be cached in close proximity to the user equipments (UEs), thereby reducing the service delay of many emerging applications. However, the limitation of storage, computation, and radio resources, the dynamics of the decentralized MEC environment, and the complex spatial relationships of service request types and wireless network states between edge nodes make it difficult to realize efficient edge computing services. To address these challenges, this paper integrates the digital twin (DT) technology with a multi-cell MEC network to study an intelligent cooperative task offloading and service caching scheme, aiming at maximizing a quality of services (QoE)-based system utility. Specifically, we first construct a digital twin edge network (DITEN) to reflect the physical MEC system in real-time and provide data for training. With the help of DT technology, it is easy to access data resources in the DITEN to improve the simulation ability and reduce the communication cost. Then, we propose a graph attention-based multi-agent reinforcement learning (GatMARL) algorithm to learn the optimal task offloading and service caching strategies in the DITEN. The GatMARL employs a graph attention-based value decomposition network to capture the potential spatial relationships between edge nodes to learn better attentive cooperation policy. Simulation results demonstrate that the proposed GatMARL algorithm exhibits an effective performance improvement compared with state-of-the-art benchmarks.
+---
+
+---
+DOI: 10.1016/j.jpowsour.2025.237538
+Title: The battery information format (BIF): A memory-efficient standard for communicating cell usage and status for battery digital twins (BDTs)
+Year: 2025
+Abstract: The massive expansion in lithium-ion battery (LIB) powered applications demands attention to reliability and increased lifetime, for a truly sustainable value chain. Data-driven lifetime modelling offers a route to ensure optimal usage patterns, but the lack of widely accessible LIB fleet data for training hampers benchmarking and optimization. Here we approach the lack of available training data by outlining an implementation of a battery information format (BIF). We suggest a feature-first approach, simultaneously respecting memory constraints of embedded systems and heralding a mechanistic understanding of LIB ageing. First, we examine existing feature designs. Second, we define qualitative requirements for collected battery data. From this combined, we arrive at a BIF where trade-offs can be matched to the constraints of the application. The BIF follows a histogram-based strategy, which allows to share battery state-of-health (SOH) and usage history in an interpretable, accessible, and reusable way. This BIF strategy furthermore allows training of data-driven models for predicting SOH and a vast reduction of the data footprint – by 2-4 orders of magnitude as compared to time-series data collection schemes. • Limited datasets curb quantitative design of field data for ageing prognostics. • A battery information format can be used to mitigate the data shortage. • A qualitative selection framework should form the basis for feature selection. • Histograms are found to fulfill selection criteria. • Harmonised format design, e.g. binning schemes, ensures data transferrability
+---
+
+---
+DOI: 10.1016/s1465-3249(23)00538-8
+Title: Process Development and Manufacturing: DIGITAL TWIN-ENABLED FEEDBACK-CONTROLLED AUTOMATION WITH INTEGRATED PROCESS ANALYTICS FOR BIOMANUFACTURING OF CELL THERAPIES
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3390/engproc2024079016
+Title: A Long Short-Term Memory-Based Deep Learning Digital Twin of a Li-Ion Cell for Battery SOC Estimation
+Year: 2024
+Abstract: This study aims to implement the digital twin of a Li-ion battery by using real measurement data and to create a deep learning-based SOC (state of charge) estimation solution. In the case of the SOC estimator, a special type of deep learning, so-called long short-term memory (LSTM), was used to increase the capabilities of the estimator. The digital twin and the SOC estimator were created by using MATLAB and MATLAB/Simulink. As a result, the implemented system can accurately simulate the non-linearities of the Li-ion battery and provide a satisfactory estimation of the SOC of the battery.
+---
+
+---
+DOI: 10.1016/j.compositesa.2021.106659
+Title: Multiscale damage modelling of 3D woven composites under static and impact loads
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.procir.2021.11.128
+Title: A digital twin framework for the simulation and optimization of production systems
+Year: 2021
+Abstract: Industry 4.0 has raised the expectations on productivity, automation, and resource efficiency of manufacturing systems. This paper proposes a digital twin framework for the simulation and optimization of production lines and cells that can be used in the design and operation stages. The framework is supported by an architecture that connects manufacturing and machine tool data (digital shadow), the discrete event simulation model and the optimization engine, allowing for a variety of functionalities to plan and manage the production system. A use case is provided to demonstrate this framework, implemented in an automated line for the manufacturing of railway axles.
+---
+
+---
+DOI: 10.1016/j.eap.2015.10.002
+Title: Fuel cells and the hydrogen revolution: Analysis of a strategic plan in Japan
+Year: 2015
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3390/batteries8100169
+Title: Smart Battery Technology for Lifetime Improvement
+Year: 2022
+Abstract: Applications of lithium-ion batteries are widespread, ranging from electric vehicles to energy storage systems. In spite of nearly meeting the target in terms of energy density and cost, enhanced safety, lifetime, and second-life applications, there remain challenges. As a result of the difference between the electric characteristics of the cells, the degradation process is accelerated for battery packs containing many cells. The development of new generation battery solutions for transportation and grid storage with improved performance is the goal of this paper, which introduces the novel concept of Smart Battery that brings together batteries with advanced power electronics and artificial intelligence (AI). The key feature is a bypass device attached to each cell that can insert relaxation time to individual cell operation with minimal effect on the load. An advanced AI-based performance optimizer is trained to recognize early signs of accelerated degradation modes and to decide upon the optimal insertion of relaxation time. The resulting pulsed current operation has been proven to extend lifetime by up to 80% in laboratory aging conditions. The Smart Battery unique architecture uses a digital twin to accelerate the training of performance optimizers and predict failures. The Smart Battery technology is a new technology currently at the proof-of-concept stage.
+---
+
+---
+DOI: 10.1016/j.ceramint.2025.07.004
+Title: AI-augmented digital twin framework for predictive thermo-mechanical degradation monitoring in solid oxide fuel cell Stacks: Integration of multi-physics models and uncertainty quantification
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/s11831-020-09404-6
+Title: From ROM of Electrochemistry to AI-Based Battery Digital and Hybrid Twin
+Year: 2020
+Abstract: Lithium-ion batteries are widely used in the automobile industry (electric vehicles and hybrid electric vehicles) due to their high energy and power density. However, this raises new safety and reliability challenges which require development of novel sophisticated Battery Management Systems (BMS). A BMS ensures the safe and reliable operation of a battery pack and to realize it a model must be solved. However, current BMSs are not adapted to the specifications of the automotive industry, as they are unable to give accurate results at real-time rates and during a wide operation range. For this reason, the main focus of this work is to develop a Hybrid Twin, as introduced in Chinesta et al. (Arch Comput Methods Eng (in press), 2018. https://doi.org/10.1007/s11831-018-9301-4), so as to meet the requirements of the new generation of BMS. To achieve this, three reduced order model techniques are applied to the most commonly used physics-based models, each one for a different range of application. First, a POD model is used to greatly reduce the simulation time and the computational effort for the pseudo-2D model, while maintaining its accuracy. In this way, cell design, optimization of parameters, and simulation of battery packs can be done while saving time and computational resources. In addition, its real-time performance has been studied. Next, a regression model is constructed from data by using the sparse-Proper Generalized Decomposition (s-PGD). It is shown that it achieves real-time performance for the whole electric vehicle (EV) system with a battery pack. In addition, this regression model can be used in a BMS without issues because of the simple algebraic expression obtained. A simulation of the EV with the proposed approach is demonstrated using the system simulation tool SimulationX (ESI ITI GmbH. Dresden, Germany). Furthermore, the Digital Twin created using the s-PGD does not only allow for real-time simulations, but it can also adapt its predictions taking into consideration the real driving conditions and the real driving cycle to change the planning in real-time. Finally, a data-driven model based
+---
+
+---
+DOI: 10.1002/ente.202000984
+Title: Recent Advancements in Battery Management System for Li‐Ion Batteries of Electric Vehicles: Future Role of Digital Twin, Cyber‐Physical Systems, Battery Swapping Technology, and Nondestructive Testing
+Year: 2021
+Abstract: The increasing popularity of the electric vehicles (EVs) is due to various environmental impacts of the gasoline‐/diesel‐based vehicles over the past few decades. EVs are commercialized in various parts of world but their full‐scale commercialization has not yet attained. Despite of many advantages, challenges associated with the use of EVs are their range anxiety, slow charging, and the performance/cost of battery. A thorough review from the year 2006 to 2020 is conducted in the field of battery management system (BMS). Herein, various functions, advantages, and disadvantages of methods used in BMS for cell balancing, thermal management, and protection of battery against over‐voltage and over current, estimation of state of health, and estimation of state of charge of battery are discussed. Additionally, critical gaps are identified and a framework for design of an efficient BMS is proposed. The deployment of advanced intelligent and smart technologies such as digital‐twin of battery pack, cyber‐physical systems, battery swapping technology, nondestructive testing, self‐reconfigurable batteries, and prudent recycling/reusability using automation are also discussed. In‐brief, critical gaps; advanced technologies and framework that researchers can use to develop comprehensive systems comprising advanced BMS; real‐time battery monitoring, and battery reusability and recycling; as a whole complete unit are provided.
+---
+
+---
+DOI: 10.1016/j.coisb.2021.100385
+Title: Systems biology at the giga-scale: Large multiscale models of complex, heterogeneous multicellular systems
+Year: 2021
+Abstract: Agent-based modelling has proven its usefulness in several biomedical projects by explaining and uncovering mechanisms in diseases. Nevertheless, the scenarios addressed in these models usually consider a small number of cells, lack cell-specific characterisation and dynamic interactions and have a simplistic environment description. Tools that enable scalable, real-sized simulations of biological systems that require complex set-ups are needed to have simulations closer to biomedical scenarios that can capture cell-to-cell heterogeneity and system-wide emerging properties. To deliver simulations at the giga-scale (109 cells), different tools have implemented technologies to run in high-performance computing clusters. We hereby review these efforts and detail the main areas of improvement the field needs to focus on to have simulations that are a step closer to having digital twins
+---
+
+---
+DOI: 10.1016/j.ymben.2020.04.005
+Title: Enzyme capacity-based genome scale modelling of CHO cells
+Year: 2020
+Abstract: Chinese hamster ovary (CHO) cells are most prevalently used for producing recombinant therapeutics in biomanufacturing. Recently, more rational and systems approaches have been increasingly exploited to identify key metabolic bottlenecks and engineering targets for cell line engineering and process development based on the CHO genome-scale metabolic model which mechanistically characterizes cell culture behaviours. However, it is still challenging to quantify plausible intracellular fluxes and discern metabolic pathway usages considering various clonal traits and bioprocessing conditions. Thus, we newly incorporated enzyme kinetic information into the updated CHO genome-scale model (iCHO2291) and added enzyme capacity constraints within the flux balance analysis framework (ecFBA) to significantly reduce the flux variability in biologically meaningful manner, as such improving the accuracy of intracellular flux prediction. Interestingly, ecFBA could capture the overflow metabolism under the glucose excess condition where the usage of oxidative phosphorylation is limited by the enzyme capacity. In addition, its applicability was successfully demonstrated via a case study where the clone- and media-specific lactate metabolism was deciphered, suggesting that the lactate-pyruvate cycling could be beneficial for CHO cells to efficiently utilize the mitochondrial redox capacity. In summary, iCHO2296 with ecFBA can be used to confidently elucidate cell cultures and effectively identify key engineering targets, thus guiding bioprocess optimization and cell engineering efforts as a part of digital twin model for advanced biomanufacturing in future.
+---
+
+---
+DOI: 10.3390/en16031194
+Title: Improved Digital Twin of Li-Ion Battery Based on Generic MATLAB Model
+Year: 2023
+Abstract: The paper describes the digital twin of a Li-ion battery cell based on the MATLAB/Simulink generic model. The digital twin is based on measured data for constant current/constant voltage charging and discharging cycles with State of Health (SoH) up to 79%, also including fast charging. Mathematical equations used for the digital twin are obtained by 3D data fitting of measured SoH, battery capacity, and battery cell current. The input to the proposed digital twin is only the measured battery cell current, and its output includes State of Charge (SoC), SoH, and battery cell voltage. The designed digital twin is tested and compared with MATLAB/Simulink generic model and battery cell measurements for constant discharging current and dynamically generated discharging current profile. The results show significant improvement in the generic MATLAB/Simulink model.
+---
+
+---
+DOI: 10.1364/oe.398528
+Title: Noise-free quantitative phase imaging in Gabor holography with conditional generative adversarial network
+Year: 2020
+Abstract: This paper shows that deep learning can eliminate the superimposed twin-image noise in phase images of Gabor holographic setup. This is achieved by the conditional generative adversarial model (C-GAN), trained by input-output pairs of noisy phase images obtained from synthetic Gabor holography and the corresponding quantitative noise-free contrast-phase image obtained by the off-axis digital holography. To train the model, Gabor holograms are generated from digital off-axis holograms with spatial shifting of the real image and twin image in the frequency domain and then adding them with the DC term in the spatial domain. Finally, the digital propagation of the Gabor hologram with Fresnel approximation generates a super-imposed phase image for the C-GAN model input. Two models were trained: a human red blood cell model and an elliptical cancer cell model. Following the training, several quantitative analyses were conducted on the bio-chemical properties and similarity between actual noise-free phase images and the model output. Surprisingly, it is discovered that our model can recover other elliptical cell lines that were not observed during the training. Additionally, some misalignments can also be compensated with the trained model. Particularly, if the reconstruction distance is somewhat incorrect, this model can still retrieve in-focus images.
+---
+
+---
+DOI: 10.3390/en16145246
+Title: Optimal Parameter Identification of a PEM Fuel Cell Using Recent Optimization Algorithms
+Year: 2023
+Abstract: The parameter identification of a PEMFC is the process of using optimization algorithms to determine the ideal unknown variables suitable for the development of an accurate fuel-cell-performance prediction model. These parameters are not always available from the manufacturer’s datasheet, so they need to be determined to accurately model and predict the fuel cell’s performance. Five optimization methods—bald eagle search (BES) algorithm, equilibrium optimizer (EO), coot (COOT) algorithm, antlion optimizer (ALO), and heap-based optimizer (HBO)—are used to compute seven unknown parameters of a PEMFC. During optimization, these seven parameters are used as decision variables, and the fitness function to be minimized is the sum square error (SSE) between the estimated cell voltage and the actual measured cell voltage. The SSE obtained for the BES algorithm was noted to be 0.035102. The COOT algorithm recorded an SSE of 0.04155, followed by ALO with an SSE of 0.04022 and HBO with an SSE of 0.056021. BES predicted the performance of the fuel cell accurately; hence, it is suitable for the development of a digital twin for fuel-cell applications and control systems for the automotive industry. Furthermore, it was deduced that the convergence speed for BES was faster compared to the other algorithms investigated. This study aims to use metaheuristic algorithms to predict fuel-cell performance for the development and commercialization of digital twins in the automotive industry.
+---
+
+---
+DOI: 10.1016/j.cirp.2018.04.118
+Title: An information and simulation framework for increased quality in welded components
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/btpr.2995
+Title: Model‐based design and control of a small‐scale integrated continuous end‐to‐end <scp>mAb</scp> platform
+Year: 2020
+Abstract: Abstract A continuous integrated bioprocess available from the earliest stages of process development allows for an easier, more efficient and faster development and characterization of an integrated process as well as production of small‐scale drug candidates. The process presented in this article is a proof‐of‐concept of a continuous end‐to‐end monoclonal antibody production platform at a very small scale based on a 200 ml alternating tangential flow filtration perfusion bioreactor, integrated with the purification process with a model‐based design and control. The downstream process, consisting of a periodic twin‐column protein A capture, a virus inactivation, a CEX column and an AEX column, was compactly implemented in a single chromatography system, with a purification time of less than 4 hr. Monoclonal antibodies were produced for 17 days in a high cell density perfusion culture of CHO cells with titers up to 1.0 mg/ml. A digital twin of the downstream process was created by modelling all the chromatography steps. These models were used for real‐time decision making by the implementation of control strategies to automatize and optimize the operation of the process. A consistent glycosylation pattern of the purified product was ensured by the steady state operation of the process. Regarding the removal of impurities, at least a 4‐log reduction in the HCP levels was achieved. The recovery yield was up to 60%, and a maximum productivity of 0.8 mg/ml/day of purified product was obtained.
+---
+
+---
+DOI: 10.1021/accountsmr.2c00082
+Title: Perspective on Mechanistic Modeling of Li-Ion Batteries
+Year: 2022
+Abstract: ConspectusThough relatively young, the mechanistic modeling approach has gained tremendous traction in the past decade as it was proven to be extremely versatile and effective for lithium-ion battery diagnosis and prognosis. The approach is relies on assembling digital twins by matching the individual voltage response of each electrode. Changing the matching, via scaling or translations, enables replication of the degradation modes electrochemical signature. Degradation modes comprise the loss of lithium inventory, the loss of active material, and kinetic changes and refer to the impact of degradation mechanisms on the electrodes rather than their root cause. Every degradation mechanism will affect, to some extent, the amount of material able to react, the amount of lithium able to go back and forth between the electrodes, and the overall reaction kinetics. Quantifying degradation modes open the gate for material-based diagnosis and prognosis without the need for complex models.This Account is first a reflection on a decade worth of discussion and validation of several key concepts about using digital twins for advanced diagnosis and prognosis since the seminal publications in the early 2010s. Since proposing our version of the framework, it has been used to diagnose the degradation of several hundred cells of multiple chemistries and blends. It made it possible to explain and predict the apparition of knees with the concept of hidden mechanisms and to emulate the impact of kinetics. The approach also proved useful to investigate overdischarge and overcharge and to generate big data with millions of synthetic voltage curves enabling the development of advanced diagnosis and prognosis tools. Herein, we will focus on the emulation of kinetic changes, of lithium plating both from rate-dependent and rate-independent origins, and on the utilization of synthetic datasets.This Account will also introduce the next decade with proof-of-concept implementations and simulations that will open new directions to enhance the modeling framework application to more complex case figures that could facilitate its use for deployed systems. This includes more varied synthetic data sets, blended and inhomogeneous electrodes and packs, voltage fade, and calculations outside of constant current. Blends and voltage fade will be simulated with a new paralleling model at the electrode level, inhomogeneities will be simulated with a new paralleling model at the cell level, and nonconstant duty cycles will be calculated by aggregating simulations at different rates. These new features could allow a much wider field implementation of better diagnosis and prognosis tools for deployed systems.
+---
+
+---
+DOI: 10.1109/tap.2022.3151354
+Title: Building a Smart EM Environment - AI-Enhanced Aperiodic Micro-Scale Design of Passive EM Skins
+Year: 2022
+Abstract: An innovative process for the design of static passive smart skins (SPSSs) is\nproposed to take into account, within the synthesis, the electromagnetic (EM)\ninteractions due to their finite (macro-level) size and aperiodic (micro-scale)\nlayouts. Such an approach leverages on the combination of an inverse source\n(IS) formulation, to define the SPSS surface currents, and of an instance of\nthe System-by-Design paradigm, to synthesize the unit cell (UC) descriptors\nsuitable for supporting these currents. As for this latter step, an enhanced\nArtificial Intelligence (IA)-based digital twin (DT) is built to efficiently\nand reliably predict the relationships among the UCs and the non-uniform\ncoupling effects arising when the UCs are irregularly assembled to build the\ncorresponding SPSS. Towards this end and unlike state-of-the-art approaches, an\naperiodic finite small-scale model of the SPSS is derived to generate the\ntraining database for the DT implementation. A set of representative numerical\nexperiments, dealing with different radiation objectives and smart skin\napertures, is reported to assess the reliability of the conceived design\nprocess and to illustrate the radiation features of the resulting layouts,\nvalidated with accurate full-wave simulations, as well.\n
+---
+
+---
+DOI: 10.1016/j.ensm.2023.102965
+Title: A digital twin to quantitatively understand aging mechanisms coupled effects of NMC battery using dynamic aging profiles
+Year: 2023
+Abstract: Traditional lithium-ion battery modeling does not provide sufficient information to accurately verify battery performance under real-time dynamic operating conditions, particularly when considering various aging modes and mechanisms. To improve the current methods, this paper proposes a lithium-ion battery digital twin that can capture real-time data and integrate the strong coupling between SEI layer growth, anode crack propagation, and lithium plating. It can be utilized to estimate aging behavior from macroscopic full-cell level to microscopic particle level, including voltage-current profiles in dynamic aging conditions, predict the degradation behavior of Nickel-Manganese-Cobalt-Oxide (NMC) based lithium-ion batteries, and assist in electrochemical analysis. This model can improve the root cause analysis of cell aging, enabling a quantitative understanding of aging mechanism coupled effects. Three charging protocols with dynamic discharging profiles are developed to simulate real vehicle operation scenarios and used to validate the digital twin, combining operando impedance measurements, post-mortem analysis, and SEM to further prove the conclusions. The digital twin can accurately predict battery capacity fade within 0.4% MAE. The results indicate that SEI layer growth is the primary contributor to capacity degradation and resistance increase. Based on the analysis of the model, it is concluded that one of the proposed multi-step charging protocols, in comparison to a standard continuous charging protocol, can reduce the degradation of NMC-based lithium-ion batteries. This paper represents a firm physical foundation for future physics-informed machine learning development.
+---
+
+---
+DOI: 10.1161/atvbaha.122.318331
+Title: Digital Twins for Predictive, Preventive Personalized, and Participatory Treatment of Immune-Mediated Diseases
+Year: 2023
+Abstract: Digital twins are computational models of complex systems, which aim to understand and optimize those systems more effectively than would be possible in real life. Ideally, digital twins can be translated to individual patients, to characterize and computationally treat their diseases with thousands of drugs, to select the drug or drugs that cure the patients. The background problem is that many patients do not respond adequately to drug treatment. This problem reflects a wide gap between the complexity of diseases and clinical practice. Each disease may involve altered interactions between thousands of genes that vary between different cell types in different organs. To our knowledge, these altered interactions have not been characterized on a genome-, cellulome-, and organ-wide scale in any disease. Thus, clinical translation of the digital twin ideal for predictive, preventive, personalized and participatory treatment involves formidable challenges, which are close to the limits of, or beyond today’s technologies. Here, I discuss recent developments and challenges in relation to that ideal focusing on immune-mediated inflammatory diseases, as well as examples from other diseases.
+---
+
+---
+DOI: 10.1186/s13073-025-01435-7
+Title: Digital twins as global learning health and disease models for preventive and personalized medicine
+Year: 2025
+Abstract: Ineffective medication is a major healthcare problem causing significant patient suffering and economic costs. This issue stems from the complex nature of diseases, which involve altered interactions among thousands of genes across multiple cell types and organs. Disease progression can vary between patients and over time, influenced by genetic and environmental factors. To address this challenge, digital twins have emerged as a promising approach, which have led to international initiatives aiming at clinical implementations. Digital twins are virtual representations of health and disease processes that can integrate real-time data and simulations to predict, prevent, and personalize treatments. Early clinical applications of DTs have shown potential in areas like artificial organs, cancer, cardiology, and hospital workflow optimization. However, widespread implementation faces several challenges: (1) characterizing dynamic molecular changes across multiple biological scales; (2) developing computational methods to integrate data into DTs; (3) prioritizing disease mechanisms and therapeutic targets; (4) creating interoperable DT systems that can learn from each other; (5) designing user-friendly interfaces for patients and clinicians; (6) scaling DT technology globally for equitable healthcare access; (7) addressing ethical, regulatory, and financial considerations. Overcoming these hurdles could pave the way for more predictive, preventive, and personalized medicine, potentially transforming healthcare delivery and improving patient outcomes.
+---
+
+---
+DOI: 10.1016/bs.aams.2022.09.001
+Title: From digital control to digital twins in medicine: A brief review and future perspectives
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1158/0008-5472.can-22-1329
+Title: MRI-Based Digital Models Forecast Patient-Specific Treatment Responses to Neoadjuvant Chemotherapy in Triple-Negative Breast Cancer
+Year: 2022
+Abstract: Abstract Triple-negative breast cancer (TNBC) is persistently refractory to therapy, and methods to improve targeting and evaluation of responses to therapy in this disease are needed. Here, we integrate quantitative MRI data with biologically based mathematical modeling to accurately predict the response of TNBC to neoadjuvant systemic therapy (NAST) on an individual basis. Specifically, 56 patients with TNBC enrolled in the ARTEMIS trial (NCT02276443) underwent standard-of-care doxorubicin/cyclophosphamide (A/C) and then paclitaxel for NAST, where dynamic contrast-enhanced MRI and diffusion-weighted MRI were acquired before treatment and after two and four cycles of A/C. A biologically based model was established to characterize tumor cell movement, proliferation, and treatment-induced cell death. Two evaluation frameworks were investigated using: (i) images acquired before and after two cycles of A/C for calibration and predicting tumor status after A/C, and (ii) images acquired before, after two cycles, and after four cycles of A/C for calibration and predicting response following NAST. For Framework 1, the concordance correlation coefficients between the predicted and measured patient-specific, post-A/C changes in tumor cellularity and volume were 0.95 and 0.94, respectively. For Framework 2, the biologically based model achieved an area under the receiver operator characteristic curve of 0.89 (sensitivity/specificity = 0.72/0.95) for differentiating pathological complete response (pCR) from non-pCR, which is statistically superior (P &amp;lt; 0.05) to the value of 0.78 (sensitivity/specificity = 0.72/0.79) achieved by tumor volume measured after four cycles of A/C. Overall, this model successfully captured patient-specific, spatiotemporal dynamics of TNBC response to NAST, providing highly accurate predictions of NAST response. Significance: Integrating MRI data with biologically based mathematical modeling successfully predicts breast cancer response to chemotherapy, suggesting digital twins could facilitate a paradigm shift from simply assessing response to predicting and optimizing therapeutic efficacy.
+---
+
+---
+DOI: 10.1007/s12666-019-01699-9
+Title: Sustainable Primary Aluminium Production: Technology Status and Future Opportunities
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1080/00207543.2022.2152896
+Title: Digital twin design and analytics for scaling up electric vehicle battery production using robots
+Year: 2022
+Abstract: As electric vehicle adoption accelerates and demand increases, the inability to produce batteries in sufficient quantities has emerged as a critical bottleneck in the electric vehicle supply chain. Given the impending climate change crisis, resolving this bottleneck is imperative to accelerate the transition to a zero-emission electric mobility future. One potential solution is the use of robotics for fast and cost-effective assembly of batteries at scale. This study proposes a three-stage digital twin design and analysis method to develop robotic workcells for fast and cost-effective assembly of electric vehicle battery modules. Using digital twin design and simulation, robotic assembly line configurations have been developed for battery module production at different scales. Digital twin analytics was used to evaluate and optimise the proposed robotic battery assembly system for speed and cost. Industrial automation experts were consulted to further improve robotic work cell layouts to minimise investment in robots. Because digital twins of robotic workcells have been used, the configurations of the battery assembly line, as designed and validated, are ready for immediate implementation. For practitioners, this study offers heuristic methods to determine the appropriate assembly line configuration, the required number of robots and humans, for a desired production volume. For researchers, this study outlines promising areas for future investigation.
+---
+
+---
+DOI: 10.1109/ieem45057.2020.9309953
+Title: Implementation of a Bi-Directional Digital Twin for Industry 4 Labs in Academia: A Solution Based on OPC UA
+Year: 2020
+Abstract: With the increased demands of smarter manufacturing approaches around the world, the process of industrial digital transformation is being pushed in and by both industry and academia. Learning factories and testing laboratories have been developed for decades for teaching and training purposes in Academia. Nowadays, as the future trend in industry, Industry 4 is being merged into the latest development of learning factories and testing laboratories. This paper presents the development and implementation of a bi-directional digital twin application in an Industry 4 testing laboratory at University of South Australia. The solution is based on the establishment of OPC UA connection between two cobots of different brands, the use of NX Siemens as a CAD simulation platform and a SCADA system from Inductive Automation. Due to differences between system interfaces, communication between different modules was challenging. Python OPC UA servers were developed. The digital twin replicates the physical system and is driven by inputs from the assembly cell.
+---
+
+---
+DOI: 10.1016/j.procir.2020.05.029
+Title: A holistic methodology for development of Real-Time Digital Twins
+Year: 2020
+Abstract: The Digital Twins of product and production face the challenge that once the development process is closed, they does not reflect the real status of production where events as equipment failures, poor quality or missing compound parts happens continuously. For assuring production resilience a holistic methodology, combining a top-down with a bottom-up 3D scanning approach for capturing real-time production parameters and embedding them in Digital Twins is developed. The paper presents the methodology and a motivation scenario for further validation in an innovative set-up of an automated measurement cell, where state-of-the-at technologies as autonomous AGV, mobile 3D laser scanning and automated processes are integrated.
+---
+
+---
+DOI: 10.2528/pierl18021908
+Title: META-SURFACE WALL SUPPRESSION OF MUTUAL COUPLING BETWEEN MICROSTRIP PATCH ANTENNA ARRAYS FOR THZ-BAND APPLICATIONS
+Year: 2018
+Abstract: This paper presents a novel 2D meta-surface wall to increase the isolation between microstrip patch radiators in an antenna array that is operating in the teraherz (THz) band of 139-141 GHz for applications including communications, medical and security screening systems. The meta-surface unit-cell comprises conjoined twin &amp;#96;Y-shape&amp;#39; microstrip structures, which are inter-digitally interleaved together to create the meta-surface wall. The proposed meta-surface wall is free of via holes and defected ground-plane hence easing its fabrication. The meta-surface wall is inserted tightly between the radiating elements to reduce surface wave mutual coupling. For best isolation performance the wall is oriented orthogonal to the patch antennas. The antenna array exhibits a gain of 9.0 dBi with high isolation level of less than -63 dB between transmit and receive antennas in the specified THz-band. The proposed technique achieves mutual coupling suppression of more than 10 dB over a much wider frequency bandwidth (2 GHz) than achieved to date. With the proposed technique the edge-to-edge gap between the transmit and receive patch antennas can be reduced to 2.5 mm. Dimensions of the transmit and receive patch antennas are 5×5 mm2 with ground-plane size of 9×4.25 mm2 when being constructed on a conventional lossy substrate with thickness of 1.6 mm. © 2018, Electromagnetics Academy. All rights reserved.
+---
+
+---
+DOI: 10.1016/j.procir.2020.08.005
+Title: On modelling and handling of flexible materials: A review on Digital Twins and planning systems
+Year: 2021
+Abstract: In this paper a series of studies dealing with flexible material manipulation in aspects of manipulation, modelling and scheduling are discussed. The main purpose of this work is to provide an overview of the existing technologies and their capabilities both in manufacturing and academia, that can be elaborated in autonomous flexible material handling using robotics. The particularities of flexible material handling require advanced control systems for simulating, monitoring and managing the deformation of plies. A simulation model for predicting and defining the status of manipulated fabrics is proposed. Digital representation of the production system, in the basis of Digital Twin, is intended for achieving real-time adaptation. A pioneer control and planning system, interconnected to the digital model, is proposed for orchestrating the manipulation process. Current limitations of the existing technologies in flexible material handling and modelling are outlined and discussed, towards the implementation of a Workcell controller for flexible material manipulation robotic cell.
+---
+
+---
+DOI: 10.3390/pr11020553
+Title: Autonomous Liquid–Liquid Extraction Operation in Biologics Manufacturing with Aid of a Digital Twin including Process Analytical Technology
+Year: 2023
+Abstract: Liquid–liquid extraction has proven to be an aid in biologics manufacturing for cell and component separation. Because distribution coefficients and separation factors can be appropriately adjusted via phase screening, especially in aqueous two-phase systems, one stage is frequently feasible. For biologics separation, aqueous two-phase systems have proven to be feasible and efficient. The simple mixer–settler equipment type is still not standard in biologics manufacturing operations. Therefore, a scalable digital twin would be of aid for operator training, process design under the regulatory demanded quality by design approach for risk analysis, design and control space definition, and predictive maintenance. Autonomous operation is achieved with the aid of process analytical technology to update the digital twin to real time events and to allow process control near any optimal operation point. Autonomous operation is first demonstrated with an experimental feasibility study based on an industrial type example of pDNA manufacturing via lysis from E. coli with and without cell separation performance.
+---
+
+---
+DOI: 10.1016/j.adhoc.2024.103484
+Title: Digital twin-assisted intelligent anomaly detection system for Internet of Things
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/s00170-024-13384-3
+Title: Digital twin of minerals processing operations for an advanced monitoring and supervision: froth flotation process case study
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.applthermaleng.2022.118422
+Title: A comprehensive analysis and experimental investigation for the thermal management of cell-to-pack battery system
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.est.2022.106152
+Title: Electrical cell-to-cell variations within large-scale battery systems — A novel characterization and modeling approach
+Year: 2022
+Abstract: Digital twins for large-scale and investment-intensive Li-ion battery systems in marine and stationary applica-\ntions have drawn increasing interest in recent years. Considering electrical cell-to-cell variations (CtCVs) within\nthe underlying battery model of such a digital twin promises various advantages in the fields of model-based\noptimization and predictive maintenance. However, the existing approaches for both the characterization and\nmodeling of CtCVs are unsuited for large-scale systems consisting of thousands of individual cells. In this\ncontext, this paper introduces a holistic tool chain comprising three main elements: First, a non-destructive\nmethod for the in-situ determination of resistance and capacity distributions within a battery system is\npresented. The method was evaluated on a commercial battery module for stationary applications consisting\nof 64 Ah pouch cells in 14s2p configuration. In the second step, the obtained distributions were used to\nparameterize a state-of-the-art multi-cell battery model, which allows the calculation of the voltage distribution\nwithin the system. The validation showed that the resulting model is able to calculate the voltage spread\n(𝑉cell,max(𝑡)−𝑉cell,min(𝑡)) with a mean average error of 1.1 mV for a 24 h load profile. In the third step, multivariate\nstatistical analysis was used on the obtained parameters in order to simplify the original model and thereby\nreducing its computational demands. The simplification approach allows the calculation of envelope voltages\ncurves within which a random cell can be found with a given probability. In comparison to the original\nmodel, the simplified model was able to represent the voltage extrema while reducing the computation time\nby a factor of 27. This renders the simplified model applicable for live digital twin applications for large-scale\nbattery systems.
+---
+
+---
+DOI: 10.1016/j.elecom.2005.10.024
+Title: Fabrication of a new generator–collector electrochemical micro-device: Characterization and applications
+Year: 2005
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/tce.2024.3351154
+Title: Energy Efficient Digital Twin Enabled Massive IoT Network With Use Case in Consumer Health
+Year: 2024
+Abstract: Consumer electronics such as smart home devices, smartphones and smart wearables rely on accurate collection and sharing of data for massive user interaction. These form essential components of next generation internet-of-things (IoT) which require connected support. But owing to the limited battery life, these consumer nodes suffer from power limitations requiring frequent battery charging or replacements. This paper presents digital twin enabled wireless powering scheme for a massive IoT network. Digital twin creates a virtual replica of communication network involving large number of sensor nodes and access points (APs). This network is tested for energy deficient consumer IoT nodes and energy harvesting is enabled for the sensor nodes to harness the RF energy transmitted by the APs. Minimum Interference AP Clustering (MIAC), an energy conservation scheme for wireless powering of cell-free massive IoT is proposed which forms subsets of APs or AP clusters for each active node. In this paper, the performance of a digital twin IoT network is evaluated with energy harvesting and AP clustering for different transmission schemes. The amount of energy harvested and the spectral efficiency achieved is obtained along with the mathematical formulations. It is shown that the coherent transmission with linear energy harvesting achieves maximum average spectral efficiency of 2.659 bits/s/Hz. Further, the impact of incorporating AP clustering in the network transmission model suggests that the spectral efficiency achieved with AP clustering is 12% higher than the transmission scheme with no AP clustering. In the end, the proposed network is compared with two other network models for performance evaluation. A use case scenario of digital twin in consumer health for enabling smart healthcare ecosystem is also provided.
+---
+
+---
+DOI: 10.3390/batteries7040078
+Title: Implementation of Battery Digital Twin: Approach, Functionalities and Benefits
+Year: 2021
+Abstract: The concept of Digital Twin (DT) is widely explored in literature for different application fields because it promises to reduce design time, enable design and operation optimization, improve after-sales services and reduce overall expenses. While the perceived benefits strongly encourage the use of DT, in the battery industry a consistent implementation approach and quantitative assessment of adapting a battery DT is missing. This paper is a part of an ongoing study that investigates the DT functionalities and quantifies the DT-attributes across the life cycles phases of a battery system. The critical question is whether battery DT is a practical and realistic solution to meeting the growing challenges of the battery industry, such as degradation evaluation, usage optimization, manufacturing inconsistencies or second-life application possibility. Within the scope of this paper, a consistent approach of DT implementation for battery cells is presented, and the main functions of the approach are tested on a Doyle-Fuller-Newman model. In essence, a battery DT can offer improved representation, performance estimation, and behavioral predictions based on real-world data along with the integration of battery life cycle attributes. Hence, this paper identifies the efforts for implementing a battery DT and provides the quantification attribute for future academic or industrial research.
+---
+
+---
+DOI: 10.1016/j.csbj.2024.09.030
+Title: Towards generative digital twins in biomedical research
+Year: 2024
+Abstract: Digital twins in biomedical research, i.e. virtual replicas of biological entities such as cells, organs, or entire organisms, hold great potential to advance personalized healthcare. As all biological processes happen in space, there is a growing interest in modeling biological entities within their native context. Leveraging generative artificial intelligence (AI) and high-volume biomedical data profiled with spatial technologies, researchers can recreate spatially-resolved digital representations of a physical entity with high fidelity. In application to biomedical fields such as computational pathology, oncology, and cardiology, these generative digital twins (GDT) thus enable compelling <i>in silico</i> modeling for simulated interventions, facilitating the exploration of 'what if' causal scenarios for clinical diagnostics and treatments tailored to individual patients. Here, we outline recent advancements in this novel field and discuss the challenges and future research directions.
+---

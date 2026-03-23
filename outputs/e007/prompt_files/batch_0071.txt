@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1142/9789811228216_0038
+Title: BUILDING WHOLE-CELL COMPUTATIONAL MODELS TO PREDICT CELLULAR PHENOTYPES AND ACCELERATE DISCOVERY
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.coisb.2021.06.004
+Title: Centralizing data to unlock whole-cell models
+Year: 2021
+Abstract: Despite substantial potential to transform bioscience, medicine, and bioengineering, whole-cell models remain elusive. One of the biggest challenges to whole-cell models is assembling the large and diverse array of data needed to model an entire cell. Thanks to rapid advances in experimentation, much of the necessary data is becoming available. Furthermore, investigators are increasingly sharing their data due to growing recognition of the importance of research that is transparent and reproducible to others. However, the scattered organization of this data continues to hamper modeling. Toward more predictive models, we highlight the challenges to assembling the data needed for whole-cell modeling and outline how we can overcome these challenges by working together to build a central data warehouse.
+---
+
+---
+DOI: 10.1149/osf.io/b8ge2
+Title: Low error estimation of half-cell thermodynamic parameters from whole-cell Li-ion battery experiments: Physics-based model formulation, experimental demonstration, and an open software tool
+Year: 2022
+Abstract: Low C-rate charge and discharge experiments, plus complementary differential voltage or differential capacity analysis, are among the most common battery characterization methods. Here, we adapt the multi-species, multi-reaction (MSMR) half-cell thermodynamic model to low C-rate cycling of whole-cell Li-ion batteries. MSMR models for the anode and cathode are coupled through whole-cell charge balances and cell-cycling voltage constraint equations, forming the basis for model-based estimation of MSMR half-cell parameters from whole-cell experimental data. Emergent properties of the whole-cell, like slippage of the anode and cathode lithiation windows, are also computed as cells cycle and degrade. A sequential least-square optimization scheme is used for parameter estimation from low-C cycling data of Samsung 18650 NMC|C cells. Low-error fits of the open-circuit cell voltage (e.g., under 5 mV mean absolute error for charge or discharge curves) and differential voltage curves for fresh and aged cells are achieved. We explore the features (and limitations) of using literature reference values for the MSMR half-cell thermodynamic parameters (reducing our whole-cell formulation to a 1-degree-of-freedom fit) and demonstrate the benefits of expanding the degrees of freedom by letting the MSMR parameters be tailored to the cell under test, within a constrained neighborhood of the half-cell reference values. Bootstrap analysis is performed on each dataset to show the robustness of our fitting to experimental noise and data sampling over the course of 600 cell cycles. The results show which specific MSMR insertion reactions are most responsible for capacity loss in each half-cell and the collective interactions that lead to whole-cell slippage and changes in useable capacity. Open-source software is made available to easily extend this model-based analysis to other labs and battery chemistries.
+---
+
+---
+DOI: 10.1016/j.bpj.2021.11.2108
+Title: Integrated whole-cell geometric modeling of organelle interactions in S. cerevisiae
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1149/ma2022-012188mtgabs
+Title: Low-Error Estimation of Half-Cell Thermodynamic Parameters from Whole-Cell Li-Ion Battery Experiments: Physics-Based Model Formulation, Experimental Demonstration, and an Open Software Tool
+Year: 2022
+Abstract: Low C-rate charge and discharge experiments, plus complementary differential voltage or differential capacity analysis, are among the most common battery characterization methods. Here, we adapt the multi-species, multi-reaction (MSMR) half-cell thermodynamic model to low C-rate cycling of whole-cell Li-ion batteries. MSMR models for the anode and cathode are coupled through whole-cell charge balances and cell-cycling voltage constraint equations, forming the basis for model-based estimation of MSMR half-cell parameters from whole-cell experimental data. Emergent properties of the whole-cell, like slippage of the anode and cathode lithiation windows, are also computed as cells cycle and degrade. A sequential least-square optimization scheme is used for parameter estimation from low-C cycling data of Samsung 18650 NMC|C cells. Low-error fits of the open-circuit cell voltage (e.g., under 5 mV mean absolute error for charge or discharge curves) and differential voltage curves for fresh and aging cells are achieved. We explore the features (and limitations) of using literature reference values for the MSMR half-cell thermodynamic parameters (reducing our whole-cell formulation to a 1-degree-of-freedom fit), and demonstrate the benefits of opening up the degrees of freedom by letting the MSMR parameters be tailored to the cell under test, within constrained bounds near the half-cell reference values. Bootstrap analysis is performed on each dataset to show the robustness of our fitting to experimental noise and data sampling over the course of 600 cell cycles. The results show which specific MSMR insertion reactions are most responsible for capacity loss in each half-cell and the collective interactions that lead to whole-cell slippage and changes in useable capacity. Open-source software is made available to easily extend this model-based analysis to other labs and battery chemistries.
+---
+
+---
+DOI: 10.1101/2023.06.04.543634
+Title: Multi-scale Modeling and Experimental Data Enable Structural Models of the <i>Escherichia Coli</i> Peptidoglycan to be Constructed on the Whole-Cell Scale
+Year: 2023
+Abstract: Abstract The peptidoglycan (PG) layer of Escherichia coli is a single, interconnected gigaDalton molecule that is the largest in the cell. Experimental studies have established a number of the PG’s properties, and previous computational studies have simulated aspects of its behavior on sub-cellular scales, but none have fully modeled the PG’s compositional heterogeneity and no models have yet been constructed on the whole-cell scale. Here we use a combination of computational modeling approaches to construct whole-cell PG models at a resolution of one coarse-grained (CG) bead per glycan that are consistent with a wide variety of available experimental data. In particular, we derive plausible glycan strand length distributions for the polar and cylindrical regions of the cell that cover the full range of possible strand lengths and that are consistent with all available experimental data. In addition, we develop stochastic simulation code that explicitly models a cross-linking experiment from the literature that has a direct bearing on the extent to which Braun’s lipoprotein (Lpp) is partitioned between periplasmic and surface-exposed locations. We then use all of these data as inputs to a new computer code, PG_maker , which builds CG models of the PG on a whole-cell scale in under an hour. Finally, we use the resulting 3D models as a basis for: (a) estimating pore size distributions – which, despite the idealized nature of the models, are shown to be in surprisingly good agreement with experimental estimates – and (b) calculating the effects of the large numbers of periplasmic Lpps on the ability of freely diffusing proteins to access the compartment that lies between the PG and the outer membrane. The ability to combine a wide range of experimental data into structural models that are physically realizable in 3D helps to set the stage for performing simulations of the PG on the whole-cell scale in the near future.
+---
+
+---
+DOI: 10.1016/j.bpj.2023.11.1982
+Title: Impact of gene expression strategies in near whole-cell models of minimal bacteria
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/978-1-0716-3930-6_29
+Title: Replicating Chromosomes in Whole-Cell Models of Bacteria
+Year: 2024
+Abstract: Computational models of cells cannot be considered complete unless they include the most fundamental process of life, the replication of genetic material. In a recent study, we presented a computational framework to model systems of replicating bacterial chromosomes as polymers at 10 bp resolution with Brownian dynamics. This approach was used to investigate changes in chromosome organization during replication and extend the applicability of an existing whole-cell model (WCM) for a genetically minimal bacterium, JCVI-syn3A, to the entire cell cycle. To achieve cell-scale chromosome structures that are realistic, we modeled the chromosome as a self-avoiding homopolymer with bending and torsional stiffnesses that capture the essential mechanical properties of dsDNA in Syn3A. Additionally, the polymer interacts with ribosomes distributed according to cryo-electron tomograms of Syn3A. The polymer model was further augmented by computational models of loop extrusion by structural maintenance of chromosomes (SMC) protein complexes and topoisomerase action, and the modeling and analysis of multi-fork replication states.
+---
+
+---
+DOI: 10.1111/aos.17305
+Title: Quantifiying epithelial cell viability on whole porcine lenses using triple hoechst‐ethidium‐calcein‐am staining in a chemical toxicity model
+Year: 2025
+Abstract: Aim: Establishing an ex vivo model of the crystalline lens will be a driving force for further research on this tissue. The epithelium plays an essential role in maintaining osmolarity, volume, and lens transparency. Therefore, it is crucial to have a tool to control the lens epithelium ex vivo. We have previously validated a method for quantifying epithelial cell viability on whole lenses ex vivo by triple labeling with Hoechst 33342, ethidium homodimer and calcein‐AM (HEC) using a model of acute frostbite necrosis. We now demonstrate the application of this triple labeling to a model of chemical toxicity by Staurosporine (STS) which induces cell death scattered all over the epithelial surface with a mild severity. Methods: Ten fresh pairs of 6‐month‐old porcine lens were retrieved. On one lens, a diffuse epithelial lesion was induced by an incubation in STS solution (0.5 μM in CorneaMax, Eurobio) during 24 hours at 37°C. The other was incubated in CorneaMax solution without STS in the same conditions. The day after, both were incubated for 1 hour at 20°C in a HEC mixture. Images were acquired with a macroscope (macro zoom microscope) and analyzed with ImageJ. Calcein‐AM and Ethidium images were used to calculate the area covered by living epithelial cells. Hoescht images allowed to count cell nuclei per unit area. Viable epithelial cell density (vEpCD) was defined as the number of viable cells per unit area. Different strategies were developed to reduce the background noise. Results: There was no interfering lens auto‐fluorescence for the exposure times used. The median vEpCD was 3804 cells/mm 2 [10th‐90th percentiles = 2922 – 4862] for STS treated‐lenses versus 3896 cells/mm 2 [3169 ‐4980] for control lenses ( p = 0.002). Conclusion: The assessment of lens epithelial cell viability has been proposed only in cell culture or isolated capsule models. Thanks to a simple sample preparation, triple HEC staining allows fluorescence imaging on large series of whole lens in order to respect the architecture of the epithelium. This STS model induces a subtle change in mortality, confirming the sensitivity of the technique and its use for cytotoxicity studies of new therapeutics targeting the lens. References Mechanisms of staurosporine induced apoptosis in a human corneal endothelial cell line. Thuret G &amp; al. Br J Ophthalmol. 2003
+---
+
+---
+DOI: 10.1111/aos.17002
+Title: Quantifiying epithelial cell viability on whole porcine lenses using triple Hoechst‐Ethidium‐Calcein‐AM staining in a chemical toxicity model
+Year: 2025
+Abstract: Aim: Establishing an ex vivo model of the crystalline lens will be a driving force for further research on this tissue. The epithelium plays an essential role in maintaining osmolarity, volume, and lens transparency. Therefore, it is crucial to have a tool to control the lens epithelium ex vivo. We have previously validated a method for quantifying epithelial cell viability on whole lenses ex vivo by triple labeling with Hoechst 33342, ethidium homodimer and calcein‐AM (HEC) using a model of acute frostbite necrosis. We now demonstrate the application of this triple labeling to a model of chemical toxicity by Staurosporine (STS) which induces cell death scattered all over the epithelial surface with a mild severity. Methods: Ten fresh pairs of 6‐month‐old porcine lens were retrieved. On one lens, a diffuse epithelial lesion was induced by an incubation in STS solution (0.5 μM in CorneaMax, Eurobio) during 24 hours at 37°C. The other was incubated in CorneaMax solution without STS in the same conditions. The day after, both were incubated for 1 hour at 20°C in a HEC mixture. Images were acquired with a macroscope (macro zoom microscope) and analyzed with ImageJ. Calcein‐AM and Ethidium images were used to calculate the area covered by living epithelial cells. Hoescht images allowed to count cell nuclei per unit area. Viable epithelial cell density (vEpCD) was defined as the number of viable cells per unit area. Different strategies were developed to reduce the background noise. Results: There was no interfering lens auto‐fluorescence for the exposure times used. The median vEpCD was 3804 cells/mm 2 [10th‐90th percentiles = 2922–4862] for STS treated‐lenses versus 3896 cells/mm 2 [3169–4980] for control lenses ( p = 0.002). Conclusion: The assessment of lens epithelial cell viability has been proposed only in cell culture or isolated capsule models. Thanks to a simple sample preparation, triple HEC staining allows fluorescence imaging on large series of whole lens in order to respect the architecture of the epithelium. This STS model induces a subtle change in mortality, confirming the sensitivity of the technique and its use for cytotoxicity studies of new therapeutics targeting the lens. References Mechanisms of staurosporine induced apoptosis in a human corneal endothelial cell line. Thuret G &amp; al. Br J Ophthalmol. 2003
+---
+
+---
+DOI: 10.1016/j.bpj.2024.11.804
+Title: BPS2025 - Determining thermodynamically accurate kinetic parameters for whole-cell reaction models
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.bpj.2024.11.3209
+Title: BPS2025 - Hybrid stochastic/deterministic whole-cell model of minimal cell, JCVI-syn3A
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.6019/s-bsst1975
+Title: Whole-Brain Clearing Reveals Region- and Cell-Specific Imbalances in Inhibitory Neurons in a mouse model for Kleefstra Syndrome
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1158/1538-7445.am2025-5662
+Title: Abstract 5662: Deep-mining the antibody repertoires of transgenic mouse models with high-throughput single cell BCR and whole transcriptome sequencing
+Year: 2025
+Abstract: Abstract Transgenic mouse models are excellent tools to model human antibody response against antigens or disease of choice, given their ability to undergo diversification, in vivo affinity maturation, clonal selection and clonal expansion in their natural immune environment. Current antibody discovery methods lack the scale required to fully screen the antibody repertoire of transgenic mouse models to uncover maximum desirable antibody hits per discovery campaign. Here, we demonstrate our novel combinatorial barcoding approach to enable high-throughput single cell BCR and whole transcriptome profiling of transgenic mouse samples with unprecedented sensitivity, scalability, and flexibility. As a proof of concept, we profiled over 1 million cells from multiple transgenic mice that were either naive or immunized with antigens of interest to obtain hundreds of thousands of paired BCR clonotypes. Using the whole transcriptome data, we detected all B cell subpopulations including plasma cells at single cell resolution. We then used the paired heavy and light chain BCR data to detect productive chains in the majority of B cells revealing both unique and expanded clonotypes. In the expanded clonotype pool we found specific patterns of VDJ utilization and amino acid motifs compared to the naive pool. This method paves the way for high throughput screening of antibody repertoires from transgenic mice to allow for deep mining of repertoires for antibody discovery and therapeutic outcomes. Citation Format: Ajay Sapre, Alec Salvino, Guillermo Gallareta-Olivares, Efi Papalexi, Jose Jacob, Ashwath Kumar, Charles Roco, Alexander Rosenberg. Deep-mining the antibody repertoires of transgenic mouse models with high-throughput single cell BCR and whole transcriptome sequencing [abstract]. In: Proceedings of the American Association for Cancer Research Annual Meeting 2025; Part 1 (Regular Abstracts); 2025 Apr 25-30; Chicago, IL. Philadelphia (PA): AACR; Cancer Res 2025;85(8_Suppl_1):Abstract nr 5662.
+---
+
+---
+DOI: 10.1093/jimmun/vkaf283.1696
+Title: Deep-mining the antibody repertoires of transgenic mouse models with high-throughput single cell BCR and whole transcriptome sequencing 3955
+Year: 2025
+Abstract: Abstract Description Transgenic mouse models are excellent tools to model human antibody response against antigens of choice, given their ability to undergo diversification, in vivo affinity maturation, clonal selection and clonal expansion in their natural immune environment. Current antibody discovery methods lack the scale required to fully screen the antibody repertoire of transgenic mouse models to uncover the maximum number of desirable antibody hits per discovery campaign. Here, we demonstrate our novel combinatorial barcoding approach to enable high-throughput single cell BCR and whole transcriptome profiling of transgenic mouse samples with unprecedented sensitivity, scalability, and flexibility. As a proof of concept, we profiled over 1 million cells from multiple transgenic mice that were either naive or immunized with antigens of interest to obtain hundreds of thousands of paired BCR clonotypes. Using the whole transcriptome data we detected all B cell subpopulations including plasma cells at single cell resolution. We then used the paired heavy and light chain BCR data to detect productive chains in the majority of B cells revealing both unique and expanded clonotypes. In the expanded clonotype pool we found specific patterns of VDJ utilization and amino acid motifs compared to the naive pool. This method paves the way for high throughput screening of antibody repertoires from transgenic mice to allow for deep mining of antibodies. Topic Categories Technological Innovations in Immunology (TECH)
+---
+
+---
+DOI: 10.1182/blood-2025-28
+Title: Elucidating gene alterations driving hematopoietic dysfunction in PNH via patient-derived ips cell modeling and whole-genome sequencing
+Year: 2025
+Abstract: Abstract Introduction Paroxysmal nocturnal hemoglobinuria (PNH) is a rare, life-threatening hematologic disorder caused by clonal expansion of hematopoietic stem cells (HSCs) with somatic PIGA mutations. These mutations lead to the loss of GPI-anchored proteins, such as CD55 and CD59, on red blood cells, resulting in complement-mediated hemolysis. Although complement inhibitors like eculizumab provide symptomatic relief, a substantial proportion of patients, particularly in East Asia (including Japan), exhibit a limited therapeutic response due to bone marrow failure (BMF), either present at diagnosis or developing later, such as aplastic anemia (AA) or myelodysplastic syndromes (MDS). This highlights the need for curative approaches. While PIGA-mutated (PNH-type) and wild-type HSCs coexist, the former preferentially expand. Immune escape due to GPI-AP deficiency has been proposed, yet mechanisms driving clonal dominance and ineffective hematopoiesis remain unclear (Murakami et al., Blood 2002; Hanaoka et al., Blood 2006). Although PNH-specific mutations have been hypothesized, only alterations in genes like TET2, ASXL1, and JAK2—commonly found in AA, MDS, or clonal hematopoiesis—have been reported (Shen et al., J Clin Invest 2014), and no PNH-specific mutations have been conclusively identified. Induced pluripotent stem cells (iPSCs) derived from patients offer a useful platform for studying rare diseases with limited sample availability, allowing functional gene analysis and disease modeling. We therefore generated iPSCs from PNH patients to explore gene alterations involved in PNH-associated BMF (PNH-BMF). Methods Five PNH patients with BMF were enrolled. PNH-iPSCs and matched wild-type N-iPSCs were established by reprogramming mononuclear hematopoietic cells from each patient. These iPSCs were differentiated into hematopoietic stem/progenitor cells (HSPCs), and their differentiation and proliferation were evaluated. PIGA mutations in PNH-iPSCs were corrected using CRISPR/Cas9. Whole-genome sequencing (WGS) was performed on PNH-iPSCs, N-iPSCs, and normal somatic cells from the same patients. PNH-specific variants were defined based on stopgain, frameshift, and splice-site mutations, as well as nonsynonymous SNVs annotated as pathogenic or likely pathogenic in AlphaMissense and ClinVar. Candidate variants were cross-referenced with curated databases of hematopoiesis-associated genes potentially linked to hematopoietic dysfunction. Results Among the five patients, one had hypoplastic marrow and four had normoplastic marrow. Median neutrophil counts, hemoglobin, and platelet counts were 1.6 × 10⁹/L, 8.4 g/dL, and 97 × 10⁹/L, respectively. Median proportions of PNH-type erythrocytes and granulocytes were 24.3% and 67.2%, suggesting an underlying BMF tendency. Hematopoietic dysfunction was reproduced in the PNH-iPSC model. Correction of PIGA mutations failed to fully restore normal hematopoiesis, suggesting the involvement of additional pathogenic factors. WGS analysis was successfully completed in four patients. Multiple PNH clone-specific somatic mutations were identified in all cases. In two patients, variants involved known hematopoiesis-related genes such as DNMT3A and ASXL1. One patient progressed to MDS during follow-up, indicating a possible genotype–phenotype correlation. The remaining two patients harbored novel mutations not previously reported to associate with hematopoietic dysfunction. Although not known to directly promote proliferation or survival, database analyses suggested these mutations may alter HSC biology—through impaired quiescence, lineage skewing, or disrupted interactions with the bone marrow niche. No shared mutations were observed across patients, supporting the notion that the pathogenesis of PNH-associated BMF is genetically heterogeneous. Conclusions We successfully established matched PNH- and N-iPSC lines from four patients and modeled hematopoietic abnormalities in vitro. Limited hematopoietic recovery following PIGA correction suggests the involvement of additional genetic factors. WGS identified PNH clone–specific somatic mutations in all cases, involving both known and novel genes potentially affecting hematopoiesis. These findings support the genetic heterogeneity of PNH-BMF and highlight the potential value of precision medicine in future treatment strategies. Ongoing CRISPR/Cas9-mediated knock-in experiments targeting selected genes in N-iPSCs are underway to assess their pathogenic relevance.
+---
+
+---
+DOI: 10.2139/ssrn.5907454
+Title: Translating in vitro buccal permeation to in vivo and whole-body exposure using in silico cell-based and physiologically-based pharmacokinetic modelling
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/sas.2016.7479882
+Title: Physical and virtual cell phone sensors for traffic control: Algorithms and deployment impact
+Year: 2016
+Abstract: Decades of research have been directed towards improving the timing of traffic lights. The ubiquity of cell phones among drivers has created the opportunity to design new sensors for traffic light controllers. These new sensors, which search for radio signals that are constantly emanating from cell phones, hold the hope of replacing the typical induction-loop sensors that are installed within road pavements. A replacement to induction sensors is desired as they require significant roadwork to install, frequent maintenance and checkups, are sensitive to proper repairs and installation work, and the construction techniques, materials, and even surrounding unrelated ground work can be sources of failure. However, before cell phone sensors can be widely deployed, users must become comfortable with the passive use of their cell phones by municipalities for this purpose. Despite complete anonymization, public privacy concerns may remain. This presents a chicken-and-egg problem: without showing the benefits of using cell phones for traffic monitoring, users may not be willing to allow this use. In this paper, we show that by carefully training the traffic light controllers, we can unlock the benefits of these sensors when only a small fraction of users allow their cell phones to be used. Surprisingly, even when there is only small percentage of opted-in users, the new traffic controllers provide large benefits to all drivers.
+---
+
+---
+DOI: 10.1016/j.bpj.2015.11.2644
+Title: Rule-Based Modeling and Simulation for Beginners: Intuitive Graphical Interface within Virtual Cell
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.bpj.2015.11.2553
+Title: Rule-Based Modeling with Virtual Cell: Effect of UBE3A on Dendritic Spine Morphogenesis
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/wcm.2766
+Title: Efficient handover measurement technique for small‐cell networks using a virtual cell synchronization signal
+Year: 2016
+Abstract: Abstract A small‐cell network (SCN) constructed by splitting a macro‐cell into numerous small cells using an active antenna array system is studied. A synchronization signal appropriate for the SCN, virtually generated by an eNodeB with 3D beamforming, is proposed for efficient handover in SCNs. The virtual cell synchronization signal (VCSS) carries a macro‐cell ID (MCID) and virtual‐cell ID (VCID) in a hierarchical manner, allowing us to distinguish between an intra‐cell handover (virtual cell handover within a cell without changing the serving eNodeB) and inter‐cell handover (virtual cell handovers across cells while changing the serving eNodeB) in SCNs. Using the signal metrics obtained by the VCSS, an efficient handover measurement technique is proposed which can significantly reduce the processing time and overhead by distinguishing between the intra‐cell/inter‐cell handovers. The performance of the proposed technique is evaluated by simulating two different deployment scenarios of LTE‐based SCN with 3D beamforming. Copyright © 2017 John Wiley &amp; Sons, Ltd.
+---
+
+---
+DOI: 10.1016/j.bpj.2016.11.2417
+Title: Extending Rule-Based Modeling to the Spatial Domain with Virtual Cell (VCELL)
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3390/optofluidics2017-04494
+Title: &lt;strong&gt;DEVELOPMENT OF OPTICALLY-INDUCED-DIELECTROPHORESIS (ODEP)-BASED VIRTUAL CELL MICROFILTERS IN A MICROFLUIDIC CHIP FOR THE ISOLATION OF CIRCULATING TUMOR CELL (CTC) CLUSTERS&lt;/strong&gt;
+Year: 2017
+Abstract: This study integrated the microfluidic system and ODEP technology for the isolation of CTC clusters from the background leukocytes. The working principle is based on the size difference between the CTC clusters and leukocytes, and thus different magnitude of ODEP force acting on them. ODEP mainly use a controllable light pattern, acting as a virtual electrode, to generate a non-uniform electric field that is in turn utilized to manipulate the electrically-polarized cells. The utilization of ODEP-based mechanism for CTCs isolation has been successfully demonstrated in our previous study [1]. Since 1970, a series of clinical studies have shown that single CTCs may not be the main cause of cancer metastasis, but two or more aggregated CTCs [2, 3]. In order to isolate CTC clusters for back-end analysis. For the biological-based methods (e.g. HBCTC-Chip [4], or CTC-iChip [5]), although CTC clusters can be specifically separated by antibody-based schemes, but the surface-area-to-volume ratio of CTC clusters is relatively low which might affect the binding efficiency of CTC clusters and antibody. Alternatively, some studies proposed physical-based methods to separate CTC clusters (e.g. ISET [6], FMSA [7], Cluster-chip [8]). Although these methods have been demonstrated to effectively isolate the CTC clusters from the background cells mainly based on their size difference, the influence of shear stress on physical size of CTC cluster, or the viability of the cells isolated is still a problem. To address this issue, The key advantages of ODEP mechanism for cell isolation including: (1) no need of complex microfabrication process for constructing microfilter structures, and (2) the reduction of shear stress acting on the cells manipulated. However, the feasibility of using ODEP-based mechanism for the isolation of CTC cluster (i.e. CTC cell aggregates) has not yet been explored. To test its feasibility, a T-shaped microfluidic chip was designed (Fig.1). A virtual microfilter consisting of multiple light patterns was designed at the CTC clusters isolation zone (Fig.1). By continuously moving and rotating the light patterns in the microfilter, the larger CTC clusters can be separated from the background leukocytes, and also transported to the side microchannel (Fig.2). In this work, the optimum ODEP operating conditions (e.g. moving velocity of light pattern) was explored. Results revealed that moving velocity of light pattern that can manipulate the CTC clusters (containing 2-13 cells) was significantly higher than the background of leukocytes (Fig.3). Based on this, the moving velocity of light pattern was set at 100 μm/sec (Fig.3). At a given sample flow rate of 0.5 μl/min, moreover, we found that the rotation speed of light patterns at 14 RPM could significantly increase the purity of CTC clusters isolation (Fig.4). Based on the set operating conditions, the recovery and purity of the isolated CTC clusters were experimentally evaluated to be 70.1 ± 7.1% and 60.8 ± 2.7%, respectively (Fig.4). As a whole, we have established a high purity CTC clusters isolation method that is easy to operate, and is possible to avoid the problem caused by the shear stress acting on the cells or particles.
+---
+
+---
+DOI: 10.1016/j.bpj.2017.11.2218
+Title: Cell Biophysics with Virtual Cell
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/icct.2017.8359683
+Title: Interference fair and multi-dimensional cooperation aware virtual cell forming algorithm for ultra dense network
+Year: 2017
+Abstract: Virtual cell can be foreseen as an effective way to solve the challenges in the ultra-dense network (UDN) which manifests as one of key technologies for 5G system. However, with the increasing density of network, the interference scenario becomes more complex, and user centric virtual cells are more likely to be overlapped. This situation made the multi-dimensional cooperation much difficult due to the coupled nature of different resource dimensions and the complexity of the optimum solution. In this paper, a novel scheme is proposed to tackle the two challenges highlighted above by virtue of virtual cell forming approach and subsequent resource allocation. The proposed scheme exploits multi-dimensional cooperation gain in the virtual cell forming stage by virtue of a graph edge weight design, which captures the contribution from interference fair power allocation, MU-MIMO operation and cooperative transmission. Based on the edge weight, virtual cells are formed by a clustering algorithm named Pairwise Maximum Weights (PMW). The proposed scheme allows the advanced power allocation and MU-MIMO operation in the subsequent resource allocation when users are jointly scheduled. The simulation result demonstrates that the proposed algorithm can increase the system performance effectively at a low complexity compared with the reference scheme.
+---
+
+---
+DOI: 10.1016/j.dmpk.2018.09.018
+Title: Virtual cell models to predict binding and distribution of chemicals in in vitro toxicity assays
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/isape.2018.8634129
+Title: On the Virtual Cell Power Allocation in Ultra Dense Networks
+Year: 2018
+Abstract: Ultra-dense network (UDN) can meet ultra-high peak rate, traffic density and density by densely deploying low-power base stations (BSs). The traditional iterative search water filling (ISWF) algorithm requires many iterations to obtain the optimal power allocation. We adopt a low-complexity iterative water filling (LAWF) algorithm to reduce iterations. We propose sorting water filling (SWF) algorithm. The simulation results show that the sum rate achieved by the LAWF and SWF are better than ISWF. With deployment of UDN, speed and presentation of SWFs are increasing.
+---
+
+---
+DOI: 10.1007/978-981-13-9409-6_102
+Title: A Novel Virtual Cell Power Allocation and Interference Merging Algorithm in UDN
+Year: 2020
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1504/ijbex.2019.10030750
+Title: Fuzzy c-means clustering approach for virtual cell formation
+Year: 2019
+Abstract: A virtual cell formation involves grouping of machines to form machine cells, and parts to form part families to improve flexibility in scheduling and effectiveness of cellular manufacturing systems. This paper presents a fuzzy c-mean clustering approach for machine cell formation based on the real life production factors. In fuzzy c-means clustering, a membership function is used to express the strength of association with every machine cell. This gives the decision-maker flexibility in cell formation that depends on the practical constraints. In this work, real life production attributes like processing time, alternative routings, sequence of operation, machine flexibility, machine capacity and product demand have been considered for machine cell formation. The performance of the proposed methodology is tested using group technology efficiency (GTE) and exceptional elements (EE) for 15 cases of different size problems from open literature and compared with the best available results in the literature. It is observed from the results that the proposed method of cell formation performs better than the existing methods in many instances and is capable of solving varied sizes of cases.
+---
+
+---
+DOI: 10.1109/ieeeconf53345.2021.9723136
+Title: Interference Reduction in Virtual Cell Optimization
+Year: 2021
+Abstract: Virtual cell optimization clusters cells into neighborhoods and performs optimized resource allocation over each neighborhood. In prior works we proposed resource allocation schemes to mitigate the interference caused by transmissions in the same virtual cell. This work aims at mitigating both the interference caused by the transmissions of users in the same virtual cell and the interference between transmissions in different virtual cells. We propose a resource allocation technique that reduces the number of users that cannot achieve their constant guaranteed bit rate, i.e., the "unsatisfied users", in an uplink virtual cell system with cooperative decoding. The proposed scheme requires only the knowledge of the number of users each base station serves and relies on creating the interference graph between base stations at the edges of virtual cells. Allocation of frequency bands to users is based on the number of users each base station would serve in a non cooperative setup. We evaluate the performance of our scheme for a mmWave system. Our numerical results show that our scheme decreases the number of users in the system whose rate falls below the guaranteed rate, set to $128$kbps, $256$kbps or $512$kbps, when compared with our previously proposed optimization methods.
+---
+
+---
+DOI: 10.1109/ecce44975.2020.9235813
+Title: High power density power electronic transformers using ISOS multi-cell full-wave rectifier with GaN TCM virtual capacitor converters
+Year: 2020
+Abstract: An open-loop controlled multi-cell rectifier based on ISOS (Input Series Output Series) connection topology has been newly proposed. The proposed multi-cell rectifier consists of the ac-dc line frequency rectifiers, the unregulated isolated dc-dc cell converters and the open-loop controlled buck-boost converters mainly. The isolated dc-dc converters are connected in series to realize a highly scalable high-voltage multi-cell rectifier, and the open-loop controlled buck-boost converters achieve the voltage sharing by injecting reactive power without any sensors and the feedback control systems. Features of the proposed multi-cell rectifier are that the buck-boost converters behave as the virtual capacitor converters (VCCs) to equalize the input cell voltages and the TCM (Triangular Current Mode) control is applied to achieve the soft-switching operation with GaN power transistors in VCCs. The TCM control minimizes the switching losses of the GaN transistors and achieves high efficiency under the high frequency operation. A prototype of an ac 100 V, 450 W ISOS multi-cell rectifier using three cell converters and two VCCs has been fabricated and the potential for the efficiency over 96.0% and the power density over 3.0 W/cm <sup xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">3</sup> has been also estimated. The proposed circuit topology is effective for developing the high power density power electronic transformers, and this approach will contribute to the cost down and the short time to market of the power electronics equipment taking its widespread use into account.
+---
+
+---
+DOI: 10.1299/jsmemsd.2021.604
+Title: Building a virtual work environment to support the design and planning of human-robot collaborative assembly cells
+Year: 2021
+Abstract: 人間と産業用ロボットが共同して行う組立作業の計画案を，動作シミュレーションにより検討・評価が可能な設計・計画支援環境の構築法を確立することを本研究の目的とする．具体的には，仮想空間に構築された仮想環境において，組立作業の工程計画案に対して，VRインターフェースを通じて実施・体験し，作業者の観点から工程順や設備レイアウトなどを評価して対話的に改善する環境の実現を目指す．
+---
+
+---
+DOI: 10.3390/optofluidics2017-04519
+Title: DEVELOPMENT OF OPTICALLY-INDUCED-DIELECTROPHORESIS (ODEP)-BASED VIRTUAL CELL MICROFILTERS IN A MICROFLUIDIC CHIP FOR THE ISOLATION OF CIRCULATING TUMOR CELL (CTC) CLUSTERS
+Year: 2017
+Abstract: This study integrated the microfluidic system and ODEP technology for the isolation of CTC clusters from the background leukocytes. The working principle is based on the size difference between the CTC clusters and leukocytes, and thus different magnitude of ODEP force acting on them. ODEP mainly use a controllable light pattern, acting as a virtual electrode, to generate a non-uniform electric field that is in turn utilized to manipulate the electrically-polarized cells. The utilization of ODEP-based mechanism for CTCs isolation has been successfully demonstrated in our previous study [1]. Since 1970, a series of clinical studies have shown that single CTCs may not be the main cause of cancer metastasis, but two or more aggregated CTCs [2, 3]. In order to isolate CTC clusters for back-end analysis. For the biological-based methods (e.g. HBCTC-Chip [4], or CTC-iChip [5]), although CTC clusters can be specifically separated by antibody-based schemes, but the surface-area-to-volume ratio of CTC clusters is relatively low which might affect the binding efficiency of CTC clusters and antibody. Alternatively, some studies proposed physical-based methods to separate CTC clusters (e.g. ISET [6], FMSA [7], Cluster-chip [8]). Although these methods have been demonstrated to effectively isolate the CTC clusters from the background cells mainly based on their size difference, the influence of shear stress on physical size of CTC cluster, or the viability of the cells isolated is still a problem. To address this issue, The key advantages of ODEP mechanism for cell isolation including: (1) no need of complex microfabrication process for constructing microfilter structures, and (2) the reduction of shear stress acting on the cells manipulated. However, the feasibility of using ODEP-based mechanism for the isolation of CTC cluster (i.e. CTC cell aggregates) has not yet been explored. To test its feasibility, a T-shaped microfluidic chip was designed (Fig.1). A virtual microfilter consisting of multiple light patterns was designed at the CTC clusters isolation zone (Fig.1). By continuously moving and rotating the light patterns in the microfilter, the larger CTC clusters can be separated from the background leukocytes, and also transported to the side microchannel (Fig.2). In this work, the optimum ODEP operating conditions (e.g. moving velocity of light pattern) was explored. Results revealed that moving velocity of light pattern that can manipulate the CTC clusters (containing 2-13 cells) was significantly higher than the background of leukocytes (Fig.3). Based on this, the moving velocity of light pattern was set at 100 μm/sec (Fig.3). At a given sample flow rate of 0.5 μl/min, moreover, we found that the rotation speed of light patterns at 14 RPM could significantly increase the purity of CTC clusters isolation (Fig.4). Based on the set operating conditions, the recovery and purity of the isolated CTC clusters were experimentally evaluated to be 70.1 ± 7.1% and 60.8 ± 2.7%, respectively (Fig.4). As a whole, we have established a high purity CTC clusters isolation method that is easy to operate, and is possible to avoid the problem caused by the shear stress acting on the cells or particles.
+---
+
+---
+DOI: 10.26226/morressier.5b5199c2b1b87b000ecf126d
+Title: 1159 - Coupling single-cell innate fluorescent signature and spatial information for non-invasive virtual cell labeling
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.2991/assehr.k.220504.139
+Title: Stability Rescheduling of Virtual Cell Based on Backtracking Search Algorithm under New Order Insertion
+Year: 2022
+Abstract: In view of the frequent adjustment of virtual cell scheduling plan brought about by the arrival of new orders, and considering the impact of rescheduling on production stability, this paper proposes an insertion rescheduling strategy based on slack time.The slack time is subdivided into idle time, partial Relaxation time and total relaxation time.Under the guidance of this strategy, considering the constraints of order delivery time, a nonlinear integer programming model with the goal of minimizing the maximum completion time and the minimum instability coefficient is constructed, and is solved by introducing a backtracking search algorithm of non-dominated sorting.Finally, the feasibility of the scheme proposed in this paper is verified through a numerical example study.
+---
+
+---
+DOI: 10.1016/j.bpj.2022.11.2249
+Title: Virtual cell modeling and simulation software
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1515/9780691223407-008
+Title: 6. The Virtual Cell
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.2307/j.ctv2xqngmf.10
+Title: The Virtual Cell
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jbc.2024.105919
+Title: Abstract 1497 Development and Evaluation of an Immersive and Interactive Virtual Cell Culture Training for Accessible Biotechnology
+Year: 2024
+Abstract: This study explores the design and assessment of an interactive and immersive 3D browser-based virtual mammalian cell culture simulation created to replace or supplement traditional in-person laboratories. Unique to the virtual labs, users are afforded the ability to make independent decisions that drive laboratory outcomes within the virtual environment, thus closely recapitulating the in-person experience while also providing technical feedback. In the fall and spring of 2022, four sections of an upper-level, dual enrollment undergraduate/graduate course in biotechnology tested the simulation that supplemented existing face-to-face cell culture labs focused on sterile mammalian cell culture techniques. Using a qualitative study design, consenting students were surveyed on their perceptions of the simulation and user experience immediately after the virtual lab (n=87 fall, n=96 spring) as well as at the conclusion of the course (n=73 fall, n=74 spring). Seventy-three percent of students surveyed felt the virtual simulation had clear connections to real-world applications and 57% of students agreed that it aided in their understanding of cell culture experiments. Moreover, by the end of the course more than half of students agreed that the virtual experience was realistic and required critical thinking, drawing connections between their existing and new knowledge. These data suggest that the interactive and immersive cell culture simulation may serve as a useful tool in courses such as biochemistry or chemical biology laboratories where expertise in mammalian cell culture techniques is required. Additionally, the virtual experience lowers accessibility barriers to skills training for students who may not be able to participate in traditional labs or at institutions where cost, infrastructure and expertise are prohibitive. This work was funded by BioMADE and an NC State University DELTA grant.
+---
+
+---
+DOI: 10.1007/978-1-0716-4023-4_15
+Title: Generation of a Virtual Cell using a Phase Field Approach to Model Amoeboid Crawling
+Year: 2024
+Abstract: The process of chemotaxis of living cells is complex. Cells follow gradients of an external signal because the interior of the cells gets polarized. The description of the exterior and the interior of the cell together with its motion for the convenient realization of the computational modeling of the whole process is a complex technical problem. Here, we employ a phase field model to characterize the interior of the cell, permitting the integration of stochastic partial differential equations, responsible for the polarization in the interior of the cell, and simultaneously, the calculation of the shape deformations of the cell, including its locomotion. We detail the mathematical description of the process and the procedure to calculate numerically the phase field with a simple reaction-diffusion equation for a single concentration.
+---
+
+---
+DOI: 10.1016/j.bpj.2024.11.810
+Title: BPS2025 - Virtual Cell modeling and simulation environment
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/ictbig64922.2024.10911614
+Title: Designing An Energy-Efficient Virtual Cell-Based Data Propagation Scheme for Wireless Sensor Networks with Single Mobile Sink
+Year: 2024
+Abstract: WSNs are very crucial for smart city and environmental monitoring application. Low power for sensor nodes may reduce the transmission of data but since a sole mobile bowl is sufficient to sustain the system and reduce multi-hop communication. This manuscript presents a new approach to data dissemination using virtual cells notion, or groups of sensor nodes. A designated CH gathers information from all the member nodes and it interact with a mobile sink when it is nearby, that will act as a relay for the other virtual cells. To minimize the outcome of influence ingesting in the transmission process from a long distance, a mobile sink receives the data after aggregation but follows a specific route pattern. This strategy fully optimises the energy consumption, minimises the loss of data packets and enhances the lifetime of the sink mobility mode. There is potential for applying it in energy-limited WSNs with a single mobile sink since this procedure contributes to the decreased energy ingesting, network lifetime, and improvement in the speed of data delivery compared with the slowing of routing protocols as simulations have revealed.
+---
+
+---
+DOI: 10.1089/genedge.7.1.078
+Title: Xaira Therapeutics Releases Largest Perturb-Seq Dataset to Power the Virtual Cell
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1089/genedge.7.1.082
+Title: Arc Institute Launches Virtual Cell Challenge to Accelerate AI Model Development
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1177/27681572251362466
+Title: Virtual Cell Challenge Aims to Accelerate AI Model Development
+Year: 2025
+Abstract: (no abstract available)
+---

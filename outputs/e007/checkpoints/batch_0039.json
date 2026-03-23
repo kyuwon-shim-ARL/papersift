@@ -1,0 +1,119 @@
+{
+  "batch_index": 39,
+  "dois": [
+    "10.1186/s40203-016-0020-y",
+    "10.1038/s41598-021-83730-y",
+    "10.1371/journal.pbio.3000975",
+    "10.1371/journal.pcbi.1007717",
+    "10.1038/srep11988",
+    "10.1055/s-0043-1772459",
+    "10.1371/journal.pone.0146951",
+    "10.1186/s13068-020-01869-8",
+    "10.3390/biom9090467",
+    "10.1186/s43141-021-00209-z"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1186/s40203-016-0020-y",
+      "problem": "Campylobacter jejuni causes bacterial diarrheal illness worldwide with limited vaccine options. This study aims to design epitope-based peptide vaccines by targeting invasive, virulent and membrane-associated proteins.",
+      "method": "Immunoinformatics approaches including Bepipred, ABCpred, IEDB tools for B- and T-cell epitope prediction, VaxiJen for antigenicity, TMHMM for transmembrane topology, and AutoDock Vina for in silico docking to HLA alleles.",
+      "finding": "Identified B-cell epitopes (EINKN, TGSRLN, KSNPDI, LDENGCE) and T-cell epitopes from six C. jejuni proteins showing 80-100% conservancy across strains with 22-60% population coverage, validated by molecular docking to HLA alleles.",
+      "dataset": "C. jejuni strain 11168 proteins (FlaA, CadF, Cia, PEB1, PEB3, MOMP) from UniProt",
+      "metric": "VaxiJen antigenicity score, IC50 binding affinity, epitope conservancy %, population coverage %",
+      "baseline": "VaxiJen threshold >0.5, IC50 <100 nM, Bepipred threshold 0.35, ABCpred cutoff 0.51",
+      "result": "80-100% epitope conservancy, 22-60% population coverage, VaxiJen scores 0.69-0.88"
+    },
+    {
+      "doi": "10.1038/s41598-021-83730-y",
+      "problem": "Rapid generation of serological diagnostics for COVID-19 requires identifying SARS-CoV-2-specific B-cell epitopes that do not cross-react with endemic human coronaviruses.",
+      "method": "Systematic computational survey of 27 SARS-CoV-2 proteins using BepiPred2 for linear epitope prediction, DiscoTope2 for conformational epitopes, sequence conservation analysis against endemic HCoVs, validated by ELISA with patient sera.",
+      "finding": "N-terminal nucleoprotein fragment and spike RBD showed highest sensitivity and specificity for COVID-19 serodiagnosis. Mixing both antigens for ELISA coating achieved 94% sensitivity and 97.2% specificity.",
+      "dataset": "80 RT-PCR confirmed SARS-CoV-2 patient samples, 106 control samples, 2,234 endemic HCoV protein sequences",
+      "metric": "sensitivity, specificity, signal-to-noise ratio",
+      "baseline": "BepiPred2 threshold (80% specificity/30% sensitivity), endemic HCoV cross-reactivity",
+      "result": "sensitivity 94% (N=80), specificity 97.2% (N=106)"
+    },
+    {
+      "doi": "10.1371/journal.pbio.3000975",
+      "problem": "Global identification of APC/C ubiquitin ligase substrates has remained challenging despite the enzyme's critical role in cell cycle regulation.",
+      "method": "In silico substrate prediction by cross-referencing KEN-box motif-containing proteins (2,206) with cell cycle-regulated mRNAs (651 genes from 4 independent studies), followed by experimental validation with FLAG-Cdh1 immunoprecipitation, mass spectrometry, and cell cycle degradation assays.",
+      "finding": "Identified 145 putative APC/C substrates enriched for chromatin regulators. UHRF1 is a direct APC/C substrate whose degradation at mitotic exit regulates G1 progression and global DNA methylation patterning.",
+      "dataset": "Human proteome (HeLa, U2OS, RPE-1, HEK-293T, HCT116 cells), 4 cell cycle transcriptional studies",
+      "metric": "enrichment over random expectation, KEN-motif overlap, protein oscillation during cell cycle",
+      "baseline": "33 well-validated KEN-containing APC/C substrates, FLAG-IP mass spectrometry (15/53 known substrates recovered)",
+      "result": "145 putative substrates identified, 24/33 known substrates captured (73%), chromatin regulators enriched"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1007717",
+      "problem": "Understanding how spatial organization of membrane-less organelles (nuclear speckles) and organelle heterogeneity affect RNA splicing particle biogenesis in mammalian cells.",
+      "method": "Data-driven spatially-resolved HeLa cell model with 11 compartment types, chemical reaction networks for spliceosomal assembly, stochastic reaction-diffusion simulations using Lattice Microbes (LM v2.3) for up to 15 minutes of biological time.",
+      "finding": "Nuclear pore complex number directly affects splicing particle formation; compartmentalization is critical for correct particle assembly yield; slight increase in splicing particle localization to speckles disproportionately enhances mRNA splicing and reduces noise; gene-speckle distance significantly affects mRNA production rate.",
+      "dataset": "HeLa cell structural data (volume 3000 μm³, nuclear radii 3.7-5.3 μm), 20 nuclear speckles, 4 Cajal bodies",
+      "metric": "mRNA production rate, splicing particle count, mRNA noise (coefficient of variation)",
+      "baseline": "Well-mixed (non-spatial) model, varying nuclear pore complex numbers and speckle configurations",
+      "result": "15 min biological time simulated (longest for eukaryotic cell), genes closer to speckles produce mRNA at higher levels"
+    },
+    {
+      "doi": "10.1038/srep11988",
+      "problem": "The biochemical interactions underlying host-microbiome behavior regulation are poorly understood. This study explores inter-kingdom ecological relationships using an in silico model.",
+      "method": "Analytical modeling and computational simulation of engineered gene networks (toggle switches, repressilators) in a commensal microbiome interfaced with a biomimetic robotic host, implemented in MATLAB/Simulink using ode5 (Dormand-Prince/Runge-Kutta) integration.",
+      "finding": "Robot movements depended on programmed biochemical network dynamics within the microbiome; balanced toggle switch produced bistable depot-seeking behavior; RBS strength served as a tunable parameter for modifying host nutrient affinity; host-to-microbiome feedback enabled predation-like behavior.",
+      "dataset": "Simulated 20m × 20m 2D arena with carbon depots (lactose/arabinose), engineered gene circuits (toggle switch, repressilator)",
+      "metric": "behavioral trajectory, bistability maintenance, GFP/mCherry expression levels",
+      "baseline": "Balanced toggle switch as proof-of-concept, varied RBS strengths",
+      "result": "average runtime 2.78 min per simulation, bistability maintained under stochastic conditions"
+    },
+    {
+      "doi": "10.1055/s-0043-1772459",
+      "problem": "CD44 is a cancer stem cell marker with pleiotropic roles in tumorigenesis, but its differential expression and prognostic value in head and neck squamous cell carcinoma (HNSCC) require investigation.",
+      "method": "In silico analysis using TCGA-HNSCC dataset (520 tumors, 44 normals) via UALCAN portal for mRNA expression and CPTAC dataset (108 tumors, 71 normals) for protein expression, correlated with clinicopathological parameters and Kaplan-Meier survival analysis.",
+      "finding": "CD44 mRNA and protein expression were significantly upregulated in HNSCC vs normal tissues. High CD44 correlated with poor survival, was overexpressed in HPV-negative and TP53-mutant tumors, and upregulated in Stage 1 and Grade 2 HNSCC.",
+      "dataset": "TCGA-HNSCC (520 primary HNSCC, 44 normal), CPTAC (108 HNSCC, 71 normal)",
+      "metric": "median transcript level, p-value, overall survival (Kaplan-Meier)",
+      "baseline": "normal tissue controls (mRNA median 148.7, protein median -1.3)",
+      "result": "CD44 mRNA median 279.2 vs 148.7 (p=0.0001), protein 0.003 vs -1.3 (p=0.0008)"
+    },
+    {
+      "doi": "10.1371/journal.pone.0146951",
+      "problem": "Linear B-cell epitopes within P. vivax malaria vaccine candidate PvMSP9 as targets of functional antibodies remain undefined, limiting synthetic peptide vaccine development.",
+      "method": "In silico epitope prediction using BepiPred (cutoff 0.9), IUPred for disorder prediction, ANCHOR for binding region prediction, and Robetta for 3D modeling, validated by seroepidemiological assessment with 545 naturally exposed individuals using ELISA.",
+      "finding": "The tandem repeat EAAPENAEPVHENA (PvMSP9 E795-A808) was identified as a highly immunogenic linear B-cell epitope in a disordered binding region. 56% of PvMSP9-RIRII responders also recognized the synthetic peptide; IgG1 prevalence correlated with time since last malaria episode.",
+      "dataset": "545 naturally P. vivax-exposed individuals from malaria-endemic regions of western Brazil, PvMSP9 Belem strain (AAL78897.1)",
+      "metric": "BepiPred prediction score, IUPred disorder score, ANCHOR binding probability, IgG reactivity index, seroprevalence %",
+      "baseline": "BepiPred cutoff 0.9 (specificity 0.91, sensitivity 0.25), recombinant PvMSP9-RIRII729-972",
+      "result": "58% responders to RIRII (316/545), 56% cross-reactive to peptide (177/316), epitope BepiPred score 1.59, disorder 0.97"
+    },
+    {
+      "doi": "10.1186/s13068-020-01869-8",
+      "problem": "Agricultural crop residue cell walls are highly resistant to saccharification due to recalcitrant polysaccharides and variable linkage structures, limiting second-generation biofuel production efficiency.",
+      "method": "Review of complementary glycomic methods (chromatography, NMR, antibody glycome profiling) for cell wall characterization combined with -omics-based approaches (metagenomics, metatranscriptomics, metaproteomics) for CAZyme discovery and functional prediction, including metagenome-assembled genomes.",
+      "finding": "Combining high-resolution cell wall structural analysis with meta-omic characterization of lignocellulose-metabolizing microbial communities provides promising strategies to maximize biofuel yield from crop waste. Tailored approaches for individual plant sources and novel CAZyme deployment can improve bioconversion.",
+      "dataset": "Agricultural crop residues (review of multiple plant sources)",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/biom9090467",
+      "problem": "miR-21 is the most abundant miRNA in colorectal cancer but its role in drug resistance mechanisms, particularly to topoisomerase inhibitors, is poorly characterized.",
+      "method": "Stable miR-21-overexpressing DLD-1 CRC cell line with MTT viability assays, Western blot, qPCR, Kaplan-Meier survival analysis (TCGA-COAD), and bioinformatics gene signature analysis (Connectivity Map/CMap, GSEA).",
+      "finding": "miR-21 overexpression induced resistance to topoisomerase inhibitors (SN-38, doxorubicin, VP-16) by reducing apoptosis and enhancing pro-survival autophagy without altering topoisomerase expression. Bioinformatics revealed miR-21 induced gene reprogramming mimicking topoisomerase inhibitor signatures and downregulated proteasome pathway genes.",
+      "dataset": "DLD-1 human CRC cell line, TCGA-COAD cohort (181 high/180 low miR-21 expression)",
+      "metric": "IC50, cell viability %, hazard ratio, metastasis-free survival p-value",
+      "baseline": "DLD-1-vector control cells, 5-FU (non-topoisomerase inhibitor control)",
+      "result": "miR-21 high expression: poor metastasis-free survival (p<0.05), resistance to SN-38/doxorubicin/VP-16 but not 5-FU"
+    },
+    {
+      "doi": "10.1186/s43141-021-00209-z",
+      "problem": "Effective therapeutics targeting SARS-CoV-2 cell entry proteins (ACE2, TMPRSS2, spike protein) are needed to inhibit the first stage of COVID-19 infection.",
+      "method": "Molecular docking (AutoDock Vina) of 106 bioactive terpenoids from African medicinal plants against hACE2, TMPRSS2, and spike proteins, followed by ADMET prediction, 100 ns molecular dynamics simulation, and MM-GBSA binding free energy calculations.",
+      "finding": "Eight terpenoids showed high binding to catalytic residues: 24-methylene cycloartenol and isoiguesterin targeted ACE2 hotspot 31, abietane diterpenes bound TMPRSS2 S1-specificity pocket, 3-benzoylhosloppone bound spike RBD, and cucurbitacin B bound S2 subunit. Interactions were stable in MD simulations with favorable drug-likeness.",
+      "dataset": "106 bioactive terpenoids from African medicinal plants, PDB structures (1R42, 2OQ5, 6VW1, 6VSB, 5X5B, 5X5C)",
+      "metric": "binding energy (kcal/mol), MM-GBSA binding free energy, RMSD, drug-likeness descriptors",
+      "baseline": "MLN-4760 (-7.7 kcal/mol for ACE2), camostat (-7.6 kcal/mol for TMPRSS2), nelfinavir mesylates",
+      "result": ">10 terpenoids exceeded reference inhibitor binding affinities, interactions preserved in 100 ns MD simulations"
+    }
+  ],
+  "timestamp": "2026-03-05T14:27:06.715292",
+  "extraction_count": 10
+}

@@ -1,0 +1,119 @@
+{
+  "batch_index": 7,
+  "dois": [
+    "10.1371/journal.pone.0256930",
+    "10.1093/plcell/koaf057",
+    "10.3389/fbinf.2025.1588661",
+    "10.3389/fmed.2025.1624683",
+    "10.1021/acs.jpcb.5c04532",
+    "10.1007/s10565-025-10014-w",
+    "10.1016/j.omton.2026.201129",
+    "10.1073/pnas.2500319123",
+    "10.1038/nature08499",
+    "10.1038/nn.2648"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pone.0256930",
+      "problem": "Correction to a biophysical model of C. elegans neurons (AWCon and RMD), addressing fitted parameters for ion channel currents.",
+      "method": "Hodgkin-Huxley-type biophysical modeling with least-squares nonlinear fitting and genetic algorithm optimization for ion channel kinetics.",
+      "finding": "Corrected model parameters for multiple ion channels (SHL1, KVS1, KQT3, SHK1, EGL2, EGL36, IRK) with calibrated half-activation/inactivation potentials to match voltage clamp and current clamp data.",
+      "dataset": "C. elegans AWCon and RMD neurons",
+      "metric": "least-squares fit to voltage clamp/current clamp data",
+      "baseline": "homologous channels from other species or muscle cells",
+      "result": ""
+    },
+    {
+      "doi": "10.1093/plcell/koaf057",
+      "problem": "Understanding vacuole morphology and formation mechanisms in early-stage root cortex cells of Arabidopsis thaliana.",
+      "method": "Whole-cell electron tomography using high-pressure freezing, freeze substitution, and dual-axis tilt series reconstruction with IMOD software at 4.3 and 1.5 nm pixel resolution.",
+      "finding": "Provided 3D reconstructions of vacuole structures in 15 cells including cortical, QC, epidermal, and columella cells, revealing vacuole morphology in early root development.",
+      "dataset": "5-day-old Arabidopsis root tips, 15 cells (4 half-cortical, 7 partial cortical, 1 QC, 1 epidermal, 2 columella)",
+      "metric": "pixel size (4.3 nm and 1.5 nm), z-scale factor 1.6",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fbinf.2025.1588661",
+      "problem": "Existing molecular visualization software cannot handle real-time interactive visualization of massive molecular systems (hundreds of millions of atoms).",
+      "method": "Impostor-based meshless rendering with adaptive level-of-detail tessellation shaders and Screen-Space Ambient Occlusion (SSAO), implemented in the open-source VTX software.",
+      "finding": "VTX maintains consistent interactive frame rates with a 114-million-bead Martini whole-cell model on standard hardware, outperforming VMD, PyMOL, and ChimeraX in rendering performance and memory efficiency.",
+      "dataset": "114-million-bead Martini minimal whole-cell model (Stevens et al., 2023)",
+      "metric": "frame rate, memory usage",
+      "baseline": "VMD, PyMOL, ChimeraX",
+      "result": "interactive frame rates on standard hardware with 114M atoms; existing tools unable to match"
+    },
+    {
+      "doi": "10.3389/fmed.2025.1624683",
+      "problem": "Automated differential cell counts on bone marrow aspirate smears require extensive annotations and have poor generalization across medical centers and diseases.",
+      "method": "VFM-SSL-BMADCC-Framework combining SAM (vision foundation model) for cell segmentation, MAE (self-supervised) for cell classification, TextureUnet for ROI segmentation, and TCNet for tile classification on whole-slide images.",
+      "finding": "The framework achieved high accuracy across all stages and generalized well across different medical centers (Chongqing Cancer Hospital and Southwest Hospital) and diseases, with differential cell counts highly consistent with manual analysis.",
+      "dataset": "40 WSIs from Chongqing Cancer Hospital (training), 13 WSIs from Chongqing + 5 WSIs from Southwest Hospital (validation); diseases include AML, Burkitt, CLL, DLBCL, MM",
+      "metric": "IoU, Dice, PA, Recall75, accuracy",
+      "baseline": "PSPNet, FCN, DeepLabV3, U-Net (for ROI segmentation)",
+      "result": "ROI IoU=46.19%, Dice=63.19%, PA=95.38%; TOI accuracy=90.45%; cell segmentation Recall75=99.01%; cell classification accuracy=77.92%"
+    },
+    {
+      "doi": "10.1021/acs.jpcb.5c04532",
+      "problem": "Incorporating macromolecular complex assembly into a whole-cell kinetic model of the minimal bacterium JCVI-syn3A to understand time-dependent cellular behavior.",
+      "method": "Hybrid stochastic-deterministic CME-ODE algorithm in Lattice Microbe, simulating 21 unique macromolecular complex assemblies (ribosome, RNA polymerase, degradosome, ATP synthase, ABC transporters) with 100 cell replicates, plus machine learning analysis of metabolomics.",
+      "finding": "The augmented model predicted cell cycle timing consistent with experiments (median 102 min vs 105 min measured), revealed DnaA binding rate effects on replication initiation, dTTP shortage-induced replication slowdown, and 73% ribosome translational occupancy at steady state.",
+      "dataset": "JCVI-syn3A (minimal cell), 100 independent cell replicates",
+      "metric": "cell cycle time, replication initiation time, ribosome occupancy, protein abundance scaling",
+      "baseline": "previous spatially homogeneous WCM of Syn3A, 4DWCM (3D+time)",
+      "result": "median cell cycle 102 min (exp: 105 min), median protein scaling 2.07x, 73% ribosome translational occupancy"
+    },
+    {
+      "doi": "10.1007/s10565-025-10014-w",
+      "problem": "Defining the molecular and cellular mechanisms of gadolinium-based contrast agent (GBCA) toxicity, specifically endolysosomal dysfunction in renal proximal tubule cells.",
+      "method": "In vitro exposure of mouse renal proximal tubule epithelial cells (MRPTEpiCs) to linear and macrocyclic GBCAs with ICP-MS for Gd quantification, XTT viability, immunofluorescence, western blot, and lysosomal/mitochondrial functional assays.",
+      "finding": "GBCAs display lysosomotropic behavior causing early lysosomal enlargement and membrane destabilization, leading to cathepsin B/D translocation to cytosol; lysosomal membrane permeabilization occurs upstream of mitochondrial dysfunction, partially rescuable by protease inhibitors. Linear GBCAs showed greater toxicity than macrocyclic.",
+      "dataset": "mouse renal proximal tubular epithelial cells (MRPTEpiCs), linear GBCA (Omniscan) and macrocyclic GBCA (Dotarem) at 2 mM",
+      "metric": "Gd concentration (ICP-MS), XTT cell viability, KIM-1 expression, CTSB/CTSD localization",
+      "baseline": "untreated controls",
+      "result": "significant Gd accumulation from 1h; 24h linear GBCA reduced viability and increased KIM-1; partial rescue with protease inhibitors"
+    },
+    {
+      "doi": "10.1016/j.omton.2026.201129",
+      "problem": "Evaluating novel pyrimidine-based compounds (P12 and P14) as anticancer agents that induce tumor cell senescence in breast cancer and melanoma.",
+      "method": "2D and 3D cell culture models (colony formation, spheroid assays), cell cycle analysis, RT-qPCR for senescence/SASP markers, SA-beta-gal staining, and apoptosis assays in MCF7 (ER+/HER2−) and A375 (BRAF-mutant) cells.",
+      "finding": "P12 and P14 reduced cancer cell proliferation dose-dependently, induced cell-cycle delay and senescence-like phenotype with altered SASP patterns, and showed selective activity against cancer cells with minimal effects on non-tumor chondrocytes.",
+      "dataset": "MCF7 (ER+/HER2− breast cancer), A375 (BRAF-mutant melanoma), TC28a2 (non-tumoral chondrocytes)",
+      "metric": "IC50, colony formation, spheroid area",
+      "baseline": "untreated controls, non-tumoral TC28a2 cells",
+      "result": "MCF7 IC50: P12=30.22 μM, P14=2.018 μM; A375 IC50: P12=2.915 μM, P14=1.887 μM; P12 non-toxic to TC28a2 up to 35 μM"
+    },
+    {
+      "doi": "10.1073/pnas.2500319123",
+      "problem": "Predicting CAR-NK cell cytotoxicity across different target cell types is difficult because NK cell responses integrate signals from multiple innate receptors beyond the engineered CAR, showing nonmonotonic relationships with antigen expression.",
+      "method": "Multiscale mechanistic in silico model integrating heterogeneous CAR, NKR, adhesion receptor, and ligand expression (quantitative flow cytometry), signal transduction ODEs, and NK-target population kinetics, with Pareto optimization for exploring CAR proportion and signaling effects.",
+      "finding": "The model accurately predicted short-term (4h), long-term (48-72h), and in vivo CAR-NK cytotoxicity across multiple tumor cell lines and donors, captured the nonmonotonic relationship between antigen density and cytotoxicity, and identified differential cytotoxicity windows between cancer and healthy cells via Pareto optimization.",
+      "dataset": "Kasumi-1, HL-60, K562, SKOV3, DIPG36 cell lines; primary monocytes; multiple healthy NK cell donors; CD33CAR and Her2CAR constructs",
+      "metric": "cytotoxicity (% lysis), receptor/ligand quantification (molecules/cell via PE quantitation kit)",
+      "baseline": "CAR-T cell monotonic activation models, WT NK cells",
+      "result": "accurate prediction of cytotoxicity across hematologic and solid tumor targets; nonmonotonic CAR-NK response captured"
+    },
+    {
+      "doi": "10.1038/nature08499",
+      "problem": "Understanding the intracellular mechanisms underlying hippocampal place cell rate and temporal coding during spatial navigation.",
+      "method": "In vivo whole-cell patch clamp recordings from hippocampal CA1 neurons in head-restrained mice navigating a virtual linear track (180 cm) on a spherical treadmill with 270° visual projection display.",
+      "finding": "Identified three subthreshold signatures of place fields: asymmetric ramp-like depolarization of baseline membrane potential, increased intracellular theta oscillation amplitude, and phase precession of intracellular theta relative to LFP theta. Results are most consistent with a soma-dendritic interference model.",
+      "dataset": "C57BL/6J mice (8-12 weeks), dorsal hippocampus CA1, virtual linear track",
+      "metric": "firing rate maps (80 spatial bins), membrane potential, theta phase (6-10 Hz bandpass)",
+      "baseline": "dual oscillator models, network models, experience-dependent models",
+      "result": "robust place-cell activity with three subthreshold signatures; data consistent with soma-dendritic interference model"
+    },
+    {
+      "doi": "10.1038/nn.2648",
+      "problem": "Developing methods to image hippocampal place cell activity at cellular resolution during spatial navigation behavior in mice.",
+      "method": "Custom two-photon microscope combined with virtual reality system (spherical treadmill + toroidal screen), chronic hippocampal window (cortex aspirated), and AAV2/1-synapsin-1-GCaMP3 calcium indicator in CA1 neurons.",
+      "finding": "Successfully imaged populations of ~80-100 CA1 neurons with subcellular resolution during virtual navigation, optically identified place cells with properties similar to electrophysiologically defined place cells, and determined spatial correlation between place field location and anatomical position.",
+      "dataset": "CA1 hippocampal neurons in head-restrained mice, virtual linear track (180 cm), populations of ~80-100 neurons per imaging session",
+      "metric": "calcium transient amplitude (ΔF/F), place field spatial information, anatomical position correlation",
+      "baseline": "tetrode recordings of place cells, real environment place cell studies",
+      "result": "subcellular resolution imaging of place cells; stray light <5% of baseline fluorescence; place fields consistent with electrophysiology"
+    }
+  ],
+  "timestamp": "2026-03-05T14:09:24.978709",
+  "extraction_count": 10
+}

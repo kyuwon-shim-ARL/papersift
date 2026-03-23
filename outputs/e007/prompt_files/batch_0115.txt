@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1126/science.1069883
+Title: A Genomic Regulatory Network for Development
+Year: 2002
+Abstract: Development of the body plan is controlled by large networks of regulatory genes. A gene regulatory network that controls the specification of endoderm and mesoderm in the sea urchin embryo is summarized here. The network was derived from large-scale perturbation analyses, in combination with computational methodologies, genomic data, cis-regulatory analysis, and molecular embryology. The network contains over 40 genes at present, and each node can be directly verified at the DNA sequence level by cis-regulatory analysis. Its architecture reveals specific and general aspects of development, such as how given cells generate their ordained fates in the embryo and why the process moves inexorably forward in developmental time.
+---
+
+---
+DOI: 10.1002/bit.10803
+Title: Optknock: A bilevel programming framework for identifying gene knockout strategies for microbial strain optimization
+Year: 2003
+Abstract: Abstract The advent of genome‐scale models of metabolism has laid the foundation for the development of computational procedures for suggesting genetic manipulations that lead to overproduction. In this work, the computational OptKnock framework is introduced for suggesting gene deletion strategies leading to the overproduction of chemicals or biochemicals in E. coli . This is accomplished by ensuring that a drain towards growth resources (i.e., carbon, redox potential, and energy) must be accompanied, due to stoichiometry, by the production of a desired product. Computational results for gene deletions for succinate, lactate, and 1,3‐propanediol (PDO) production are in good agreement with mutant strains published in the literature. While some of the suggested deletion strategies are straightforward and involve eliminating competing reaction pathways, many others suggest complex and nonintuitive mechanisms of compensating for the removed functionalities. Finally, the OptKnock procedure, by coupling biomass formation with chemical production, hints at a growth selection/adaptation system for indirectly evolving overproducing mutants. © 2003 Wiley Periodicals. Biotechnol Bioeng 84 : 647–657, 2003.
+---
+
+---
+DOI: 10.1021/cr020718s
+Title: Fundamental Models for Fuel Cell Engineering
+Year: 2004
+Abstract: ADVERTISEMENT RETURN TO ISSUEPREVArticleNEXTFundamental Models for Fuel Cell EngineeringChao-Yang WangView Author Information Departments of Mechanical Engineering and Materials Science and Engineering, Electrochemical Engine Center (ECEC), The Pennsylvania State University, University Park, Pennsylvania 16802 Cite this: Chem. Rev. 2004, 104, 10, 4727–4766Publication Date (Web):September 4, 2004Publication History Received23 January 2004Published online4 September 2004Published inissue 1 October 2004https://pubs.acs.org/doi/10.1021/cr020718shttps://doi.org/10.1021/cr020718sresearch-articleACS PublicationsCopyright © 2004 American Chemical SocietyRequest reuse permissionsArticle Views13888Altmetric-Citations1024LEARN ABOUT THESE METRICSArticle Views are the COUNTER-compliant sum of full text article downloads since November 2008 (both PDF and HTML) across all institutions and individuals. These metrics are regularly updated to reflect usage leading up to the last few days.Citations are the number of other articles citing this article, calculated by Crossref and updated daily. Find more information about Crossref citation counts.The Altmetric Attention Score is a quantitative measure of the attention that a research article has received online. Clicking on the donut icon will load a page at altmetric.com with additional details about the score and the social media presence for the given article. Find more information on the Altmetric Attention Score and how the score is calculated. Share Add toView InAdd Full Text with ReferenceAdd Description ExportRISCitationCitation and abstractCitation and referencesMore Options Share onFacebookTwitterWechatLinked InRedditEmail Other access optionsGet e-Alertsclose SUBJECTS:Electrical properties,Electrodes,Fuel cells,Layers,Membranes Get e-Alerts
+---
+
+---
+DOI: 10.1149/1.2220792
+Title: A Water and Heat Management Model for Proton‐Exchange‐Membrane Fuel Cells
+Year: 1993
+Abstract: Proper water and heat management are essential for obtaining high‐power‐density performance at high energy efficiency for proton‐exchange‐membrane fuel cells. A water and heat management model was developed and used to investigate the effectiveness of various humidification designs. The model accounts for water transport across the membrane by electro‐osmosis and diffusion, heat transfer from the solid phase to the gas phase and latent heat associated with water evaporation and condensation in the flow channels. Results from the model showed that at high current densities (> 1 A/ cm2) ohmic loss in the membrane accounts for a large fraction of the voltage loss in the cell and back diffusion of water from the cathode side of the membrane is insufficient to keep the membrane hydrated (i.e., conductive). Consequently, to minimize this ohmic loss the anode stream must be humidified, and when air is used instead of pure oxygen the cathode stream must also be humidified.
+---
+
+---
+DOI: 10.1038/nbt.1558
+Title: The Systems Biology Graphical Notation
+Year: 2009
+Abstract: Circuit diagrams and Unified Modeling Language diagrams are just two examples of standard visual languages that help accelerate work by promoting regularity, removing ambiguity and enabling software tool support for communication of complex information. Ironically, despite having one of the highest ratios of graphical to textual information, biology still lacks standard graphical notations. The recent deluge of biological knowledge makes addressing this deficit a pressing concern. Toward this goal, we present the Systems Biology Graphical Notation (SBGN), a visual language developed by a community of biochemists, modelers and computer scientists. SBGN consists of three complementary languages: process diagram, entity relationship diagram and activity flow diagram. Together they enable scientists to represent networks of biochemical interactions in a standard, unambiguous way. We believe that SBGN will foster efficient and accurate representation, visualization, storage, exchange and reuse of information on all kinds of biological knowledge, from gene regulation, to metabolism, to cellular signaling.
+---
+
+---
+DOI: 10.1016/s0955-0674(02)00364-2
+Title: Cell interactions with three-dimensional matrices
+Year: 2002
+Abstract: Signaling and other cellular functions differ in three-dimensional compared with two-dimensional systems. Cell adhesion structures can evolve in vitro towards in-vivo-like adhesions with distinct biological activities. In this review, we examine recent advances in studies of interactions of fibroblasts with collagen gels and fibronectin-containing matrices that mimic in vivo three-dimensional microenvironments. These three-dimensional systems are illuminating mechanisms of cell-matrix interactions in living organisms.
+---
+
+---
+DOI: 10.1038/nrg3643
+Title: Constraint-based models predict metabolic and associated cellular functions
+Year: 2014
+Abstract: The prediction of cellular function from a genotype is a fundamental goal in biology. For metabolism, constraint-based modelling methods systematize biochemical, genetic and genomic knowledge into a mathematical framework that enables a mechanistic description of metabolic physiology. The use of constraint-based approaches has evolved over ~30 years, and an increasing number of studies have recently combined models with high-throughput data sets for prospective experimentation. These studies have led to validation of increasingly important and relevant biological predictions. As reviewed here, these recent successes have tangible implications in the fields of microbial evolution, interaction networks, genetic engineering and drug discovery.
+---
+
+---
+DOI: 10.1016/s0378-7753(00)00662-5
+Title: Two-phase flow and transport in the air cathode of proton exchange membrane fuel cells
+Year: 2001
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1093/nar/gkj092
+Title: BioModels Database: a free, centralized database of curated, published, quantitative kinetic models of biochemical and cellular systems
+Year: 2005
+Abstract: BioModels Database (http://www.ebi.ac.uk/biomodels/), part of the international initiative BioModels.net, provides access to published, peer-reviewed, quantitative models of biochemical and cellular systems. Each model is carefully curated to verify that it corresponds to the reference publication and gives the proper numerical results. Curators also annotate the components of the models with terms from controlled vocabularies and links to other relevant data resources. This allows the users to search accurately for the models they need. The models can currently be retrieved in the SBML format, and import/export facilities are being developed to extend the spectrum of formats supported by the resource.
+---
+
+---
+DOI: 10.1038/nature06952
+Title: Mechanism of shape determination in motile cells
+Year: 2008
+Abstract: The shape of motile cells is determined by many dynamic processes spanning several orders of magnitude in space and time, from local polymerization of actin monomers at subsecond timescales to global, cell-scale geometry that may persist for hours. Understanding the mechanism of shape determination in cells has proved to be extremely challenging due to the numerous components involved and the complexity of their interactions. Here we harness the natural phenotypic variability in a large population of motile epithelial keratocytes from fish (Hypsophrys nicaraguensis) to reveal mechanisms of shape determination. We find that the cells inhabit a low-dimensional, highly correlated spectrum of possible functional states. We further show that a model of actin network treadmilling in an inextensible membrane bag can quantitatively recapitulate this spectrum and predict both cell shape and speed. Our model provides a simple biochemical and biophysical basis for the observed morphology and behaviour of motile cells.
+---
+
+---
+DOI: 10.1038/nbt1156
+Title: Minimum information requested in the annotation of biochemical models (MIRIAM)
+Year: 2005
+Abstract: Most of the published quantitative models in biology are lost for the community because they are either not made available or they are insufficiently characterized to allow them to be reused. The lack of a standard description format, lack of stringent reviewing and authors' carelessness are the main causes for incomplete model descriptions. With today's increased interest in detailed biochemical models, it is necessary to define a minimum quality standard for the encoding of those models. We propose a set of rules for curating quantitative models of biological systems. These rules define procedures for encoding and annotating models represented in machine-readable form. We believe their application will enable users to (i) have confidence that curated models are an accurate reflection of their associated reference descriptions, (ii) search collections of curated models with precision, (iii) quickly identify the biological phenomena that a given curated model or model constituent represents and (iv) facilitate model reuse and composition into large subcellular models.
+---
+
+---
+DOI: 10.1002/hipo.20115
+Title: Dual phase and rate coding in hippocampal place cells: Theoretical significance and relationship to entorhinal grid cells
+Year: 2005
+Abstract: Abstract We review the ideas and data behind the hypothesis that hippocampal pyramidal cells encode information by their phase of firing relative to the theta rhythm of the EEG. Particular focus is given to the further hypothesis that variations in firing rate can encode information independently from that encoded by firing phase. We discuss possible explanation of the phase‐precession effect in terms of interference between two independent oscillatory influences on the pyramidal cell membrane potential, and the extent to which firing phase reflects internal dynamics or external (environmental) variables. Finally, we propose a model of the firing of the recently discovered “grid cells” in entorhinal cortex as part of a path‐integration system, in combination with place cells and head‐direction cells. © 2005 Wiley‐Liss, Inc.
+---
+
+---
+DOI: 10.1073/pnas.0609845104
+Title: Intracellular crowding defines the mode and sequence of substrate uptake by<i>Escherichia coli</i>and constrains its metabolic activity
+Year: 2007
+Abstract: The influence of the high intracellular concentration of macromolecules on cell physiology is increasingly appreciated, but its impact on system-level cellular functions remains poorly quantified. To assess its potential effect, here we develop a flux balance model of Escherichia coli cell metabolism that takes into account a systems-level constraint for the concentration of enzymes catalyzing the various metabolic reactions in the crowded cytoplasm. We demonstrate that the model's predictions for the relative maximum growth rate of wild-type and mutant E. coli cells in single substrate-limited media, and the sequence and mode of substrate uptake and utilization from a complex medium are in good agreement with subsequent experimental observations. These results suggest that molecular crowding represents a bound on the achievable functional states of a metabolic network, and they indicate that models incorporating this constraint can systematically identify alterations in cellular metabolism activated in response to environmental change.
+---
+
+---
+DOI: 10.1016/s0968-0004(00)01754-0
+Title: Metabolic modeling of microbial strains in silico
+Year: 2001
+Abstract: The large volume of genome-scale data that is being produced and made available in databases on the World Wide Web is demanding the development of integrated mathematical models of cellular processes. The analysis of reconstructed metabolic networks as systems leads to the development of an in silico or computer representation of collections of cellular metabolic constituents, their interactions and their integrated function as a whole. The use of quantitative analysis methods to generate testable hypotheses and drive experimentation at a whole-genome level signals the advent of a systemic modeling approach to cellular and molecular biology.
+---
+
+---
+DOI: 10.1128/jb.185.9.2692-2699.2003
+Title: Thirteen Years of Building Constraint-Based In Silico Models of <i>Escherichia coli</i>
+Year: 2003
+Abstract: The recent flood of genomic ([13][1]), transcriptomic ([29][2]), and other high-throughput data ([21][3], [33][4], [45][5]) makes the need to interpret this information in a systemic fashion increasingly pressing. The construction of in silico models represents a way to interpret these data and
+---
+
+---
+DOI: 10.1016/s0006-3495(02)73897-6
+Title: Regulation of Actin Dynamics in Rapidly Moving Cells:A Quantitative Analysis
+Year: 2002
+Abstract: We develop a mathematical model that describes key details of actin dynamics in protrusion associated with cell motility. The model is based on the dendritic-nucleation hypothesis for lamellipodial protrusion in nonmuscle cells such as keratocytes. We consider a set of partial differential equations for diffusion and reactions of sequestered actin complexes, nucleation, and growth by polymerization of barbed ends of actin filaments, as well as capping and depolymerization of the filaments. The mechanical aspect of protrusion is based on an elastic polymerization ratchet mechanism. An output of the model is a relationship between the protrusion velocity and the number of filament barbed ends pushing the membrane. Significantly, this relationship has a local maximum: too many barbed ends deplete the available monomer pool, too few are insufficient to generate protrusive force, so motility is stalled at either extreme. Our results suggest that to achieve rapid motility, some tuning of parameters affecting actin dynamics must be operating in the cell.
+---
+
+---
+DOI: 10.1038/ni1326
+Title: The generation of protective memory-like CD8+ T cells during homeostatic proliferation requires CD4+ T cells
+Year: 2006
+Abstract: Antigen-specific memory T cells are a critical component of protective immunity because of their increased frequency and enhanced reactivity after restimulation. However, it is unclear whether 'memory-like' T cells generated during lymphopenia-induced homeostatic proliferation can also offer protection against pathogens. Here we show that homeostatic proliferation-induced memory (HP-memory) CD8(+) T cells controlled bacterial infection as effectively as 'true' memory CD8(+) T cells, but their protective capacity required the presence of CD4(+) T cells during homeostatic proliferation. The necessity for CD4 help was overcome, however, if the HP-memory CD8(+) T cells lacked expression of TRAIL (tumor necrosis factor-related apoptosis-inducing ligand; also called Apo-2L). Thus, like conventional CD8(+) memory T cells, the protective function of HP-memory CD8(+) T cells shows dependence on CD4(+) T cell help.
+---
+
+---
+DOI: 10.1016/j.promfg.2018.10.047
+Title: Digital twins of human robot collaboration in a production setting
+Year: 2018
+Abstract: This paper aims to present a digital twin framework to support the design, build and control of human-machine cooperation. In this study, computer simulations are used to develop a digital counterpart of a human-robot collaborative work environment for assembly work. The digital counterpart remains updated during the life cycle of the production system by continuously mirroring the physical system for quick and safe embed for continuous improvements. The case of a manufacturing company with human-robot work teams is presented for developing and validating the digital twin framework.
+---
+
+---
+DOI: 10.1016/j.cell.2021.12.025
+Title: Fundamental behaviors emerge from simulations of a living minimal cell
+Year: 2022
+Abstract: SUMMARY We present a whole-cell fully dynamical kinetic model (WCM) of JCVI-syn3A, a minimal cell with a reduced genome of 493 genes that has retained few regulatory proteins or small RNAs. Cryo-electron tomograms provide the cell geometry and ribosome distributions. Time-dependent behaviors of concentrations and reaction fluxes from stochastic-deterministic simulations over a cell cycle reveal how the cell balances demands of its metabolism, genetic information processes, and growth, and offer insight into the principles of life for this minimal cell. The energy economy of each process including active transport of amino acids, nucleosides, and ions is analyzed. WCM reveals how emergent imbalances lead to slowdowns in the rates of transcription and translation. Integration of experimental data is critical in building a kinetic model from which emerges a genome-wide distribution of mRNA half-lives, multiple DNA replication events that can be compared to qPCR results, and the experimentally observed doubling behavior.
+---
+
+---
+DOI: 10.1126/science.1064732
+Title: Systems Analysis of Ran Transport
+Year: 2002
+Abstract: The separate components of nucleocytoplasmic transport have been well characterized, including the key regulatory role of Ran, a guanine nucleotide triphosphatase. However, the overall system behavior in intact cells is difficult to analyze because the dynamics of these components are interdependent. We used a combined experimental and computational approach to study Ran transport in vivo. The resulting model provides the first quantitative picture of Ran flux between the nuclear and cytoplasmic compartments in eukaryotic cells. The model predicts that the Ran exchange factor RCC1, and not the flux capacity of the nuclear pore complex (NPC), is the crucial regulator of steady-state flux across the NPC. Moreover, it provides the first estimate of the total in vivo flux (520 molecules per NPC per second and predicts that the transport system is robust.
+---
+
+---
+DOI: 10.1080/095372898233821
+Title: Analysing the trade-off between efficiency and flexibility in cellular manufacturing systems
+Year: 1998
+Abstract: A limitation of Group Technology (GT)-based cellular manufacturing systems is that their limited routing flexibility offsets the setup and material handling efficiencies they offer. Virtual Cellular Manufacturing (VCM) systems do not encounter the problem of limited routing flexibility, but do not yield the same efficiencies as GT-based cellular systems. This study compares the performance of a GT-based cellular manufacturing system that utilizes operations overlapping to further improve material flow efficiency with that of a virtual cellular manufacturing system. Results suggest that while the use of operations overlapping in a GT-based cellular manufacturing system can to some extent compensate for the system's low routing flexibility, it cannot fully overcome the high flow time variance that results from the permanent dedication of machine resources. As a result, GT-based cellular manufacturing performs comparably to VCM only under a limited set of conditions. Keywords: Cellular ManufacturingSimulationGroup Technology
+---
+
+---
+DOI: 10.48550/arxiv.1201.0490
+Title: Scikit-learn: Machine Learning in Python
+Year: 2012
+Abstract: Scikit-learn is a Python module integrating a wide range of state-of-the-art machine learning algorithms for medium-scale supervised and unsupervised problems. This package focuses on bringing machine learning to non-specialists using a general-purpose high-level language. Emphasis is put on ease of use, performance, documentation, and API consistency. It has minimal dependencies and is distributed under the simplified BSD license, encouraging its use in both academic and commercial settings. Source code, binaries, and documentation can be downloaded from http://scikit-learn.org.
+---
+
+---
+DOI: 10.3322/caac.21492
+Title: Global cancer statistics 2018: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries
+Year: 2018
+Abstract: Abstract This article provides a status report on the global burden of cancer worldwide using the GLOBOCAN 2018 estimates of cancer incidence and mortality produced by the International Agency for Research on Cancer, with a focus on geographic variability across 20 world regions. There will be an estimated 18.1 million new cancer cases (17.0 million excluding nonmelanoma skin cancer) and 9.6 million cancer deaths (9.5 million excluding nonmelanoma skin cancer) in 2018. In both sexes combined, lung cancer is the most commonly diagnosed cancer (11.6% of the total cases) and the leading cause of cancer death (18.4% of the total cancer deaths), closely followed by female breast cancer (11.6%), prostate cancer (7.1%), and colorectal cancer (6.1%) for incidence and colorectal cancer (9.2%), stomach cancer (8.2%), and liver cancer (8.2%) for mortality. Lung cancer is the most frequent cancer and the leading cause of cancer death among males, followed by prostate and colorectal cancer (for incidence) and liver and stomach cancer (for mortality). Among females, breast cancer is the most commonly diagnosed cancer and the leading cause of cancer death, followed by colorectal and lung cancer (for incidence), and vice versa (for mortality); cervical cancer ranks fourth for both incidence and mortality. The most frequently diagnosed cancer and the leading cause of cancer death, however, substantially vary across countries and within each country depending on the degree of economic development and associated social and life style factors. It is noteworthy that high‐quality cancer registry data, the basis for planning and implementing evidence‐based cancer control programs, are not available in most low‐ and middle‐income countries. The Global Initiative for Cancer Registry Development is an international partnership that supports better estimation, as well as the collection and use of local data, to prioritize and evaluate national cancer control efforts. CA: A Cancer Journal for Clinicians 2018;0:1‐31. © 2018 American Cancer Society
+---
+
+---
+DOI: 10.1002/j.1538-7305.1948.tb01338.x
+Title: A Mathematical Theory of Communication
+Year: 1948
+Abstract: The recent development of various methods of modulation such as PCM and PPM which exchange bandwidth for signal-to-noise ratio has intensified the interest in a general theory of communication. A basis for such a theory is contained in the important papers of Nyquist <sup xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">1</sup> and Hartley <sup xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">2</sup> on this subject. In the present paper we will extend the theory to include a number of new factors, in particular the effect of noise in the channel, and the savings possible due to the statistical structure of the original message and due to the nature of the final destination of the information.
+---
+
+---
+DOI: 10.1002/jcc.20291
+Title: GROMACS: Fast, flexible, and free
+Year: 2005
+Abstract: Abstract This article describes the software suite GROMACS (Groningen MAchine for Chemical Simulation) that was developed at the University of Groningen, The Netherlands, in the early 1990s. The software, written in ANSI C, originates from a parallel hardware project, and is well suited for parallelization on processor clusters. By careful optimization of neighbor searching and of inner loop performance, GROMACS is a very fast program for molecular dynamics simulation. It does not have a force field of its own, but is compatible with GROMOS, OPLS, AMBER, and ENCAD force fields. In addition, it can handle polarizable shell models and flexible constraints. The program is versatile, as force routines can be added by the user, tabulated functions can be specified, and analyses can be easily customized. Nonequilibrium dynamics and free energy determinations are incorporated. Interfaces with popular quantum‐chemical packages (MOPAC, GAMES‐UK, GAUSSIAN) are provided to perform mixed MM/QM simulations. The package includes about 100 utility and analysis programs. GROMACS is in the public domain and distributed (with source code and documentation) under the GNU General Public License. It is maintained by a group of developers from the Universities of Groningen, Uppsala, and Stockholm, and the Max Planck Institute for Polymer Research in Mainz. Its Web site is http://www.gromacs.org . © 2005 Wiley Periodicals, Inc. J Comput Chem 26: 1701–1718, 2005
+---
+
+---
+DOI: 10.1002/jcc.21287
+Title: CHARMM: The biomolecular simulation program
+Year: 2009
+Abstract: Abstract CHARMM (Chemistry at HARvard Molecular Mechanics) is a highly versatile and widely used molecular simulation program. It has been developed over the last three decades with a primary focus on molecules of biological interest, including proteins, peptides, lipids, nucleic acids, carbohydrates, and small molecule ligands, as they occur in solution, crystals, and membrane environments. For the study of such systems, the program provides a large suite of computational tools that include numerous conformational and path sampling methods, free energy estimators, molecular minimization, dynamics, and analysis techniques, and model‐building capabilities. The CHARMM program is applicable to problems involving a much broader class of many‐particle systems. Calculations with CHARMM can be performed using a number of different energy functions and models, from mixed quantum mechanical‐molecular mechanical force fields, to all‐atom classical potential energy functions with explicit solvent and various boundary conditions, to implicit solvent and membrane models. The program has been ported to numerous platforms in both serial and parallel architectures. This article provides an overview of the program as it exists today with an emphasis on developments since the publication of the original CHARMM article in 1983. © 2009 Wiley Periodicals, Inc.J Comput Chem, 2009.
+---
+
+---
+DOI: 10.1016/0006-8993(71)90358-1
+Title: The hippocampus as a spatial map. Preliminary evidence from unit activity in the freely-moving rat
+Year: 1971
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1063/1.881751
+Title: <i>Computational Methods for Fluid Dynamics</i>
+Year: 1997
+Abstract: Preface. Basic Concepts of Fluid Flow.- Introduction to Numerical Methods.- Finite Difference Methods.- Finite Volume Methods.- Solution of Linear Equation Systems.- Methods for Unsteady Problems.- Solution of the Navier-Stokes Equations.- Complex Geometries.- Turbulent Flows.- Compressible Flow.- Efficiency and Accuracy Improvement. Special Topics.- Appendeces.
+---
+
+---
+DOI: 10.1038/35002125
+Title: A synthetic oscillatory network of transcriptional regulators
+Year: 2000
+Abstract: Networks of interacting biomolecules carry out many essential functions in living cells, but the 'design principles' underlying the functioning of such intracellular networks remain poorly understood, despite intensive efforts including quantitative analysis of relatively simple systems. Here we present a complementary approach to this problem: the design and construction of a synthetic network to implement a particular function. We used three transcriptional repressor systems that are not part of any natural biological clock to build an oscillating network, termed the repressilator, in Escherichia coli. The network periodically induces the synthesis of green fluorescent protein as a readout of its state in individual cells. The resulting oscillations, with typical periods of hours, are slower than the cell-division cycle, so the state of the oscillator has to be transmitted from generation to generation. This artificial clock displays noisy behaviour, possibly because of stochastic fluctuations of its components. Such 'rational network design may lead both to the engineering of new cellular behaviours and to an improved understanding of naturally occurring networks.
+---
+
+---
+DOI: 10.1063/1.474784
+Title: Dissipative particle dynamics: Bridging the gap between atomistic and mesoscopic simulation
+Year: 1997
+Abstract: We critically review dissipative particle dynamics (DPD) as a mesoscopic simulation method. We have established useful parameter ranges for simulations, and have made a link between these parameters and χ-parameters in Flory-Huggins-type models. This is possible because the equation of state of the DPD fluid is essentially quadratic in density. This link opens the way to do large scale simulations, effectively describing millions of atoms, by firstly performing simulations of molecular fragments retaining all atomistic details to derive χ-parameters, then secondly using these results as input to a DPD simulation to study the formation of micelles, networks, mesophases and so forth. As an example application, we have calculated the interfacial tension σ between homopolymer melts as a function of χ and N and have found a universal scaling collapse when σ/ρkBTχ0.4 is plotted against χN for N&amp;gt;1. We also discuss the use of DPD to simulate the dynamics of mesoscopic systems, and indicate a possible problem with the timescale separation between particle diffusion and momentum diffusion (viscosity).
+---
+
+---
+DOI: 10.1016/s0092-8674(00)81280-5
+Title: Cell Migration: A Physically Integrated Molecular Process
+Year: 1996
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.eng.2017.05.015
+Title: Intelligent Manufacturing in the Context of Industry 4.0: A Review
+Year: 2017
+Abstract: Our next generation of industry—Industry 4.0—holds the promise of increased flexibility in manufacturing, along with mass customization, better quality, and improved productivity. It thus enables companies to cope with the challenges of producing increasingly individualized products with a short lead-time to market and higher quality. Intelligent manufacturing plays an important role in Industry 4.0. Typical resources are converted into intelligent objects so that they are able to sense, act, and behave within a smart environment. In order to fully understand intelligent manufacturing in the context of Industry 4.0, this paper provides a comprehensive review of associated topics such as intelligent manufacturing, Internet of Things (IoT)-enabled manufacturing, and cloud manufacturing. Similarities and differences in these topics are highlighted based on our analysis. We also review key technologies such as the IoT, cyber-physical systems (CPSs), cloud computing, big data analytics (BDA), and information and communications technology (ICT) that are used to enable intelligent manufacturing. Next, we describe worldwide movements in intelligent manufacturing, including governmental strategic plans from different countries and strategic plans from major international companies in the European Union, United States, Japan, and China. Finally, we present current challenges and future research directions. The concepts discussed in this paper will spark new ideas in the effort to realize the much-anticipated Fourth Industrial Revolution.
+---
+
+---
+DOI: 10.1021/ie50677a007
+Title: NEW METHOD FOR PREDICTION OF BINARY GAS-PHASE DIFFUSION COEFFICIENTS
+Year: 1966
+Abstract: ADVERTISEMENT RETURN TO ISSUEPREVArticleNEXTNEW METHOD FOR PREDICTION OF BINARY GAS-PHASE DIFFUSION COEFFICIENTSEdward N. Fuller, Paul D. Schettler, and J. Calvin. GiddingsCite this: Ind. Eng. Chem. 1966, 58, 5, 18–27Publication Date (Print):May 1, 1966Publication History Published online1 May 2002Published inissue 1 May 1966https://pubs.acs.org/doi/10.1021/ie50677a007https://doi.org/10.1021/ie50677a007research-articleACS PublicationsRequest reuse permissionsArticle Views12407Altmetric-Citations1654LEARN ABOUT THESE METRICSArticle Views are the COUNTER-compliant sum of full text article downloads since November 2008 (both PDF and HTML) across all institutions and individuals. These metrics are regularly updated to reflect usage leading up to the last few days.Citations are the number of other articles citing this article, calculated by Crossref and updated daily. Find more information about Crossref citation counts.The Altmetric Attention Score is a quantitative measure of the attention that a research article has received online. Clicking on the donut icon will load a page at altmetric.com with additional details about the score and the social media presence for the given article. Find more information on the Altmetric Attention Score and how the score is calculated. Share Add toView InAdd Full Text with ReferenceAdd Description ExportRISCitationCitation and abstractCitation and referencesMore Options Share onFacebookTwitterWechatLinked InRedditEmail Other access options Get e-Alerts
+---
+
+---
+DOI: 10.1016/j.cell.2016.11.038
+Title: Perturb-Seq: Dissecting Molecular Circuits with Scalable Single-Cell RNA Profiling of Pooled Genetic Screens
+Year: 2016
+Abstract: Genetic screens help infer gene function in mammalian cells, but it has remained difficult to assay complex phenotypes-such as transcriptional profiles-at scale. Here, we develop Perturb-seq, combining single-cell RNA sequencing (RNA-seq) and clustered regularly interspaced short palindromic repeats (CRISPR)-based perturbations to perform many such assays in a pool. We demonstrate Perturb-seq by analyzing 200,000 cells in immune cells and cell lines, focusing on transcription factors regulating the response of dendritic cells to lipopolysaccharide (LPS). Perturb-seq accurately identifies individual gene targets, gene signatures, and cell states affected by individual perturbations and their genetic interactions. We posit new functions for regulators of differentiation, the anti-viral response, and mitochondrial function during immune activation. By decomposing many high content measurements into the effects of perturbations, their interactions, and diverse cell metadata, Perturb-seq dramatically increases the scope of pooled genomic assays.
+---
+
+---
+DOI: 10.5167/uzh-162597
+Title: The Human Cell Atlas
+Year: 2017
+Abstract: The recent advent of methods for high-throughput single-cell molecular profiling has catalyzed a growing sense in the scientific community that the time is ripe to complete the 150-year-old effort to identify all cell types in the human body. The Human Cell Atlas Project is an international collaborative effort that aims to define all human cell types in terms of distinctive molecular profiles (such as gene expression profiles) and to connect this information with classical cellular descriptions (such as location and morphology). An open comprehensive reference map of the molecular state of cells in healthy human tissues would propel the systematic study of physiological states, developmental trajectories, regulatory circuitry and interactions of cells, and also provide a framework for understanding cellular dysregulation in human disease. Here we describe the idea, its potential utility, early proofs-of-concept, and some design considerations for the Human Cell Atlas, including a commitment to open data, code, and community.
+---
+
+---
+DOI: 10.1126/science.1125572
+Title: Conjunctive Representation of Position, Direction, and Velocity in Entorhinal Cortex
+Year: 2006
+Abstract: Grid cells in the medial entorhinal cortex (MEC) are part of an environment-independent spatial coordinate system. To determine how information about location, direction, and distance is integrated in the grid-cell network, we recorded from each principal cell layer of MEC in rats that explored two-dimensional environments. Whereas layer II was predominated by grid cells, grid cells colocalized with head-direction cells and conjunctive grid × head-direction cells in the deeper layers. All cell types were modulated by running speed. The conjunction of positional, directional, and translational information in a single MEC cell type may enable grid coordinates to be updated during self-motion–based navigation.
+---
+
+---
+DOI: 10.1109/access.2019.2953499
+Title: A Survey on Digital Twin: Definitions, Characteristics, Applications, and Design Implications
+Year: 2019
+Abstract: When, in 1956, Artificial Intelligence (AI) was officially declared a research field, no one would have ever predicted the huge influence and impact its description, prediction, and prescription capabilities were going to have on our daily lives. In parallel to continuous advances in AI, the past decade has seen the spread of broadband and ubiquitous connectivity, (embedded) sensors collecting descriptive high dimensional data, and improvements in big data processing techniques and cloud computing. The joint usage of such technologies has led to the creation of digital twins, artificial intelligent virtual replicas of physical systems. Digital Twin (DT) technology is nowadays being developed and commercialized to optimize several manufacturing and aviation processes, while in the healthcare and medicine fields this technology is still at its early development stage. This paper presents the results of a study focused on the analysis of the state-of-the-art definitions of DT, the investigation of the main characteristics that a DT should possess, and the exploration of the domains in which DT applications are currently being developed. The design implications derived from the study are then presented: they focus on socio-technical design aspects and DT lifecycle. Open issues and challenges that require to be addressed in the future are finally discussed.
+---
+
+---
+DOI: 10.1007/bf01195768
+Title: Prediction of chain flexibility in proteins
+Year: 1985
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1155/2011/154798
+Title: Reengineering Aircraft Structural Life Prediction Using a Digital Twin
+Year: 2011
+Abstract: Reengineering of the aircraft structural life prediction process to fully exploit advances in very high performance digital computing is proposed. The proposed process utilizes an ultrahigh fidelity model of individual aircraft by tail number, a Digital Twin, to integrate computation of structural deflections and temperatures in response to flight conditions, with resulting local damage and material state evolution. A conceptual model of how the Digital Twin can be used for predicting the life of aircraft structure and assuring its structural integrity is presented. The technical challenges to developing and deploying a Digital Twin are discussed in detail.
+---
+
+---
+DOI: 10.1038/9858
+Title: Generation of tissue-specific and promiscuous HLA ligand databases using DNA microarrays and virtual HLA class II matrices
+Year: 1999
+Abstract: Most pockets in the human leukocyte antigen-group DR (HLA-DR) groove are shaped by clusters of polymorphic residues and, thus, have distinct chemical and size characteristics in different HLA-DR alleles. Each HLA-DR pocket can be characterized by "pocket profiles," a quantitative representation of the interaction of all natural amino acid residues with a given pocket. In this report we demonstrate that pocket profiles are nearly independent of the remaining HLA-DR cleft. A small database of profiles was sufficient to generate a large number of HLA-DR matrices, representing the majority of human HLA-DR peptide-binding specificity. These virtual matrices were incorporated in software (TEPITOPE) capable of predicting promiscuous HLA class II ligands. This software, in combination with DNA microarray technology, has provided a new tool for the generation of comprehensive databases of candidate promiscuous T-cell epitopes in human disease tissues. First, DNA microarrays are used to reveal genes that are specifically expressed or upregulated in disease tissues. Second, the prediction software enables the scanning of these genes for promiscuous HLA-DR binding sites. In an example, we demonstrate that starting from nearly 20,000 genes, a database of candidate colon cancer-specific and promiscuous T-cell epitopes could be fully populated within a matter of days. Our approach has implications for the development of epitope-based vaccines.
+---
+
+---
+DOI: 10.1002/jmr.893
+Title: Predicting linear B‐cell epitopes using string kernels
+Year: 2008
+Abstract: Abstract The identification and characterization of B‐cell epitopes play an important role in vaccine design, immunodiagnostic tests, and antibody production. Therefore, computational tools for reliably predicting linear B‐cell epitopes are highly desirable. We evaluated Support Vector Machine (SVM) classifiers trained utilizing five different kernel methods using fivefold cross‐validation on a homology‐reduced data set of 701 linear B‐cell epitopes, extracted from Bcipep database, and 701 non‐epitopes, randomly extracted from SwissProt sequences. Based on the results of our computational experiments, we propose BCPred, a novel method for predicting linear B‐cell epitopes using the subsequence kernel. We show that the predictive performance of BCPred (AUC = 0.758) outperforms 11 SVM‐based classifiers developed and evaluated in our experiments as well as our implementation of AAP (AUC = 0.7), a recently proposed method for predicting linear B‐cell epitopes using amino acid pair antigenicity. Furthermore, we compared BCPred with AAP and ABCPred, a method that uses recurrent neural networks, using two data sets of unique B‐cell epitopes that had been previously used to evaluate ABCPred. Analysis of the data sets used and the results of this comparison show that conclusions about the relative performance of different B‐cell epitope prediction methods drawn on the basis of experiments using data sets of unique B‐cell epitopes are likely to yield overly optimistic estimates of performance of evaluated methods. This argues for the use of carefully homology‐reduced data sets in comparing B‐cell epitope prediction methods to avoid misleading conclusions about how different methods compare to each other. Our homology‐reduced data set and implementations of BCPred as well as the APP method are publicly available through our web‐based server, BCPREDS, at: http://ailab.cs.iastate.edu/bcpreds/ . Copyright © 2008 John Wiley &amp; Sons, Ltd.
+---
+
+---
+DOI: 10.1109/twc.2007.05207
+Title: Downlink performance and capacity of distributed antenna systems in a multicell environment
+Year: 2007
+Abstract: Distributed antenna systems (DAS) have been widely implemented in state-of-the art cellular communication systems to cover dead spots. Recent academic studies have shown that in addition to coverage improvements, DAS can also have potential advantages such as reduced power and increased system capacity in a single cell environment. This paper analytically quantifies downlink capacity of multicell DAS for two different transmission strategies: selection diversity (where just one or two of the distributed antennas are used) and blanket transmission (where all antennas in the cell broadcast data). Simple repeaters are a special case of our analysis. A generalized information theoretic analysis is provided to illuminate the fundamental limits of such systems in the cellular context. The results show that DAS reduces other-cell interference in a multicell environment and hence significantly improves capacity (by about 2x), with particularly large improvements for users near cell boundaries. Less obviously, from a communication theory standpoint, it is shown that selection diversity is preferable to blanket transmission in terms of achievable ergodic capacity. For blanket transmission, we show that the optimal transmission strategy is just phase steering due to the per antenna module power constraints in DAS
+---
+
+---
+DOI: 10.1007/s10845-019-01512-w
+Title: A state-of-the-art survey of Digital Twin: techniques, engineering product lifecycle management and business innovation perspectives
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.cirp.2017.04.038
+Title: Toward a Digital Twin for real-time geometry assurance in individualized production
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0021-9290(01)00201-9
+Title: Contribution of the nucleus to the mechanical properties of endothelial cells
+Year: 2002
+Abstract: The cell nucleus plays a central role in the response of the endothelium to mechanical forces, possibly by deforming during cellular adaptation. The goal of this work was to precisely quantify the mechanical properties of the nucleus. Individual endothelial cells were subjected to compression between glass microplates. This technique allows measurement of the uniaxial force applied to the cell and the resulting deformation. Measurements were made on round and spread cells to rule out the influence of cell morphology on the nucleus mechanical properties. Tests were also carried out with nuclei isolated from cell cultures by a chemical treatment. The non-linear force-deformation curves indicate that round cells deform at lower forces than spread cells and nuclei. Finite-element models were also built with geometries adapted to actual morphometric measurements of round cells, spread cells and isolated nuclei. The nucleus and the cytoplasm were modeled as separate homogeneous hyperelastic materials. The models simulate the compression and yield the force-deformation curve for a given set of elastic moduli. These parameters are varied to obtain a best fit between the theoretical and experimental data. The elastic modulus of the cytoplasm is found to be on the order of 500N/m(2) for spread and round cells. The elastic modulus of the endothelial nucleus is on the order of 5000N/m(2) for nuclei in the cell and on the order of 8000N/m(2) for isolated nuclei. These results represent an unambiguous measurement of the nucleus mechanical properties and will be important in understanding how cells perceive mechanical forces and respond to them.
+---

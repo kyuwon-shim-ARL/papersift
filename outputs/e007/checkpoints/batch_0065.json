@@ -1,0 +1,119 @@
+{
+  "batch_index": 65,
+  "dois": [
+    "10.1371/journal.pcbi.1003774",
+    "10.1186/1471-2105-7-93",
+    "10.1038/ncomms8089",
+    "10.1093/bioinformatics/btu638",
+    "10.1093/nar/gky427",
+    "10.1038/s41586-019-0969-x",
+    "10.1093/nar/gks1111",
+    "10.1186/s13059-019-1663-x",
+    "10.1038/nature13173",
+    "10.1038/nmeth.4177"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pcbi.1003774",
+      "problem": "Understanding how endothelial cells collectively organize into vascular networks and sprouts in vitro through mechanical cell-ECM interactions, bridging single-cell behavior to collective morphogenesis.",
+      "method": "Hybrid cellular Potts model (CPM) coupled with finite element method (FEM) to simulate cell motility, ECM mechanics, and mechanosensing (durotaxis, strain stiffening, cell traction).",
+      "finding": "Three biologically plausible assumptions — cell traction, strain stiffening, and durotaxis — suffice to reproduce endothelial cell behavior across three spatial scales: single cells, pairwise interactions, and collective network formation/sprouting.",
+      "dataset": "In vitro endothelial cells on compliant matrices (H5V murine embryonic heart endothelial cells, bovine aortic endothelial cells on acrylamide gels)",
+      "metric": "Cell length, cell orientation, spreading area, qualitative comparison to experimental morphology",
+      "baseline": "Published experimental observations of endothelial cells on compliant substrates",
+      "result": "Single parameter set reproduces behavior across three spatial scales with isotropic orientation response to applied strain"
+    },
+    {
+      "doi": "10.1186/1471-2105-7-93",
+      "problem": "Exact stochastic simulation of large biochemical networks is computationally prohibitive, limiting the study of single-cell dynamics in realistic biological systems.",
+      "method": "Hybrid jump/continuous Markov stochastic simulation (HyJCMSS) with adaptive Euler-Maruyama and Milstein integrators, parallelized via MPI for supercomputers.",
+      "finding": "Hy3S enables efficient and accurate stochastic simulation of large biochemical networks with thousands of reactions, including bistable networks with spontaneous state transitions.",
+      "dataset": "Nonlinear cycle test, large-scale benchmark (up to 20,000 reactions), bistable multiscale biochemical network with positive feedback",
+      "metric": "Error in probability distribution, mean, and variance vs system size; computational time",
+      "baseline": "Exact stochastic simulation algorithm (Gillespie SSA)",
+      "result": "Scales to 20,000 reactions; accuracy improves with system size; open-source GPL-licensed"
+    },
+    {
+      "doi": "10.1038/ncomms8089",
+      "problem": "The mechanisms by which unconventional 'virtual memory' CD8+ T cells develop in the absence of antigen-driven activation, and the role of Eomesodermin (Eomes) regulation in this process.",
+      "method": "Flow cytometry, adoptive transfer, bone marrow chimeras, and in vivo infection models using knockout mice (IFNAR−/−, IRF9−/−, STAT1−/−, Eomes conditional KO) with polyI:C stimulation and Listeria infection.",
+      "finding": "Type I interferon signaling directly activates Eomes expression in CD8+ T cells through the ISGF3 complex (STAT1/2/IRF9), driving the development, function, and age-dependent expansion of virtual memory CD8+ T cells.",
+      "dataset": "C57BL/6 and BALB/c mice, IFNAR−/−, IRF9−/−, STAT1−/− knockout strains, 6-10 week old",
+      "metric": "Cell frequency, absolute counts, Eomes MFI, mRNA expression levels",
+      "baseline": "Wild-type (WT) age-matched mice",
+      "result": "Significant reduction of VM CD8+ T cells and Eomes expression in IFNAR−/− mice; IFNβ-induced Eomes upregulation is IRF9- and STAT1-dependent"
+    },
+    {
+      "doi": "10.1093/bioinformatics/btu638",
+      "problem": "HTS analysis projects frequently deviate from standard workflows, requiring custom scripts, but no unified Python framework existed for rapid development across common HTS data formats.",
+      "method": "Python library (HTSeq) providing parsers for common HTS formats (SAM/BAM, FASTQ, GFF, VCF, BED), genomic interval data structures, and the htseq-count tool for RNA-Seq read counting.",
+      "finding": "HTSeq enables rapid development of custom HTS analysis scripts by integrating parsers for many common formats; htseq-count correctly handles ambiguous read-gene overlaps for differential expression preprocessing.",
+      "dataset": "General-purpose tool for high-throughput sequencing data (RNA-Seq demonstrated)",
+      "metric": "Processing speed (reads/minute), RAM usage",
+      "baseline": "PySam, Picard, Biopython, Bioconductor/R packages",
+      "result": "1.2 million reads/minute (~0.6M read pairs), ~250 MB RAM on standard laptop"
+    },
+    {
+      "doi": "10.1093/nar/gky427",
+      "problem": "The gap between known protein sequences and experimentally determined structures remains large, and existing homology modelling tools needed improved accuracy and support for protein complexes.",
+      "method": "Automated homology modelling with ProMod3 engine using BLAST/HHblits template search, fragment-based loop modelling, TreePack side-chain optimization, CHARMM27 energy minimization via OpenMM, and QMEANDisCo local quality estimation.",
+      "finding": "ProMod3 significantly improves model accuracy over the previous ProMod-II engine; SWISS-MODEL now supports homo- and heteromeric complex modelling with stoichiometry inference.",
+      "dataset": "250 CAMEO target proteins (Oct 2017–Jan 2018 benchmark)",
+      "metric": "lDDT (Local Distance Difference Test), GDT-HA, TM-score",
+      "baseline": "ProMod-II modelling engine (with MODELLER fallback)",
+      "result": "Significantly improved lDDT, GDT-HA, and TM-score vs ProMod-II on 250 CAMEO targets"
+    },
+    {
+      "doi": "10.1038/s41586-019-0969-x",
+      "problem": "Mammalian organogenesis involves rapid transformation of germ layers into organs, but a comprehensive single-cell transcriptional atlas of this process was lacking.",
+      "method": "sci-RNA-seq3 (single-cell combinatorial indexing) profiling ~2 million cells from 61 mouse embryos E9.5–E13.5, with trajectory inference via Monocle 3.",
+      "finding": "Generated the Mouse Organogenesis Cell Atlas (MOCA) identifying >500 cell subtypes and 56 developmental trajectories spanning essentially every organ system, with thousands of marker genes.",
+      "dataset": "~2 million cells from 61 C57BL/6 mouse embryos, E9.5–E13.5",
+      "metric": "Number of cell subtypes, trajectories, and marker genes; UMIs per cell",
+      "baseline": "Previous single-cell studies of mid-gestational mouse development",
+      "result": "2,058,652 cells profiled, 500+ cell subtypes, 56 trajectories, primordial germ cells detected at 0.01% frequency"
+    },
+    {
+      "doi": "10.1093/nar/gks1111",
+      "problem": "Clinical responses to cancer drugs are strongly influenced by genomic alterations, but no large-scale public resource existed to systematically link drug sensitivity to molecular markers for biomarker discovery.",
+      "method": "High-throughput drug sensitivity screening across cancer cell lines integrated with genomic data (somatic mutations, copy number, transcriptomics) from the COSMIC database, with statistical association analysis.",
+      "finding": "GDSC provides the largest public resource for cancer drug sensitivity data integrated with genomic markers, facilitating preclinical identification of therapeutic biomarkers.",
+      "dataset": "~700 cancer cell lines, 138 anticancer drugs, ~75,000 drug sensitivity experiments",
+      "metric": "Drug sensitivity (IC50), statistical associations between genomic features and drug response",
+      "baseline": "",
+      "result": "75,000 experiments across 700 cell lines and 138 drugs; freely available at cancerRxgene.org"
+    },
+    {
+      "doi": "10.1186/s13059-019-1663-x",
+      "problem": "Single-cell RNA-seq data manifolds contain both discrete cell types and continuous transitions, but existing methods cannot robustly represent both in a scalable, interpretable map.",
+      "method": "Partition-based graph abstraction (PAGA) using kNN graph construction, Louvain clustering, and a statistical connectivity measure between partitions to generate topology-preserving maps at multiple resolutions.",
+      "finding": "PAGA reconciles clustering with trajectory inference, producing consistent topology across multiple datasets and scaling to millions of cells with much higher computational efficiency than single-cell-level analysis.",
+      "dataset": "4 hematopoietic datasets, adult planaria, zebrafish embryo, 1.3 million mouse brain neurons",
+      "metric": "Topology preservation, computational efficiency, cross-dataset consistency",
+      "baseline": "Existing manifold learning and trajectory inference methods (diffusion maps, force-directed graphs)",
+      "result": "Consistent topology across 4 hematopoietic datasets; benchmarked on 1 million neurons; much higher computational efficiency"
+    },
+    {
+      "doi": "10.1038/nature13173",
+      "problem": "Mechanisms controlling lung progenitor differentiation into mature alveolar cell types are incompletely known due to limited lineage markers and ensemble averaging in bulk transcriptomics.",
+      "method": "Microfluidic single-cell RNA-seq on 198 cells from mouse distal lung epithelium at 4 developmental stages (E14.5, E16.5, E18.5, adult), with unbiased genome-wide cell classification.",
+      "finding": "Confirmed the classical model of distal lung epithelial diversity, discovered many novel cell-type markers including transcriptional regulators, and reconstructed the full life cycle of the AT2 cell lineage from bipotential progenitors.",
+      "dataset": "198 cells from mouse distal lung epithelium (C57BL/6, E14.5–adult)",
+      "metric": "Genome-wide transcriptional profiles, marker gene specificity",
+      "baseline": "Classical model of epithelial cell-type diversity in distal lung based on marker expression and fate-mapping",
+      "result": "Identified distinct cell populations and novel markers; reconstructed bipotential progenitor maturation along both alveolar lineages"
+    },
+    {
+      "doi": "10.1038/nmeth.4177",
+      "problem": "Pooled CRISPR screens are restricted to simple readouts (proliferation, sortable markers), while arrayed screens with transcriptome profiling have much lower throughput.",
+      "method": "CROP-seq re-engineers the lentiviral LentiGuide-Puro vector to place the gRNA cassette in the 3' LTR, making it part of a polyadenylated mRNA detectable by droplet-based single-cell RNA-seq.",
+      "finding": "CROP-seq enables pooled CRISPR screens with single-cell transcriptome resolution, maintaining high genome editing efficiency and compatibility with standard cloning protocols.",
+      "dataset": "K562, Jurkat, HEK293T cell lines; T cell stimulation screen targeting TCR signaling regulators",
+      "metric": "Genome editing efficiency, functional viral titer, out-of-frame indel frequency",
+      "baseline": "LentiGuide-Puro (standard pooled CRISPR vector); Perturb-seq, CRISP-seq",
+      "result": "90.5% genome editing efficiency (vs 95.5% LentiGuide-Puro), 62.4% out-of-frame indels, comparable functional titers"
+    }
+  ],
+  "timestamp": "2026-03-05T14:39:48.401231",
+  "extraction_count": 10
+}

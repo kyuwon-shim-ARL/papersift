@@ -1,0 +1,119 @@
+{
+  "batch_index": 35,
+  "dois": [
+    "10.1371/journal.pone.0180660",
+    "10.1016/j.stemcr.2023.01.008",
+    "10.1155/2020/6040727",
+    "10.1007/s10989-020-10134-3",
+    "10.1080/14756366.2020.1773814",
+    "10.3390/biomedicines10020491",
+    "10.1021/acsomega.1c02569",
+    "10.1016/j.heliyon.2021.e06395",
+    "10.1038/s41401-021-00745-x",
+    "10.3389/fphar.2021.604713"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pone.0180660",
+      "problem": "Identifying a reliable miRNA signature for diagnosis and prognosis of renal clear cell carcinoma (KIRC), as individual miRNA markers suffer from limited reproducibility across studies.",
+      "method": "Comprehensive analysis of miRNA expression profiles from TCGA (516 KIRC patients) using limma differential expression, ROC curve analysis, Kaplan-Meier survival analysis, and univariate/multivariate Cox regression.",
+      "finding": "A three-miRNA signature was identified that effectively diagnoses KIRC with high sensitivity/specificity and independently predicts overall survival, classifying patients into high- and low-risk groups with significantly different outcomes.",
+      "dataset": "TCGA KIRC cohort, N=516 patients",
+      "metric": "sensitivity, specificity, AUC, Kaplan-Meier OS/DFS, Cox regression HR",
+      "baseline": "individual miRNA markers",
+      "result": "sensitivity=98.3%, specificity=97.2%, 63 DE miRNAs (34 up, 29 down), independent prognostic factor for OS"
+    },
+    {
+      "doi": "10.1016/j.stemcr.2023.01.008",
+      "problem": "Improving human embryonic stem cell differentiation into definitive endoderm (DE) remains challenging and costly due to reliance on expensive growth factors like activin A.",
+      "method": "Three orthogonal drug repurposing approaches (ssCMAP/LINCS, correlation-based, pathway/TF-based) to identify candidate DE inducers, validated using a SOX17-mNeonGreen CRISPR reporter hESC line with FACS and RNA-seq.",
+      "finding": "Identified BRD-K42644990 as a novel compound that induces DE formation without activin A, likely via MYC pathway inhibition, achieving equivalent differentiation efficiency with 90% cost reduction when added to the standard protocol.",
+      "dataset": "H1 hESC SOX17-mNG reporter line, GEO: GSE75748 (H1), GSE109658 (H9)",
+      "metric": "% CXCR4+ cells, % SOX17-mNG+ cells (FACS), DE-induction efficiency",
+      "baseline": "standard AA+CHIR protocol (100 ng/mL activin A + 3 µM CHIR)",
+      "result": "90% cost reduction with equivalent efficiency, 999 candidate inducers identified, 11/14 compounds induced DE"
+    },
+    {
+      "doi": "10.1155/2020/6040727",
+      "problem": "The molecular mechanism by which citral suppresses human prostate cancer is unknown, and identifying drug targets that kill metastatic prostate cancer cells is critically needed.",
+      "method": "Citral isolated from lemongrass oil via MPLC/HPLC, evaluated by MTT assay, flow cytometry, DNA fragmentation, Hoechst/PI staining, qPCR, Western blotting, molecular docking, and in silico ADMET/PASS prediction.",
+      "finding": "Citral suppresses prostate cancer cell lipogenesis through AMPK phosphorylation activation and downregulation of FASN, ACC, HMGR, and SREBP1, and induces apoptosis by upregulating BAX and downregulating Bcl-2.",
+      "dataset": "PC-3 and PC3M prostate cancer cell lines",
+      "metric": "IC50, cell viability (MTT), apoptosis rate, protein expression levels",
+      "baseline": "cisplatin (reference anticancer agent)",
+      "result": "ADMET predicted safe drug-like properties, Pa>0.7 for apoptosis-related activities"
+    },
+    {
+      "doi": "10.1007/s10989-020-10134-3",
+      "problem": "Adequate protective vaccines against Klebsiella pneumoniae are lacking, and identifying B cell epitopes of virulence-associated fimbriae antigens is needed for rational vaccine design.",
+      "method": "Immunoinformatics approach using IEDB (7 tools), ABCpred, and conformational epitope prediction (DiscoTope, ElliPro) on type 1 fimbriae antigens (FimA, FimF, FimG, FimH), followed by antigenicity, toxicity, allergenicity, and human similarity screening.",
+      "finding": "Four final B cell epitopes (one per Fim protein) were identified that are immunogenic, antigenic, non-toxic, non-allergenic, and dissimilar to human peptides, with suitable physicochemical properties for vaccine candidates.",
+      "dataset": "K. pneumoniae type 1 fimbriae proteins FimA (CDO12578.1), FimF (CDO12574.1), FimG (CDO12573.1), FimH (CDO12572.1)",
+      "metric": "epitope prediction scores, antigenicity, allergenicity, toxicity, human similarity",
+      "baseline": "",
+      "result": "4 final epitopes selected from 5+3+5+4 linear epitopes across four Fim proteins"
+    },
+    {
+      "doi": "10.1080/14756366.2020.1773814",
+      "problem": "Developing more efficient isatin-based antitumor candidates by optimizing N-alkylindole-isatin conjugates for improved growth inhibitory profiles against cancer cells.",
+      "method": "Synthesis of N-alkylindole-isatin conjugates, SRB cytotoxicity assay, NCI-60 panel screening, flow cytometric cell cycle and Annexin V-FITC/PI apoptosis assays, CDK2 and Bcl-2 inhibition assays, and molecular docking.",
+      "finding": "N-propylindole-5-methylisatin hybrid 8a displayed broad-spectrum antiproliferative activity, induced cell cycle arrest and apoptosis in T-47D breast cancer cells, and potently inhibited CDK2 and Bcl-2, with N-propyl group contributing significant hydrophobic interactions.",
+      "dataset": "A-549, MDA-MB-231, HCT-116, NCI-60 panel, T-47D breast cancer cells",
+      "metric": "IC50, GI50 (MG-MID), cell cycle distribution, apoptosis %",
+      "baseline": "staurosporine (reference), lead compound VI",
+      "result": "8a GI50(MG-MID)=3.10 µM, CDK2 IC50=0.85±0.03 µM, Bcl-2 IC50=0.46±0.02 µM, HCT-116 IC50=2.6±0.17 µM"
+    },
+    {
+      "doi": "10.3390/biomedicines10020491",
+      "problem": "Discovering anti-pancreatic cancer agents is complex and expensive; computational approaches are needed to predict molecules that simultaneously inhibit multiple PANC cell lines and PANC-related proteins.",
+      "method": "Perturbation theory combined with multilayer perceptron machine learning (PTML-MLP) trained on ChEMBL protein inhibition data and GDSC cell line sensitivity data, using molecular descriptors to predict multi-target inhibitors.",
+      "finding": "Two PTML-MLP models with >78% accuracy were built and used to design three new molecules predicted as versatile anti-PANC agents capable of simultaneously inhibiting caspase-1, TNF-alpha, IGF1R, and multiple PANC cell lines.",
+      "dataset": "3,833 chemicals, 9,705 cases from ChEMBL and GDSC v7.0, 34 biomolecular/cellular targets, 12 PANC cell lines",
+      "metric": "accuracy, IC50 cutoffs for activity classification",
+      "baseline": "",
+      "result": "accuracy >78%, 3 new molecules designed as multi-target anti-PANC candidates"
+    },
+    {
+      "doi": "10.1021/acsomega.1c02569",
+      "problem": "Predicting cell-penetrating anticancer peptides (Cp-ACPs) is challenging as no existing model simultaneously evaluates both anticancer and cell-penetrating properties of peptide sequences.",
+      "method": "Parallel two-layer ML framework using RF, SVM, and XGBoost classifiers with hybrid compositional/physicochemical features and multilayered recursive feature elimination (RFE), fused via consensus hard-fusion strategy.",
+      "finding": "CpACpP achieved high prediction accuracy for both ACP and CPP subclassifiers, and the consensus fusion method effectively predicted Cp-ACPs, outperforming existing tools ACPred, mACPpred, MLCPP, and CPPred-RF.",
+      "dataset": "experimentally validated ACP and CPP datasets, independent Cp-ACP validation set",
+      "metric": "accuracy, AUC, MCC, precision",
+      "baseline": "ACPred, mACPpred, MLCPP, CPPred-RF",
+      "result": "ACP ACC=0.98, AUC≈0.98; CPP ACC≈0.94, AUC≈0.95; Cp-ACP fusion AUC=0.94, SVM MCC=0.68"
+    },
+    {
+      "doi": "10.1016/j.heliyon.2021.e06395",
+      "problem": "It is largely unknown whether long non-coding RNAs (lncRNAs) are deregulated in SARS-CoV-2 infection and what transcription factors might regulate them during COVID-19.",
+      "method": "In silico analysis of RNA-seq data (GSE147507) using edgeR differential expression, NPInter v4.0 for lncRNA interaction partners, KEGG/GO pathway analysis, and ChIPBase v2.0 for transcription factor binding at lncRNA promoters.",
+      "finding": "20 lncRNAs (including MALAT1, NEAT1) were upregulated and 4 downregulated in SARS-CoV-2 infected cells; these interact with >2800 genes and 422 miRNAs involved in viral infection and immune pathways, regulated by IRF1, IRF4, STAT1, and STAT3.",
+      "dataset": "GSE147507 (A549, Calu-3 cell lines infected with SARS-CoV-2, COVID-19 patient lung tissue)",
+      "metric": "FDR, fold change, logFC, log(cpm)",
+      "baseline": "mock-infected cells",
+      "result": "20 upregulated + 4 downregulated lncRNAs, EGOT increased 3.0-4.6 fold, 2788 interacting genes/proteins"
+    },
+    {
+      "doi": "10.1038/s41401-021-00745-x",
+      "problem": "Physapubenolide (PB) shows anticancer cytotoxicity but its molecular targets and mechanisms in melanoma are unknown, limiting clinical development.",
+      "method": "In silico target prediction combining chemical similarity searching, QSAR, and molecular docking, validated with CCK8 viability assay, EdU proliferation, colony formation, Annexin V/PI apoptosis, Western blotting, and melanoma xenograft model.",
+      "finding": "PB targets HMGCR, inhibiting the HMGCR/YAP pathway to suppress melanoma proliferation and migration, induce apoptosis, and restore vemurafenib sensitivity in resistant A-375 cells.",
+      "dataset": "A-375, SK-MEL-5 melanoma cells, vemurafenib-resistant A-375, HaCaT normal cells, melanoma xenograft model",
+      "metric": "IC50, cell viability, EdU-positive cells, apoptosis rate, protein expression",
+      "baseline": "vemurafenib-sensitive A-375 cells, HaCaT normal keratinocytes",
+      "result": "IC50=1.225 µM (A-375), 1.416 µM (SK-MEL-5) at 72h, no significant cytotoxicity in HaCaT at low concentrations"
+    },
+    {
+      "doi": "10.3389/fphar.2021.604713",
+      "problem": "Multiple in silico hSC-CM models exist but their drug response predictions have not been systematically compared against each other and against in vitro data.",
+      "method": "Simulated 15 drug actions using simple pore-block model with experimental IC50 data for seven ion channels on three hSC-CM models (Koivumäki2018, Kernik2019, Paci2020), with sensitivity analysis of INa, ICaL, and IKr blockade.",
+      "finding": "The three models show qualitatively consistent CTD90 changes but smaller magnitudes than in vitro; they differ in susceptibility to pro-arrhythmic events and automaticity suppression, reflecting variability in underlying experimental calibration data.",
+      "dataset": "15 drugs tested on 3 in silico hSC-CM models (Koivumäki2018, Kernik2019, Paci2020), in vitro hSC-CM data",
+      "metric": "CTD90 (% change), APD90, arrhythmic event occurrence, MDP",
+      "baseline": "in vitro hSC-CM experimental measurements",
+      "result": "sparfloxacin 10µM: +42% CTD90 in vitro vs +17%/+6%/+9% in silico; qualitative agreement but quantitative underestimation"
+    }
+  ],
+  "timestamp": "2026-03-05T14:25:32.451675",
+  "extraction_count": 10
+}

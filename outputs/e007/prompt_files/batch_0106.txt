@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1007/s004220000153
+Title: Computational model of dot-pattern selective cells
+Year: 2000
+Abstract: A computational model of a dot-pattern selective neuron is proposed. This type of neuron is found in the inferotemporal cortex of monkeys. It responds strongly to groups of dots and spots of light intensity variation but very weakly or not at all to single dots and spots that are not part of a pattern. This non-linear behaviour is quite different from the spatial frequency filtering behaviour exhibited by other neurons that react to spot-shaped stimuli, such as neurons with centre-surround receptive field profiles found in the lateral geniculate nuclei and layer 4Cbeta of V1. It is implemented in the proposed computational model by using an AND-type non-linearity to combine the responses of centre-surround cells. The proposed model is capable of explaining the results of neurophysiological experiments as well as certain psychophysical observations.
+---
+
+---
+DOI: 10.1016/s0959-4388(99)00028-8
+Title: Internal models for motor control and trajectory planning
+Year: 1999
+Abstract: A number of internal model concepts are now widespread in neuroscience and cognitive science. These concepts are supported by behavioral, neurophysiological, and imaging data; furthermore, these models have had their structures and functions revealed by such data. In particular, a specific theory on inverse dynamics model learning is directly supported by unit recordings from cerebellar Purkinje cells. Multiple paired forward inverse models describing how diverse objects and environments can be controlled and learned separately have recently been proposed. The 'minimum variance model' is another major recent advance in the computational theory of motor control. This model integrates two furiously disputed approaches on trajectory planning, strongly suggesting that both kinematic and dynamic internal models are utilized in movement planning and control.
+---
+
+---
+DOI: 10.1088/1758-5090/8/2/025009
+Title: Computational model-informed design and bioprinting of cell-patterned constructs for bone tissue engineering
+Year: 2016
+Abstract: Three-dimensional (3D) bioprinting is a rapidly advancing tissue engineering technology that holds great promise for the regeneration of several tissues, including bone. However, to generate a successful 3D bone tissue engineering construct, additional complexities should be taken into account such as nutrient and oxygen delivery, which is often insufficient after implantation in large bone defects. We propose that a well-designed tissue engineering construct, that is, an implant with a specific spatial pattern of cells in a matrix, will improve the healing outcome. By using a computational model of bone regeneration we show that particular cell patterns in tissue engineering constructs are able to enhance bone regeneration compared to uniform ones. We successfully bioprinted one of the most promising cell-gradient patterns by using cell-laden hydrogels with varying cell densities and observed a high cell viability for three days following the bioprinting process. In summary, we present a novel strategy for the biofabrication of bone tissue engineering constructs by designing cell-gradient patterns based on a computational model of bone regeneration, and successfully bioprinting the chosen design. This integrated approach may increase the success rate of implanted tissue engineering constructs for critical size bone defects and also can find a wider application in the biofabrication of other types of tissue engineering constructs.
+---
+
+---
+DOI: 10.1089/106652700750050961
+Title: Using Bayesian Networks to Analyze Expression Data
+Year: 2000
+Abstract: DNA hybridization arrays simultaneously measure the expression level for thousands of genes. These measurements provide a "snapshot" of transcription levels within the cell. A major challenge in computational biology is to uncover, from such measurements, gene/protein interactions and key biological features of cellular systems. In this paper, we propose a new framework for discovering interactions between genes based on multiple expression measurements. This framework builds on the use of Bayesian networks for representing statistical dependencies. A Bayesian network is a graph-based model of joint multivariate probability distributions that captures properties of conditional independence between variables. Such models are attractive for their ability to describe complex stochastic processes and because they provide a clear methodology for learning from (noisy) observations. We start by showing how Bayesian networks can describe interactions between genes. We then describe a method for recovering gene interactions from microarray data using tools for learning Bayesian networks. Finally, we demonstrate this method on the S. cerevisiae cell-cycle measurements of Spellman et al. (1998).
+---
+
+---
+DOI: 10.1016/j.ijhydene.2017.07.098
+Title: Modeling and simulation of a proton exchange membrane fuel cell using computational fluid dynamics
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1098/rsif.2019.0619
+Title: A minimal computational model for three-dimensional cell migration
+Year: 2019
+Abstract: During migration, eukaryotic cells can continuously change their three-dimensional morphology, resulting in a highly dynamic and complex process. Further complicating this process is the observation that the same cell type can rapidly switch between different modes of migration. Modelling this complexity necessitates models that are able to track deforming membranes and that can capture the intracellular dynamics responsible for changes in migration modes. Here we develop an efficient three-dimensional computational model for cell migration, which couples cell mechanics to a simple intracellular activator–inhibitor signalling system. We compare the computational results to quantitative experiments using the social amoeba Dictyostelium discoideum . The model can reproduce the observed migration modes generated by varying either mechanical or biochemical model parameters and suggests a coupling between the substrate and the biomechanics of the cell.
+---
+
+---
+DOI: 10.1063/1.4990543
+Title: A computational model of amoeboid cell swimming
+Year: 2017
+Abstract: Amoeboid cells propel by generating pseudopods that are finger-like protrusions of the cell body that continually grow, bifurcate, and retract. Pseudopod-driven motility of amoeboid cells represents a complex and multiscale process that involves bio-molecular reactions, cell deformation, and cytoplasmic and extracellular fluid motion. Here we present a 3D model of pseudopod-driven swimming of an amoeba suspended in a fluid without any adhesion and in the absence of any chemoattractant. Our model is based on front-tracking/immersed-boundary methods, and it combines large deformation of the cell, a coarse-grain model for molecular reactions, and cytoplasmic and extracellular fluid flow. The predicted shapes of the swimming cell from our model show similarity with experimental observations. We predict that the swimming behavior changes from random-like to persistent unidirectional motion, and that the swimming speed increases, with increasing cell deformability and protein diffusivity. The unidirectionality in cell swimming is observed without any external cues and as a direct result of a change in pseudopod dynamics. We find that pseudopods become preferentially focused near the front of the cell and appear in greater numbers with increasing cell deformability and protein diffusivity, thereby increasing the swimming speed and making the cell shape more elongated. We find that the swimming speed is minimum when the cytoplasm viscosity is close to the extracellular fluid viscosity. We further find that the speed increases significantly as the cytoplasm becomes less viscous compared with the extracellular fluid, resembling the viscous fingering phenomenon observed in interfacial flows. While these results support the notion that softer cells migrate more aggressively, they also suggest a strong coupling between membrane elasticity, membrane protein diffusivity, and fluid viscosity.
+---
+
+---
+DOI: 10.1038/s41592-019-0667-5
+Title: NicheNet: modeling intercellular communication by linking ligands to target genes
+Year: 2019
+Abstract: Computational methods that model how gene expression of a cell is influenced by interacting cells are lacking. We present NicheNet (https://github.com/saeyslab/nichenetr), a method that predicts ligand-target links between interacting cells by combining their expression data with prior knowledge on signaling and gene regulatory networks. We applied NicheNet to tumor and immune cell microenvironment data and demonstrate that NicheNet can infer active ligands and their gene regulatory effects on interacting cells.
+---
+
+---
+DOI: 10.1016/j.renene.2007.06.020
+Title: Three-dimensional computational fluid dynamics model of a tubular-shaped PEM fuel cell
+Year: 2007
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0021-9290(99)00159-1
+Title: Computational mechanical model studies on the spontaneous emergent morphogenesis of the cultured endothelial cells
+Year: 2000
+Abstract: To address questions concerning why and how the morphology of endothelial cells (ECs) forms under shear stress loading, a computational fluid dynamics (CFD) three-dimensional (3D) model of ECs simulating cell shape was designed. A full 3D non-linear CFD simulation was conducted to estimate the wall shear stress (WSS) distribution. The model cell was capable of random rotation, deformation, migration, and proliferation. Flow was computed after each update of the cell shape with infinitesimal configuration changes. After a finite interval of the flow computation, only the infinitesimal configuration changes that reduced the WSS were allowed to accumulate. As a result of the very long free-run computation experiment, starting with a sub-confluent pattern of cells, the model cells became confluent and were elongated and aligned, with a shape index (SI) very close to that reported for cells in vivo. The average WSS converged to the lowest value at the same time.
+---
+
+---
+DOI: 10.1149/200307.1403pv
+Title: Computational Fluid Dynamics Modeling of Solid Oxide Fuel Cells
+Year: 2003
+Abstract: A comprehensive, multi-physics, multi-dimensional model has been developed to simulate solid oxide fuel cells (SOFCs). The model fully couples electrochemical kinetics with multi-dimensional gas dynamics and multi-component transport of species. The developed model is a full cell model, including all components of SOFC, flow channels, active and inactive gas diffusion electrodes and electrolyte. The present model is implemented in a commercially available CFD software, Fluent, using its customization ability via User Defined Functions (UDF). It is able to predict conventional I-V curve (polarization curve) in addition to details of internal processes, such as flow field, species concentrations, potential and current distributions throughout the cell. It is found that mass transfer limitation plays an important role in SOFC performance, especially under high current density operation.
+---
+
+---
+DOI: 10.1121/1.405694
+Title: Regularity of cochlear nucleus stellate cells: A computational modeling study
+Year: 1993
+Abstract: This article reports on a computational modeling study designed to investigate the generation of the transient chopper response of cochlear nucleus stellate cells. The model is based on a simulation of the auditory periphery which feeds a generic stellate-cell model. Physiological recordings of transient chopper units in response to short, best frequency, tone bursts show a brief initial period (typically &amp;lt;10 ms) of rapid rate adaptation as evidenced by a rapid rise in mean interspike interval. Associated with this rate adaptation is a significant increase in firing irregularity. The changes in rate and irregularity have recently been attributed to the activation of noisy inhibitory inputs on the cell [e.g., Banks and Sachs, J. Neurophysiol. 65, 606–629 (1991)]. However, the results show that the transient chopper response pattern can be generated without the need for inhibitory inputs. The transience of the initial chopping pattern is sensitive to the following model parameters: (a) the firing threshold of the cell, (b) the number of excitatory inputs that converge on the cell, and (c) the magnitude of the current delivered to the cell for each active input. The response was also found to be relatively insensitive to changes in the degree of dendritic filtering imposed on the auditory-nerve input. The results of each simulation can be explained by considering the pattern of depolarization the cell receives during the course of a tone burst.
+---
+
+---
+DOI: 10.1016/j.jcp.2017.05.048
+Title: Impact of implementation choices on quantitative predictions of cell-based computational models
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jpowsour.2006.12.071
+Title: A computational model of a PEM fuel cell with finite vapor absorption rate
+Year: 2007
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/s10237-012-0390-y
+Title: Computational model for the cell-mechanical response of the osteocyte cytoskeleton based on self-stabilizing tensegrity structures
+Year: 2012
+Abstract: The mechanism by which mechanical stimulation on osteocytes results in biochemical signals that initiate the remodeling process inside living bone tissue is largely unknown. Even the type of stimulation acting on these cells is not yet clearly identified. However, the cytoskeleton of osteocytes is suggested to play a major role in the mechanosensory process due to the direct connection to the nucleus. In this paper, a computational approach to model and simulate the cell structure of osteocytes based on self-stabilizing tensegrity structures is suggested. The computational model of the cell consists of the major components with respect to mechanical aspects: the integrins that connect the cell with the extracellular bone matrix, and different types of protein fibers (microtubules and intermediate filaments) that form the cytoskeleton, the membrane-cytoskeleton (microfilaments), the nucleus and the centrosome. The proposed geometrical cell models represent the cell in its physiological environment which is necessary in order to give a statement on the cell behavior in vivo. Studies on the mechanical response of osteocytes after physiological loading and in particular the mechanical response of the nucleus show that the load acting on the nucleus is rising with increasing deformation applied to the integrins.
+---
+
+---
+DOI: 10.1149/2.0871613jes
+Title: Computationally Efficient Pseudo-2D Non-Isothermal Modeling of Polymer Electrolyte Membrane Fuel Cells with Two-Phase Phenomena
+Year: 2016
+Abstract: In this article, a computationally efficient pseudo-2D model for real-time dynamic simulations of polymer electrolyte membrane fuel cells (PEMFCs) is developed with a specific focus on water and thermal management. The model accounts for temperature dynamics, two-phase flow and flooding in the diffusion media, and membrane water crossover as well as absorption and desorption processes. Computational efficiency is achieved by leveraging the disparate time scales within the system dynamics, in addition to exploiting the large aspect ratio of the cell layers to create a spatio-temporal decoupling. Taking advantage of such decoupling, the model yields a computationally efficient solution while providing detailed information about the state of water and temperature throughout the cell. Through this approach, the current implementation of the model is found to be about twice faster than real time. Moreover, a case study is carried out where different mechanisms contributing to overall water balance in the cell are investigated. The results are shown to be in qualitative agreement with published experimental data, thereby providing a preliminary validation of the modeling approach. Finally, using the modeling results, an equivalent electrical circuit model is proposed to help elucidate water transport inside various cell layers.
+---
+
+---
+DOI: 10.1016/j.sbi.2021.06.004
+Title: Liquid-like chromatin in the cell: What can we learn from imaging and computational modeling?
+Year: 2021
+Abstract: Chromatin in eukaryotic cells is a negatively charged long polymer consisting of DNA, histones, and various associated proteins. With its highly charged and heterogeneous nature, chromatin structure varies greatly depending on various factors (e.g. chemical modifications and protein enrichment) and the surrounding environment (e.g. cations): from a 10-nm fiber, a folded 30-nm fiber, to chromatin condensates/droplets. Recent advanced imaging has observed that chromatin exhibits a dynamic liquid-like behavior and undergoes structural variations within the cell. Current computational modeling has made it possible to reconstruct the liquid-like chromatin in the cell by dealing with a number of nucleosomes on multiscale levels and has become a powerful technique to inspect the molecular mechanisms giving rise to the observed behavior, which imaging methods cannot do on their own. Based on new findings from both imaging and modeling studies, we discuss the dynamic aspect of chromatin in living cells and its functional relevance.
+---
+
+---
+DOI: 10.1016/j.jpowsour.2016.10.060
+Title: Optimization of a new flow design for solid oxide cells using computational fluid dynamics modelling
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jcp.2019.108905
+Title: Bridging the computational gap between mesoscopic and continuum modeling of red blood cells for fully resolved blood flow
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1101/gad.1596707
+Title: Malignant astrocytic glioma: genetics, biology, and paths to treatment
+Year: 2007
+Abstract: Malignant astrocytic gliomas such as glioblastoma are the most common and lethal intracranial tumors. These cancers exhibit a relentless malignant progression characterized by widespread invasion throughout the brain, resistance to traditional and newer targeted therapeutic approaches, destruction of normal brain tissue, and certain death. The recent confluence of advances in stem cell biology, cell signaling, genome and computational science and genetic model systems have revolutionized our understanding of the mechanisms underlying the genetics, biology and clinical behavior of glioblastoma. This progress is fueling new opportunities for understanding the fundamental basis for development of this devastating disease and also novel therapies that, for the first time, portend meaningful clinical responses.
+---
+
+---
+DOI: 10.1128/jvi.01722-10
+Title: Higher Level of Replication Efficiency of 2009 (H1N1) Pandemic Influenza Virus than Those of Seasonal and Avian Strains: Kinetics from Epithelial Cell Culture and Computational Modeling
+Year: 2010
+Abstract: ABSTRACT The pathogenicity and transmission of influenza A viruses are likely determined in part by replication efficiency in human cells, which is the net effect of complex virus-host interactions. H5N1 avian, H1N1 seasonal, and H1N1 2009 pandemic influenza virus strains were compared by infecting human differentiated bronchial epithelial cells in air-liquid interface cultures at relatively low virus particle/cell ratios. Differential equation and computational models were used to characterize the in vitro kinetic behaviors of the three strains. The models were calibrated by fitting experimental data in order to estimate difficult-to-measure parameters. Both models found marked differences in the relative values of p , the virion production rate per cell, and R 0 , an index of the spread of infection through the monolayer, with the values for the strains in the following rank order (from greatest to least): pandemic strain, followed by seasonal strain, followed by avian strain, as expected. In the differential equation model, which treats virus and cell populations as well mixed, R 0 and p varied proportionately for all 3 strains, consistent with a primary role for productivity. In the spatially explicit computational model, R 0 and p also varied proportionately except that R 0 derived for the pandemic strain was reduced, consistent with constrained viral spread imposed by multiple host defenses, including mucus and paracrine antiviral effects. This synergistic experimental-computational strategy provides relevant parameters for identifying and phenotyping potential pandemic strains.
+---
+
+---
+DOI: 10.1016/j.jpowsour.2017.04.089
+Title: Model-based diagnosis through Structural Analysis and Causal Computation for automotive Polymer Electrolyte Membrane Fuel Cell systems
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1093/bioinformatics/btu059
+Title: Induction of T-cell memory by a dendritic cell vaccine: a computational model
+Year: 2014
+Abstract: Abstract Motivation: Although results from phase III clinical trials substantially support the use of prophylactic and therapeutic vaccines against cancer, what has yet to be defined is how many and how frequent boosts are needed to sustain a long-lasting and protecting memory T-cell response against tumor antigens. Common experience is that such preclinical tests require the sacrifice of a relatively large number of animals, and are particularly time- and money-consuming. Results: As a first step to overcome these hurdles, we have developed an ordinary differential equation model that includes all relevant entities (such as activated cytotoxic T lymphocytes and memory T cells), and investigated the induction of immunological memory in the context of wild-type mice injected with a dendritic cell-based vaccine. We have simulated the biological behavior both in the presence and in the absence of memory T cells. Comparing results of ex vivo and in silico experiments, we show that the model is able to envisage the expansion and persistence of antigen-specific memory T cells. The model might be applicable to more complex vaccination schedules and substantially in any biological condition of prime-boosting. Availability and implementation: The model is fully described in the article. Contact: fp@francescopappalardo.net Supplementary information: Supplementary data are available at Bioinformatics online.
+---
+
+---
+DOI: 10.1021/jp301950q
+Title: Computational Modeling of Plasmon-Enhanced Light Absorption in a Multicomponent Dye Sensitized Solar Cell
+Year: 2012
+Abstract: Plasmon-enhanced light absorption in a multicomponent Ag/Ag2O/TiO2/N3 dye-sensitized solar cell (DSSC) core–shell nanostructure is studied using a hybrid quantum mechanics/classical electrodynamics (QM/ED) methodology in which the Ag/Ag2O/TiO2 nanostructure is treated by the finite-difference time-domain method and the N3 dye is treated by real-time time-dependent density functional theory. As part of this modeling, the undetermined thickness of the nonplasmonic Ag2O layer on the Ag/Ag2O/TiO2 particle was estimated by comparing the computed plasmon wavelength with experimental results. Also, absorption cross sections for the N3 dye were calculated for different locations of the dye on the TiO2 surface. The spatially averaged absorption cross sections for different thicknesses of TiO2 were evaluated and used to estimate the relative incident photon conversion efficiency. Encouragingly, it is found that the QM/ED calculations can well reproduce the factor of ∼10 experimental extinction difference spectrum and the photocurrent enhancement factor associated with DSSCs. Our studies demonstrate that the hybrid QM/ED methodology provides a useful guide to the systematic design of plasmon-enhanced DSSCs for achieving optimum photovoltaic efficiency.
+---
+
+---
+DOI: 10.1016/j.mbs.2008.04.001
+Title: A condition for setting off ectopic waves in computational models of excitable cells
+Year: 2008
+Abstract: The purpose of this paper is to study the stability of steady state solutions of the Monodomain model equipped with Luo-Rudy I kinetics. It is well established that re-entrant arrhythmias can be created in computational models of excitable cells. Such arrhythmias can be initiated by applying an external stimulus that interacts with a partially refractory region, and spawn breaking waves that can eventually generate extremely complex wave patterns commonly referred to as fibrillation. An ectopic wave is one possible stimulus that may initiate fibrillation. Physiologically, it is well known that ectopic waves exist, but the mechanism for initiating ectopic waves in a large collection of cells is poorly understood. In the present paper we consider computational models of collections of excitable cells in one and two spatial dimensions. The cells are modeled by Luo-Rudy I kinetics, and we assume that the spatial dynamics is governed by the Monodomain model. The mathematical analysis is carried out for a reduced model that is known to provide good approximations of the initial phase of solutions of the Luo-Rudy I model. A further simplification is also introduced to motivate and explain the results for the more complicated models. In the analysis the cells are divided into two regions; one region (N) consists of normal cells as model by the standard Luo-Rudy I model, and another region (A) where the cells are automatic in the sense that they would act as pacemaker cells if they where isolated from their surroundings. We let delta denote the spatial diffusion and a denote a characteristic length of the automatic region. It has previously been shown that reducing diffusion or increasing the automatic region enhances ectopic activity. Here we derive a condition for the transition from stable resting state to ectopic wave spread. Under suitable assumptions on the model we provide mathematical and computational arguments indicating that there is a constant eta such that a steady state solution of this system is stable whenever delta approximately > etaa(2), and unstable whenever delta approximately < etaa(2).
+---
+
+---
+DOI: 10.1016/j.jcp.2006.10.011
+Title: Reduced dimensional computational models of polymer electrolyte membrane fuel cell stacks
+Year: 2006
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.5539/cis.v3n2p106
+Title: A Simulation System for Computational Cell Models Based on Object-Oriented Design Patterns
+Year: 2010
+Abstract: Reconstruction of biophysically detailed computer models for simulating electrical activities of heart cells provides a powerful tool to systematically investigate the ionic mechanisms underlying the genesis and control of cardiac rhythms. However, the fact that there is no unified or standard architecture for computational cell models, which were built by different research groups with specific purposes, obstructed profound applications of these models. In this study, object-oriented design patterns were employed to redesign and reconstitute the cell models and provided a more flexible, portable, and expansible infrastructure for modeling computational cell models. Meanwhile, using the proposed methods, a simulation platform has been developed for electrical activities of cell models with aims to offer a user-friendly interface to study the electrical activities of cardiac cells. Both the proposed design methods and the developed system were validated effectively by testing several typical cell models.
+---
+
+---
+DOI: 10.1364/oe.15.010303
+Title: Computational model for nonlinear plasma formation in high NA micromachining of transparent materials and biological cells
+Year: 2007
+Abstract: Cell surgery based on ultrashort laser pulses is a fast evolving field in biophotonics. Noninvasive intra cellular dissection at sub-diffraction resolution can be performed within vital cells with very little hazardous effects to adjacent cell organelles. Microscope objectives of high numerical aperture (NA) are used to focus ultrashort pulses to a small spot. Due to the high order of nonlinearity, plasma formation and thus material manipulation is limited to the very focus. Nonetheless nonlinear plasma formation is generally accompanied by a number of additional nonlinear effects like self-focusing and filamentation. These parasitic effects limit the achievable precision and reproducibility of applications. Experimentally it is known that the intensity of these effects decreases with increasing NA of the focusing optics, but the process of nonlinear plasma formation at high NA has not been studied numerically in detail yet. To simulate the interaction of ultrashort laser pulses with transparent materials at high NA a novel nonlinear Schr odinger equation is derived; the multiple rate equation (MRE) model is used to simultaneously calculate the generation of free electrons. Nonparaxial and vectorial effects are taken into account to accurately include tight focusing conditions. Parasitic effects are shown to get stronger and increasingly distortive for NA < 0.9, using water as a model substance for biological soft tissue and cellular constituents.
+---
+
+---
+DOI: 10.1002/ejic.202100214
+Title: Computational Modelling of Two Terminal CIGS/Perovskite Tandem Solar Cells with Power Conversion Efficiency of 23.1 %
+Year: 2021
+Abstract: Abstract An appealing and feasible approach to develop an ultra‐high performance and price‐effective all‐thin‐film photovoltaic cell is to use a perovskite and copper indium gallium selenide (CIGS) in tandem configuration. In this simulation‐based study, an innovative 2‐terminal (2T) perovskite‐CIGS tandem solar cell has been proposed with extended cost savings, along with improved performance. First, a perovskite top cell with a bandgap of 1.5 eV and CIGS bottom subcell with 1.1 eV bandgap are simulated to have conversion efficiency of 16.69 and 15.98 %, respectively. The systems are tested for tandem configuration after setting the individual top and bottom subcells to correct values. To calculate the current matching point, both top and bottom absorber layer thicknesses are varied. The optimised thicknesses are 151 and 1000 nm for top and bottom subcells in the tandem cells. The top cell performance parameters are calculated by illuminating standard AM 1.5G solar spectrum keeping absorber thickness at 151 nm. While as, the bottom cell performance parameters are estimated using illumination of the filtered spectrum. The proposed tandem configuration composed of CIGS/CdS/ZnO/Spiro/Perovskite/C‐TiO 2 showed a power conversion efficiency and open‐circuit voltage of 23.17 % and 1.646 volts, respectively. Consequently, we consider that the current study would deliver considerable progression in the field of CIGS/perovskite tandem photovoltaic cells, toward commercial applications.
+---
+
+---
+DOI: 10.1016/j.cell.2018.05.060
+Title: Single-Cell Map of Diverse Immune Phenotypes in the Breast Tumor Microenvironment
+Year: 2018
+Abstract: Knowledge of immune cell phenotypes in the tumor microenvironment is essential for understanding mechanisms of cancer progression and immunotherapy response. We profiled 45,000 immune cells from eight breast carcinomas, as well as matched normal breast tissue, blood, and lymph nodes, using single-cell RNA-seq. We developed a preprocessing pipeline, SEQC, and a Bayesian clustering and normalization method, Biscuit, to address computational challenges inherent to single-cell data. Despite significant similarity between normal and tumor tissue-resident immune cells, we observed continuous phenotypic expansions specific to the tumor microenvironment. Analysis of paired single-cell RNA and T cell receptor (TCR) sequencing data from 27,000 additional T cells revealed the combinatorial impact of TCR utilization on phenotypic diversity. Our results support a model of continuous activation in T cells and do not comport with the macrophage polarization model in cancer. Our results have important implications for characterizing tumor-infiltrating immune cells.
+---
+
+---
+DOI: 10.1016/j.ijhydene.2023.09.004
+Title: Computational fluid dynamics modelling of proton exchange membrane fuel cells: Accuracy and time efficiency
+Year: 2023
+Abstract: Proton exchange membrane fuel cells (PEMFCs) are efficient and emission free electrochemical generators, making them an attractive alternative power source. However, PEMFCs are yet to reach widespread commercial adoption, warranting further research. 3D computational fluids dynamics (CFD) models of PEMFCs are a powerful research and design tool due to their ability to predict internal reactant, temperature, and current distributions. However, these models can be challenging to design and use due to the complex electrochemistry, the large parity in the length scale of different components and experimentally unknown input parameters. This work reviews the literature regarding these inherent challenges to PEMFC CFD models, examining numerical methods, computational mesh, assumptions and simplifications, input parameters and validation methods. Recommendations are made based on current literature findings and research gaps are identified, both with the goal of aiding and improving future PEMFC CFD research.
+---
+
+---
+DOI: 10.1038/s41586-019-1730-1
+Title: A view on drug resistance in cancer
+Year: 2019
+Abstract: The problem of resistance to therapy in cancer is multifaceted. Here we take a reductionist approach to define and separate the key determinants of drug resistance, which include tumour burden and growth kinetics; tumour heterogeneity; physical barriers; the immune system and the microenvironment; undruggable cancer drivers; and the many consequences of applying therapeutic pressures. We propose four general solutions to drug resistance that are based on earlier detection of tumours permitting cancer interception; adaptive monitoring during therapy; the addition of novel drugs and improved pharmacological principles that result in deeper responses; and the identification of cancer cell dependencies by high-throughput synthetic lethality screens, integration of clinico-genomic data and computational modelling. These different approaches could eventually be synthesized for each tumour at any decision point and used to inform the choice of therapy.
+---
+
+---
+DOI: 10.1016/j.jpowsour.2015.04.087
+Title: Computational modeling of alkaline air-breathing microfluidic fuel cells with an array of cylinder anodes
+Year: 2015
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3389/fimmu.2018.02428
+Title: Integrative Computational Modeling of the Lymph Node Stromal Cell Landscape
+Year: 2018
+Abstract: Adaptive immune responses develop in secondary lymphoid organs such as lymph nodes (LNs) in a well-coordinated series of interactions between migrating immune cells and resident stromal cells. Although many processes that occur in LNs are well understood from an immunological point of view, our understanding of the fundamental organization and mechanisms that drive these processes is still incomplete. The aim of systems biology approaches is to unravel the complexity of biological systems and describe emergent properties that arise from interactions between individual constituents of the system. The immune system is greater than the sum of its parts, as is the case with any sufficiently complex system. Here, we review recent work and developments of computational LN models with focus on the structure and organization of the stromal cells. We explore various mathematical studies of intranodal T cell motility and migration, their interactions with the LN-resident stromal cells, and computational models of functional chemokine gradient fields and lymph flow dynamics. Lastly, we discuss briefly the importance of hybrid and multi-scale modeling approaches in immunology and the technical challenges involved.
+---
+
+---
+DOI: 10.1016/s0022-5193(05)80013-x
+Title: Metabolic dynamics in the human red cell. Part IV—Data prediction and some model computations
+Year: 1990
+Abstract: The biochemical information on the basic cellular determinants of the human red cell has been compiled into a comprehensive model of the red cell metabolic machinery. This model gives a consistent interpretation--both qualitative and quantitative--of the experimental findings. The predicted steady states and the dynamic states of the model are compared with the experimental findings, and the utility of this model is demonstrated.
+---
+
+---
+DOI: 10.1016/j.jtbi.2022.111338
+Title: A computational model of cell membrane bioelectric polarization and depolarization, connected with cell proliferation, in different tissue geometries
+Year: 2022
+Abstract: A reliable theory of biological tissues growth and organization, a fundamental tool for a comprehensive interpretation of experimental observations and a guide to progress in life sciences, is definitively missing. This would support the advancement of knowledge for both normal and pathological expansion and regulation of tissues and organisms. In this work is presented a computational model of cell culture that describes its growth and organization using cell proliferation as its default state, constrained by contact inhibition, closely connected to the cell bioelectric state. The model results describe in a correct way the reported experimental results, involving contact inhibition due to the presence of other cells, and gap junctions for signaling, molecules exchange and extracellular environment sensing. Starting from depolarized cells (in this model considered tantamount to proliferative), the cell culture grows until it fills the available domain and, due to the contact inhibition constraint, it turns into quiescence (a consequence of cell polarization), except on the periphery. Using drugs or via protein expression manipulation, it is possible to change the final tissue state, to fully polarized or depolarized. Other experimental tests are proposed and the expected results simulated. This model can be extended to pathological events, such as carcinogenesis, with cells homeostasis perturbed by a cell depolarizing (carcinogenic) event and express its default proliferative state without adequate control. This simplified model of tissue organization, regulated by the cell's bioelectric state and their interaction with vicinity, is an alternative to the description of the experimental results by mechanical stress, and can be further tested and extended in dedicated experiments.
+---
+
+---
+DOI: 10.1200/cci.18.00057
+Title: Understanding the Dynamics of T-Cell Activation in Health and Disease Through the Lens of Computational Modeling
+Year: 2019
+Abstract: T cells in the immune system are activated by binding to foreign peptides (from an external pathogen) or mutant peptide (derived from endogenous proteins) displayed on the surface of a diseased cell. This triggers a series of intracellular signaling pathways, which ultimately dictate the response of the T cell. The insights from computational models have greatly improved our understanding of the mechanisms that control T-cell activation. In this review, we focus on the use of ordinary differential equation–based mechanistic models to study T-cell activation. We highlight several examples that demonstrate the models’ utility in answering specific questions related to T-cell activation signaling, from antigen discrimination to the feedback mechanisms that initiate transcription factor activation. In addition, we describe other modeling approaches that can be combined with mechanistic models to bridge time scales and better understand how intracellular signaling events, which occur on the order of seconds to minutes, influence phenotypic responses of T-cell activation, which occur on the order of hours to days. Overall, through concrete examples, we emphasize how computational modeling can be used to enable the rational design and optimization of immunotherapies.
+---
+
+---
+DOI: 10.1242/jcs.03240
+Title: Insights into cytoskeletal behavior from computational modeling of dynamic microtubules in a cell-like environment
+Year: 2006
+Abstract: Microtubule dynamic instability plays a fundamental role in cell biology, enabling microtubules to find and interact with randomly distributed cargo and spatially localized signals. In vitro, microtubules transition between growth and shrinkage symmetrically, consistent with the theoretical understanding of the mechanism of dynamic instability. In vivo, however, microtubules commonly exhibit asymmetric dynamic instability, growing persistently in the cell interior and experiencing catastrophe near the cell edge. What is the origin of this behavior difference? One answer is that the cell edge causes the asymmetry by inducing catastrophe in persistently growing microtubules. However, the origin of the persistent growth itself is unclear. Using a simplified coarse-grained stochastic simulation of a system of dynamic microtubules, we provide evidence that persistent growth is a predictable property of a system of nucleated, dynamic, microtubules containing sufficient tubulin in a confined space – MAP activity is not required. Persistent growth occurs because cell-edge-induced catastrophe increases the concentration of free tubulin at steady-state. Our simulations indicate that other aspects of MT dynamics thought to require temporal or spatial changes in MAP activity are also predictable, perhaps unavoidable, outcomes of the `systems nature' of the cellular microtubule cytoskeleton. These include the mitotic increase in microtubule dynamics and the observation that defects in nucleation cause changes in the behavior of microtubule plus ends. These predictions are directly relevant to understanding of the microtubule cytoskeleton, but they are also attractive from an evolutionary standpoint because they provide evidence that apparently complex cellular behaviors can originate from simple interactions without a requirement for intricate regulatory machinery.
+---
+
+---
+DOI: 10.1039/b905602e
+Title: Computational model and microfluidic platform for the investigation of paracrine and autocrine signaling in mouse embryonic stem cells
+Year: 2009
+Abstract: Abstract Autocrine and paracrine signaling mechanisms are traditionally difficult to study due to the recursive nature of the process and the sub-micromolar concentrations involved. This has proven to be especially limiting in the study of embryonic stem cells that might rely on such signaling for viability, self-renewal, and proliferation. To better characterize possible effects of autocrine and paracrine signaling in the setting of expanding stem cells, we developed a computational model assuming a critical need for cell-secreted survival factors. This model suggested that the precise way in which the removal of putative survival factors could affect stem cell survival in culture. We experimentally tested the predictions in mouse embryonic stem cells by taking advantage of a novel microfluidic device allowing removal of the cell-conditioned medium at defined time intervals. Experimental results in both serum-containing and defined N2B27 media confirmed computational model predictions, suggested existence of unknown survival factors with distinct rates of diffusion, and revealed an adaptive/selective phase in mouse embryonic stem cellresponse to a lack of paracrine signaling. We suggest that the described computational/experimental platform can be used to identify and study specific factors and pathways involved in a wide variety of paracrine signaling systems.
+---
+
+---
+DOI: 10.1016/j.jpowsour.2017.06.028
+Title: Finite element model approach of a cylindrical lithium ion battery cell with a focus on minimization of the computational effort and short circuit prediction
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1093/imamat/hxh092
+Title: Electrical coupling in proton exchange membrane fuel cell stacks: mathematical and computational modelling
+Year: 2005
+Abstract: Journal Article Electrical coupling in proton exchange membrane fuel cell stacks: mathematical and computational modelling Get access Peter Berg, Peter Berg **Corresponding author. Email: wetton@math.ubc.ca Search for other works by this author on: Oxford Academic Google Scholar Atife Caglar, Atife Caglar Search for other works by this author on: Oxford Academic Google Scholar Keith Promislow, Keith Promislow Search for other works by this author on: Oxford Academic Google Scholar Jean St-Pierre, Jean St-Pierre Search for other works by this author on: Oxford Academic Google Scholar Brian Wetton Brian Wetton Search for other works by this author on: Oxford Academic Google Scholar IMA Journal of Applied Mathematics, Volume 71, Issue 2, April 2006, Pages 241–261, https://doi.org/10.1093/imamat/hxh092 Published: 01 April 2006
+---
+
+---
+DOI: 10.3390/computation4040039
+Title: A Multi-Compartment Hybrid Computational Model Predicts Key Roles for Dendritic Cells in Tuberculosis Infection
+Year: 2016
+Abstract: Tuberculosis (TB) is a world-wide health problem with approximately 2 billion people infected with Mycobacterium tuberculosis (Mtb, the causative bacterium of TB). The pathologic hallmark of Mtb infection in humans and Non-Human Primates (NHPs) is the formation of spherical structures, primarily in lungs, called granulomas. Infection occurs after inhalation of bacteria into lungs, where resident antigen-presenting cells (APCs), take up bacteria and initiate the immune response to Mtb infection. APCs traffic from the site of infection (lung) to lung-draining lymph nodes (LNs) where they prime T cells to recognize Mtb. These T cells, circulating back through blood, migrate back to lungs to perform their immune effector functions. We have previously developed a hybrid agent-based model (ABM, labeled GranSim) describing in silico immune cell, bacterial (Mtb) and molecular behaviors during tuberculosis infection and recently linked that model to operate across three physiological compartments: lung (infection site where granulomas form), lung draining lymph node (LN, site of generation of adaptive immunity) and blood (a measurable compartment). Granuloma formation and function is captured by a spatio-temporal model (i.e., ABM), while LN and blood compartments represent temporal dynamics of the whole body in response to infection and are captured with ordinary differential equations (ODEs). In order to have a more mechanistic representation of APC trafficking from the lung to the lymph node, and to better capture antigen presentation in a draining LN, this current study incorporates the role of dendritic cells (DCs) in a computational fashion into GranSim. Results: The model was calibrated using experimental data from the lungs and blood of NHPs. The addition of DCs allowed us to investigate in greater detail mechanisms of recruitment, trafficking and antigen presentation and their role in tuberculosis infection. Conclusion: The main conclusion of this study is that early events after Mtb infection are critical to establishing a timely and effective response. Manipulating CD8+ and CD4+ T cell proliferation rates, as well as DC migration early on during infection can determine the difference between bacterial clearance vs. uncontrolled bacterial growth and dissemination.
+---
+
+---
+DOI: 10.1080/10255842.2015.1051973
+Title: Computational modeling of shear forces and experimental validation of endothelial cell responses in an orbital well shaker system
+Year: 2015
+Abstract: Vascular endothelial cells are continuously exposed to hemodynamic shear stress. Intensity and type of shear stress are highly relevant to vascular physiology and pathology. Here, we modeled shear stress distribution in a tissue culture well (R = 17.5 mm, fill volume 2 ml) under orbital translation using computational fluid dynamics with the finite element method. Free surface distribution, wall shear stress, inclination angle, drag force, and oscillatory index on the bottom surface were modeled. Obtained results predict nonuniform shear stress distribution during cycle, with higher oscillatory shear index, higher drag force values, higher circular component, and larger inclination angle of the shear stress at the periphery of the well compared with the center of the well. The oscillatory index, inclination angle, and drag force are new quantitative parameters modeled in this system, which provide a better understanding of the hydrodynamic conditions experienced and reflect the pulsatile character of blood flow in vivo. Validation experiments revealed that endothelial cells at the well periphery aligned under flow and increased Kruppel-like Factor 4 (KLF-4), cyclooxygenase-2 (COX-2) expression and endothelial nitric oxide synthase (eNOS) phosphorylation. In contrast, endothelial cells at the center of the well did not show clear directional alignment, did not induce the expression of KLF-4 and COX-2 nor increased eNOS phosphorylation. In conclusion, this improved computational modeling predicts that the orbital shaker model generates different hydrodynamic conditions at the periphery versus the center of the well eliciting divergent endothelial cell responses. The possibility of generating different hydrodynamic conditions in the same well makes this model highly attractive to study responses of distinct regions of the same endothelial monolayer to different types of shear stresses thereby better reflecting in vivo conditions.
+---
+
+---
+DOI: 10.1093/nar/gkq973
+Title: The STRING database in 2011: functional interaction networks of proteins, globally integrated and scored
+Year: 2010
+Abstract: An essential prerequisite for any systems-level understanding of cellular functions is to correctly uncover and annotate all functional interactions among proteins in the cell. Toward this goal, remarkable progress has been made in recent years, both in terms of experimental measurements and computational prediction techniques. However, public efforts to collect and present protein interaction information have struggled to keep up with the pace of interaction discovery, partly because protein-protein interaction information can be error-prone and require considerable effort to annotate. Here, we present an update on the online database resource Search Tool for the Retrieval of Interacting Genes (STRING); it provides uniquely comprehensive coverage and ease of access to both experimental as well as predicted interaction information. Interactions in STRING are provided with a confidence score, and accessory information such as protein domains and 3D structures is made available, all within a stable and consistent identifier space. New features in STRING include an interactive network viewer that can cluster networks on demand, updated on-screen previews of structural information including homology models, extensive data updates and strongly improved connectivity and integration with third-party resources. Version 9.0 of STRING covers more than 1100 completely sequenced organisms; the resource can be reached at http://string-db.org.
+---
+
+---
+DOI: 10.1016/j.biosystems.2008.05.005
+Title: A computational model of chemotaxis-based cell aggregation
+Year: 2008
+Abstract: We present a computational model that successfully captures the cell behaviors that play important roles in 2-D cell aggregation. A virtual cell in our model is designed as an independent, discrete unit with a set of parameters and actions. Each cell is defined by its location, size, rates of chemoattractant emission and response, age, life cycle stage, proliferation rate and number of attached cells. All cells are capable of emitting and sensing a chemoattractant chemical, moving, attaching to other cells, dividing, aging and dying. We validated and fine-tuned our in silico model by comparing simulated 24-h aggregation experiments with data derived from in vitro experiments using PC12 pheochromocytoma cells. Quantitative comparisons of the aggregate size distributions from the two experiments are produced using the Earth Mover's Distance (EMD) metric. We compared the two size distributions produced after 24 h of in vitro cell aggregation and the corresponding computer simulated process. Iteratively modifying the model's parameter values and measuring the difference between the in silico and in vitro results allow us to determine the optimal values that produce simulated aggregation outcomes closely matched to the PC12 experiments. Simulation results demonstrate the ability of the model to recreate large-scale aggregation behaviors seen in live cell experiments.
+---

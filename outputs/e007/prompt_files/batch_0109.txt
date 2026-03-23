@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1063/1.1778151
+Title: Shape and motility of a model cell: A computational study
+Year: 2004
+Abstract: We have investigated the shape, size, and motility of a minimal model of an adherent biological cell using the Monte Carlo method. The cell is modeled as a two dimensional ring polymer on the square lattice enclosing continuously polymerizing and depolymerizing actin networks. Our lattice model is an approximate representation of a real cell at a resolution of one actin molecule, 5 nm. The polymerization kinetics for the actin network are controlled by appropriate reaction probabilities which correspond to the correct experimental reaction rates. Using the simulation data we establish various scaling laws relating the size of the model cell to the concentration of polymerized and unpolymerized actin molecules and the length of the enclosing membrane. The computed drift velocities, which characterize the motility of the cell, exhibit a maximum at a certain fraction of polymerized actin which agrees with physiological fractions observed in experiments. The appearance of the maximum is related to the competition between the polymerization-induced protrusion of the membrane and the concomitant suppression of membrane fluctuations.
+---
+
+---
+DOI: 10.1121/1.419761
+Title: A computational model of the cochlear nucleus octopus cell
+Year: 1997
+Abstract: Cochlear nucleus octopus cells are characterized by a temporally precise response at the onset of tone bursts and other phasic stimuli. The objectives of this study were to develop a biologically plausible model of an octopus cell based on typical morphological and physiological properties, and to describe the model’s ability to simulate responses of octopus cells and onset units. The compartmental model represents the basic morphology of octopus cells with a single passive, equivalent dendrite and a lumped, active soma. Independent, excitatory synaptic inputs are distributed on the dendrite and soma to represent inputs from 60 or 120 auditory-nerve fibers. The computed model responses were evaluated using simulated current injections, short-duration tone bursts, and several other types of stimuli. With biologically plausible values for the model parameters, the representation of 60 auditory-nerve inputs yields responses consistent with an OL unit while the representation of 120 inputs yields responses consistent with an OI unit. This study demonstrates that responses typical of OL and OI units can be produced with a relatively simple model of an octopus cell. It also suggests that the numbers of independent auditory-nerve fiber inputs to the cell can affect the onset response.
+---
+
+---
+DOI: 10.1016/j.renene.2008.12.002
+Title: Performance comparison between airflow-channel and ambient air-breathing PEM fuel cells using three-dimensional computational fluid dynamics models
+Year: 2009
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/978-1-4614-2146-7_11
+Title: Computational and Modeling Strategies for Cell Motility
+Year: 2012
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.pbi.2012.08.002
+Title: When and where plant cells divide: a perspective from computational modeling
+Year: 2012
+Abstract: Computational modeling of growing plant tissues raises two basic questions about plant cell division: when does a cell decide to divide and where is the new wall placed? Although biologists and modelers commonly assume that a cell divides after it reaches a threshold size, two recent experiments show that models with variable division sizes better replicate the tissue. Similarly, comparing model predictions with living plant cells reveals that the choice of division plane is variable, although the shortest path dividing a cell in half (i.e. the minimal surface area) is the most probable division plane.
+---
+
+---
+DOI: 10.1021/ja052467l
+Title: Combined Experimental and DFT-TDDFT Computational Study of Photoelectrochemical Cell Ruthenium Sensitizers
+Year: 2005
+Abstract: We report a combined experimental and computational study of several ruthenium(II) sensitizers originated from the [Ru(dcbpyH(2))(2)(NCS)(2)], N3, and [Ru(dcbpyH(2))(tdbpy)(NCS)(2)], N621, (dcbpyH(2) = 4,4'-dicarboxy-2,2'-bipyridine, tdbpy = 4,4'-tridecyl-2,2'-bipyridine) complexes. A purification procedure was developed to obtain pure N-bonded isomers of both types of sensitizers. The photovoltaic data of the purified N3 and N621 sensitizers adsorbed on TiO(2) films in their monoprotonated and diprotonated state, exhibited remarkable power conversion efficiency at 1 sun, 11.18 and 9.57%, respectively. An extensive Density Functional Theory (DFT)-Time Dependent DFT study of these sensitizers in solution was performed, investigating the effect of protonation of the terminal carboxylic groups and of the counterions on the electronic structure and optical properties of the dyes. The calculated absorption spectra are in good agreement with the experiment, thus allowing a detailed assignment of the UV-vis spectral features of the two types of dyes. The computed alignments of the molecular orbitals of the different complexes with the band edges of a model TiO(2) nanoparticle provide additional insights into the electronic factors governing the efficiency of dye-sensitized solar cell devices.
+---
+
+---
+DOI: 10.1016/j.enconman.2018.06.062
+Title: A versatile computational tool for model-based design, control and diagnosis of a generic Solid Oxide Fuel Cell Integrated Stack Module
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0009-2509(02)00436-0
+Title: Computational fluid dynamics modeling of the flow in a laboratory membrane filtration cell operated at low recoveries
+Year: 2002
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.solener.2023.112256
+Title: Design and performance evaluation of eco-friendly FASnI3/CsSn0.5Ge0.5I3 based perovskite solar cell with distinct charge transport layer: A computational modeling
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1006/jcph.1999.6332
+Title: Calculation of Two-Phase Navier–Stokes Flows Using Phase-Field Modeling
+Year: 1999
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jbiomech.2014.05.020
+Title: Dissecting the contribution of actin and vimentin intermediate filaments to mechanical phenotype of suspended cells using high-throughput deformability measurements and computational modeling
+Year: 2014
+Abstract: Mechanical cell properties play an important role in many basic biological functions, including motility, adhesion, proliferation and differentiation. There is a growing body of evidence that the mechanical cell phenotype can be used for detection and, possibly, treatment of various diseases, including cancer. Understanding of pathological mechanisms requires investigation of the relationship between constitutive properties and major structural components of cells, i.e., the nucleus and cytoskeleton. While the contribution of actin und microtubules to cellular rheology has been extensively studied in the past, the role of intermediate filaments has been scarcely investigated up to now. Here, for the first time we compare the effects of drug-induced disruption of actin and vimentin intermediate filaments on mechanical properties of suspended NK cells using high-throughput deformability measurements and computational modeling. Although, molecular mechanisms of actin and vimentin disruption by the applied cytoskeletal drugs, Cytochalasin-D and Withaferin-A, are different, cell softening in both cases can be attributed to reduction of the effective density and stiffness of filament networks. Our experimental data suggest that actin and vimentin deficient cells exhibit, in average, 41% and 20% higher deformability in comparison to untreated control. 3D Finite Element simulation is performed to quantify the contribution of cortical actin and perinuclear vimentin to mechanical phenotype of the whole cell. Our simulation provides quantitative estimates for decreased filament stiffness in drug-treated cells and predicts more than two-fold increase of the strain magnitude in the perinuclear vimentin layer of actin deficient cells relatively to untreated control. Thus, the mechanical function of vimentin becomes particularly essential in motile and proliferating cells that have to dynamically remodel the cortical actin network. These insights add functional cues to frequently observed overexpression of vimentin in diverse types of cancer and underline the role of vimentin targeting drugs, such as Withaferin-A, as a potent cancerostatic supplement.
+---
+
+---
+DOI: 10.1016/j.energy.2022.126488
+Title: Control-oriented computational fuel cell dynamics modeling – Model order reduction vs. computational speed
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jbiotec.2019.08.002
+Title: Using computational fluid dynamics (CFD) modeling to understand murine embryonic stem cell aggregate size and pluripotency distributions in stirred suspension bioreactors
+Year: 2019
+Abstract: Computational fluid dynamics (CFD) modeling can be applied to understand hydrodynamics in stirred suspension bioreactors, which can in turn affect cell viability, proliferation, pluripotency and differentiation. In this study, we developed a CFD model to determine the effects of average shear rates and turbulent eddies on the formation and growth of murine embryonic stem cell aggregates. We found a correlation between average eddy size and aggregate size, which depended on bioreactor agitation rates. By relating these computational and biological variables, CFD modeling can predict optimal agitation rates to grow embryonic stem cell aggregates in stirred suspension bioreactors. To examine the effect of hydrodynamics on pluripotency, mESCs cultured in bioreactors under various agitation rates were tested for SSEA-1, Sox-2, and Nanog expression. Cells maintained a minimum of 95% positive expression with no change in the intensity distribution pattern between the different bioreactor conditions. This indicates that the average level of pluripotency marker expression is independent of changes in the hydrodynamic profile and resulting aggregate size distribution. The findings here can be further extended to other cell types that grow as aggregates in stirred suspension bioreactors and offer important insights necessary to realize cell therapies.
+---
+
+---
+DOI: 10.1088/1478-3975/abb2dc
+Title: Self-organized multicellular structures from simple cell signaling: a computational model
+Year: 2020
+Abstract: Abstract Recent synthetic biology experiments reveal that signaling modules designed to target cell–cell adhesion enable self-organization of multicellular structures Toda et al (2018 Science 361 156–162). Changes in homotypic adhesion that arise through contact-dependent signaling networks result in sorting of an aggregate into two- or three-layered structures. Here we investigate the formation, maintenance, and robustness of such self-organization in the context of a computational model. To do so, we use an established model for Notch/ligand signaling within cells to set up differential E-cadherin expression. This signaling model is integrated with the cellular Potts model to track state changes, adhesion, and cell sorting in a group of cells. The resulting multicellular structures are in accordance with those observed in the experimental reference. In addition to reproducing these experimental results, we track the dynamics of the evolving structures and cell states to understand how such morphologies are dynamically maintained. This appears to be an important developmental principle that was not emphasized in previous models. Our computational model facilitates more detailed understanding of the link between intra- and intercellular signaling, spatio-temporal rearrangement, and emergent behavior at the scale of hundred(s) of cells.
+---
+
+---
+DOI: 10.1038/nrm1838
+Title: Cell-signalling dynamics in time and space
+Year: 2006
+Abstract: The specificity of cellular responses to receptor stimulation is encoded by the spatial and temporal dynamics of downstream signalling networks. Temporal dynamics are coupled to spatial gradients of signalling activities, which guide pivotal intracellular processes and tightly regulate signal propagation across a cell. Computational models provide insights into the complex relationships between the stimuli and the cellular responses, and reveal the mechanisms that are responsible for signal amplification, noise reduction and generation of discontinuous bistable dynamics or oscillations.
+---
+
+---
+DOI: 10.1007/s00422-004-0522-2
+Title: A computational model of monkey cortical grating cells
+Year: 2004
+Abstract: Grating cells were discovered in the V1 and V2 areas of the monkey visual cortex by von der Heydt et al. (1992). These cells responded vigorously to grating patterns of appropriate orientation and periodicity. Computational models inspired by these findings were used as texture operator (Kruzinga and Petkov 1995, 1999; Petkov and Kruzinga 1997) and for the emergence and self-organization of grating cells (Brunner et al. 1998; Bauer et al. 1999). The aim of this paper is to create a grating cell operator that demonstrates similar responses to monkey grating cells by applying operator to the same stimuli as in the experiments carried out by von der Heydt et al. (1992). Operator will be tested on images that contain periodic patterns as suggested by De Valois (1988). In order to learn more about the role of grating cells in natural vision, operator is applied to 338 real-world images of textures obtained from three different databases. The results suggest that grating cells respond strongly to regular alternating periodic patterns of a certain orientation. Such patterns are common in images of human-made structures, like buildings, fabrics, and tiles, and to regular natural periodic patterns, which are relatively rare in nature.
+---
+
+---
+DOI: 10.1007/s10827-005-5477-3
+Title: Computational Model of Touch Sensory Cells (T Cells) of the Leech: Role of the Afterhyperpolarization (AHP) in Activity-Dependent Conduction Failure
+Year: 2005
+Abstract: Bursts of spikes in T cells produce an AHP, which results from activation of a Na+/K+ pump and a Ca2+-dependent K+ current. Activity-dependent increases in the AHP are believed to induce conduction block of spikes in several regions of the neuron, which in turn, may decrease presynaptic invasion of spikes and thereby decrease transmitter release. To explore this possibility, we used the neurosimulator SNNAP to develop a multi-compartmental model of the T cell. The model incorporated empirical data that describe the geometry of the cell and activity-dependent changes of the AHP. Simulations indicated that at some branching points, activity-dependent increases of the AHP reduced the number of spikes transmitted from the minor receptive fields to the soma and beyond. More importantly, simulations also suggest that the AHP could modulate, under some circumstances, transmission from the soma to the synaptic terminals, suggesting that the AHP can regulate spike conduction within the presynaptic arborizations of the cell and could in principle contribute to the synaptic depression that is correlated with increases in the AHP.
+---
+
+---
+DOI: 10.1088/2057-1976/2/3/035006
+Title: A computational model of a human single sinoatrial node cell
+Year: 2016
+Abstract: Abstract For the investigation of the spontaneous rhythmical activity response in the application of cardiac neuromodulation, we formulated a human sinoatrial node (SAN) cell model. With the aim of decreasing elevated heart rate (HR), we want to establish a hardware-in-the-loop system including this model for the analysis of optimal stimulation patterns of the neurostimulation system. Base model structures are adopted from rabbit SAN cell models available in literature and conveyed with Hodgkin–Huxley-type model equations describing the complex time and voltage dependent activation and deactivation processes of individual ion channels. The resulting model consists of 15 currents which are currently known to be responsible for the generation of the membrane action potential (AP). The model reproduces AP frequencies equivalent to those measured in isolated human SAN cells with a resulting HR of 71.8 bpm. Model validation via simulation of the inhibitory effect of ivabradine showed accordance with experimental results obtained in human studies. Furthermore, we could validate the model in regard to its HR effects upon parasympathetic stimulation with results obtained in a human trial study.
+---
+
+---
+DOI: 10.1007/s10735-004-2674-8
+Title: Towards computational models of cells for environmental toxicology
+Year: 2004
+Abstract: This paper outlines an approach to the development of computational models of cells for marine environmental toxicology. Exposure of cells to pollutants can lead to lysosomal damage and dysfunction, augmented autophagy, cellular dysfunction and atrophy and ultimately tissue pathology and organ damage. The application of carbon and nitrogen based models of intra cellular vesicular traffic for simulating the autophagic and lysosomal response of the hepatopancreatic digestive cells of marine molluscs is described. Two numerical models of the vesicular transport of carbon and nitrogen in the cell are presented. These demonstrate the importance of endocytotic uptake as a driver of lysosomal dynamics and the need to recognize and model it as a discrete process. Conceptual and mathematical models of the toxic impact of polycyclic aromatic hydrocarbons on the digestive gland are presented. The role of experimental research and the need to integrate it with modelling is highlighted.
+---
+
+---
+DOI: 10.1016/s0303-2647(99)00094-5
+Title: A diffuse biosemiotic model for cell-to-tissue computational closure
+Year: 2000
+Abstract: The adoption of diffuse rationality creates a practical bridge between biosemiotics and computation in formulating local-to-global self-consistent criteria for cellular-to-tissue interfacing and for the emergence of life and consciousness. Nature is always complex, the more so at biological membranic inter-scalar interfaces. We present an evolutionary model of the relationship between autonomy and dependence across scales, and describe the implications of its alternating complex-rational-complex nature.
+---
+
+---
+DOI: 10.1016/j.heares.2004.06.005
+Title: Computational models of hair cell bundle mechanics: II. Simplified bundle models
+Year: 2004
+Abstract: Simplified versions of hair cell bundles are mechanically modeled. The influence of various geometric and material combinations on bundle stiffness, link tensions and deformation shape are examined. Three models are analyzed within this paper: two stereocilia connected by one link, two stereocilia connected by a biologically realistic set of links, and a column of stereocilia connected by realistic links. Stereocilia are modeled using a distributed parameter model [J. Biomech. Eng. 122, 44]. Some fundamental rules for linking bundles emerge from these tests: (1) Links must have a threshold stiffness value for the bundle to deform as a whole. Beyond this value, the stereocilia are perfectly linked and variations in link stiffness do not significantly effect the bundle stiffness or link tension. (2) Decreasing the relative heights of successive stereocilia may increase link tension while decreasing bundle stiffness. (3) When lateral links exist, the top most lateral links carry the majority of tension. Lower links in single column model appear mechanically insignificant. (4) Extending the length of the bundle in a column does not increase the stiffness once the column reaches a certain length.
+---
+
+---
+DOI: 10.1016/j.cell.2018.09.006
+Title: A Cancer Cell Program Promotes T Cell Exclusion and Resistance to Checkpoint Blockade
+Year: 2018
+Abstract: Immune checkpoint inhibitors (ICIs) produce durable responses in some melanoma patients, but many patients derive no clinical benefit, and the molecular underpinnings of such resistance remain elusive. Here, we leveraged single-cell RNA sequencing (scRNA-seq) from 33 melanoma tumors and computational analyses to interrogate malignant cell states that promote immune evasion. We identified a resistance program expressed by malignant cells that is associated with T cell exclusion and immune evasion. The program is expressed prior to immunotherapy, characterizes cold niches in situ, and predicts clinical responses to anti-PD-1 therapy in an independent cohort of 112 melanoma patients. CDK4/6-inhibition represses this program in individual malignant cells, induces senescence, and reduces melanoma tumor outgrowth in mouse models in vivo when given in combination with immunotherapy. Our study provides a high-resolution landscape of ICI-resistant cell states, identifies clinically predictive signatures, and suggests new therapeutic strategies to overcome immunotherapy resistance.
+---
+
+---
+DOI: 10.1016/j.bcp.2014.03.007
+Title: Fisetin inhibits human melanoma cell growth through direct binding to p70S6K and mTOR: Findings from 3-D melanoma skin equivalents and computational modeling
+Year: 2014
+Abstract: The incidence of melanoma continues to rise. Inspite of treatment advances, the prognosis remains grim once the disease has metastasized, emphasizing the need to explore additional therapeutic strategies. One such approach is through the use of mechanism-based dietary intervention. We previously showed that the flavonoid fisetin inhibits melanoma cell proliferation, in vitro and in vivo. Here, we studied fisetin-mediated regulation of kinases involved in melanoma growth and progression. Time-course analysis in 3-D melanoma constructs that transitioned from radial to vertical growth showed that fisetin treatment resulted in significant decrease in melanocytic lesions in contrast to untreated controls that showed large tumor nests and invading disseminated cells. Further studies in melanoma cultures and mouse xenografts showed that fisetin-mediated growth inhibition was associated with dephosphorylation of AKT, mTOR and p70S6K proteins. In silico modeling indicated direct interaction of fisetin with mTOR and p70S6K with favorable free energy values. These findings were validated by cell-free competition assays that established binding of fisetin to p70S6K and mTOR while little affinity was detected with AKT. Kinase activity studies reflected similar trend with % inhibition observed for p70S6K and mTOR at lower doses than AKT. Our studies characterized, for the first time, the differential interactions of any botanical agent with kinases involved in melanoma growth and demonstrate that fisetin inhibits mTOR and p70S6K through direct binding while the observed inhibitory effect of fisetin on AKT is mediated indirectly, through targeting interrelated pathways.
+---
+
+---
+DOI: 10.1142/9789814583220_0004
+Title: THE STREAM ALGORITHM: COMPUTATIONALLY EFFICIENT RIDGE-REGRESSION VIA BAYESIAN MODEL AVERAGING, AND APPLICATIONS TO PHARMACOGENOMIC PREDICTION OF CANCER CELL LINE SENSITIVITY
+Year: 2013
+Abstract: Computational efficiency is important for learning algorithms operating in the "large p, small n" setting. In computational biology, the analysis of data sets containing tens of thousands of features ("large p"), but only a few hundred samples ("small n"), is nowadays routine, and regularized regression approaches such as ridge-regression, lasso, and elastic-net are popular choices. In this paper we propose a novel and highly efficient Bayesian inference method for fitting ridge-regression. Our method is fully analytical, and bypasses the need for expensive tuning parameter optimization, via cross-validation, by employing Bayesian model averaging over the grid of tuning parameters. Additional computational efficiency is achieved by adopting the singular value decomposition reparametrization of the ridge-regression model, replacing computationally expensive inversions of large p × p matrices by efficient inversions of small and diagonal n × n matrices. We show in simulation studies and in the analysis of two large cancer cell line data panels that our algorithm achieves slightly better predictive performance than cross-validated ridge-regression while requiring only a fraction of the computation time. Furthermore, in comparisons based on the cell line data sets, our algorithm systematically out-performs the lasso in both predictive performance and computation time, and shows equivalent predictive performance, but considerably smaller computation time, than the elastic-net.
+---
+
+---
+DOI: 10.1167/9.3.5
+Title: Saliency, attention, and visual search: An information theoretic approach
+Year: 2009
+Abstract: A proposal for saliency computation within the visual cortex is put forth based on the premise that localized saliency computation serves to maximize information sampled from one's environment. The model is built entirely on computational constraints but nevertheless results in an architecture with cells and connectivity reminiscent of that appearing in the visual cortex. It is demonstrated that a variety of visual search behaviors appear as emergent properties of the model and therefore basic principles of coding and information transmission. Experimental results demonstrate greater efficacy in predicting fixation patterns across two different data sets as compared with competing models.
+---
+
+---
+DOI: 10.1007/s11663-006-9014-1
+Title: Computational Modeling of Flow in Aluminum Reduction Cells Due to Gas Bubbles and Electromagnetic Forces
+Year: 2007
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1029/96jc02775
+Title: A finite‐volume, incompressible Navier Stokes model for studies of the ocean on parallel computers
+Year: 1997
+Abstract: The numerical implementation of an ocean model based on the incompressible Navier Stokes equations which is designed for studies of the ocean circulation on horizontal scales less than the depth of the ocean right up to global scale is described. A “pressure correction” method is used which is solved as a Poisson equation for the pressure field with Neumann boundary conditions in a geometry as complicated as that of the ocean basins. A major objective of the study is to make this inversion, and hence nonhydrostatic ocean modeling, efficient on parallel computers. The pressure field is separated into surface, hydrostatic, and nonhydrostatic components. First, as in hydrostatic models, a two‐dimensional problem is inverted for the surface pressure which is then made use of in the three‐dimensional inversion for the nonhydrostatic pressure. Preconditioned conjugate‐gradient iteration is used to invert symmetric elliptic operators in both two and three dimensions. Physically motivated preconditioners are designed which are efficient at reducing computation and minimizing communication between processors. Our method exploits the fact that as the horizontal scale of the motion becomes very much larger than the vertical scale, the motion becomes more and more hydrostatic and the three‐dimensional Poisson operator becomes increasingly anisotropic and dominated by the vertical axis. Accordingly, a preconditioner is used which, in the hydrostatic limit, is an exact integral of the Poisson operator and so leads to a single algorithm that seamlessly moves from nonhydrostatic to hydrostatic limits. Thus in the hydrostatic limit the model is “fast,” competitive with the fastest ocean climate models in use today based on the hydrostatic primitive equations. But as the resolution is increased, the model dynamics asymptote smoothly to the Navier Stokes equations and so can be used to address small‐scale processes. A “finite‐volume” approach is employed to discretize the model in space in which property fluxes are defined normal to faces that delineate the volumes. The method makes possible a novel treatment of the boundary in which cells abutting the bottom or coast may take on irregular shapes and be “shaved” to fit the boundary. The algorithm can conveniently exploit massively parallel computers and suggests a domain decomposition which allocates vertical columns of ocean to each processing unit. The resulting model, which can handle arbitrarily complex geometry, is efficient and scalable and has been mapped on to massively parallel multiprocessors such as the Connection Machine (CM5) using data‐parallel FORTRAN and the Massachusetts Institute of Technology data‐flow machine MONSOON using the implicitly parallel language Id.
+---
+
+---
+DOI: 10.1016/j.jsb.2005.06.002
+Title: Feature point tracking and trajectory analysis for video imaging in cell biology
+Year: 2005
+Abstract: This paper presents a computationally efficient, two-dimensional, feature point tracking algorithm for the automated detection and quantitative analysis of particle trajectories as recorded by video imaging in cell biology. The tracking process requires no a priori mathematical modeling of the motion, it is self-initializing, it discriminates spurious detections, and it can handle temporary occlusion as well as particle appearance and disappearance from the image region. The efficiency of the algorithm is validated on synthetic video data where it is compared to existing methods and its accuracy and precision are assessed for a wide range of signal-to-noise ratios. The algorithm is well suited for video imaging in cell biology relying on low-intensity fluorescence microscopy. Its applicability is demonstrated in three case studies involving transport of low-density lipoproteins in endosomes, motion of fluorescently labeled Adenovirus-2 particles along microtubules, and tracking of quantum dots on the plasma membrane of live cells. The present automated tracking process enables the quantification of dispersive processes in cell biology using techniques such as moment scaling spectra.
+---
+
+---
+DOI: 10.1007/s10570-015-0568-4
+Title: Examination of biological hotspot hypothesis of primary cell wall using a computational cell wall network model
+Year: 2015
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.ijhydene.2011.10.069
+Title: A rigorous computational model for hydrogen production from bio-ethanol to feed a fuel cell stack
+Year: 2011
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/nbt.2488
+Title: A community-driven global reconstruction of human metabolism
+Year: 2013
+Abstract: Multiple models of human metabolism have been reconstructed, but each represents only a subset of our knowledge. Here we describe Recon 2, a community-driven, consensus 'metabolic reconstruction', which is the most comprehensive representation of human metabolism that is applicable to computational modeling. Compared with its predecessors, the reconstruction has improved topological and functional features, including ∼2× more reactions and ∼1.7× more unique metabolites. Using Recon 2 we predicted changes in metabolite biomarkers for 49 inborn errors of metabolism with 77% accuracy when compared to experimental data. Mapping metabolomic data and drug information onto Recon 2 demonstrates its potential for integrating and analyzing diverse data types. Using protein expression data, we automatically generated a compendium of 65 cell type-specific models, providing a basis for manual curation or investigation of cell-specific metabolic properties. Recon 2 will facilitate many future biomedical studies and is freely available at http://humanmetabolism.org/.
+---
+
+---
+DOI: 10.1667/rr15134.1
+Title: Computational Modeling and Clonogenic Assay for Radioenhancement of Gold Nanoparticles Using 3D Live Cell Images
+Year: 2018
+Abstract: Radioenhancement of gold nanoparticles (GNPs) has shown great potential for increasing the therapeutic efficiency of radiotherapy. Here we report on a computational model of radiation response, which was developed to predict the survival curves of breast cancer cells incubated with GNPs. The amount of GNP uptake was estimated using inductively coupled plasma-mass spectroscopy, and the three-dimensional (3D) intracellular distribution of GNPs was obtained using optical diffraction tomography. The developed computational model utilized the 3D live cell imaging and recent Monte Carlo techniques to calculate microscopic dose distributions within the cell. Clonogenic assays with and without GNPs were performed to estimate the radioenhancement for 150 kVp X rays in terms of cell survival fractions. Measured cell survival fractions were comparable with the computational model.
+---
+
+---
+DOI: 10.1007/978-3-642-30856-7_8
+Title: Computational Modeling of Angiogenesis: Towards a Multi-Scale Understanding of Cell–Cell and Cell–Matrix Interactions
+Year: 2012
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/s12034-019-1837-x
+Title: A study of electromagnetic light propagation in a perovskite-based solar cell via a computational modelling approach
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/icce-asia.2016.7804769
+Title: Computation of cell transmission model for congestion and recovery traffic flow
+Year: 2016
+Abstract: Cell transmission model (CTM) is one of the most comprehensive, updatable and easy-to-implement models among the existing macroscopic traffic models that approximates the road conditions for immediate information uphold. For instance, it is believed that minimal interpretation from traffic modeling in crowd-sourced route navigation apps will support for user input information checking and verification based on the road conditions. This paper demonstrates the computation of discrete based hydrodynamic CTM in road disturbance and flow recovery to explain the credits and drawbacks of CTM through the model establishment in simulations. Different sample time attempted in the studies suggested a tradeoff between level of details and computational effort are also discussed in this paper.
+---
+
+---
+DOI: 10.1016/0010-0277(92)90050-r
+Title: Preverbal and verbal counting and computation
+Year: 1992
+Abstract: We describe the preverbal system of counting and arithmetic reasoning revealed by experiments on numerical representations in animals. In this system, numerosities are represented by magnitudes, which are rapidly but inaccurately generated by the Meck and Church (1983) preverbal counting mechanism. We suggest the following. (1) The preverbal counting mechanism is the source of the implicit principles that guide the acquisition of verbal counting. (2) The preverbal system of arithmetic computation provides the framework for the assimilation of the verbal system. (3) Learning to count involves, in part, learning a mapping from the preverbal numerical magnitudes to the verbal and written number symbols and the inverse mappings from these symbols to the preverbal magnitudes. (4) Subitizing is the use of the preverbal counting process and the mapping from the resulting magnitudes to number words in order to generate rapidly the number words for small numerosities. (5) The retrieval of the number facts, which plays a central role in verbal computation, is mediated via the inverse mappings from verbal and written numbers to the preverbal magnitudes and the use of these magnitudes to find the appropriate cells in tabular arrangements of the answers. (6) This model of the fact retrieval process accounts for the salient features of the reaction time differences and error patterns revealed by experiments on mental arithmetic. (7) The application of verbal and written computational algorithms goes on in parallel with, and is to some extent guided by, preverbal computations, both in the child and in the adult.
+---
+
+---
+DOI: 10.1007/s10237-010-0232-8
+Title: Comparative chondrogenesis of human cells in a 3D integrated experimental–computational mechanobiology model
+Year: 2010
+Abstract: We present an integrated experimental-computational mechanobiology model of chondrogenesis. The response of human articular chondrocytes to culture medium perfusion, versus perfusion associated with cyclic pressurisation, versus non-perfused culture, was compared in a pellet culture model, and multiphysic computation was used to quantify oxygen transport and flow dynamics in the various culture conditions. At 2 weeks of culture, the measured cell metabolic activity and the matrix content in collagen type II and aggrecan were greatest in the perfused+pressurised pellets. The main effects of perfusion alone, relative to static controls, were to suppress collagen type I and GAG contents, which were greatest in the non-perfused pellets. All pellets showed a peripheral layer of proliferating cells, which was thickest in the perfused pellets, and most pellets showed internal gradients in cell density and matrix composition. In perfused pellets, the computed lowest oxygen concentration was 0.075 mM (7.5% tension), the maximal oxygen flux was 477.5 nmol/m(2)/s and the maximal fluid shear stress, acting on the pellet surface, was 1.8 mPa (0.018 dyn/cm(2)). In the non-perfused pellets, the lowest oxygen concentration was 0.003 mM (0.3% tension) and the maximal oxygen flux was 102.4 nmol/m(2)/s. A local correlation was observed, between the gradients in pellet properties obtained from histology, and the oxygen fields calculated with multiphysic simulation. Our results show up-regulation of hyaline matrix protein production by human chondrocytes in response to perfusion associated with cyclic pressurisation. These results could be favourably exploited in tissue engineering applications.
+---
+
+---
+DOI: 10.1016/j.jpowsour.2012.03.023
+Title: A computationally efficient steady-state electrode-level and 1D+1D cell-level fuel cell model
+Year: 2012
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.bone.2009.10.002
+Title: Characterisation of human bone marrow stromal cell heterogeneity for skeletal regeneration strategies using a two-stage colony assay and computational modelling
+Year: 2009
+Abstract: Skeletal regeneration and tissue engineering strategies rely critically on the efficient expansion of progenitor cell populations whilst simultaneously preserving multipotentiality and the ability to induce differentiation towards bone and cartilage. Cell population heterogeneity has a significant impact on this process, but is currently poorly quantified, hampering the interpretation of experimental results and the design of optimised expansion protocols. The objective of this study was to characterise individual human bone marrow stromal cell heterogeneity in terms of colony expansion potential. For this purpose, a novel two-stage CFU-F assay was developed in which cells from primary single cell-derived colonies were detached and reseeded again at clonal density as single cells to form new secondary colonies. This clearly demonstrated how secondary colony growth potential varies markedly both between and within primary colonies. Depending on the primary colony, cells either generated small secondary colonies only, or else a wide range of colony sizes. Using computational modelling it was shown how such colony heterogeneity could arise from hierarchical progenitor cell populations and what the limits of such a population structure were in explaining the experimental data. In addition the model demonstrated the significant potential impact of cell mobility on expansion potential and its implications for inducing population heterogeneity. This combined experimental-computational approach will ascertain the impact of cell culture protocols on the expansion potential and functional composition of heterogeneous progenitor populations. Such insights are likely to be of crucial importance for the success of skeletal regeneration strategies.
+---
+
+---
+DOI: 10.1007/s10735-004-2653-0
+Title: Editorial: Computational modelling of cell &amp; tissue processes &amp; function
+Year: 2004
+Abstract: Computational modelling of whole biological systems from cells to organs is gaining momentum in cell biology and disease studies. This pathway is essential for the derivation of explanatory frameworks that will facilitate the development of a predictive capacity for estimating outcomes or risk associated with particular disease processes and therapeutic or stressful treatments. This article introduces a series of invited papers covering a hierarchy of issues and modelling problems, ranging from crucial conceptual considerations of the validity of cellular modelling through to multi-scale modelling up to organ level. The challenges and approaches in cellular modelling are described, including the potential of 'in silico ' modelling applications for receptor-ligand interactions in cell signalling, simulated organ dysfunction (i.e., heart), human and environmental toxicity and the progress of the IUPS Physiome Project. A major challenge now facing biologists is how to translate the wealth of reductionist detail about cells and tissues into a real understanding of how these systems function and are perturbed in disease processes. In biomedicine, simulation models of biological systems now contain sufficient detail, not only to reconstruct normal functions, but also, to reconstruct major disease states. More widely, simulation modelling will aid the targeting of current 'knowledge gaps' and how to fill them; and also provide a research tool for selecting critical factors from multiple simulated experiments for real experimental design. The envisaged longer-term end- product is the creation of simulation models for predicting drug interactions and harmful side-effects; and their use in therapeutic and environmental health risk management. Finally, we take a speculative look at possible future scenarios in cellular modelling, where it is envisioned that integrative biology will move from being largely qualitative and instead become a highly quantitative, computer-intensive discipline.
+---
+
+---
+DOI: 10.1038/s41587-021-01206-w
+Title: A Python library for probabilistic analysis of single-cell omics data
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1029/93jb00191
+Title: Spatio‐temporal complexity of slip on a fault
+Year: 1993
+Abstract: Three‐dimensional analyses are reported of slip on a long vertical strike‐slip fault between steadily driven elastic crustal blocks. A rate‐ and state‐dependent friction law governs motion on the fault; the law includes a characteristic slip distance L for evolution of surface state and slip weakening. Because temperature and normal stress vary with depth, frictional constitutive properties (velocity weakening/strengthening) do also. Those properties are taken either as uniform along‐strike at every depth or as perturbed modestly from uniformity. The governing equations of quasi‐static elasticity and frictional slip are solved on a computational grid of cells as a discrete numerical system, and a viscous radiation damping term is included to approximately represent inertial control of slip rates during earthquake‐like instabilities. The numerical results show richly complex slip, with a spectrum of event sizes, when solved for a grid with oversized cells, that is, with cell size h that is too large to validly represent the underlying continuous system of equations. However, in every case for which it has been feasible to do the computations (moderately large L only), that spatio‐temporally complex slip disappears in favor of simple limit cycles of periodically repeated large earthquakes with reduction of cell size h . Further study will be necessary to determine whether a similar transition occurs when the elastodynamics of rupture propagation is treated more exactly, rather than in the radiation damping approximation. The transition from complex to ordered fault response occurs as h is reduced below a theoretically derived nucleation size h * which scales with L but is 2 × 10 4 to 10 5 larger in cases considered. Cells larger than h * can fail independently of one another, whereas those much smaller than h * cannot slip unstably alone and can do so only as part of a cooperating group of cells. The results contradict an emergent view that spatio‐temporal complexity is a generic feature of mechanical fault models. Such generic complexity does apparently result from models which are inherently discrete in the sense of having no well‐defined continuum limit as h diminishes. Those models form a different class of dynamical systems from models like the present one that do have a continuum limit. Strongly oversized cells cause the model developed here to mimic an inherently discrete system. It is suggested that oversized cells, capable of failing independently of one another, may crudely represent geometrically disordered fault zones, with quasi‐independent fault segments that join one another at kinks or jogs. Such geometric disorder, at scales larger than h * , may force a system with a well‐defined continuum limit to mimic an inherently discrete system and show spatio‐temporally complex slip at those larger scales.
+---
+
+---
+DOI: 10.1016/s0169-2607(00)00146-2
+Title: A computational model of oxygen transport from red blood cells to mitochondria
+Year: 2002
+Abstract: A computational model of oxygen transport from red blood cells to mitochondria with subsequent reaction to water is presented. This computational model consists of a five region convection-diffusion-reaction mathematical model which is solved using a standard numerical time-split method. The unique feature of this mathematical model is the treatment of the red blood cells and the plasma as two separate flows. The numerical method is second order accurate overall. This computational model is useful for analyzing residue data from positron emission tomography or data from multiple indicator dilution curves.
+---
+
+---
+DOI: 10.1152/ajpheart.00794.2003
+Title: A model for human ventricular tissue
+Year: 2004
+Abstract: The experimental and clinical possibilities for studying cardiac arrhythmias in human ventricular myocardium are very limited. Therefore, the use of alternative methods such as computer simulations is of great importance. In this article we introduce a mathematical model of the action potential of human ventricular cells that, while including a high level of electrophysiological detail, is computationally cost-effective enough to be applied in large-scale spatial simulations for the study of reentrant arrhythmias. The model is based on recent experimental data on most of the major ionic currents: the fast sodium, L-type calcium, transient outward, rapid and slow delayed rectifier, and inward rectifier currents. The model includes a basic calcium dynamics, allowing for the realistic modeling of calcium transients, calcium current inactivation, and the contraction staircase. We are able to reproduce human epicardial, endocardial, and M cell action potentials and show that differences can be explained by differences in the transient outward and slow delayed rectifier currents. Our model reproduces the experimentally observed data on action potential duration restitution, which is an important characteristic for reentrant arrhythmias. The conduction velocity restitution of our model is broader than in other models and agrees better with available data. Finally, we model the dynamics of spiral wave rotation in a two-dimensional sheet of human ventricular tissue and show that the spiral wave follows a complex meandering pattern and has a period of 265 ms. We conclude that the proposed model reproduces a variety of electrophysiological behaviors and provides a basis for studies of reentrant arrhythmias in human ventricular tissue.
+---
+
+---
+DOI: 10.1007/s11095-009-0034-9
+Title: Cell-Based Multiscale Computational Modeling of Small Molecule Absorption and Retention in the Lungs
+Year: 2010
+Abstract: PurposeFor optimizing the local, pulmonary targeting of inhaled medications, it is important to analyze the relationship between the physicochemical properties of small molecules and their absorption, retention and distribution in the various cell types of the airways and alveoli.MethodsA computational, multiscale, cell-based model was constructed to facilitate analysis of pulmonary drug transport and distribution. The relationship between the physicochemical properties and pharmacokinetic profile of monobasic molecules was explored. Experimental absorption data of compounds with diverse structures were used to validate this model. Simulations were performed to evaluate the effect of active transport and organelle sequestration on the absorption kinetics of compounds.ResultsRelating the physicochemical properties to the pharmacokinetic profiles of small molecules reveals how the absorption half-life and distribution of compounds are expected to vary in different cell types and anatomical regions of the lung. Based on logP, pK(a) and molecular radius, the absorption rate constants (K(a)) calculated with the model were consistent with experimental measurements of pulmonary drug absorption.ConclusionsThe cell-based mechanistic model developed herein is an important step towards the rational design of local, lung-targeted medications, facilitating the design and interpretation of experiments aimed at optimizing drug transport properties in lung.
+---

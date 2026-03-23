@@ -1,0 +1,119 @@
+{
+  "batch_index": 64,
+  "dois": [
+    "10.1093/bioinformatics/btp698",
+    "10.1038/nature12477",
+    "10.1093/nar/gkn202",
+    "10.3389/fphys.2017.00668",
+    "10.1038/ncomms13806",
+    "10.1038/msb4100141",
+    "10.1083/jcb.200405004",
+    "10.1093/nar/gkx346",
+    "10.1083/jcb.200209006",
+    "10.1093/nar/gkp1004"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1093/bioinformatics/btp698",
+      "problem": "Existing short-read aligners are inefficient or inapplicable for reads >200 bp, and hashing-based tools like BLAT and SSAHA2 are substantially slower in aligned bases per unit time.",
+      "method": "BWA-SW algorithm using FM-indices for both reference and query sequences, with dynamic programming between a prefix trie and prefix DAWG, accelerated by heuristic pruning of low-scoring matches and seed containment.",
+      "finding": "BWA-SW is as accurate as SSAHA2, more accurate than BLAT, and several to tens of times faster than both, with dramatically lower alignment error rates especially for longer reads.",
+      "dataset": "Simulated reads from human genome (100 bp–10,000 bp at 2–10% error rates, ~10 Mbp total per condition)",
+      "metric": "CPU time (seconds), Q20% (fraction confidently aligned), errAln% (alignment error rate)",
+      "baseline": "BLAT v34, SSAHA2 v2.4",
+      "result": "BWA-SW errAln 0.00–0.17% vs BLAT 0.00–5.47%; 3–40x faster than BLAT, 10–80x faster than SSAHA2"
+    },
+    {
+      "doi": "10.1038/nature12477",
+      "problem": "Understanding the biological processes generating somatic mutations in cancer is limited despite all cancers being caused by somatic mutations.",
+      "method": "Extracted mutational signatures from a 96-class substitution classification (6 base substitution types × 16 trinucleotide contexts) across 7,042 cancers using computational decomposition, validated by orthogonal sequencing and visual curation.",
+      "finding": "Identified 21 validated distinct mutational signatures; some are ubiquitous (Signatures 1A/1B in 25/30 cancer types), others are cancer-type specific; discovered localized hypermutation (kataegis) in many cancer types.",
+      "dataset": "4,938,362 mutations from 7,042 cancers of 30 classes (507 whole-genome, 6,535 exome sequences)",
+      "metric": "Signature validation rate, mutation prevalence per Mb",
+      "baseline": "",
+      "result": "21 of 27 signatures validated; mutation prevalence ranges from ~0.001/Mb to >400/Mb across cancer types"
+    },
+    {
+      "doi": "10.1093/nar/gkn202",
+      "problem": "Accurate prediction of MHC class I-peptide binding affinity across multiple alleles and peptide lengths (8–11 residues) for immunological applications.",
+      "method": "Artificial neural networks trained on quantitative affinity data from IEDB and eluted peptide data from SYFPEITHI for 55 MHC alleles, supplemented by position-specific scoring matrices for 67 additional HLA alleles, with a length approximation algorithm.",
+      "finding": "NetMHC-3.0 achieves high prediction accuracy validated on a large independent dataset, with 75–80% confirmed MHC binders in pathogen proteome predictions.",
+      "dataset": "IEDB + SYFPEITHI training data; 6,452 non-redundant 9-mer affinity measurements covering 32 HLA alleles for evaluation",
+      "metric": "AUC, Pearson correlation coefficient (PCC), sensitivity, positive predictive value (PPV)",
+      "baseline": "Previous NetMHC versions, directly trained 10-mer ANNs",
+      "result": "AUC=0.86, PCC=0.71 for 9-mers; 76% sensitivity, 78% PPV at IC50<500 nM threshold"
+    },
+    {
+      "doi": "10.3389/fphys.2017.00668",
+      "problem": "Early prediction of drug-induced pro-arrhythmic cardiotoxicity is critical, but current animal models have limited accuracy and raise ethical and translational concerns.",
+      "method": "In silico drug trials in a population of 1,213 human ventricular action potential models (ORd-based) for 62 reference compounds using pore-block IC50/Hill coefficient drug models, with comparison against rabbit wedge ECGs and hiPS-CM recordings.",
+      "finding": "Repolarization abnormalities in the population of models predict clinical TdP risk with higher accuracy than single-model biomarkers or animal models; drug-induced changes are consistent across in silico, ex vivo, and in vitro assays.",
+      "dataset": "62 reference compounds, 1,213 human ventricular AP models, rabbit wedge ECGs, hiPS-CM Ca2+-transient recordings",
+      "metric": "Accuracy, sensitivity, specificity for clinical TdP risk classification",
+      "baseline": "Single ORd model (17% sensitivity), APD prolongation-based classification (80% accuracy, 64% specificity)",
+      "result": "89% accuracy overall; 96% accuracy, 100% sensitivity, 92% specificity for high-risk vs safe drug classification"
+    },
+    {
+      "doi": "10.1038/ncomms13806",
+      "problem": "Genome-scale kinetic models of metabolism that faithfully recapitulate effects of multiple genetic interventions are needed for reliable design of overproducing microbial strains.",
+      "method": "Ensemble modeling approach with elementary kinetic representations, parameterized by a genetic algorithm simultaneously fitting fluxomic data from wild-type and 25 mutant strains across multiple growth conditions; 457 reactions, 337 metabolites, 295 regulatory interactions.",
+      "finding": "k-ecoli457 achieves substantially higher correlation with experimental product yields than FBA, MOMA, or maximum yield approaches, with 61% of predicted fluxes within experimental error ranges.",
+      "dataset": "E. coli wild-type and 25 mutant strains (4 growth conditions), 320 engineered strains spanning 24 product metabolites",
+      "metric": "Pearson correlation coefficient, fraction of predicted fluxes within experimental ranges",
+      "baseline": "FBA (r=0.18), MOMA (r=0.37), maximization of product yield (r=0.47)",
+      "result": "r=0.84 for product yields across 320 strains; 61% of fluxes within 1 SD of experimental data"
+    },
+    {
+      "doi": "10.1038/msb4100141",
+      "problem": "Quantifying how metabolic constraints and transcriptional regulation each contribute to determining metabolic gene activity in an integrated genome-scale model.",
+      "method": "Steady-state regulatory flux balance analysis (SR-FBA) using mixed integer linear programming to identify metabolic-regulatory steady states, with flux variability analysis to explore alternative solutions.",
+      "finding": "Metabolic constraints determine 45–51% of gene flux activity states while transcriptional regulation determines 13–20%; 36 genes are redundantly expressed; ~30% remain undetermined, suggesting metabolic variability.",
+      "dataset": "E. coli integrated metabolic-regulatory model under 110 minimal growth media (66 aerobic, 44 anaerobic)",
+      "metric": "Fraction of genes with determined expression/activity states, gene expression prediction accuracy",
+      "baseline": "Standard FBA (metabolic constraints only), Boolean regulatory model alone",
+      "result": "45–51% determined by metabolism, 13–20% by regulation, 36 redundantly expressed genes, ~30% undetermined"
+    },
+    {
+      "doi": "10.1083/jcb.200405004",
+      "problem": "Testing whether contractile myocytes sense their mechanical microenvironment and alter differentiation, organization, and morphology accordingly.",
+      "method": "C2C12 myoblasts cultured on collagen-coated polyacrylamide gels of varied elasticity (1–100+ kPa); AFM indentation of excised normal (C57) and dystrophic (mdx) mouse EDL muscle; immunofluorescence for myosin/actin striations.",
+      "finding": "Myosin/actin striations emerge only on substrates matching normal muscle stiffness (~12 kPa); not on glass, much softer, or stiffer gels including dystrophic-stiffness gels; adhesion strength increases monotonically with substrate stiffness.",
+      "dataset": "C2C12 myoblasts, C57 normal and mdx dystrophic mouse EDL muscle (n=387 AFM indentations)",
+      "metric": "Young's modulus (E, kPa), striation presence/absence, cell area, adhesion strength",
+      "baseline": "Glass substrates, non-physiological stiffness gels",
+      "result": "E_normal=12±4 kPa, E_mdx=18±6 kPa; striations only at ~12 kPa matching tissue stiffness"
+    },
+    {
+      "doi": "10.1093/nar/gkx346",
+      "problem": "Predicting B-cell epitopes from antigen sequences alone has seen limited accuracy improvement over the past decade, especially for sequence-only methods.",
+      "method": "Random forest regression trained on epitopes annotated from 160 non-redundant antibody-antigen crystal structures, using residue physicochemical properties and NetSurfP-predicted structural features in a sliding window.",
+      "finding": "BepiPred-2.0 significantly outperforms BepiPred-1.0 and LBtope on both structural epitope benchmarks and IEDB linear epitope data; training on structurally defined epitopes improves performance even for linear epitope prediction.",
+      "dataset": "160 non-redundant antigen-antibody crystal structures (PDB), IEDB linear epitope collection",
+      "metric": "AUC, AUC10%, positive predictive value (PPV), true positive rate (TPR)",
+      "baseline": "BepiPred-1.0 (AUC=0.57), LBtope (AUC=0.54), NetSurfP baseline (AUC=0.60)",
+      "result": "AUC=0.62, AUC10%=0.121 on structural epitopes (p<1e-6 vs all baselines)"
+    },
+    {
+      "doi": "10.1083/jcb.200209006",
+      "problem": "Invasive tumor dissemination is only incompletely attenuated by protease inhibitors, suggesting unknown compensatory migration mechanisms.",
+      "method": "3D collagen matrix migration assays with broad-spectrum protease inhibitor cocktail (MMP, serine, cathepsin inhibitors); time-lapse video and confocal microscopy in vitro; intravital multiphoton microscopy in mouse dermis in vivo.",
+      "finding": "Near-total protease inhibition induces a mesenchymal-to-amoeboid transition (MAT) with near-undiminished migration rates; cells switch from path-generating proteolytic to path-finding amoeboid squeezing through matrix gaps.",
+      "dataset": "HT-1080/MT1 fibrosarcoma cells, MDA-MB-231 breast carcinoma cells, mouse dermis (in vivo)",
+      "metric": "Migration speed, morphology transition percentage (mesenchymal vs amoeboid), collagen degradation",
+      "baseline": "Untreated proteolytic mesenchymal migration (no protease inhibitors)",
+      "result": "Near-undiminished migration rates under protease inhibition; conversion from spindle to amoeboid morphology"
+    },
+    {
+      "doi": "10.1093/nar/gkp1004",
+      "problem": "Providing a comprehensive, publicly accessible catalog of experimentally characterized immune epitopes to support immunology research and vaccine development.",
+      "method": "Manual curation by PhD-level curators from published literature following standardized guidelines, combined with direct investigator data submissions; complete redesign of database structure and querying interface for IEDB 2.0.",
+      "finding": "IEDB 2.0 covers ~99% of publicly available peptide epitope data for infectious agents (excluding HIV) and 93% for allergens, with both positive and negative experimental results captured.",
+      "dataset": "180,978 literature-curated experiments + 129,186 directly submitted experiments across all tested species",
+      "metric": "Coverage percentage of publicly available epitope data",
+      "baseline": "IEDB 1.0",
+      "result": "~99% coverage for infectious agent epitopes, 93% for allergen epitopes"
+    }
+  ],
+  "timestamp": "2026-03-05T14:38:34.047391",
+  "extraction_count": 10
+}

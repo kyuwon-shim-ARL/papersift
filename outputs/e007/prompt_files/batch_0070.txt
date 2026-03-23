@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1109/bibm.2018.8621314
+Title: Agent-based modeling of mesenchymal stem cells on a 3D-printed bio-device for the regenerative treatment of the infarcted myocardium
+Year: 2018
+Abstract: A myocardial infarction (MI) implies an obstruction of the blood flow due to a blockade in the coronary artery, which results in the cellular necrosis of the myocardium due to ischemia. Mesenchymal stem cells (MSCs) are non-differentiated cells with the ability to differentiate into any cell type. A regenerative treatment has been proposed for the regeneration of the infarcted myocardium, as the existing ones do not aim at the regeneration of the necrosed tissue. The treatment proposed is based on the design and construction of a 3D-printed biodevice, containing MSCs and other cell types, which can be later implanted on the patient's myocardium. A good understanding of the behavior of the cells in the biodevice is important to guide the treatment research. Thereby, the development of a computational model of the behavior of the MSC and other cell types used in the 3D-printed biodevice is carried out, allowing to better understand its dynamics and the effect that different variables have on it. An Agent-Based modeling (ABM) approach was used for developing a model that considers some fundamental MSC's characteristics and their interactions with the microenvironment, such as immunomodulatory properties, differentiation, and proliferation capacity. Results show that the emergent behavior of the cells in the model agrees with other cellular modeling results, indicating that the model is able to simulate processes that occur in the cellular microenvironment of the infarcted myocardium through the interactions of cells and that it allows the observation of emergent behaviors that can be helpful to determine the characteristics that favor the success of treatment with the 3D-printed biodevice.
+---
+
+---
+DOI: 10.1007/978-1-4939-9224-9_1
+Title: Agent-Based Modelling to Delineate Spatiotemporal Control Mechanisms of the Stem Cell Niche
+Year: 2019
+Abstract: Agent-based modelling (ABM) offers a framework to realistically couple subcellular signaling pathways to cellular behavior and macroscopic tissue organization. However, these models have been previously inaccessible to many systems biologists due to the difficulties with formulating and simulating multi-scale behavior. In this chapter, a review of the Compucell3D framework is presented along with a general workflow for transitioning from a well-mixed ODE model to an ABM. These techniques are demonstrated through a case study on the simulation of a Notch-Delta Positive Feedback, Lateral Inhibition (PFLI) gene circuit in the intestinal crypts. Specifically, techniques for gene circuit-driven hypothesis formation, geometry construction, selection of simulation parameters, and simulation quantification are presented.
+---
+
+---
+DOI: 10.3390/data4020071
+Title: Isolation, Characterization, and Agent-Based Modeling of Mesenchymal Stem Cells in a Bio-construct for Myocardial Regeneration Scaffold Design
+Year: 2019
+Abstract: Regenerative medicine involves methods to control and modify normal tissue repair processes. Polymer and cell constructs are under research to create tissue that replaces the affected area in cardiac tissue after myocardial infarction (MI). The aim of the present study is to evaluate the behavior of differentiated and undifferentiated mesenchymal stem cells (MSCs) in vitro and in silico and to compare the results that both offer when it comes to the design process of biodevices for the treatment of infarcted myocardium in biomodels. To assess in vitro behavior, MSCs are isolated from rat bone marrow and seeded undifferentiated and differentiated in multiple scaffolds of a gelled biomaterial. Subsequently, cell behavior is evaluated by trypan blue and fluorescence microscopy, which showed that the cells presented high viability and low cell migration in the biomaterial. An agent-based model intended to reproduce as closely as possible the behavior of individual MSCs by simulating cellular-level processes was developed, where the in vitro results are used to identify parameters in the agent-based model that is developed, and which simulates cellular-level processes: Apoptosis, differentiation, proliferation, and migration. Thanks to the results obtained, suggestions for good results in the design and fabrication of the proposed scaffolds and how an agent-based model can be helpful for testing hypothesis are presented in the discussion. It is concluded that assessment of cell behavior through the observation of viability, proliferation, migration, inflammation reduction, and spatial composition in vitro and in silico, represents an appropriate strategy for scaffold engineering.
+---
+
+---
+DOI: 10.3389/978-2-88945-749-6
+Title: The Individual Microbe: Single-Cell Analysis and Agent-Based Modelling
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jpowsour.2025.236573
+Title: Real-time replication of battery cells using digital twins: A novel experimental methodology to measure current inhomogeneity in <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" altimg="si52.svg" display="inline" id="d1e2615"> <mml:mi>n</mml:mi> </mml:math> -parallel configurations
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/978-3-319-44680-6_66
+Title: Multiscale Modeling of Malaria-Infected Red Blood Cells
+Year: 2020
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1101/452433
+Title: A multiscale model of epigenetic heterogeneity reveals the kinetic routes of pathological cell fate reprogramming
+Year: 2018
+Abstract: Abstract The inherent capacity of somatic cells to switch their phenotypic status in response to damage stimuli in vivo might have a pivotal role in ageing and cancer. However, how the entry-exit mechanisms of phenotype reprogramming are established remains poorly understood. In an attempt to elucidate such mechanisms, we herein introduce a stochastic model of combined epigenetic regulation (ER)-gene regulatory network (GRN) to study the plastic phenotypic behaviours driven by ER heterogeneity. Furthermore, based on the existence of multiple scales, we formulate a method for stochastic model reduction, from which we derive an efficient hybrid simulation scheme that allows us to deal with such complex systems. Our analysis of the coupled system reveals a regime of tristability in which pluripotent stem-like and differentiated steady-states coexist with a third indecisive state. Crucially, ER heterogeneity of differentiation genes is for the most part responsible for conferring abnormal robustness to pluripotent stem-like states. We then formulate epigenetic heterogeneity-based strategies capable of unlocking and facilitating the transit from differentiation-refractory (pluripotent stem-like) to differentiation-primed epistates. The application of the hybrid numerical method validated the likelihood of such switching involving solely kinetic changes in epigenetic factors. Our results suggest that epigenetic heterogeneity regulates the mechanisms and kinetics of phenotypic robustness of cell fate reprogramming. The occurrence of tunable switches capable of modifying the nature of cell fate reprogramming from pathological to physiological might pave the way for new therapeutic strategies to regulate reparative reprogramming in ageing and cancer. Author summary Certain modifications of the structure and functioning of the protein/DNA complex called chromatin can allow adult, fully differentiated cells to adopt a stem cell-like pluripotent state in a purely epigenetic manner, not involving changes in the underlying DNA sequence. Such reprogramming-like phenomena may constitute an innate reparative route through which human tissues respond to injury and could also serve as a novel regenerative strategy in human pathological situations in which tissue or organ repair is impaired. However, it should be noted that in vivo reprogramming would be capable of maintaining tissue homeostasis provided the acquisition of pluripotency features is strictly transient and accompanied by an accurate replenishment of the specific cell types being lost. Crucially, an excessive reprogramming to pluripotency in the absence of controlled re-differentiation would impair the repair or the replacement of damaged cells, thereby promoting pathological alterations of cell fate. A mechanistic understanding of how the degree of chromatin plasticity dictates the reparative versus pathological behaviour of in vivo reprogramming to rejuvenate aged tissues while preventing tumorigenesis is urgently needed, including especially the intrinsic epigenetic heterogeneity of the tissue resident cells being reprogrammed. We here introduce a novel method that mathematically captures how epigenetic heterogeneity is actually the driving force that governs the routes and kinetics to entry into and exit from a pathological pluripotent-like state. Moreover, our approach computationally validates the likelihood of unlocking chronic, unrestrained pluripotent states and drive their differentiation down the correct path by solely manipulating the intensity and direction of few epigenetic control switches. Our approach could inspire new therapeutic approaches based on in vivo cell reprogramming for efficient tissue regeneration and rejuvenation and cancer treatment.
+---
+
+---
+DOI: 10.1016/j.biopha.2025.118107
+Title: Partial versus whole tumor-volume irradiation in combination with immunotherapy: Comparable outcomes in immunosuppressed mouse models of oral squamous cell carcinoma
+Year: 2025
+Abstract: Radiotherapy is a standard therapy for oral squamous cell carcinoma (OSCC) with immunomodulatory potential. Due to high lymphocyte radiosensitivity, partial tumor-volume irradiation (pIR), targeting only part of the tumor, is being explored for immunomodulation. This study compared the effects of whole tumor-volume irradiation (IR) and pIR, targeting approximately 50 % of the tumor volume, in combination with anti-PD-1 immune checkpoint inhibitors (ICI). The therapeutic efficacy of a single 15 Gy IR or pIR dose combined with anti-PD-1 ICI was evaluated in two immune cold murine OSCC models: human papillomavirus (HPV)-negative MOC1 and HPV-positive MOC1-HPV K1 stably expressing HPV-16 oncogenes E6/E7. Additionally, immune cell populations in the tumor microenvironment (TME) were analyzed using flow cytometry. Both IR and pIR induced transient immune cell infiltration in the TME. However, pIR led to significantly lower tumor growth inhibition than IR. While IR + ICI failed to improve survival compared to IR alone, pIR + ICI significantly prolonged survival compared to pIR alone in the MOC1 model, along with increase in cytotoxic T cell infiltration. In the MOC1-HPV K1 model, responses varied. Responding tumors were enriched with effector memory T cells, whereas non-responders exhibited increased neutrophil (MDSCs) and monocyte-derived dendritic cells infiltration. The study indicates that while pIR has immunomodulatory potential, its effects are comparable to IR in the tested settings. Further research is needed to optimize dosing and scheduling for pIR and anti-PD-1 ICI. Additionally, combination with other immunotherapies could be explored in further studies to enhance treatment efficacy in immune cold OSCC models.
+---
+
+---
+DOI: 10.5376/cmb.2024.14.0016
+Title: Dynamic Modeling in Systems Biology: From Pathway Analysis to Whole-Cell Simulations
+Year: 2024
+Abstract: Systems biology is an important research field for understanding complex biological systems. By integrating various omics data and computational models, it reveals the interactions and dynamic behaviors of different biomolecules within the organism. Dynamic modeling, as a core tool in systems biology, helps researchers construct multi-scale biological system models through analysis of metabolic pathways, signal transduction pathways, etc., extending from the cellular level to whole cell simulations. This study is based on the latest research progress and explores the application of dynamic modeling in gene regulatory networks, drug discovery, personalized medicine, and synthetic biology, with a particular focus on the challenges and prospects of whole cell simulation. Dynamic modeling helps to enhance the understanding of biological systems and provides new solutions for fields such as personalized therapy and drug development. Future research will focus on how to address the challenges of data integration, model complexity, and computational power to drive further development in systems biology.
+---
+
+---
+DOI: 10.1016/j.jhazmat.2025.139883
+Title: A novel approach for predicting aflatoxin B1 production using regression models and whole-cell biosensors in moldy maize and peanut kernels
+Year: 2025
+Abstract: Aspergillus flavus is a major cause of post-harvest losses in maize and peanuts through aflatoxin B1 (AFB1) contamination, highlighting the urgent need for sensitive and scalable early detection strategies. In this study, we developed a transcriptome-guided whole-cell biosensor array by integrating eight infection-induced promoters, identified from E. coli transcriptomic responses to volatile organic compounds, into calcium alginate-immobilized bioreporters coupled with machine learning regression models. Time-resolved bioluminescence signals were used to train ensemble regressors for the first time, including XGBoost, CatBoost, and RandomForest, for quantitative prediction of infection stages and AFB1 levels. XGBoost consistently achieved superior performance with R² values of 0.94 and 0.98 in internal validation for maize infection staging and AFB1 quantification and maintained strong generalization in external validation with independent A. flavus isolates (R² = 0.92 and 0.91). Comparable results were observed in peanuts, where XGBoost achieved R² = 0.94 and 0.97 internally and 0.92 and 0.86 externally, confirming robustness across different substrates and fungal strains. Direct comparison with our previous biosensors constructed from 14 general stress-responsive promoters revealed that the novel biosensors based on 8 new transcriptome-guided promoters yielded markedly higher predictive accuracy, particularly under external validation conditions. Feature importance analysis revealed that early host responses, including transcriptional regulation and biofilm formation, served as key predictive features, thereby providing mechanistic interpretability not attainable with conventional optical or chemical assays. Together, these findings establish a biologically informed, non-invasive, and cost-efficient biosensing platform that integrates promoter-level transcriptomic insights with ensemble learning, offering a versatile approach for real-time aflatoxin risk assessment and scalable food safety monitoring across diverse agroecosystems.
+---
+
+---
+DOI: 10.1016/j.ijhydene.2025.151586
+Title: In- silico guided tailoring of whole cells exploring the Genome-scale metabolic model for production of bio-hydrogen using lignocellulose derived sugars: Prioritizing higher growth rate and productivity
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.cels.2025.101392
+Title: Accelerated design of Escherichia coli reduced genomes using a whole-cell model and machine learning
+Year: 2025
+Abstract: Whole-cell models (WCMs) are multi-scale computational models that aim to simulate the function of all genes and processes within a cell. This approach is promising for designing genomes tailored for specific tasks. However, a limitation of WCMs is their long runtime. Here, we show how machine learning (ML) surrogates can be used to address this limitation by training them on WCM data to accurately predict cell division. Our ML surrogate achieves a 95% reduction in computational time compared with the original WCM. We then show that the surrogate and a genome-design algorithm can generate an in silico-reduced E. coli cell, where 40% of the genes included in the WCM were removed. The reduced genome is validated using the WCM and interpreted biologically using Gene Ontology analysis. This approach illustrates how the holistic understanding gained from a WCM can be leveraged for synthetic biology tasks while reducing runtime. A record of this paper's transparent peer review process is included in the supplemental information.
+---
+
+---
+DOI: 10.1080/17513758.2021.1925753
+Title: Dynamic mechanism of multiple bursting patterns in a whole-cell multiscale model with calcium oscillations
+Year: 2021
+Abstract: The dynamic mechanism of a whole-cell model containing electrical signalling and two-compartment Ca<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:msup><mml:mi></mml:mi><mml:mrow><mml:mn>2</mml:mn><mml:mo>+</mml:mo></mml:mrow></mml:msup></mml:math> signalling in gonadotrophs is investigated. The transition from spiking to bursting by Hopf bifurcation of the fast subsystem about the slow variable is detected via the suitable parameters. When the timescale of K<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:msup><mml:mi></mml:mi><mml:mo>+</mml:mo></mml:msup></mml:math> gating variable is changed, the relaxation oscillation with locally small fluctuation, chaotic bursting and mixed-mode bursting (MMB) are revealed through chaos. In addition, the bifurcation of <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>[</mml:mo><mml:msup><mml:mrow><mml:mi>C</mml:mi><mml:mi>a</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn><mml:mo>+</mml:mo></mml:mrow></mml:msup><mml:msub><mml:mo>]</mml:mo><mml:mi>i</mml:mi></mml:msub></mml:math> with regard to <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>[</mml:mo><mml:mi>I</mml:mi><mml:msub><mml:mi>P</mml:mi><mml:mn>3</mml:mn></mml:msub><mml:mo>]</mml:mo></mml:math> is analysed, showing periodic solutions, torus, period doubling solutions and chaos. Finally, hyperpolarizations and torus canard-like behaviours of the full system under a set of specific parameters are elucidated.
+---
+
+---
+DOI: 10.1007/s43393-021-00059-3
+Title: Review of construction methods for whole-cell computational models
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.bpj.2022.11.2281
+Title: The onset of whole-cell modeling using the martini force field
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1101/435628
+Title: An <i>In-Silico</i> Mammalian Whole-Cell Model Reveals the Influence of Spatial Organization on RNA Splicing Efficiency
+Year: 2018
+Abstract: Spatial organization is a characteristic of eukaryotic cells, achieved by utilizing both membrane-bound and non-bound organelles. We model the effects of this organization and of organelle heterogeneity on RNA splicing (the process of making translationally-ready messenger RNA) and on splicing particles (the building blocks of splicing machinery) in mammalian cells. We constructed a spatially-resolved whole HeLa cell model from various experimental data and developed reaction networks to describe the RNA splicing processes. We incorporated these networks into our whole-cell model and performed stochastic simulations for up to 15 minutes of biological time. We find that the number of nuclear pore complexes affects the number of assembled splicing particles; that a slight increase of splicing particle localization in nuclear speckles (non-membrane-bound or- ganelles) leads to disproportionate enhancement in the mRNA splicing and reduction in the transcript noise; and that compartmentalization is critical for a correctly-assembled particle yield. Our model also predicts that the distance between genes and speckles has a considerable effect on effective mRNA production rate, further emphasizing the importance of genome organization around speckles. The HeLa cell model, including organelles and subcompartments, provides an adaptable foundation to study other cellular processes which are strongly modulated by spatio-temporal heterogeneity. Significance Statement The spliceosome is one of the most complex cellular machineries that cuts and splices the RNA code in eukaryotic cells. It dynamically assembles, disassembles, and its components are formed in multiple compartments. The efficiency of splicing process depends on localization of its components in nuclear membrane-less organelles. Therefore, a computational model of spliceosomal function must contain a spatial model of the entire cell. However, building such a model is a challenging task, mainly due to the lack of homogeneous experimental data and a suitable computational framework. Here, we overcome these challenges and present a whole HeLa cell model, with nuclear, subnuclear, and extensive cytoplasmic structures. The three-dimensional model is supplemented by reaction-diffusion processes to shed light on the function of the spliceosome.
+---
+
+---
+DOI: 10.2139/ssrn.4052258
+Title: Optimization of Biodiesel Production from Waste Cooking Oil Using Rhizopus Arrhizus as a Whole-Cell Biocatalyst and Kinetic Modelling and Thermodynamic Analysis
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0016-5085(22)61555-5
+Title: Su1659: DEMONSTRATING WHOLE-ORGAN LINEAGE TRACING OF FLUORESCENT MARKERS IN INTESTINAL STEM CELLS USING WIDEFIELD FLUORESCENCE IMAGING IN A ZFP148CREERT2 MOUSE MODEL
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/iaeac.2018.8577598
+Title: Research on the Problem of Virtual Cell Reconfiguration based on Resource Element under New Task Insertion
+Year: 2018
+Abstract: Facing the flexible production path caused by multifunction equipment, in order to solve the problem of virtual cell reconfiguration under new task insertion, this paper proposed a new method termed resource elements to define equipment capabilities. First, use resource elements to describe equipment capacity and parts demand. Scecondly, calculate the fitness of new parts by similarity calculation formula, and determine if the virtual cells needs to be reconfigured, a mathematical model for virtual cell reconfiguration with the least production cost, equipment load deviation and cell adjustment amplitude has been built, and the NSGA-III algorithm is introduced to solve the multi-objective function, a series of nondominated solutions are obtained. Finally, the example demonstrate the feasibility and effectiveness of the virtual cell reconfiguration method based on resource elements under new task insertion.
+---
+
+---
+DOI: 10.1109/icsp48669.2020.9321051
+Title: Simulation of water diffusion through a simple virtual cardiac cell model: optimization of Monte Carlo parameters and observation by simulated MRI
+Year: 2020
+Abstract: International audience
+---
+
+---
+DOI: 10.1080/10618562.2024.2344611
+Title: A Direct Implicit Discretization Approach for Arbitrary Non-conformal Interface by Using a Virtual Cell
+Year: 2023
+Abstract: A direct implicit discretization approach is presented for an arbitrary non-conformal interface by using a virtual cell on unstructured meshes. In this study, the virtual cell is supposed to be located at the neighbour of a target cell adjacent to the non-conformal interface. Any computational value on a virtual cell is formulated as a linear combination of values on contribution cells, which are determined by the nearest neighbouring cells or surface intersecting cells. The linear formulation simplifies the process of implementing implicit discretization for the governing equations. The approach is simple and efficient for information transfer through the interface because it avoids mesh stitching or iterations based on explicit discretization for treating topologically inconsistent meshes. Several numerical tests verify that the proposed method is capable and efficient for dealing with the arbitrary non-conformal interface.
+---
+
+---
+DOI: 10.1145/2975167.2975207
+Title: Computational Framework for in-Silico Study of Virtual Cell Biology via Process Simulation and Multiscale Modeling
+Year: 2016
+Abstract: The behavior of biological cells is governed by a myriad of bio-chemical pathways, whose function within the cell is to elicit a specific behavior. Each biological pathway is defined by dozens of interacting molecular species and hundreds of chemical reactions. A computational framework for high-fidelity simulation study of such complex pathways is invaluable to understanding the behavior of cells, effective drug design, studying various pathological ailments, etc. All-molecule stochastic simulation of such pathways is more accurate in reproducing the behavior of biological cells than the simulation tools based on ODE and PDE (Ordinary and Partial Differential Equations) modeling. However, the process is computationally demanding as just a single cell's function may be governed by dozens of biochemical pathways, hundreds of reactions, thousands of chemical species, and millions of molecules.
+---
+
+---
+DOI: 10.1101/146225
+Title: Compartmental and spatial rule-based modeling with <i>Virtual Cell</i> (VCell)
+Year: 2017
+Abstract: Abstract In rule-based modeling, molecular interactions are systematically specified in the form of reaction rules that serve as generators of reactions. This provides a way to account for all the potential molecular complexes and interactions among multivalent or multistate molecules. Recently, we introduced rule-based modeling into the Virtual Cell (VCell) modeling framework, permitting graphical specification of rules and merger of networks generated automatically (using the BioNetGen modeling engine) with hand-specified reaction networks. VCell provides a number of ordinary differential equation (ODE) and stochastic numerical solvers for single-compartment simulations of the kinetic systems derived from these networks, and agent-based network-free simulation of the rules. In this work, compartmental and spatial modeling of rule-based models has been implemented within VCell. To enable rule-based deterministic and stochastic spatial simulations and network-free agent-based compartmental simulations, the BioNetGen and NFSim engines were each modified to support compartments. In the new rule-based formalism, every reactant and product pattern and every reaction rule are assigned locations. We also introduce the novel rule-based concept of molecular anchors. This assures that any species that has a molecule anchored to a predefined compartment will remain in this compartment. Importantly, in addition to formulation of compartmental models, this now permits VCell users to seamlessly connect reaction networks derived from rules to explicit geometries to automatically generate a system of reaction-diffusion equations. These may then be simulated using either the VCell partial differential equations (PDE) deterministic solvers or the Smoldyn stochastic simulator.
+---
+
+---
+DOI: 10.21203/rs.3.rs-1297929/v1
+Title: scSTAR reveals hidden heterogeneity with a real-virtual cell pair structure across single cell samples
+Year: 2022
+Abstract: <title>Abstract</title> We present scSTAR, single-cell States Transfer Across-sample of RNA-seq data, which estimates individual cell state dynamics by creating real-virtual cell pairs across samples/conditions, therefore each cell can act as its own control when comparing between conditions. Using simulated and published scRNA-seq datasets, we show that new cell subtypes/functions which are more linked to the biological problem under investigation are discovered, especially when current methods give blur patterns.
+---
+
+---
+DOI: 10.48550/arxiv.2508.02276
+Title: CellForge: Agentic Design of Virtual Cell Models
+Year: 2025
+Abstract: Virtual cell modeling aims to predict cellular responses to diverse perturbations but faces challenges from biological complexity, multimodal data heterogeneity, and the need for interdisciplinary expertise. We introduce CellForge, a multi-agent framework that autonomously designs and synthesizes neural network architectures tailored to specific single-cell datasets and perturbation tasks. Given raw multi-omics data and task descriptions, CellForge discovers candidate architectures through collaborative reasoning among specialized agents, then generates executable implementations. Our core contribution is the framework itself: showing that multi-agent collaboration mechanisms - rather than manual human design or single-LLM prompting - can autonomously produce executable, high-quality computational methods. This approach goes beyond conventional hyperparameter tuning by enabling entirely new architectural components such as trajectory-aware encoders and perturbation diffusion modules to emerge from agentic deliberation. We evaluate CellForge on six datasets spanning gene knockouts, drug treatments, and cytokine stimulations across multiple modalities (scRNA-seq, scATAC-seq, CITE-seq). The results demonstrate that the models generated by CellForge are highly competitive with established baselines, while revealing systematic patterns of architectural innovation. CellForge highlights the scientific value of multi-agent frameworks: collaboration among specialized agents enables genuine methodological innovation and executable solutions that single agents or human experts cannot achieve. This represents a paradigm shift toward autonomous scientific method development in computational biology. Code is available at https://github.com/gersteinlab/CellForge.
+---
+
+---
+DOI: 10.1038/s41592-025-02951-5
+Title: The virtual cell
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.cherd.2022.03.038
+Title: Cost-effectiveness analysis in the manufacture of allogeneic human induced pluripotent cells in Japan by agent-based modeling
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/cisp-bmei.2018.8633048
+Title: Agent-Based Modelling of Pattern Formation in Pluripotent Stem Cells: Initial Experiments and Results
+Year: 2018
+Abstract: The underlying mechanisms of pluripotent stem cell behaviours are complicated and not fully understood. However, this need not be a barrier to prediction of pattern formation in colonies of cells if a high-level model of their social interaction decisions gives sufficient predictive power. This is analogous to prediction of behaviours in crowds of people, where we cannot model individuals in detail, but we can predict aggregate crowd behaviour from comparatively simple agent-based models of their social conventions. In this research, agent-based modelling was applied to study pattern formation in pluripotent stem cells. The aim of this study is to develop a modelling approach towards investigating the social and dynamic behaviours of pluripotent stem cells from their high-level features. We establish six agent-based models with different behavioural protocols and present the results of a set of experiments. Simulated experiments provide evidence of potential behavioural rules of stem cells. This study provides an intuitive framework for the investigation of social pattern behaviours in pluripotent stem cells.
+---
+
+---
+DOI: 10.1109/bibe.2019.00170
+Title: Investigating Motility and Pattern Formation in Pluripotent Stem Cells Through Agent-Based Modeling
+Year: 2019
+Abstract: Understanding and predicting the pattern formation in groups of pluripotent stem cells has the potential to improve efficiency and efficacy of stem cell therapies. However, the underlying molecular mechanisms of pluripotent stem cell behaviors are highly complex and are currently still not fully understood. A key practical question is whether deep biological modelling of the cells is essential to predict their pattern formation, or whether there is sufficient predictive power in simply modelling their behaviors and interactions at a higher level. This study focuses on the social interactions and behaviors of pluripotent stem cells at a high-level to predict aggregate crowd behaviors within a level of uncertainty. Agent-based modelling was applied to study the pattern formation in pluripotent stem cells. Five models were established to test four biologically plausible rules of cell motility in terms of: a) velocity, b) directional persistence time, c) directional movements, and d) border effect. We found that it is possible that cells' directional movements based on local density play an important role of the pattern formation, and pattern formation in pluripotent stem cells is governed by a complex combination of rules in our agent-based model simulations, which account for much of the variability observed in experimental findings.
+---
+
+---
+DOI: 10.1016/j.jcyt.2020.03.263
+Title: Enhanced stability of cell-based products with recombinant human serum albumin in combination with an optimized inclusion of cryoprotective agents in a chemically defined cryoprotective media
+Year: 2020
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.7551/978-0-262-33936-0-ch090
+Title: Eukaryo: An Agent-based, Interactive Simulation of a Eukaryotic Cell
+Year: 2016
+Abstract: Eukaryo is a 3D, interactive simulation of a eukaryotic cell. In comparison to existing cell simulations, our model illustrates the structures and processes within a biological cell with increased fidelity and a higher degree of real-time interactivity using a virtual reality environment. Implemented in a game engine, Eukaryo is a hybrid model that combines agent-based and mathematical modelling. Through the use of visual scripting, Eukaryo incorporates both agent-based modelling and mathematical representations to describe gene expression, energy production and waste removal within the cell in a highly visual, interactive simulation environment. With the help of virtual reality displays, users can be immersed in the crowded spaces of biomolecular worlds and observe metabolic reactions at a high level of detail. Compared to traditional media, such as illustrations and videos, Eukaryo offers superior representations of cellular architecture, its components and dynamics of the machineries of life.
+---
+
+---
+DOI: 10.3390/math11081824
+Title: Multiple Myeloma Cell Simulation Using an Agent-Based Framework Coupled with a Continuous Fluid Model
+Year: 2023
+Abstract: Bone marrow mechanical conditions play a key role in multiple myeloma cancer. The complex mechanical and chemical conditions, as well as the interactions with other resident cells, hinder the development of effective treatments. Agent-based computational models, capable of defining the specific conditions for every single cell, can be a useful tool to identify the specific tumor microenvironment. In this sense, we have developed a novel hybrid 3D agent-based model with coupled fluid and particle dynamics to study multiple myeloma cells’ growth. The model, which considers cell–cell interactions, cell maturation, and cell proliferation, has been implemented by employing user-defined functions in the commercial software Fluent. To validate and calibrate the model, cell sedimentation velocity and cell proliferation rates have been compared with in vitro results, as well as with another previously in-house developed model. The results show that cell proliferation increased as cell–cell, and cell–extracellular matrix interactions increased, as a result of the reduction n maturation time. Cells in contact form cell aggregates, increasing cell–cell interactions and thus cell proliferation. Saturation in cell proliferation was observed when cell aggregates increased in size and the lack of space inhibited internal cells’ proliferation. Compared with the previous model, a huge reduction in computational costs was obtained, allowing for an increase in the number of simulated cells.
+---
+
+---
+DOI: 10.1101/2023.06.30.547165
+Title: ISiCell: involving biologists in the design process of agent-based models in cell biology
+Year: 2023
+Abstract: Abstract Agent-based models are commonly used in biology to study tissue-scale phenomena by reproducing the individual behavior of the cells. They offer the possibility to study cellular biology at the individual cell scale to explore the basic behavior of cells which are responsible of the emergence of more complex phenomena at the tissue scale. Additionally, they can produce a predictive tool that will help taking decisions for biologic experiments based on in silico simulations. However these models require a good intercomprehension between the biologists and the modelers and thus it may take weeks or months to end up providing a usable prototype. To address this limitation, we propose a new methodology to facilitate the dialog between biologists and modelers and improve biologists’ involvement in the design of the model. For this purpose, UML diagrams, in particular, state-transition and activity diagrams, are used. They allow a better comprehension of the model for the biologists and offer a general frame for structuring models. Visualization of simulations is also used to have qualitative feedbacks from the biologist on the model. They are instrumental to validate or refine the prototype before exploring it. Alongside this methodology, we propose a web platform that enables to build state-transition and activity diagrams to describe a model and translate them into code. The generated code is then compiled on-the-fly and simulations are ready to visualize and explore. The platform also disposes of tools to directly visualize and manually explore the model. These tools allow for qualitative validation of the model and additional interaction with the biologists. Finally in this article, we show the capacity of our platform to reproduce models from the literature and to build new models starting from workshops with biologists. Its range of application is wide and includes immunology, oncology or cell biology. Author summary We developed a methodology based on diagrams to facilitate the dialog between computer scientists and biologists when building in silico models. The main idea is to limit misunderstandings and improve the involvement of the biologists in the prototyping process. For this purpose, we use visual methods to simplify the modeling phase. Alongside this methodology, we propose a web platform, called ISiCell, which enables to visually code thanks to diagrams that will be translated into code. The platform allows for compiling the generated code on the fly and to visualize and explore the model directly with the platform. The strong advantage of the platform is that one day workshop biologist/modeler allows to build new models. Additionally, we were able to reproduce models from the literature within the modeling platform showing the versatility of the tool. Our long-term objective is to use our methodology and platform in new contexts to develop new models. We intend the make the platform more user friendly in order to expand the community of users. Involving biologists in the conception of in silico models might improve their acceptability in the community.
+---
+
+---
+DOI: 10.1101/2024.09.05.611243
+Title: On the equivalence between agent-based and continuum models for cell population modeling. Application to glioblastoma evolution in microfluidic devices
+Year: 2024
+Abstract: A bstract Mathematical models are invaluable tools for understanding the mechanisms and interactions that control the behavior of complex systems. Modeling a problem as cancer evolution includes many coupled phenomena being therefore impossible to obtain sufficient experimental results to fully evaluate all possible conditions. In this work, we focus on Agent-Based Models (ABMs), as these models allow to obtain more complete and interpretable information at the individual level than other types of in silico models. However, ABMs, need many parameters, requiring more information at the cellular and environmental levels to be calibrated. To overcome this problem we propose a complementary approach to traditional calibration methods. We used existent continuum models able to reproduce experimental data, validated and with fitted parameters, to establish relationships between parameters of both, continuum and agent-based models, to simplify and improve the process of adjusting the parameters of the ABM. With this approach, it is possible to bridge the gap between both kinds of models, allowing to work with them simultaneously and take advantage of the benefits of each of them. To illustrate this methodology, the evolution of glioblastoma (GB) is modeled as an example of application. The resulting ABM obtains very similar results to those previously obtained with the continuum model, replicating the main histopathological features (the formation of necrotic cores and pseudopalisades) appearing in several different in vitro experiments in microfluidic devices, as we previously obtained with continuum models. However, ABMs have additional advantages: since they also incorporates the inherent random effects present in Biology, providing a more natural explanation and a deeper understanding of biological processes. Moreover, additional relevant phenomena can be easily incorporated, such as the mechanical interaction between cells or with the environment, angiogenic processes and cell concentrations far from the continuum requirement as happens, for intance, with immune cells.
+---
+
+---
+DOI: 10.1016/b978-0-12-822546-2.00021-6
+Title: Systems biology modeling of endothelial cell and macrophage signaling in angiogenesis in human diseases
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jaci.2015.12.088
+Title: Inhibition of Inflammation and Mucus Production By Bordetella Pertussis Whole-Cell Vaccine in a Murine Model of Allergic Rhinitis
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1001/jamapediatrics.2016.2819
+Title: Modeling the Effects of Priming With the Whole-Cell Bordetella Pertussis Vaccine—Reply
+Year: 2016
+Abstract: Our website uses cookies to enhance your experience. By continuing to use our site, or clicking "Continue," you are agreeing to our Cookie Policy | Continue JAMA Pediatrics HomeNew OnlineCurrent IssueFor Authors Podcast Publications JAMA JAMA Network Open JAMA Cardiology JAMA Dermatology JAMA Health Forum JAMA Internal Medicine JAMA Neurology JAMA Oncology JAMA Ophthalmology JAMA Otolaryngology–Head & Neck Surgery JAMA Pediatrics JAMA Psychiatry JAMA Surgery Archives of Neurology & Psychiatry (1919-1959) JN Learning / CMESubscribeJobsInstitutions / LibrariansReprints & Permissions Terms of Use | Privacy Policy | Accessibility Statement 2023 American Medical Association. All Rights Reserved Search All JAMA JAMA Network Open JAMA Cardiology JAMA Dermatology JAMA Forum Archive JAMA Health Forum JAMA Internal Medicine JAMA Neurology JAMA Oncology JAMA Ophthalmology JAMA Otolaryngology–Head & Neck Surgery JAMA Pediatrics JAMA Psychiatry JAMA Surgery Archives of Neurology & Psychiatry Input Search Term Sign In Individual Sign In Sign inCreate an Account Access through your institution Sign In Purchase Options: Buy this article Rent this article Subscribe to the JAMA Pediatrics journal
+---
+
+---
+DOI: 10.1016/s0959-8049(16)32796-4
+Title: Whole-Cell SELEX method modification for generation of nucleotide-modified RNA-aptamers to the cell surface: Application in Burkitt lymphoma versus non-malignant lymphoblastoid cells model
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.bpj.2016.11.3086
+Title: Whole-Cell Simulations of mRNA Production in Eukaryotic Cell Models
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1200/jco.2017.35.15_suppl.e14542
+Title: Antitumor effect of a whole tumor cell vaccine expressing human fibroblast activation protein in murine tumor models.
+Year: 2017
+Abstract: e14542 Background: Immunosuppressive factors in the tumor microenvironment reduce the therapeutic efficacy of cancer vaccines; therefore, dampening the tumor immunosuppressive environment while activating antitumor immunity should be a useful approach for cancer therapy. Cancer-associated fibroblasts (CAFs) are among the most important cellular components of the tumor microenvironment and play an important role in the development and progression of tumors. Fibroblast activation protein α (FAPα) is a type II transmembrane protein specifically expressed by CAFs in most epithelial cancers. Gene sequence homology between human and murine FAPα is 90%. Heterogeneity of genes in the evolution of the formation of such nuances can be utilized to break immune tolerance, enhance immunogenicity, induce tumour cell autoimmune responses and thus inhibit tumor growth. Methods: Tumor cells were transfected with human FAPα plasmids employing the cationic lipid DOTAP. Its antitumor effects were investigated in three established tumor models. The potential immune mechanisms were investigated through adoptive immunotherapy and 51 Cr release assay. The distributions of the immune cells in the tumor microenvironment were detected by immunohistochemical staining and flow cytometry. Results: Our results shown that whole tumor cell vaccine expressing human FAPα significantly inhibit tumor growth and prolong the survival of tumor bearing mice. This antitumor immune response was involved both of cellular and humoral immune responses. FAPα specific neutralizing antibodies were found in the serum of vaccinated mice and CAFs were significantly reduced within the tumors. Furthermore, this vaccine enhanced the infiltration of CD4+ T cells and CD8+ T cells, and suppressed the accumulation of immunosuppressive cells in the tumor microenvironment. Conclusions: These findings suggest that whole tumor cell vaccine expressing human FAPα inhibit tumor growth by producing FAPα specific neutralizing antibodies and CTLs, and targeting tumor cells and CAFs. These observations provide a new strategy for the clinical use of genetically modified tumor cells as cancer vaccines.
+---
+
+---
+DOI: 10.1016/j.bpj.2018.11.926
+Title: A Computational Human Whole-Cell Model Reveals the Effects of Spatial Organization on RNA Splicing
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.5753/bsb_estendido.2018.8796
+Title: Development of a framework for whole-cell model creation
+Year: 2018
+Abstract: The use of whole-cell models in research has the potential to be a powerful tool for scientific discovery, allowing researchers to test hypotheses faster than using in-vitro or in vivo methods. Such models can be considered the equivalent of Computer Aided Design for Biology. However, given their complexity, it is still difficult to employ them as an instrument in investigations. In order to solve this problem, we are developing a framework with the purpose to guide and help scientists through the process of creating whole-cell models faster, enabling them to use these tools as part of their research. This paper brings details of the early stages of the framework’s development process.
+---
+
+---
+DOI: 10.1038/s41467-020-15994-3
+Title: Author Correction: Designing minimal genomes using whole-cell models
+Year: 2020
+Abstract: An amendment to this paper has been published and can be accessed via a link at the top of the paper.
+---
+
+---
+DOI: 10.3760/cma.j.issn.1674-845x.2017.08.003
+Title: Application of the Whole-cell Patch Clamp Combined with Single-cell RT-PCR in an NMDA-induced Glaucoma Mouse Model of the G-protein Pathway in Retinal ON-type Bipolar Cells
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1021/acssynbio.0c00515
+Title: Testing Theoretical Minimal Genomes Using Whole-Cell Models
+Year: 2021
+Abstract: The minimal gene set for life has often been theorized, with at least ten produced for <i>Mycoplasma genitalium</i> (<i>M. genitalium</i>). Due to the difficulty of using <i>M. genitalium</i> in the lab, combined with its long replication time of 12-15 h, none of these theoretical minimal genomes have been tested, even with modern techniques. The publication of the <i>M. genitalium</i> whole-cell model provided the first opportunity to test them, simulating the genome edits <i>in silico</i>. We simulated minimal gene sets from the literature, finding that they produced <i>in silico</i> cells that did not divide. Using knowledge from previous research, we reintroduced specific essential and low essential genes <i>in silico</i>; enabling cellular division. This reinforces the need to identify species-specific low essential genes and their interactions. Any genome designs created using the currently incomplete and fragmented gene essentiality information will very likely require <i>in vivo</i> reintroductions to correct issues and produce dividing cells.
+---

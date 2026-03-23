@@ -1,0 +1,23 @@
+{
+  "batch_index": 62,
+  "dois": [
+    "10.1371/journal.pcbi.1001045",
+    "10.1083/jcb.147.5.929",
+    "10.1038/s41592-019-0686-2",
+    "10.1016/j.cell.2020.02.052",
+    "10.1093/nar/gkx1037",
+    "10.1093/nar/gkm290",
+    "10.1038/nature11005",
+    "10.1371/journal.pone.0012776",
+    "10.1038/nmeth.2967",
+    "10.1371/journal.pcbi.0030189"
+  ],
+  "extractions": [
+    {
+      "type": "text",
+      "text": "I'll read the file and follow its instructions."
+    }
+  ],
+  "timestamp": "2026-03-09T02:02:46.870041",
+  "extraction_count": 1
+}

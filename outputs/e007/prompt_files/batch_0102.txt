@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.2991/efood.k.200918.002
+Title: Identification of Putative Cell‐entry‐inhibitory Peptides against SARS‐CoV‐2 from Edible Insects: An <i>in silico</i> Study
+Year: 2020
+Abstract: Coronavirus Disease 2019 (COVID‐19), an infectious disease caused by SARS‐CoV‐2, has become the most contagious pandemic in the world. The binding of SARS‐CoV‐2 spike glycoprotein Receptor‐binding Domain (RBD) to human angiotensin‐converting enzyme 2 receptor precedes cell entry. Thus, RBD of SARS‐CoV‐2 spike glycoprotein is a key target for the development of drugs and vaccines to curb COVID‐19. The aim of this in silico study was to identify potential SARS‐CoV‐2 cell entry inhibitors from peptides derived from edible insects. Twenty‐four major proteins from mealworms, silkworm cocoons and housefly larvae were subjected to in silico gastrointestinal (GI) digestion, yielding 3560 fragments. Further screening led to 82 high‐GI‐absorption peptides with unique sequences. Molecular docking revealed 10 promising peptides (VPW, PPY, PIF, VW, PSF, PGF, PAY, VGF, PF and TW), predicted to interact with at least one key binding residue on RBD. Notably, VPW had the lowest docking energy score (−144.359) and binding affinity (−7.0 kcal/mol), highlighting its potency among the ten peptides. Binding affinities of the insect peptides were superior to some reported natural products. Our study suggests that when consumed, edible insects may be a source of putative SARS‐CoV‐2 cell entry inhibitors in the form of RBD‐binding peptides.
+---
+
+---
+DOI: 10.1016/j.lfs.2020.117862
+Title: Biochemical analysis of ectonucleotidases on primary rat vascular smooth muscle cells and in silico investigation of their role in vascular diseases
+Year: 2020
+Abstract: Vascular smooth muscle cells (VSMCs) exhibit a high degree of plasticity when they undergo the progression from a normal to a disease condition, which makes them a potential target for evaluating early markers and for the development of new therapies. Purinergic signalling plays a key role in vascular tonus control, ATP being an inductor of vasoconstriction, whereas adenosine mediates a vasodilation effect antagonising the ATP actions. The control of extracellular ATP and adenosine levels is done by ectonucleotidases, which represent a potential target to be evaluated in the progression of cardiovascular diseases. In this study, we analysed the basal activity and expression of the ectonucleotidases in aortic rat VSMCs, and we further performed in silico analysis to determine the expression of those enzymes in conditions that mimicked vascular diseases. Cultured in vitro VSMCs showed a prominent expression of Entpd1 followed by Entpd2 and Nt5e (CD73) and very low levels of Entpd3. Slightly faster AMP hydrolysis was observed when compared to ATP and ADP nucleotides. In silico analysis showed that the ectonucleotidases were modulated after induction of conditions that can lead to vascular diseases such as, hypertensive and hypotensive mice models (Nt5e); exposition to high-fat (Entpd1 and Entpd2) or high-phosphate (Nt5e) diet; mechanical stretch (Entpd1, Entpd2 and Nt5e); and myocardial infarction (Entpd1). Our data show that VSMCs are able to efficiently metabolise the extracellular nucleotides generating adenosine. The modulation of Entpd1, Entdp2 and Nt5e in vascular diseases suggests these ectoenzymes as potential targets or markers to be investigated in future studies.
+---
+
+---
+DOI: 10.1007/978-1-0716-1752-6_4
+Title: In Silico Design of Chemically Modified Cell-Penetrating Peptides
+Year: 2021
+Abstract: In the past few decades, a large number of cell-penetrating peptides (CPPs) have been discovered. These CPPs have a wide range of applications including drug delivery vehicles. Numerous in silico tools have been developed over the years to design and predict the cell-penetrating peptides that contain natural amino acids. The majority of natural cell-penetrating peptides have several limitations including stability, immunogenicity as well as got entrapped in the cell's endosomes. The chemical modification is commonly used to most of these limitations. An in silico tool called CellPPDMod have been developed by our group to predict cell-penetration potential of chemically modified peptides. This chapter is dedicated for designing therapeutically important cell-penetrating peptides using CellPPDMod ( http://webs.iiitd.edu.in/raghava/cellppdmod/ ).
+---
+
+---
+DOI: 10.1038/s41587-020-0497-0
+Title: Single-cell RNA counting at allele and isoform resolution using Smart-seq3
+Year: 2020
+Abstract: Large-scale sequencing of RNA from individual cells can reveal patterns of gene, isoform and allelic expression across cell types and states1. However, current short-read single-cell RNA-sequencing methods have limited ability to count RNAs at allele and isoform resolution, and long-read sequencing techniques lack the depth required for large-scale applications across cells2,3. Here we introduce Smart-seq3, which combines full-length transcriptome coverage with a 5′ unique molecular identifier RNA counting strategy that enables in silico reconstruction of thousands of RNA molecules per cell. Of the counted and reconstructed molecules, 60% could be directly assigned to allelic origin and 30–50% to specific isoforms, and we identified substantial differences in isoform usage in different mouse strains and human cell types. Smart-seq3 greatly increased sensitivity compared to Smart-seq2, typically detecting thousands more transcripts per cell. We expect that Smart-seq3 will enable large-scale characterization of cell types and states across tissues and organisms. Smart-seq3 enables isoform- and allele-specific reconstruction of RNA molecules.
+---
+
+---
+DOI: 10.1186/s42269-021-00690-z
+Title: In-silico activity prediction, structure-based drug design, molecular docking and pharmacokinetic studies of selected quinazoline derivatives for their antiproliferative activity against triple negative breast cancer (MDA-MB231) cell line
+Year: 2022
+Abstract: Cancer is a major health threat especially in unindustrialized nations. It surpasses coronary diseases and takes the number one killer position as a result of different global wide influences. Among many breast cancer substrates, triple-negative breast cancer (TNBC) is particularly devastating because it rapidly metastasize to other parts of the body, with a high risk of earlier recession and mortality. In this research work, four (4) quantitative structure activity relationship (QSAR) models were developed using a series of quinazoline derivatives with activities against triple negative breast cancer cell line (MDA-MB231), model 1 was selected due to its statistical fitness with the following validation parameters: R2 = 0.875, Q2 = 0.837, R2 − Q2 = 0.038, Next test set = 5, and R2ext = 0.655. Molecular docking studies was performed for the quinazoline series as well as the reference drug (Gefitinib) and the active site of the epidermal growth factor receptor (EGFR) (pdb id = 3ug2). Eight compounds (6, 10, 13, 16, 17, 18, 19 and 20) were observed to have better docking score docking scores relative to Gefitinib. Compound number nineteen from the training set (pred pIC50 = 5.67, Residual = − 0.04 and MolDock score = − 123.238) was identified as the best compound since it has the best Moldock score and was excellently predicted by the selected model with least residual value, Hence was adopted as template for the design of Ten (10) new novel compounds with better activities and better docking scores. The inhibitive activities of the designed compounds were predicted by the selected model and most of them possess an improved activity relative to the template compound (19). The designed compounds were also redocked on to active pocket of the EGFR receptor and it was observed that they displayed better docking scores compared to the Template and the reference drug (Gefitinib) utilized in the design. Furthermore, the designed compounds were subjected to ADMET and drug-likeness studies using SWISSADME and pkCSM online web tools and they were observed to be pharmacologically active, easily synthesized and do not violate the Lipinski’s rule of five. Hence, the designed compounds can be employed as inhibitors of MDA-MB231 cell line after passing through in vivo and in vitro evaluation.
+---
+
+---
+DOI: 10.1074/jbc.m116.763888
+Title: In situ and in silico kinetic analyses of programmed cell death-1 (PD-1) receptor, programmed cell death ligands, and B7-1 protein interaction network
+Year: 2017
+Abstract: Programmed cell death-1 (PD-1) is an inhibitory receptor with an essential role in maintaining peripheral tolerance and is among the most promising immunotherapeutic targets for treating cancer, autoimmunity, and infectious diseases. A complete understanding of the consequences of PD-1 engagement by its ligands, PD-L1 and PD-L2, and of PD-L1 binding to B7-1 requires quantitative analysis of their interactions at the cell surface. We present here the first complete <i>in situ</i> kinetic analysis of the PD-1/PD-ligands/B7-1 system. Consistent with previous solution measurements, we observed higher <i>in situ</i> affinities for human (h) than murine (m) PD-1 interactions, stronger binding of hPD-1 to hPD-L2 than hPD-L1, and comparable binding of mPD-1 to both ligands. However, in contrast to the relatively weak solution affinities, the <i>in situ</i> affinities of PD-1 are as high as those of the T cell receptor for agonist pMHC and of LFA-1 (lymphocyte function-associated antigen 1) for ICAM-1 (intercellular adhesion molecule 1) but significantly lower than that of the B7-1/CTLA-4 interaction, suggesting a distinct basis for PD-1- <i>versus</i> CTLA-4-mediated inhibition. Notably, the <i>in situ</i> interactions of PD-1 are much stronger than that of B7-1 with PD-L1. Overall, the <i>in situ</i> affinity ranking greatly depends on the on-rate instead of the off-rate. <i>In silico</i> simulations predict that PD-1/PD-L1 interactions dominate at interfaces between activated T cells and mature dendritic cells and that these interactions will be highly sensitive to the dynamics of PD-L1 and PD-L2 expression. Our results provide a kinetic framework for better understanding inhibitory PD-1 activity in health and disease.
+---
+
+---
+DOI: 10.1016/j.molstruc.2019.127047
+Title: Synthesis, in vitro cytotoxicity activity against the human cervix carcinoma cell line and in silico computational predictions of new 4-arylamino-3-nitrocoumarin analogues
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.2174/1574893611666160606164459
+Title: First Molecular Cytogenetic Characterization of Murine Malignant Mesothelioma Cell Line AE17 and In Silico Translation to the Human Genome
+Year: 2016
+Abstract: Background: Mesothelial cells can be malignantly transformed e.g. due to previous asbestos exposure and form a clinically aggressive tumor called malignant mesothelioma (MM). Presently, there is extensive ongoing research in MM with the goal to identify prognostic factors and new therapeutic targets. Accordingly, well studied model systems, like cell lines, are urgently needed. Interestingly, murine MM cell lines models were established in the 1990s; however, they were not characterized genetically in any detail, yet. Keywords: Molecular cytogenetics, FISH-banding, genome browsers, databases, in silico translation, murine to human genome.
+---
+
+---
+DOI: 10.1007/s00280-014-2653-z
+Title: Novel in silico-designed estradiol analogues are cytotoxic to a multidrug-resistant cell line at nanomolar concentrations
+Year: 2014
+Abstract: PURPOSE : 2-Methoxyestradiol (2ME) is a promising anticancer&#13;\nagent that disrupts the integrity and dynamics of the&#13;\nspindle network. In order to overcome the pharmacokinetic&#13;\nconstraints of this compound, a panel of sulphamoylated&#13;\nestradiol analogues were in silico-designed by our laboratory.&#13;\nIn this study, we analysed the potential of each analogue&#13;\nto induce cell death on a panel of cancer cell lines.&#13;\nMoreover, the mechanism of action of the most effective&#13;\ncompounds was determined.&#13;\nMETHODS : Cytotoxicity screening of the compounds and&#13;\nintermediates was performed on five different cancer cell&#13;\nlines to determine IG50 values. An in vitro tubulin polymerization&#13;\nassay was done to determine the effect of the drugs&#13;\non tubulin polymerization while their intracellular effects&#13;\non the microtubule network were assessed by immunofluorescence&#13;\nmicroscopy.&#13;\nRESULTS : IG50 calculations showed that the sulphamoylated&#13;\nanalogues induce cytotoxicity at nanomolar concentrations&#13;\nin all cell lines, including the P-glycoprotein pump overexpressing multidrug-resistant uterine sarcoma cell&#13;\nline. The non-sulphamoylated compounds were only cytotoxic&#13;\nat micromolar ranges, if at all. The sulphamoylated&#13;\ncompounds inhibited pure tubulin polymerization in a&#13;\ndose-dependent manner and induced microtubule destruction&#13;\nin cells after 24-h exposure.&#13;\nCONCLUSION : Results revealed that the novel sulphamoylated&#13;\n2ME derivatives have potential as anti-cancer&#13;\ndrugs, possibly even against chemoresistant cancer cells.&#13;\nThese compounds disrupt the intracellular microtubule&#13;\nintegrity which leads to mitotic block of the cells.
+---
+
+---
+DOI: 10.1016/j.molimm.2009.01.009
+Title: 3-Layer-based analysis of peptide–MHC interaction: In silico prediction, peptide binding affinity and T cell activation in a relevant allergen-specific model
+Year: 2009
+Abstract: CD4+ T cells recognize peptides bound to major histocompatibility complex (MHC) class II molecules on the surface of antigen presenting cells by their T cell receptor (TCR). Using a well-characterized allergen-specific model we studied peptide/MHC (pMHC) interactions by combining computational methods with experimental analyses. A 12-mer and an 18-mer peptide, both containing the human leukocyte antigen (HLA)-DR1-restricted, immunodominant T cell epitope of Art v 1, the major mugwort pollen allergen, were compared. A Molecular Dynamics simulation for a real time of 20 ns using GROMACS was performed. To this aim, the peptides were modelled into the binding groove of HLA-DRB1*0101 using different amino acid substitution tools. Binding of synthetic peptides to purified HLA-DRB1*0101 molecules was analysed in competition assays. The potency of the peptides to activate Art v 1-specific T cells was assessed using oligo- and monoclonal Art v 1-specific T cell cultures expanded from mugwort allergic individuals. All approaches revealed that the 18-mer peptide possessed higher HLA DR affinity as compared to the 12-mer. Computer modelling indicated that a loop-like structure within the additional N-terminal peptide flanking region of the 18-mer contributed to the pMHC interaction. Our approach, to combine computational methods validated by experimental results, demonstrates that Molecular Dynamics simulation may be a useful tool for the prediction of pMHC interactions in the future with possible applications in T cell-based immunotherapy e.g. in Type I allergy.
+---
+
+---
+DOI: 10.1007/s12640-020-00243-8
+Title: Genistein and Galantamine Combinations Decrease β-Amyloid Peptide (1–42)–Induced Genotoxicity and Cell Death in SH-SY5Y Cell Line: an In Vitro and In Silico Approach for Mimic of Alzheimer’s Disease
+Year: 2020
+Abstract: Alzheimer's disease (AD) is the primary dementia-causing disease worldwide, involving a multifactorial combination of environmental, genetic, and epigenetic factors, with essential participation of age and sex. Biochemically, AD is characterized by the presence of abnormal deposition of beta amyloid peptide (Aβ(1-42)), which in the brain is strongly correlated with oxidative stress, inflammation, DNA damage, and cholinergic impairment. The multiple mechanisms involved in its etiology create significant difficulty in producing an effective treatment. Neuroprotective properties of genistein and galantamine have been widely demonstrated through different mechanisms; however, it is unknown a possible synergistic neuroprotective effect against Aβ(1-42). In order to understand how genistein and galantamine combinations regulate the mechanisms of neuroprotection, we conducted a set of bioassays in vitro to evaluate cell viability, clonogenic survival, cell death, and anti-genotoxicity. Through molecular docking and therapeutic viability assays, we analyzed the inhibitory activity exerted by genistein on three major protein targets (AChE, BChE, and NMDA) involved in AD. The results showed that genistein and galantamine afforded significant protection at higher concentrations; however, combinations of sub-effective concentrations of both compounds provided marked neuroprotection when they were combined. In silico approaches showed that genistein has higher scores than the positive controls and low toxicity levels; nevertheless, the therapeutic viability indicated that unlike galantamine, genistein cannot undergo the action by P glycoprotein (PGP) and probably may be unable to cross the blood-brain barrier. In conclusion, our results show that genistein and galantamine exert neuroprotective by decreasing genotoxicity and cell death. In silico analysis, suggest that genistein modulates positively the expression of AChE, BChE, and NMDA. In this context, a combination of two or more drugs could inspire an attractive therapeutic strategy.
+---
+
+---
+DOI: 10.1038/npre.2007.353.1
+Title: Review of Immunoinformatic approaches to in-silico B-cell epitope prediction
+Year: 2007
+Abstract: Abstract In this paper, the current state of in-silico, B-cell epitope prediction is discussed. Recommendations for improving some of the approaches encountered are outlined, along with the presentation of an entirely novel technique, which uses molecular mechanics for epitope classification, evaluation and prediction.
+---
+
+---
+DOI: 10.1080/07391102.2023.2277848
+Title: Evaluation of the FDA-approved kinase inhibitors to uncover the potential repurposing candidates targeting ABC transporters in multidrug-resistant cancer cells: an in silico approach
+Year: 2023
+Abstract: Multiple drug resistance (MDR) is characterized by the resistance of cancer cells to a broad spectrum of anticancer drugs. The main mechanism underlying the MDR phenotype is the overexpression of ATP-binding cassette (ABC) transporters by promoting active drug efflux from cancer cells. Some small-molecule protein kinase inhibitors have been found to overcome MDR by inhibiting ABC transporters as substrates or modulators. This study investigated the chemical activity of 58 FDA-approved anticancer kinase inhibitors against three multidrug resistance-related proteins. The studied proteins are ATP-Binding Cassette Sub-Family B Member 1 (ABCB1), ATP-Binding Cassette Subfamily C Member 1 (ABCC1), and ATP-binding cassette superfamily G member 2 (ABCG2). The drug-binding domain and ATP binding sites of the proteins were considered the kinase inhibitors' probable target. High-throughput virtual screening and molecular docking were employed to find the hit drugs, and the drugs with the highest binding affinity were further evaluated using the molecular dynamics (MD) simulation. The virtual screening revealed that several kinase inhibitors could be considered potential inhibitors of ABCB1, ABCC1, and ABCG2, among which larotrectinib, entrectinib, and infigratinib showed the highest binding affinity, respectively. Based on the obtained results from MD simulation, these drugs can form strong interactions with the essential residues of the target proteins. <i>In silico</i> investigation revealed that larotrectinib, entrectinib, and infigratinib can target the key residues of the studied proteins. Therefore, these approved kinase inhibitors could be considered potential therapies for MDR cancers by targeting these transporters.Communicated by Ramaswamy H. Sarma.
+---
+
+---
+DOI: 10.7314/apjcp.2012.13.7.3053
+Title: Linear and Conformational B Cell Epitope Prediction of the HER 2 ECD-Subdomain III by in silico Methods
+Year: 2012
+Abstract: Human epidermal growth factor receptor 2 (HER2) is a member of the epidermal growth factor receptor family of receptor tyrosine kinases that play important roles in all processes of cell development. Their overexpression is related to many cancers, including examples in the breast, ovaries and stomach. Anticancer therapies targeting the HER2 receptor have shown promise, and monoclonal antibodies against subdomains II and IV of the HER2 extra-cellular domain (ECD), Pertuzumab and Herceptin, are currently used in treatments for some types of breast cancers. Since anti HER2 antibodies targeting distinct epitopes have different biological effects on cancer cells; in this research linear and conformational B cell epitopes of HER2 ECD, subdomain III, were identified by bioinformatics analyses using a combination of linear B cell epitope prediction web servers such as ABCpred, BCPREDs, Bepired, Bcepred and Elliprro. Then, Discotope, CBtope and SUPERFICIAL software tools were employed for conformational B cell epitope prediction. In contrast to previously reported epitopes of HER2 ECD we predicted conformational B cell epitopes P1C: 378-393 (PESFDGDPASNTAPLQ) and P2C: 500-510 (PEDECVGEGLA) by the integrated strategy and and P4: PESFDGD-X-TAPLQ; P5: PESFDGDP X TAPLQ; P6: ESFDGDP X NTAPLQP; P7: PESFDGDP-X-NTAPLQ; P8: ESFDG-XX-TAPLQPEQL and P9: ESFDGDP- X-NTAPLQP by SUPERFICIAL software. These epitopes could be further used as peptide antigens to actively immune mice for development of new monoclonal antibodies and peptide cancer vaccines that target different epitopes or structural domains of HER2 ECD.
+---
+
+---
+DOI: 10.1016/j.imu.2022.101046
+Title: Novel compounds from endophytic fungi of Ceriops decandra inhibit breast cancer cell growth through estrogen receptor alpha in in-silico study
+Year: 2022
+Abstract: Endophytic fungi can thrive without producing illness or injury to the host plant tissues, and they are also one of the major natural sources of bioactive compounds. The objective of the present study was to assess the anticancer potential of fungal extracts obtained from Ceriops decandra and in-silico-based identification of the anticancer constituents from those fungal extracts. Endophytic fungi were isolated and identified by internal transcribed spacer (ITS-rDNA) sequence analysis. The fungal crude extract was subjected to column chromatography and different fractions were screened for bioactive compounds using Gas Chromatography Mass Spectroscopy (GCMS). Fusarium oxysporum, Chlonostachys sp., Fusarium solani were identified from C. decandra. Eighty (80) compounds were identified from these endophytic fungi through GCMS analysis. A molecular docking study of the identified compounds confirmed the anti-cancer potential of breast cancer cells through the estrogen receptor, with good binding affinities (−9.17 to −7.19 kcal/mol) and interaction patterns. Furthermore, in molecular dynamic simulation studies, Isoparvifuran (CID_617473) and 2,4-di-tert-butylphenol (CID_7311) revealed a stable complex with the target protein of estrogen receptor alpha. The result of the study showed that C. decandra harbors diverse group of endophytic fungi that can be a potential source of bioactive (Isoparvifuran and 2,4-di-tert-butylphenol) pharmaceuticals to treat breast cancer through modulation of estrogen receptor alpha.
+---
+
+---
+DOI: 10.1016/j.molstruc.2022.133673
+Title: Design, synthesis, in-silico and biological evaluation of novel 2-Amino-1,3,4-thiadiazole based hydrides as B-cell lymphoma-2 inhibitors with potential anticancer effects
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.micpath.2019.01.007
+Title: In silico analysis of four structural proteins of aphthovirus serotypes revealed significant B and T cell epitopes
+Year: 2019
+Abstract: Foot and Mouth disease (FMD) is economically devastating, highly contagious transboundry viral disease of livestock with 100% morbidity, rapid spread and severe production losses in animals. The FMDV has seven different serotypes. There is no vaccine that can protect animals from all serotypes. Hence, it is need of the day to develop a vaccine that protects animals from hetrologous challenge. In this study, we used immunoinformatics approach to find T and B-cell epitopes that will help to construct a universal vaccine for FMDV. For this purpose, first we constructed a consensus sequence for four structural proteins (VP1, VP2, VP3 and VP4) of aphthovirus for seven serotypes (A, O, C, Asia1, SAT1, SAT2 and SAT3). Various computational tools were used to perform multiple sequence alignment to identify the conserved regions, generation of consensus sequence through conserved regions, structures prediction and finally prediction of B and T cell epitopes. We predicted 5 B cell and 18 T cell epitopes. Finally a GPGPG spacer was used to join these epitopes to decrease binding affinity around the core binding regions. Hence, our study identified the epitopes which can be used to develop cross protective vaccines against all the fatal strains of Aphthovirus which can easily protect all the serotypes. Though, successful In vivo and In vitro studies are required to determine the genuine strength of our predicted epitopes against the fatal strains of Aphthovirus.
+---
+
+---
+DOI: 10.3892/or.2016.5210
+Title: In silico RNA-seq and experimental analyses reveal the differential expression and splicing of EPDR1 and ZNF518B genes in relation to KRAS mutations in colorectal cancer cells
+Year: 2016
+Abstract: Several drugs used for the treatment of colorectal cancer (CRC) are targeted at the epidermal growth factor receptor, but mutations in genes of the RAS family cause resistance to these drugs. Thus, extensive research is being carried out to counterbalance this resistance. The G13D mutation of KRAS is common in humans, and we previously reported that this mutation results in the epigenetic modification of hnRNP proteins, involved in RNA splicing. As aberrant splicing often results in oncogenicity, the present study aimed to identify the genes which show altered splicing patterns in connection with the G13D KRAS mutation. To accomplish this, we first carried out an in silico analysis of RNA-seq databases and found that the distribution of alternative splicing isoforms of genes RPL13, HSP90B1, ENO1, EPDR1 and ZNF518B was altered in human CRC cell lines carrying the G13D KRAS mutation when compared to cell lines carrying wild-type KRAS. The in silico results were experimentally validated by quantitative real‑time PCR. Expression of the genes EPDR1 and ZNF518B was negligible in the Caco2, RKO and SW48 cell lines, which possess wild-type KRAS, while the HCT116, DLD1 and D-Mut1 cell lines, harbouring the G13D mutation, expressed these genes. Moreover, in both genes, the ratio of isoforms was significantly different between the parental DLD1 (+/G13D) and D-Mut1 cells, in which the wild-type allele had been knocked out. DWT7m cells also expressed both genes. These cells, derived from DLD1, have spontaneously acquired a G12D mutation in their single KRAS allele in 20% of the population. The present data suggest a relationship between KRAS mutations, particularly G13D, and the expression of the EPDR1 and ZNF518B genes and expression of their isoforms and provide enhanced understanding of the molecular mechanisms involved in the resistance of CRC cells to anti‑EGF receptor therapies.
+---
+
+---
+DOI: 10.1016/j.tiv.2020.104884
+Title: The role of MITF and Mcl-1 proteins in the antiproliferative and proapoptotic effect of ciprofloxacin in amelanotic melanoma cells: In silico and in vitro study
+Year: 2020
+Abstract: Mcl-1 is a potent antiapoptotic protein which is amplified in many human cancer, while microphthalmia associated transcription factor (MITF) promotes cell proliferation and has pro-survival role. The study was designed to examine whether the interaction between ciprofloxacin, one of the fluoroquinolones derivative, and MITF/Mcl-1 proteins affects C32 melanoma cells viability, proliferation and induces apoptosis. Preliminary molecular docking studies, Western blot analysis and fluorescence image cytometry were applied to demonstrate the signaling pathway underlying antiproliferative and proapoptotic effect of the drug. In silico analysis showed that ciprofloxacin possess the ability to form complexes with MITF and Mcl-1proteins. This phenomenon was confirmed by in vitro experimental model where the drug was found to decrease MITF and increase Mcl-1 expression at the protein level. Moreover, we found that ciprofloxacin decreases the cell viability and exerts anti-proliferative effect on amelanotic C32 melanoma cells. Image cytometric studies showed that the tested drug induced GSH depletion and apoptosis via intrinsic death pathway leading to DNA fragmentation. Analysis of the cell cycle distribution revealed that ciprofloxacin caused a block in the G2/M phase. This is the first study that characterized the role of MITF and Mcl-1 proteins in the antiproliferative and pro-apoptotic effect of ciprofloxacin towards amelanotic melanoma cells, opening the possibility to use of this drug as a potential agent for the treatment of melanoma.
+---
+
+---
+DOI: 10.1080/15376516.2017.1388460
+Title: Inhibition of metastasis and angiogenesis in Hep-2 cells by wheatgrass extract – an<i>in vitro</i>and<i>in silico</i>approach
+Year: 2017
+Abstract: Metastasis is the major hindrance in the treatment of all cancers, including laryngeal squamous cell carcinoma. Intensive researches are under way to identify the effective natural polyphenols with anti-metastatic ability for cancer treatment. Wheatgrass, an herbal plant has been reported to show anticancer effects. Hence, in this study, we aimed to analyze the anti-metastatic effect of methanol extract of wheatgrass (MEWG). The levels of metastatic marker proteins were determined by western blot. PI3K and AKT levels were determined by real time (RT)-PCR analysis. In silico molecular docking was done to check the interaction of the 14 components (identified by HPLC/GCMS) of MEWG with PI3K and AKT. MEWG effectively decreased the metastatic protein expressions, namely VEGF, MMP-9 and COX-2 and increased TIMP-2. RT-PCR results showed reduced m-RNA levels of both PI3K and AKT when compared to control. Molecular docking studies revealed interaction of most of the identified compounds of the extract with the important residues of PI3K and AKT. These findings indicate that MEWG inhibits metastasis and angiogenesis in Hep-2 cells possibly via PI3K/AKT due to the cumulative effect of polyphenols and other constituent present in extract. The compounds of the extract were also found to be directly involved in inhibition of AKT/PI3K, thus could help to restrain metastasis.
+---
+
+---
+DOI: 10.1038/sj.onc.1210436
+Title: mir-29 regulates Mcl-1 protein expression and apoptosis
+Year: 2007
+Abstract: Cellular expression of Mcl-1, an anti-apoptotic Bcl-2 family member, is tightly regulated. Recently, Bcl-2 expression was shown to be regulated by microRNAs, small endogenous RNA molecules that regulate protein expression through sequence-specific interaction with messenger RNA. By analogy, we reasoned that Mcl-1 expression may also be regulated by microRNAs. We chose human immortalized, but non-malignant, H69 cholangiocyte and malignant KMCH cholangiocarcinoma cell lines for these studies, because Mcl-1 is dysregulated in cells with the malignant phenotype. By in silico analysis, we identified a putative target site in the Mcl-1 mRNA for the mir-29 family, and found that mir-29b was highly expressed in cholangiocytes. Interestingly, mir-29b was downregulated in malignant cells, consistent with Mcl-1 protein upregulation. Enforced mir-29b expression reduced Mcl-1 protein expression in KMCH cells. This effect was direct, as mir-29b negatively regulated the expression of an Mcl-1 3' untranslated region (UTR)-based reporter construct. Enforced mir-29b expression reduced Mcl-1 cellular protein levels and sensitized the cancer cells to tumor necrosis factor-related apoptosis-inducing ligand (TRAIL) cytotoxicity. Transfection of non-malignant cells (that express high levels of mir-29) with a locked-nucleic acid antagonist of mir-29b increased Mcl-1 levels and reduced TRAIL-mediated apoptosis. Thus mir-29 is an endogenous regulator of Mcl-1 protein expression, and thereby, apoptosis.
+---
+
+---
+DOI: 10.1093/jnci/djw192
+Title: Relevance of Tumor-Infiltrating Immune Cell Composition and Functionality for Disease Outcome in Breast Cancer
+Year: 2016
+Abstract: The main hypothesis generated in our unbiased in silico approach is that a multitude of immune cells are related to treatment response and outcome in breast cancer.
+---
+
+---
+DOI: 10.1089/dia.2008.0055
+Title: In Silico Evaluation Platform for Artificial Pancreatic <i>β</i> -Cell Development—A Dynamic Simulator for Closed-Loop Control with Hardware-in-the-Loop
+Year: 2009
+Abstract: A complete artificial beta-cell evaluation platform was realized with the flexibility to interface various algorithms and patient models, allowing for the systematic analysis of monitoring and control algorithms. The system facilitates a variety of tests and challenges to the software and the component devices, streamlining preclinical validation trials.
+---
+
+---
+DOI: 10.1126/science.1137591
+Title: Single-Molecule Experiments in Vitro and in Silico
+Year: 2007
+Abstract: Single-molecule force experiments in vitro enable the characterization of the mechanical response of biological matter at the nanometer scale. However, they do not reveal the molecular mechanisms underlying mechanical function. These can only be readily studied through molecular dynamics simulations of atomic structural models: “in silico” (by computer analysis) single-molecule experiments. Steered molecular dynamics simulations, in which external forces are used to explore the response and function of macromolecules, have become a powerful tool complementing and guiding in vitro single-molecule experiments. The insights provided by in silico experiments are illustrated here through a review of recent research in three areas of protein mechanics: elasticity of the muscle protein titin and the extracellular matrix protein fibronectin; linker-mediated elasticity of the cytoskeleton protein spectrin; and elasticity of ankyrin repeats, a protein module found ubiquitously in cells but with an as-yet unclear function.
+---
+
+---
+DOI: 10.1038/ncomms2534
+Title: Neuron-released oligomeric α-synuclein is an endogenous agonist of TLR2 for paracrine activation of microglia
+Year: 2013
+Abstract: Abnormal aggregation of α-synuclein and sustained microglial activation are important contributors to the pathogenic processes of Parkinson's disease. However, the relationship between disease-associated protein aggregation and microglia-mediated neuroinflammation remains unknown. Here, using a combination of in silico, in vitro and in vivo approaches, we show that extracellular α-synuclein released from neuronal cells is an endogenous agonist for Toll-like receptor 2 (TLR2), which activates inflammatory responses in microglia. The TLR2 ligand activity of α-synuclein is conformation-sensitive; only specific types of oligomer can interact with and activate TLR2. This paracrine interaction between neuron-released oligomeric α-synuclein and TLR2 in microglia suggests that both of these proteins are novel therapeutic targets for modification of neuroinflammation in Parkinson's disease and related neurological diseases.
+---
+
+---
+DOI: 10.1101/gad.269003
+Title: Opposing actions of Arx and Pax4 in endocrine pancreas development
+Year: 2003
+Abstract: Genes encoding homeodomain-containing proteins potentially involved in endocrine pancreas development were isolated by combined in silico and nested-PCR approaches. One such transcription factor, Arx, exhibits Ngn3 -dependent expression throughout endocrine pancreas development in α, β-precursor, and δ cells. We have used gene targeting in mouse embryonic stem cells to generate Arx loss-of-function mice. Arx -deficient animals are born at the expected Mendelian frequency, but develop early-onset hypoglycemia, dehydration, and weakness, and die 2 d after birth. Immunohistological analysis of pancreas from Arx mutants reveals an early-onset loss of mature endocrine α cells with a concomitant increase in β-and δ-cell numbers, whereas islet morphology remains intact. Our study indicates a requirement of Arx for α-cell fate acquisition and a repressive action on β-and δ-cell destiny, which is exactly the opposite of the action of Pax4 in endocrine commitment. Using multiplex reverse transcriptase PCR (RT-PCR), we demonstrate an accumulation of Pax4 and Arx transcripts in Arx and Pax4 mutant mice, respectively. We propose that the antagonistic functions of Arx and Pax4 for proper islet cell specification are related to the pancreatic levels of the respective transcripts.
+---
+
+---
+DOI: 10.1016/j.compbiolchem.2017.08.016
+Title: Development of an epitope-based vaccine inhibiting immune cells rolling and migration against atherosclerosis using in silico approaches
+Year: 2017
+Abstract: Atherosclerosis is a chronic inflammatory disease characterized by formation of pro-oxidative lipids in large and medium-sized vessels. Over the years, many treatments and drugs have entered the market to improve atherosclerosis and autoantigen-mediated active immunization is currently considered as a beneficial method. Therefore, this study was conducted to design a novel epitope-based vaccine against atherosclerosis employing CD99, CD81 and CD99L2 antigens. In this way, structural vaccinology approaches were used to design a novel multi-epitope vaccine against atherosclerosis. Six epitopes were predicted from CD99, CD81 and CD99L2 proteins. In addition, helper epitopes selected from Tetanus toxin fragment C (TTFrC)ion were applied to induce CD4+ helper T lymphocytes (HTLs) responses. Moreover, cholera toxin B (CTB) was employed as an adjuvant. Finally, EAAAK AND GPGPG sequences as linkers were considered to make a linkage between favorite peptide sequences. A multi-epitope construction was designed based on the predicted epitopes which was 270 residues in length. Further immunoinformatic analyses were carried out to assess physicochemical properties, secondary and tertiary structures, stability, intrinsic protein disorder, solubility, and allergenicity of this chimeric protein. Based on the obtained results, a soluble, and non-allergic protein with a molecular weight of 28.7kDa was designed. Further analyses revealed that the chimeric protein is a stable protein and the predicted epitopes indicated strong potential to induce B-cell and T-cell mediated immune response. Our immunoinformatic analyses revealed that the modeled multi-epitope vaccine had appropriate properties,which can properly stimulate the immune responses of both T and B cells.
+---
+
+---
+DOI: 10.1016/j.micpath.2018.10.001
+Title: Role of cell division protein divIVA in Enterococcus faecalis pathogenesis, biofilm and drug resistance: A future perspective by in silico approaches
+Year: 2018
+Abstract: Antibiotics resistance is the major problem in clinical settings which leads to the emergence of drug resistant bacteria. Biofilm formation is one of the grounds for the emergence of antibiotics resistant strains of Enterococcus faecalis. Our group previously reported in a comparative proteomic study of biofilm and planktonic state of E. faecalis that cell division protein divIVA was two folds overexpressed in biofilm state as compared to planktonic one and suggested its involvement in biofilm formation and antibiotics resistance. In this in silico study molecular docking showed that DNA bind to the conserved amino acid residues of divIVA domain and suggested that divIVA possibly secretes DNA into extra polymeric substance (EPS) which is the part of biofilm. We also performed the STRING analysis of cell division protein divIVA and predicted their interactive partners {cell division proteins/divisome complex (ftsZ, ftsA, divIV, ftsL, & gpsB), hypothetical proteins (sepF, EF_0261, EF_1000, EF_0998, EF_1006 & EF_1040), isoleucyl-tRNA synthetase (ileS), septation ring formation regulator (ezrA), S4 domain-containing protein (EF_1001), rod shape-determining protein (mreC), UDP-N-acetylmuramoyl-L-alanyl-d-glutamate synthetase (murD), UDP-diphospho-muramoyl-pentapeptide beta-N- acetylglucosaminyltransferase (murG), Lipoprotein signal peptidase (lspA), adenylate kinase (adk) and DNA-binding response regulator (vicR)}. We suggest that cumulatively divIVA and its interactive partners might be directly or indirectly involved in E. faecalis cell division, growth, biofilm formation, virulence and resistance.
+---
+
+---
+DOI: 10.1016/j.molstruc.2022.133492
+Title: In-silico reverse docking and in-vitro studies identified curcumin, 18α-glycyrrhetinic acid, rosmarinic acid, and quercetin as inhibitors of α-glucosidase and pancreatic α-amylase and lipid accumulation in HepG2 cells, important type 2 diabetes targets
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/s41592-019-0494-8
+Title: scGen predicts single-cell perturbation responses
+Year: 2019
+Abstract: Accurately modeling cellular response to perturbations is a central goal of computational biology. While such modeling has been based on statistical, mechanistic and machine learning models in specific settings, no generalization of predictions to phenomena absent from training data (out-of-sample) has yet been demonstrated. Here, we present scGen (https://github.com/theislab/scgen), a model combining variational autoencoders and latent space vector arithmetics for high-dimensional single-cell gene expression data. We show that scGen accurately models perturbation and infection response of cells across cell types, studies and species. In particular, we demonstrate that scGen learns cell-type and species-specific responses implying that it captures features that distinguish responding from non-responding genes and cells. With the upcoming availability of large-scale atlases of organs in a healthy state, we envision scGen to become a tool for experimental design through in silico screening of perturbation response in the context of disease and drug treatment.
+---
+
+---
+DOI: 10.1111/j.1742-4658.2007.05713.x
+Title: Bridging the gap between <i>in silico</i> and cell‐based analysis of the nuclear factor‐κB signaling pathway by <i>in vitro</i> studies of IKK2
+Year: 2007
+Abstract: Previously, we have shown by sensitivity analysis, that the oscillatory behavior of nuclear factor (NF‐κB) is coupled to free IkappaB kinase‐2 (IKK2) and IkappaBalpha(IκBα), and that the phosphorylation of IκBα by IKK influences the amplitude of NF‐κB oscillations. We have performed further analyses of the behavior of NF‐κB and its signal transduction network to understand the dynamics of this system. A time lapse study of NF‐κB translocation in 10 000 cells showed discernible oscillations in levels of nuclear NF‐κB amongst cells when stimulated with interleukin (IL‐1α), which suggests a small degree of synchronization amongst the cell population. When the kinetics for the phosphorylation of IκBα by IKK were measured, we found that the values for the affinity and catalytic efficiency of IKK2 for IκBα were dependent on assay conditions. The application of these kinetic parameters in our computational model of the NF‐κB pathway resulted in significant differences in the oscillatory patterns of NF‐κB depending on the rate constant value used. Hence, interpretation of in silico models should be made in the context of this uncertainty.
+---
+
+---
+DOI: 10.1038/ng.286
+Title: DNA methylation profiles in monozygotic and dizygotic twins
+Year: 2009
+Abstract: Twin studies have provided the basis for genetic and epidemiological studies in human complex traits. As epigenetic factors can contribute to phenotypic outcomes, we conducted a DNA methylation analysis in white blood cells (WBC), buccal epithelial cells and gut biopsies of 114 monozygotic (MZ) twins as well as WBC and buccal epithelial cells of 80 dizygotic (DZ) twins using 12K CpG island microarrays. Here we provide the first annotation of epigenetic metastability of approximately 6,000 unique genomic regions in MZ twins. An intraclass correlation (ICC)-based comparison of matched MZ and DZ twins showed significantly higher epigenetic difference in buccal cells of DZ co-twins (P = 1.2 x 10(-294)). Although such higher epigenetic discordance in DZ twins can result from DNA sequence differences, our in silico SNP analyses and animal studies favor the hypothesis that it is due to epigenomic differences in the zygotes, suggesting that molecular mechanisms of heritability may not be limited to DNA sequence differences.
+---
+
+---
+DOI: 10.1158/1535-7163.mct-11-0543
+Title: <i>In Silico</i> Screening Reveals Structurally Diverse, Nanomolar Inhibitors of NQO2 That Are Functionally Active in Cells and Can Modulate NF-κB Signaling
+Year: 2011
+Abstract: Abstract The National Cancer Institute chemical database has been screened using in silico docking to identify novel nanomolar inhibitors of NRH:quinone oxidoreductase 2 (NQO2). The inhibitors identified from the screen exhibit a diverse range of scaffolds and the structure of one of the inhibitors, NSC13000 cocrystalized with NQO2, has been solved. This has been used to aid the generation of a structure–activity relationship between the computationally derived binding affinity and experimentally measured enzyme inhibitory potency. Many of the compounds are functionally active as inhibitors of NQO2 in cells at nontoxic concentrations. To show this, advantage was taken of the NQO2-mediated toxicity of the chemotherapeutic drug CB1954. The toxicity of this drug is substantially reduced when the function of NQO2 is inhibited, and many of the compounds achieve this in cells at nanomolar concentrations. The NQO2 inhibitors also attenuated TNFα-mediated, NF-кB–driven transcriptional activity. The link between NQO2 and the regulation of NF-кB was confirmed by using short interfering RNA to NQO2 and by the observation that NRH, the cofactor for NQO2 enzyme activity, could regulate NF-кB activity in an NQO2-dependent manner. NF-кB is a potential therapeutic target and this study reveals an underlying mechanism that may be usable for developing new anticancer drugs. Mol Cancer Ther; 11(1); 194–203. ©2011 AACR.
+---
+
+---
+DOI: 10.1074/jbc.m201691200
+Title: Transcriptional Regulation in Constraints-based Metabolic Models of Escherichia coli
+Year: 2002
+Abstract: Full genome sequences enable the construction of genome-scale in silico models of complex cellular functions. Genome-scale constraints-based models of Escherichia coli metabolism have been constructed and used to successfully interpret and predict cellular behavior under a range of conditions. These previous models do not account for regulation of gene transcription and thus cannot accurately predict some organism functions. Here we present an in silico model of the central E. coli metabolism that accounts for regulation of gene expression. This model accounts for 149 genes, the products of which include 16 regulatory proteins and 73 enzymes. These enzymes catalyze 113 reactions, 45 of which are controlled by transcriptional regulation. The combined metabolic/regulatory model can predict the ability of mutant E. coli strains to grow on defined media as well as time courses of cell growth, substrate uptake, metabolic by-product secretion, and qualitative gene expression under various conditions, as indicated by comparison with experimental data under a variety of environmental conditions. The in silico model may also be used to interpret dynamic behaviors observed in cell cultures. This combined metabolic/regulatory model is thus an important step toward the goal of synthesizing genome-scale models that accurately represent E. coli behavior.
+---
+
+---
+DOI: 10.1038/ncb1798
+Title: Nature and anisotropy of cortical forces orienting Drosophila tissue morphogenesis
+Year: 2008
+Abstract: The morphogenesis of developing embryos and organs relies on the ability of cells to remodel their contacts with neighbouring cells. Using quantitative modelling and laser nano-dissection, we probed the mechanics of a morphogenetic process, the elongation of Drosophila melanogaster embryos, which results from polarized cell neighbour exchanges. We show that anisotropy of cortical tension at apical cell junctions is sufficient to drive tissue elongation. We estimated its value through comparisons between in silico and in vivo data using various tissue descriptors. Nano-dissection of the actomyosin network indicates that tension is anisotropically distributed and depends on myosin II accumulation. Junction relaxation after nano-dissection also suggests that cortical elastic forces are dominant in this process. Interestingly, fluctuations in vertex position (points where three or more cells meet) facilitate neighbour exchanges. We delineate the contribution of subcellular tensile activity polarizing junction remodelling, and the permissive role of vertex fluctuations during tissue elongation.
+---
+
+---
+DOI: 10.1007/s13402-018-0400-x
+Title: In silico screening for ERα down modulators identifies thioridazine as an anti-proliferative agent in primary, 4OH-tamoxifen-resistant and Y537S ERα-expressing breast cancer cells
+Year: 2018
+Abstract: PurposeMost breast cancers (BCs) express estrogen receptor α (ERα) and are treated with the endocrine therapy (ET) drugs 4OH-tamoxifen (Tam) and fulvestrant (ICI 182,780; ICI). Unfortunately, a high fraction of ET treated women relapses and becomes resistant to ET. Therefore, additional anti-BC drugs are needed. Recently, we proposed that the identification of novel anti-BC drugs can be achieved using modulation of the intracellular ERα content in BC cells as a pharmacological target. Here, we searched for Food and Drug Administration (FDA)-approved drugs that potentially modify the ERα content in BC cells.MethodsWe screened in silico more than 60,000 compounds to identify FDA-approved drugs with a gene signature similar to that of ICI. We identified mitoxantrone and thioridazine and tested them in primary, Tam-resistant and genome-edited Y537S ERα-expressing BC cells.ResultsWe found that mitoxantrone and thioridazine induced ERα downmodulation and prevented MCF-7 BC cell proliferation. Interestingly, while mitoxantrone was found to be toxic for normal breast epithelial cells, thioridazine showed a preferential activity towards BC cells. Thioridazine also reduced the ERα content and prevented cell proliferation in primary, Tam-resistant and genome-edited Y537S ERα expressing BC cells.ConclusionsWe suggest that modulation of the intracellular ERα concentration in BC cells can be exploited in in silico screens to identify anti-BC drugs and uncover a re-purposing opportunity for thioridazine in the treatment of primary and metastatic ET resistant BCs.
+---
+
+---
+DOI: 10.1007/s13721-019-0202-8
+Title: QSAR modeling for the prediction of pGI50 activity of compounds on LOX IMVI cell line and ligand-based design of potent compounds using in silico virtual screening
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3390/hemato2030028
+Title: CAR-T Cell Therapy for the Treatment of ALL: Eradication Conditions and In Silico Experimentation
+Year: 2021
+Abstract: In this paper, we explore the application of Chimeric Antigen Receptor (CAR) T cell therapy for the treatment of Acute Lymphocytic Leukaemia (ALL) by means of in silico experimentation, mathematical modelling through first-order Ordinary Differential Equations and nonlinear systems theory. By combining the latter with systems biology on cancer evolution we were able to establish a sufficient condition on the therapy dose to ensure complete response. The latter is illustrated across multiple numerical simulations when comparing three mathematically formulated administration protocols with one of a phase 1 dose-escalation trial on CAR-T cells for the treatment of ALL on children and young adults. Therefore, both our analytical and in silico results are consistent with real-life scenarios. Finally, our research indicates that tumour cells growth rate and the killing efficacy of the therapy are key factors in the designing of personalised strategies for cancer treatment.
+---
+
+---
+DOI: 10.1016/j.renene.2016.10.027
+Title: Characterization and performance study of phase inversed Sulfonated Poly Ether Ether Ketone – Silico tungstic composite membrane as an electrolyte for microbial fuel cell applications
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/s41564-018-0349-6
+Title: Analytical and clinical validation of a microbial cell-free DNA sequencing test for infectious disease
+Year: 2019
+Abstract: Thousands of pathogens are known to infect humans, but only a fraction are readily identifiable using current diagnostic methods. Microbial cell-free DNA sequencing offers the potential to non-invasively identify a wide range of infections throughout the body, but the challenges of clinical-grade metagenomic testing must be addressed. Here we describe the analytical and clinical validation of a next-generation sequencing test that identifies and quantifies microbial cell-free DNA in plasma from 1,250 clinically relevant bacteria, DNA viruses, fungi and eukaryotic parasites. Test accuracy, precision, bias and robustness to a number of metagenomics-specific challenges were determined using a panel of 13 microorganisms that model key determinants of performance in 358 contrived plasma samples, as well as 2,625 infections simulated in silico and 580 clinical study samples. The test showed 93.7% agreement with blood culture in a cohort of 350 patients with a sepsis alert and identified an independently adjudicated cause of the sepsis alert more often than all of the microbiological testing combined (169 aetiological determinations versus 132). Among the 166 samples adjudicated to have no sepsis aetiology identified by any of the tested methods, sequencing identified microbial cell-free DNA in 62, likely derived from commensal organisms and incidental findings unrelated to the sepsis alert. Analysis of the first 2,000 patient samples tested in the CLIA laboratory showed that more than 85% of results were delivered the day after sample receipt, with 53.7% of reports identifying one or more microorganisms.
+---
+
+---
+DOI: 10.1016/j.ijpharm.2022.122005
+Title: In silico and experimental validation of a new modified arginine-rich cell penetrating peptide for plasmid DNA delivery
+Year: 2022
+Abstract: Cell-penetrating peptides (CPPs) attracted great attention because of the capability to deliver various types of cargo molecules across into the cells. In this study, we presented a new arginine rich CPP, named MR, for efficient transporting plasmid DNA. We used a combined bioinformatic-based approach to improve the speed and accuracy of CPP evaluation. MR protein properties, structural models, interaction with DNA, as well as cell localization and membrane interaction were evaluated through multiple servers. Importantly, analysis using different algorithms showed the high CPP prediction confidence of MR. Experimental results also revealed the capacity of this gene delivery system in vitro for efficient plasmid DNA transfection. Additionally, in vitro mechanistically studies together with bioinformatic investigation suggested that MR peptide may internalize into the cell through endocytosis pathways. Moreover, in silico safety analysis such as immunogenicity, allergenicity, toxicity, and hemolysis activity as well as MTT assay also confirmed the safety of MR peptide. This study illustrated that MR peptide could be presented as remarkable potential gene delivery system for promising transport of plasmid DNA towards the therapeutic applications.
+---
+
+---
+DOI: 10.1016/b978-0-12-388403-9.00013-8
+Title: Multi-Scale Modeling of Tissues Using CompuCell3D
+Year: 2012
+Abstract: The study of how cells interact to produce tissue development, homeostasis, or diseases was, until recently, almost purely experimental. Now, multi-cell computer simulation methods, ranging from relatively simple cellular automata to complex immersed-boundary and finite-element mechanistic models, allow in silico study of multi-cell phenomena at the tissue scale based on biologically observed cell behaviors and interactions such as movement, adhesion, growth, death, mitosis, secretion of chemicals, chemotaxis, etc. This tutorial introduces the lattice-based Glazier-Graner-Hogeweg (GGH) Monte Carlo multi-cell modeling and the open-source GGH-based CompuCell3D simulation environment that allows rapid and intuitive modeling and simulation of cellular and multi-cellular behaviors in the context of tissue formation and subsequent dynamics. We also present a walkthrough of four biological models and their associated simulations that demonstrate the capabilities of the GGH and CompuCell3D.
+---
+
+---
+DOI: 10.1016/j.foodchem.2018.08.004
+Title: An in vitro and in silico study on the antioxidant and cell culture-based study on the chemoprotective activities of fish muscle protein hydrolysates obtained from European seabass and gilthead seabream
+Year: 2018
+Abstract: European seabass (Dicentrarchus labrax, Linnaeus, 1758) (L) and gilthead seabream (Sparus aurata, Linnaeus, 1758) (C) muscles were hydrolysated by Alcalase (Lalc, Calc) and Chymotrypsin (Lch, Cch) then hydrolysates were examined and their peptide profiles obtained. A total of 765, 794, 132 and 232 peptides were identified in Calc, Lalc, Cch and Lch, respectively. Although, Lch and Cch were expected to have more antioxidant capacity because of their peptide profiles, Alcalase hydrolysates observed in vitro, were slightly higher (TEAC assay for Calc: 848.11 ± 60.78 μmol TE/g protein). Maximum inhibition of oxidative stress was determined for Lalc (12.8% ± 4.5%) in MDCK1 cell lines. Highest proliferative capacity observed for Calc (147.0% ± 3.1%) at MTT assay in MDCK1 cell culture. Lch showed the highest chemopreventive effect with a 40-60% decrease for human colon adenocarcinoma cell line HT-29. This research points out the importance of aquatic sources as raw materials for peptide researches.
+---
+
+---
+DOI: 10.1016/j.jddst.2021.102449
+Title: Development of transdermal based hydrogel formulations of vinorelbine with an evaluation of their in vitro profiles and activity against melanoma cells and in silico prediction of drug absorption
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.meegid.2008.02.011
+Title: An in silico immunological approach for prediction of CD8+ T cell epitopes of Leishmania major proteins in susceptible BALB/c and resistant C57BL/6 murine models of infection
+Year: 2008
+Abstract: It is well established that MHC class II restricted-CD4 T cells are dominant during the development of immunity against Leishmania (L) in the C57BL/6-resistant mouse strain. However and in agreement with a number of previous observations indicating that specific CD8 T cells are primed during natural infection or vaccination in humans, a great deal of evidence obtained recently with the susceptible BALB/c murine model of infection by Leishmania major indicates that CD8 T cells participate in both pathogenesis and immunity to cutaneous leishmaniasis. Our goal herein was to identify in silico all parasitic peptides present in the whole L. major predicted proteome, using several public computational systems for the prediction of peptide binding to all MHC (histocompatibility complex-2) molecules in BALB/c and C57BL/6 mice (Syfpeithi, Rankpep, PRED(BALB/c) and Bimas). Peptides that were predicted to bind to different H2 molecules were then analysed for their homology with any of the murine proteins annotated so far, using the BLAST algorithm. Sets of selected peptides for each H2 molecule were defined by different prediction systems and compared to each other. Surprisingly, the results showed that a higher number of L. major peptides were predicted to bind H2 BALB/c molecules and very few or none to bind H2 C57BL/6 molecules. Our finding illustrates how a hybrid immuno-computational approach may be useful for biologists to target an in silico set of selected proteins to define potential candidate antigens for experimental vaccination with greater accuracy as well as a reduced number of T cell antigens.
+---

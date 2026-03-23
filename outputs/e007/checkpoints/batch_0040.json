@@ -1,0 +1,119 @@
+{
+  "batch_index": 40,
+  "dois": [
+    "10.1007/s00210-024-03068-w",
+    "10.1093/nar/gku1215",
+    "10.1002/pd.5508",
+    "10.1016/j.bj.2018.04.007",
+    "10.1371/journal.pone.0014002",
+    "10.3390/cancers15102785",
+    "10.3390/ijms22031051",
+    "10.1371/journal.pcbi.1002829",
+    "10.3390/molecules28062601",
+    "10.3390/pharmaceutics15051541"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1007/s00210-024-03068-w",
+      "problem": "Oncogenic miRNA-21 is upregulated in triple-negative breast cancer (TNBC), and targeted delivery of siRNA to inhibit miRNA-21 in EGFR-overexpressing TNBC cells remains a challenge.",
+      "method": "In-silico molecular docking (Autodock Vina, I-TASSER) for siRNA-miRNA-21 and GE11-EGFR binding, combined with in vitro studies (MTT, flow cytometry, qPCR, western blot) on chitosan nanoparticle formulations.",
+      "finding": "GE11-siRNA-CSNPs showed enhanced cytotoxicity against TNBC cells, significantly inhibited miRNA-21 expression, cell migration, and colony formation, and induced apoptosis by blocking the PI3K/AKT and ERK1/2 signaling axis.",
+      "dataset": "MDA-MB-231 (TNBC) and MCF7 breast cancer cell lines",
+      "metric": "Binding energy (kcal/mol), cell viability %, gene expression levels, particle size/PDI/zeta potential",
+      "baseline": "Untreated cells, naked siRNA-CSNPs (without GE11 peptide conjugation)",
+      "result": "siRNA-miRNA-21 binding energy −18.98 kcal/mol, GE11-EGFR binding energy −52.62 kcal/mol, nanoparticle size 122 nm"
+    },
+    {
+      "doi": "10.1093/nar/gku1215",
+      "problem": "Experimentally validated miRNA:gene interactions are fragmented across thousands of manuscripts and raw NGS datasets, making comprehensive access difficult for researchers.",
+      "method": "Text-mining pipeline for article selection combined with manual curation of published experiments and analysis of >150 raw NGS datasets (HITS-CLIP, PAR-CLIP, CLASH).",
+      "finding": "DIANA-TarBase v7.0 indexed over half a million experimentally validated miRNA:gene interactions across 24 species and 356 cell types, achieving 9- to 250-fold more entries than any other relevant database.",
+      "dataset": "MedLine/PubMed Central articles, 150+ raw NGS datasets, 24 species, 356 cell types",
+      "metric": "Number of curated interactions, species coverage, cell type coverage",
+      "baseline": "DIANA-TarBase v6.0 and other miRNA target databases (miRTarBase, miRecords, StarBase)",
+      "result": ">500,000 interactions, 9-250x more entries than competing databases"
+    },
+    {
+      "doi": "10.1002/pd.5508",
+      "problem": "During noninvasive prenatal testing (NIPT), cell-free fetal DNA fraction can only be accurately quantified from Y-chromosomal reads for male fetuses, requiring advanced methods for gender-independent prediction.",
+      "method": "PREFACE combines principal component analysis with neural networks to model copy number profiles from shallow whole-genome sequencing (sWGS) data, enabling semi-supervised training with both male and unlabeled female samples.",
+      "finding": "PREFACE achieved Pearson r=0.94 between predicted and Y-based fetal fractions using the full cohort; the method can also predict mixed multiple pregnancies and sex chromosomal aneuploidies.",
+      "dataset": "NIPT cohort (n_female=2468, n_male=2723, total 5572 samples) from Center for Medical Genetics Ghent",
+      "metric": "Pearson correlation, mean absolute error (MAE)",
+      "baseline": "Elastic net (supervised), SeqFF, FFY (Y-chromosomal read count-based fraction)",
+      "result": "Pearson r=0.94 (full cohort), r=0.9 (~1100 males only), superior to elastic net"
+    },
+    {
+      "doi": "10.1016/j.bj.2018.04.007",
+      "problem": "No vaccine exists for Chlamydia trachomatis despite it being the most common bacterial STI globally; the conserved PmpD protein is a promising immunogen but its large size and complex structure hinder recombinant approaches.",
+      "method": "In silico epitope prediction using NetMHC/NetMHCII (T-cell), BepiPred (linear B-cell), RaptorX (3D homology modeling), and DiscoTope (conformational B-cell epitopes).",
+      "finding": "Six regions containing overlapping B-cell and T-cell epitopes were identified by multiple predictors, representing valuable candidates for subunit vaccine design against C. trachomatis.",
+      "dataset": "C. trachomatis serovar L2 PmpD amino acid sequence (Genbank AAK69391.2, 1530 residues)",
+      "metric": "Binding affinity (strong/weak), P-value, uGDT, Ramachandran plot quality",
+      "baseline": "",
+      "result": "70 strong MHC-I epitopes, 742 strong MHC-II epitopes, 24 linear B-cell epitopes, 91% structure modeled, 6 multi-epitope consensus regions"
+    },
+    {
+      "doi": "10.1371/journal.pone.0014002",
+      "problem": "Gene expression profiling of bulk breast tumors conflates mRNA from tumor epithelial and stromal cells, making it difficult to ascribe expression differences to specific cell types for metastasis prediction.",
+      "method": "Weighted t-statistics using histopathological area fraction estimates of tumor and stromal components from H&E-stained sections of 198 fresh-frozen breast tumors, validated against laser capture microdissected tissue.",
+      "finding": "Gene expression differences between distant metastasis and no-metastasis groups were mostly ascribed to tumor epithelial cells; PIP5K2A was specifically elevated in stroma of the metastasis group, confirmed in microdissected tissue.",
+      "dataset": "198 fresh-frozen breast tumors (DBCG82b&c cohort: 118 DM, 80 NoDM)",
+      "metric": "FDR (5%), p-value, Kolmogorov-Smirnov test",
+      "baseline": "Un-weighted standard t-test (no cell-type adjustment)",
+      "result": "182 DEGs (unweighted), 30 gene-probes ascribed solely to carcinoma cells, 38 mostly tumor-associated, 5 stromal-associated"
+    },
+    {
+      "doi": "10.3390/cancers15102785",
+      "problem": "Metastatic breast cancer remains a leading cause of death in women, necessitating the discovery of effective natural-product-based cytotoxic and anti-migration agents.",
+      "method": "Ethanol/water extraction, MTT assay for cytotoxicity, scratch wound healing assay for migration inhibition, UHPLC-MS phytochemical profiling, and in silico molecular docking against Bcl-2, Bcl-XL, ERK2, and FAK.",
+      "finding": "Ethanol extract of K. parviflora (EEKP) showed dose-dependent cytotoxicity on 4T1 and MCF-7 cells with no toxicity on NIH-3T3; HTMF and denbinobin were identified as responsible bioactive compounds via docking.",
+      "dataset": "4T1 (metastatic breast cancer), MCF-7, NIH-3T3 (non-cancerous) cell lines",
+      "metric": "IC50 (µg/mL), cell viability %, binding energy (kcal/mol)",
+      "baseline": "Doxorubicin (positive control), EWKP (water extract, inactive)",
+      "result": "IC50 128.33 µg/mL (24h) and 115.09 µg/mL (48h) on 4T1, 138.43/124.81 µg/mL on MCF-7, no cytotoxicity on NIH-3T3 up to 250 µg/mL"
+    },
+    {
+      "doi": "10.3390/ijms22031051",
+      "problem": "Amyloid-β misfolds into toxic oligomers causing neurodegeneration in Alzheimer's disease, and preventing toxic oligomer formation is a potential therapeutic strategy.",
+      "method": "Molecular dynamics simulations for inhibitor design and optimization, single molecule force spectroscopy (SMFS) for binding validation, and MTT cell viability assays on HT22 mouse hippocampal cells.",
+      "finding": "SGA1 and SGA3 (anti-parallel binding pseudopeptides) demonstrated neuroprotection against Aβ(1-42) oligomers, while SGC1 (parallel binding) was not protective; myristoylated variants intended for BBB crossing were cytotoxic.",
+      "dataset": "HT22 mouse hippocampal cells, Aβ(1-42) oligomers",
+      "metric": "Cell viability %, IC50, one-way ANOVA with Dunnett's test",
+      "baseline": "Aβ(1-42) oligomer-treated cells (50±5% viability), untreated control (100%)",
+      "result": "SGA1 improved viability to 65±6%, SGA3 to 68±3% (vs 50±5% Aβ alone, p<0.05/0.01), Myr-SGA IC50 ~7.5 µM (cytotoxic)"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1002829",
+      "problem": "In silico prediction of discontinuous B-cell epitopes has shown moderate performance, partly due to improper benchmark definitions that create artificial false positives from incomplete epitope annotations.",
+      "method": "DiscoTope-2.0 with novel spatial neighborhood scoring function and half-sphere exposure (HSE) as surface measure, evaluated with proper benchmarks incorporating biological unit and multiple epitope information.",
+      "finding": "Proper benchmark definitions significantly improved reported prediction performance; DiscoTope-2.0 outperformed other state-of-the-art methods on both cross-validation and independent evaluation datasets.",
+      "dataset": "75 antigen structures (DiscoTope training set), 52 independent evaluation structures from IEDB-3D (clustered into 33 homology groups)",
+      "metric": "AUC",
+      "baseline": "DiscoTope-1.2, PEPITO, ElliPro, SEPPA, Epitopia, EPCES, EPSVR",
+      "result": "AUC 0.748 (cross-validation), improved to 0.824 with proper benchmarks; significantly better than Epitopia (p=0.033) and EPSVR (p=0.006)"
+    },
+    {
+      "doi": "10.3390/molecules28062601",
+      "problem": "Growing cancer incidence and resistance to conventional anti-cancer drugs necessitate the discovery of new chemotherapeutic agents from natural sources, particularly Amaryllidaceae alkaloids.",
+      "method": "In vitro cytotoxicity (MTT assay) of 10 alkaloid fractions against 6 cancer cell lines, molecular docking against Bcl-2 family (Mcl-1, Bcl-xL) and HK2, and micropropagation of endangered species via tissue culture.",
+      "finding": "C. jagus and E. bonplandii showed strongest activity on AGS gastric cancer cells; lycorine and haemanthamine were the most active pure alkaloids; powelline and buphanidrine identified as promising candidates via combined in vitro/in silico analysis.",
+      "dataset": "AGS, BT-549, HEC-1B, MCF-7, MDA-MB-231, PC3 cancer cell lines, HaCat control; 10 Amaryllidaceae species",
+      "metric": "Cell viability %, IC50 (µg/mL and µM), binding energy",
+      "baseline": "Doxorubicin (positive control, IC50 5.73±0.80 µg/mL on AGS)",
+      "result": "Lycorine IC50 4.17±0.18 µg/mL (14.51 µM), haemanthamine IC50 13.18±0.47 µg/mL (43.74 µM) on AGS; E. bonplandii 45.79±3.05% viability at 30 µg/mL"
+    },
+    {
+      "doi": "10.3390/pharmaceutics15051541",
+      "problem": "Vernonia amygdalina is used in traditional African medicine as an antidiabetic remedy, but the specific roles of its bioactive compounds luteolin and vernodalol in antidiabetic and anticancer activity are unclear.",
+      "method": "HPLC quantification of luteolin and vernodalol in leaf/root extracts, α-glucosidase inhibition assay, BSA glycation assay, ORAC antioxidant assay, MTT cell viability on HT-29 cells, and in silico ADMET prediction.",
+      "finding": "Luteolin (prevalent in leaves) is responsible for antioxidant and antidiabetic effects, while vernodalol (prevalent in roots) drives antiproliferative activity; both compounds have suitable ADMET profiles as drug candidates.",
+      "dataset": "HT-29 colon cancer cells, Vernonia amygdalina leaf and root extracts (6 extract types)",
+      "metric": "IC50 (µM), ORAC (µmol TE/g), α-glucosidase inhibition %, cell viability %",
+      "baseline": "Acarbose (α-glucosidase), ascorbic acid (antioxidant), trolox (ORAC reference)",
+      "result": "Luteolin IC50 22.2 µM, vernodalol IC50 5.7 µM on HT-29; luteolin in EthLE 0.54±0.04 mg/g, vernodalol in EthRE 336.79±15.60 mg/g"
+    }
+  ],
+  "timestamp": "2026-03-05T14:27:38.853363",
+  "extraction_count": 10
+}

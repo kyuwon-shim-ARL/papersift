@@ -1,0 +1,119 @@
+{
+  "batch_index": 17,
+  "dois": [
+    "10.1155/2014/721402",
+    "10.1186/s13058-022-01540-0",
+    "10.1371/journal.pone.0045635",
+    "10.1016/j.celrep.2015.02.001",
+    "10.3390/genes9020103",
+    "10.1186/s13059-016-1029-6",
+    "10.1371/journal.pcbi.1010988",
+    "10.1085/jgp.115.5.583",
+    "10.1002/psp4.12731",
+    "10.1371/journal.pbio.0040312"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1155/2014/721402",
+      "problem": "Plants used for medical purposes, chemotherapeutic drug identification from natural products",
+      "method": "Cell viability assays, combination index analysis",
+      "finding": "Evaluated anti-cancer activity of plant-derived compounds",
+      "dataset": "cell lines",
+      "metric": "CI, IC50",
+      "baseline": "control",
+      "result": "50%"
+    },
+    {
+      "doi": "10.1186/s13058-022-01540-0",
+      "problem": "Genomic characterization of breast cancer cell lines and PDX models",
+      "method": "Deep whole genome sequencing using Illumina X10",
+      "finding": "Identified novel genomic alterations in commonly used models",
+      "dataset": "cell lines",
+      "metric": "coverage",
+      "baseline": "previous WGS",
+      "result": "60x"
+    },
+    {
+      "doi": "10.1371/journal.pone.0045635",
+      "problem": "Computational modeling of biological systems across scales",
+      "method": "Constraint-based metabolic network reconstruction",
+      "finding": "Comprehensive ME-model integrating metabolism and macromolecular synthesis for E. coli",
+      "dataset": "E. coli",
+      "metric": "",
+      "baseline": "wildtype",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.celrep.2015.02.001",
+      "problem": "Single-cell epigenomics methods establishment for understanding heterogeneity",
+      "method": "Low-input and single-cell whole genome bisulfite sequencing",
+      "finding": "Enabled single-cell DNA methylation profiling",
+      "dataset": "mouse",
+      "metric": "",
+      "baseline": "",
+      "result": "5.8%"
+    },
+    {
+      "doi": "10.3390/genes9020103",
+      "problem": "Microfluidic devices for drug carrier development and screening",
+      "method": "Microfluidic device fabrication review",
+      "finding": "Developments in microfluidic devices for drug delivery and screening",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/s13059-016-1029-6",
+      "problem": "Accurate detection of subclonal mutations in heterogeneous tumors",
+      "method": "MuSE somatic mutation caller using NGS data",
+      "finding": "Two-step approach for subclonal mutation detection",
+      "dataset": "tumor samples",
+      "metric": "sensitivity",
+      "baseline": "standard callers",
+      "result": "3%"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1010988",
+      "problem": "Mechanistic models computational demands require ML surrogates",
+      "method": "ML surrogate models for biological process emulation",
+      "finding": "Growing evidence ML surrogates emulate mechanistic models effectively",
+      "dataset": "",
+      "metric": "",
+      "baseline": "mechanistic models",
+      "result": ""
+    },
+    {
+      "doi": "10.1085/jgp.115.5.583",
+      "problem": "Identifying peptide toxin blocking stretch-activated ion channels",
+      "method": "Electrophysiology and toxin isolation from spider venom",
+      "finding": "GsMTx-4 toxin blocks cationic stretch-activated channels",
+      "dataset": "rat astrocytes",
+      "metric": "IC50",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1002/psp4.12731",
+      "problem": "Pharmacokinetics of voxelotor in sickle cell disease patients",
+      "method": "Population pharmacokinetic modeling",
+      "finding": "Characterized PK of voxelotor in SCD patients",
+      "dataset": "N=246 patients",
+      "metric": "CI",
+      "baseline": "baseline",
+      "result": "27%"
+    },
+    {
+      "doi": "10.1371/journal.pbio.0040312",
+      "problem": "ABA-induced stomatal closure mechanism in plants",
+      "method": "Computational model with experimental validation",
+      "finding": "Model predictions validated experimentally for guard cell signaling",
+      "dataset": "Arabidopsis",
+      "metric": "",
+      "baseline": "previous models",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:49:19.120737",
+  "extraction_count": 10
+}

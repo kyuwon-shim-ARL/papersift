@@ -1,0 +1,119 @@
+{
+  "batch_index": 34,
+  "dois": [
+    "10.3390/biom13030522",
+    "10.1186/s12859-020-03728-7",
+    "10.3389/fimmu.2015.00437",
+    "10.1371/journal.pntd.0001295",
+    "10.1016/j.sjbs.2020.11.066",
+    "10.1038/srep25491",
+    "10.1126/sciadv.aaz7130",
+    "10.1016/j.biopha.2020.110548",
+    "10.3390/molecules27227971",
+    "10.1016/j.vaccine.2020.08.045"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3390/biom13030522",
+      "problem": "Existing in silico CPP prediction methods produce a large number of false-positive results due to insufficient and non-diverse negative training data.",
+      "method": "Ensemble deep learning (5 LSTM+attention models) trained on 9-mer sliding window fragments, using 11M human reference protein-derived peptides as negative set to reduce false positives.",
+      "finding": "AiCPP outperformed MLCPP, CellPPD, and CPPred with higher specificity, and identified novel CPPs from amyloid precursor protein that were experimentally validated and optimized.",
+      "dataset": "2,798 unique CPPs (5-38 aa) from CellPPD/MLCPP/CPPsite 2.0; 11,046,343 negative 9-mers from 113,620 human reference proteins; test set of 150 CPP + 150 non-CPP",
+      "metric": "AUC, MCC, ACC, SEN, SPE, PRE",
+      "baseline": "MLCPP, CellPPD, CPPred",
+      "result": "AUC=0.927, MCC=0.722, ACC=0.860, SPE=0.893 (vs MLCPP AUC=0.882, CellPPD AUC=0.724, CPPred AUC=0.845)"
+    },
+    {
+      "doi": "10.1186/s12859-020-03728-7",
+      "problem": "Computational tissue models either describe few cells in high detail or larger ensembles coarsely; bridging these two scales for large-scale 3D tissue simulation is computationally prohibitive.",
+      "method": "Highly parallel cellular Potts model (CPM) on the NAStJA HPC framework with domain decomposition, halo exchange, and agent-based cellular events driving multi-scale simulation.",
+      "finding": "The parallelized CPM introduces no directional bias from domain subdivision and scales approximately linearly beyond 10,000 cores, enabling 1000^3 voxel cancerous tissue simulation at sub-cellular resolution.",
+      "dataset": "Synthetic 3D tissue simulations (2-cell verification, cancerous tissue 1000^3 voxels)",
+      "metric": "Volume/surface ratio deviation, cell center displacement, parallel scaling efficiency",
+      "baseline": "Traditional serial cellular Potts model",
+      "result": "~3% temporal variation in surface/volume, 0.4 voxel center drift (vs 10 voxel cell extent), linear scaling beyond 10,000 cores"
+    },
+    {
+      "doi": "10.3389/fimmu.2015.00437",
+      "problem": "The interplay between genetic risk variants and epigenetic regulatory elements in primary Sjogren's syndrome (SS) is poorly understood, particularly which cell types are most affected.",
+      "method": "In silico analysis of 72 SS-associated SNPs using VEP, RegulomeDB, and HaploReg v2 for regulatory motif enrichment, linkage disequilibrium screening, and histone marker analysis across cell types (B cells, monocytes, epithelial cells).",
+      "finding": "94.4% of SS risk variants showed regulatory function enrichment; transcriptionally active motifs were most enriched in B cells (> monocytes > T cells); active histone markers at promoters and enhancers predominated in B cells.",
+      "dataset": "72 SNPs from 43 SS gene risk factors; ENCODE/Roadmap Epigenome ChIP data for GM12878 (B cells), CD14+ (monocytes), A549 (epithelial)",
+      "metric": "Pearson's Chi-squared test (P<0.05), regulatory motif enrichment percentage, LD r²≥0.8",
+      "baseline": "",
+      "result": "94.4% regulatory enrichment; 645 LD variants identified; B cell-specific active histone markers at promoters and enhancers"
+    },
+    {
+      "doi": "10.1371/journal.pntd.0001295",
+      "problem": "Very few Leishmania major CD8+ T cell epitopes have been mapped for human HLA types, hindering polytope vaccine development against leishmaniasis.",
+      "method": "In silico epitope prediction using 7 algorithms (SYFPEITHI, BIMAS, EpiJen, Rankpep, nHLApred, NetCTL, Multipred) for HLA-A*0201-restricted 9-mer peptides from 6 L. major antigens, validated by in vitro PBMC stimulation with intracellular cytokine assay, ELISpot, and ELISA.",
+      "finding": "LmsTI-1 (pool II) and LPG-3 (pool IV) peptides elicited specific CD8+/IFN-γ+ T cell responses in HLA-A2+ recovered individuals, confirmed by ELISpot and ELISA.",
+      "dataset": "6 L. major antigens (CPB, CPC, LmsTI-1, TSA, LeIF, LPG-3); PBMCs from HLA-A2+ and HLA-A2- L. major-recovered individuals",
+      "metric": "% CD8+/IFN-γ+ T cells, cutoff-based responder rate, ELISpot, ELISA",
+      "baseline": "HLA-A2- recovered individuals (control), HLA-A2+ healthy donors (control)",
+      "result": "31.6% and 13.3% of HLA-A2+ recovered persons responded above cutoff for pools II and IV respectively"
+    },
+    {
+      "doi": "10.1016/j.sjbs.2020.11.066",
+      "problem": "No specific antiviral therapeutics exist for MERS-CoV; in silico prediction of siRNAs targeting conserved viral regions could accelerate oligonucleotide-based therapeutic development.",
+      "method": "Integrated bioinformatics approach (i-SCORE, RNAxs, RNAfold) for siRNA prediction targeting MERS-CoV orf1ab gene, followed by in vitro validation via reverse transfection in Vero cells and quantitative real-time PCR.",
+      "finding": "21 functional off-target-reduced siRNAs were selected from 462 candidates; siRNA-1 and siRNA-4 showed the best inhibition of viral replication in Vero cells with no cytotoxicity.",
+      "dataset": "17 full-genome MERS-CoV sequences (human and camel isolates, 92.3-99.9% identity); Vero cell line",
+      "metric": "Ct values (qRT-PCR), cytotoxicity, free energy folding, seed-duplex stability",
+      "baseline": "Untreated MERS-CoV-infected Vero cells (positive control)",
+      "result": "siRNA-1 best at 0.1 nM, siRNA-4 best at 5.0 and 10 nM in cell lysate; 21/462 siRNAs passed stringent filtering"
+    },
+    {
+      "doi": "10.1038/srep25491",
+      "problem": "Active anti-leukemia components in Traditional Chinese Medicine herbs like Indigo naturalis and their precise molecular targets remain unidentified.",
+      "method": "Comprehensive 2D K562/cell membrane chromatography (CMC) for active component screening, combined with in silico target identification (PharmMapper, TargetHunter), validated by cell viability (CCK-8), apoptosis (Annexin V-FITC), and Western blot.",
+      "finding": "Three active components (indirubin, tryptanthrin, isorhamnetin) were identified; Src kinase was identified as isorhamnetin's membrane target (Kd=3.81 μM), mediating anti-leukemia effects through G2/M cell cycle arrest.",
+      "dataset": "K562 leukemia cell line; Indigo naturalis (Qingdai) extract; 24 chemical components identified by Q-TOFMS",
+      "metric": "Cell viability (CCK-8), apoptosis rate, dissociation constant (Kd), retention time on CMC",
+      "baseline": "Imatinib (membrane receptor drug) and dexamethasone (intracellular receptor drug) as CMC controls",
+      "result": "Kd(Src-isorhamnetin)=3.81 μM; isorhamnetin induces dose-dependent apoptosis and G2/M arrest in K562 cells"
+    },
+    {
+      "doi": "10.1126/sciadv.aaz7130",
+      "problem": "How mechanical confinement and hypoxia jointly regulate tumor cell aggregate growth dynamics is poorly understood, limiting predictive modeling of early tumor growth.",
+      "method": "Dual in vitro-in silico approach: CT26 tumor spheroids grown in alginate capsules (spherical and tubular) with tunable confinement, combined with a continuum mathematical model coupling cell mass fraction, oxygen diffusion, and internal pressure.",
+      "finding": "Two distinct confinement regimes were identified: strong confinement (spherical capsules) causes homogeneous pressure rise above inhibitory threshold, while weak confinement (tubes) allows continued tip proliferation with central pressure buildup and hypoxia-induced necrosis.",
+      "dataset": "CT26 colon carcinoma cells in alginate spherical capsules (90 μm inner radius) and tubular capsules",
+      "metric": "Aggregate radius vs time, internal pressure, oxygen mass fraction thresholds",
+      "baseline": "Freely growing spheroid (unconfined control)",
+      "result": "Growth inhibition pressure threshold 800-2000 Pa; confluence at tc=66h (spherical); oxygen inhibition below 8×10⁻⁶ mass fraction"
+    },
+    {
+      "doi": "10.1016/j.biopha.2020.110548",
+      "problem": "Whether noncoding RNAs (miRNAs, lncRNAs) regulate signaling pathways involved in SARS-CoV infection is not fully investigated, limiting identification of novel therapeutic targets.",
+      "method": "Bioinformatic network analysis using STRING (PPI), GSEA/KEGG (pathway enrichment), MiRTarBase (miRNA-mRNA interactions), miRWalk2.0 (miRNA-lncRNA interactions), and cytoHubba (hub node identification).",
+      "finding": "TGF-beta signaling pathway was identified as the most enriched pathway (11 genes); hub miRNAs (hsa-let-7a, miR-181a, miR-20b, miR-17, miR-27a) and hub lncRNAs (MALAT1, XIST) were identified as potential therapeutic targets.",
+      "dataset": "SARS-CoV proteome (15 viral proteins) vs human proteome (40 host proteins); 293 protein-protein interactions",
+      "metric": "P-value, gene count per pathway, hub degree (cytoHubba)",
+      "baseline": "",
+      "result": "TGF-beta pathway P=6.99E-21 (11 genes); 5 hub miRNAs and 2 hub lncRNAs identified; 293 virus-host PPI interactions"
+    },
+    {
+      "doi": "10.3390/molecules27227971",
+      "problem": "The molecular mechanism of quercetin's inhibition of acetylcholinesterase (AChE) and its neuroprotective potential against Aβ25-35-induced oxidative stress are not fully elucidated.",
+      "method": "Multispectroscopic analysis (fluorescence quenching, CD, UV-vis), enzyme kinetics (Ellman's method, Lineweaver-Burk), molecular docking, MD simulation, and PC12 cell neuroprotection assay (MTT, MDA, GSH, ROS).",
+      "finding": "Quercetin inhibits AChE in a reversible mixed manner by binding at the peripheral aromatic site and extending into the active center; it synergizes with galantamine and protects PC12 cells from Aβ25-35-induced oxidative stress.",
+      "dataset": "AChE from Electrophorus electricus; PC12 cells with Aβ25-35-induced oxidative stress model",
+      "metric": "IC50, binding constant (Ka), fluorescence quenching, MDA/GSH/ROS levels",
+      "baseline": "Galantamine hydrobromide (IC50=0.29 μM); taxifolin (IC50=54.01 μM); quercitrin (IC50=94.5 μM)",
+      "result": "IC50=4.59±0.27 μM; Ka=(5.52±0.05)×10⁴ L/mol at 25°C; synergistic inhibition with galantamine"
+    },
+    {
+      "doi": "10.1016/j.vaccine.2020.08.045",
+      "problem": "Whether BCG vaccine can generate cross-reactive T cells against SARS-CoV-2 through shared epitopes is unknown, despite epidemiological associations between BCG vaccination and reduced COVID-19 severity.",
+      "method": "Protein BLAST for similar 9-amino acid sequences between SARS-CoV-2 and M. bovis BCG, followed by HLA class I binding affinity prediction using IEDB and NetMHCpan 4.1 for 15 common HLA alleles.",
+      "finding": "Seven similar 9-amino acid sequences (1 aa substitution) were found between SARS-CoV-2 and M. bovis; 6 of 7 peptide pairs showed moderate to high HLA class I binding affinity, supporting possible cross-reactive T cell generation.",
+      "dataset": "SARS-CoV-2 proteome (MN908947.3) vs M. bovis BCG str. Tokyo 172; 15 common HLA-A/-B/-C alleles (Japan, USA)",
+      "metric": "HLA binding affinity (Percentile Rank <10), number of shared amino acid sequences",
+      "baseline": "",
+      "result": "7 similar 9-mer sequences found; 6/7 pairs bind common HLA class I with Percentile Rank <10; >40 identical heptamer sequences"
+    }
+  ],
+  "timestamp": "2026-03-05T14:25:21.963374",
+  "extraction_count": 10
+}

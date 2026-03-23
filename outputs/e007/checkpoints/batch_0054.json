@@ -1,0 +1,119 @@
+{
+  "batch_index": 54,
+  "dois": [
+    "10.1371/journal.pcbi.1002952",
+    "10.1177/1533033818792490",
+    "10.3389/fphys.2020.558606",
+    "10.1289/ehp.0901107",
+    "10.1371/journal.pone.0059249",
+    "10.1007/s10237-021-01432-w",
+    "10.1038/s41598-017-00651-5",
+    "10.1371/journal.pone.0056148",
+    "10.1371/journal.pone.0181941",
+    "10.1093/nargab/lqac023"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pcbi.1002952",
+      "problem": "Predicting and controlling embryonic stem cell differentiation within 3D embryoid bodies is poorly understood, limiting regenerative medicine applications.",
+      "method": "Rules-based agent modeling with physics-based aggregation simulation of embryoid bodies, where cells are modeled as incompressible rigid spheres with stochastic binary Oct4 state transitions and intercellular communication rules.",
+      "finding": "Loss of Oct4 pluripotency can be modeled as a binary stochastic process with intercellular communication rules, and the emergent spatial patterns are independent of EB structure, size, or cell division.",
+      "dataset": "Mouse embryonic stem cells (D3 cell line), embryoid bodies of 250 and 1000 cells",
+      "metric": "Radius, circularity, connection count, connection length, Oct4 spatial pattern classification",
+      "baseline": "Experimental confocal microscopy Oct4 expression patterns over 7 days",
+      "result": "Surface area-to-volume ratio ~8% error vs sphere, simulated aggregate properties match experimental EBs"
+    },
+    {
+      "doi": "10.1177/1533033818792490",
+      "problem": "Computational models of cellular electroporation are difficult to validate against quantitative molecular uptake data, limiting understanding of membrane permeabilization dynamics.",
+      "method": "Two-stage ordinary differential equation model coupling reversible membrane defect formation with irreversible solute transport, fit using Nelder-Mead minimization against fluorescence microscopy time-series data.",
+      "finding": "HEPES buffer enables 3- to 5-fold faster molecular transport than PBS or SFDF; interpulse delay up to 100 μs does not appreciably affect uptake in multipulse schemes; per-pulse permeability enhancement decreases with pulse number.",
+      "dataset": "Single adherent cells in microfluidic chamber, 3 buffers (PBS, SFDF, HEPES), 4 field strengths (170-400 kV/m), 4 pulse durations (1-1000 μs)",
+      "metric": "Sum of squared residuals (SSR), molecular uptake time-series fit",
+      "baseline": "Experimental quantitative propidium uptake measurements from Part I",
+      "result": "max(SSR_PBS)=0.025, max(SSR_SFDF)=0.0070, max(SSR_HEPES)=0.0066; δ 3-5x larger for HEPES"
+    },
+    {
+      "doi": "10.3389/fphys.2020.558606",
+      "problem": "As biological network models grow in size and complexity, efficient methods for validating and analyzing their dynamical behavior are lacking.",
+      "method": "Model verification (automated unitary testing of logical model specifications) combined with value propagation for analytical computation of environmental/genetic perturbation effects, applied to a Boolean logical model of T cell activation with >200 components and >450 interactions.",
+      "finding": "Model verification enables continuous testing during model development; value propagation predicts differential potential of CTLA4 vs PD-1 checkpoint immunotherapies on T cell activation.",
+      "dataset": "T cell activation signaling network including CTLA4 and PD-1 checkpoint inhibitory pathways",
+      "metric": "Dynamical specification compliance, stable state reachability",
+      "baseline": "Manual iterative trial simulations for model validation",
+      "result": "Comprehensive model with >200 components, >450 interactions; differential CTLA4 vs PD-1 predictions confirmed by Jupyter notebooks"
+    },
+    {
+      "doi": "10.1289/ehp.0901107",
+      "problem": "Understanding mechanisms of action of endocrine-active chemicals on steroidogenesis requires computational models that can predict steroid concentration responses in vitro.",
+      "method": "Mechanistic ODE model of adrenal steroidogenesis incorporating enzymatic reactions and transport pathways, with iterative parameter estimation using MATLAB, validated against time-course LC/MS measurements of 14 steroids in H295R cells.",
+      "finding": "The model accurately predicts steroid concentrations under control and metyrapone exposure conditions; metyrapone inhibits CYP11B1 causing cortisol decrease and precursor accumulation in a dose-dependent manner.",
+      "dataset": "Human H295R adrenocortical carcinoma cells, 14 steroids measured, metyrapone at 1 and 10 μM",
+      "metric": "R-squared for transport equilibrium fit, visual correspondence of time-course predictions",
+      "baseline": "Experimental time-course steroid concentrations (control cells, 5 time points)",
+      "result": "Transport R² = 0.70-0.99 across 14 steroids; convergence in ~24 min on Intel Core 2 Duo"
+    },
+    {
+      "doi": "10.1371/journal.pone.0059249",
+      "problem": "Understanding collective cell migration in 3D remains elusive, particularly how microscopic forces and cell-cell/cell-matrix receptor interactions influence group motility and stability.",
+      "method": "3D computational framework modeling cells as overlapping spheres with coarse-grained surface receptor sites for cell-cell adhesion and cell-matrix traction, incorporating ECM viscous resistance and stochastic force components.",
+      "finding": "Cell pair stability depends on traction force magnitude and receptor dynamics; mobile surface receptors promote stronger intercellular stability; matrix resistance, cellular stiffness, and adhesion intensity contribute differently to migration with memory effects.",
+      "dataset": "Simulated cell pairs and 50-cell clusters with varying receptor dynamics (4 cases of static/dynamic C-C and C-M sites)",
+      "metric": "Center-to-center distance, bound vs detached state classification, pair stability over simulation time",
+      "baseline": "Four receptor dynamics cases (static/dynamic combinations of cell-cell and cell-matrix sites)",
+      "result": "Simulation time scale of days; 50-cell cluster motility demonstrated; memory effects alter pair motility"
+    },
+    {
+      "doi": "10.1007/s10237-021-01432-w",
+      "problem": "The mechanobiological cascade leading to medical device-related pressure ulcers at the cell scale is not well understood, particularly how deformation-inflicted damage and inflammatory edema interact.",
+      "method": "Cell-scale finite element modeling of 30 adipocytes near a bony prominence (nasal bridge) using Neo-Hookean hyperelastic material, with a strain-time cell death prediction model and sequential simulation of deformation and edema-induced interstitial pressure.",
+      "finding": "Cells adjacent to bony surfaces die first due to adipose-bone stiffness gradients; initial cell death triggers inflammatory edema that escalates further cell damage in a nonlinear, cumulative vicious cycle pattern.",
+      "dataset": "30 mature adipocytes (70 μm diameter) near nasal bone, CPAP ventilation mask scenario",
+      "metric": "Effective stress distribution, plasma membrane strain, volumetric PM stress exposure histograms",
+      "baseline": "Deformation-only loading vs combined deformation + edema pressure loading",
+      "result": "Cell death onset within minutes at high strain; nonlinear escalation demonstrated across 4 simulation steps"
+    },
+    {
+      "doi": "10.1038/s41598-017-00651-5",
+      "problem": "The regulatory mechanisms by which Langerhans cells orchestrate adaptive immune responses in the skin, particularly through interferon regulatory factors, are not established.",
+      "method": "Boolean Petri net-based modeling of IRF gene regulatory network, parameterized with transcription factor expression values from whole transcriptome microarray analysis (Affymetrix), with in vitro validation using T cell activation assays.",
+      "finding": "IRF1, IRF4, and IRF8 form a key regulatory network in LCs; TNFα and TSLP differentially regulate IRF expression leading to differential CD8 T cell activation; PI3Kγ inhibition shifts LC function from Th2 toward Th1 responses.",
+      "dataset": "Primary human Langerhans cells stimulated with TNFα or TSLP, EBV-specific CD8 T cell lines",
+      "metric": "IFN-γ ELISpot counts, transcriptome fold change (BETR p<0.05), Pearson correlation (r>0.8)",
+      "baseline": "Unstimulated migratory LCs (time 0), DMSO control for PI3Kγ inhibition",
+      "result": "527 differentially regulated genes, 18 clusters identified; in silico predictions confirmed by IFN-γ T cell assays"
+    },
+    {
+      "doi": "10.1371/journal.pone.0056148",
+      "problem": "The role of periglomerular cells in controlling mitral cell spiking in the olfactory bulb, relative to granule cells, is not fully understood.",
+      "method": "Reduced multicompartmental conductance-based model (6 compartments) of the periglomerular cell in NEURON simulator, integrated into a cell triad model with mitral and granule cells to study inhibitory interactions.",
+      "finding": "Periglomerular cells are more effective than granule cells at inhibiting mitral cells and are the only ones capable of complete inhibition; granule cells facilitate PG cell inhibition by enlarging the parameter range for complete mitral cell suppression.",
+      "dataset": "Computational model of olfactory bulb cell triad (periglomerular, mitral, granule cells)",
+      "metric": "Firing rate, spike latency, inhibition completeness, parameter sensitivity (conductance densities)",
+      "baseline": "Granule cell inhibition alone vs combined PG + granule cell inhibition",
+      "result": "Input resistance 1190 MΩ (matching experimental ~1000 MΩ); stepwise firing rate control demonstrated"
+    },
+    {
+      "doi": "10.1371/journal.pone.0181941",
+      "problem": "Cell characteristics evolve with increasing passage number in vitro, but the mechanisms driving these changes and their impact on experimental reproducibility are poorly understood.",
+      "method": "Random walk lattice-based model simulating in vitro cell culture passaging (passage 0-30) with heterogeneous proliferation rates and passage-induced damage, combined with in silico scratch assays to assess functional consequences.",
+      "finding": "Average proliferation rate can either increase or decrease with passaging depending on competition between initial heterogeneity and passage-induced damage; scratch assay closure rates differ significantly between passage numbers, suggesting passage number should always be reported.",
+      "dataset": "Simulated near-homogeneous and heterogeneous cell lines, passages 0-30, lattice size 4168×3610",
+      "metric": "Mean proliferation rate, standard deviation of proliferation rate, scratch assay closure rate",
+      "baseline": "Passage 0 (initial state) vs passage 30; near-homogeneous vs heterogeneous cell lines; no damage vs varying damage levels",
+      "result": "Dramatic proliferation rate shift by passage 30 in heterogeneous lines; significantly different scratch closure rates across passage numbers"
+    },
+    {
+      "doi": "10.1093/nargab/lqac023",
+      "problem": "Discovering transcription factors for cell reprogramming is largely trial and error; computational models that account for cellular heterogeneity and predict long-term reprogramming outcomes are lacking.",
+      "method": "scREMOTE integrates single-cell multiomics (scRNA-seq + scATAC-seq) to compute regulation potential from CRE accessibility, TF motifs, and chromatin conformation, then uses linear regression to iteratively predict long-term TF perturbation effects.",
+      "finding": "scREMOTE successfully predicts that Gata3 overexpression reprograms transit-amplifying cells toward inner root sheath and Runx1 toward hair shaft lineages, capturing higher-order gene regulations in hair follicle development.",
+      "dataset": "Hair follicle developmental system (simultaneous scRNA-seq and scATAC-seq), 35 highly expressed TFs",
+      "metric": "Empirical p-value against random TF-gene pairs, regulation potential enrichment across 5 databases",
+      "baseline": "Random subsets of TF-gene pairs (1 million resamples per database); known regulations from TRRUST, hTFtarget, TFBSDB, RegNetwork, MSigDB",
+      "result": "All 5 databases significantly enriched (p<0.05 to p<1e-6); successful prediction of Gata3→IRS and Runx1→Hair Shaft reprogramming"
+    }
+  ],
+  "timestamp": "2026-03-05T14:33:34.518222",
+  "extraction_count": 10
+}

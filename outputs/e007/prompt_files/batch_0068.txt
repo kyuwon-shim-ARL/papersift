@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.3389/fmicb.2018.02825
+Title: Editorial: The Individual Microbe: Single-Cell Analysis and Agent-Based Modelling
+Year: 2018
+Abstract: The field of microbial individual-based ecology, or&#13;\nµ&#13;\nIBE (&#13;\nKreft et al., 2013&#13;\n), is grounded in&#13;\nthe notion that to truly understand the interactions of micr&#13;\noorganisms with their biotic and&#13;\nabiotic environment, one cannot ignore the scales at which s&#13;\nuch interactions occur. The collection&#13;\nand interpretation of data along these scales (from very smal&#13;\nl spatial dimensions to very large&#13;\npopulation sizes) remains a major challenge. Embracing the id&#13;\nea that “progress in science depends&#13;\non new techniques, new discoveries, and new ideas, probably i&#13;\nn that order” (&#13;\nBrenner, 2002&#13;\n), we&#13;\nintroduce here a collection of 14 articles authored by 65 lea&#13;\nding experts on the topic of “The&#13;\nIndividual Microbe” (https://www.frontiersin.org/resear&#13;\nch-topics/5193). We frame these articles&#13;\nin a narrative that explores the progress made on techniques th&#13;\nat extract and process information&#13;\nfrom individual microbes (IMs) and their environment, how th&#13;\nat information allows the discovery and prediction of novel single-cell behaviors, and how those discoveries might generate new ideas&#13;\nabout the outcomes and impacts of microscopic activity at macr&#13;\noscopic levels
+---
+
+---
+DOI: 10.1002/bit.27578
+Title: Dynamic multiscale metabolic network modeling of Chinese hamster ovary cell metabolism integrating N‐linked glycosylation in industrial biopharmaceutical manufacturing
+Year: 2020
+Abstract: Abstract Experimental and modeling work, described in this article, is focused on the metabolic pathway of Chinese hamster ovary (CHO) cells, which are the preferred expression system for monoclonal antibody protein production. CHO cells are one of the primary hosts for monoclonal antibodies production, which have extensive applications in multiple fields like biochemistry, biology and medicine. Here, an approach to explain cellular metabolism with in silico modeling of a microkinetic reaction network is presented and validated with unique experimental results. Experimental data of 25 different fed‐batch bioprocesses included the variation of multiple process parameters, such as pH, agitation speed, oxygen and CO 2 content, and dissolved oxygen. A total of 151 metabolites were involved in our proposed metabolic network, which consisted of 132 chemical reactions that describe the reaction pathways, and include 25 reactions describing N‐glycosylation and additional reactions for the accumulation of the produced glycoforms. Additional eight reactions are considered for accumulation of the N‐glycosylation products in the extracellular environment and one reaction to correlate cell degradation. The following pathways were considered: glycolysis, pentose phosphate pathway, nucleotide synthesis, tricarboxylic acid cycle, lipid synthesis, protein synthesis, biomass production, anaplerotic reactions, and membrane transport. With the applied modeling procedure, different operational scenarios and fed‐batch techniques can be tested.
+---
+
+---
+DOI: 10.1016/j.snb.2016.09.062
+Title: Modeling of suspended vs. immobilized whole-cell amperometric biosensors
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.watres.2023.120540
+Title: Modeling versatile and dynamic anaerobic metabolism for PAOs/GAOs competition using agent-based model and verification via single cell Raman Micro-spectroscopy
+Year: 2023
+Abstract: Side-stream enhanced biological phosphorus removal process (S2EBPR) has been demonstrated to improve performance stability and offers a suite of advantages compared to conventional EBPR design. Design and optimization of S2EBPR require modification of the current EBPR models that were not able to fully reflect the metabolic functions of and competition between the polyphosphate-accumulating organisms (PAOs) and glycogen-accumulating organisms (GAOs) under extended anaerobic conditions as in the S2EBPR conditions. In this study, we proposed and validated an improved model (iEBPR) for simulating PAO and GAO competition that incorporated heterogeneity and versatility in PAO sequential polymer usage, staged maintenance-decay, and glycolysis-TCA pathway shifts. The iEBPR model was first calibrated against bulk batch testing experiment data and proved to perform better than the previous EBPR model for predicting the soluble orthoP, ammonia, biomass glycogen, and PHA temporal profiles in a starvation batch testing under prolonged anaerobic conditions. We further validated the model with another independent set of anaerobic testing data that included high-resolution single-cell and specific population level intracellular polymer measurements acquired with single-cell Raman micro-spectroscopy technique. The model accurately predicted the temporal changes in the intracellular polymers at cellular and population levels within PAOs and GAOs, and further confirmed the proposed mechanism of sequential polymer utilization, and polymer availability-dependent and staged maintenance-decay in PAOs. These results indicate that under extended anaerobic phases as in S2EBPR, the PAOs may gain competitive advantages over GAOs due to the possession of multiple intracellular polymers and the adaptive switching of the anaerobic metabolic pathways that consequently lead to the later and slower decay in PAOs than GAOs. The iEBPR model can be applied to facilitate and optimize the design and operations of S2EBPR for more reliable nutrient removal and recovery from wastewater.
+---
+
+---
+DOI: 10.1109/tase.2024.3349380
+Title: Virtual Cell-Based Scheduling Approach to Single-Robotic-Arm Cluster Tools Subject to Wafer Residency Time Constraints
+Year: 2024
+Abstract: Scheduling single-robotic-arm cluster tools subject to wafer residency time constraints has received much attention. Compared to some scheduling strategies that use all processing modules (PMs) to process wafers, it is much more challenging to schedule a more general case whose optimal scheduling strategy is not limited to the case of using all PMs. The strategy of only adjusting the robot’s waiting time may fail to produce a desired schedule. When a tool using all PMs is not schedulable, it may become schedulable if only some PMs of a type are used. Therefore, it is very important to select an appropriate number of PMs to process wafers. This work studies the cyclic scheduling problem of wafer-residency-time-constrained single-robotic-arm cluster tools by simultaneously adjusting the number of PMs and robot waiting time. We build a virtual cell that includes an appropriate number of PMs to process wafers with the maximal productivity. We establish sufficient and necessary conditions under which the system is schedulable. The schedulability conditions are less conservative than the state-of-the-art one. A polynomial algorithm is developed to find the optimal cyclic schedule, a virtual cell’s configuration, and robot waiting time. We illustrate the practicability of the proposed algorithm via several examples, and its superiority over the existing one. <italic xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">Note to Practitioners</i> —This paper addresses the optimal cyclic scheduling problem of wafer-residency-time-constrained single-robotic-arm cluster tools that are used in every wafer fabrication factory. This work for the first time simultaneously adjusts the number of PMs and the robot waiting time given such a cluster tool such that it can be scheduled with the highest productivity. It presents the optimal scheduling method with polynomial complexity. We confirm that the proposed approach can improve schedulability of single-robotic-arm cluster tools over existing methods by using multiple examples. It can thus be readily applied to industrial wafer fabrication.
+---
+
+---
+DOI: 10.1016/j.renene.2024.121759
+Title: Optimal scheduling of virtual power plants with reversible solid oxide cells in the electricity market
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.tiv.2021.105179
+Title: Comparisons of segment-specific toxicity of platinum-based agents and cadmium using S1, S2, and S3 cells derived from mouse kidney proximal tubules
+Year: 2021
+Abstract: Renal toxicants such as cisplatin and cadmium cause segment-specific damages in kidney proximal tubules. Recently, we established an in vitro experimental system for evaluating segment-specific toxicity and transport of chemicals using immortalized S1, S2, and S3 cells derived from the S1, S2, and S3 regions of mouse kidney proximal tubules. In the present study, we examined the toxicity and accumulation of cisplatin, carboplatin, oxaliplatin, and cadmium in S1, S2, and S3 cells. We found that not only cisplatin but also carboplatin and oxaliplatin exhibited higher lethal toxicity in S3 cells than in S1 and S2 cells. At sublethal doses, cisplatin showed delayed induction of Kim-1 and clusterin on days 3 and 6, which may reflect the latent renal toxicity of cisplatin in vivo. The high sensitivities of S3 cells to the platinum-based agents were not due to the high accumulation of Pt in S3 cells. Exposure to cadmium resulted in similar toxicity among these cells, suggesting that S3 cells were not sensitive to any renal toxicants. Thus, the utilization of S1, S2, and S3 cells may provide a useful tool for the in vitro evaluation of the proximal tubule segment-specific toxicity of chemicals.
+---
+
+---
+DOI: 10.1016/j.ijhydene.2021.07.052
+Title: Accelerated stress testing of PUREBLACK® carbon-based gas diffusion layers with pore forming agent for proton exchange membrane fuel cells
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/s00366-022-01625-6
+Title: A simple agent-based model to simulate 3D tumor-induced angiogenesis considering the evolution of the hypoxic conditions of the cells
+Year: 2022
+Abstract: Abstract In tumors, angiogenesis (conformation of a new vasculature from another primal one) is produced with the releasing of tumor angiogenic factors from hypoxic cells. These angiogenic substances are distributed around the tumor micro-environment by diffusion. When they reach the primal blood vessel bed, the sprouting and branching of a new micro-vascular network is produced. These new capillaries will supply oxygen to cells so that their hypoxic state is overcome. In this work, a new and simple 3D agent-based model to simulate tumor-induced angiogenesis is presented. In this approach, the evolution of the hypoxic conditions in cells along the related conformation of the new micro-vessels is considered. The importance that the relative position of the primal vasculature and tumor structure takes in the final distribution of the new micro-vasculature has also been addressed. The diffusion of angiogenic factors and oxygen has been modelled at the targets by numerical convolution superposition of the analytical solution from the sources. Qualitative and quantitative results show the importance of tip endothelial cells in overcoming hypoxic conditions in cells at early stages of angiogenesis. At final stages, anastomosis plays an important role in the reduction of hypoxia in cells.
+---
+
+---
+DOI: 10.1007/s00354-019-00066-y
+Title: Whole-Cell Modeling and Simulation: A Brief Survey
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/btpr.2335
+Title: Effect of amino acid supplementation on titer and glycosylation distribution in hybridoma cell cultures—Systems biology‐based interpretation using genome‐scale metabolic flux balance model and multivariate data analysis
+Year: 2016
+Abstract: Genome‐scale flux balance analysis (FBA) is a powerful systems biology tool to characterize intracellular reaction fluxes during cell cultures. FBA estimates intracellular reaction rates by optimizing an objective function, subject to the constraints of a metabolic model and media uptake/excretion rates. A dynamic extension to FBA, dynamic flux balance analysis (DFBA), can calculate intracellular reaction fluxes as they change during cell cultures. In a previous study by Read et al. (2013), a series of informed amino acid supplementation experiments were performed on twelve parallel murine hybridoma cell cultures, and this data was leveraged for further analysis (Read et al., Biotechnol Prog. 2013;29:745–753). In order to understand the effects of media changes on the model murine hybridoma cell line, a systems biology approach is applied in the current study. Dynamic flux balance analysis was performed using a genome‐scale mouse metabolic model, and multivariate data analysis was used for interpretation. The calculated reaction fluxes were examined using partial least squares and partial least squares discriminant analysis. The results indicate media supplementation increases product yield because it raises nutrient levels extending the growth phase, and the increased cell density allows for greater culture performance. At the same time, the directed supplementation does not change the overall metabolism of the cells. This supports the conclusion that product quality, as measured by glycoform assays, remains unchanged because the metabolism remains in a similar state. Additionally, the DFBA shows that metabolic state varies more at the beginning of the culture but less by the middle of the growth phase, possibly due to stress on the cells during inoculation. © 2016 American Institute of Chemical Engineers Biotechnol. Prog ., 32:1163–1173, 2016
+---
+
+---
+DOI: 10.1080/15384101.2019.1591125
+Title: A checkpoint-oriented cell cycle simulation model
+Year: 2019
+Abstract: Modeling and in silico simulations are of major conceptual and applicative interest in studying the cell cycle and proliferation in eukaryotic cells. In this paper, we present a cell cycle checkpoint-oriented simulator that uses agent-based simulation modeling to reproduce the dynamics of a cancer cell population in exponential growth. Our in silico simulations were successfully validated by experimental in vitro supporting data obtained with HCT116 colon cancer cells. We demonstrated that this model can simulate cell confluence and the associated elongation of the G1 phase. Using nocodazole to synchronize cancer cells at mitosis, we confirmed the model predictivity and provided evidence of an additional and unexpected effect of nocodazole on the overall cell cycle progression. We anticipate that this cell cycle simulator will be a potential source of new insights and research perspectives.
+---
+
+---
+DOI: 10.1016/j.coisb.2021.03.009
+Title: A community approach to whole-cell modeling
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jbiosc.2019.10.011
+Title: Fluorescent detection of nisin by genetically modified Lactococcus lactis strains in milk and a colonic model: Application of whole-cell nisin biosensors
+Year: 2019
+Abstract: Detection of bioactive peptides in complex ecosystems like intestinal environment is a difficult task. In this study, we developed two new bioreporters for nisin based on Lactococcus lactis NZ9000 transformed with the vector pNZ:Nis-aFP or pNZ:Nis-mCherry, that encoded for the anaerobic fluorescent protein evoglow-Pp1 (aFP) or the fluorescent protein mCherry, respectively. The biosensors were used to study nisin A production by L. lactis INIA 650 in milk and in a colonic model. The use of L. lactis NZ9000 pNZ:Nis-aFP as a biosensor allowed the detection of nisin produced by L. lactis INIA 650 in milk, but not in the in vitro colonic model. In milk, this reporter was induced by direct addition of 10 ng/ml nisin while, in the colonic model, nisin concentrations of 50 ng/ml were necessary. However, the reporter system based on pNZ:Nis-mCherry showed a higher sensibility, detecting nisin concentrations of 1 ng/ml produced by L. lactis INIA 650 in colonic media using agar diffusion or cross streak bioassays.
+---
+
+---
+DOI: 10.1109/iccchina.2016.7636847
+Title: Virtual cell interference alignment in ultra dense network
+Year: 2016
+Abstract: It's highly possible that the future wireless communication system adopts a ultra dense deployment to cope with the increasing demand on spectral and energy efficiency. The prerequisite of the forecasted benefits brought by the ultra dense network is that the complex inter-site interference is well undertaken. This paper aims to tackle the interference in ultra dense network utilizing the well studied interference alignment in one user-centric virtual paradigm. Virtual cell clusters are firstly constructed by building the interference list so that interference alignment with different virtual cell clusters can be designed at the user equipment. Then transmit and receive beamforming matrices can be designed for all user equipments in order to cancel out the interference signals by using minimum mean square error algorithm. Simulation results show that the proposed interference alignment scheme achieves much better performance than the zero-forcing and maximum rate transmission precoding.
+---
+
+---
+DOI: 10.1093/bib/bbad062
+Title: scSTAR reveals hidden heterogeneity with a real-virtual cell pair structure across conditions in single-cell RNA sequencing data
+Year: 2023
+Abstract: Abstract Cell-state transition can reveal additional information from single-cell ribonucleic acid (RNA)-sequencing data in time-resolved biological phenomena. However, most of the current methods are based on the time derivative of the gene expression state, which restricts them to the short-term evolution of cell states. Here, we present single-cell State Transition Across-samples of RNA-seq data (scSTAR), which overcomes this limitation by constructing a paired-cell projection between biological conditions with an arbitrary time span by maximizing the covariance between two feature spaces using partial least square and minimum squared error methods. In mouse ageing data, the response to stress in CD4+ memory T cell subtypes was found to be associated with ageing. A novel Treg subtype characterized by mTORC activation was identified to be associated with antitumour immune suppression, which was confirmed by immunofluorescence microscopy and survival analysis in 11 cancers from The Cancer Genome Atlas Program. On melanoma data, scSTAR improved immunotherapy-response prediction accuracy from 0.8 to 0.96.
+---
+
+---
+DOI: 10.1101/324855
+Title: starmap: Immersive visualisation of single cell data using smartphone-enabled virtual reality
+Year: 2018
+Abstract: We report a new smartphone-enabled virtual reality (VR) program, starmap ( https://vccri.github.io/starmap/ ), that enables immersive visualisation of single-cell data for hundreds of thousands of cells using a mobile-enabled web browser and low-cost VR head mount device.
+---
+
+---
+DOI: 10.1140/epje/i2019-11878-7
+Title: Agent-based model of multicellular tumor spheroid evolution including cell metabolism
+Year: 2019
+Abstract: Computational models aiming at the spatio-temporal description of cancer evolution are a suitable framework for testing biological hypotheses from experimental data, and generating new ones. Building on our recent work (J. Theor. Biol. 389, 146 (2016)) we develop a 3D agent-based model, capable of tracking hundreds of thousands of interacting cells, over time scales ranging from seconds to years. Cell dynamics is driven by a Monte Carlo solver, incorporating partial differential equations to describe chemical pathways and the activation/repression of "genes", leading to the up- or down-regulation of specific cell markers. Each cell-agent of different kind (stem, cancer, stromal etc.) runs through its cycle, undergoes division, can exit to a dormant, senescent, necrotic state, or apoptosis, according to the inputs from its systemic network. The basic network at this stage describes glucose/oxygen/ATP cycling, and can be readily extended to cancer-cell specific markers. Eventual accumulation of chemical/radiation damage to each cell's DNA is described by a Markov chain of internal states, and by a damage-repair network, whose evolution is linked to the cell systemic network. Aimed at a direct comparison with experiments of tumorsphere growth from stem cells, the present model will allow to quantitatively study the role of transcription factors involved in the reprogramming and variable radio-resistance of simulated cancer-stem cells, evolving in a realistic computer simulation of a growing multicellular tumorsphere.
+---
+
+---
+DOI: 10.1016/j.biosystems.2021.104533
+Title: A Petri nets-based framework for whole-cell modeling
+Year: 2021
+Abstract: Whole-cell modeling aims to incorporate all main genes and processes, and their interactions of a cell in one model. Whole-cell modeling has been regarded as the central aim of systems biology but also as a grand challenge, which plays essential roles in current and future systems biology. In this paper, we analyze whole-cell modeling challenges and requirements and classify them into three aspects (or dimensions): heterogeneous biochemical networks, uncertainties in components, and representation of cell structure. We then explore how to use different Petri net classes to address different aspects of whole-cell modeling requirements. Based on these analyses, we present a Petri nets-based framework for whole-cell modeling, which not only addresses many whole-cell modeling requirements, but also offers a graphical, modular, and hierarchical modeling tool. We think this framework can offer a feasible modeling approach for whole-cell model construction.
+---
+
+---
+DOI: 10.1016/j.vaccine.2021.08.014
+Title: Protective efficacy of whole-cell inactivated Leptospira vaccines made using virulent or avirulent strains in a hamster model
+Year: 2021
+Abstract: Whole-cell inactivated vaccines remain the only licensed vaccines used to control human and animal leptospirosis worldwide. Although they are protective against lethal infections, the efficacy of these vaccines has been divergent. The manufacturing process often involves the use of standard bacterial strains subjected to serial in vitro passages, with a risk of loss of virulence, and may affect the immunogenicity and consequently decrease protection. Thus, the objective of this study was to perform a comparative analysis of the efficacy of in-house bacterins produced with standard (avirulent) and virulent strains. Hamsters were immunized with killed bacteria produced using avirulent and virulent strains of L. interrogans serovars Copenhageni and Canicola. Vaccine efficacy was determined in terms of protection against lethal homologous or heterologous challenges. The results showed that immunization with both avirulent and virulent Canicola strains resulted in 100% protection against homologous challenge. Conversely, Copenhageni bacterins produced using an avirulent strain conferred only 25-37.5% protection against homologous challenge (P > 0.05), while virulent Copenhageni bacterin conferred 100% protection (P < 0.001). A single vaccine dose was sufficient to induce protection, and administration of a prime boost significantly reduced the bacterial load in the kidneys and improved the humoral immune response to the virulent Copenhageni strain. These findings suggest that the maintenance of virulent strains in bacterin formulations is essential for improving the immunogenicity and efficacy of leptospirosis vaccines.
+---
+
+---
+DOI: 10.3390/e18100374
+Title: On the Virtual Cell Transmission in Ultra Dense Networks
+Year: 2016
+Abstract: Ultra dense networks (UDN) are identified as one of the key enablers for 5G, since they can provide an ultra high spectral reuse factor exploiting proximal transmissions. By densifying the network infrastructure equipment, it is highly possible that each user will have one or more dedicated serving base station antennas, introducing the user-centric virtual cell paradigm. However, due to irregular deployment of a large amount of base station antennas, the interference environment becomes rather complex, thus introducing severe interferences among different virtual cells. This paper focuses on the downlink transmission scheme in UDN where a large number of users and base station antennas is uniformly spread over a certain area. An interference graph is first created based on the large-scale fadings to give a potential description of the interference relationship among the virtual cells. Then, base station antennas and users in the virtual cells within the same maximally-connected component are grouped together and merged into one new virtual cell cluster, where users are jointly served via zero-forcing (ZF) beamforming. A multi-virtual-cell minimum mean square error precoding scheme is further proposed to mitigate the inter-cluster interference. Additionally, the interference alignment framework is proposed based on the low complexity virtual cell merging to eliminate the strong interference between different virtual cells. Simulation results show that the proposed interference graph-based virtual cell merging approach can attain the average user spectral efficiency performance of the grouping scheme based on virtual cell overlapping with a smaller virtual cell size and reduced signal processing complexity. Besides, the proposed user-centric transmission scheme greatly outperforms the BS-centric transmission scheme (maximum ratio transmission (MRT)) in terms of both the average user spectral efficiency and edge user spectral efficiency. What is more, interference alignment based on the low complexity virtual cell merging can achieve much better performance than ZF and MRT precoding in terms of average user spectral efficiency.
+---
+
+---
+DOI: 10.1016/j.cmpb.2024.108331
+Title: An agent-based method to estimate 3D cell migration trajectories from 2D measurements: Quantifying and comparing T vs CAR-T 3D cell migration
+Year: 2024
+Abstract: Background and objectiveImmune cell migration is one of the key features that enable immune cells to find invading pathogens, control tissue damage, and eliminate primary developing tumors. Chimeric antigen receptor (CAR) T-cell therapy is a novel strategy in the battle against various cancers. It has been successful in treating hematological tumors, yet it still faces many challenges in the case of solid tumors. In this work, we evaluate the three-dimensional (3D) migration capacity of T and CAR-T cells within dense collagen-based hydrogels. Quantifying three-dimensional (3D) cell migration requires microscopy techniques that may not be readily accessible. Thus, we introduce a straightforward mathematical model designed to infer 3D trajectories of cells from two-dimensional (2D) cell trajectories.MethodsWe develop a 3D agent-based model (ABM) that simulates the temporal changes in the direction of migration with an inverse transform sampling method. Then, we propose an optimization procedure to accurately orient cell migration over time to reproduce cell migration from 2D experimental cell trajectories. With this model, we simulate cell migration assays of T and CAR-T cells in microfluidic devices conducted under hydrogels with different concentrations of type I collagen and validate our 3D cell migration predictions with light-sheet microscopy.ResultsOur findings indicate that CAR-T cell migration is more sensitive to collagen concentration increases than T cells, resulting in a more pronounced reduction in their invasiveness. Moreover, our computational model reveals significant differences in 3D movement patterns between T and CAR-T cells. T cells exhibit migratory behavior in 3D whereas that CAR-T cells predominantly move within the XY plane, with limited movement in the Z direction. However, upon the introduction of a CXCL12 chemical gradient, CAR-T cells present migration patterns that closely resemble those of T cells.ConclusionsThis framework demonstrates that 2D projections of 3D trajectories may not accurately represent real migration patterns. Moreover, it offers a tool to estimate 3D migration patterns from 2D experimental data, which can be easily obtained with automatic quantification algorithms. This approach helps reduce the need for sophisticated and expensive microscopy equipment required in laboratories, as well as the computational burden involved in producing and analyzing 3D experimental data.
+---
+
+---
+DOI: 10.1109/indin.2017.8104931
+Title: Agent-based reconfiguration in a micro-flow production cell
+Year: 2017
+Abstract: The world is moving towards to the fourth industrial revolution, usually linked with the Industrie 4.0 initiative, enables the digitization of manufacturing factories by using Cyber-Physical Systems and emergent technologies like Internet of Things and Internet of Services. The seamless reconfiguration of these complex industrial cyber-physical systems is an important challenge for the complete implementation of this revolution, being necessary to re-think the way such mechanisms can be designed and engineered. This paper presents an agentbased reconfiguration system for the dynamic and seamless reconfiguration of a physically-reconfigurable modular micro-flow production system in the area of manufacturing of aerospace engine components.
+---
+
+---
+DOI: 10.1016/j.procs.2019.04.035
+Title: Agent-based Mesoscopic Urban Traffic Simulation based on Multi-lane Cell Transmission Model
+Year: 2019
+Abstract: With the increasing demand for the urban traffic simulation, the mesoscopic model takes center stage with its advantage that can simulate a large network with less computational cost and gets the information of individual vehicles. This study proposes a mesoscopic traffic simulation model called Agent-based Mesoscopic Cell Transmission Model (AMCTM). It models both longitudinal and lateral movement of vehicles. The longitudinal movement is based on the Cell Transmission Model (CTM) and implements the traffic signal by adjusting the amount of flow between cells according to the signal. The lateral movement includes mandatory lane-change to allow the vehicle to follow the specified route and the optional lane-change to reduce the travel time. To evaluate the proposed model, we conduct the experiment with a test network including signalized intersection. The result of the experiment shows that the AMCTM performs well several phenomena occur in the urban network. This study is expected to contribute to the performance evaluation of the newly developed traffic-related technologies such as autonomous vehicles and V2X communication-based control systems.
+---
+
+---
+DOI: 10.1016/j.cbi.2018.06.031
+Title: Mechanistic-based non-animal assessment of eye toxicity: Inflammatory profile of human keratinocytes cells after exposure to eye damage/irritant agents
+Year: 2018
+Abstract: Eye toxicity is a mandatory parameter in human risk and safety evaluation for products including chemicals, pesticides, medicines and cosmetics. Historically, this endpoint has been evaluated using the Draize rabbit eye test, an in vivo model that was never formally validated. Due to advances in scientific knowledge, economic and ethical issues, non-animal methods based on mechanisms of toxicity are being developed and validated for increasing the capability of these models to predict eye toxicity. In this study, the Cytometric Bead Array (CBA) and ELISA assays were used to evaluate the inflammatory cytokine profile produced by HaCaT human keratinocytes after exposure to chemicals with different UN GHS eye toxicity classifications, aiming to stablish a correlation between inflammatory endpoints and eye toxicity (damage/irritation) potential. As a first step, cytotoxic profile of the chemicals, including 3 non-irritants and 10 eye toxicants (GHS Category 1, 2A and 2B), was evaluated after 24 h exposure using MTT assay and Inhibitory Concentration of 20% of cell viability (IC20) was calculated for each chemical. Then, the cells were exposed to these chemicals at IC20 for 24 h and supernatants and cell lysates were analyzed by CBA assay for quantification of the following cytokines: IL-6, IL-8, IL-10, IL-1β, TNF and IL-12p70. Regarding cytotoxicity evaluation, chemicals showed different cytotoxicity profiles and data demonstrated no correlation with their UN GHS classification. Among the cytokines evaluated, IL-1β production has changed after exposure and such alterations were confirmed by quantification employing ELISA method. The higher intracellular levels of IL-1β were found in GHS Category 1 chemicals, followed by Category 2A and 2B, while non irritants did not induce such increase. Thus, these findings show that IL-1β measurement, using HaCaT model, can be a considerable biomarker to identify chemicals according to their potential in promote eye toxicity, differentiating damage from irritation potential.
+---
+
+---
+DOI: 10.1007/s11837-018-3191-7
+Title: CFD Simulations of Gas–Liquid Multiscale Flow Characteristics in an Aluminum Electrolysis Cell with Population Balance Model: Effect of Anode Slot Configuration
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3390/sym11081003
+Title: Numerical Simulation of a Multiscale Cell Motility Model Based on the Kinetic Theory of Active Particles
+Year: 2019
+Abstract: In this work, we deal with a kinetic model of cell movement that takes into consideration the structure of the extracellular matrix, considering cell membrane reactions, haptotaxis, and chemotaxis, which plays a key role in a number of biological processes such as wound healing and tumor cell invasion. The modeling is performed at a microscopic scale, and then, a scaling limit is performed to derive the macroscopic model. We run some selected numerical experiments aimed at understanding cell movement and adhesion under certain documented situations, and we measure the alignment of the cells and compare it with the pathways determined by the extracellular matrix by introducing new alignment operators.
+---
+
+---
+DOI: 10.1021/acs.jcim.0c01282
+Title: High-Performance Whole-Cell Simulation Exploiting Modular Cell Biology Principles
+Year: 2021
+Abstract: One of the grand challenges of this century is modeling and simulating a whole cell. Extreme regulation of an extensive quantity of model and simulation data during whole-cell modeling and simulation renders it a computationally expensive research problem in systems biology. In this article, we present a high-performance whole-cell simulation exploiting modular cell biology principles. We prepare the simulation by dividing the unicellular bacterium, <i>Escherichia coli</i> (<i>E. coli</i>), into subcells utilizing the spatially localized densely connected protein clusters/modules. We set up a Brownian dynamics-based parallel whole-cell simulation framework by utilizing the Hamiltonian mechanics-based equations of motion. Though the velocity Verlet integration algorithm possesses the capability of solving the equations of motion, it lacks the ability to capture and deal with particle-collision scenarios. Hence, we propose an algorithm for detecting and resolving both elastic and inelastic collisions and subsequently modify the velocity Verlet integrator by incorporating our algorithm into it. Also, we address the boundary conditions to arrest the molecules' motion outside the subcell. For efficiency, we define one hashing-based data structure called the cellular dictionary to store all of the subcell-related information. A benchmark analysis of our CUDA C/C++ simulation code when tested on <i>E. coli</i> using the CPU-GPU cluster indicates that the computational time requirement decreases with the increase in the number of computing cores and becomes stable at around 128 cores. Additional testing on higher organisms such as <i>rats</i> and <i>humans</i> informs us that our proposed work can be extended to any organism and is scalable for high-end CPU-GPU clusters.
+---
+
+---
+DOI: 10.1016/j.mbs.2024.109158
+Title: Quantifying collective motion patterns in mesenchymal cell populations using topological data analysis and agent-based modeling
+Year: 2024
+Abstract: Fibroblasts in a confluent monolayer are known to adopt elongated morphologies in which cells are oriented parallel to their neighbors. We collected and analyzed new microscopy movies to show that confluent fibroblasts are motile and that neighboring cells often move in anti-parallel directions in a collective motion phenomenon we refer to as "fluidization" of the cell population. We used machine learning to perform cell tracking for each movie and then leveraged topological data analysis (TDA) to show that time-varying point-clouds generated by the tracks contain significant topological information content that is driven by fluidization, i.e., the anti-parallel movement of individual neighboring cells and neighboring groups of cells over long distances. We then utilized the TDA summaries extracted from each movie to perform Bayesian parameter estimation for the D'Orsgona model, an agent-based model (ABM) known to produce a wide array of different patterns, including patterns that are qualitatively similar to fluidization. Although the D'Orsgona ABM is a phenomenological model that only describes inter-cellular attraction and repulsion, the estimated region of D'Orsogna model parameter space was consistent across all movies, suggesting that a specific level of inter-cellular repulsion force at close range may be a mechanism that helps drive fluidization patterns in confluent mesenchymal cell populations.
+---
+
+---
+DOI: 10.1016/j.cels.2024.02.002
+Title: Cross-evaluation of E. coli’s operon structures via a whole-cell model suggests alternative cellular benefits for low- versus high-expressing operons
+Year: 2024
+Abstract: Many bacteria use operons to coregulate genes, but it remains unclear how operons benefit bacteria. We integrated E. coli's 788 polycistronic operons and 1,231 transcription units into an existing whole-cell model and found inconsistencies between the proposed operon structures and the RNA-seq read counts that the model was parameterized from. We resolved these inconsistencies through iterative, model-guided corrections to both datasets, including the correction of RNA-seq counts of short genes that were misreported as zero by existing alignment algorithms. The resulting model suggested two main modes by which operons benefit bacteria. For 86% of low-expression operons, adding operons increased the co-expression probabilities of their constituent proteins, whereas for 92% of high-expression operons, adding operons resulted in more stable expression ratios between the proteins. These simulations underscored the need for further experimental work on how operons reduce noise and synchronize both the expression timing and the quantity of constituent genes. A record of this paper's transparent peer review process is included in the supplemental information.
+---
+
+---
+DOI: 10.5511/plantbiotechnology.20.0605a
+Title: Four-dimensional imaging with virtual reality to quantitatively explore jigsaw puzzle-like morphogenesis of &lt;i&gt;Arabidopsis&lt;/i&gt; cotyledon pavement cells
+Year: 2020
+Abstract: In most dicotyledonous plants, leaf pavement cells exhibit complex jigsaw puzzle-like cell morphogenesis during leaf expansion. Although detailed molecular biological information and mathematical modeling of this jigsaw puzzle-like cell morphogenesis are now available, a full understanding of this process remains elusive. Recent reports have highlighted the importance of three-dimensional (3D) structures (i.e., anticlinal and periclinal cell wall) in understanding the mechanical models that describe this morphogenetic process. We believe that it is important to acquire 3D shapes of pavement cells over time, i.e., acquire and analyze four-dimensional (4D) information when studying the relationship between mechanical modeling and simulations and the actual cell shape. In this report, we have developed a framework to capture and analyze 4D morphological information of <i>Arabidopsis thaliana</i> cotyledon pavement cells by using both direct water immersion observations and computational image analyses, including segmentation, surface modeling, virtual reality and morphometry. The 4D cell models allowed us to perform time-lapse 3D morphometrical analysis, providing detailed quantitative information about changes in cell growth rate and shape, with cellular complexity observed to increase during cell growth. The framework should enable analysis of various phenotypes (e.g., mutants) in greater detail, especially in the 3D deformation of the cotyledon surface, and evaluation of theoretical models that describe pavement cell morphogenesis using computational simulations. Additionally, our accurate and high-throughput acquisition of growing cell structures should be suitable for use in generating <i>in silico</i> model cell structures.
+---
+
+---
+DOI: 10.1016/j.jocs.2019.101066
+Title: From cell to multi-crypt: Agent-based models of the human colon suggests novel processes of Field cancerisation
+Year: 2020
+Abstract: Colorectal cancer (CRC) is a major cause of cancer mortality. It is known that loss of APC gene function through mutation is followed by the expansion of a field of mutated tissue, but the mechanisms behind this expansion are poorly understood. This study aimed to examine the processes involved in field expansion using two agent-based computational models: a cell-scale model allowing mapping of Apc-mutated cell expansion in small multcrypt arrays, and a tissue-scale model allowing simulation of the entire colon over oncologically relevant timescales. The cell scale model predicts that mutated cells spread through the flat mucosa of the simulated tissue without invading neighbouring crypts - a process not previously hypothesised in the literature. The crypt-scale model's predictions of field sizes correspond to those estimated in the literature from in vivo studies. Our dual-scale modelling approach renders the spatial and temporal scales at which field cancerisation processes occur in vivo accessible to exploration by simulation for the first time.
+---
+
+---
+DOI: 10.1101/2023.08.23.554489
+Title: Harnessing Agent-Based Modeling in CellAgentChat to Unravel Cell-Cell Interactions from Single-Cell Data
+Year: 2023
+Abstract: ABSTRACT Understanding cell-cell interactions (CCIs) is essential yet challenging due to the inherent intricacy and diversity of cellular dynamics. Existing approaches often analyze global patterns of CCIs using statistical frameworks, missing the nuances of individual cell behavior due to their focus on aggregate data. This makes them insensitive in complex environments where the detailed dynamics of cell interactions matter. We introduce CellAgentChat, an agent-based model (ABM) designed to decipher CCIs from single-cell RNA sequencing and spatial transcriptomics data. This approach models biological systems as collections of autonomous agents governed by biologically inspired principles and rules. Validated against seven diverse single-cell datasets, CellAgentChat demonstrates its effectiveness in detecting intricate signaling events across different cell populations. Moreover, CellAgentChat offers the ability to generate animated visualizations of single-cell interactions and provides flexibility in modifying agent behavior rules, facilitating thorough exploration of both close and distant cellular communications. Furthermore, CellAgentChat leverages ABM features to enable intuitive in silico perturbations via agent rule modifications, pioneering new avenues for innovative intervention strategies. This ABM method empowers an in-depth understanding of cellular signaling interactions across various biological contexts, thereby enhancing in-silico studies for cellular communication-based therapies.
+---
+
+---
+DOI: 10.1007/s11663-023-02747-y
+Title: Improved CFD Modeling of the Whole-Cell Side Ledge Behavior in Aluminum Electrolysis Cell
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1101/2023.02.14.528596
+Title: Predicting CIN rates from single-cell whole genome sequencing data using an <i>in silico</i> model
+Year: 2023
+Abstract: Abstract Chromosomal instability (CIN) drives the formation of karyotype aberrations in cancer cells and is a major contributor to intra-tumour heterogeneity, metastasis, and therapy resistance. Understanding how CIN contributes to tumour karyotype evolution requires quantification of CIN rates in primary tumours. Single-cell sequencing-based technologies enable the detection of karyotype heterogeneity, however deducing the actual CIN rates that underlie intra-tumour heterogeneity is still complicated. We have developed an in-silico model, called CINsim , to simulate the karyotype dynamics and validated our model in a murine mouse model for T-cell lymphoma (T-ALL) in which CIN is introduced by mutation of the Mps1 spindle assembly checkpoint protein. CINsim can simulate karyotype evolution within physiologically relevant timescales, across a range of CIN rates, and across a range of karyotype-imposed survival and proliferation effects. We find that CINsim can accurately predict the CIN rates in chromosomal instable mouse T-ALLs as well as in human colon cancer organoids as observed by live-cell time-lapse imaging. We conclude that CINsim is a powerful tool to estimate CIN rates from static single-cell DNA sequencing data by finding the most likely path from euploid founder cell to a heterogeneous tumour cell population.
+---
+
+---
+DOI: 10.1504/ijise.2018.089137
+Title: A flexible clustering approach for virtual cell formation considering real-life production factors using Kohonen self-organising map
+Year: 2018
+Abstract: In dynamic production environment, quick adaptation for new product design is an important issue to achieve competitive edge. To address this issue, virtual cellular manufacturing has been evolved to improve shop flexibility and setup efficiency of cellular manufacturing system. The virtual manufacturing cell (VMC) involves grouping of parts to form part families and grouping of machines to form machine cells without physical boundaries of cells. Kohonen's self-organising map (KSOM), an unsupervised neural network technique, is employed in this work for cell formation because of its flexibility in dynamic clustering of parts and machines. The proposed KSOM network approach considers real life production factors like processing time, operation sequence, routing flexibility, machine capacity, machine flexibility and demand to design machine cells. A numerical example from literature is used to illustrate the proposed methodology. The methodology is tested on benchmark problems of different size and performance measures such as group technology efficiency (GTE) and exceptional elements (EE) are evaluated. The results indicate that the proposed approach is quite capable of solving different sizes of problems and outperforms the existing methods in some cases.
+---
+
+---
+DOI: 10.1002/bmb.21032
+Title: Variation in external representations as part of the classroom lecture:An investigation of virtual cell animations in introductory photosynthesis instruction*
+Year: 2016
+Abstract: Abstract The use of external representations (ERs) to introduce concepts in undergraduate biology has become increasingly common. Two of the most prevalent are static images and dynamic animations. While previous studies comparing static images and dynamic animations have resulted in somewhat conflicting findings in regards to learning outcomes, the benefits of each have been shown individually. Using ERs developed by the Virtual Cell Animation project, we aim to further investigate student learning using different ERs as part of an introductory biology lecture. We focus our study on the topic of photosynthesis as reports have noted that students struggle with a number of basic photosynthesis concepts. Students ( n = 167) in ten sections of introductory biology laboratory were introduced to photosynthesis concepts by instructional lectures differing only in the format of the embedded ERs. Normalized gain scores were calculated, showing that students who learned with dynamic animations outperformed students who learned from static images on the posttest. The results of this study provide possible instructional guidelines for those delivering photosynthesis instruction in the introductory biology classroom. © 2016 by The International Union of Biochemistry and Molecular Biology, 45(3):226–234, 2017.
+---
+
+---
+DOI: 10.1093/bioinformatics/bty530
+Title: A network-based zoning for parallel whole-cell simulation
+Year: 2018
+Abstract: Abstract Motivation In Computational Cell Biology, whole-cell modeling and simulation is an absolute requirement to analyze and explore the cell of an organism. Despite few individual efforts on modeling, the prime obstacle hindering its development and progress is its compute-intensive nature. Towards this end, little knowledge is available on how to reduce the enormous computational overhead and which computational systems will be of use. Results In this article, we present a network-based zoning approach that could potentially be utilized in the parallelization of whole-cell simulations. Firstly, we construct the protein–protein interaction graph of the whole-cell of an organism using experimental data from various sources. Based on protein interaction information, we predict protein locality and allocate confidence score to the interactions accordingly. We then identify the modules of strictly localized interacting proteins by performing interaction graph clustering based on the confidence score of the interactions. By applying this method to Escherichia coli K12, we identified 188 spatially localized clusters. After a thorough Gene Ontology-based analysis, we proved that the clusters are also in functional proximity. We then conducted Principal Coordinates Analysis to predict the spatial distribution of the clusters in the simulation space. Our automated computational techniques can partition the entire simulation space (cell) into simulation sub-cells. Each of these sub-cells can be simulated on separate computing units of the High-Performance Computing (HPC) systems. We benchmarked our method using proteins. However, our method can be extended easily to add other cellular components like DNA, RNA and metabolites. Availability and implementation Supplementary information Supplementary data are available at Bioinformatics online.
+---
+
+---
+DOI: 10.1016/j.ifacol.2016.07.249
+Title: In Silico Cell Cycle Predictor for Mammalian Cell Culture Bioreactor Using Agent-Based Modeling Approach
+Year: 2016
+Abstract: An Agent-based computational modeling approach was used to develop a model to simulate individual mammalian cell behavior and its cycle regulation in response to dynamic bioreactor conditions. The model can be used as an in silico cell cycle predictor when provided with data from ongoing bioreactor runs. Rules were developed to regulate the distinct cell cycle events as well as to apply decision-making at the critical cellular checkpoints. The model was constructed and validated using different sets of experimental cell culture conditions with cell culture parameters measured using a flow cytometer and other instrumentation.
+---
+
+---
+DOI: 10.1016/j.cels.2018.02.005
+Title: How Can Systems Biology Test Principles and Tools Using Immune Cells as a Model?
+Year: 2018
+Abstract: The field of systems immunology has grown extensively over the last few years, spurred by the generation of large datasets, new analytical tools, and modeling approaches. In this piece and its counterpart in Trends in Immunology [http://www.cell.com/trends/immunology/fulltext/S1471-4906(18)30013-9], eight authors discuss what immunologists can learn from systems biology and, conversely, how systems biologists can use immune cells as a model and outline the many directions this interdisciplinary field can expand in.
+---
+
+---
+DOI: 10.1146/annurev-biodatasci-080917-013356
+Title: Opportunities and Challenges of Whole-Cell and -Tissue Simulations of the Outer Retina in Health and Disease
+Year: 2018
+Abstract: Visual processing starts in the outer retina, where photoreceptor cells sense photons that trigger electrical responses. Retinal pigment epithelial cells are located external to the photoreceptor layer and have critical functions in supporting cell and tissue homeostasis and thus sustaining a healthy retina. The high level of specialization makes the retina vulnerable to alterations that promote retinal degeneration. In this review, we discuss opportunities and challenges in proposing whole-cell and -tissue simulations of the human outer retina. An implicit position taken throughout this review is that mapping diverse data sets onto integrative computational models is likely to be a pivotal approach to understanding complex disease and developing novel interventions.
+---
+
+---
+DOI: 10.1007/s40571-018-0199-2
+Title: An agent-based and FE approach to simulate cell jamming and collective motion in epithelial layers
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.bbrc.2023.09.035
+Title: Study of vascular sclerosing agent based on the dual mechanism of vascular endothelial cell damage-plasmin system inhibition
+Year: 2023
+Abstract: Venous malformations are a vascular disorder. Currently, the use of chemical sclerosing agents is a common clinical approach for the treatment of venous malformations. However, the effectiveness of existing sclerosing agents is unsatisfactory and often accompanied by severe side effects. In this study, we have developed a novel cationic surfactant-based sclerosing agent (POL-TA) by conjugating the plasmin inhibitor tranexamic acid (TA) with a nonionic surfactant polidocanol (POL) through an ester bond. POL-TA induces endothelial cell damage, triggering the coagulation cascade and thrombus formation. Moreover, it releases TA in vivo, which inhibits plasmin activity and the activation of matrix metalloproteinase (MMPs), thereby stabilizing the fibrin network of the thrombus and promoting vascular fibrosis. We have established a cell model using venous malformation endothelial cells and assessed the cellular damage and underlying mechanisms of POL-TA. The inhibitory effects of POL-TA on the plasmin-MMPs system were evaluated using MMP-9 activity assay kit. Additionally, the mice tail vein model was employed to investigate the vascular sclerosing effects and mechanisms of POL-TA.
+---
+
+---
+DOI: 10.1016/j.ymben.2024.10.013
+Title: A multiscale hybrid modelling methodology for cell cultures enabled by enzyme-constrained dynamic metabolic flux analysis under uncertainty
+Year: 2024
+Abstract: Mammalian cell cultures make a significant contribution to the pharmaceutical industry. They produce many of the biopharmaceuticals obtaining FDA-approval each year. Motivated by quality-by-design principles, various modelling methodologies are frequently trialled to gain insight into these bioprocesses. However, these systems are highly complex and uncertain, involving dynamics at different scales, both in time and space, making them challenging to model in a comprehensive and fully mechanistic manner. This study develops a machine-learning-supported multiscale modelling framework of cell cultures, linking the macroscale bioprocess dynamics to the microscale metabolic flux distribution. As a relevant biopharmaceutical case study, we consider the production of Trastuzumab by Chinese Hamster Ovary (CHO) cells in batch. A macroscale hybrid model is constructed by integrating macro-kinetic and machine-learning approaches. Enzyme-constrained Dynamic Metabolic Flux Analysis (ecDMFA) is adopted to calculate flux distributions based on the dynamic predictions of the hybrid model. Uncertainty estimation of the multiscale model is conducted through bootstrapping. Judging from experimental data, our hybrid model can reduce the modelling error of the macroscale dynamics to 8.0%; a 70% reduction from the purely mechanistic model. In addition, the predicted dynamic flux distribution aligns with observations seen in literature, highlighting important metabolic changes throughout the process. Model uncertainty is maintained at a low level, demonstrating the trustworthiness of the predictions. Overall, our comprehensive modelling framework has the potential to facilitate the development of digital twins in the biopharmaceutical industry.
+---
+
+---
+DOI: 10.1016/j.jeurceramsoc.2022.12.059
+Title: Mitigating distortions during debinding of a monolithic solid oxide fuel cell stack using a multiscale, multiphysics model
+Year: 2022
+Abstract: Improving the power density of solid oxide fuel cell stacks would significantly enhance this technology for transportation. Using a monolithic structure to downsize the stack dimension offers a key to elevate the power density of solid oxide fuel cell stacks. This innovative design is promising but manufacturing is a challenge. The monolith is co-sintered in one firing step, and the gas channels are formed by burning off sacrificial organic materials. Structure distortion or fracture was observed in post-mortem investigations. In this work a multiscale, multiphysics modelling approach is proposed to describe and resolve this challenge in the debinding process occurring in a monolithic stack, i.e. the burning of organics and transportation of gases through the gradually opening microstructure, as well as the pressure build-up in the microstructure due to gas development. Simulation results show that a prominent pressure peak is experienced in the stack when a plasticiser (polyethylene glycol) and a pore-former (polymethyl methacrylate) are decomposed simultaneously. To reduce the high pressures, we investigate two possible strategies: (i) changing the mixture of organic additives; (ii) modifying the debinding temperature profile. Three tapes with different pore-formers are prepared, and the generated pressures during debinding of the three stacks are compared. The corresponding stack shapes after debinding are recorded. Numerical investigations show a good agreement with the post-mortem observations. By changing the composition of organics the distortion or fracturing of the stack can be avoided. Furthermore, to facilitate stack manufacturing, the high pressures can also be reduced by adjusting the heating rates and dwell temperatures of debinding. By using the new temperature profile suggested by the simulation study, the duration of debinding can also be reduced.
+---

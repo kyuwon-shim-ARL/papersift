@@ -1,0 +1,119 @@
+{
+  "batch_index": 21,
+  "dois": [
+    "10.3390/s22218153",
+    "10.3390/s20164637",
+    "10.1038/s41746-024-01084-x",
+    "10.1038/s41467-024-54313-y",
+    "10.1002/adma.202102641",
+    "10.3390/ma14123294",
+    "10.1111/cts.13228",
+    "10.3390/cancers16132354",
+    "10.3390/polym12040940",
+    "10.1016/j.csbj.2023.07.003"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3390/s22218153",
+      "problem": "Digital twin for flexible manufacturing A/D/R mechatronics line",
+      "method": "Six-DOF IRM with SPN and SHPN simulation",
+      "finding": "Monitoring signals from DT match real system signals",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/s20164637",
+      "problem": "Automating material removal in aerospace MRO fan-blade reconditioning",
+      "method": "Digital twin with vision-based surface digitization",
+      "finding": "Automated fan blade reconditioning using DT approach",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41746-024-01084-x",
+      "problem": "Fast cardiac digital twins using AI surrogates",
+      "method": "LNODEs for learning pressure-volume dynamics of 4-chamber heart",
+      "finding": "Surrogate model enables fast whole-heart digital twins",
+      "dataset": "heart failure patient",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41467-024-54313-y",
+      "problem": "Silicon anode degradation mechanism in batteries",
+      "method": "Digital-twin simulation with mechano-structural characterization",
+      "finding": "Separator mechanical shutdown contributes to Si anode failure",
+      "dataset": "Si full cells",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1002/adma.202102641",
+      "problem": "Mechanobiology probing in 3D fibrous environments",
+      "method": "Magnetic actuation for 3D cell mechanics probing",
+      "finding": "Novel actuation method for probing cells in fibrous matrices",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/ma14123294",
+      "problem": "Multimodal pore networks in porous ceramics optimization",
+      "method": "Sacrificial templating with cellulose fibers and phenolic spheres",
+      "finding": "Achieved multimodal pore size distributions in alumina ceramics",
+      "dataset": "Al2O3 ceramics",
+      "metric": "porosity",
+      "baseline": "",
+      "result": "2.3-59.1%"
+    },
+    {
+      "doi": "10.1111/cts.13228",
+      "problem": "IBD heterogeneity and limited treatment efficacy",
+      "method": "AI-mediated multiscale hybrid computational models",
+      "finding": "AI platforms may improve IBD drug development and clinical design",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": "40-60%"
+    },
+    {
+      "doi": "10.3390/cancers16132354",
+      "problem": "Understanding signaling patterns of cell state transformation",
+      "method": "cSTAR approach with single-cell phosphoproteomics",
+      "finding": "Detected cell states and devised interventions for state conversion",
+      "dataset": "breast cancer cell lines",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/polym12040940",
+      "problem": "Digital twins for tissue engineering to reduce in vitro/vivo tests",
+      "method": "Multimodal bioreactor with 3D design and numerical simulation",
+      "finding": "Cytotoxicity evaluation of bioreactor materials",
+      "dataset": "L929 fibroblasts",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.csbj.2023.07.003",
+      "problem": "Optimizing CHO cell fed-batch manufacturing with digital twins",
+      "method": "Metabolic model-based digital twin for bioreactor feeding",
+      "finding": "Dynamic feeding strategy optimization using DT",
+      "dataset": "CHO cells",
+      "metric": "",
+      "baseline": "a priori feeding",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:49:19.121245",
+  "extraction_count": 10
+}

@@ -1,0 +1,119 @@
+{
+  "batch_index": 61,
+  "dois": [
+    "10.1371/journal.pcbi.1005991",
+    "10.1371/journal.pone.0007190",
+    "10.1038/ni.1898",
+    "10.1038/msb.2013.1",
+    "10.1021/acs.jmedchem.5b00104",
+    "10.1371/journal.pone.0073957",
+    "10.1186/1471-2105-10-296",
+    "10.1371/journal.pone.0062216",
+    "10.1186/1745-7580-6-6",
+    "10.1371/journal.pcbi.1002575"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pcbi.1005991",
+      "problem": "Multicellular systems problems require simulating both biochemical microenvironment and many mechanically/biochemically interacting cells, but existing tools lack scalability or accessibility.",
+      "method": "Open-source agent-based simulator (PhysiCell) in C++ with multi-substrate biotransport solver, OpenMP parallelization, and built-in sub-models for cell cycling, death, mechanics, and motility.",
+      "finding": "PhysiCell achieves linear performance scaling and simulates 10^5-10^6 cells on desktop workstations; demonstrated emergent tissue-scale dynamics in tumor spheroids, DCIS, biorobots, and cancer immunology.",
+      "dataset": "Hanging drop tumor spheroids, ductal carcinoma in situ (DCIS), synthetic biorobots, cancer heterogeneity/immunology models",
+      "metric": "Cell count scaling, tumor diameter, computational wall time, linear speedup with threads",
+      "baseline": "Other 3-D multicellular platforms (CompuCell3D, Chaste, Biocellion, Timothy)",
+      "result": "~10^6 cells in 18-day HDS simulation, linear scaling with cell number, feasible on quad-core desktop"
+    },
+    {
+      "doi": "10.1371/journal.pone.0007190",
+      "problem": "Understanding how tumor-induced angiogenesis affects the growth rate, size, and morphology of solid tumors in 3D over long time periods.",
+      "method": "Glazier-Graner-Hogeweg (Cellular Potts) multi-cell model coupled with PDE-based oxygen and pro-angiogenic factor fields, simulating tumor cell proliferation, hypoxia, necrosis, and endothelial cell chemotaxis.",
+      "finding": "Vascularized tumors grow faster and transition through distinct morphological phases (spherical → cylindrical → paddle-shaped); avascular tumors form cylinders following blood vessels rather than remaining spherical.",
+      "dataset": "Simulated 3D vascular tumor with pre-existing vasculature in 850×850×850 µm domain",
+      "metric": "Tumor volume, growth rate, morphology (diameter), number of cells over time",
+      "baseline": "Avascular tumor growth (no angiogenesis simulation)",
+      "result": "Avascular tumor max diameter ~200 µm; vascularized tumor ~300 µm diameter; 75-day simulation"
+    },
+    {
+      "doi": "10.1038/ni.1898",
+      "problem": "Several gene-deficiency models produce innate CD8+ T cells with memory phenotype, but the underlying mechanism driving this cell-extrinsic differentiation was unknown.",
+      "method": "Mixed bone marrow chimeras, flow cytometry for surface markers and transcription factors, Listeria monocytogenes infection model, and genetic crosses with IL-4Rα-/-, PLZF-/- mice.",
+      "finding": "PLZF+ T cells produce IL-4 that drives memory-like CD8+ T cell development; this mechanism operates in KLF2-, ITK-, and CBP-deficient mice and underlies innate CD8+ T cells in BALB/c mice.",
+      "dataset": "KLF2-deficient, ITK-deficient, CBP-deficient, and BALB/c mouse models",
+      "metric": "Flow cytometry (CD44, CXCR3, Eomes, T-bet expression), IFN-γ intracellular staining, OT-I competitive transfer ratios",
+      "baseline": "Wild-type bone marrow chimeras, all-WT thymic environment",
+      "result": "Bystander CD8+ T cells show elevated CD44, CD122, Eomes, rapid IFN-γ; IL-4Rα/PLZF double-deficiency abolishes phenotype"
+    },
+    {
+      "doi": "10.1038/msb.2013.1",
+      "problem": "As biological network models grow large and revisions frequent, it becomes difficult to manage equations directly or combine previously developed models; no existing approach fully meets transparency, extensibility, and reusability needs.",
+      "method": "PySB framework embedding rule-based modeling (BioNetGen/Kappa) within Python, using macros for biochemical actions (bind, catalyze, assemble) and ODE integration via scipy/VODE.",
+      "finding": "PySB enables modular, reusable, and version-controlled biological models as full Python programs; demonstrated by generating 18 EARM apoptosis model variants from shared reusable components.",
+      "dataset": "Extrinsic apoptosis reaction models (EARM 2.0), apoptosis signaling networks",
+      "metric": "Model expressiveness, code reusability, number of variant models generated",
+      "baseline": "BNGL, SBML, Kappa domain-specific languages",
+      "result": "18 apoptosis model variants from reusable modules; models publicly available on GitHub"
+    },
+    {
+      "doi": "10.1021/acs.jmedchem.5b00104",
+      "problem": "Drug development suffers high attrition rates due to poor pharmacokinetic and safety properties; rapid computational ADMET prediction is needed early in the pipeline.",
+      "method": "pkCSM uses distance-based graph signatures derived from molecular graphs combined with machine learning to build 30 ADMET predictors (14 regression + 16 classification) across absorption, distribution, metabolism, excretion, and toxicity.",
+      "finding": "pkCSM achieves performance as good as or better than existing methods, with significant improvement on 11 datasets; scalable to large screening datasets (>10,000 compounds).",
+      "dataset": "Multiple ADMET datasets: up to 18,000 compounds (metabolism), 10,000+ (rat toxicity), Caco2, T. pyriformis, minnow toxicity",
+      "metric": "Correlation coefficient, accuracy, AUC-ROC, RMSE",
+      "baseline": "Existing ADMET prediction methods (various published benchmarks)",
+      "result": "Significant improvement on 11 datasets (water solubility, Caco2, rat/T. pyriformis/minnow toxicity, P-gp, CYP450 1A2/C19/2C9)"
+    },
+    {
+      "doi": "10.1371/journal.pone.0073957",
+      "problem": "Predicting toxicity of therapeutic peptides/proteins before synthesis is critical for peptide-based drug discovery, but no prior method used experimentally validated non-toxic peptides.",
+      "method": "SVM and KNN models using amino acid composition, dipeptide composition, and AAP (amino acid pair) profiles, trained on experimentally validated toxic and non-toxic peptides from multiple databases.",
+      "finding": "Achieved 54-86% accuracy depending on features; dipeptide composition was the best discriminator; first method using experimentally validated non-B-cell epitopes as negative examples.",
+      "dataset": "1805 toxic peptides (ATDB, ArachnoServer, ConoServer, DBETH, SwissProt) + 3893 non-toxic (SwissProt) / 13541 non-toxic (TrEMBL)",
+      "metric": "Accuracy, MCC, AUC",
+      "baseline": "Random peptides as non-toxic (previous methods like BTXpred, NTXpred)",
+      "result": "Dipeptide SVM: accuracy 81.24%, MCC=0.61, AUC=0.88; confirmed dataset accuracy up to 86%"
+    },
+    {
+      "doi": "10.1186/1471-2105-10-296",
+      "problem": "Predicting MHC class II peptide binding affinity and identifying the peptide binding core is critical for understanding adaptive immune responses but existing methods have limited accuracy.",
+      "method": "NN-align: artificial neural network trained with novel algorithm correcting binding core redundancy bias, incorporating peptide flanking residue information for simultaneous core identification and affinity prediction.",
+      "finding": "NN-align consistently outperforms TEPITOPE, SMM-align, and NetMHCIIpan across six independent benchmark datasets covering 14 HLA-DR alleles; flanking residues significantly improve accuracy.",
+      "dataset": "IEDB HLA-DR benchmark (14 alleles, 14,000+ peptide binding values), SYFPEITHI ligands, Lin et al. and Wang et al. benchmarks",
+      "metric": "AUC-ROC (500 nM binding threshold)",
+      "baseline": "TEPITOPE, SMM-align, NetMHCIIpan",
+      "result": "Average AUC=0.798 (NN-W) vs TEPITOPE 0.718, SMM-align 0.778; improved on 12/14 alleles"
+    },
+    {
+      "doi": "10.1371/journal.pone.0062216",
+      "problem": "Existing methods for predicting linear B-cell epitopes use random peptides as negatives and small datasets, leading to unreliable performance; improved methods with experimentally validated data are needed.",
+      "method": "SVM and KNN models using binary profiles, dipeptide composition, and AAP profiles, trained on experimentally validated B-cell epitopes and non-epitopes from IEDB database.",
+      "finding": "First method using experimentally validated non-B-cell epitopes; achieved 54-86% accuracy; dipeptide composition is the most discriminative feature; models perform differently on validated vs random negatives.",
+      "dataset": "Lbtope_Fixed (12063 epitopes, 20589 non-epitopes), Lbtope_Variable (14876 epitopes, 23321 non-epitopes), Lbtope_Confirm (1042/1795)",
+      "metric": "Accuracy, MCC, AUC, sensitivity, specificity",
+      "baseline": "ABCpred, BepiPred, BCPred (using random peptide negatives)",
+      "result": "Dipeptide SVM on Lbtope_Fixed: accuracy 81.24%, MCC=0.61, AUC=0.88"
+    },
+    {
+      "doi": "10.1186/1745-7580-6-6",
+      "problem": "Predicting conformational B-cell epitopes currently requires 3D antigen structure; no method exists to predict them from amino acid sequence alone.",
+      "method": "SVM models using composition profile of patterns (CPP) — encoding amino acid composition within sliding windows — trained on 187 non-redundant antigen chains from IEDB and benchmark datasets.",
+      "finding": "Sequence-based CPP model achieves performance comparable to structure-based methods (DiscoTope, CEP, PEPITO), demonstrating conformational B-cell epitope prediction is feasible from primary sequence.",
+      "dataset": "187 non-redundant protein chains (2261 antibody-interacting residues), benchmark 52 antigens",
+      "metric": "MCC, accuracy, sensitivity, specificity",
+      "baseline": "Structure-based methods (DiscoTope, CEP, PEPITO, ElliPro)",
+      "result": "CPP model: MCC=0.73, accuracy=86.59%; comparable to structure-based DiscoTope (MCC=0.20) and CEP (MCC=0.10)"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1002575",
+      "problem": "Genome-scale metabolic models predict maximal biomass yield but not actual growth rate, because they rely only on stoichiometry without enzyme kinetic considerations.",
+      "method": "MOMENT (MetabOlic Modeling with ENzyme kineTics) integrates enzyme turnover rates and molecular weights into constraint-based metabolic modeling, accounting for isozymes, protein complexes, and a physiological bound on total enzyme concentration.",
+      "finding": "Enzymes catalyzing high-flux reactions have higher turnover numbers (design principle); MOMENT predicts E. coli growth rates correlated with experimental measurements across diverse media, improving upon FBA.",
+      "dataset": "E. coli K-12 BW25113 grown on diverse carbon sources in M9 minimal medium",
+      "metric": "Pearson correlation (predicted vs measured growth rate and intracellular fluxes)",
+      "baseline": "FBA (Flux Balance Analysis), pFBA",
+      "result": "Pearson r=0.45-0.46 (p<0.001) between turnover rates and fluxes; significant growth rate prediction improvement over FBA"
+    }
+  ],
+  "timestamp": "2026-03-05T14:38:22.996672",
+  "extraction_count": 10
+}

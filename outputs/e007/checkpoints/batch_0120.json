@@ -1,0 +1,240 @@
+{
+  "batch_index": 120,
+  "dois": [
+    "10.1038/s41596-020-0292-x",
+    "10.1126/science.aaa1934",
+    "10.1021/jm000942e",
+    "10.1021/cc9800071",
+    "10.1038/nbt.4091",
+    "10.1021/ci300367a",
+    "10.1038/nchembio.186",
+    "10.1038/s41566-018-0253-x",
+    "10.1016/j.cell.2014.04.005",
+    "10.1016/s0968-0004(97)01103-1",
+    "10.1128/ecosal.5.2.3",
+    "10.1073/pnas.1416533112",
+    "10.1016/j.immuni.2012.10.021",
+    "10.1016/j.copbio.2011.04.014",
+    "10.1093/bioinformatics/bti431",
+    "10.1038/nrg.2017.74",
+    "10.1016/j.promfg.2018.12.020",
+    "10.1007/978-1-59745-525-1_2",
+    "10.1098/rsta.2001.0820",
+    "10.1016/j.jmgm.2015.02.004",
+    "10.1006/jtbi.1997.0651"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1038/s41596-020-0292-x",
+      "problem": "Inferring cell-cell communication from single-cell transcriptomics data by predicting enriched cellular interactions between different cell types.",
+      "method": "Statistical framework integrated with a database of ligands, receptors, and their interactions, accounting for subunit architecture of multi-subunit complexes.",
+      "finding": "CellPhoneDB enables evaluation of meaningful biological interactions from scRNA-seq data in ~2 hours for typical datasets.",
+      "dataset": "Published single-cell transcriptomics datasets (example: 10,000 cells, 19 cell types)",
+      "metric": "Statistical enrichment significance; runtime performance",
+      "baseline": "Other ligand-receptor repositories without subunit architecture consideration",
+      "result": "~2h runtime for 10GB dataset with 10,000 cells and 19 cell types"
+    },
+    {
+      "doi": "10.1126/science.aaa1934",
+      "problem": "Reveal cellular diversity in mouse brain cortex and hippocampus beyond morphological classification.",
+      "method": "Single-cell RNA-seq transcriptome analysis and clustering of brain cells.",
+      "finding": "Identified multiple molecular subtypes within seemingly homogeneous cell classes; interneurons of similar type span dissimilar brain regions; oligodendrocytes classified into ~6 molecular subtypes.",
+      "dataset": "Mouse cortex and hippocampus cells",
+      "metric": "RNA expression clustering; molecular subtype identification",
+      "baseline": "Morphological cell classification",
+      "result": ">6 oligodendrocyte subtypes; microglia distinguished from perivascular macrophages"
+    },
+    {
+      "doi": "10.1021/jm000942e",
+      "problem": "Efficient calculation of molecular polar surface area for predicting drug transport properties in high-throughput screening.",
+      "method": "Topological PSA (TPSA) based on summation of tabulated surface contributions of polar fragments.",
+      "finding": "TPSA provides results practically identical to 3D PSA calculation with dramatically reduced computational time.",
+      "dataset": "34,810 molecules from World Drug Index",
+      "metric": "Correlation coefficient between 3D PSA and TPSA; computation speed",
+      "baseline": "3D PSA calculation requiring 3D geometry generation",
+      "result": "Correlation = 0.99; 2-3 orders of magnitude speedup"
+    },
+    {
+      "doi": "10.1021/cc9800071",
+      "problem": "Design efficient drug-like chemical libraries by identifying physicochemical property ranges of known drugs.",
+      "method": "Quantitative characterization of drug databases by computed properties (log P, molar refractivity, MW, atom count) and qualitative analysis of functional groups and substructures.",
+      "finding": "Identified property ranges covering >80% of known drugs in multiple therapeutic categories.",
+      "dataset": "Comprehensive Medicinal Chemistry database and subsets (CNS, cardiovascular, cancer, inflammation, infection)",
+      "metric": "Property ranges covering >80% of compounds",
+      "baseline": "Random or unoptimized libraries",
+      "result": "log P: -0.4 to 5.6 (avg 2.52); MW: 160-480 (avg 357); molar refractivity: 40-130 (avg 97); atoms: 20-70 (avg 48)"
+    },
+    {
+      "doi": "10.1038/nbt.4091",
+      "problem": "Correcting batch effects in scRNA-seq data from different laboratories and times that compromise data integration.",
+      "method": "Mutual nearest neighbors (MNN) detection in high-dimensional expression space without assuming equal or known cell population composition across batches.",
+      "finding": "MNN correction method outperforms existing methods and scales to large numbers of cells without batch effect bias.",
+      "dataset": "Multiple droplet-based scRNA-seq datasets",
+      "metric": "Batch effect correction accuracy; scalability to cell number",
+      "baseline": "Existing batch correction methods (assuming equal/known population composition)",
+      "result": "Superior performance vs existing methods; scales to large datasets"
+    },
+    {
+      "doi": "10.1021/ci300367a",
+      "problem": "Comprehensive assessment of ADMET properties for drugs, pesticides, chemicals, and other compounds.",
+      "method": "ADMET structure-activity relationship database with 22 qualitative classification models and 5 quantitative regression models trained on curated literature data.",
+      "finding": "Provides predictive models with high accuracy for estimating ADMET properties of novel chemicals.",
+      "dataset": ">96,000 unique compounds with >210,000 ADMET annotated data points; 45 ADMET-associated properties",
+      "metric": "Model predictive accuracy",
+      "baseline": "Prior literature-based ADMET assessment",
+      "result": "96,000+ compounds; 45 ADMET properties; high-accuracy prediction models"
+    },
+    {
+      "doi": "10.1038/nchembio.186",
+      "problem": "Quantify absolute metabolite concentrations in E. coli to enable quantitative understanding of cellular metabolism.",
+      "method": "Liquid chromatography-tandem mass spectrometry (LC-MS/MS) to measure >100 metabolite concentrations in aerobic exponentially growing cells.",
+      "finding": "Total intracellular metabolite pool ~300 mM with glutamate most abundant; metabolite concentrations exceed Km for most substrate-enzyme pairs except in lower glycolysis where reactions are near equilibrium.",
+      "dataset": "E. coli (aerobic, exponential growth; glucose, glycerol, or acetate as carbon source)",
+      "metric": "Absolute metabolite concentration (mM); Km ratios",
+      "baseline": "Prior metabolite concentration estimates",
+      "result": "~300 mM total pool; lower glycolysis intermediates near equilibrium"
+    },
+    {
+      "doi": "10.1038/s41566-018-0253-x",
+      "problem": "",
+      "method": "",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.cell.2014.04.005",
+      "problem": "Understand continuous developmental progression in B cell lymphopoiesis as a continuum of transitional states rather than discrete cell subsets.",
+      "method": "Single-cell mass cytometry combined with Wanderlust algorithm to align cells onto unified developmental trajectory.",
+      "finding": "Trajectory reveals regulatory checkpoints where signals are rewired (IL-7/STAT5 pathway) paralleling cellular developmental state changes and immunoglobulin rearrangement events.",
+      "dataset": "Human hematopoietic stem cells through naive B cells",
+      "metric": "Trajectory alignment quality; regulatory signal correlation with developmental stage",
+      "baseline": "Discrete cell subset classification approach",
+      "result": "Complete trajectory from hematopoietic stem cells to naive B cells with identified regulatory checkpoints"
+    },
+    {
+      "doi": "10.1016/s0968-0004(97)01103-1",
+      "problem": "",
+      "method": "",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1128/ecosal.5.2.3",
+      "problem": "Understand how bacterial cell composition (RNA, protein) and gene expression change with exponential growth rate.",
+      "method": "Review and synthesis of studies on chemical composition of E. coli and S. enterica cells at different exponential growth rates.",
+      "finding": "RNA and protein amounts linked to growth rate through ribosome function; gene expression spectrum varies with growth medium despite same growth rate due to ribosome binding site availability.",
+      "dataset": "E. coli and S. enterica at different exponential growth rates",
+      "metric": "Growth rate (doubling time); RNA and protein content; C-period, D-period, ribosome activity",
+      "baseline": "Previous growth physiology studies",
+      "result": "Equations describing macromolecular composition as function of doubling time and five parameters"
+    },
+    {
+      "doi": "10.1073/pnas.1416533112",
+      "problem": "Understand how finite cellular resources create trade-offs that affect protein synthesis, gene expression, and growth rate.",
+      "method": "Mathematical cell model incorporating protein synthesis mechanisms and resource constraints that respect cellular trade-offs.",
+      "finding": "Model quantitatively recovers typical growth behavior of individual cells and cell populations despite resource constraints.",
+      "dataset": "Single growing cells; bacterial and eukaryotic cell populations",
+      "metric": "Growth rate; protein synthesis rate; resource allocation efficiency",
+      "baseline": "Models not accounting for cellular trade-offs",
+      "result": "Quantitative recovery of observed cell growth behavior with resource constraints"
+    },
+    {
+      "doi": "10.1016/j.immuni.2012.10.021",
+      "problem": "Explain presence of memory-phenotype CD4+ T cells specific to viral antigens in adults who were never infected.",
+      "method": "Flow cytometry analysis of CD4+ T cell populations; TCR specificity analysis and cross-reactivity studies with environmental antigens.",
+      "finding": "20-90% (average >50%) of CD4+ T cells show memory phenotype to viral antigens in unexposed adults; mechanism is TCR cross-reactivity to environmental antigens; contrast with newborn naive repertoire.",
+      "dataset": "Adult blood samples; newborn blood; HIV-1 and influenza-reactive T cell populations",
+      "metric": "Percentage of memory-phenotype cells; TCR cross-reactivity frequency",
+      "baseline": "Newborn T cell repertoire (predominantly naive phenotype)",
+      "result": "20-90% memory phenotype in unexposed adults (avg >50%) vs naive in newborns"
+    },
+    {
+      "doi": "10.1016/j.copbio.2011.04.014",
+      "problem": "Characterize quantitative relationships between bacterial cell composition and growth rate; understand coupling of gene expression to growth state.",
+      "method": "Review of bacterial growth laws and phenomenological approaches exploiting quantitative empirical relationships.",
+      "finding": "Growth laws reveal underlying design principles that enable predictive manipulation of cell behavior without detailed molecular knowledge.",
+      "dataset": "Bacterial cells across multiple species and growth conditions",
+      "metric": "Growth rate; cell composition ratios (RNA/protein); gene expression level",
+      "baseline": "Prior molecular mechanism studies",
+      "result": "Quantitative empirical growth laws identified; design principles revealed"
+    },
+    {
+      "doi": "10.1093/bioinformatics/bti431",
+      "problem": "",
+      "method": "",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/nrg.2017.74",
+      "problem": "Understand the context-dependent and evolvable nature of gene essentiality across organisms.",
+      "method": "Review of gene essentiality screens in bacteria, yeasts, animals, and human cells.",
+      "finding": "Gene essentiality is not a static binary property but context-dependent and evolvable; has important implications for cancer and infectious disease treatment strategies.",
+      "dataset": "Genes from bacteria, yeasts, animals, human cells",
+      "metric": "Essential vs non-essential classification; context dependency",
+      "baseline": "Traditional binary gene essentiality concept",
+      "result": "Context-dependent, non-absolute nature of gene essentiality across kingdoms"
+    },
+    {
+      "doi": "10.1016/j.promfg.2018.12.020",
+      "problem": "Enable flexible and reconfigurable robotic assembly systems to adapt to product personalization and hybrid human-robot workflows.",
+      "method": "Digital twin infrastructure with virtual shopfloor representation (CAD+sensor fusion), semantic data modeling, and real-time synchronization via ROS framework.",
+      "finding": "Digital twin successfully applied to automotive assembly; infrastructure designed for generic multi-case deployment.",
+      "dataset": "Automotive assembly case study (car front axle assembly)",
+      "metric": "System reconfiguration capability; simulation-reality synchronization",
+      "baseline": "Fixed robotic assembly systems without digital representation",
+      "result": "Functional digital twin for adaptive robotic assembly in automotive production"
+    },
+    {
+      "doi": "10.1007/978-1-59745-525-1_2",
+      "problem": "Enable computational modeling and simulation of biochemical networks for systems biology analysis without requiring programming expertise.",
+      "method": "COPASI software package providing integrated tools for steady-state simulation, time-course simulation, parameter scanning, sensitivity analysis, optimization, parameter estimation, and stochastic simulation.",
+      "finding": "COPASI provides convenient access to multiple analyses through user interface without requiring deep knowledge of numerical algorithms.",
+      "dataset": "Published biochemical models from BioModels database in SBML format",
+      "metric": "Model simulation accuracy; convergence; parameter sensitivity",
+      "baseline": "Manual implementation of numerical algorithms",
+      "result": "Integrated software with multiple analysis capabilities for biochemical networks"
+    },
+    {
+      "doi": "10.1098/rsta.2001.0820",
+      "problem": "Understand iterative development of computational models of cardiac ventricular cell action potentials through cycles of model refinement and experimental validation.",
+      "method": "Review of cardiac ventricular cell model development history from 1960 onward, analyzing model failures and successes to guide improvements.",
+      "finding": "Learning from model failures is as important as successes; iterative cycles reveal design principles and point toward next-generation models.",
+      "dataset": "Cardiac ventricular cells; experimental action potential recordings",
+      "metric": "Model-experiment agreement; action potential waveform accuracy",
+      "baseline": "Experimental measurements",
+      "result": "Iterative improvement trajectory from 1960 to present; demonstrated value of failure analysis"
+    },
+    {
+      "doi": "10.1016/j.jmgm.2015.02.004",
+      "problem": "Create a physically and biochemically consistent atomistic model of bacterial cytoplasm integrating structural biology and systems-level metabolism.",
+      "method": "Reconstruction of metabolic network from gene annotations; assembly of complete atomistic model with predicted protein structures, RNA, complexes, metabolites, ions, and solvent.",
+      "finding": "Model successfully bridges atomistic and cellular scales, connects physical and biochemical aspects, and unifies structural and systems views.",
+      "dataset": "Mycoplasma genitalium cytoplasm",
+      "metric": "Model completeness; structure prediction accuracy; metabolic network coverage",
+      "baseline": "Prior partial/separate structural and metabolic models",
+      "result": "Complete atomistic cytoplasm model of M. genitalium for multi-scale simulation studies"
+    },
+    {
+      "doi": "10.1006/jtbi.1997.0651",
+      "problem": "Predict temporal stochastic fluctuations in signaling molecules in small cellular compartments and test threshold-crossing models of signal detection.",
+      "method": "Stochastic simulation of CheYp molecule fluctuations in bacterial chemotactic pathway using molecular-level interaction probabilities derived from experimental concentrations.",
+      "finding": "Stochastic fluctuation amplitude and duration increase with decreasing volume; at 10% bacterial volume, average fluctuation duration (80.7 ms) is much shorter than observed motor switching behavior (~2.6 s), inconsistent with simple threshold model.",
+      "dataset": "E. coli chemotactic signaling (flagellar motor control)",
+      "metric": "Fluctuation amplitude; temporal duration; frequency distribution",
+      "baseline": "Deterministic threshold-crossing model",
+      "result": "80.7 ms average fluctuation at 10% bacterial volume; incompatible with simple threshold model"
+    }
+  ],
+  "timestamp": "2026-03-09T01:22:52.331038",
+  "extraction_count": 21
+}

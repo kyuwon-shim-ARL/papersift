@@ -1,0 +1,119 @@
+{
+  "batch_index": 60,
+  "dois": [
+    "10.1038/msb.2009.82",
+    "10.1371/journal.pcbi.1000705",
+    "10.1371/journal.pcbi.1000086",
+    "10.1093/bioinformatics/btp616",
+    "10.1038/s41586-020-2012-7",
+    "10.1186/gb-2010-11-10-r106",
+    "10.1016/j.cell.2021.04.048",
+    "10.1038/nature11003",
+    "10.1038/nmeth.4380",
+    "10.1038/nature14590"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1038/msb.2009.82",
+      "problem": "Why do unicellular organisms shift to energetically inefficient metabolism at higher growth rates, and how do cell size and ribosomal content co-vary with growth rate?",
+      "method": "Mathematical models of self-replicating systems integrating metabolism, ribosomes, and enzyme synthesis, with growth rate maximization as the optimization objective.",
+      "finding": "The shift in metabolic efficiency originates from a tradeoff between investments in enzyme synthesis and metabolic yields for alternative catabolic pathways; these patterns emerge from first principles when optimizing the entire self-replicating system rather than individual subsystems.",
+      "dataset": "Theoretical models of unicellular organisms",
+      "metric": "Growth rate",
+      "baseline": "Models considering only partial physiology (e.g., metabolism alone)",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1000705",
+      "problem": "Modeling intracellular processes that depend on spatial locations and stochastic collisions of individual protein molecules requires accurate and efficient spatial simulation tools.",
+      "method": "Smoldyn 2.1, a particle-based simulator using Smoluchowski-framework algorithms for diffusion, membrane interactions, and reactions of individual molecules in 3D space.",
+      "finding": "Smoldyn was more accurate and computationally efficient than MCell and ChemCell; a yeast pheromone model showed that secreted Bar1 protease sharpens the concentration gradient to help identify the fittest mating partner.",
+      "dataset": "Yeast pheromone response system (~200,000 molecules, ~7,000 cubic microns)",
+      "metric": "Computational efficiency, simulation accuracy",
+      "baseline": "MCell, ChemCell simulators",
+      "result": "75 min simulated time in ~10 hours runtime"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1000086",
+      "problem": "Previous flux balance analyses addressed metabolism or metabolism-regulation coupling independently, without accounting for extracellular signaling cues and their interplay with metabolic and regulatory networks.",
+      "method": "Integrated dynamic FBA (idFBA) combining stoichiometric reconstructions of signaling, metabolic, and transcriptional regulatory networks with quasi-steady-state assumptions and time-delayed inclusion of slow reactions.",
+      "finding": "idFBA produced dynamic profiles of biomass and substrate consumption comparable to an equivalent kinetic model, while requiring only linear programming and no exhaustive kinetic parameterization.",
+      "dataset": "Prototypic integrated system; S. cerevisiae osmoregulation module",
+      "metric": "Dynamic profiles of biomass production, substrate consumption",
+      "baseline": "Equivalent detailed kinetic model of the same system",
+      "result": "Comparable time-course predictions to kinetic model"
+    },
+    {
+      "doi": "10.1093/bioinformatics/btp616",
+      "problem": "Determining differential expression in replicated count data from digital gene expression technologies, accounting for both biological and technical variability.",
+      "method": "edgeR uses an overdispersed Poisson (negative binomial) model with empirical Bayes moderation of dispersion across transcripts to improve inference reliability.",
+      "finding": "edgeR enables differential expression analysis even with minimal replication (one or two replicates per condition), and is applicable beyond sequencing to other count data such as proteome peptide counts.",
+      "dataset": "Digital gene expression (DGE) / RNA-Seq count data",
+      "metric": "p-value, FDR",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41586-020-2012-7",
+      "problem": "A pneumonia epidemic of unknown etiology emerged in Wuhan, China in December 2019, requiring identification and characterization of the causative pathogen.",
+      "method": "Full-length genome sequencing from patient samples, phylogenetic analysis, virus isolation on Vero E6 and Huh7 cells, receptor binding studies, and serum neutralization assays.",
+      "finding": "The novel coronavirus (2019-nCoV/SARS-CoV-2) shares 79.6% sequence identity with SARS-CoV and 96% with bat coronavirus RaTG13, and uses the ACE2 receptor for cell entry; patient sera could neutralize the isolated virus.",
+      "dataset": "5 patient BALF/swab samples, bat coronavirus RaTG13, 2,794 confirmed cases",
+      "metric": "Genome sequence identity (%)",
+      "baseline": "SARS-CoV, bat coronavirus RaTG13",
+      "result": "79.6% identity to SARS-CoV, 96% to bat coronavirus RaTG13"
+    },
+    {
+      "doi": "10.1186/gb-2010-11-10-r106",
+      "problem": "Inferring differential signal in high-throughput sequencing count data requires proper estimation of data variability across the dynamic range and a suitable error model.",
+      "method": "DESeq models count data with a negative binomial distribution, linking variance and mean via local regression, with variance estimates pooled across genes of similar expression strength.",
+      "finding": "The method provides robust differential expression analysis for count data with few replicates by sharing information across genes for variance estimation.",
+      "dataset": "RNA-Seq, ChIP-Seq count data",
+      "metric": "p-value, adjusted p-value",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.cell.2021.04.048",
+      "problem": "Simultaneous measurement of multiple modalities in single cells necessitates computational methods that can integrate data types of varying quality to define cellular states.",
+      "method": "Weighted-nearest neighbor (WNN) analysis, an unsupervised framework that learns cell-specific modality weights to generate an integrated multimodal representation; applied within Seurat v4.",
+      "finding": "Integrative multimodal analysis substantially improves cell state resolution compared to unimodal analysis, identifying previously unreported lymphoid subpopulations and enabling rapid mapping of new datasets including vaccination and COVID-19 immune responses.",
+      "dataset": "CITE-seq human PBMCs with 228 antibodies (hundreds of thousands of cells), cord blood 8,617 cells",
+      "metric": "Cell state resolution, clustering accuracy",
+      "baseline": "Independent unimodal analysis of RNA or protein separately",
+      "result": "Improved cell state resolution over unimodal analysis"
+    },
+    {
+      "doi": "10.1038/nature11003",
+      "problem": "Translating cancer genomic diversity into therapeutic predictions requires large-scale preclinical models with detailed genetic and pharmacological annotation.",
+      "method": "Cancer Cell Line Encyclopedia (CCLE): gene expression, copy number, and massively parallel sequencing of 947 cell lines combined with 8-point dose-response pharmacological profiling for 24 drugs across 479 lines; predictive modeling via naive Bayes and elastic net regression.",
+      "finding": "Identified genetic, lineage, and expression-based predictors of drug sensitivity, including novel associations: AHR expression with MEK inhibitor efficacy in NRAS-mutant lines, SLFN11 with topoisomerase inhibitor sensitivity, and plasma cell lineage with IGF1R inhibitor response.",
+      "dataset": "947 human cancer cell lines, 24 anticancer drugs",
+      "metric": "Drug sensitivity (IC50, 8-point dose response)",
+      "baseline": "Known predictors of drug sensitivity",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/nmeth.4380",
+      "problem": "High-throughput single-cell RNA sequencing does not capture phenotypic information such as cell-surface protein levels.",
+      "method": "CITE-seq: oligonucleotide-labeled antibodies enable simultaneous measurement of surface protein and transcriptome in single cells, leveraging DNA-dependent DNA polymerase activity of reverse transcriptase.",
+      "finding": "CITE-seq successfully integrates cellular protein and transcriptome measurements into a single-cell readout, is compatible with existing scRNA-seq approaches, and scales with throughput increases.",
+      "dataset": "Single cells with surface protein markers",
+      "metric": "",
+      "baseline": "Standard single-cell RNA-seq (transcriptome only)",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/nature14590",
+      "problem": "The fundamental mechanisms generating cell-to-cell variability from identical DNA sequences remain elusive, limiting understanding of developmental plasticity and tumor heterogeneity.",
+      "method": "Single-cell ATAC-seq (scATAC-seq) integrated into a programmable microfluidics platform to map the accessible genome of individual cells across multiple cell types.",
+      "finding": "Accessibility variance is systematically associated with specific trans-factors and cis-elements; combinations of trans-factors either induce or suppress variability; single-cell accessibility patterns recapitulate chromosome compartments de novo.",
+      "dataset": "Hundreds of single cells across 8 mammalian cell types",
+      "metric": "Accessibility variance scores",
+      "baseline": "Bulk ATAC-seq (tens of millions of cells)",
+      "result": "Single-cell aggregate maps closely resemble bulk accessibility profiles"
+    }
+  ],
+  "timestamp": "2026-03-05T14:36:51.718424",
+  "extraction_count": 10
+}

@@ -1,0 +1,350 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1016/j.jaut.2016.11.001
+Title: CD4+ virtual memory: Antigen-inexperienced T cells reside in the naïve, regulatory, and memory T cell compartments at similar frequencies, implications for autoimmunity
+Year: 2016
+Abstract: It is widely accepted that central and effector memory CD4<sup>+</sup> T cells originate from naïve T cells after they have encountered their cognate antigen in the setting of appropriate co-stimulation. However, if this were true the diversity of T cell receptor (TCR) sequences within the naïve T cell compartment should be far greater than that of the memory T cell compartment, which is not supported by TCR sequencing data. Here we demonstrate that aged mice with far fewer naïve T cells, respond to the model antigen, hen eggwhite lysozyme (HEL), by utilizing the same TCR sequence as their younger counterparts. CD4<sup>+</sup> T cell repertoire analysis of highly purified T cell populations from naive animals revealed that the HEL-specific clones displayed effector and central "memory" cell surface phenotypes even prior to having encountered their cognate antigen. Furthermore, HEL-inexperienced CD4<sup>+</sup> T cells were found to reside within the naïve, regulatory, central memory, and effector memory T cell populations at similar frequencies and the majority of the CD4<sup>+</sup> T cells within the regulatory and memory populations were unexpanded. These findings support a new paradigm for CD4<sup>+</sup> T cell maturation in which a specific clone can undergo a differentiation process to exhibit a "memory" or regulatory phenotype without having undergone a clonal expansion event. It also demonstrates that a foreign-specific T cell is just as likely to reside within the regulatory T cell compartment as it would the naïve compartment, arguing against the specificity of the regulatory T cell compartment being skewed towards self-reactive T cell clones. Finally, we demonstrate that the same set of foreign and autoreactive CD4<sup>+</sup> T cell clones are repetitively generated throughout adulthood. The latter observation argues against T cell-depleting strategies or autologous stem cell transplantation as therapies for autoimmunity-as the immune system has the ability to regenerate pathogenic clones.
+---
+
+---
+DOI: 10.1016/j.ejmech.2013.06.048
+Title: 3D-QSAR using pharmacophore-based alignment and virtual screening for discovery of novel MCF-7 cell line inhibitors
+Year: 2013
+Abstract: The development of a novel approach for the prediction of antiestrogenic activity is described, bringing up to date a previous pharmacophore study. Software Phase has been used to derive a 3D-QSAR model based, as alignment rule, on a pharmacophore built on three compounds highly active against MCF-7 cell line. Five features comprised the pharmacophore: two hydrogen-bond acceptors, one hydrogen-bond donor, and two aromatic rings. The sequential 3D-QSAR yielded a test set q(2) equal to 0.73 and proved to be predictive with respect to an external test set of 21 compounds (r(2) = 0.69). The model was used to detect new MCF-7 inhibitors through 3D-database searching and identified fourteen compounds that were subsequently tested in vitro against the MCF-7 human breast adenocarcinoma cell line. Eleven out of the fourteen compounds exhibited inhibitory activity with IC50 values ranging between 30 and 186 μM. The results of the study confirmed the fundamental validity of the chosen approach as a hit discovery tool.
+---
+
+---
+DOI: 10.1073/pnas.0307512101
+Title: Rational design and characterization of a Rac GTPase-specific small molecule inhibitor
+Year: 2004
+Abstract: The signaling pathways mediated by Rho family GTPases have been implicated in many aspects of cell biology. The specificity of the pathways is achieved in part by the selective interaction between Dbl family guanine nucleotide exchange factors (GEFs) and their Rho GTPase substrates. Here, we report a first-generation small-molecule inhibitor of Rac GTPase targeting Rac activation by GEF. The chemical compound NSC23766 was identified by a structure-based virtual screening of compounds that fit into a surface groove of Rac1 known to be critical for GEF specification. In vitro it could effectively inhibit Rac1 binding and activation by the Rac-specific GEF Trio or Tiam1 in a dose-dependent manner without interfering with the closely related Cdc42 or RhoA binding or activation by their respective GEFs or with Rac1 interaction with BcrGAP or effector PAK1. In cells, it potently blocked serum or platelet-derived growth factor-induced Rac1 activation and lamellipodia formation without affecting the activity of endogenous Cdc42 or RhoA. Moreover, this compound reduced Trio or Tiam1 but not Vav, Lbc, Intersectin, or a constitutively active Rac1 mutant-stimulated cell growth and suppressed Trio, Tiam1, or Ras-induced cell transformation. When applied to human prostate cancer PC-3 cells, it was able to inhibit the proliferation, anchorage-independent growth and invasion phenotypes that require the endogenous Rac1 activity. Thus, NSC23766 constitutes a Rac-specific small-molecule inhibitor that could be useful to study the role of Rac in various cellular functions and to reverse tumor cell phenotypes associated with Rac deregulation.
+---
+
+---
+DOI: 10.1016/j.cell.2024.09.022
+Title: Empowering biomedical discovery with AI agents
+Year: 2024
+Abstract: We envision "AI scientists" as systems capable of skeptical learning and reasoning that empower biomedical research through collaborative agents that integrate AI models and biomedical tools with experimental platforms. Rather than taking humans out of the discovery process, biomedical AI agents combine human creativity and expertise with AI's ability to analyze large datasets, navigate hypothesis spaces, and execute repetitive tasks. AI agents are poised to be proficient in various tasks, planning discovery workflows and performing self-assessment to identify and mitigate gaps in their knowledge. These agents use large language models and generative models to feature structured memory for continual learning and use machine learning tools to incorporate scientific knowledge, biological principles, and theories. AI agents can impact areas ranging from virtual cell simulation, programmable control of phenotypes, and the design of cellular circuits to developing new therapies.
+---
+
+---
+DOI: 10.1109/ieeeconf49454.2021.9382657
+Title: The application of virtual reality in programming of a manufacturing cell
+Year: 2021
+Abstract: Programming of industrial robots and manufacturing equipment in general requires product specific expertise towards all members in a manufacturing cell. Typically, old and new equipment is present in the same setup and several experts are often involved in the operation of these systems. In order to decrease the level of complexity in programming of manufacturing equipment this paper investigates the use of virtual reality (VR), to create a common programming platform for typical members in a manufacturing setup. A two-way digital twin is created where all robots can be programmed through the same human-machine-interface (HMI). This cyber-physical system (CPS) allows for simulations, testing and safety checks before all programs are converted and downloaded to the respective units.
+---
+
+---
+DOI: 10.1002/pon.2093
+Title: ‘Open Window’: a randomized trial of the effect of new media art using a virtual window on quality of life in patients' experiencing stem cell transplantation
+Year: 2011
+Abstract: Abstract Objectives To measure the psychological effect of an art intervention on hospitalized patients and explore benefits to their quality of life. Methods We conducted a large prospective randomized trial between July 2006 and August 2009 of an art intervention, Open Window (OW), in patients undergoing stem cell transplantation for a hematological malignancy compared with a control group. The primary endpoint measured the effect of an art intervention on levels of anxiety, depression, and stress using the Hospital Anxiety and Depression Scale and the Distress Thermometer. The secondary endpoint measured the influence of OW on patients' experiences of stem cell transplantation using the OW survey and expectations questionnaires. Results Of the 199 patients in the study, 96 were randomized to the intervention group and 103 to the control group. Participants in the intervention group had significantly reduced levels of anxiety on the day before transplant ( p = 0.001), at day 7 ( p = 0.041), and day 60 ( p = 0.035). There was a significant reduction in depression before transplant ( p = 0.022). Participants in the intervention group reported better experiences ( p &lt; 0.005). Qualitative data showed that those in the intervention group commented freely on their likes and dislikes about OW and how it made them feel. Conclusion An art intervention, OW, had a positive influence on health‐related quality of life and patients' experiences of having a stem cell transplant. Copyright © 2011 John Wiley &amp; Sons, Ltd.
+---
+
+---
+DOI: 10.1109/vtcspring.2015.7146162
+Title: Virtual Small Cells Using Large Antenna Arrays as an Alternative to Classical HetNets
+Year: 2015
+Abstract: In 4G the introduction of small cells is the solution to cope with dense traffic areas. The deployment of new equipment implies a non- negligible cost in terms of backhauling, sites acquisition, maintenance and network energy consumption. Advances on large antenna arrays research permit conceiving the use of massive antennas elements at the macrocell. Our approach consists in supplying the extra network capacity at dense traffic areas using directive beams: the Virtual Small Cells (VSCs). VSCs are created at the macrocell by the activation of multiple antenna elements and replace the use of picocells, reducing consequently the OPEX and CAPEX expenses. VSCs are reconfigurable according to traffic fluctuation, can increase the throughput in 50% regarding a only-macrocell deployment and reduce the global network consumed power.
+---
+
+---
+DOI: 10.1007/s10265-021-01351-y
+Title: Virtual issue: cell wall functions in plant growth and environmental responses
+Year: 2021
+Abstract: Plant cell walls have multiple functions, including determining cell shape and size, cell-cell adhesion, controlling cell differentiation and growth, and promoting abiotic and biotic stress tolerance. This virtual issue introduces the physiological functions of cell walls in growth and environmental responses. The articles detail research on (1) embryogenesis and seed development, (2) vegetative growth, (3) reproductive growth, and (4) environmental responses. These articles, published in the Journal of Plant Research, will provide valuable information for future research on the function and dynamics of cell walls at various growth stages, and in response to environmental factors.
+---
+
+---
+DOI: 10.1016/j.comcom.2018.10.010
+Title: Cellular access multi-tenancy through small-cell virtualization and common RF front-end sharing
+Year: 2018
+Abstract: Mobile traffic demand is expected to grow as much as eight-fold in the coming next five years, putting strain in current wireless infrastructures. Meanwhile the&#13;\ndiversity of traffic and standards may explode as well. One of the most common means for matching these mounting requirements is through network densification,&#13;\nessentially increasing the density of deployment of operators’ base stations in many small cells and handling timing critical traffic at the edge. In this paper we&#13;\ntake a step in that direction by implementing a virtualized small cell base station consisting of multiple, isolated LTE PHY stacks running concurrently on top of a&#13;\nhypervisor deployed on a cheap, off-the-shelf x86 server and a shared radio head. In particular, we show that it is possible to run multiple virtualized base stations&#13;\nwhile achieving throughput equal or close to the theoretical maximum. In contrast to C-RAN (Cloud/Centralized Radio Access Network), our virtualized small cell&#13;\nbase station has full stack at the edge so that a low latency high throughput front-haul, which is necessary in C-RAN architecture, is not needed. This approach brings&#13;\nall the flexibility and configurability (from network management point of view) that a software based implementation provides while the transparent architecture&#13;\nenables the possibility of multiple standards sharing the same radio infrastructure.
+---
+
+---
+DOI: 10.1177/0954405420980685
+Title: Concurrent scheduling and layout of virtual manufacturing cells considering assembly aspects
+Year: 2020
+Abstract: Cell formation, scheduling, and facility layout are three main decisions in designing manufacturing cells. In this paper, we address the integration of these decisions in virtual manufacturing cells considering assembly aspects and process routing. We develop a mathematical model to determine the machine cells, the layout of machines and workstations on the shop floor, the processing route of parts, and the production sequence of operations on the machines. In this mathematical model, material handling costs and cycle time are minimized. To the best of our knowledge, this is the first paper that concurrently addresses the scheduling and layout of virtual manufacturing cells with assembly aspects and so-called criteria. To effectively solve the problem, a Population-based Simulated Annealing (PSA) combined with linear programming is proposed. The practical usability of the developed model is demonstrated in a case study. Finally, instances from the literature are solved to evaluate the performance of the PSA. The comparison results showed the superior performance of the PSA in comparison with CPLEX solver and standard simulated annealing.
+---
+
+---
+DOI: 10.1097/rct.0000000000000571
+Title: Low-Energy Virtual Monochromatic Dual-Energy Computed Tomography Images for the Evaluation of Head and Neck Squamous Cell Carcinoma: A Study of Tumor Visibility Compared With Single-Energy Computed Tomography and User Acceptance
+Year: 2017
+Abstract: Objective Dual-energy computed tomography (CT) 40-keV virtual monochromatic images (VMIs) have been reported to improve visualization of head and neck squamous cell carcinoma, but a direct comparison to single-energy CT (SECT) is lacking, and there is debate regarding subjective user preference. We compared 40-keV VMIs with SECT and performed a subjective evaluation of their utility and acceptability for clinical use. Methods A total of 60 dual-energy CT and 60 SECT scans from 2 different institutions were evaluated. Tumor conspicuity was evaluated objectively using absolute and relative attenuation and subjectively by 3 head and neck specialists and 3 general radiologists. Results Tumors had significantly higher absolute and relative attenuation on 40-keV VMIs ( P &lt; 0.0001). Subjectively, the 40-keV VMIs improved visualization, with substantial (κ, 0.61–0.80) to almost perfect (κ, 0.81–1) interrater agreements. Conclusions The 40-keV VMIs improve tumor visibility objectively and subjectively both by head and neck specialists and general radiologists.
+---
+
+---
+DOI: 10.1007/s00170-004-2453-4
+Title: Production engineering-oriented virtual factory: a planning cell-based approach to manufacturing systems design
+Year: 2005
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/milcom.2002.1180500
+Title: Virtual cell layout based dynamic source routing algorithm for the mobile subsystem of the next generation tactical communications systems
+Year: 2003
+Abstract: A virtual cell layout (VCL) based dynamic source routing (VB-DSR) technique is introduced for the mobile subsystem of the next generation tactical communications systems. VB-DSR uses a dynamic source routing (DSR) protocol over the VCL structure, which is a resource management and clustering technique for tactical communications. The application of third generation personal communications services to tactical communications is enabled through a hybrid, i.e., ad hoc and cellular, infrastructureless architecture by VCL. VB-DSR enhances the schemes for the ad hoc components of this architecture. The performance evaluation of the proposed technique shows that the VB-DSR is scalable for tactical communications.
+---
+
+---
+DOI: 10.3991/ijim.v15i02.18049
+Title: InCell VR: A Virtual Reality-based Application on Human Cell Division for Mobile Learning
+Year: 2021
+Abstract: Many teaching and learning tools incorporate current technologies for the learners to gain new knowledge thus increasing the efficiency of learning. Some of the technologies adopted in the mobile-based education systems are virtual reality, augmented reality, and mixed reality. In the Biology field, one of the problems faced by the learners is the difficulties in visualizing the human cell division process in the topic of mitosis and meiosis. Thus, many innovations which adopt these technologies are created to improve the understanding and interest of the learners. In this work, an interactive mobile learning application with virtual reality technology has been designed and developed to help learners visualize the human cell division process. The mobile application which is known as &lt;em&gt;InCell VR&lt;/em&gt; also includes mini games which can help to test and improve the learners’ understanding. The &lt;em&gt;InCell VR&lt;/em&gt; was developed using Unity, a game engine platform for developing high performance commercial game. The final evaluation assesses two parts: the learners’ knowledge gain after using the application and usability evaluation of the application. The usage of the proposed application was seen to give positive impact on the development of learners’ knowledge from the pre- and post-test testing sessions. The usability study showed that &lt;em&gt;InCell VR&lt;/em&gt; application is useful, easy to be used and learnt, and give satisfactions to the users.
+---
+
+---
+DOI: 10.1146/annurev.biophys.31.101101.140930
+Title: Computational Cell Biology: Spatiotemporal Simulation of Cellular Events
+Year: 2002
+Abstract: ▪ Abstract The field of computational cell biology has emerged within the past 5 years because of the need to apply disciplined computational approaches to build and test complex hypotheses on the interacting structural, physical, and chemical features that underlie intracellular processes. To meet this need, newly developed software tools allow cell biologists and biophysicists to build models and generate simulations from them. The construction of general-purpose computational approaches is especially challenging if the spatial complexity of cellular systems is to be explicitly treated. This review surveys some of the existing efforts in this field with special emphasis on a system being developed in the authors' laboratory, Virtual Cell. The theories behind both stochastic and deterministic simulations are discussed. Examples of respective applications to cell biological problems in RNA trafficking and neuronal calcium dynamics are provided to illustrate these ideas.
+---
+
+---
+DOI: 10.5860/choice.40-4689
+Title: Smart mobs: the next social revolution
+Year: 2003
+Abstract: From the Publisher:
+How the convergence of mobile communications and computing is driving the next social revolution-transforming the ways in which people meet, mate, work, buy, sell, govern, and create.
+When Howard Rheingold sneaks off down an untrodden trail, everyone else follows. He is always onto something marvelous no one has seen before. An ever-considerate guide, he navigates this new world with ease, compassion, and grace, and gives you the inside story, with no punches pulled. Tech talk? Howard could get your mother to understand.
+From Tokyo to Helsinki, Manhattan to Manila, Howard Rheingold takes us on a journey around the world for a preview of the next techno-cultural shift-a shift he predicts will be as dramatic as the widespread adoption of the PC in the 1980s and the Internet in the 1990s. The coming wave, says Rheingold, is the result of super-efficient mobile communications-cellular phones, personal digital assistants, and wireless-paging and Internet-access devices that will allow us to connect with anyone, anywhere, anytime.
+From the amusing (Lovegetty devices in Japan that light up when a person with the right date-potential characteristics appears in the vicinity) to the extraordinary (the overthrow of a repressive regime in the Philippines by political activists who mobilized by forwarding text messages via cell phones), Rheingold gives examples of the fundamentally new ways in which people are already engaging in group or collective action. He also considers the dark side of this phenomenon, such as the coordination of terrorist cells, threats to privacy, and the ability to incite violent behavior.
+Applying insights from sociology, artificial intelligence, engineering, and anthropology, Rheingold offers a penetrating perspective on the brave new convergence of pop culture, cutting-edge technology, and social activism. At the same time, he reminds us that, as with other technological revolutions, the real impact of mobile communications will come not from the technology itself but from how people use it, resist it, adapt to it, and ultimately use it to transform themselves, their communities, and their institutions.
+
+Author Biography: Howard Rheingold is one of the world's foremost authorities on the social implications of technology. Over the past twenty years he has traveled around the world, observing and writing about emerging trends in computing, communications, and culture. One of the creators and former founding executive editor of HotWired, he has served as editor of The Whole Earth Review, editor-in-chief of The Millennium Whole Earth Catalog, and on-line host for The Well. The author of several books, including The Virtual Community, Virtual Reality, and Tools for Thought, he lives in Mill Valley, California.
+---
+
+---
+DOI: 10.1038/nature01416
+Title: Architecture and material properties of diatom shells provide effective mechanical protection
+Year: 2003
+Abstract: Diatoms are the major contributors to phytoplankton blooms in lakes and in the sea and hence are central in aquatic ecosystems and the global carbon cycle. All free-living diatoms differ from other phytoplankton groups in having silicified cell walls in the form of two 'shells' (the frustule) of manifold shape and intricate architecture whose function and role, if any, in contributing to the evolutionary success of diatoms is under debate. We explored the defence potential of the frustules as armour against predators by measuring their strength. Real and virtual loading tests (using calibrated glass microneedles and finite element analysis) were performed on centric and pennate diatom cells. Here we show that the frustules are remarkably strong by virtue of their architecture and the material properties of the diatom silica. We conclude that diatom frustules have evolved as mechanical protection for the cells because exceptional force is required to break them. The evolutionary arms race between diatoms and their specialized predators will have had considerable influence in structuring pelagic food webs and biogeochemical cycles.
+---
+
+---
+DOI: 10.1016/j.jep.2006.09.006
+Title: Punica granatum (pomegranate) and its potential for prevention and treatment of inflammation and cancer
+Year: 2006
+Abstract: The last 7 years have seen over seven times as many publications indexed by Medline dealing with pomegranate and Punica granatum than in all the years preceding them. Because of this, and the virtual explosion of interest in pomegranate as a medicinal and nutritional product that has followed, this review is accordingly launched. The pomegranate tree, Punica granatum, especially its fruit, possesses a vast ethnomedical history and represents a phytochemical reservoir of heuristic medicinal value. The tree/fruit can be divided into several anatomical compartments: (1) seed, (2) juice, (3) peel, (4) leaf, (5) flower, (6) bark, and (7) roots, each of which has interesting pharmacologic activity. Juice and peels, for example, possess potent antioxidant properties, while juice, peel and oil are all weakly estrogenic and heuristically of interest for the treatment of menopausal symptoms and sequellae. The use of juice, peel and oil have also been shown to possess anticancer activities, including interference with tumor cell proliferation, cell cycle, invasion and angiogenesis. These may be associated with plant based anti-inflammatory effects, The phytochemistry and pharmacological actions of all Punica granatum components suggest a wide range of clinical applications for the treatment and prevention of cancer, as well as other diseases where chronic inflammation is believed to play an essential etiologic role.
+---
+
+---
+DOI: 10.1140/epjb/e2016-70446-2
+Title: Electronic structures of doped BaFe2As2 materials: virtual crystal approximation versus super-cell approach
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jcis.2004.10.014
+Title: Calculation of interparticle spacing in colloidal systems
+Year: 2006
+Abstract: Interparticle spacing (IPS) is a very important parameter for estimation of the viscosity of a suspension. A new equation for calculating IPS was derived on the assumption that each particle is surrounded by a virtual cell, which is the free volume that each particle can occupy. This idea was originated by Kuwabara and widely used for calculating electrophoretic mobility in concentrated suspensions. Our new IPS equation was evaluated and compared with a pre-existing IPS equation proposed by Dinger and Funk using experimental data from three commercial sources of titania. Our equation was found to give reasonable values, including cases where the equation of Dinger and Funk gave anomalous values.
+---
+
+---
+DOI: 10.1007/s11030-022-10452-2
+Title: High-throughput virtual screening of small-molecule inhibitors targeting immune cell checkpoints to discover new immunotherapeutics for human diseases
+Year: 2022
+Abstract: Immunotherapy is widely used to treat various cancers, and the drugs used are called immune checkpoint (ICP) inhibitors. Overexpression of immune cell checkpoints is reported for other human diseases such as acute infections (malaria), chronic viral infection (HIV, hepatitis B virus, TB infections), allergy, asthma, neurodegeneration, and autoimmune diseases. Some mAbs (monoclonal antibodies) are available against ICPs, but they have side effects. Small molecule seems to be safer in comparison with mAbs. Three independent small-molecule inhibitor libraries consisting of 9466 compounds were screened against seven immune cell checkpoints by applying high-throughput virtual screening approach. A total of 13 ICP inhibitors were finalized based on docking, MM-GBSA scores, and ADME properties. Six compounds were selected for MD simulation, and then, rutin hydrate (targeting all seven immune cell checkpoints), amikacin hydrate (targeting six), and 6-hydroxyluteolin (targeting three) were found to be the best immune cell checkpoint inhibitors. These three potential inhibitors have shown the potential to activate human immune cells and thus may control the spread of human lifestyle or infectious diseases. Proposed inhibitors warrant the in vitro and in vivo validation to develop it as an immunotherapeutic.
+---
+
+---
+DOI: 10.4271/2008-01-1481
+Title: Methodology Development for Ergonomic Analysis of Work-Cells in Virtual Environment
+Year: 2008
+Abstract: &lt;div class="htmlview paragraph"&gt;In the last years the most important automotive OEM have given more importance to job organization and optimization in the plants for productivity and legal reasons. The continuous request to produce different new models in few years oblige OEM to develop more flexible assembly lines and better methods for job planning on the same lines. In the meantime, safety norms and product quality reasons request to improve working condition also according to international standards.&lt;/div&gt; &lt;div class="htmlview paragraph"&gt;In this paper, the authors show a new method for process design with the final goal to optimize assembly tasks. The method is based on the possibility to apply preventive ergonomics and feasibility analysis of the assembly task through a virtual simulation investigating general feasibility of the task and risks of muscle-skeletal pathologies from incongruous postures and movements.&lt;/div&gt; &lt;div class="htmlview paragraph"&gt;Using Digital Human Models (DHM) and Virtual Reality (VR) tools, it is possible to simulate manual assembly tasks in a very preliminary moment of the process development where designers and engineers have only virtual models to check assembly feasibility and to design the final bill of process. Through the use of virtual manikins, designers can vary workers movements to solve complex problems related to human movements and posture recognition bringing more realistic and reliable simulations to systematically investigate workplaces for a wide variety of users and operative solutions.&lt;/div&gt; &lt;div class="htmlview paragraph"&gt;On the methodological point of view, a special attention has been given to ergonomics evaluation methods that, usually, have an experimental nature and therefore specific adaptations are required to use them on digital humans in virtual environments. In the paper, the authors show an application of the new method to an interesting case study. The simulations suggest new solutions which bring to a more ergonomic and efficient task.&lt;/div&gt;
+---
+
+---
+DOI: 10.1109/iwcmc.2018.8450453
+Title: Selection of UE-based Virtual Small Cell Base Stations using Affinity Propagation Clustering
+Year: 2018
+Abstract: 5G will require a number of Key Technological Components to meet its very ambitious goals, including Heterogeneous Networks a nd Small Cells. The Dense Deployme nt of Small Cell Base Stations (SBSs) will play a major role as they can be installed in a more targeted manner to relieve traffic in hot spot areas, increase coverage, and spectral efficiency. However, the current deployment of the SBS is static (examples include Femto, Pico, and Nano cells), normally deployed on demand around hotspots. In the scenario of unpredictable crowd movement, these static deployment of small cell can be inefficient with high CAPEX and OPEX. This paper focuses on the scenario where UE-based Virtual Small Cell Base Stations (UE-VBSs) can be dynamically selected among UEs to deal effectively with the non-stationary, non-uniform distribution of mobile traffic with respect to time and space domain. To implement this concept, we propose an efficient clustering technique (Affinity Propagation Clustering) to select the best set of UE-VBSs to supplement an overlay loaded SBS. Simulative evaluation highlights salient features of the technique, as well as its limitations with regard to scalability. Further, we discuss the modification of the algorithm according to our objec tive sc enario focusing on red ucing the message passing procedure to and from only a number of eligible UE-VBSs using the power received by a UE from the eligible UE-VBSs as a parameter. The algorithm is implemented and evaluated in MATLAB and, also validated using NS3 simulator.
+---
+
+---
+DOI: 10.1016/s0167-8140(01)00308-5
+Title: The impact of virtual simulation in palliative radiotherapy for non-small-cell lung cancer
+Year: 2001
+Abstract: Background and purposeRadiotherapy is widely used to palliate local symptoms in non-small-cell lung cancer. Using conventional X-ray simulation, it is often difficult to accurately localize the extent of the tumour. We report a randomized, double blind trial comparing target localization with conventional and virtual simulation.MethodsEighty-six patients underwent both conventional and virtual simulation. The conventional simulator films were compared with digitally reconstructed radiographs (DRRs) produced from the computed tomography (CT) data. The treatment fields defined by the clinicians using each modality were compared in terms of field area, position and the implications for target coverage.ResultsComparing fields defined by each study arm, there was a major mis-match in coverage between fields in 66.2% of cases, and a complete match in only 5.2% of cases. In 82.4% of cases, conventional simulator fields were larger (mean 24.5+/-5.1% (95% confidence interval)) than CT-localized fields, potentially contributing to a mean target under-coverage of 16.4+/-3.5% and normal tissue over-coverage of 25.4+/-4.2%.ConclusionsCT localization and virtual simulation allow more accurate definition of the target volume. This could enable a reduction in geographical misses, while also reducing treatment-related toxicity.
+---
+
+---
+DOI: 10.1063/1.5018082
+Title: InGaP solar cell on Ge-on-Si virtual substrate for novel solar power conversion
+Year: 2018
+Abstract: InGaP single-junction solar cells are grown on lattice-matched Ge-on-Si virtual substrates using metal-organic chemical vapor deposition. Optoelectronic simulation results indicate that the optimal collection length for InGaP single-junction solar cells with a carrier lifetime range of 2–5 ns is wider than approximately 1 μm. Electron beam-induced current measurements reveal that the threading dislocation density (TDD) of InGaP solar cells fabricated on Ge and Ge-on-Si substrates is in the range of 104–3 × 107 cm−2. We demonstrate that the open circuit voltage (Voc) of InGaP solar cells is not significantly influenced by TDDs less than 2 × 106 cm−2. Fabricated InGaP solar cells grown on a Ge-on-Si virtual substrate and a Ge substrate exhibit Voc in the range of 0.96 to 1.43 V under an equivalent illumination in the range of ∼0.5 Sun. The estimated efficiency of the InGaP solar cell fabricated on the Ge-on-Si virtual substrate (Ge substrate) at room temperature for the limited incident spectrum spanning the photon energy range of 1.9–2.4 eV varies from 16.6% to 34.3%.
+---
+
+---
+DOI: 10.1016/b978-0-12-388403-9.00008-4
+Title: Spatial Modeling of Cell Signaling Networks
+Year: 2012
+Abstract: The shape of a cell, the sizes of subcellular compartments, and the spatial distribution of molecules within the cytoplasm can all control how molecules interact to produce a cellular behavior. This chapter describes how these spatial features can be included in mechanistic mathematical models of cell signaling. The Virtual Cell computational modeling and simulation software is used to illustrate the considerations required to build a spatial model. An explanation of how to appropriately choose between physical formulations that implicitly or explicitly account for cell geometry and between deterministic versus stochastic formulations for molecular dynamics is provided, along with a discussion of their respective strengths and weaknesses. As a first step toward constructing a spatial model, the geometry needs to be specified and associated with the molecules, reactions, and membrane flux processes of the network. Initial conditions, diffusion coefficients, velocities, and boundary conditions complete the specifications required to define the mathematics of the model. The numerical methods used to solve reaction-diffusion problems both deterministically and stochastically are then described and some guidance is provided in how to set up and run simulations. A study of cAMP signaling in neurons ends the chapter, providing an example of the insights that can be gained in interpreting experimental results through the application of spatial modeling.
+---
+
+---
+DOI: 10.1016/j.bbmt.2019.09.027
+Title: Comprehensive Prognostication in Critically Ill Pediatric Hematopoietic Cell Transplant Patients: Results from Merging the Center for International Blood and Marrow Transplant Research (CIBMTR) and Virtual Pediatric Systems (VPS) Registries
+Year: 2019
+Abstract: Critically ill pediatric allogeneic hematopoietic cell transplant (HCT) patients may benefit from early and aggressive interventions aimed at reversing the progression of multiorgan dysfunction. Therefore, we evaluated 25 early risk factors for pediatric intensive care unit (PICU) mortality to improve mortality prognostication. We merged the Virtual Pediatric Systems and Center for International Blood and Marrow Transplant Research databases and analyzed 936 critically ill patients ≤21 years of age who had undergone allogeneic HCT and subsequently required PICU admission between January 1, 2009, and December 31, 2014. Of 1532 PICU admissions, the overall PICU mortality rate was 17.4% (95% confidence interval [CI], 15.6% to 19.4%) but was significantly higher for patients requiring mechanical ventilation (44.0%), renal replacement therapy (56.1%), or extracorporeal life support (77.8%). Mortality estimates increased significantly the longer that patients remained in the PICU. Of 25 HCT- and PICU-specific characteristics available at or near the time of PICU admission, moderate/severe pre-HCT renal injury, pre-HCT recipient cytomegalovirus seropositivity, <100-day interval between HCT and PICU admission, HCT for underlying acute myeloid leukemia, and greater admission organ dysfunction as approximated by the Pediatric Risk of Mortality 3 score were each independently associated with PICU mortality. A multivariable model using these components identified that patients in the top quartile of risk had 3 times greater mortality than other patients (35.1% versus 11.5%, P < .001, classification accuracy 75.2%; 95% CI, 73.0% to 77.4%). These data improve our working knowledge of the factors influencing the progression of critical illness in pediatric allogeneic HCT patients. Future investigation aimed at mitigating the effect of these risk factors is warranted.
+---
+
+---
+DOI: 10.4271/2015-01-1628
+Title: Automated Model-Based Calibration for Drivability Using a Virtual Engine Test Cell
+Year: 2015
+Abstract: &lt;div class="section abstract"&gt;&lt;div class="htmlview paragraph"&gt;Increasing powertrain complexity and the growing number of vehicle variants are putting a strain on current calibration development processes. This is particularly challenging for vehicle drivability calibration, which is traditionally completed late in the development cycle, only after mature vehicle hardware is available. Model-based calibration enables a shift in development tasks from the real world to the virtual world, allowing for increased system robustness while reducing development costs and time.&lt;/div&gt;&lt;div class="htmlview paragraph"&gt;A unique approach for drivability calibration was developed by incorporating drivability analysis software with online optimization software into a virtual engine test cell environment. Real-time, physics-based engine and vehicle simulation models were coupled with real engine controller hardware and software to execute automated drivability calibration within this environment.&lt;/div&gt;&lt;div class="htmlview paragraph"&gt;This paper will present an assessment of the feasibility of carrying out automated drivability calibration within a virtual engine test environment. It will highlight the accuracy of the engine simulation model under steady-state and transient operating conditions as well as demonstrate the sensitivity of the model to calibration changes. This paper will also present the results from the automated calibration tests conducted in the virtual engine test cell.&lt;/div&gt;&lt;div class="htmlview paragraph"&gt;Performing drivability analysis in a virtual test cell environment allows the development of drivability calibrations as soon as representative engine and vehicle models are available. This reduces the effort required during the vehicle calibration phase and compresses the overall timeline from concept to start of production.&lt;/div&gt;&lt;/div&gt;
+---
+
+---
+DOI: 10.1016/j.phrs.2025.107953
+Title: Intelligent technology leads the transformation of traditional Chinese medicine: Large models and virtual cells aid modern analysis of stroke treatment
+Year: 2025
+Abstract: Traditional Chinese Medicine (TCM) has shown efficacy in treating stroke, but its complex mechanisms hinder wider adoption. Artificial intelligence (AI) technologies, especially large language models and virtual cell simulations, provide powerful new tools for deciphering TCM's multi-target mechanisms, though their integration remains challenging. This review explores current TCM research methodologies and discusses how AI can overcome traditional limitations. We propose novel theoretical frameworks for both basic and clinical studies, analyzing the present state of TCM and outlining future directions. Ultimately, this work aims to improve mechanistic understanding of TCM, advance clinical practice, and contribute to more precise TCM-based treatments for stroke.
+---
+
+---
+DOI: 10.1057/jors.2011.86
+Title: Job scheduling in virtual manufacturing cells with lot-streaming strategy: a new mathematical model formulation and a genetic algorithm approach
+Year: 2011
+Abstract: This paper discusses the job scheduling problem in virtual manufacturing cells (VMCs) with the objective of makespan minimization. In the VMC scheduling problem, each job undergoes different processing routes and there is a set of machines to process any operation. Jobs are produced in lot and lot-streaming is permitted. In addition, machines are distributed through the facility, which raises the travelling time issue. For this reason, the decisions are machine assignments, starting times and sub-lot sizes of the operations. We develop a new Mixed Integer Linear Programming (MILP) formulation that considers all aspects of the problem. Owing to the intractability matter, it is unlikely that the MILP could provide solutions for big-sized instances within a reasonable amount of time. We therefore present a Genetic Algorithm (GA) with a new chromosome structure for the VMC environment. Based on a wide range of examinations, comparative results show that GA is quite favourable and that it obtains the optimum solution for any of the instances in the case where sub-lot number equals 1.
+---
+
+---
+DOI: 10.1016/j.snb.2016.06.023
+Title: Electron beam induced fine virtual electrode for mechanical strain microscopy of living cell
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/pmic.200900260
+Title: The Interactorium: Visualising proteins, complexes and interaction networks in a virtual 3‐D cell
+Year: 2009
+Abstract: Abstract Here, we describe the Interactorium, a tool in which a Virtual Cell is used as the context for the seamless visualisation of the yeast protein interaction network, protein complexes and protein 3‐D structures. The tool has been designed to display very complex networks of up to 40 000 proteins or 6000 multiprotein complexes and has a series of toolboxes and menus to allow real‐time data manipulation and control the manner in which data are displayed. It incorporates new algorithms that reduce the complexity of the visualisation by the generation of putative new complexes from existing data and by the reduction of edges through the use of protein “twins” when they occur in multiple locations. Since the Interactorium permits multi‐level viewing of the molecular biology of the cell, it is a considerable advance over existing approaches. We illustrate its use for Saccharomyces cerevisiae but note that it will also be useful for the analysis of data from simpler prokaryotes and higher eukaryotes, including humans. The Interactorium is available for download at http://www.interactorium.net .
+---
+
+---
+DOI: 10.1038/13664
+Title: Maskless fabrication of light-directed oligonucleotide microarrays using a digital micromirror array
+Year: 1999
+Abstract: Oligonucleotide microarrays, also called "DNA chips," are currently made by a light-directed chemistry that requires a large number of photolithographic masks for each chip. Here we describe a maskless array synthesizer (MAS) that replaces the chrome masks with virtual masks generated on a computer, which are relayed to a digital micromirror array. A 1:1 reflective imaging system forms an ultraviolet image of the virtual mask on the active surface of the glass substrate, which is mounted in a flow cell reaction chamber connected to a DNA synthesizer. Programmed chemical coupling cycles follow light exposure, and these steps are repeated with different virtual masks to grow desired oligonucleotides in a selected pattern. This instrument has been used to synthesize oligonucleotide microarrays containing more than 76,000 features measuring 16 microm 2. The oligonucleotides were synthesized at high repetitive yield and, after hybridization, could readily discriminate single-base pair mismatches. The MAS is adaptable to the fabrication of DNA chips containing probes for thousands of genes, as well as any other solid-phase combinatorial chemistry to be performed in high-density microarrays.
+---
+
+---
+DOI: 10.1039/d0se00985g
+Title: Using high-throughput virtual screening to explore the optoelectronic property space of organic dyes; finding diketopyrrolopyrrole dyes for dye-sensitized water splitting and solar cells
+Year: 2020
+Abstract: A high-throughput virtual screening of 45 000 diketopyrrolopyrrole dyes is performed to map their optoelectronic property space and screen for dyes suitable for dye-sensitized proton reduction and dye-sensitized solar-cells.
+---
+
+---
+DOI: 10.1117/12.873114
+Title: Virtual prototyping and optimization of novel solar cell designs
+Year: 2010
+Abstract: Nano-scale structures have been proposed as a low cost mechanism to enhance solar cell efficiency. Computer simulations can be used to rapidly and cheaply prototype and optimize these novel designs, however the simulations are challenging due to the geometric complexity, the highly dispersive materials, and the necessity of performing broadband simulations over the solar spectrum. We show how the finite-difference time-domain (FDTD) method in conjunction with particle swarm optimization (PSO) can be used to efficiently optimize these designs. We apply the method to two specific examples: thin film silicon plasmonic solar cells and photonic crystal organic solar cells. In each case, optical enhancements of approximately 15% can be achieved. The optimization requires a few hundred simulations which can be achieved in a few hours on a good workstation. Finally, we consider the steps necessary to perform combined optical and electrical simulations to fully characterize these devices.
+---
+
+---
+DOI: 10.1109/icc.2015.7249176
+Title: Modeling virtualized downlink cellular networks with ultra-dense small cells
+Year: 2015
+Abstract: The unrelenting increase in the mobile users' populations and traffic demand drive cellular network operators to densify their infrastructure. Network densification increases the spatial frequency reuse efficiency while maintaining the signal-to-interference-plus-noise-ratio (SINR) performance, hence, increases the spatial spectral efficiency and improves the overall network performance. However, control signaling in such dense networks consumes considerable bandwidth and limits the densification gain. Radio access network (RAN) virtualization via control plane (C-plane) and user plane (U-plane) splitting has been recently proposed to lighten the control signaling burden and improve the network throughput. In this paper, we present a tractable analytical model for virtualized downlink cellular networks, using tools from stochastic geometry. We then apply the developed modeling framework to obtain design insights for virtualized RANs and quantify associated performance improvement. © 2015 IEEE.
+---
+
+---
+DOI: 10.1002/bmb.21133
+Title: Integrating cell and molecular biology concepts: Comparing learning gains and self‐efficacy in corresponding live and virtual undergraduate laboratory experiences
+Year: 2018
+Abstract: Abstract Multiple pedagogical approaches, such as experimental experiences or computer‐based activities, have been shown to increase student learning and engagement. We have developed a laboratory module that includes both a traditional “live” experimental component and a student‐designed “virtual” computer simulation component. This laboratory employs the mating pathway of Saccharomyces cerevisiae (yeast) to demonstrate four fundamental cell and molecular biology concepts: cell signaling, cytoskeleton, cell cycle, and cell cycle checkpoints. In the live laboratory, students add mating pheromone to cultures, then measure changes in cell division and morphology characteristics of the S. cerevisiae mating response. We also developed a “virtual” complement to this laboratory. Using the principles of Design Thinking and Agile methodology, we collaborated with an undergraduate Computer Science course to generate two computer simulations which can support the live laboratory or provide a virtual laboratory experience. We assessed how both the live and virtual laboratories contributed to learning gains in analytical skills and course content. Students who performed the simulation alone or the simulation plus live lab demonstrated learning gains, with greater gains for the live lab, but students who performed neither lab did not. Attitudinal assessment demonstrated increased student engagement and self‐efficacy after performing the live and virtual labs. © 2018 by The International Union of Biochemistry and Molecular Biology, 46:361–372, 2018.
+---
+
+---
+DOI: 10.1364/boe.464177
+Title: Virtual labeling of mitochondria in living cells using correlative imaging and physics-guided deep learning
+Year: 2022
+Abstract: Mitochondria play a crucial role in cellular metabolism. This paper presents a novel method to visualize mitochondria in living cells without the use of fluorescent markers. We propose a physics-guided deep learning approach for obtaining virtually labeled micrographs of mitochondria from bright-field images. We integrate a microscope’s point spread function in the learning of an adversarial neural network for improving virtual labeling. We show results (average Pearson correlation 0.86) significantly better than what was achieved by state-of-the-art (0.71) for virtual labeling of mitochondria. We also provide new insights into the virtual labeling problem and suggest additional metrics for quality assessment. The results show that our virtual labeling approach is a powerful way of segmenting and tracking individual mitochondria in bright-field images, results previously achievable only for fluorescently labeled mitochondria.
+---
+
+---
+DOI: 10.1142/s0219686703000332
+Title: DESIGN OF AN INTERACTIVE VIRTUAL FACTORY USING CELL FORMATION METHODOLOGIES
+Year: 2003
+Abstract: This paper describes an interactive virtual environment for modeling and designing factories and shop floors. The factory building tool is developed as an open architecture in which various modules can be utilized to quickly implement factory design algorithms ranging from plant layout to factory flow analysis. Software modules and utilities have been implemented to allow easy set-up of the visual interface. In this paper, this virtual factory is used to implement cellular manufacturing (CM) system. CM has traditionally been a very complicated system to implement in practice. However successful implementation of the system has improved productivity immersely. Several issues involved in implementing CM within our virtual factory machine modeling and interface designs for defining the cells, are discussed. The mathematical clustering algorithm called Modified Boolean Method was implemented to automatically generate complex virtual environments. The virtual factory makes the process of CM-based factory design a very easy and intuitive process. Though the cell formation problem is NP-complete in 2D space, issues related to human factors and ergonomics can be better perceived in a 3D virtual environment. It also leads to further optimization with respect to maintainability and performance, and thus help get better solutions, which are not visible unless the factory is built. Our virtual factory interface also allows easy reassignment of machines and parts, subcontracting of bottleneck parts and rearranging of machines within the same design environment, making this a productive industrial tool. 3D virtual factory can also be automatically generated from the Part Machine interface called the Virtual Matrix Interface.
+---
+
+---
+DOI: 10.1101/gad.9.22.2808
+Title: BMP-7 is an inducer of nephrogenesis, and is also required for eye development and skeletal patterning.
+Year: 1995
+Abstract: Bone morphogenetic proteins (BMPs) are multifunctional growth factors originally identified by their ability to induce ectopic bone formation. To investigate the function of one of the BMPs, BMP-7, we have generated BMP-7-deficient mice using embryonic stem cell technology. BMP-7-deficient mice die shortly after birth because of poor kidney development. Histological analysis of mutant embryos at several stages of development revealed that metanephric mesenchymal cells fail to differentiate, resulting in a virtual absence of glomerulus in newborn kidneys. In situ hybridization analysis showed that the absence of BMP-7 affects the expression of molecular markers of nephrogenesis, such as Pax-2 and Wnt-4 between 12.5 and 14.5 days postcoitum (dpc). This identifies BMP-7 as an inducer of nephrogenesis. In addition, BMP-7-deficient mice have eye defects that appear to originate during lens induction. Finally, BMP-7-deficient mice also have skeletal patterning defects restricted to the rib cage, the skull, and the hindlimbs.
+---
+
+---
+DOI: 10.1504/ijmms.2009.024349
+Title: A two-stage mathematical approach for the design of Virtual Manufacturing Cells
+Year: 2009
+Abstract: Virtual cellular manufacturing systems are believed to have paved a new avenue to improving the utilisation of machines and providing faster response to short-term fluctuation in demands by promoting machine sharing among logical manufacturing cells. The design of Virtual Manufacturing Cells (VMCs) under the consideration of machine sharing has, therefore, been attracting attentions from more and more researchers and practitioners. A two-stage mathematical approach for the design of VMCs is presented in this paper. A new mathematical model that automatically optimises the number of part families is given to form part families in the first stage. A novel mathematical formulation was proposed in Stage 2 with new variables added, which defines more accurately the number of shared machines in virtual cells. The proposed method has been applied in a plant and the results show its practicability and validity.
+---
+
+---
+DOI: 10.1126/science.1232655
+Title: Multisensory Control of Hippocampal Spatiotemporal Selectivity
+Year: 2013
+Abstract: A Sense of Place Hippocampal place cells are believed to be mainly governed by visual and self-motion cues. However, the contribution of sensory cues such as smells, sounds, and textures, etc., is difficult to eliminate. In virtual reality, these cues will not provide any information about the animals' position. Ravassard et al. (p. 1342 , published online 2 May) developed a virtual-reality system as immersive and close to the real world as possible and compared place cells in rats running in this apparatus and in the real world. Twice as many neurons were active in a real-world situation compared to virtual reality. While place cells in the real world encoded position, place cells in a virtual world encoded distance.
+---
+
+---
+DOI: 10.1007/978-3-319-45931-8_5
+Title: Security Challenges of Small Cell as a Service in Virtualized Mobile Edge Computing Environments
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.comcom.2019.09.002
+Title: Dynamic control of functional splits for energy harvesting virtual small cells: A distributed reinforcement learning approach
+Year: 2019
+Abstract: &lt;p&gt;To meet the growing mobile data traffic demand, Mobile Network Operators (MNOs) are deploying dense infrastructures of small cells as a solution for capacity enhancement. This densification increases the power consumption of mobile networks, thus impacting the environment. As a result, we have seen a recent trend of powering base stations with ambient energy sources to achieve both environmental sustainability and cost reductions. In addition, flexible functional split in Cloud Radio Access Network (CRAN) is a promising solution to overcome the capacity and latency challenges in the fronthaul. In such architecture, local base stations perform partial baseband processing while the remaining part will take place at the central cloud. As the cells become smaller and deployed in a densified manner, it is evident that baseband processing power consumption has a huge share in the total base station power consumption breakdown. In this paper, we propose a network scenario where the baseband processes of the virtual small cells powered solely by energy harvesters and batteries can be opportunistically executed in a grid-connected edge computing server, co-located at the macro base station site. We state the corresponding energy minimization problem and propose multi-agent Reinforcement Learning (RL) to solve it. Distributed Fuzzy Q-Learning and Q- Learning on-line algorithms are tailored for our purposes. Coordination among the multiple agents is favored by broadcasting system level information to the independent learners. The evaluation of the network performance confirms that favoring coordination among the agents via broadcasting may achieve higher system level gains and cumulative rewards closer to the off-line bounds than solutions that are unaware of system level information. Finally, our analysis permits to evaluate the benefits of continuous state/action representation for the learning algorithms in terms of faster convergence, higher cumulative reward and adaptivity to changing environments.&lt;/p&gt;
+---
+
+---
+DOI: 10.1109/icpads.2005.147
+Title: Emergency Broadcast Protocol for Inter-Vehicle Communications
+Year: 2006
+Abstract: The most important goal in transportation systems is to reduce the dramatically high number of accidents and fatal consequences. One of the most important factors that would make it possible to reach this goal is the design of effective broadcast protocols. In this paper we present an emergency broadcast protocol designed for sensor inter-vehicle communications and based in geographical routing. Sensors installed in cars continuously gather important information and in any emergency detection raise the need for immediate broadcast. The highway is divided in virtual cells, which moves as the vehicles moves. The cell members choose a cell reflector that behaves for a certain time interval as a base station that handle the emergency messages coming from members of the same cell, or close members from neighbor cells. Besides that the cell reflector serves as an intermediate node in the routing of emergency messages coming from its neighbor cell reflectors and does a prioritization of all messages in order to decide which is the first to be forwarded. After this the message is forwarded through the other cell reflectors. Finally the destination cell reflector sends the message to the destination node. Our simulation results show that our proposed protocol is more effective compared to existing inter-vehicles protocols
+---

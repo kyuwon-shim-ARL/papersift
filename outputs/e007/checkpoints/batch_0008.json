@@ -1,0 +1,119 @@
+{
+  "batch_index": 8,
+  "dois": [
+    "10.1016/j.bpj.2023.04.006",
+    "10.1371/journal.pbio.1002118",
+    "10.1038/ncomms11291",
+    "10.1073/pnas.2024302118",
+    "10.1038/srep00503",
+    "10.1073/pnas.1919569117",
+    "10.1016/j.stemcr.2022.10.004",
+    "10.3389/fimmu.2020.01664",
+    "10.1128/jmbe.v20i2.1658",
+    "10.7554/elife.43140"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1016/j.bpj.2023.04.006",
+      "problem": "Integrating cellular knowledge across scales to comprehend cellular behaviors",
+      "method": "Computational modeling approaches for virtual cell construction",
+      "finding": "Next generation virtual cells achievable goal for computational biology",
+      "dataset": "cell",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pbio.1002118",
+      "problem": "Students have difficulty conceptualizing dynamic nature of cells at multiple scales",
+      "method": "Virtual Cell Animations for education",
+      "finding": "Animations effectively improved student conceptual understanding",
+      "dataset": "students",
+      "metric": "",
+      "baseline": "traditional learning",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/ncomms11291",
+      "problem": "Virtual memory CD8 T cells found in unchallenged mice, mechanism unclear",
+      "method": "Analysis of virtual memory T cell development and homeostatic proliferation",
+      "finding": "VM cell development involves homeostatic proliferation with stratified responsiveness",
+      "dataset": "mice",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1073/pnas.2024302118",
+      "problem": "Drug repurposing strategy for SARS-CoV-2 antiviral agents",
+      "method": "Molecular docking and drug screening against viral protease",
+      "finding": "Identified antiviral compounds targeting SARS-CoV-2",
+      "dataset": "SARS-CoV-2",
+      "metric": "binding affinity",
+      "baseline": "",
+      "result": "96%"
+    },
+    {
+      "doi": "10.1038/srep00503",
+      "problem": "Automated cell nucleus segmentation for quantitative pathology analysis",
+      "method": "Contour tracing for grayscale image segmentation",
+      "finding": "Improved automated cell nucleus segmentation method",
+      "dataset": "cell images",
+      "metric": "precision, recall",
+      "baseline": "automated segmentation",
+      "result": ""
+    },
+    {
+      "doi": "10.1073/pnas.1919569117",
+      "problem": "Virtual staining for morphological analysis of biological cells",
+      "method": "Digital holography-based virtual staining without chemical stains",
+      "finding": "Virtual staining circumvents toxicity, saves time, enables concurrent staining",
+      "dataset": "human cells",
+      "metric": "",
+      "baseline": "gold-standard staining",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.stemcr.2022.10.004",
+      "problem": "Mechanism of morphogenetic signals engaging regulatory networks in embryonic patterning",
+      "method": "Gene regulatory network model embedded in cellular agents (GARMEN)",
+      "finding": "Integrated three hierarchical levels of cell-fate control",
+      "dataset": "human iPSCs",
+      "metric": "",
+      "baseline": "in vitro counterparts",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fimmu.2020.01664",
+      "problem": "SARS-CoV-2 entry mechanism via spike protein binding to ACE2 receptor",
+      "method": "Molecular dynamics simulation with GROMOS96 force field",
+      "finding": "Understanding virus-receptor recognition mechanism",
+      "dataset": "SARS-CoV-2",
+      "metric": "binding",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1128/jmbe.v20i2.1658",
+      "problem": "Assessing educational impact of VR on cell biology learning and engagement",
+      "method": "VR-based cell biology course using HTC Vive platform",
+      "finding": "VR enhanced student learning experience in cell biology",
+      "dataset": "62 students",
+      "metric": "survey responses",
+      "baseline": "traditional teaching",
+      "result": "70%"
+    },
+    {
+      "doi": "10.7554/elife.43140",
+      "problem": "Path integration error correction during spatial navigation",
+      "method": "Direct recording of grid-like neuronal activity during spatial tasks",
+      "finding": "Novel cue cells in MEC with spatial firing patterns",
+      "dataset": "mouse",
+      "metric": "correlation",
+      "baseline": "",
+      "result": "95%"
+    }
+  ],
+  "timestamp": "2026-03-09T01:45:11.661376",
+  "extraction_count": 10
+}

@@ -1,0 +1,119 @@
+{
+  "batch_index": 25,
+  "dois": [
+    "10.3389/fphys.2024.1421591",
+    "10.1186/s13073-019-0701-3",
+    "10.2147/clep.s37559",
+    "10.1186/s13059-016-0881-8",
+    "10.4082/kjfm.20.0165",
+    "10.1038/s41746-019-0193-y",
+    "10.1038/s41746-024-01073-0",
+    "10.1038/s41409-024-02324-0",
+    "10.1038/s41586-022-05688-9",
+    "10.1155/2016/6760830"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3389/fphys.2024.1421591",
+      "problem": "Current prostate cancer diagnostics lack personalized predictive models; need a framework to simulate patient-specific tumour growth using clinical MRI data toward digital twins.",
+      "method": "Finite Element Method coupling tumour growth dynamics and oxygen transport, initialized from patient-specific mpMRI biomarkers (ADC cellularity maps, K_Trans vasculature maps), with multi-objective optimization for parameter fitting across patients.",
+      "finding": "Framework validated on 4 patients with multiple MRI follow-ups; model predicts prostate and tumour volume growth along with serum PSA levels, representing a preliminary step toward clinical digital twins for prostate cancer.",
+      "dataset": "6 prostate cancer patients under active surveillance (Gleason Score 6), Hospital La Fe Valencia, 2015-2020",
+      "metric": "Prostate volume, tumour volume, serum PSA levels",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/s13073-019-0701-3",
+      "problem": "Personalized medicine requires integrating and processing vast amounts of patient data to find optimal drug treatments.",
+      "method": "Proposes constructing high-resolution digital twin models of individual patients, computationally treated with thousands of drugs to identify optimal therapy.",
+      "finding": "Clinical implementation of digital twins will require solving technical, medical, ethical, and theoretical challenges comparable in scale to the Human Genome Project, but could lead to greatly improved healthcare.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.2147/clep.s37559",
+      "problem": "PCOS is a common heterogeneous endocrine disorder requiring proper diagnosis and management to prevent metabolic, cardiovascular, and psychiatric complications.",
+      "method": "Comprehensive review of epidemiology, diagnostic criteria, pathophysiology, comorbidities, and management strategies for PCOS.",
+      "finding": "PCOS prevalence is up to 15-20% with ESHRE/ASRM criteria; insulin resistance affects 50-70% of PCOS women; treatment includes oral contraceptives, anti-androgens, and ovulation induction agents including letrozole and metformin.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": "prevalence 15-20%, insulin resistance 50-70%"
+    },
+    {
+      "doi": "10.1186/s13059-016-0881-8",
+      "problem": "No single RNA-seq analysis pipeline applies to all cases; need a comprehensive review of best practices across all major analysis steps.",
+      "method": "Survey and review of RNA-seq analysis steps including experimental design, QC, read alignment, quantification, visualization, differential expression, alternative splicing, functional analysis, gene fusion detection, and eQTL mapping.",
+      "finding": "Provides guidelines for each step of RNA-seq analysis with discussion of challenges; highlights that choices of library type, sequencing depth, and replicates must be tailored to the biological question and system under study.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.4082/kjfm.20.0165",
+      "problem": "Health risks of sedentary behaviors are not well known despite widespread insufficient physical activity affecting one-third of the global population aged 15+.",
+      "method": "Review of updated evidence on health risks and underlying biological mechanisms of sedentary lifestyle, including effects on lipid metabolism, insulin sensitivity, and vascular function.",
+      "finding": "Sedentary behavior increases all-cause mortality, CVD mortality, cancer risk, metabolic disorders, musculoskeletal disorders, depression, and cognitive impairment; 150-300 min/week of moderate physical activity can offset adverse effects.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": "mean sedentary time 8.3h (Korea), 7.7h (US adults)"
+    },
+    {
+      "doi": "10.1038/s41746-019-0193-y",
+      "problem": "Machine learning alone ignores fundamental physics laws leading to ill-posed problems, while multiscale modeling alone fails to efficiently combine large heterogeneous datasets.",
+      "method": "Review of integrating machine learning with multiscale modeling across four topical areas: ODEs, PDEs, data-driven approaches, and theory-driven approaches, leveraging multidisciplinary expertise.",
+      "finding": "ML and multiscale modeling naturally complement each other to create robust predictive models; integration can provide new insights into disease mechanisms, identify treatment targets, and inform clinical decision making.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41746-024-01073-0",
+      "problem": "Digital twins for health (DT4H) hold great promise but are still in early stages; need to survey current applications, limitations, and emerging opportunities.",
+      "method": "Scoping review of current DT applications in healthcare, consortium research centers, and emerging R&D opportunities.",
+      "finding": "DT4H has potential to revolutionize personalized healthcare, predictive interventions, and remote monitoring, but faces challenges in technological innovation, ethics, societal impact, and legal guidance requiring global collaboration.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41409-024-02324-0",
+      "problem": "Disease rarity, ethical issues regarding placebo arms, time, and cost impede clinical trial conduct for chronic graft-versus-host disease (cGvHD); need virtual control arms.",
+      "method": "Constructed a digital twin cohort using Trial Accelerator™ platform from a database of 61M patients (232,909 cohorts); AI algorithm identified patient attributes matching protocol criteria; derived SOC arm for prednisone efficacy assessment.",
+      "finding": "Feasible to construct a DT cohort from existing clinical trial data; prednisone ORR at 6 months (52.7%) agrees with literature, demonstrating that a DT SOC arm can potentially replace control arms in clinical trials.",
+      "dataset": "cGvHD patients: 2,042 patients in 32 cohorts (flGvHD DT); 438 patients in 8 cohorts (SOC arm)",
+      "metric": "Overall response rate (ORR) at 6 months (CR+PR)",
+      "baseline": "Literature-reported prednisone efficacy in cGvHD",
+      "result": "ORR 52.7% at 6 months, disease onset 7.58 months post-HCT"
+    },
+    {
+      "doi": "10.1038/s41586-022-05688-9",
+      "problem": "Cell identity is governed by complex gene-regulatory networks, but it remains challenging to interpret how transcription factor perturbations alter cell identity from unperturbed data alone.",
+      "method": "CellOracle: ML-based GRN inference from single-cell multi-omics (scRNA-seq + scATAC-seq) with in silico TF perturbation simulation using custom network models and vector field visualization.",
+      "finding": "Correctly models reported TF perturbation phenotypes in mouse/human hematopoiesis and zebrafish embryogenesis; predicted and experimentally validated a novel noto loss-of-function phenotype and identified lhx1a as an axial mesoderm regulator.",
+      "dataset": "Mouse/human hematopoiesis, zebrafish embryogenesis (38,606-cell WT reference atlas at 6/8/10 hpf)",
+      "metric": "AUROC, early precision ratio (EPR)",
+      "baseline": "SCENIC, WGCNA, DCOL, GENIE3",
+      "result": "CellOracle with scATAC-seq base GRN outperformed all comparators in AUROC and EPR; robust down to 50 cells"
+    },
+    {
+      "doi": "10.1155/2016/6760830",
+      "problem": "Accurate identification of B-cell epitopes remains a major challenge for developing epitope-based vaccines, therapeutic antibodies, and diagnostic tools.",
+      "method": "Comprehensive review of experimental B-cell epitope mapping methods (X-ray crystallography, NMR, peptide arrays, phage display), epitope databases, and in silico prediction tools based on sequence and structural data.",
+      "finding": "Advances in mapping and computational prediction yield molecular insights into antigen-antibody complex formation; however, real epitopes cannot be predicted by ignoring structural effects upon Ag-Ab complex formation, opening space for algorithm improvement.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-05T14:20:43.267888",
+  "extraction_count": 10
+}

@@ -1,0 +1,119 @@
+{
+  "batch_index": 22,
+  "dois": [
+    "10.1371/journal.pone.0254512",
+    "10.1016/j.esmorw.2024.100056",
+    "10.1038/s41586-022-05473-8",
+    "10.3390/healthcare11060887",
+    "10.1002/wnan.1804",
+    "10.1038/lsa.2017.141",
+    "10.3390/s22041430",
+    "10.1109/ojemb.2024.3351717",
+    "10.1371/journal.pone.0314083",
+    "10.1016/j.isci.2023.108077"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pone.0254512",
+      "problem": "Impact of mechanical forces on tumor growth in alginate capsules",
+      "method": "Continuum mechanics framework for tumor-capsule interaction",
+      "finding": "Quantitative assessment of mechanical stress on tumor proliferation",
+      "dataset": "spheroids",
+      "metric": "",
+      "baseline": "",
+      "result": "14.5%"
+    },
+    {
+      "doi": "10.1016/j.esmorw.2024.100056",
+      "problem": "",
+      "method": "",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41586-022-05473-8",
+      "problem": "GWAS from isolated Finnish population for coding variant discovery",
+      "method": "Meta-analysis of Finnish biobank data",
+      "finding": "Identified novel coding variant associations",
+      "dataset": "FinnGen",
+      "metric": "",
+      "baseline": "",
+      "result": "0.1%"
+    },
+    {
+      "doi": "10.3390/healthcare11060887",
+      "problem": "ChatGPT applications in healthcare education and practice",
+      "method": "Systematic review of LLM applications in healthcare",
+      "finding": "60 records identified for review of healthcare AI applications",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1002/wnan.1804",
+      "problem": "Nanosafety assessment advances and challenges",
+      "method": "Review of nanosafety research approaches",
+      "finding": "Intense research era for nanosafety assessment",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/lsa.2017.141",
+      "problem": "Phase recovery from intensity-only measurements",
+      "method": "Neural network for holographic image reconstruction",
+      "finding": "Deep learning enables phase retrieval from holograms",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/s22041430",
+      "problem": "Smart manufacturing fault diagnosis for performance assurance",
+      "method": "Review of smart manufacturing DT systems",
+      "finding": "DT enables resilient fault diagnosis",
+      "dataset": "",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1109/ojemb.2024.3351717",
+      "problem": "",
+      "method": "",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pone.0314083",
+      "problem": "Digital twin for liver-on-chip clearance modeling",
+      "method": "Mathematical model for drug clearance prediction",
+      "finding": "DT mimics drug clearance in liver-on-chip system",
+      "dataset": "",
+      "metric": "",
+      "baseline": "conventional model",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.isci.2023.108077",
+      "problem": "Mathematical model of regenerating liver after drug-induced damage",
+      "method": "Mechanism-based spatial model of hepatic lobule regeneration",
+      "finding": "Digital twin simulates liver regeneration at tissue microarchitecture level",
+      "dataset": "mouse",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:49:19.121346",
+  "extraction_count": 10
+}

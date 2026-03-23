@@ -1,0 +1,119 @@
+{
+  "batch_index": 27,
+  "dois": [
+    "10.1186/1471-2105-6-54",
+    "10.1371/journal.pone.0041733",
+    "10.1073/pnas.2025211118",
+    "10.1016/j.addr.2021.01.007",
+    "10.1038/srep30325",
+    "10.1016/j.bpr.2023.100133",
+    "10.1186/s13059-016-0937-9",
+    "10.1038/s41598-017-06445-z",
+    "10.1186/1752-0509-3-120",
+    "10.1371/journal.pone.0035618"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1186/1471-2105-6-54",
+      "problem": "Sample heterogeneity in microarray data from mixed cell populations confounds identification of differentially expressed genes and gene expression-based classification.",
+      "method": "Linear model-based computational framework using optimization to invert sample heterogeneity, estimating pure cell expression values and mixing percentages, with PCA for global performance evaluation.",
+      "finding": "The method successfully reconstructs both sample and cell type-specific expression values from heterogeneous mixtures and estimates mixing percentages; a general-purpose model selection method determines the correct number of cell types.",
+      "dataset": "cDNA microarray of 5 heterogeneous mixtures of lymph node and RKO colon cancer cells, 4704 human genes",
+      "metric": "PCA-based global expression profile comparison",
+      "baseline": "Measured heterogeneous mixture expression values",
+      "result": "Successfully reconstructed pure cell profiles from 5 mixture ratios with known mixing percentages"
+    },
+    {
+      "doi": "10.1371/journal.pone.0041733",
+      "problem": "Understanding how DMSO enhances cell membrane permeability in cholesterol-containing membranes and whether MD-predicted pore formation regimes translate to living cells.",
+      "method": "Molecular dynamics simulations of DOPC/20% cholesterol bilayers with varying DMSO concentrations, validated by DC-3F cell experiments measuring permeability to water, Ca2+ and Yo-Pro-1.",
+      "finding": "Three DMSO concentration-dependent regimes (membrane loosening, stable pore formation, bilayer collapse) are reproduced in cholesterol-containing membranes and confirmed in living cells with size-dependent molecular permeability.",
+      "dataset": "DOPC/20% cholesterol bilayer MD simulations, DC-3F cell cultures",
+      "metric": "Membrane structural properties (area per lipid, order parameters), cell permeability to water/Ca2+/Yo-Pro-1",
+      "baseline": "Pure DOPC bilayers without cholesterol (Ref [9])",
+      "result": "Three regimes confirmed: ≤10 mol% transient pores, ~15 mol% stable pores, ≥40 mol% bilayer collapse"
+    },
+    {
+      "doi": "10.1073/pnas.2025211118",
+      "problem": "Understanding how metabolic allometric scaling emerges in cell aggregates when accounting for intrinsic fluctuations in mass and metabolic rate, which are typically neglected.",
+      "method": "In silico pipeline using finite element simulations of reaction-diffusion (Fick's law + Michaelis-Menten kinetics) in randomly generated cell-laden spheroids with log-normal size distributions, combined with data collapse analysis.",
+      "finding": "Scaling exponents change with increasing variability in both mass and metabolic rate; the pipeline identifies physiologically relevant size windows where cell cultures exhibit quantifiable similitudes with living organisms.",
+      "dataset": "Computationally generated stem cell and hepatocyte spheroids, 17 size distributions (radii 31-5000 μm)",
+      "metric": "Scaling exponent δ, data collapse functional minima, Anderson-Darling test (P > 0.05)",
+      "baseline": "Classical allometric scaling without fluctuations",
+      "result": "Minimum N=200 for marginal collapse, N=10^4 for joint collapse; nonisometric scaling (δ ≠ 1) in specific size windows"
+    },
+    {
+      "doi": "10.1016/j.addr.2021.01.007",
+      "problem": "The T cell epitope landscape of SARS-CoV-2 is largely unknown, and experimental identification is challenging, necessitating in silico prediction methods to aid vaccine design.",
+      "method": "Review comparing in silico methods including SARS-CoV cross-reactivity screening, machine learning-based peptide-HLA binding prediction, immunogenicity prediction, and population coverage analysis.",
+      "finding": "Multiple in silico approaches show varying performance in identifying experimentally verified immunogenic epitopes; methods exploiting SARS-CoV cross-reactivity and machine learning-based HLA binding prediction are most commonly used.",
+      "dataset": "SARS-CoV-2 proteome, SARS-CoV epitope databases (ViPR, IEDB), GISAID sequences (>65,000 genomes)",
+      "metric": "Ability to identify experimentally verified immunogenic epitopes from convalescent patients",
+      "baseline": "SARS-CoV cross-reactive epitopes",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/srep30325",
+      "problem": "Nuclear envelope ruptures in laminopathy cells are stochastic, complicating quantitative analysis of their causes and regulators.",
+      "method": "In silico synchronization of spontaneous nuclear rupture events using co-expressed H2B-GFP (stable reference) and mCherry-NLS (shuttling reporter) with automated tracking in LMNA knockout cells.",
+      "finding": "Rupture frequency correlates inversely with lamin A/C levels; blebbistatin and NAT10 inhibitor remodelin reduce rupture frequency; ESCRT-III component CHMP4B knockdown prolongs nuclear signal recovery time.",
+      "dataset": "HT-1080 LMNA knockout (HT-LKO) and MEF Lmna knockout (MEF-LKO) cells",
+      "metric": "Rupture frequency, recovery halftime (Tr), nuclear circularity fluctuations",
+      "baseline": "Wild-type HT-1080 (HT-WT) and MEF-WT cells",
+      "result": "~55% rupture frequency in MEF-LKO; blebbistatin reduced ruptures (p<0.05); remodelin improved circularity (p<0.001) and reduced ruptures (p<0.05); CHMP4B knockdown increased Tr (p<0.05)"
+    },
+    {
+      "doi": "10.1016/j.bpr.2023.100133",
+      "problem": "AI image translation for cell labeling lacks trustworthiness for mission-critical biomedical applications; prediction uncertainty and out-of-distribution detection are needed.",
+      "method": "Ensemble of N=6 independently trained U-Net models for phase-contrast to fluorescence image translation, with pixel-wise standard deviation as uncertainty metric and FastEnsemble for computational efficiency.",
+      "finding": "Ensemble prediction standard deviation correlates with prediction error and Pearson correlation coefficient; the method reliably detects out-of-distribution input images by reporting increased uncertainty.",
+      "dataset": "Mesenchymal stromal cells (MSCs), LNCaP prostate cancer cells, mouse kidney tissue sections",
+      "metric": "Prediction standard deviation, absolute error, Pearson correlation coefficient, sensitivity/specificity",
+      "baseline": "MC-Dropout, BatchEnsemble, Snapshot ensemble",
+      "result": "Ensemble Std correlates with prediction error; FastEnsemble achieves comparable sensitivity/specificity to naive ensemble with reduced cost"
+    },
+    {
+      "doi": "10.1186/s13059-016-0937-9",
+      "problem": "Identifying adult stem cell lineages in planarians without requiring transgenic lineage purification, and discovering novel neural stem cell populations.",
+      "method": "Single-cell RNA sequencing (SmartSeq2) of 168 FACS-sorted cells from planarian heads, with hierarchical clustering, t-SNE, pseudotime analysis (Waterfall), and gene set enrichment analysis.",
+      "finding": "Identified a molecularly distinct neural stem cell population (νNeoblasts) and a novel piwi-2+/piwi-1lo stem cell population; predicted neural lineage trajectory validated by in situ hybridization.",
+      "dataset": "168 single cells (96 X1 stem, 72 X2 progeny) from Schmidtea mediterranea planarian heads",
+      "metric": "Hierarchical clustering, t-SNE, pseudotime ordering, gene set enrichment",
+      "baseline": "Known planarian lineage markers (piwi-1, piwi-2)",
+      "result": "10 cell subgroups identified; 5150 transcripts/X1 cell; 64% average alignment rate; νNeoblast population validated in vivo"
+    },
+    {
+      "doi": "10.1038/s41598-017-06445-z",
+      "problem": "Understanding doxorubicin's interaction with cholesterol-rich vs cholesterol-poor membrane domains to explain drug resistance mechanisms potentially involving P-gp efflux proteins.",
+      "method": "UV-Vis derivative spectrophotometry (partition coefficients), fluorescence quenching (drug localization), steady-state anisotropy (membrane fluidity), and coarse-grained molecular dynamics simulations of model liposomes.",
+      "finding": "Cholesterol does not impair doxorubicin membrane partitioning but reduces its influence on membrane fluidity without direct drug-cholesterol interaction; resistance may stem from increased membrane density near efflux proteins.",
+      "dataset": "DMPC:SM [8:2] and DMPC:SM:Chol [7:1.5:1.5] liposomes",
+      "metric": "Partition coefficient (Kp, logD), Stern-Volmer quenching constant (KSV), fluorescence anisotropy",
+      "baseline": "DMPC:SM liposomes without cholesterol",
+      "result": "Kp=8195±406 (DMPC:SM), Kp=8707±523 (DMPC:SM:Chol), logD ~3.9; p<0.05"
+    },
+    {
+      "doi": "10.1186/1752-0509-3-120",
+      "problem": "Efficient simultaneous genome-scale identification of metabolic engineering targets for gene amplification and deletion is lacking; existing methods focus mainly on deletion targets.",
+      "method": "Flux Design: elementary flux mode computation with flux correlation analysis to objective flux, identifying amplification (positive correlation) and deletion (negative correlation) targets with statistical ranking.",
+      "finding": "For C. glutamicum lysine production, predicted targets matched known successful engineering strategies; for A. niger enzyme production, target relevance depended on metabolic state and carbon source.",
+      "dataset": "Genome-scale metabolic models of Corynebacterium glutamicum and Aspergillus niger",
+      "metric": "Target potential coefficient (α), Pearson correlation, p-value",
+      "baseline": "Known validated metabolic engineering targets from literature",
+      "result": ">20,000 elementary modes computed per organism; predicted targets match validated strategies (G6PDH amplification, pyruvate dehydrogenase deletion)"
+    },
+    {
+      "doi": "10.1371/journal.pone.0035618",
+      "problem": "Identifying novel human genes related to cilia by computational analysis of gene coexpression in tissues rich in ciliated cells, without requiring direct experimental isolation of ciliated cells.",
+      "method": "Weighted Gene Coexpression Network Analysis (WGCNA) applied to 12 microarray datasets from brain, airways, and fallopian tubes, with consensus analysis across tissues and validation via GEO and Human Protein Atlas.",
+      "finding": "Identified 297 known and 74 novel cilia-related genes; discovered MATE2 (SLC47A2) as brain-specific ciliary gene (confirmed by immunofluorescence) and dyslexia genes (DCDC2, DYX1C1, KIAA0319) as potentially cilia-related.",
+      "dataset": "12 microarray datasets from human brain (5), airways (5), fallopian tubes (2); ≥15,000 genes, ≥15 samples each",
+      "metric": "Topological Overlap, module consensus gene composition, tissue-specificity expression validation",
+      "baseline": "Known ciliary genes from CilDB database",
+      "result": "Cilia module detected in 10/12 datasets; 297 known + 74 novel cilia genes; 82% of novel candidates validated"
+    }
+  ],
+  "timestamp": "2026-03-05T14:21:44.316979",
+  "extraction_count": 10
+}

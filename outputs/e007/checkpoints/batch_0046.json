@@ -1,0 +1,119 @@
+{
+  "batch_index": 46,
+  "dois": [
+    "10.1200/cci.18.00069",
+    "10.1186/1743-8977-7-36",
+    "10.3389/fonc.2013.00044",
+    "10.1371/journal.pone.0003478",
+    "10.1371/journal.pbio.1000618",
+    "10.1371/journal.pcbi.1002793",
+    "10.1038/srep36992",
+    "10.1371/journal.pcbi.1004280",
+    "10.1371/journal.pcbi.1007250",
+    "10.1186/s12964-021-00706-1"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1200/cci.18.00069",
+      "problem": "Understanding how single-cell behaviors lead to tissue-level dynamics in cancer systems, including hypoxia, angiogenesis, invasion, and immunosurveillance.",
+      "method": "Survey of cell-based computational modeling approaches including cellular automata (CA), lattice gas CA, cellular Potts models (CPM), center-based models (CBM), and other off-lattice methods.",
+      "finding": "Cell-based models are well-suited for problems where single-cell effects drive clinical progression; open source platforms and cloud/supercomputing resources are lowering barriers to large-scale simulation studies.",
+      "dataset": "Cancer biology systems (hypoxia, angiogenesis, invasion, stem cells, immunosurveillance)",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/1743-8977-7-36",
+      "problem": "Directly measuring cellular dose of nanoparticles in vitro is impractical, leading to reliance on mass-based exposure metrics that can introduce errors of 3-6 orders of magnitude.",
+      "method": "Computational model (ISDD) solving Stokes Law (sedimentation) and Stokes-Einstein equation (diffusion) simultaneously to calculate particle transport to cells in monolayer culture systems.",
+      "finding": "Without adjusting any parameters, ISDD predictions matched experimental cellular doses within ~2-fold; target cell doses can differ from nominal media concentrations by 3-6 orders of magnitude on a particle number or surface area basis.",
+      "dataset": "Polystyrene spheres (20-1100 nm), 35 nm amorphous silica, 30 nm iron oxide agglomerates",
+      "metric": "Predicted vs measured cellular dose (fold difference)",
+      "baseline": "Mass-based media concentration (μg/mL) exposure metrics",
+      "result": "Predictions within 5% to 3-fold of experimental data, typically ~2-fold; dose discrepancy up to 3-6 orders of magnitude"
+    },
+    {
+      "doi": "10.3389/fonc.2013.00044",
+      "problem": "Understanding how fluid shear stress from blood flow and interstitial flows affects cancer cell behavior during metastasis in vascular and tumor microenvironments.",
+      "method": "Review of computational models (Darcy/Brinkman equations for interstitial flow, adhesive dynamics for selectin-mediated adhesion) and experimental models of fluid shear stress effects on tumor cells.",
+      "finding": "Fluid shear stress modulates cancer cell viability, adhesion to endothelium, migration, invasion, and chemotherapeutic sensitivity; computational models coupling mechanical forces with chemical signaling can predict cell behavior in dynamic microenvironments.",
+      "dataset": "Cancer cells in vascular and tumor microenvironments",
+      "metric": "Shear stress (dyn/cm²), interstitial flow velocity",
+      "baseline": "",
+      "result": "Interstitial flow-generated shear stress on smooth muscle cells ~1.0 dyn/cm²"
+    },
+    {
+      "doi": "10.1371/journal.pone.0003478",
+      "problem": "Understanding how stem cell, trophectoderm, and endoderm lineages arise from gene regulatory network dynamics, and identifying strategies for reprogramming differentiated cells to stem cell state.",
+      "method": "ODE-based dynamical model of a gene regulatory network (Oct4, Sox2, Nanog, Cdx2, Gata-6, Gcnf) using thermodynamic framework of gene regulation, with assumptions of Oct4 activation of Gata-6 and Nanog repression by Oct4-Gata-6 heterodimer.",
+      "finding": "The model successfully describes biphasic behavior and lineage commitment; reprogramming from endoderm to stem cell state is best achieved by over-expressing Nanog rather than suppressing differentiation genes like Gata-6.",
+      "dataset": "Mouse embryonic stem cell regulatory network (ChIP-on-chip and microarray data)",
+      "metric": "Bifurcation analysis, steady-state concentrations of transcription factors",
+      "baseline": "Core Oct4-Sox2-Nanog bistable switch model",
+      "result": "Nanog overexpression optimal for endoderm-to-stem-cell reprogramming"
+    },
+    {
+      "doi": "10.1371/journal.pbio.1000618",
+      "problem": "Testing whether a pseudopod-based mechanism, where chemoattractants modulate an intrinsic pseudopod cycle rather than directly causing actin polymerization, can predict complex chemotactic cell behavior.",
+      "method": "Computational model based on pseudopod autocatalysis with coupled positive and negative feedback loops, using Arbitrary Lagrangian Eulerian surface finite element method and level set method in MATLAB.",
+      "finding": "The model reproduces cell polarization, persistence, pseudopod selection in gradients, and predicts that the angle between successive pseudopods increases proportionally to the difference between cell direction and gradient direction—confirmed experimentally in Dictyostelium.",
+      "dataset": "Dictyostelium AX3 cells (developed 4 hr, imaged with Quimp3)",
+      "metric": "Pseudopod angles, cell speed, persistence, directional accuracy",
+      "baseline": "Compass-based chemotaxis models (Meinhardt model)",
+      "result": "Predicted pseudopod angle relationship confirmed experimentally"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1002793",
+      "problem": "Understanding how signaling molecules, cytoskeleton, cell membrane, and mechanics interact in space and time to produce eukaryotic cell shape change and motility.",
+      "method": "Review comparing computational approaches for cell motility: reaction-diffusion equations, viscoelastic flow equations, with boundary methods including level set, phase field, immersed boundary, and Cellular Potts models.",
+      "finding": "No single computational approach is optimal for all motility problems; simpler models enable complete parameter studies while detailed 2D/3D models provide better biological comparison; the free-boundary problem remains a major technical challenge.",
+      "dataset": "Eukaryotic motile cells (keratocytes, Dictyostelium, neutrophils, nematode sperm)",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/srep36992",
+      "problem": "Determining the relative contributions of tip cell migration rate and stalk cell proliferation rate on tumor vasculature formation during sprouting angiogenesis.",
+      "method": "Hybrid 3D agent-based model on a 500×500×500 μm grid where endothelial cells (tip, stalk, phalanx) are modeled as physical agents responding to VEGF gradients over 20-day simulations.",
+      "finding": "Proliferation rate has a greater effect on the spread and extent of vascular growth compared to migration rate, with strong implications for designing anti-angiogenic therapies that differentially target these processes.",
+      "dataset": "In silico tumor vasculature (500³ μm grid, 10 trials per condition, 20-day simulations)",
+      "metric": "VLD (mm/mm³), bifurcation density (1/mm³), vascular segment length (mm), vascular segment tortuosity (mm/mm), fractal dimension",
+      "baseline": "Variable proliferation rates (0.0147-0.083 1/hr) and migration rates (5-30 μm/hr)",
+      "result": "VLD=16.9-130.6 mm/mm³, VST=1.37-2.60 across proliferation rates at fixed MR=10 μm/hr"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1004280",
+      "problem": "Modeling realistically crawling and deforming cells in tissues is computationally challenging due to multiple levels of complexity in cell morphology and migration.",
+      "method": "Extended Cellular Potts Model (CPM) with actin-inspired local feedback mechanism (Act model) using geometric mean of local activity values to bias membrane fluctuations into stable protrusions.",
+      "finding": "The Act model produces realistic amoeboid crawling and keratocyte-like gliding cells that can migrate randomly or follow cues, squeeze between cells, or migrate collectively, while adding minimal computational overhead to the basic CPM.",
+      "dataset": "Simulated amoeboid and keratocyte-like cells in 2D lattice environments",
+      "metric": "Cell speed, persistence, morphological realism, computational load",
+      "baseline": "Standard Cellular Potts Model (CPM) without Act extension",
+      "result": "Computationally light extension enabling large dense heterogeneous tissue simulations"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1007250",
+      "problem": "Understanding how actin protrusion dynamics regulates 3D cell migration through degradable viscoelastic extracellular matrix, which is difficult to investigate experimentally.",
+      "method": "Hybrid 2D model combining agent-based deformable cell model (viscoelastic actin cortex) with meshless Lagrangian smoothed particle hydrodynamics (SPH) for degradable viscoelastic ECM; 6-hour migration simulations with 12 replicates per condition.",
+      "finding": "Stochastic variability in protrusion lifetime alone explains differences in cell migration velocity; directly changing protrusion number, lifetime, or length does not affect migration. Optimal number of simultaneous protrusions is 1 (isotropic ECM) or 2 (anisotropic ECM).",
+      "dataset": "Simulated cells in viscoelastic ECM (50-400 Pa stiffness, 6-hour migration, 12 replicates × 5 values per set)",
+      "metric": "Absolute migration velocity (μm/hr), protrusion number, lifetime, length",
+      "baseline": "Varying ECM stiffness (50-400 Pa) and cell contractile strength",
+      "result": "Mean absolute migration velocity 3.7-10.2 μm/hr; optimal 1-2 simultaneous protrusions"
+    },
+    {
+      "doi": "10.1186/s12964-021-00706-1",
+      "problem": "Understanding the complex interactions among mTOR, AMPK, and sirtuin signaling pathways in cell energy balance, metabolism, aging, and disease.",
+      "method": "Large system of coupled ODEs and algebraic equations modeling insulin/IGF-1 pathway, mTORC1 with amino acid sensors (sestrin2), Preiss-Handler and salvage pathways (NAD+/SIRT1), AMPK, FOXO, and PGC-1α; parameters fitted to experimental data using interior point optimization.",
+      "finding": "PRAS40 plays a clinically important role in mTORC1 inhibition especially at low insulin levels; SIRT1-activating compounds may cause premature autophagy; the model captures leucine-sestrin2-arginine interplay and its effect on mTORC1.",
+      "dataset": "Mouse C2C12 myoblast cell line (supplemented with mouse kidney, rat, and human cell data)",
+      "metric": "Protein phosphorylation levels, steady-state concentrations, dose-response to rapamycin/wortmannin",
+      "baseline": "Control (no drug treatment) vs rapamycin and wortmannin interventions",
+      "result": "PRAS40 lowers steady-state phosphorylated mTORC1 by 18% with sufficient insulin; substantially greater inhibition at low insulin"
+    }
+  ],
+  "timestamp": "2026-03-05T14:30:38.805747",
+  "extraction_count": 10
+}

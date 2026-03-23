@@ -1,0 +1,502 @@
+{
+  "experiment": "e010",
+  "description": "T0 resolution sweep + T1 Jaccard A/B",
+  "dataset": "/home/kyuwon/projects/papersift/results/virtual-cell/papers_with_abstracts.json",
+  "seed": 42,
+  "baseline_cluster_count": 13,
+  "t0_sweep": [
+    {
+      "resolution": 1.0,
+      "cluster_count": 8,
+      "major_count": 4,
+      "major_sizes": [
+        96,
+        89,
+        88,
+        77
+      ],
+      "singleton_count": 4,
+      "abstract_length_r": 0.44,
+      "preservation": {
+        "rate": 0.8,
+        "count": 5,
+        "preserved": 4,
+        "details": [
+          {
+            "base_cluster": 0,
+            "size": 100,
+            "best_match": 0,
+            "overlap": 0.93,
+            "jaccard": 0.903,
+            "preserved": true
+          },
+          {
+            "base_cluster": 1,
+            "size": 80,
+            "best_match": 3,
+            "overlap": 0.95,
+            "jaccard": 0.938,
+            "preserved": true
+          },
+          {
+            "base_cluster": 2,
+            "size": 79,
+            "best_match": 2,
+            "overlap": 0.911,
+            "jaccard": 0.758,
+            "preserved": true
+          },
+          {
+            "base_cluster": 3,
+            "size": 68,
+            "best_match": 1,
+            "overlap": 0.897,
+            "jaccard": 0.635,
+            "preserved": true
+          },
+          {
+            "base_cluster": 4,
+            "size": 18,
+            "best_match": 1,
+            "overlap": 0.889,
+            "jaccard": 0.176,
+            "preserved": false
+          }
+        ]
+      }
+    },
+    {
+      "resolution": 1.2,
+      "cluster_count": 9,
+      "major_count": 5,
+      "major_sizes": [
+        96,
+        93,
+        77,
+        71,
+        13
+      ],
+      "singleton_count": 4,
+      "abstract_length_r": 0.44,
+      "preservation": {
+        "rate": 1.0,
+        "count": 5,
+        "preserved": 5,
+        "details": [
+          {
+            "base_cluster": 0,
+            "size": 100,
+            "best_match": 0,
+            "overlap": 0.93,
+            "jaccard": 0.903,
+            "preserved": true
+          },
+          {
+            "base_cluster": 1,
+            "size": 80,
+            "best_match": 2,
+            "overlap": 0.95,
+            "jaccard": 0.938,
+            "preserved": true
+          },
+          {
+            "base_cluster": 2,
+            "size": 79,
+            "best_match": 1,
+            "overlap": 0.937,
+            "jaccard": 0.755,
+            "preserved": true
+          },
+          {
+            "base_cluster": 3,
+            "size": 68,
+            "best_match": 3,
+            "overlap": 0.897,
+            "jaccard": 0.782,
+            "preserved": true
+          },
+          {
+            "base_cluster": 4,
+            "size": 18,
+            "best_match": 4,
+            "overlap": 0.722,
+            "jaccard": 0.722,
+            "preserved": true
+          }
+        ]
+      }
+    },
+    {
+      "resolution": 1.4,
+      "cluster_count": 9,
+      "major_count": 5,
+      "major_sizes": [
+        96,
+        89,
+        77,
+        67,
+        21
+      ],
+      "singleton_count": 4,
+      "abstract_length_r": 0.44,
+      "preservation": {
+        "rate": 1.0,
+        "count": 5,
+        "preserved": 5,
+        "details": [
+          {
+            "base_cluster": 0,
+            "size": 100,
+            "best_match": 0,
+            "overlap": 0.93,
+            "jaccard": 0.903,
+            "preserved": true
+          },
+          {
+            "base_cluster": 1,
+            "size": 80,
+            "best_match": 2,
+            "overlap": 0.95,
+            "jaccard": 0.938,
+            "preserved": true
+          },
+          {
+            "base_cluster": 2,
+            "size": 79,
+            "best_match": 1,
+            "overlap": 0.886,
+            "jaccard": 0.714,
+            "preserved": true
+          },
+          {
+            "base_cluster": 3,
+            "size": 68,
+            "best_match": 3,
+            "overlap": 0.853,
+            "jaccard": 0.753,
+            "preserved": true
+          },
+          {
+            "base_cluster": 4,
+            "size": 18,
+            "best_match": 4,
+            "overlap": 0.722,
+            "jaccard": 0.5,
+            "preserved": true
+          }
+        ]
+      }
+    },
+    {
+      "resolution": 1.6,
+      "cluster_count": 10,
+      "major_count": 6,
+      "major_sizes": [
+        93,
+        79,
+        77,
+        54,
+        32,
+        15
+      ],
+      "singleton_count": 4,
+      "abstract_length_r": 0.44,
+      "preservation": {
+        "rate": 1.0,
+        "count": 5,
+        "preserved": 5,
+        "details": [
+          {
+            "base_cluster": 0,
+            "size": 100,
+            "best_match": 0,
+            "overlap": 0.91,
+            "jaccard": 0.892,
+            "preserved": true
+          },
+          {
+            "base_cluster": 1,
+            "size": 80,
+            "best_match": 2,
+            "overlap": 0.95,
+            "jaccard": 0.938,
+            "preserved": true
+          },
+          {
+            "base_cluster": 2,
+            "size": 79,
+            "best_match": 1,
+            "overlap": 0.797,
+            "jaccard": 0.663,
+            "preserved": true
+          },
+          {
+            "base_cluster": 3,
+            "size": 68,
+            "best_match": 3,
+            "overlap": 0.794,
+            "jaccard": 0.794,
+            "preserved": true
+          },
+          {
+            "base_cluster": 4,
+            "size": 18,
+            "best_match": 4,
+            "overlap": 0.944,
+            "jaccard": 0.515,
+            "preserved": true
+          }
+        ]
+      }
+    },
+    {
+      "resolution": 2.0,
+      "cluster_count": 16,
+      "major_count": 9,
+      "major_sizes": [
+        80,
+        72,
+        58,
+        54,
+        21,
+        16,
+        15,
+        13,
+        13
+      ],
+      "singleton_count": 4,
+      "abstract_length_r": 0.44,
+      "preservation": {
+        "rate": 1.0,
+        "count": 5,
+        "preserved": 5,
+        "details": [
+          {
+            "base_cluster": 0,
+            "size": 100,
+            "best_match": 0,
+            "overlap": 0.78,
+            "jaccard": 0.765,
+            "preserved": true
+          },
+          {
+            "base_cluster": 1,
+            "size": 80,
+            "best_match": 1,
+            "overlap": 0.887,
+            "jaccard": 0.877,
+            "preserved": true
+          },
+          {
+            "base_cluster": 2,
+            "size": 79,
+            "best_match": 2,
+            "overlap": 0.62,
+            "jaccard": 0.557,
+            "preserved": true
+          },
+          {
+            "base_cluster": 3,
+            "size": 68,
+            "best_match": 3,
+            "overlap": 0.794,
+            "jaccard": 0.794,
+            "preserved": true
+          },
+          {
+            "base_cluster": 4,
+            "size": 18,
+            "best_match": 5,
+            "overlap": 0.833,
+            "jaccard": 0.789,
+            "preserved": true
+          }
+        ]
+      }
+    }
+  ],
+  "t0_selected": {
+    "resolution": 1.6,
+    "cluster_count": 10,
+    "major_count": 6,
+    "major_sizes": [
+      93,
+      79,
+      77,
+      54,
+      32,
+      15
+    ],
+    "singleton_count": 4,
+    "abstract_length_r": 0.44,
+    "preservation": {
+      "rate": 1.0,
+      "count": 5,
+      "preserved": 5,
+      "details": [
+        {
+          "base_cluster": 0,
+          "size": 100,
+          "best_match": 0,
+          "overlap": 0.91,
+          "jaccard": 0.892,
+          "preserved": true
+        },
+        {
+          "base_cluster": 1,
+          "size": 80,
+          "best_match": 2,
+          "overlap": 0.95,
+          "jaccard": 0.938,
+          "preserved": true
+        },
+        {
+          "base_cluster": 2,
+          "size": 79,
+          "best_match": 1,
+          "overlap": 0.797,
+          "jaccard": 0.663,
+          "preserved": true
+        },
+        {
+          "base_cluster": 3,
+          "size": 68,
+          "best_match": 3,
+          "overlap": 0.794,
+          "jaccard": 0.794,
+          "preserved": true
+        },
+        {
+          "base_cluster": 4,
+          "size": 18,
+          "best_match": 4,
+          "overlap": 0.944,
+          "jaccard": 0.515,
+          "preserved": true
+        }
+      ]
+    }
+  },
+  "t1_jaccard_ab": {
+    "resolution": 1.6,
+    "raw": {
+      "metrics": {
+        "cluster_count": 10,
+        "major_count": 6,
+        "major_sizes": [
+          93,
+          79,
+          77,
+          54,
+          32,
+          15
+        ],
+        "singleton_count": 4
+      },
+      "weight_1_pct": 78.7,
+      "partition": {
+        "has_abstract": {
+          "paper_count": 264,
+          "mean_entities": 6.75,
+          "cluster_spread": 7,
+          "singleton_pct": 0.4
+        },
+        "no_abstract": {
+          "paper_count": 90,
+          "mean_entities": 4.78,
+          "cluster_spread": 9,
+          "singleton_pct": 3.3
+        }
+      }
+    },
+    "jaccard": {
+      "metrics": {
+        "cluster_count": 12,
+        "major_count": 6,
+        "major_sizes": [
+          81,
+          81,
+          76,
+          54,
+          29,
+          25
+        ],
+        "singleton_count": 4
+      },
+      "weight_mean": 0.1189,
+      "weight_median": 0.0952,
+      "partition": {
+        "has_abstract": {
+          "paper_count": 264,
+          "mean_entities": 6.75,
+          "cluster_spread": 8,
+          "singleton_pct": 0.8
+        },
+        "no_abstract": {
+          "paper_count": 90,
+          "mean_entities": 4.78,
+          "cluster_spread": 11,
+          "singleton_pct": 4.4
+        }
+      }
+    },
+    "ari": 0.8451,
+    "preservation": {
+      "rate": 0.833,
+      "count": 6,
+      "preserved": 5,
+      "details": [
+        {
+          "base_cluster": 0,
+          "size": 93,
+          "best_match": 1,
+          "overlap": 0.871,
+          "jaccard": 0.871,
+          "preserved": true
+        },
+        {
+          "base_cluster": 1,
+          "size": 79,
+          "best_match": 0,
+          "overlap": 0.911,
+          "jaccard": 0.818,
+          "preserved": true
+        },
+        {
+          "base_cluster": 2,
+          "size": 77,
+          "best_match": 2,
+          "overlap": 0.987,
+          "jaccard": 0.987,
+          "preserved": true
+        },
+        {
+          "base_cluster": 3,
+          "size": 54,
+          "best_match": 3,
+          "overlap": 1.0,
+          "jaccard": 1.0,
+          "preserved": true
+        },
+        {
+          "base_cluster": 4,
+          "size": 32,
+          "best_match": 5,
+          "overlap": 0.625,
+          "jaccard": 0.541,
+          "preserved": true
+        },
+        {
+          "base_cluster": 5,
+          "size": 15,
+          "best_match": 4,
+          "overlap": 0.6,
+          "jaccard": 0.257,
+          "preserved": false
+        }
+      ]
+    },
+    "abstract_length_r": 0.44,
+    "verdict": "GO — Jaccard 채택"
+  }
+}

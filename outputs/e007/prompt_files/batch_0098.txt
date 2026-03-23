@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1128/mmbr.00014-15
+Title: <i>In Silico</i>Constraint-Based Strain Optimization Methods: the Quest for Optimal Cell Factories
+Year: 2015
+Abstract: SUMMARY Shifting from chemical to biotechnological processes is one of the cornerstones of 21st century industry. The production of a great range of chemicals via biotechnological means is a key challenge on the way toward a bio-based economy. However, this shift is occurring at a pace slower than initially expected. The development of efficient cell factories that allow for competitive production yields is of paramount importance for this leap to happen. Constraint-based models of metabolism, together with in silico strain design algorithms, promise to reveal insights into the best genetic design strategies, a step further toward achieving that goal. In this work, a thorough analysis of the main in silico constraint-based strain design strategies and algorithms is presented, their application in real-world case studies is analyzed, and a path for the future is discussed.
+---
+
+---
+DOI: 10.1016/j.biosystems.2016.07.008
+Title: Hybrid agent-based model for quantitative in-silico cell-free protein synthesis
+Year: 2016
+Abstract: An advanced vision of the mRNA translation is presented through a hybrid modeling approach. The dynamics of the polysome formation was investigated by computer simulation that combined agent-based model and fine-grained Markov chain representation of the chemical kinetics. This approach allowed for the investigation of the polysome dynamics under non-steady-state and non-continuum conditions. The model is validated by the quantitative comparison of the simulation results and Luciferase protein production in cell-free system, as well as by testing of the hypothesis regarding the two possible mechanisms of the Edeine antibiotic. Calculation of the Hurst exponent demonstrated a relationship between the microscopic properties of amino acid elongation and the fractal dimension of the translation duration time series. The temporal properties of the amino acid elongation have indicated an anti-persistent behavior under low mRNA occupancy and evinced the appearance of long range interactions within the mRNA-ribosome system for high ribosome density. The dynamic and temporal characteristics of the polysomal system presented here can have a direct impact on the studies of the co-translation protein folding and provide a validated platform for cell-free system studies.
+---
+
+---
+DOI: 10.1007/978-1-62703-589-7_21
+Title: Prioritization of Therapeutic Targets of Inflammation Using Proteomics, Bioinformatics, and In Silico Cell–Cell Interactomics
+Year: 2013
+Abstract: Leukocyte extravasation is a multistep process, involving the movement of leukocytes out of the circulatory system, through vascular endothelium and to the site of tissue damage or infection. Protein-protein interactions play key roles in the extravasation process and have been attractive therapeutic targets for inhibiting inflammation using blocking (or neutralizing) antibodies. These targets include protein-protein interactions between cytokines (or chemokines) and their receptors on leukocytes and between adhesions molecules involving leukocyte-endothelium contacts. A number of therapeutics against these targets are currently used in clinic for treatment of inflammatory disorders, however, they are associated with side-effects partly due to the off-target actions (i.e., nonspecific targets). There is a need for novel targets involved in the leukocyte extravasation process that are specific to leukocyte subsets or to individual inflammatory disorder, and are amenable for drug development (i.e., duggable). In this chapter, we describe a methodology to identify novel "druggable" targets involving protein-protein interactions between activated leukocytes and endothelial cells using a combination of proteomics, bioinformatics and in silico interactomics. The result is a prioritized list of protein-protein interactions in a network consisting of leukocyte-endothelial cell communication and contacts. These prioritized targets can be pursued for the development of therapeutics such as neutralizing antibodies and for their validation through preclinical testing. The method described here provides the workflow to identify and clinically target important cell-cell interactions that are specific/selective for particular inflammatory disorders and to improve currently available therapies.
+---
+
+---
+DOI: 10.1007/978-1-0716-0327-7_15
+Title: In Silico Cell-Type Deconvolution Methods in Cancer Immunotherapy
+Year: 2020
+Abstract: Several computational methods have been proposed to infer the cellular composition from bulk RNA-seq data of a tumor biopsy sample. Elucidating interactions in the tumor microenvironment can yield unique insights into the status of the immune system. In immuno-oncology, this information can be crucial for deciding whether the immune system of a patient can be stimulated to target the tumor. Here, we shed a light on the working principles, capabilities, and limitations of the most commonly used methods for cell-type deconvolution in immuno-oncology and offer guidelines for method selection.
+---
+
+---
+DOI: 10.1016/j.molimm.2009.03.027
+Title: In-silico cell surface modeling reveals mechanism for initial steps of B-cell receptor signal transduction
+Year: 2009
+Abstract: Ligand binding to B-cell receptors (BcRs) on the B-cell surface induces crosslinking and phosphorylation of BCRs by the Src family kinases, followed by initiation of signaling. Although the nature of the earliest events following receptor engagement is currently under intensive investigation, the precise connection between crosslinking and the signaling cascade triggering has thus far remained unclear. Using a novel multiscale, agent-based simulation of B-cell surface dynamics, we present a coherent quantitative analysis of the initial stages of B-cell activation following ligand presentation. The simulation reproduces experimental results of H3 uptake, immunoglobulin secretion, immunoelectron photomicrography and FRET. While merging multiple experimental techniques, the simulation captures all essential events in the first twenty seconds following ligand presentation, and is used to make predictions on subsequent molecular events. We show that B-cell activation is mediated through a positive feedback loop between Lyn and ITAM phosphorylation, but that specificity is achieved through a combination of BcR spatial segregation and BcR selective partitioning within lipid rafts following clustering.
+---
+
+---
+DOI: 10.1073/pnas.0803453105
+Title: <i>In silico</i> identified CCR4 antagonists target regulatory T cells and exert adjuvant activity in vaccination
+Year: 2008
+Abstract: Adjuvants are substances that enhance immune responses and thus improve the efficacy of vaccination. Few adjuvants are available for use in humans, and the one that is most commonly used (alum) often induces suboptimal immunity for protection against many pathogens. There is thus an obvious need to develop new and improved adjuvants. We have therefore taken an approach to adjuvant discovery that uses in silico modeling and structure-based drug-design. As proof-of-principle we chose to target the interaction of the chemokines CCL22 and CCL17 with their receptor CCR4. CCR4 was posited as an adjuvant target based on its expression on CD4 + CD25 + regulatory T cells (Tregs), which negatively regulate immune responses induced by dendritic cells (DC), whereas CCL17 and CCL22 are chemotactic agents produced by DC, which are crucial in promoting contact between DC and CCR4 + T cells. Molecules identified by virtual screening and molecular docking as CCR4 antagonists were able to block CCL22- and CCL17-mediated recruitment of human Tregs and Th2 cells. Furthermore, CCR4 antagonists enhanced DC-mediated human CD4 + T cell proliferation in an in vitro immune response model and amplified cellular and humoral immune responses in vivo in experimental models when injected in combination with either Modified Vaccinia Ankara expressing Ag85A from Mycobacterium tuberculosis (MVA85A) or recombinant hepatitis B virus surface antigen (rHBsAg) vaccines. The significant adjuvant activity observed provides good evidence supporting our hypothesis that CCR4 is a viable target for rational adjuvant design.
+---
+
+---
+DOI: 10.1016/s0092-8674(03)00393-3
+Title: The Homeoprotein Nanog Is Required for Maintenance of Pluripotency in Mouse Epiblast and ES Cells
+Year: 2003
+Abstract: Embryonic stem (ES) cells derived from the inner cell mass (ICM) of blastocysts grow infinitely while maintaining pluripotency. Leukemia inhibitory factor (LIF) can maintain self-renewal of mouse ES cells through activation of Stat3. However, LIF/Stat3 is dispensable for maintenance of ICM and human ES cells, suggesting that the pathway is not fundamental for pluripotency. In search of a critical factor(s) that underlies pluripotency in both ICM and ES cells, we performed in silico differential display and identified several genes specifically expressed in mouse ES cells and preimplantation embryos. We found that one of them, encoding the homeoprotein Nanog, was capable of maintaining ES cell self-renewal independently of LIF/Stat3. nanog-deficient ICM failed to generate epiblast and only produced parietal endoderm-like cells. nanog-deficient ES cells lost pluripotency and differentiated into extraembryonic endoderm lineage. These data demonstrate that Nanog is a critical factor underlying pluripotency in both ICM and ES cells.
+---
+
+---
+DOI: 10.1002/minf.201000118
+Title: In Silico Prediction of Caco‐2 Cell Permeability by a Classification QSAR Approach
+Year: 2011
+Abstract: Abstract In the present study, 21 validated QSAR models that discriminate compounds with high Caco‐2 permeability ( P app ≥8×10 −6 cm/s) from those with moderate‐poor permeability ( P app &lt;8×10 −6 cm/s) were developed on a novel large dataset of 674 compounds. 20 DRAGON descriptor families were used. The global accuracies of obtained models were ranking between 78–82 %. A general model combining all types of molecular descriptors was developed and it classified correctly 81.56 % and 83.94 % for training and test sets, respectively. An external set of 10 compounds was predicted and 80 % was correctly assessed by in vitro Caco‐2 assays. The potential use of the final model was evaluated by a virtual screening of a human intestinal absorption database of 269 compounds. The model predicted 121 compounds with high Caco‐2 permeability and the 90 % of them had high values of human intestinal absorption ( HIA ≥80). This study provides the most comprehensive database of Caco‐2 permeability and evidenced the utility of the combined methodology (in silico+in vitro) in the prediction of Caco‐2 permeability. It suggests that the present methodology can be used in the design of large libraries of compounds with appropriate values of permeability and to perform virtual screening in the early stages of drug development.
+---
+
+---
+DOI: 10.1088/1478-3975/3/4/001
+Title: Nanopore-facilitated, voltage-driven phosphatidylserine translocation in lipid bilayers—in cells and<i>in silico</i>
+Year: 2006
+Abstract: Nanosecond, megavolt-per-meter pulses--higher power but lower total energy than the electroporative pulses used to introduce normally excluded material into biological cells--produce large intracellular electric fields without destructively charging the plasma membrane. Nanoelectropulse perturbation of mammalian cells causes translocation of phosphatidylserine (PS) to the outer face of the cell, intracellular calcium release, and in some cell types a subsequent progression to apoptosis. Experimental observations and molecular dynamics (MD) simulations of membranes in pulsed electric fields presented here support the hypothesis that nanoelectropulse-induced PS externalization is driven by the electric potential that appears across the lipid bilayer during a pulse and is facilitated by the poration of the membrane that occurs even during pulses as brief as 3 ns. MD simulations of phospholipid bilayers in supraphysiological electric fields show a tight association between PS externalization and membrane pore formation on a nanosecond time scale that is consistent with experimental evidence for electropermeabilization and anode-directed PS translocation after nanosecond electric pulse exposure, suggesting a molecular mechanism for nanoelectroporation and nanosecond PS externalization: electrophoretic migration of the negatively charged PS head group along the surface of nanometer-diameter electropores initiated by field-driven alignment of water dipoles at the membrane interface.
+---
+
+---
+DOI: 10.1007/978-1-4939-9597-4_20
+Title: Prioritization of Therapeutic Targets of Inflammation Using Proteomics, Bioinformatics, and In Silico Cell-Cell Interactomics
+Year: 2019
+Abstract: Protein-protein interactions play key roles in leukocyte extravasation process into the brain and have been attractive therapeutic targets for inhibiting brain inflammation using blocking (or neutralizing) antibodies. These targets include protein-protein interactions between cytokines (or chemokines) and their receptors on leukocytes and between adhesion molecules of leukocyte and brain endothelium. While a number of therapeutics against these targets are currently used in clinic for treatment of brain autoimmune and inflammatory disorders (e.g., multiple sclerosis), they are associated with side effects partly due to the off-target actions (i.e., nonspecific targets). There is a need for novel targets involved in the leukocyte extravasation process that are specific to leukocyte subsets or to individual inflammatory disorder and are amenable for drug development (i.e., druggable). We recently described the blood-brain barrier (BBB) Carta Project as a comprehensive collection of molecular "maps" consisting of multiple experimental omics (including RNA sequencing, proteomics, glycoproteomics, glycomics, metabolomics) and in silico informatics analyses on a number of mammalian species from hundreds of internal, publically available, or curated datasets. Utilizing the datasets and tools from the BBB Carta Project, we describe a methodology to identify novel "druggable" targets involving protein-protein interactions between activated leukocytes and brain endothelial cells using a combination of proteomics, bioinformatics, and in silico interactomics. The result is a prioritized list of protein-protein interactions in a network consisting of leukocyte-brain endothelial cell communication and contacts. These interactions can be further pursued for development of therapeutics such as neutralizing antibodies and their validation through preclinical testing. In addition to targeting brain inflammation, the method described here is applicable for peripheral inflammation and provides the opportunity to target important cell-cell interactions and communications that are more specific/selective for inflammatory disorders and improve currently available therapies.
+---
+
+---
+DOI: 10.1099/mic.0.27256-0
+Title: Systematic identification in silico of covalently bound cell wall proteins and analysis of protein-polysaccharide linkages of the human pathogen Candida glabrata
+Year: 2004
+Abstract: Candida glabrata is an important cause of systemic candidiasis in humans. This paper reports a systematic analysis of the putative glycosylphosphatidylinositol-modified (GPI) proteins of C. glabrata, a large part of which are covalently bound to the cell wall glucan network and the remainder of which are retained in the plasma membrane, and of cell wall proteins (CWPs) which are covalently bound in a mild-alkali-sensitive manner. In silico genomic analysis revealed 106 putative GPI proteins. Fifty-one of these GPI proteins could be categorized as adhesive proteins, potentially implicated in fungus-host interactions or biofilm formation during the development of fungal infections. Eleven proteins belonged to well-known GPI protein families of glycoside hydrolases, probably involved in cell wall expansion and remodelling during growth. Other identified GPI proteins included phospholipases, aspartic proteases, homologues of ScEcm33p and ScKre1p, and structural CWPs. Interestingly, the GPI algorithm predicted three orthologues of an abundant CWP in S. cerevisiae, Cwp1p, which is absent in Candida albicans. To evaluate the in silico predictions, isolated cell walls were extracted using HF-pyridine, which specifically cleaves phosphodiester bonds, to release GPI-CWPs. Immunological analysis of the extract using one-dimensional SDS-PAGE and anti-ScCwp1p antiserum indicated the presence of a Cwp1p homologue in C. glabrata cell walls. Further analysis by two-dimensional gel electrophoresis and electrospray ionization tandem mass spectrometry (ESI-MS/MS) confirmed the presence of two of the predicted Cwp1p proteins, Cwp1.1p and Cwp1.2p. Crh1p, a putative 1,3-beta-glucan remodelling enzyme, was also identified. In silico genomic analysis further revealed five putative Pir proteins (Pir1-5p) and five members of the Bgl2 glycoside hydrolase family 17, belonging to a class of putative CWPs that can be extracted with NaOH. Immunological analysis of mild-alkali-extracted CWPs showed the presence of a ScPir2p homologue. Together, these experimental data and in silico predictions represent the first systematic analysis of the C. glabrata cell wall proteome.
+---
+
+---
+DOI: 10.1126/science.284.5411.80b
+Title: Building Working Cells 'in Silico'
+Year: 1999
+Abstract: A computer scientist and biologist has come up with a scheme for exploring the effects that only emerge when a cell9s many processes interact: a simulation program called E-CELL that can reproduce, in simplified form, a cell9s biochemical symphony. Other computer models of the cell are being developed that reproduce individual cellular processes in detail; E-CELL, in contrast, is designed to paint a broad-brush picture of the cell as a whole.
+---
+
+---
+DOI: 10.2174/1568026619666181130140350
+Title: In Silico Assessment of ADME Properties: Advances in Caco-2 Cell Monolayer Permeability Modeling
+Year: 2018
+Abstract: One of the main goals of in silico Caco-2 cell permeability models is to identify those drug substances with high intestinal absorption in human (HIA). For more than a decade, several in silico Caco-2 models have been made, applying a wide range of modeling techniques; nevertheless, their capacity for intestinal absorption extrapolation is still doubtful. There are three main problems related to the modest capacity of obtained models, including the existence of inter- and/or intra-laboratory variability of recollected data, the influence of the metabolism mechanism, and the inconsistent in vitro-in vivo correlation (IVIVC) of Caco-2 cell permeability. This review paper intends to sum up the recent advances and limitations of current modeling approaches, and revealed some possible solutions to improve the applicability of in silico Caco-2 permeability models for absorption property profiling, taking into account the above-mentioned issues.
+---
+
+---
+DOI: 10.1016/j.celrep.2019.04.001
+Title: Integrated In Vitro and In Silico Modeling Delineates the Molecular Effects of a Synbiotic Regimen on Colorectal-Cancer-Derived Cells
+Year: 2019
+Abstract: By modulating the human gut microbiome, prebiotics and probiotics (combinations of which are called synbiotics) may be used to treat diseases such as colorectal cancer (CRC). Methodological limitations have prevented determining the potential combinatorial mechanisms of action of such regimens. We expanded our HuMiX gut-on-a-chip model to co-culture CRC-derived epithelial cells with a model probiotic under a simulated prebiotic regimen, and we integrated the multi-omic results with in silico metabolic modeling. In contrast to individual prebiotic or probiotic treatments, the synbiotic regimen caused downregulation of genes involved in procarcinogenic pathways and drug resistance, and reduced levels of the oncometabolite lactate. Distinct ratios of organic and short-chain fatty acids were produced during the simulated regimens. Treatment of primary CRC-derived cells with a molecular cocktail reflecting the synbiotic regimen attenuated self-renewal capacity. Our integrated approach demonstrates the potential of modeling for rationally formulating synbiotics-based treatments in the future.
+---
+
+---
+DOI: 10.1016/j.bmcl.2005.12.067
+Title: In silico identification of novel EGFR inhibitors with antiproliferative activity against cancer cells
+Year: 2006
+Abstract: Inhibition of the epidermal growth factor receptor (EGFR) tyrosine kinase activity by small molecules has proved effective for the treatment of cancer. To the best of our knowledge, the crystal structure of EGFR has been used for the first time to identify novel inhibitor chemotypes by docking-based in silico screening of a large virtual chemical library followed up by experimental validation. We identified several compounds with antiproliferative effects on cancer cells. Amongst them, a C(4)-N(1)-substituted pyrazolo[3,4-d]pyrimidine MSK-039 (39) was discovered as a low-micromolar inhibitor of EGFR tyrosine kinase activity. The predicted binding mode of 39 opens a new avenue toward the optimization of novel chemical entities to develop potent and selective inhibitors of EGFR signaling.
+---
+
+---
+DOI: 10.2478/s11696-013-0486-6
+Title: Development of oxopyrrolidine-based anti-cancer compounds: DNA binding, in silico, cell line studies, drug-likeness and mechanism at supra-molecular level
+Year: 2013
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.2174/1568026619666181130111827
+Title: Advances in In-silico B-cell Epitope Prediction
+Year: 2018
+Abstract: Identification of B-cell epitopes in target antigens is one of the most crucial steps for epitopebased vaccine development, immunodiagnostic tests, antibody production, and disease diagnosis and therapy. Experimental methods for B-cell epitope mapping are time consuming, costly and labor intensive; in the meantime, various in-silico methods are proposed to predict both linear and conformational B-cell epitopes. The accurate identification of B-cell epitopes presents major challenges for immunoinformaticians. In this paper, we have comprehensively reviewed in-silico methods for B-cell epitope identification. The aim of this review is to stimulate the development of better tools which could improve the identification of B-cell epitopes, and further for the development of therapeutic antibodies and diagnostic tools.
+---
+
+---
+DOI: 10.1039/b912865d
+Title: Genome-scale modeling and <i>in silico</i> analysis of mouse cell metabolic network
+Year: 2009
+Abstract: Abstract Genome-scale metabolic modeling has been successfully applied to a multitude of microbial systems, thus improving our understanding of their cellular metabolisms. Nevertheless, only a handful of works have been done for describing mammalian cells, particularly mouse, which is one of the important model organisms, providing various opportunities for both biomedical research and biotechnological applications. Presented herein is a genome-scale mouse metabolic model that was systematically reconstructed by improving and expanding the previous generic model based on integrated biochemical and genomic data of Mus musculus. The key features of the updated model include additional information on gene–protein-reaction association, and improved network connectivity through lipid, amino acid, carbohydrate and nucleotide biosynthetic pathways. After examining the model predictability both quantitatively and qualitatively using constraints-based flux analysis, the structural and functional characteristics of the mouse metabolism were investigated by evaluating network statistics/centrality, gene/metabolite essentiality and their correlation. The results revealed that overall mouse metabolic network is topologically dominated by highly connected and bridging metabolites, and functionally by lipid metabolism that most of essential genes and metabolites are from. The current in silico mouse model can be exploited for understanding and characterizing the cellular physiology, identifying potential cell engineering targets for the enhanced production of recombinant proteins and developing diseased state models for drug targeting.
+---
+
+---
+DOI: 10.1007/s00285-008-0160-8
+Title: Systems biology towards life in silico: mathematics of the control of living cells
+Year: 2008
+Abstract: Systems Biology is the science that aims to understand how biological function absent from macromolecules in isolation, arises when they are components of their system. Dedicated to the memory of Reinhart Heinrich, this paper discusses the origin and evolution of the new part of systems biology that relates to metabolic and signal-transduction pathways and extends mathematical biology so as to address postgenomic experimental reality. Various approaches to modeling the dynamics generated by metabolic and signal-transduction pathways are compared. The silicon cell approach aims to describe the intracellular network of interest precisely, by numerically integrating the precise rate equations that characterize the ways macromolecules' interact with each other. The non-equilibrium thermodynamic or 'lin-log' approach approximates the enzyme rate equations in terms of linear functions of the logarithms of the concentrations. Biochemical Systems Analysis approximates in terms of power laws. Importantly all these approaches link system behavior to molecular interaction properties. The latter two do this less precisely but enable analytical solutions. By limiting the questions asked, to optimal flux patterns, or to control of fluxes and concentrations around the (patho)physiological state, Flux Balance Analysis and Metabolic/Hierarchical Control Analysis again enable analytical solutions. Both the silicon cell approach and Metabolic/Hierarchical Control Analysis are able to highlight where and how system function derives from molecular interactions. The latter approach has also discovered a set of fundamental principles underlying the control of biological systems. The new law that relates concentration control to control by time is illustrated for an important signal transduction pathway, i.e. nuclear hormone receptor signaling such as relevant to bone formation. It is envisaged that there is much more Mathematical Biology to be discovered in the area between molecules and Life.
+---
+
+---
+DOI: 10.1007/978-1-4939-6406-2_17
+Title: In Silico Prediction of Linear B-Cell Epitopes on Proteins
+Year: 2016
+Abstract: Antibody-protein interactions play a critical role in the humoral immune response. B-cells secrete antibodies, which bind antigens (e.g., cell surface proteins of pathogens). The specific parts of antigens that are recognized by antibodies are called B-cell epitopes. These epitopes can be linear, corresponding to a contiguous amino acid sequence fragment of an antigen, or conformational, in which residues critical for recognition may not be contiguous in the primary sequence, but are in close proximity within the folded protein 3D structure.Identification of B-cell epitopes in target antigens is one of the key steps in epitope-driven subunit vaccine design, immunodiagnostic tests, and antibody production. In silico bioinformatics techniques offer a promising and cost-effective approach for identifying potential B-cell epitopes in a target vaccine candidate. In this chapter, we show how to utilize online B-cell epitope prediction tools to identify linear B-cell epitopes from the primary amino acid sequence of proteins.
+---
+
+---
+DOI: 10.1016/j.foodchem.2017.09.086
+Title: Comparison of the effect of chemical composition of anthocyanin-rich plant extracts on colon cancer cell proliferation and their potential mechanism of action using in vitro, in silico, and biochemical assays
+Year: 2017
+Abstract: The objective was to compare the anti-proliferative effect of anthocyanin-rich plant extracts on human colon cancer cells and determine their mechanism of action. Eleven extracts were tested: red (RG) and purple grape, purple sweet potato, purple carrot, black and purple bean, black lentil (BL), black peanut, sorghum (SH), black rice, and blue wheat. HCT-116 and HT-29 inhibition correlated with total phenolics (r=0.87 and 0.77, respectively), delphinidin-3-O-glucoside concentration with HT-29 inhibition (r=0.69). The concentration inhibition fifty (IC50) for BL, SH, RG on HT-29 and HCT-116 cell proliferation ranged 0.9-2.0mg/mL. Extracts decreased expression of anti-apoptotic proteins (survivin, cIAP-2, XIAP), induced apoptosis, and arrested cells in G1. Anthocyanins exhibited tyrosine kinase inhibitory potential in silico and biochemically; cyanidin-3-O-glucoside had one of the highest binding affinities with all kinases, especially ABL1 (-8.5kcal/mol). Cyanidin-3-O-glucoside and delphinidin-3-O-glucoside inhibited EGFR (IC50=0.10 and 2.37µM, respectively). Cyanidin-3-O-glucoside was the most potent anthocyanin on kinase inhibition.
+---
+
+---
+DOI: 10.1177/0960327119839185
+Title: Lauric acid induce cell death in colon cancer cells mediated by the epidermal growth factor receptor downregulation: An in silico and in vitro study
+Year: 2019
+Abstract: Coconut oil (CO) is enriched with medium chain saturated fatty acids like lauric acid (LA), capric acid and caprylic acid, which are known to have several health benefits. LA, the predominant fatty acid in CO, is reported to possess anticancer activity mediated through oxidative stress-induced apoptosis; however, there is no clear information on its cellular signalling mechanism. The present study screened the anticancer potential of various fatty acids present in CO (capric acid, caprylic acid and LA) using in silico tools such as CDOCKER in Accelrys Discovery Studio by targeting proteins like epidermal growth factor receptor (EGFR), cyclin-dependent kinase and thymidine synthase (TS). The results were further confirmed using cell culture-based studies and quantitative PCR. Among the tested compounds, LA was found to be the most active and showed a higher affinity towards EGFR and TS. Corroborating with these results, LA-induced dose-dependent cytotoxicity towards HCT-15 (human colon cancer), HepG2 (human hepatocellular carcinoma) and Raw 264.7 (murine macrophages) cells exhibiting morphological characteristics of apoptosis. Further, in HCT-15 cells exposed to LA (30 and 50 µg/mL), the expression of EGFR was found to be downregulated by 1.33- and 1.58-fold. The study thus concludes that the anticancer activity of LA may be partially mediated by the downregulation of EGFR signalling and consequent reduction in cell viability through apoptosis. Since EGFR signalling is crucial in cancer cell survival and is a prime target in drug development, the present study has pharmacological significance.
+---
+
+---
+DOI: 10.1109/aivr46125.2019.00021
+Title: Immersive Analysis of 3D Multi-cellular In-Vitro and In-Silico Cell Cultures
+Year: 2019
+Abstract: International audience
+---
+
+---
+DOI: 10.1021/acs.jnatprod.6b00643
+Title: Combined in Vitro Cell-Based/in Silico Screening of Naturally Occurring Flavonoids and Phenolic Compounds as Potential Anti-Alzheimer Drugs
+Year: 2017
+Abstract: Alzheimer's disease (AD) is the main cause of dementia in people over 65 years. One of the major culprits in AD is the self-aggregation of amyloid-β peptide (Aβ), which has stimulated the search for small molecules able to inhibit Aβ aggregation. In this context, we recently reported a simple, but effective in vitro cell-based assay to evaluate the potential antiaggregation activity of putative Aβ aggregation inhibitors. In this work this assay was used together with docking and molecular dynamics simulations to analyze the anti-Aβ aggregation activity of several naturally occurring flavonoids and phenolic compounds. The results showed that rosmarinic acid, melatonin, and o-vanillin displayed zero or low inhibitory capacity, curcumin was found to have an intermediate inhibitory potency, and apigenin and quercetin showed potent antiaggregation activity. Finally, the suitability of the combined in vitro cell-based/in silico approach to distinguish between active and inactive compounds was further assessed for an additional set of flavonols and dihydroflavonols.
+---
+
+---
+DOI: 10.1016/j.femsim.2004.08.013
+Title: Comparison of mammalian cell entry operons of mycobacteria: in silico analysis and expression profiling
+Year: 2004
+Abstract: Mammalian cell entry (mce) operons, implicated in the entry of mycobacteria into host cells, are present in pathogenic and saprophytic species. It is likely that the genes in these operons have functions other than those required for entry into host cells. Using in silico analysis we have identified domains within the mce operons that might justify their occurrence in saprophytic species like Mycobacterium smegmatis. Our analysis identified in addition to the mce domain, the presence of the Ttg2B and Ttg2C domains, typical of proteins involved in transport. We have also analysed and compared the expression profile between mce operons of Mycobacterium tuberculosis, Mycobacterium bovis and M. smegmatis under different growth conditions. In case of M. smegmatis, each operon presented domain truncation for at least one gene. We observe differential expression among the operons in M. smegmatis growing under different culture conditions. Bacilli growing in nutritionally rich medium with aeration, only the mce4 operon was expressed while during stationary phase of a standing culture, all four mce operons were expressed. In M. bovis, in addition to the absence of the mce3 operon, several protein domains encoded by the other operons were truncated. We detected expression of the mce2 operon in the exponential and stationary growth phase, while the mce1 operon was only expressed in the stationary growth phase. Differential expression of mce operons and their redundancy in the genome of the majority members of mycobacteria are discussed in view of our results.
+---
+
+---
+DOI: 10.1002/ijc.25930
+Title: Regulation of p53 and cell proliferation by resveratrol and its derivatives in breast cancer cells: An <i>in silico</i> and biochemical approach targeting integrin αvβ3
+Year: 2011
+Abstract: Abstract Resveratrol is a grape polyphenol with cancer preventative activities in tissue culture and animal model studies. Potential of resveratrol as a broad‐based chemopreventive agent have been questioned by its limited bioavailability. The bioefficacy of resveratrol was compared with its derivatives, triacetyl‐resveratrol (trans‐3,5,4′‐triacetylstilbene) and trimethoxy‐resveratrol (trans‐3,5,4′‐trimethoxystilbene) in both estrogen receptor‐α (ERα)‐positive MCF‐7 and ERα‐negative MDA‐MB‐231 breast cancer cells. Binding to integrin αvβ3 and control of cell proliferation and p53 were chosen as targets for comparative analysis using an in silico and biochemical approach. Resveratrol and triacetyl‐resveratrol interacted avidly and specifically with integrin αvβ3 through binding at the site targeted by the high affinity cyclic Arg‐Gly‐Asp (RGD) peptide. In contrast, binding of trimethoxy‐resveratrol to this site was substantially less robust. Moreover, the different stilbenes also elicited diverse cellular and signaling responses in MCF‐7 and MDA‐MB‐231 cells, as evidenced by analysis of colony formation, cell proliferation, cell cycle phase transition, the extent of phosphorylation of p53 at Ser15 and p53‐inducible proteins, p21 and p53R2, respectively. Further, stilbene‐elicited signaling cascade leading to p53 activation was examined in MCF‐7 cells and results showed that resveratrol and triacetyl‐resveratrol induced both ERK and p38 phosphorylation, whereas only marginal changes in state of phosphorylation in these two kinases were observed in trimethoxy‐resveratrol‐treated cells. Taken together, these results support that resveratrol and triacetyl‐resveratrol regulate proliferation and gene expression in breast cancer cells by utilizing largely similar signaling molecules and pathways and cellular events, which appear quite distinct from those targeted by trimethoxy‐resveratrol.
+---
+
+---
+DOI: 10.1016/j.cels.2021.05.008
+Title: Benchmarked approaches for reconstruction of in vitro cell lineages and in silico models of C. elegans and M. musculus developmental trees
+Year: 2021
+Abstract: The recent advent of CRISPR and other molecular tools enabled the reconstruction of cell lineages based on induced DNA mutations and promises to solve the ones of more complex organisms. To date, no lineage reconstruction algorithms have been rigorously examined for their performance and robustness across dataset types and number of cells. To benchmark such methods, we decided to organize a DREAM challenge using in vitro experimental intMEMOIR recordings and in silico data for a C. elegans lineage tree of about 1,000 cells and a Mus musculus tree of 10,000 cells. Some of the 22 approaches submitted had excellent performance, but structural features of the trees prevented optimal reconstructions. Using smaller sub-trees as training sets proved to be a good approach for tuning algorithms to reconstruct larger trees. The simulation and reconstruction methods here generated delineate a potential way forward for solving larger cell lineage trees such as in mouse.
+---
+
+---
+DOI: 10.1016/j.brainresbull.2017.01.027
+Title: From in silico astrocyte cell models to neuron-astrocyte network models: A review
+Year: 2017
+Abstract: The idea that astrocytes may be active partners in synaptic information processing has recently emerged from abundant experimental reports. Because of their spatial proximity to neurons and their bidirectional communication with them, astrocytes are now considered as an important third element of the synapse. Astrocytes integrate and process synaptic information and by doing so generate cytosolic calcium signals that are believed to reflect neuronal transmitter release. Moreover, they regulate neuronal information transmission by releasing gliotransmitters into the synaptic cleft affecting both pre- and postsynaptic receptors. Concurrent with the first experimental reports of the astrocytic impact on neural network dynamics, computational models describing astrocytic functions have been developed. In this review, we give an overview over the published computational models of astrocytic functions, from single-cell dynamics to the tripartite synapse level and network models of astrocytes and neurons.
+---
+
+---
+DOI: 10.1021/acs.jpcc.8b07616
+Title: <i>In Silico</i> Study of Gold Nanoparticle Uptake into a Mammalian Cell: Interplay of Size, Shape, Surface Charge, and Aggregation
+Year: 2019
+Abstract: The study of interactions between Au nanostructures and living cells is a fundamental aspect that can be applied for promising applications in nanomedicine. In the present work, we performed coarse-grained molecular dynamics (MD) simulations to observe the internalization pathways of Au nanostructures (nanospheres, nanocages, nanorods, nanoplates, and nanohexapods) into an idealized mammalian plasma membrane at an unprecedented level of complexity. Compared with a simple lipid bilayer model consisting of two lipid species, the different cellular uptake pathways of the gold nanoparticle (AuNP) were found. We highlight that the complexity of the lipid bilayer models plays an important role in the uptake pathway of nanoparticles (NPs). The permeability of aggregated AuNPs was much less than the NP counterpart. Spherical AuNPs showed pronounced size and surface charge dependence in their translocation through the plasma membrane. The translocation rates of different Au nanostructures were also evaluated, and we found that the Au nanohexapod exhibited highest cellular uptake. Understanding the interrelationship between size, shape, surface charge, and aggregation of Au nanostructures provides a clear view on the design of Au nanostructures for developing new diagnostic strategies and drug delivery.
+---
+
+---
+DOI: 10.1016/j.snb.2006.08.043
+Title: A MEMS fabricated cell electrophysiology biochip for in silico calcium measurements
+Year: 2006
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.ymben.2021.03.016
+Title: A hybrid mechanistic-empirical model for in silico mammalian cell bioprocess simulation
+Year: 2021
+Abstract: In cell culture processes cell growth and metabolism drive changes in the chemical environment of the culture. These environmental changes elicit reactor control actions, cell growth response, and are sensed by cell signaling pathways that influence metabolism. The interplay of these forces shapes the culture dynamics through different stages of cell cultivation and the outcome greatly affects process productivity, product quality, and robustness. Developing a systems model that describes the interactions of those major players in the cell culture system can lead to better process understanding and enhance process robustness. Here we report the construction of a hybrid mechanistic-empirical bioprocess model which integrates a mechanistic metabolic model with subcomponent models for cell growth, signaling regulation, and the bioreactor environment for in silico exploration of process scenarios. Model parameters were optimized by fitting to a dataset of cell culture manufacturing process which exhibits variability in metabolism and productivity. The model fitting process was broken into multiple steps to mitigate the substantial numerical challenges related to the first-principles model components. The optimized model captured the dynamics of metabolism and the variability of the process runs with different kinetic profiles and productivity. The variability of the process was attributed in part to the metabolic state of cell inoculum. The model was then used to identify potential mitigation strategies to reduce process variability by altering the initial process conditions as well as to explore the effect of changing CO2 removal capacity in different bioreactor scales on process performance. By incorporating a mechanistic model of cell metabolism and appropriately fitting it to a large dataset, the hybrid model can describe the different metabolic phases in culture and the variability in manufacturing runs. This approach of employing a hybrid model has the potential to greatly facilitate process development and reactor scaling.
+---
+
+---
+DOI: 10.1016/j.jmgm.2023.108536
+Title: The role of in Silico/DFT investigations in analyzing dye molecules for enhanced solar cell efficiency and reduced toxicity
+Year: 2023
+Abstract: Toxicity has been a significant concern for many materials used in the production of solar cells and generally conflicts with its efficacy. Therefore, it is crucial to develop alternative, non-toxic materials to improve the sustainability and safety of solar cell technology. In recent years, computational methods such as Conceptual density functional theory (CDFT) have been increasingly used to study the electronic structure and optical properties of toxic molecules such as dyes, with the goal of designing and modifying these molecules to enhance solar cell efficiency and reduce toxicity. By applying CDFT-based chemical reactivity parameters and electronic structure rules, researchers can gain valuable insights into the performance of solar cells and optimize their design accordingly. In silico studies have been used to screen and design non-toxic dye molecules, which can improve the sustainability and safety of solar cell technology. This review article discusses the applications of CDFT in the analysis of toxic dye molecules for use in solar cells. This review also highlights the importance of using alternative, non-toxic materials in the production of solar cells. The review also discusses the limitations of CDFT and in silico studies and their potential for future research. Finally, the article concludes by emphasizing the potential of in silico/DFT investigations for accelerating the discovery of new and efficient dye molecules for enhancing solar cells' efficiency.
+---
+
+---
+DOI: 10.1097/jto.0b013e31823529fc
+Title: Results of a Multicentric In Silico Clinical Trial (ROCOCO): Comparing Radiotherapy with Photons and Protons for Non-small Cell Lung Cancer
+Year: 2011
+Abstract: The treatment planning results of the Radiation Oncology Collaborative Comparison trial show a reduction of ID and the dose to the OAR when treating with protons instead of photons, even with dose escalation. This shows that PSPT is able to give a high tumor dose, while keeping the OAR dose lower than with the photon modalities.
+---
+
+---
+DOI: 10.1021/ci6005504
+Title: Understanding False Positives in Reporter Gene Assays:  in Silico Chemogenomics Approaches To Prioritize Cell-Based HTS Data
+Year: 2007
+Abstract: High throughput screening (HTS) data is often noisy, containing both false positives and negatives. Thus, careful triaging and prioritization of the primary hit list can save time and money by identifying potential false positives before incurring the expense of followup. Of particular concern are cell-based reporter gene assays (RGAs) where the number of hits may be prohibitively high to be scrutinized manually for weeding out erroneous data. Based on statistical models built from chemical structures of 650 000 compounds tested in RGAs, we created "frequent hitter" models that make it possible to prioritize potential false positives. Furthermore, we followed up the frequent hitter evaluation with chemical structure based in silico target predictions to hypothesize a mechanism for the observed "off target" response. It was observed that the predicted cellular targets for the frequent hitters were known to be associated with undesirable effects such as cytotoxicity. More specifically, the most frequently predicted targets relate to apoptosis and cell differentiation, including kinases, topoisomerases, and protein phosphatases. The mechanism-based frequent hitter hypothesis was tested using 160 additional druglike compounds predicted by the model to be nonspecific actives in RGAs. This validation was successful (showing a 50% hit rate compared to a normal hit rate as low as 2%), and it demonstrates the power of computational models toward understanding complex relations between chemical structure and biological function.
+---
+
+---
+DOI: 10.1016/j.vaccine.2009.06.018
+Title: In silico-accelerated identification of conserved and immunogenic variola/vaccinia T-cell epitopes
+Year: 2009
+Abstract: Epitopes shared by the vaccinia and variola viruses underlie the protective effect of vaccinia immunization against variola infection. We set out to identify a subset of cross-reactive epitopes using bioinformatics and immunological methods. Putative T-cell epitopes were computationally predicted from highly conserved open reading frames from seven complete vaccinia and variola genomes using EpiMatrix. Over 100 epitopes bearing low human sequence homology were selected and assessed in HLA binding assays and in T-cell antigenicity assays using PBMCs isolated from Dryvax-immunized subjects. This experimental validation of computational predictions illustrates the potential for immunoinformatics methods to identify candidate immunogens for a new, safer smallpox vaccine.
+---
+
+---
+DOI: 10.1016/j.molimm.2014.04.009
+Title: In silico predicted mycobacterial epitope elicits in vitro T-cell responses
+Year: 2014
+Abstract: Epitope-based vaccines permit the selection of only a specific subset of epitopes to induce the necessary immune response, thus providing a rational alternative to conventional design approaches. Using a range of immunoinformatics tools, we identified a novel, contiguous 28 amino acid multi-epitope cluster within the highly conserved secretory protein Ag85B of Mycobacterium tuberculosis, the causative agent of TB. This cluster, named Ep85B, is composed of epitopes which bind to three HLA Class I and 15 Class II molecules, and harbors the potential to generate 99% population coverage in TB-endemic regions. We experimentally evaluated the capacity of Ep85B to elicit T-cell immune responses using whole blood cells and, as predicted, observed significant increases in populations of both CD4+ and memory CD4+ CD45RO+ T-cells. Our results demonstrate the practical utility of an epitope-based design methodology - a strategy that, following further evaluation, may serve as an additional tool for the development of novel vaccine candidates against TB and other diseases.
+---
+
+---
+DOI: 10.1007/s004390050829
+Title: In silico-initiated cloning and molecular characterization of a novel human member of the L1 gene family of neural cell adhesion molecules
+Year: 1998
+Abstract: To discover genes contributing to mental retardation in 3p- syndrome patients we have used in silico searches for neural genes in NCBI databases (dbEST and Uni-Gene). An EST with strong homology to the rat CAM L1 gene subsequently mapped to 3p26 was used to isolate a full-length cDNA. Molecular analysis of this cDNA, referred to as CALL (cell adhesion L1-like), showed that it is encoded by a chromosome 3p26 locus and is a novel member of the L1 gene family of neural cell adhesion molecules. Multiple lines of evidence suggest CALL is likely the human ortholog of the murine gene CHL1: it is 84% identical on the protein level, has the same domain structure, same membrane topology, and a similar expression pattern. The orthology of CALL and CHL1 was confirmed by phylogenetic analysis. By in situ hybridization, CALL is shown to be expressed regionally in a timely fashion in the central nervous system, spinal cord, and peripheral nervous system during rat development. Northern analysis and EST representation reveal that it is expressed in the brain and also outside the nervous system in some adult human tissues and tumor cell lines. The cytoplasmic domain of CALL is conserved among other members of the L1 subfamily and features sequence motifs that may involve CALL in signal transduction pathways.
+---
+
+---
+DOI: 10.1021/acs.jafc.5b03497
+Title: Two Peptides from Soy β-Conglycinin Induce a Hypocholesterolemic Effect in HepG2 Cells by a Statin-Like Mechanism: Comparative in Vitro and in Silico Modeling Studies
+Year: 2015
+Abstract: Two peptides from soybean β-conglycinin, i.e., YVVNPDNDEN (peptide 2) and YVVNPDNNEN (peptide 3), are known to be absorbed by human enterocytes. The former is a fragment of LRVPAGTTFYVVNPDNDENLRMIA (peptide 1), previously shown to increase the low-density lipoprotein (LDL) uptake and degradation in hepatocytes. Research carried out in silico on their interactions with the catalytic site of 3-hydroxy-3-methylglutaryl CoA reductase (HMGCoAR) demonstrated that they behave as competitive inhibitors of HMGCoAR activity with a statin-like mechanism, confirmed by direct inhibition experiments. Research in HepG2 cells aimed at investigating the effects of these peptides on cholesterol metabolism showed that compared to mock treatment peptide 2 at 350 μM up-regulates the mature SREBP2 protein level by 134.0 ± 10.5%, increases the LDLR protein level by 152.0 ± 20.0%, and enhances the HMGCoAR protein production by 171 ± 29.9%, whereas peptide 3 up-regulates the mature SREBP2 protein level by 158.0 ± 9.2%, increases the LDL level 164.0 ± 17.9%, and induces a HMGCoAR protein increase by 170 ± 50.0%.
+---
+
+---
+DOI: 10.1016/j.jtbi.2014.11.020
+Title: In silico single cell dynamics of hepatitis B virus infection and clearance
+Year: 2014
+Abstract: UnlabelledThe progression of acute hepatitis B virus (HBV) to chronic infection or clearance is highly dependent on the host immune response composed of cytolytic (CTL) and non-cytolytic (non-CTL) effects. Cytolytic processes induce hepatocyte killing while non-CTL processes inhibit intracellular replication. Both effects are widely recognized and accepted. However, there are uncertainties about the assistance provided by either the loss of covalently circular closed DNA (cccDNA) during cell proliferation or the emergence of refractory cells to immune mediated clearance. We developed an agent-based mathematical model and tested the relative roles of different mechanisms of the immune system in the clearance of acute HBV infection. HBV viremia clearance time and hepatocyte turnover (HT) were used as the two major criteria in determining reasonable outcomes. Modelling results in 90% of cells containing between 1 and 17 cccDNA copies and normally distributed at the peak of infection. Variations in p36 levels, responsible for determining export of virions or recirculation to amplify cccDNA numbers, have a much greater impact on mean cccDNA level/cell at peak viremia than virus infectivity and cccDNA half-life. A strong CTL effect alone failed to clear infection with HT ≈ 10. Acute infection clearance was possible with combined CTL and non-CTL effects along with complete loss of intracellular viral components during cell proliferation resulting in the desired range of HT (0.7-1). The emergence of cells refractory to infection can reduce HT by up to 90%. However their impact was less effective than complete loss of intracellular viral components during cell proliferation.Conclusionthe existence of refractory cells is not necessary when there is complete loss of intracellular quantities during cell proliferation but is essential with only partial clearance.
+---
+
+---
+DOI: 10.1016/j.vaccine.2007.12.048
+Title: In silico identification and in vivo analysis of a novel T-cell antigen from Chlamydia, NrdB
+Year: 2008
+Abstract: Chlamydial infections are a serious economic burden and health threat to developed and developing countries. Development of an efficacious vaccine is thought to be the most convenient, potentially reliable and cost effective option to control chlamydial infection and disease complications. Currently there are very few efficacious vaccine candidates that have been identified and characterized. In this study we have identified a number of unique vaccine candidates using a novel in silico approach. The chlamydial genome was screened for proteins containing epitopes predicted to bind multiple HLA class II molecules (i.e. 'promiscuous' epitopes). A selection of target proteins were cloned, expressed, and purified. Recombinant proteins were screened against sera samples from patients with Chlamydia trachomatis genital tract infections. Two proteins, hypothetical protein CT425 and ribonucleotide reductase small chain protein (NrdB) were identified as being immunoreactive. Using a mouse model, we found that intranasal immunization with NrdB conferred a CD4+ T-cell driven degree of protection similar to that seen with CD4+ T-cells primed from a whole organism, live challenge. In addition, serum from immunized mice was found to neutralize chlamydial infection of a cell monolayer in vitro. NrdB is a highly conserved chlamydial protein with an essential role in the replication of chlamydiae and could be a useful component of a multi-subunit vaccine against chlamydial genital tract infections.
+---
+
+---
+DOI: 10.1007/s00726-007-0502-7
+Title: In silico analysis of arginine catabolism as a source of nitric oxide or polyamines in endothelial cells
+Year: 2007
+Abstract: We use a modeling and simulation approach to carry out an in silico analysis of the metabolic pathways involving arginine as a precursor of nitric oxide or polyamines in aorta endothelial cells. Our model predicts conditions of physiological steady state, as well as the response of the system to changes in the control parameter, external arginine concentration. Metabolic flux control analysis allowed us to predict the values of flux control coefficients for all the transporters and enzymes included in the model. This analysis fulfills the flux control coefficient summation theorem and shows that both the low affinity transporter and arginase share the control of the fluxes through these metabolic pathways.
+---
+
+---
+DOI: 10.1016/s0022-2836(63)80023-6
+Title: Stereochemistry of polypeptide chain configurations
+Year: 1963
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1101/gr.329302
+Title: In Silico Model-Driven Assessment of the Effects of Single Nucleotide Polymorphisms (SNPs) on Human Red Blood Cell Metabolism
+Year: 2002
+Abstract: The completion of the human genome project and the construction of single nucleotide polymorphism (SNP) maps have lead to significant efforts to find SNPs that can be linked to pathophysiology. In silico models of complete biochemical reaction networks relate a cell's individual reactions to the function of the entire network. Sequence variations can in turn be related to kinetic properties of individual enzymes, thus allowing an in silico model-driven assessment of the effects of defined SNPs on overall cellular functions. This process is applied to defined SNPs in two key enzymes of human red blood cell metabolism: glucose-6-phosphate dehydrogenase and pyruvate kinase. The results demonstrate the utility of in silico models in providing insight into differences between red cell function in patients with chronic and nonchronic anemia. In silico models of complex cellular processes are thus likely to aid in defining and understanding key SNPs in human pathophysiology.
+---
+
+---
+DOI: 10.1002/bmb.21092
+Title: The disruptive effect of lysozyme on the bacterial cell wall explored by an <i>in‐silico</i> structural outlook
+Year: 2017
+Abstract: Abstract The bacterial cell wall, a structural unit of peptidoglycan polymer comprised of glycan strands consisting of a repeating disaccharide motif [N‐acetylglucosamine (NAG) and N‐acetylmuramylpentapeptide (NAM pentapeptide)], encases bacteria and provides structural integrity and protection. Lysozymes are enzymes that break down the bacterial cell wall and disrupt the bacterial life cycle by cleaving the linkage between the NAG and NAM carbohydrates. Lab exercises focused on the effects of lysozyme on the bacterial cell wall are frequently incorporated in biochemistry classes designed for undergraduate students in diverse fields as biology, microbiology, chemistry, agronomy, medicine, and veterinary medicine. Such exercises typically do not include structural data. We describe here a sequence of computer tasks designed to illustrate and reinforce both physiological and structural concepts involved in lysozyme effects on the bacterial cell‐wall structure. This lab class usually lasts 3.5 hours. First, the instructor presents introductory concepts of the bacterial cell wall and the effect of lysozyme on its structure. Then, students are taught to use computer modeling to visualize the three‐dimensional structure of a lysozyme in complex with bacterial cell‐wall fragments. Finally, the lysozyme inhibitory effect on a bacterial culture is optionally proposed as a simple microbiological assay. The computer lab exercises described here give students a realistic understanding of the disruptive effect of lysozymes on the bacterial cell wall, a crucial component in bacterial survival. © 2017 by The International Union of Biochemistry and Molecular Biology, 46(1):83–90, 2018.
+---
+
+---
+DOI: 10.1111/cea.12014
+Title: <i>In silico</i> prediction of Ara h 2 T cell epitopes in peanut‐allergic children
+Year: 2012
+Abstract: Summary Background Despite the frequency and severity of peanut allergy, the only approved treatment is strict avoidance. Different types of immunotherapy with crude peanut extract are not universally effective and have been associated with relatively high adverse reaction rates. Objective We sought to determine whether in silico predictive algorithms were useful in identifying candidate peptides for an Ara h 2 peptide‐based vaccine using peanut‐allergic patients' peripheral blood mononuclear cells ( PBMC s) in vitro . A human leucocyte antigen ( HLA ) distribution analysis was also performed. Methods Major histocompatibility complex ( MHC )‐class II‐binding peptides were predicted using Net MHCII pan‐2.0 and Net MHCII ‐2.2 algorithms. PBMC s from 80 peanut‐allergic patients were stimulated with overlapping 20‐mer Ara h 2 peptides. Cell supernatant cytokine profiles were evaluated by multiplex assays. HLA ‐ DRB 1* and HLA ‐ DQB 1* typing were performed. Results Four regions of overlapping sequences induced PBMC proliferation and predominant Th2 cytokine production. HLA genotyping showed 30 different DRB 1* allele specificities and eight DQ serological specificities. The in silico analysis revealed similar relevant regions and predicted identical or similar core 9‐mer epitopes to those identified in vitro . If relevant peptides, as determined by either in vitro or in silico analysis (15 peptides and 9 core epitopes respectively), were used in a peptide‐based vaccine, they would cover virtually all subjects in the cohort studied. Conclusions and Clinical Relevance Four dominant regions in Ara h 2 have been identified, containing sequences that could serve as potential candidates for peptide‐based immunotherapy. MHC ‐class II‐based T cell epitope prediction algorithms for HLA ‐ DR and ‐ DQ loci accurately predicted Ara h 2 T cell epitopes in peanut‐allergic subjects, suggesting their potential utility in a peptide‐based vaccine design for food allergy.
+---

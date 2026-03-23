@@ -1,0 +1,119 @@
+{
+  "batch_index": 59,
+  "dois": [
+    "10.1038/nmeth.3337",
+    "10.1038/nmeth.4463",
+    "10.7554/elife.27041",
+    "10.1186/1471-2105-9-514",
+    "10.1038/msb4100155",
+    "10.1371/journal.pcbi.1002010",
+    "10.1186/s13059-014-0550-8",
+    "10.1038/s41586-021-03819-2",
+    "10.1186/1758-2946-3-33",
+    "10.1038/s41586-018-0414-6"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1038/nmeth.3337",
+      "problem": "Characterizing cell composition of complex tissues from gene expression profiles is challenging due to noise, unknown mixture content, and closely related cell types.",
+      "method": "CIBERSORT uses nu-support vector regression (SVR) for deconvolution with a signature matrix of 22 immune cell types (LM22), validated against flow cytometry on PBMCs, tonsils, lung tissue, and follicular lymphoma biopsies using HGU133 Plus 2.0 microarrays.",
+      "finding": "CIBERSORT outperformed other deconvolution methods with respect to noise, unknown mixture content, and closely related cell types across fresh, frozen, and fixed tissues including solid tumors.",
+      "dataset": "PBMCs, tonsils, lung tissue, follicular lymphoma biopsies (Phase III trial NCT00017290), influenza vaccination cohort (N=20)",
+      "metric": "Correlation with flow cytometry, noise robustness, sensitivity to unknown content",
+      "baseline": "LLSR, QP, PERT, Abbas et al. deconvolution methods",
+      "result": "Outperformed all other methods across multiple tissue types and conditions"
+    },
+    {
+      "doi": "10.1038/nmeth.4463",
+      "problem": "Simultaneous gene regulatory network reconstruction and cell-state identification from single-cell RNA-seq data remains challenging due to the need to link transcription factor activity to cell heterogeneity.",
+      "method": "SCENIC combines GENIE3 (random forest co-expression network inference), RcisTarget (TF-motif enrichment for regulon identification), and AUCell (regulon activity scoring per cell), with GRNboost as a scalable Spark-based alternative for large datasets.",
+      "finding": "Cis-regulatory analysis can guide identification of transcription factors and cell states; SCENIC provides critical biological insights into mechanisms driving cellular heterogeneity in tumors and brain.",
+      "dataset": "Single-cell RNA-seq compendium from tumors and brain (including Zeisel's mouse brain dataset)",
+      "metric": "ARI (Adjusted Rand Index), DREAM4/DREAM5 network inference challenge scores",
+      "baseline": "GENIE3 was top-performing method in DREAM4 and DREAM5 challenges",
+      "result": "Successfully identified known cell types and regulatory networks; highly comparable results across normalization methods"
+    },
+    {
+      "doi": "10.7554/elife.27041",
+      "problem": "Completing the 150-year-old effort to identify all human cell types by defining them in terms of distinctive molecular profiles and connecting this with classical cellular descriptions.",
+      "method": "International collaborative effort proposing high-throughput single-cell molecular profiling (scRNA-seq, spatial transcriptomics) to create a comprehensive open reference map of cells in healthy human tissues.",
+      "finding": "An open comprehensive reference map of molecular states of cells would propel systematic study of physiological states, developmental trajectories, regulatory circuitry, and cellular dysregulation in disease.",
+      "dataset": "All human cell types across healthy tissues (proposed)",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/1471-2105-9-514",
+      "problem": "Reliable prediction of antibody (B-cell) epitopes, particularly discontinuous epitopes, remains challenging yet highly desirable for vaccine and immunodiagnostic design.",
+      "method": "ElliPro implements Thornton's method by approximating protein shape as an ellipsoid, calculating residue protrusion index (PI) using center of mass, and clustering neighboring residues based on PI values and distance thresholds (R=6A, S=0.5).",
+      "finding": "ElliPro performed best among six structure-based methods for discontinuous epitope prediction; best prediction ranked in top three for >70% of proteins and never exceeded rank five.",
+      "dataset": "Benchmark dataset of 39 discontinuous epitopes from 3D structures of antibody-protein complexes",
+      "metric": "AUC, sensitivity, specificity, PPV, accuracy, Fisher's exact test p-value",
+      "baseline": "Six structure-based methods (DiscoTope, CEP, and others)",
+      "result": "AUC=0.732 for most significant prediction per protein"
+    },
+    {
+      "doi": "10.1038/msb4100155",
+      "problem": "The previous E. coli metabolic reconstruction (iJR904) needed updating to align with latest genome annotation, incorporate thermodynamic information, and expand metabolic coverage.",
+      "method": "Genome-scale metabolic reconstruction (iAF1260) using constraint-based modeling and flux balance analysis (FBA), integrating EcoCyc/MetaCyc databases, thermodynamic consistency analysis, and gene-protein-reaction (GPR) assignments via SimPheny platform.",
+      "finding": "iAF1260 is the largest metabolic reconstruction of any unicellular organism, accounts for 1260 ORFs, and can predict high-throughput experimental growth and gene deletion phenotypic screens.",
+      "dataset": "E. coli K-12 MG1655 genome, EcoCyc/MetaCyc databases",
+      "metric": "Growth rate predictions, gene essentiality prediction accuracy",
+      "baseline": "Previous reconstruction iJR904 (904 ORFs, 931 reactions)",
+      "result": "1260 ORFs (356 additional), 2077 reactions (1146 additional), 92% experimentally verified ORFs"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1002010",
+      "problem": "Understanding how intrinsic noise, spatial heterogeneity, and molecular crowding contribute to stochastic behavior in the inducible lac genetic switch of E. coli.",
+      "method": "Well-stirred and spatially resolved whole-cell stochastic simulations using kinetic parameters from in vivo single-molecule fluorescence experiments; cryoelectron tomography for 3D spatial cell models; maximum likelihood estimation for parameter extraction from population distributions.",
+      "finding": "Noise peaks near the switching threshold; spatial heterogeneity in fast-growth cells slightly decreases overall noise due to anomalous subdiffusion and increases repressor rebinding; slow-growth cells show increased mRNA localization and transcriptional burst frequency.",
+      "dataset": "E. coli lac operon, cryoelectron tomography cell structures (fast-growth and slow-growth conditions)",
+      "metric": "Noise (coefficient of variation), burst frequency, burst size, repressor rebinding rate, mRNA-protein probability landscapes",
+      "baseline": "Well-stirred (non-spatial) simulation without crowding",
+      "result": "Slight decrease in noise and increased repressor rebinding for spatially-resolved fast-growth model; linear relationship between burst size and inducer concentration confirmed"
+    },
+    {
+      "doi": "10.1186/s13059-014-0550-8",
+      "problem": "Differential analysis of RNA-seq count data is challenged by small replicate numbers, discreteness, large dynamic range, and outliers requiring suitable statistical approaches.",
+      "method": "DESeq2 uses negative binomial GLM with empirical Bayes shrinkage estimation for dispersions and log fold changes, Cook's distance for outlier detection, and independent filtering for multiple testing adjustment.",
+      "finding": "Shrinkage estimation improves stability and interpretability of fold change and dispersion estimates, enabling more quantitative analysis focused on the strength rather than mere presence of differential expression.",
+      "dataset": "RNA-seq count data (Bottomly et al. mouse strains, Pickrell et al. human samples, and other benchmarking datasets)",
+      "metric": "Sensitivity, precision, FDR control, adjusted p-value (Benjamini-Hochberg)",
+      "baseline": "DESeq, edgeR, and other differential expression methods",
+      "result": "Improved fold change stability and FDR control, especially with small sample sizes"
+    },
+    {
+      "doi": "10.1038/s41586-021-03819-2",
+      "problem": "Predicting three-dimensional protein structure from amino acid sequence alone—the protein folding problem—especially when no homologous structure is available, has been an open problem for over 50 years.",
+      "method": "AlphaFold uses a novel deep learning architecture with invariant point attention (IPA), multi-sequence alignments, template structures, and physical/geometric inductive biases; end-to-end differentiable training on PDB structures.",
+      "finding": "AlphaFold regularly predicts protein structures with atomic accuracy competitive with experimental structures in the majority of CASP14 cases, greatly outperforming all other methods.",
+      "dataset": "CASP14 benchmark targets, PDB training data, BFD (2.2 billion protein sequences)",
+      "metric": "GDT_TS (Global Distance Test), lDDT, TM-score",
+      "baseline": "Other CASP14 participants, previous computational structure prediction methods",
+      "result": "Median GDT_TS=92.4 on CASP14; accuracy competitive with experiment in majority of cases"
+    },
+    {
+      "doi": "10.1186/1758-2946-3-33",
+      "problem": "The proliferation of multiple chemical file formats creates interoperability challenges across chemistry software and research domains.",
+      "method": "Open Babel is an open-source chemical toolbox implementing cheminformatics algorithms including format interconversion, conformer searching, 2D depiction, substructure/similarity searching, partial charge assignment, and aromaticity detection.",
+      "finding": "Open Babel provides a comprehensive solution for chemical file format interoperability, applicable across organic chemistry, drug design, materials science, and computational chemistry, with over 400 citations.",
+      "dataset": "110+ chemical file formats",
+      "metric": "",
+      "baseline": "",
+      "result": "Interconverts 110+ chemical file formats; >400 citations over 10 years"
+    },
+    {
+      "doi": "10.1038/s41586-018-0414-6",
+      "problem": "Single-cell RNA sequencing captures only static snapshots, posing a fundamental challenge for analyzing time-resolved phenomena such as embryogenesis or tissue regeneration.",
+      "method": "RNA velocity estimates the time derivative of gene expression state by distinguishing unspliced and spliced mRNAs from standard scRNA-seq protocols; implemented as velocyto.R and velocyto.py pipelines using steady-state and dynamical modeling.",
+      "finding": "RNA velocity is a high-dimensional vector that predicts future cell states on a timescale of hours; validated in neural crest lineage and reveals the branching lineage tree of developing mouse hippocampus.",
+      "dataset": "Mouse hippocampus development, human embryonic brain, neural crest lineage, multiple published scRNA-seq datasets (10x Genomics, inDrop, SMART-seq2)",
+      "metric": "Velocity vector accuracy, lineage prediction concordance with known biology",
+      "baseline": "Static scRNA-seq analysis (no temporal information)",
+      "result": "Accurately predicted future cell states on hours timescale; revealed branching lineage tree of mouse hippocampus"
+    }
+  ],
+  "timestamp": "2026-03-05T14:36:42.388637",
+  "extraction_count": 10
+}

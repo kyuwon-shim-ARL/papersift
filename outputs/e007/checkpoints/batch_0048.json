@@ -1,0 +1,119 @@
+{
+  "batch_index": 48,
+  "dois": [
+    "10.3389/fcell.2014.00031",
+    "10.1186/s12943-021-01416-5",
+    "10.1371/journal.pcbi.0020127",
+    "10.1007/s10237-021-01480-2",
+    "10.1002/wsbm.1407",
+    "10.1038/s41540-021-00203-8",
+    "10.1098/rsta.2010.0071",
+    "10.3389/fnhum.2010.00198",
+    "10.1016/j.isci.2019.10.006",
+    "10.3390/ijms12118217"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3389/fcell.2014.00031",
+      "problem": "Computational modeling of hematopoietic differentiation network",
+      "method": "Computational simulation of differentiation pathways",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/s12943-021-01416-5",
+      "problem": "Molecular markers in RCC progression steps",
+      "method": "In vivo passaging of RENCA cells",
+      "finding": "Increased aggressiveness through passaging",
+      "dataset": "mouse",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pcbi.0020127",
+      "problem": "VEGF isoform transport in skeletal muscle microenvironment",
+      "method": "Finite difference biophysical model",
+      "finding": "Characterized VEGF transport in rat EDL muscle",
+      "dataset": "rat EDL muscle",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1007/s10237-021-01480-2",
+      "problem": "Mechanical homeostasis in soft biological tissues",
+      "method": "Finite element computational framework",
+      "finding": "Physical foundations of tissue mechanical homeostasis",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1002/wsbm.1407",
+      "problem": "Cellular cytoskeletal mechanics role in health",
+      "method": "Review of cytoskeletal mechanics models",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41540-021-00203-8",
+      "problem": "Plk1-p53-G2/M checkpoint crosstalk in cell cycle",
+      "method": "Computational model of G2/M checkpoint regulation",
+      "finding": "Differential cell cycle regulation mechanisms",
+      "dataset": "",
+      "metric": "sensitivity",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1098/rsta.2010.0071",
+      "problem": "Cell-centred modeling of vascular adaptation",
+      "method": "Cell-centred ABM for stent-vessel interaction",
+      "finding": "Predicted injury and ECM degradation under stent struts",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fnhum.2010.00198",
+      "problem": "Low-frequency LFP enhancement prediction in cortical models",
+      "method": "Network model of cortical layer II/III",
+      "finding": "FS-RS model replicated gamma but not low-frequency enhancement",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.isci.2019.10.006",
+      "problem": "Angiopoietin-Tie signaling pathway modeling",
+      "method": "Computational signaling pathway model validated experimentally",
+      "finding": "Model captures and reproduces experimental results",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/ijms12128217",
+      "problem": "Cell-biomaterial interaction simulation at multiple scales",
+      "method": "Multi-scale computational modeling review",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:56:37.636097",
+  "extraction_count": 10
+}

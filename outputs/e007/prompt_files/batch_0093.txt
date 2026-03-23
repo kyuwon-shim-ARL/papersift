@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1093/nar/30.10.e47
+Title: Telomere measurement by quantitative PCR
+Year: 2002
+Abstract: It has long been presumed impossible to measure telomeres in vertebrate DNA by PCR amplification with oligonucleotide primers designed to hybridize to the TTAGGG and CCCTAA repeats, because only primer dimer-derived products are expected. Here we present a primer pair that eliminates this problem, allowing simple and rapid measurement of telomeres in a closed tube, fluorescence-based assay. This assay will facilitate investigations of the biology of telomeres and the roles they play in the molecular pathophysiology of diseases and aging.
+---
+
+---
+DOI: 10.1109/etfa46521.2020.9212149
+Title: Generating Industry 4.0 Asset Administration Shells with Data from Engineering Data Logistics
+Year: 2020
+Abstract: Advanced production systems, for example in the European automotive or steel industries, incorporate Industry 4.0 defined structures based on Industry 4.0 components and their asset administration shells. Several development and standardization initiatives define structures, behavior patterns, meta models, etc. These initiatives assume the Industry 4.0 asset administration shell (I4.0AAS) as a digital twin of the Industry 4.0 component to contain all relevant engineering and runtime data. However, there is only limited discussion on how to collect and represent these data effectively and efficiently. In this paper, we discuss the collection and representation of engineering data as part of the I4.0AAS. We introduce the I4.0AAS completion method to facilitate the collection of the I4.0AAS engineering data set and its export to an I4.0AAS serialization. In the multi-disciplinary engineering of production systems, the I4.0AAS completion method builds on the AutomationML standard and on the data logistics between engineering workgroups. We evaluate the I4.0AAS completion method in a feasibility study with an I4.0 measurement cell.
+---
+
+---
+DOI: 10.1364/prj.476354
+Title: Real-time noise-free inline self-interference incoherent digital holography with temporal geometric phase multiplexing
+Year: 2023
+Abstract: In this paper, we propose a real-time incoherent digital holographic (IDH) recording system free from bias and twin-image noises. A motionless three-step polarization-encoded phase-shifter operating at 99 Hz is realized with two electrically controllable birefringence-mode liquid crystal cells operating in tandem with a geometric phase lens and polarizers. Based on the proposed optical configuration, a coaxial straight-line self-interference IDH recording system is devised. Notably, the elimination of bias and twin-image noise from three phase-shifted images is demonstrated as a proof of concept. Moreover, complex-valued holographic video acquisitions with a resolution greater than 20 megapixels are demonstrated, with an effective acquisition frequency of 33 Hz.
+---
+
+---
+DOI: 10.1109/lcomm.2022.3171291
+Title: Enhancing THz/mmWave Network Beam Alignment With Integrated Sensing and Communication
+Year: 2022
+Abstract: Future networks are envisioned to create digital twin representations of the physical world, motivated by the integrated sensing and communication (ISAC). To meet the needs, millimetre wave (mmWave) and terahertz (THz) signals shine with outstanding performance in high-speed transmission and high-accuracy perception, but requiring narrow beamwidth to compensate for high path-loss. It in turn causes severe beam misalignment that induces link failures, leaving reliable inter-cell handovers and intra-cell beam switches crucial challenges for THz/mmWave networks. Exploiting the Synchronization Signal Block (SSB) specified for beam management, we propose a system-level beam alignment scheme utilizing SSB-based sensing to assist beam switches. To fully utilize limited sensing resource, we provide a closed-form optimal SSB time-frequency pattern design that complies with current configuration. Results show that proposed scheme reduces up to 70% beam misalignment probability in highway and urban cases. Thus, guaranteeing the same beam alignment quality, sensing-aided networks can use narrower beams to enlarge network coverage. Also, the optimal resource allocation for SSB pattern design is stable against changing node density and mobility.
+---
+
+---
+DOI: 10.1007/978-3-319-45447-4_26
+Title: Systems Engineering Requires Digital Twins of Machine Elements
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1111/ajt.14318
+Title: Blood Chimerism in Dizygotic Monochorionic Twins During 5 Years Observation
+Year: 2017
+Abstract: Dizygotic monochorionic twin pregnancies can result in blood chimerism due to in utero twin-to-twin exchange of stem cells. In this case, we examined the proportion of allogeneic red blood cells by flow cytometry and the proportion of allogeneic nucleated cells by digital polymerase chain reaction at 7 months and again at 5 years. We found an increase in the proportion of allogeneic cells from 63% to 89% in one twin, and a similar increase in autologous cells in the other twin from 57% to 84%. A paradigm for stem cell therapy could be modeled on this case: induction of tolerance and chimerism by antenatal transfusion of donor stem cells. The procedure would hold the promise of transplantation and tolerance induction without myeloablative conditioning for inheritable benign hematological diseases such as sickle cell disease and thalassemia.
+---
+
+---
+DOI: 10.1364/oe.505440
+Title: Physics-driven universal twin-image removal network for digital in-line holographic microscopy
+Year: 2023
+Abstract: Digital in-line holographic microscopy (DIHM) enables efficient and cost-effective computational quantitative phase imaging with a large field of view, making it valuable for studying cell motility, migration, and bio-microfluidics. However, the quality of DIHM reconstructions is compromised by twin-image noise, posing a significant challenge. Conventional methods for mitigating this noise involve complex hardware setups or time-consuming algorithms with often limited effectiveness. In this work, we propose UTIRnet, a deep learning solution for fast, robust, and universally applicable twin-image suppression, trained exclusively on numerically generated datasets. The availability of open-source UTIRnet codes facilitates its implementation in various DIHM systems without the need for extensive experimental training data. Notably, our network ensures the consistency of reconstruction results with input holograms, imparting a physics-based foundation and enhancing reliability compared to conventional deep learning approaches. Experimental verification was conducted among others on live neural glial cell culture migration sensing, which is crucial for neurodegenerative disease research.
+---
+
+---
+DOI: 10.1109/mcom.001.2200837
+Title: Digital Twin for Intelligent Network: Data Lifecycle, Digital Replication, and AI-Based Optimizations
+Year: 2023
+Abstract: Mobile networks are becoming increasingly complex as generations evolve, thus making manual organization and management no longer a viable option for network operators. To achieve intelligent deployment, management, operation, and optimization of networks, AI/ML-based approaches are gaining a tremendous amount of interest in both academia and industry for accomplishing the full potential of 5G, Beyond 5G (B5G), and the upcoming 6G. However, AI/ML in networks is in its infancy for many practical challenges, such as the lack of AI/ML training and running frame-works/platforms, and the potential risks of service degradation when training AI models involving trial-and-error in real networks. Digital Twin, which creates virtual surrogates of real networks, thereby deriving insights into their use, is a promising approach to address the challenges. Using digitally replicated twins, one can test a newly designed algorithm without affecting user experience, predict the network status, analyze what-if scenarios, and train/validate network operating AI/ML models. This article presents the practical challenges and considerations of making use of Network Digital Twin for network management and optimization in terms of the network data lifecycle, digital replication, and finally effective and real-world applicable AI/ML-based network optimizations. As a case study, the cell on/off energy-saving problem using AI and digital twin is presented along with the results of its trial on the real network.
+---
+
+---
+DOI: 10.1016/j.procir.2021.03.110
+Title: Technology assessment for digitalization in battery cell manufacturing
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.future.2024.03.044
+Title: CoTwin: Collaborative improvement of digital twins enabled by blockchain
+Year: 2024
+Abstract: Integrating digital twin technology in Cyber-Physical Systems and Internet of Things can boost their intelligence. Given the current maturity of digital twin technology (yet in progress), improving the models that these systems use is typically achieved off-line, requiring the system to stop and reconfigure to run each new model version. In fact, most works use cloud back-ends to run heavy machine learning algorithms, imposing strict requirements on the data exchange between the physical system and the cloud. We address the online improvement of digital twin models in cyber–physical systems by supporting model refinement without disrupting nor stopping the normal operation of the system. This improves the dynamicity of the system that may turn into a major competitive advantage in a number of industrial scenarios. Precisely, we exploit the collaborative expectation of next generation cyber–physical systems based on highly-connected cells enabled by 5G and 6G networking; and on top of these, we design a shared space properly managed to deliver the needed temporal behaviour required by cyber–physical systems. For this, we present the design of CoTwin framework as a middleware that allows cells to collectively improve digital twin models seamlessly. CoTwin manages the interaction of cells with a blockchain-based collaborative space offering a built-in trusted storage model. We integrate neural network algorithms as they provide fast execution that meet the time-sensitivity requirements of cyber–physical systems. Our contribution is validated by means of its implementation and deployment on an actual blockchain network, and an exhaustive set of experiments to analyse the resulting overhead and temporal behaviour. Results show that CoTwin achieves stable execution times accross all its functional pieces; and it exhibits stable service time for large sets of cells.
+---
+
+---
+DOI: 10.1016/j.future.2023.09.001
+Title: Digital twin-assisted resource allocation framework based on edge collaboration for vehicular edge computing
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1113/jp284391
+Title: A multiscale predictive digital twin for neurocardiac modulation
+Year: 2023
+Abstract: Abstract Cardiac function is tightly regulated by the autonomic nervous system (ANS). Activation of the sympathetic nervous system increases cardiac output by increasing heart rate and stroke volume, while parasympathetic nerve stimulation instantly slows heart rate. Importantly, imbalance in autonomic control of the heart has been implicated in the development of arrhythmias and heart failure. Understanding of the mechanisms and effects of autonomic stimulation is a major challenge because synapses in different regions of the heart result in multiple changes to heart function. For example, nerve synapses on the sinoatrial node (SAN) impact pacemaking, while synapses on contractile cells alter contraction and arrhythmia vulnerability. Here, we present a multiscale neurocardiac modelling and simulator tool that predicts the effect of efferent stimulation of the sympathetic and parasympathetic branches of the ANS on the cardiac SAN and ventricular myocardium. The model includes a layered representation of the ANS and reproduces firing properties measured experimentally. Model parameters are derived from experiments and atomistic simulations. The model is a first prototype of a digital twin that is applied to make predictions across all system scales, from subcellular signalling to pacemaker frequency to tissue level responses. We predict conditions under which autonomic imbalance induces proarrhythmia and can be modified to prevent or inhibit arrhythmia. In summary, the multiscale model constitutes a predictive digital twin framework to test and guide high‐throughput prediction of novel neuromodulatory therapy. image Key points A multi‐layered model representation of the autonomic nervous system that includes sympathetic and parasympathetic branches, each with sparse random intralayer connectivity, synaptic dynamics and conductance based integrate‐and‐fire neurons generates firing patterns in close agreement with experiment. A key feature of the neurocardiac computational model is the connection between the autonomic nervous system and both pacemaker and contractile cells, where modification to pacemaker frequency drives initiation of electrical signals in the contractile cells. We utilized atomic‐scale molecular dynamics simulations to predict the association and dissociation rates of noradrenaline with the β‐adrenergic receptor. Multiscale predictions demonstrate how autonomic imbalance may increase proclivity to arrhythmias or be used to terminate arrhythmias. The model serves as a first step towards a digital twin for predicting neuromodulation to prevent or reduce disease.
+---
+
+---
+DOI: 10.1109/icspcs53099.2021.9660222
+Title: Conceptual Molecular Communication Solution for Developing Digital Twin to Enable Precision Medicine Implementation
+Year: 2021
+Abstract: In this paper, a molecular communication inspired solution to the development of patients' digital twin models to enable the implementation of precision medicine (PM) is proposed. The proposed solution considers the modeling and analysis of the intercellular communication network of body cells as a complementary in silico approach to enable a timely and patient-specific PM procedure. Fundamental submissions that motivate the idea of the proposed model are presented. Further, based on the ideas behind two global projects, the computational whole-cell model and human cell atlas, a graph-theoretic model that is an abstraction of an organism's cell-to-cell network is developed. The graph network can represent the digital twin model of a patient. By characterizing and analyzing the graph network, the application of the digital twin model is explored. Simple illustrative examples and the ensuing graphical results are used to explore the gains of the proposed digital twin modelling approach.
+---
+
+---
+DOI: 10.3389/fsufs.2020.606845
+Title: Physics-Based Digital Twin Identifies Trade-Offs Between Drying Time, Fruit Quality, and Energy Use for Solar Drying
+Year: 2021
+Abstract: Solar drying is regarded as a less reliable process compared to continuous hot-air drying due to the intermittency of solar radiation. This problem is mitigated by equipping solar dryers with thermal storage, dehumidifier units, or auxiliary heating that enhances drying continuity during night time. In this study, we combine a mechanistic fruit drying model, quality models (vitamin C decay and browning reaction) and weather data to evaluate the drying characteristics and quality evolution of apple fruit with and without the aforementioned improvement strategies. By coupling to measured weather conditions, a digital twin of the drying fruit is established. The twin outputs drying times and final product quality for a specific fruit type and size, a particular dryer configuration, and specific weather conditions. The trade-offs between drying time, final product quality and energy use for the different improvement strategies of solar drying are documented. We found that solar drying may benefit from the slower drying due to the improvement of product quality. Compared to the other improvement strategies, dehumidification of the drying air is shown to be superior in retaining the vitamin C content and prohibiting the browning reaction. However, in general, drying with auxiliary heating is found to balance the trade-offs between drying time, final product quality and energy use since the weather-dependency of the process is mitigated. Additionally, we quantified the impact of a pre-treatment process that modifies the permeability of the fruit tissue by breaking the cell membrane. We found that inducing such lysis is more effective in decreasing the drying time when drying is conducted at low (room) temperature. This study shows that using the developed digital twin, future drying process and control strategies could be optimized in real-time for every single drying run.
+---
+
+---
+DOI: 10.1016/j.procir.2017.03.312
+Title: Gesture Control of Cyber Physical Systems
+Year: 2017
+Abstract: The next generation of robots should be able to work well in the presence of human operators safely without posing potential life hazard. To realize the collaborative and symbiotic work of humans and robots, it is essential to use a convenient interface that is natural for humans. The design of the interface must consider ergonomic aspects and must not hinder the work of the operator. The interface have to be unambiguous for both the robot and human operator. In this article, we present a control for cyber physical systems. In order to properly interpret and execute commands in a human-robot shared workspace, it is essential to have a virtual model, where commanded actions can be justified from feasibility and safety point of view. This is established by implementing the digital twin of the robot cell. This virtual model contains both the model of the robot and the human operator. The controller allows simultaneous control of robots, both the actual machines and the models in cyber-space, as well as updating the posture and gestures of the human operator. The implemented gesture control language is modular. Modularization creates the opportunity to reconfigure the cell with minimal energy expenditure and still use the same gestures, in order to realize different production use-cases.
+---
+
+---
+DOI: 10.1016/j.actamat.2004.01.028
+Title: Experimental analysis of compressive notch strengthening in closed-cell aluminum alloy foam
+Year: 2004
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.procir.2021.11.170
+Title: Marking of Electrode Sheets in the Production of Lithium-Ion Cells as an Enabler for Tracking and Tracing
+Year: 2021
+Abstract: The production of lithium-ion batteries is highly complex and characterized by continuous as well as discrete material flows and processes. A first step towards controlling the complexity of battery production is to create transparency through data collection. Electrodes as one of the key elements in a battery cell play a decisive role for the battery performance. The allocation of production data to electrodes enables a detailed digital twin and an individual grading system. This paper presents a concept for the marking of electrode sheets and requirements on markers as well as on marking technologies due to boundary conditions.
+---
+
+---
+DOI: 10.1002/(issn)1097-0207
+Title: International Journal for Numerical Methods in Engineering
+Year: 2006
+Abstract: Prepared using nmeauth.cls [Version: 2000/01/19 v2.0] Generalized finite element method using proper orthogonal decomposition
+---
+
+---
+DOI: 10.1101/2022.02.10.479884
+Title: Digital twin reveals combinatorial code of non-linear computations in the mouse primary visual cortex
+Year: 2022
+Abstract: More than a dozen excitatory cell types have been identified in the mouse primary visual cortex (V1) based on transcriptomic, morphological and in vitro electrophysiological features. However, the functional landscape of excitatory neurons with respect to their responses to visual stimuli is currently unknown. Here, we combined large-scale two-photon imaging and deep learning neural predictive models to study the functional organization of mouse V1 using digital twins. Digital twins enable exhaustive in silico functional characterization providing a bar code summarizing the input-output function of each neuron. Clustering the bar codes revealed a continuum of function with around 30 modes. Each mode represented a group of neurons that exhibited a specific combination of stimulus selectivity and nonlinear response properties such as cross-orientation inhibition, size-contrast tuning and surround suppression. These non-linear properties were expressed independently spanning all possible combinations across the population. This combinatorial code provides the first large-scale, data-driven characterization of the functional organization of V1. This powerful approach based on digital twins is applicable to other brain areas and to complex non-linear systems beyond the brain.
+---
+
+---
+DOI: 10.1109/cscs52396.2021.00013
+Title: Data- and model-driven digital twins for design and logistics control of product distribution
+Year: 2021
+Abstract: Digital control of product-on-pallet distribution is organized on two layers in logistics systems: the low-level local process automation and the supervision and coordination dual logistic execution system. The paper's scientific contribution consists in a holonic control system for multiple robot palletizing cells for product-on-pallet distribution. In this holonic control approach, data-driven digital twins (DT) are created to optimize palletizing schedules, controlled with situation awareness and resource health monitoring. A model-driven DT configuration with embedded simulation faster than real-time is combined with the data-driven DT in a meta-level control scheme offering predictive situation awareness. The paper also presents a pure model-driven DT mock-up of a robot palletizing cell - simulation with software in the loop - in which the actual holonic control system including digital twins and decision making is used in the simulation as it will be deployed in reality. This configuration is used to design the robot palletizing cells, to experiment in limit conditions, to fine tune and validate the robot control solution.
+---
+
+---
+DOI: 10.1016/j.jmsy.2022.11.011
+Title: Online geometry assurance in individualized production by feedback control and model calibration of digital twins
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3390/chemengineering4020023
+Title: Multiscale Eulerian CFD of Chemical Processes: A Review
+Year: 2020
+Abstract: This review covers the scope of multiscale computational fluid dynamics (CFD), laying the framework for studying hydrodynamics with and without chemical reactions in single and multiple phases regarded as continuum fluids. The molecular, coarse-grained particle, and meso-scale dynamics at the individual scale are excluded in this review. Scoping single-scale Eulerian CFD approaches, the necessity of multiscale CFD is highlighted. First, the Eulerian CFD theory, including the governing and turbulence equations, is described for single and multiple phases. The Reynolds-averaged Navier–Stokes (RANS)-based turbulence model such as the standard k-ε equation is briefly presented, which is commonly used for industrial flow conditions. Following the general CFD theories based on the first-principle laws, a multiscale CFD strategy interacting between micro- and macroscale domains is introduced. Next, the applications of single-scale CFD are presented for chemical and biological processes such as gas distributors, combustors, gas storage tanks, bioreactors, fuel cells, random- and structured-packing columns, gas-liquid bubble columns, and gas-solid and gas-liquid-solid fluidized beds. Several multiscale simulations coupled with Eulerian CFD are reported, focusing on the coupling strategy between two scales. Finally, challenges to multiscale CFD simulations are discussed. The need for experimental validation of CFD results is also presented to lay the groundwork for digital twins supported by CFD. This review culminates in conclusions and perspectives of multiscale CFD.
+---
+
+---
+DOI: 10.1038/s44222-023-00036-6
+Title: Bioreactors for engineering patient-specific tissue grafts
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1364/ao.51.001387
+Title: Quantitative phase microscopy using dual-plane in-line digital holography
+Year: 2012
+Abstract: We present detailed theoretical evaluation and thorough experimental investigation of quantitative phase imaging using our previously demonstrated dual-plane in-line digital holographic microscopy technique [Opt. Lett. 35, 3426 (2010)]. This evaluation is based on the recording of two interferograms at slightly different planes and numerically reconstructing the object information. The zero-order diffracted wave is eliminated by using the method of subtraction of average intensity of the entire hologram, and the twin-image diffracted wave is removed by Fourier domain processing of the two recorded holograms. Experiments are performed using controlled amplitude and phase objects and human muscle cells to demonstrate the potential of this technique.
+---
+
+---
+DOI: 10.1007/s11432-020-2955-6
+Title: Towards 6G wireless communication networks: vision, enabling technologies, and new paradigm shifts
+Year: 2020
+Abstract: The fifth generation (5G) wireless communication networks are being deployed worldwide from 2020 and more capabilities are in the process of being standardized, such as mass connectivity, ultra-reliability, and guaranteed low latency. However, 5G will not meet all requirements of the future in 2030 and beyond, and sixth generation (6G) wireless communication networks are expected to provide global coverage, enhanced spectral/energy/cost efficiency, better intelligence level and security, etc. To meet these requirements, 6G networks will rely on new enabling technologies, i.e., air interface and transmission technologies and novel network architecture, such as waveform design, multiple access, channel coding schemes, multi-antenna technologies, network slicing, cell-free architecture, and cloud/fog/edge computing. Our vision on 6G is that it will have four new paradigm shifts. First, to satisfy the requirement of global coverage, 6G will not be limited to terrestrial communication networks, which will need to be complemented with non-terrestrial networks such as satellite and unmanned aerial vehicle (UAV) communication networks, thus achieving a space-air-ground-sea integrated communication network. Second, all spectra will be fully explored to further increase data rates and connection density, including the sub-6 GHz, millimeter wave (mmWave), terahertz (THz), and optical frequency bands. Third, facing the big datasets generated by the use of extremely heterogeneous networks, diverse communication scenarios, large numbers of antennas, wide bandwidths, and new service requirements, 6G networks will enable a new range of smart applications with the aid of artificial intelligence (AI) and big data technologies. Fourth, network security will have to be strengthened when developing 6G networks. This article provides a comprehensive survey of recent advances and future trends in these four aspects. Clearly, 6G with additional technical requirements beyond those of 5G will enable faster and further communications to the extent that the boundary between physical and cyber worlds disappears.
+---
+
+---
+DOI: 10.1016/j.jmsy.2023.02.008
+Title: Digital twin-enabled automated anomaly detection and bottleneck identification in complex manufacturing systems using a multi-agent approach
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1117/12.826882
+Title: Multispectral lensless digital holographic microscope: imaging MCF-7 and MDA-MB-231 cancer cell cultures
+Year: 2009
+Abstract: Digital holography is the process where an object’s phase and amplitude information is retrieved from intensity images&#13;\nobtained using a digital camera (e.g. CCD or CMOS sensor). In-line digital holographic techniques offer full use of the&#13;\nrecording device’s sampling bandwidth, unlike off-axis holography where object information is not modulated onto&#13;\ncarrier fringes. Reconstructed images are obscured by the linear superposition of the unwanted, out of focus, twin&#13;\nimages. In addition to this, speckle noise degrades overall quality of the reconstructed images. The speckle effect is a&#13;\nphenomenon of laser sources used in digital holographic systems. Minimizing the effects due to speckle noise, removal&#13;\nof the twin image and using the full sampling bandwidth of the capture device aids overall reconstructed image quality.&#13;\nSuch improvements applied to digital holography can benefit applications such as holographic microscopy where the&#13;\nreconstructed images are obscured with twin image information. Overcoming such problems allows greater flexibility in&#13;\ncurrent image processing techniques, which can be applied to segmenting biological cells (e.g. MCF-7 and MDA-MB-&#13;\n231) to determine their overall cell density and viability. This could potentially be used to distinguish between apoptotic&#13;\nand necrotic cells in large scale mammalian cell processes, currently the system of choice, within the biopharmaceutical&#13;\nindustry.
+---
+
+---
+DOI: 10.1016/j.joule.2023.04.001
+Title: The primary obstacle to unlocking large-scale battery digital twins
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/tpwrs.2022.3215144
+Title: Ancillary Services and Risk Assessment of Networked Microgrids Using Digital Twin
+Year: 2022
+Abstract: The networked microgrids (NMGs) have become one of the better means of improving the resiliency and reliability of power system networks. NMGs need proper coordination of all microgrids in either grid-tied or isolated mode. This study proposes the use of a digital twin (DT) for the energy management of NMGs in the distribution system. The NMGs are virtually represented using a neural network (NN) by training the data from the different optimal results of unit commitment (UC). The UC formulation of NMGs considers risk assessment due to uncertainty of demand and renewable energy when the NMGs are operated in isolated mode and schedules ancillary service transactions when the NMGs are connected to the power grid. The NN predicts the schedule of diesel generators, fuel cell (FC) and the battery energy storage system (BESS) in both isolated and gird-tied modes. The merit of the proposed method is that the virtual model (NN) can interact with the physical model (NMGs) in a real-time manner that depends on its operational mode. Restated, the virtual model can provide real-time dispatch updates in the schedule of conventional generators, FC and BESS. A real-time digital simulator (Opal-RT eMegasim) was used to validate the proposed method by testing a modified CIGRE benchmark model and a modified IEEE 34-bus system.
+---
+
+---
+DOI: 10.1016/j.energy.2023.127663
+Title: Fast prediction of temperature and chemical species distributions in pulverized coal boiler using POD reduced-order modeling for CFD
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0140-6736(12)60026-9
+Title: Crohn's disease
+Year: 2012
+Abstract: Crohn's disease is a relapsing systemic inflammatory disease, mainly affecting the gastrointestinal tract with extraintestinal manifestations and associated immune disorders. Genome wide association studies identified susceptibility loci that--triggered by environmental factors--result in a disturbed innate (ie, disturbed intestinal barrier, Paneth cell dysfunction, endoplasmic reticulum stress, defective unfolded protein response and autophagy, impaired recognition of microbes by pattern recognition receptors, such as nucleotide binding domain and Toll like receptors on dendritic cells and macrophages) and adaptive (ie, imbalance of effector and regulatory T cells and cytokines, migration and retention of leukocytes) immune response towards a diminished diversity of commensal microbiota. We discuss the epidemiology, immunobiology, amd natural history of Crohn's disease; describe new treatment goals and risk stratification of patients; and provide an evidence based rational approach to diagnosis (ie, work-up algorithm, new imaging methods [ie, enhanced endoscopy, ultrasound, MRI and CT] and biomarkers), management, evolving therapeutic targets (ie, integrins, chemokine receptors, cell-based and stem-cell-based therapies), prevention, and surveillance.
+---
+
+---
+DOI: 10.1007/978-3-030-69373-2_6
+Title: Decision Support Based on Digital Twin Simulation: A Case Study
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3390/app11094269
+Title: CNN Training Using 3D Virtual Models for Assisted Assembly with Mixed Reality and Collaborative Robots
+Year: 2021
+Abstract: The assisted assembly of customized products supported by collaborative robots combined with mixed reality devices is the current trend in the Industry 4.0 concept. This article introduces an experimental work cell with the implementation of the assisted assembly process for customized cam switches as a case study. The research is aimed to design a methodology for this complex task with full digitalization and transformation data to digital twin models from all vision systems. Recognition of position and orientation of assembled parts during manual assembly are marked and checked by convolutional neural network (CNN) model. Training of CNN was based on a new approach using virtual training samples with single shot detection and instance segmentation. The trained CNN model was transferred to an embedded artificial processing unit with a high-resolution camera sensor. The embedded device redistributes data with parts detected position and orientation into mixed reality devices and collaborative robot. This approach to assisted assembly using mixed reality, collaborative robot, vision systems, and CNN models can significantly decrease assembly and training time in real production.
+---
+
+---
+DOI: 10.1115/1.4053323
+Title: Online (Remote) Teaching for Laboratory Based Courses Using “digital Twins” of the Experiments
+Year: 2021
+Abstract: Abstract Covid-19 pandemic has introduced radical changes to the engineering education so that most of the teaching moved to the off-campus setting of online classes. However, conducting the laboratory classes, a fundamental part of engineering education has remained to be a challenge. To address to this situation, an ambitious approach is taken to re-establish the laboratory experience entirely online with the help of digital twins of the laboratory experiments. Laboratory based undergraduate courses are important parts of the curriculum at the Lucerne University of Applied Sciences (HSLU), Switzerland. During the Covid-19 pandemic, it was necessary to adapt to the new environment of remote learning and modify the laboratory experiments so that they can be carried out online. The approach was to develop digital twins of each laboratory experiment with web applications and to provide an environment together with supporting videos and interactive problems so that the laboratory experiments can be carried out remotely. This paper explains the development of the digital twins of the laboratory experiments and provides information about the selected experiments such as potential vortex, linear momentum equation, diffuser flow, radial compressor, fuel cell, and pump test rig. A remote or distance learning has many hurdles, a major one being how to teach hands-on laboratory courses outside of an actual laboratory. The experience at the HSLU showed that teaching online laboratories using the digital twins of the experiments can work and the students can take part in remote laboratories that meet the learning objectives.
+---
+
+---
+DOI: 10.1109/ojcoms.2021.3057679
+Title: The Road Towards 6G: A Comprehensive Survey
+Year: 2021
+Abstract: As of today, the fifth generation (5G) mobile communication system has been\nrolled out in many countries and the number of 5G subscribers already reaches a\nvery large scale. It is time for academia and industry to shift their attention\ntowards the next generation. At this crossroad, an overview of the current\nstate of the art and a vision of future communications are definitely of\ninterest. This article thus aims to provide a comprehensive survey to draw a\npicture of the sixth generation (6G) system in terms of drivers, use cases,\nusage scenarios, requirements, key performance indicators (KPIs), architecture,\nand enabling technologies. First, we attempt to answer the question of "Is\nthere any need for 6G?" by shedding light on its key driving factors, in which\nwe predict the explosive growth of mobile traffic until 2030, and envision\npotential use cases and usage scenarios. Second, the technical requirements of\n6G are discussed and compared with those of 5G with respect to a set of KPIs in\na quantitative manner. Third, the state-of-the-art 6G research efforts and\nactivities from representative institutions and countries are summarized, and a\ntentative roadmap of definition, specification, standardization, and regulation\nis projected. Then, we identify a dozen of potential technologies and introduce\ntheir principles, advantages, challenges, and open research issues. Finally,\nthe conclusions are drawn to paint a picture of "What 6G may look like?". This\nsurvey is intended to serve as an enlightening guideline to spur interests and\nfurther investigations for subsequent research and development of 6G\ncommunications systems.\n
+---
+
+---
+DOI: 10.1007/s41315-022-00240-4
+Title: Trajectory optimisation in collaborative robotics based on simulations and genetic algorithms
+Year: 2022
+Abstract: Abstract The separation distance between humans and robots in manufacturing shop-floors has been progressively reduced, thanks to the modern safety functionalities available in robot controllers. However, the activation of these safety criteria usually stops the production or reduces the productivity of machines and robots. With the aim of improving this situation, this paper presents a real-time trajectory optimisation method for collaborative robots. The robot trajectory is parameterised at instruction level, i.e. through the parameters characterizing the robot motion instruction. A genetic algorithm randomly modifies the parameters of the nominal trajectory of the robot, thus obtaining new sets of candidate trajectories. Each trajectory is simulated on a digital twin of the collaborative workspace, which allows to reproduce and simulate the robot motion, and to represent the volume of the work-cell occupied by the human operator. A lexicographic optimization is used to evaluate online the optimal robot trajectory that simultaneously minimizes the risk of collision with the human operator and the trajectory traversal time. The method is validated in an industrial scenario involving the ABB YuMi dual-arm robot for a small parts assembly task.
+---
+
+---
+DOI: 10.1016/j.optlaseng.2023.107878
+Title: Single-shot experimental-numerical twin-image removal in lensless digital holographic microscopy
+Year: 2023
+Abstract: Lensless digital holographic microscopy (LDHM) offers very large field of view label-free imaging crucial, e.g., in high-throughput particle tracking and biomedical examination of cells and tissues. Compact layouts promote point-of-case and out-of-laboratory applications. The LDHM, based on the Gabor in-line holographic principle, is inherently spoiled by the twin-image effect, which complicates the quantitative analysis of reconstructed phase and amplitude maps. Popular family of solutions consists of numerical methods, which tend to minimize twin-image upon iterative process based on data redundancy. Additional hologram recordings are needed, and final results heavily depend on the algorithmic parameters, however. In this contribution we present a novel single-shot experimental-numerical twin-image removal technique for LDHM. It leverages two-source off-axis hologram recording deploying simple fiber splitter. Additionally, we introduce a novel phase retrieval numerical algorithm specifically tailored to the acquired holograms, that provides twin-image-free reconstruction without compromising the resolution. We quantitatively and qualitatively verify proposed method employing phase test target and cheek cells biosample. The results demonstrate that the proposed technique enables low-cost compact LDHM imaging with enhanced precision, achieved through the elimination of twin-image errors. This advancement opens new avenues for more accurate technical and biomedical imaging applications using LDHM, particularly in scenarios where cost-effective and portable imaging solutions are desired.
+---
+
+---
+DOI: 10.1115/imece2018-86720
+Title: Adaptive Industrial Robots Using Machine Vision
+Year: 2018
+Abstract: The use of industrial robots in modern manufacturing scenarios is a rising trend in the engineering industry. Currently, industrial robots are able to perform pre-programmed tasks very efficiently irrespective of time and complexity. However, often robots encounter unknown scenarios and to solve those, they need to cooperate with humans, leading to unnecessary downtime of the machine and the need for human intervention. The main aim of this study is to propose a method to develop adaptive industrial robots using Machine Learning (ML)/Machine Vision (MV) tools. The proposed method aims to reduce the effort of re-programming and enable self-learning in industrial robots. The elaborated online programming method can lead to fully automated industrial robotic cells in accordance with the human-robot collaboration standard and provide multiple usage options of this approach in the manufacturing industry. Machine Vision (MV) tools used for online programming allow industrial robots to make autonomous decisions during sorting or assembling operations based on the color and/or shape of the test object. The test setup consisted of an industrial robot cell, cameras and LIDAR connected to MATLAB through a Robot Operation System (ROS). The online programming tests and simulations were performed using Virtual/Augmented Reality (VR/AR) toolkits together with a Digital Twin (DT) concept, to test the industrial robot program on a digital object before executing it on the real object, thus creating a safe and secure test environment.
+---
+
+---
+DOI: 10.3390/pr11041213
+Title: BioDT: An Integrated Digital-Twin-Based Framework for Intelligent Biomanufacturing
+Year: 2023
+Abstract: The field of industrial biotechnology has shown an increasing interest in adopting digital twins for improving process productivity and management efficiency. Despite its potential benefits, digital-twin-based biomanufacturing has not been fully implemented. As a preliminary undertaking, we developed an open-source digital twin framework for cell culture. The core models of the digital twin were coded in C++ and compiled as a reusable Python library. A web-based, cloud-native HMI application that links the physical and virtual systems was developed. A microbioreactor digital twin system was implemented using the framework as a proof of concept. The system features a 3D-printed rocking platform that is customized to fit T25 flasks, enabling automated rocking rate and angle control and in-place optical cell density measurement. The digital twin was validated using Chinese Hamster Ovary (CHO) cells and was found to be able to predict the changes in cell density, glucose consumption, lactic acid production, and oxygen uptake rate (OUR). Finally, we performed a case study to demonstrate the system’s practical applicability in Advanced Process Control (APC) by constructing real-time glucose and lactic acid soft sensors, which are in turn used to alert the operator for manual media change or for automated feeding.
+---
+
+---
+DOI: 10.1109/access.2020.2970143
+Title: Digital Twin: Values, Challenges and Enablers From a Modeling Perspective
+Year: 2020
+Abstract: Digital twin can be defined as a virtual representation of a physical asset enabled through data and simulators for real-time prediction, optimization, monitoring, controlling, and improved decision making. Recent advances in computational pipelines, multiphysics solvers, artificial intelligence, big data cybernetics, data processing and management tools bring the promise of digital twins and their impact on society closer to reality. Digital twinning is now an important and emerging trend in many applications. Also referred to as a computational megamodel, device shadow, mirrored system, avatar or a synchronized virtual prototype, there can be no doubt that a digital twin plays a transformative role not only in how we design and operate cyber-physical intelligent systems, but also in how we advance the modularity of multi-disciplinary systems to tackle fundamental barriers not addressed by the current, evolutionary modeling practices. In this work, we review the recent status of methodologies and techniques related to the construction of digital twins mostly from a modeling perspective. Our aim is to provide a detailed coverage of the current challenges and enabling technologies along with recommendations and reflections for various stakeholders.
+---
+
+---
+DOI: 10.3390/min12020210
+Title: Digitalization Solutions in the Mineral Processing Industry: The Case of GTK Mintec, Finland
+Year: 2022
+Abstract: The technologies used in mineral process engineering are evolving. The digital mineral processing solutions are based on advances in our ability to instrumentally measure phenomena at several stages of the beneficiation circuit, manage the data in real-time, and to analyze these data using machine learning to develop the next generation of process control. The main purpose of this study is to overview various digital solutions for mineral processing plants and characterization laboratories while emphasizing their utilization in the current state of the digitization process of the GTK Mintec. This study highlights the specialized digital technologies that are particularly relevant for mineral processing and beneficiation. The digital solutions studied in this article include digital twin, machine vision, information management system, sensors, smart equipment, machine learning techniques, process control system, robotic cell, and Internet of Things applied across the whole chain of studying materials from the mineralogical examinations through the bench-scale studies to the pilot test trials. The aim is to provide a clear view on the different aspects of digitizing mineral processing plants based upon the lessons learned from the development plans in GTK Mintec.
+---
+
+---
+DOI: 10.1016/j.geits.2024.100162
+Title: Digital twin modeling method for lithium-ion batteries based on data-mechanism fusion driving
+Year: 2024
+Abstract: Lithium-ion batteries have been rapidly developed as clean energy sources in many industrial fields, such as new energy vehicles and energy storage. The core issues hindering their further promotion and application are reliability and safety. A digital twin model that maps onto the physical entity of the battery with high simulation accuracy helps to monitor internal states and improve battery safety. This work focuses on developing a digital twin model via a mechanism-data-driven parameter updating algorithm to increase the simulation accuracy of the internal and external characteristics of the full-time domain battery under complex working conditions. An electrochemical model is first developed with the consideration of how electrode particle size impacts battery characteristics. By adding the descriptions of temperature distribution and particle-level stress, a multi-particle size electrochemical-thermal-mechanical coupling model is established. Then, considering the different electrical and thermal effect among individual cells, a model for the battery pack is constructed. A digital twin model construction method is finally developed and verified with battery operating data.
+---
+
+---
+DOI: 10.1016/j.joule.2022.10.019
+Title: Using thermal energy to enable fast charging of energy-dense batteries
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3390/en17040900
+Title: Simulation Approaches and Validation Issues for Open-Cathode Fuel Cell Systems in Manned and Unmanned Aerial Vehicles
+Year: 2024
+Abstract: Hydrogen is a promising energy carrier in all fields of transportation, including unmanned aerial vehicles (UAVs) and manned vehicles for urban air mobility (UAM). In these applications, one of the biggest challenges is to overcome the limitations of lithium battery technologies, while keeping the advantage of clean energy, at least in terms of direct emissions. For these reasons, there is an ever-increasing interest in the development, simulation, and testing of propulsion systems adopting air-cooled proton exchange membrane fuel cells (PEMFCs). Fuel cells for aerospace must be designed for power-to-weight maximization. For this reason, auxiliary systems are simplified, and the adoption of air-cooling and passive cooling techniques is favored. However, the performance and dynamic behavior of PEMFCs are affected by the operating conditions, which, in applications like UAVs and UAM, are continuously changing due to the variation of speed and altitude during the flight. This investigation analyzes semi-empirical and control-oriented models of fuel cell systems proposed in the scientific literature. The review addresses the whole fuel cell system, inclusive of the balance of the plant, and introduces the transition from dynamic models to digital twins.
+---
+
+---
+DOI: 10.1016/j.jpowsour.2023.233470
+Title: A physicochemical model-based digital twin of Li–S batteries to elucidate the effects of cathode microstructure and evaluate different microstructures
+Year: 2023
+Abstract: We are presenting a physicochemical model-based digital twin of Li–S batteries which involves continuum, volume-averaged ion transport equations including species migration, dissolution and precipitation, and electrochemical reactions, where the cathode microstructure is taken into account in terms of pore size distribution, hierarchy and tortuosity. The digital twin is applied in simulations of galvanostatic charge-discharge of a Li–S cell, exploring three types of cathode microstructure, activated carbon, graphene and hollow particles, two different amounts of sulphur and two different cathode coating thicknesses. Very good agreement is observed between predictions and experimental data in all case-studies. The best cathode is 70 wt% sulphur in host with porous hollow particles which trap the polysulphides from migrating to the anode. The simulations reveal that other reasons for low sulphur utilization, preventing the Li–S cell from reaching its theoretical capacity, are undissolved sulphur in micropores and sulphur leaching to macropores, especially in the cathode region near the separator, and reprecipitating.
+---

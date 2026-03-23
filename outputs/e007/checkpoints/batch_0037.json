@@ -1,0 +1,119 @@
+{
+  "batch_index": 37,
+  "dois": [
+    "10.1042/bsr20201037",
+    "10.6026/97320630008013",
+    "10.7150/jca.27281",
+    "10.1038/msb.2010.5",
+    "10.1093/plphys/kiad214",
+    "10.1371/journal.pone.0061318",
+    "10.3390/ijms21020633",
+    "10.1038/srep33322",
+    "10.1080/21645515.2019.1703453",
+    "10.1371/journal.pcbi.1009091"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1042/bsr20201037",
+      "problem": "Prognostic biomarkers and therapeutic targets associated with cancer stem cell (CSC) characteristics have not been fully identified in glioma.",
+      "method": "OCLR machine learning estimated mRNAsi from TCGA RNA-seq data; EdgeR identified DEGs between high/low stemness groups across grades; LASSO-regularized multivariate Cox regression built a prognostic nomogram from 11 stemness-related genes.",
+      "finding": "mRNAsi is a reliable index for IDH1 mutation status, histologic grade, and overall survival; three novel prognostic biomarkers (F2RL2, CLCNKA, LOXL4) were identified for glioma.",
+      "dataset": "TCGA glioma cohort (705 primary brain gliomas: 532 LGG + 173 GBM, 657 with clinical data)",
+      "metric": "AUC-ROC, Kaplan-Meier survival, univariate/multivariate Cox p-value",
+      "baseline": "Eight previously reported glioma biomarkers",
+      "result": "Nomogram AUC=0.832; 340 SRGs identified; risk score independently prognostic"
+    },
+    {
+      "doi": "10.6026/97320630008013",
+      "problem": "Multidrug resistance (MDR) mediated by MRP1 is a major cause of chemotherapy failure in retinoblastoma, and the potential of curcumin to inhibit MRP1 function in RB cells is unknown.",
+      "method": "Western blot and RT-PCR assessed MRP1 expression; flow cytometry with calcein-AM measured MRP1 transport function; ATPase activity and 8-azido-ATP-biotin photoaffinity labeling characterized binding mechanism; homology modeling and docking simulation studied molecular interactions.",
+      "finding": "Curcumin did not affect MRP1 expression but inhibited MRP1 transport function by increasing calcein-AM accumulation (~30-50%) and interacted with the substrate binding site, as confirmed by ATPase inhibition and docking studies.",
+      "dataset": "Y79 retinoblastoma cell line",
+      "metric": "Fluorescent substrate accumulation (calcein-AM), ATPase activity (Pi release), p-value",
+      "baseline": "DMSO-treated control; MRP1 inhibitors probenecid (1mM) and indomethacin (100µM)",
+      "result": "~30-50% increase in calcein-AM accumulation; p<0.05 vs control"
+    },
+    {
+      "doi": "10.7150/jca.27281",
+      "problem": "The functional consequences of BAP1 somatic mutations in clear cell renal cell carcinoma (ccRCC) and their potential therapeutic implications are not well understood.",
+      "method": "Kaplan-Meier survival analysis compared BAP1-mutated vs wild-type ccRCC from TCGA; DEGs identified by t-test with FDR correction; GO/KEGG enrichment and PPI network analysis with MCODE identified hub genes and modules; CpG methylation analysis assessed CIMP correlation.",
+      "finding": "BAP1-mutated ccRCC patients had significantly worse OS and DFS; 1,799 DEGs were identified; CAD, TSPO, CTNNB1, and MAPK3 were top hub genes; BAP1 mutation strongly correlated with CIMP.",
+      "dataset": "TCGA ccRCC cohort (445 cases: 39 BAP1-mutated, 406 wild-type)",
+      "metric": "Kaplan-Meier OS/DFS p-value, adjusted P<0.01, FDR<0.01, Z-score difference>0.5",
+      "baseline": "BAP1 wild-type ccRCC cases",
+      "result": "OS p=0.035, DFS p=0.036; mutation frequency 8.76% (39/445); 583 up-regulated + 1,216 down-regulated DEGs"
+    },
+    {
+      "doi": "10.1038/msb.2010.5",
+      "problem": "The mechanisms by which cellular senescence is stably maintained after DNA damage response (DDR) initiation, and particularly the role of ROS feedback, are poorly understood.",
+      "method": "Combined in-silico interactome analysis with functional siRNA target gene inhibition, stochastic mathematical modeling, and live cell microscopy (confocal, FACS, electron microscopy) in primary human and mouse fibroblasts undergoing stress-induced or telomere-dependent senescence.",
+      "finding": "A positive feedback loop exists where p21 (CDKN1A) induces mitochondrial dysfunction and ROS production through GADD45-p38MAPK-GRB2-TGFBR2-TGFβ signaling, and these ROS replenish DNA damage foci to maintain DDR; this loop is both necessary and sufficient for stable senescence.",
+      "dataset": "MRC5 human embryonic lung fibroblasts, p21-null MEFs, TRF2ΔBΔM transgenic mice (brain/gut sections, 12-15 months)",
+      "metric": "DNA damage foci frequency, MitoSOX/DHR fluorescence intensity, mitochondrial membrane potential (JC-1/TMRM), BrdU/Ki67 labeling index",
+      "baseline": "Untreated proliferating fibroblasts; siRNA knockdown controls (scrambled siRNA)",
+      "result": "ROS elevated from day 1 post-IR and sustained; antioxidant treatment reduced but did not abolish DDR foci; p21 siRNA abolished ROS feedback"
+    },
+    {
+      "doi": "10.1093/plphys/kiad214",
+      "problem": "Suboptimal nitrogen availability is a primary constraint to plant growth, and the utility of root cortical cell size (CCS) and cortical cell file number (CCFN) as adaptations for nitrogen acquisition is untested.",
+      "method": "OpenSimRoot functional-structural plant/soil model simulated maize root anatomy variants (CCS, CCFN, RCA, LRBD) under varying soil nitrogen in silt loam and loamy sand; multiple linear regression predicted tissue construction costs from empirical measurements of 12 maize genotypes.",
+      "finding": "Reduced CCFN increased shoot dry weight over 80% and large CCS increased shoot biomass by 24% under nitrogen stress; integrated phenotypes with reduced CCFN, large CCS, and high RCA improved biomass up to 145% in loamy sand; phene synergisms exist between CCS, CCFN, and LRBD.",
+      "dataset": "12 maize (Zea mays) genotypes with phenotypic variation for CCFN and CCS; simulated silt loam and loamy sand soils",
+      "metric": "Shoot dry weight (% change), root respiration, nitrogen content, root diameter",
+      "baseline": "Increased CCFN (18 files) and small CCS (200 µm²)",
+      "result": "Reduced CCFN: +82% shoot growth; large CCS: +24%; integrated phenotype: +44% (silt loam), +145% (loamy sand)"
+    },
+    {
+      "doi": "10.1371/journal.pone.0061318",
+      "problem": "Predicting the response of specific cancer cell lines to drug treatment requires integrating both genomic features of cancer cells and chemical properties of drugs, which prior approaches addressed separately.",
+      "method": "Neural network and random forest models were trained on GDSC data using 138 genomic features (mutations, CNVs, microsatellite status) of 608 cell lines combined with 689 chemical descriptors of 111 drugs to predict IC50 values; 8-fold cross-validation and an independent blind test of 13,565 newly generated IC50 values were used for evaluation.",
+      "finding": "Integrating genomic and chemical features into multi-drug models significantly outperformed single-drug genomic-only models; the approach can impute missing IC50 values and generalize to unseen tissue types.",
+      "dataset": "GDSC (Genomics of Drug Sensitivity in Cancer): 608 cell lines × 111 drugs, 38,930 training IC50 values, 13,565 blind test IC50 values",
+      "metric": "Coefficient of determination (R²), RMSE, Pearson correlation",
+      "baseline": "Single-drug neural network models using genomic features only",
+      "result": "R²=0.72 (8-fold CV), R²=0.64 (blind test), R²=0.61 (unseen tissue)"
+    },
+    {
+      "doi": "10.3390/ijms21020633",
+      "problem": "Doxorubicin's severe side effects at high effective doses limit its clinical use in liver cancer, and strategies to potentiate low-dose doxorubicin efficacy via chemosensitizers and metronomic scheduling need investigation.",
+      "method": "MTT cytotoxicity assays under long-term and metronomic (short repeated 2h) exposure schedules in HepG2 cells; flow cytometry measured doxorubicin/rhodamine-123 intracellular accumulation; Western blot assessed P-gp expression; molecular docking and MM-PBSA dynamic simulations characterized caryophyllane-P-gp interactions.",
+      "finding": "Metronomic scheduling enhanced low-dose doxorubicin cytotoxicity (IC50 reduced ~2.5-fold with triple exposure); caryophyllane sesquiterpenes further potentiated this effect by inhibiting P-gp efflux function and reducing P-gp expression; β-caryophyllene showed stronger P-gp binding affinity by MM-PBSA.",
+      "dataset": "HepG2 human hepatoma cell line",
+      "metric": "IC50, combination index, intracellular fluorescence accumulation, P-gp expression (Western blot), MM-PBSA binding energy",
+      "baseline": "Doxorubicin alone (single 24h exposure); DMSO vehicle control",
+      "result": "Dox IC50: 14.4µM(24h)→1.6µM(72h); metronomic triple 2h IC50=5.8µM; ~9-fold potency increase with long-term exposure"
+    },
+    {
+      "doi": "10.1038/srep33322",
+      "problem": "The mechanisms and prognostic implications of inflammatory cell infiltration patterns in non-malignant breast lobular tissue, and whether physiological inflammation can be distinguished from pathological lymphocytic lobulitis (LLO), are poorly understood.",
+      "method": "Agent-based model of immune-epithelial cell interactions in breast lobular epithelium calibrated from immunohistochemistry (CD8, CD4, CD163) quantification of ~900 lobular structures from 22 healthy women; automated image analysis on whole-slide images; simulated 12 menstrual cycles with varying hormone levels and damage rates.",
+      "finding": "A critical epithelial damage rate threshold separates physiological from pathological inflammatory regimes; the immunological context (immune cell density, functional orientation, spatial distribution) contains prognostic information not captured by conventional diagnostics; menstrual cycle length and hormone status influence inflammatory responses.",
+      "dataset": "Breast tissue from 22 healthy premenopausal women (reduction mammoplasty), ~650 lobular structures (luteal) + ~250 (follicular); 7 BRCA1/2 mutation carriers for validation",
+      "metric": "Relative immune cell number (per epithelial cell), damaged epithelial cell fraction, killing rate (k_kill), damage rate (k_dge)",
+      "baseline": "Physiological homeostasis (linear damage-response regime) in healthy women",
+      "result": "Non-linear immune response above critical damage threshold; immunosuppression and effector exhaustion in pathological regime"
+    },
+    {
+      "doi": "10.1080/21645515.2019.1703453",
+      "problem": "Acellular pertussis vaccines show waning immunity and resurgence of whooping cough; tolerance-inducing epitopes in vaccine antigens that cross-react with human sequences may reduce vaccine efficacy.",
+      "method": "EpiMatrix screened 49 Bordetella pertussis proteins for HLA class II epitope content across 8 supertype alleles; JanusMatrix identified TCR-face cross-reactive peptides homologous to human proteome; OptiMatrix detolerized 4 peptides by disrupting HLA/MHC binding; in vitro competitive binding assays validated reduced HLA class II affinity of detolerized variants.",
+      "finding": "Seven proteins were identified as good vaccine candidates; 19 cross-reactive peptides were found; detolerized variants of 4 peptides showed reduced HLA class II binding affinity in vitro, supporting epitope engineering as a strategy for improved pertussis vaccines.",
+      "dataset": "49 Bordetella pertussis proteins (Tohama I strain); 8 HLA class II supertype alleles covering >95% human population",
+      "metric": "EpiMatrix Protein Score, JanusMatrix Homology Score, HLA class II binding affinity (competitive binding assay IC50)",
+      "baseline": "Wild-type cross-reactive peptide sequences",
+      "result": "7/49 proteins selected; 19 cross-reactive peptides identified; detolerized variants showed reduced HLA binding vs wild-type"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1009091",
+      "problem": "The complex interplay of ion channel expression and its consequences on cancer cell bioelectric properties and proliferation is insufficiently understood, and no computational whole-cell model of a cancer cell existed.",
+      "method": "Hidden Markov model-based whole-cell ion current model of A549 lung adenocarcinoma incorporating 11 functionally expressed ion channels; particle swarm optimization fitted channel numbers to whole-cell patch-clamp data; simulated membrane potential oscillations across cell cycle phases (G0/G1/S/G2/M).",
+      "finding": "The model reproduces membrane potential oscillations driving cell cycle transitions and predicts effects of targeted ion channel modulation; PSO showed highest stability over 1,000 simulation runs; the model identified key channels (KCa3.1, TASK-1, Kv7.1) governing cell cycle-dependent membrane potential changes.",
+      "dataset": "A549 human lung adenocarcinoma cell line; Single Cell Expression Atlas (113 ion channel genes); whole-cell patch-clamp recordings",
+      "metric": "Whole-cell current fit (least squares), membrane potential (mV), channel number estimation",
+      "baseline": "Experimental whole-cell patch-clamp recordings of A549 cells",
+      "result": "11 ion channels modeled from 113 expressed; resting membrane potential oscillation from hyperpolarized to depolarized states across cell cycle"
+    }
+  ],
+  "timestamp": "2026-03-05T14:26:59.647094",
+  "extraction_count": 10
+}

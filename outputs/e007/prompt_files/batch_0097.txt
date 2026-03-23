@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1002/batt.202300327
+Title: The Challenge of Electrolyte Impregnation in the Fabrication and Operation of Li‐ion and Li−S Batteries
+Year: 2023
+Abstract: Abstract Modeling and simulations, coupled with selected experimental studies for validation, are employed to analyze electrolyte impregnation in battery fabrication, elucidate and assess its effects on battery operation. Digital twins of the electrolyte filling process or the cell cycling are based on continuum‐level physicochemical models taking into account the pore size distribution of the porous cathode and separator, dissolution and precipitation of any solutes such as sulfur or sulfides; additionally, ion transport and redox reactions in the liquid electrolyte for simulations of battery cycling. Electrolyte impregnation highly depends on cell format, with a cylindrical Li‐ion cell predicted to take up to 7 days under rest for homogeneous electrolyte distribution. Simulations of the electrolyte infiltration in Li−S coin cells revealed sulfur dissolution and reprecipitation, which was verified by experiments using in operando microscopy. Simulations of the first discharge of electrolyte‐lean Li−S cells demonstrated the effects of poor micropore wetting by the electrolyte.
+---
+
+---
+DOI: 10.1364/solith.2025.sw2e.1
+Title: Towards a Fully Differentiable Digital Twin for Solar Cells
+Year: 2025
+Abstract: Digital twins are comprehensive digital representations of real-world devices. We present a fully differentiable digital twin for a solar cell, capturing thin-film formation, optical and electrical properties, and energy yield prediction, enabling gradient-based inverse design. Full-text article not available; see video presentation
+---
+
+---
+DOI: 10.1016/j.fusengdes.2021.112780
+Title: Virtual and Augmented Reality Use Cases for Fusion Design Engineering
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1101/2020.03.11.988238
+Title: Immune Digital Twin Blueprint: A Comprehensive Mechanistic Model of the Human Immune System
+Year: 2020
+Abstract: Abstract The immune system is a complex and dynamic network, crucial for combating infections and maintaining health. Developing a comprehensive digital twin of the immune system requires incorporating essential cellular components and their interactions. This study presents the first blueprint for an immune system digital twin, consisting of a comprehensive and simulatable mechanistic model. It integrates 51 innate and adaptive immune cells, 37 secretory factors, and 11 disease conditions, providing the foundation for developing a multi-scale model. The cellular-level model demonstrates its potential in characterizing immune responses to various single and combinatorial disease conditions. By making the model available in easy-to-use formats directly in the Cell Collective platform, the community can easily and further expand it. This blueprint represents a significant step towards developing general-purpose immune digital twins, with far-reaching implications for the future of digital twin technology in life sciences and healthcare, advancing patient care, and accelerating precision medicine.
+---
+
+---
+DOI: 10.1007/978-3-030-90700-6_34
+Title: Applying Robotics Centered Digital Twins in a Smart Factory for Facilitating Integration and Improved Process Monitoring
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/tte.2023.3279835
+Title: Nonintrusive Condition Monitoring of FCEV Using System-Level Digital Twin Model
+Year: 2023
+Abstract: High maintenance costs and short lifecycles are the two main issues in fuel cell (FC) electric vehicle (FCEV) development. With the development of digital technology, the concept of digital twins provides new opportunities for monitoring and predicting the behavior of FCEV. However, the constitution of the digital model of FCEV faces many challenges caused by the multiphysical domain. In this article, a digital model is built for condition monitoring of FCEV in both short term and long term. The built model reflects the interaction of multiphysical domains by representing the FCEV using the energetic macroscopic representation (EMR) method. Moreover, by considering different road conditions, the effect of different driving modes can be shown through the energy flow between the battery and the FC, and the model can give a visible reflection of the electric, magnetic, mechanical, and chemical inside the vehicle. To further investigate the effect of all the above factors on the long-term operation status, the echo state network (ESN) is used to predict the degradation phenomenon of the proton exchange membrane FCs (PEMFCs), which is used for prognostic purposes. At last, the digital twin test bench is shown with a real-time (RT) simulation platform of the Opal-RT.
+---
+
+---
+DOI: 10.1007/s10845-025-02634-0
+Title: A cloud-edge-based digital twin architecture for cyber-physical shop floors: design principles, function analysis, and case study
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3390/electronics13214179
+Title: Application of Digital Twins in Designing Safety Systems for Robotic Stations
+Year: 2024
+Abstract: The aim of this paper is to present examples and original solutions related to the application of the digital twin concept in designing safety systems for robotic stations. This paper includes a review of publications on robot safety systems and digital twins. Based on this review, it was concluded that further work in this area is justified. This paper demonstrates the use of a digital model of a robotic casting mold preparation station to design safety components for an industrial cell. A key element of this paper is the presentation of developed algorithms and their applications in building digital twins of existing robotic stations. By characterizing advanced safety systems used in robotic stations, an example of using a digital twin of a robotic station to create safety zones and so-called restricted zones for the robot was developed. As part of the research conducted, a real, comprehensive example of creating safety zones based on the robot’s TCP paths was carried out.
+---
+
+---
+DOI: 10.1109/access.2021.3060863
+Title: The Role of AI, Machine Learning, and Big Data in Digital Twinning: A Systematic Literature Review, Challenges, and Opportunities
+Year: 2021
+Abstract: &lt;p dir="ltr"&gt;Digital twinning is one of the top ten technology trends in the last couple of years, due to its high applicability in the industrial sector. The integration of big data analytics and artificial intelligence/machine learning (AI-ML) techniques with digital twinning, further enriches its significance and research potential with new opportunities and unique challenges. To date, a number of scientific models have been designed and implemented related to this evolving topic. However, there is no systematic review of digital twinning, particularly focusing on the role of AI-ML and big data, to guide the academia and industry towards future developments. Therefore, this article emphasizes the role of big data and AI-ML in the creation of digital twins (DTs) or DT-based systems for various industrial applications, by highlighting the current state-of-the-art deployments. We performed a systematic review on top of multidisciplinary electronic bibliographic databases, in addition to existing patents in the field. Also, we identified development-tools that can facilitate various levels of the digital twinning. Further, we designed a big data driven and AI-enriched reference architecture that leads developers to a complete DT-enabled system. Finally, we highlighted the research potential of AI-ML for digital twinning by unveiling challenges and current opportunities.&lt;/p&gt;&lt;h2&gt;Other Information&lt;/h2&gt;&lt;p dir="ltr"&gt;Published in: IEEE Access&lt;br&gt;License: &lt;a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank"&gt;https://creativecommons.org/licenses/by/4.0/&lt;/a&gt;&lt;br&gt;See article on publisher's website: &lt;a href="https://dx.doi.org/10.1109/access.2021.3060863" target="_blank"&gt;https://dx.doi.org/10.1109/access.2021.3060863&lt;/a&gt;&lt;/p&gt;
+---
+
+---
+DOI: 10.1186/2193-9772-3-5
+Title: DREAM.3D: A Digital Representation Environment for the Analysis of Microstructure in 3D
+Year: 2014
+Abstract: Abstract This paper presents a software environment for processing, segmenting, quantifying, representing and manipulating digital microstructure data. The paper discusses the approach to building a generalized representation strategy for digital microstructures and the barriers encountered when trying to integrate a set of existing software tools to create an expandable codebase.
+---
+
+---
+DOI: 10.1016/j.cirp.2016.05.004
+Title: Design for Additive Manufacturing: Trends, opportunities, considerations, and constraints
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1111/jmi.12271
+Title: Nano‐level position resolution for particle tracking in digital in‐line holographic microscopy
+Year: 2015
+Abstract: Summary Three‐dimensional particle tracking in biological systems is a quickly growing field, many techniques have been developed providing tracking characters. Digital in‐line holographic microscopy is a valuable technique for particle tracking. However, the speckle noise, out‐of‐focus signals and twin image influenced the particle tracking. Here an adaptive noise reduction method based on bidimensional ensemble empirical mode decomposition is introduced into digital in‐line holographic microscopy. It can eliminate the speckle noise and background of the hologram adaptively. Combined with the three‐dimensional deconvolution approach in the reconstruction, the particle feature would be identified effectively. Tracking the fixed beads on the cover‐glass with piezoelectric stage through multiple holographic images demonstrate the tracking resolution, which approaches 2 nm in axial direction and 1 nm in transverse direction. This would facilitate the development and use in the biological area such as living cells and single‐molecule approaches.
+---
+
+---
+DOI: 10.1109/hpcc-dss-smartcity-dependsys53884.2021.00228
+Title: Cooperative Task Offloading for Internet of Vehicles in Cloud-edge Computing
+Year: 2021
+Abstract: In order to support computing-intensive and service-sensitive Internet of Vehicles (IoV) applications, Digital Twin and edge computing are attractive solutions. Most of the existing IoV service offloading solutions only consider edge-cloud collaboration, but the cooperation between small cell eNodeB(SCeNB) nodes should not be ignored. Through reasonable cooperative computing between nodes, service delays far lower than offloading tasks to the cloud can be obtained. We generate and maintain the simulation of cooperation between SCeNB nodes by constructing a Digital twin to simulate SCeNB nodes in the small cell manager (SCM), thereby realizing user task offloading positions, sub-channel allocation and computing resource allocation. After that, we proposed an algorithm AUC-AC based on the dominant actor critic network and the auction-mechanism. In the DT of each SCeNB node, the global strategy is learned via deep reinforcement learning model. Numerical results show that our proposed experimental scheme is better than several baseline algorithms in terms of service delay.
+---
+
+---
+DOI: 10.1364/oe.444884
+Title: Phase imaging microscopy under the Gabor regime in a minimally modified regular bright-field microscope
+Year: 2021
+Abstract: Quantitative phase imaging (QPI) is nowadays a powerful tool for visualization and analysis of biological processes. QPI is usually attained from specifically designed optical microscopes retrieving phase information in a quantitative way. In this paper we report on an extremely simple, low cost and compact way to update a standard bright-field microscope with coherent sensing capabilities. It is based on the in-line Gabor holography concept and only needs to replace the illumination broadband source of the regular microscope with a coherent one. The proposed methodology is completed by the recording of a digital in-line Gabor hologram instead of regular imaging conditions and by the numerical processing of the recorded hologram to finally achieve QPI. The selection of the defocus distance is critical to finally achieve high quality phase imaging, so calibration considering phase and amplitude test targets is presented for the proper definition of such defocus distance. In addition, the selected configuration is experimentally validated using different samples (microbeads, cheek cells and alive spermatozoa). All the experiments are implemented in a regular Olympus BX-60 upright microscope using a 20X 0.46NA objective lens. The proposed method shows how to convert a regular microscope into a holographic one with probably the minimum needed modifications and with the main limitation coming from the Gabor imaging conditions (weak diffractive samples and twin image presence).
+---
+
+---
+DOI: 10.1016/j.jaci.2011.10.025
+Title: Low diversity of the gut microbiota in infants with atopic eczema
+Year: 2011
+Abstract: BackgroundIt is debated whether a low total diversity of the gut microbiota in early childhood is more important than an altered prevalence of particular bacterial species for the increasing incidence of allergic disease. The advent of powerful, cultivation-free molecular methods makes it possible to characterize the total microbiome down to the genus level in large cohorts.ObjectiveWe sought to assess microbial diversity and characterize the dominant bacteria in stool during the first year of life in relation to atopic eczema development.MethodsMicrobial diversity and composition were analyzed with barcoded 16S rDNA 454-pyrosequencing in stool samples at 1 week, 1 month, and 12 months of age in 20 infants with IgE-associated eczema and 20 infants without any allergic manifestation until 2 years of age (ClinicalTrials.gov ID NCT01285830).ResultsInfants with IgE-associated eczema had a lower diversity of the total microbiota at 1 month (P = .004) and a lower diversity of the bacterial phylum Bacteroidetes and the genus Bacteroides at 1 month (P = .02 and P = .01) and the phylum Proteobacteria at 12 months of age (P = .02). The microbiota was less uniform at 1 month than at 12 months of age, with a high interindividual variability. At 12 months, when the microbiota had stabilized, Proteobacteria, comprising gram-negative organisms, were more abundant in infants without allergic manifestation (Empirical Analysis of Digital Gene Expression in R [edgeR] test: P = .008, q = 0.02).ConclusionLow intestinal microbial diversity during the first month of life was associated with subsequent atopic eczema.
+---
+
+---
+DOI: 10.1115/imece2018-87688
+Title: Towards a Digital Twin for Cloud Manufacturing: Case Study
+Year: 2018
+Abstract: Cloud manufacturing (CMfg) is a new manufacturing paradigm designed to enable manufacturing enterprise to share their resources and capabilities. Prior to any real-life change in the system, for CMfg it is important to anticipate and optimize the response of the system through simulation. Digital Twins (DT) is a simulation method for this paradigm that is different from existing simulation methods in two ways. It is a virtual copy of the system containing all the components and can connect to the controller in real time. The goal of this work is to develop a DT for an educational manufacturing cell. The educational manufacturing cell is a FESTO Reconfigurable Mechatronics System (RMS). The cell has four stations that uses pallets to transport the product on the conveyor belt and assembles a part of the product. The Siemens Process Simulate: TECNOMATIX, was used to create the DT of the system. The system is modeled in a CAD program and then imported into TECNOMATIX Process Simulate, where it is programmed to replicate the processes.
+---
+
+---
+DOI: 10.1007/978-981-99-8631-6_28
+Title: Construction and Simulation of Digital Twin Model and Electrolyzer Wide Power Adaptation Model for Alkaline Electrolytic Water Hydrogen Production
+Year: 2024
+Abstract: Abstract Combining the framework of digital twin and the working mechanism of electrolytic water hydrogen production, a digital twin model of alkaline electrolytic water hydrogen production is constructed, and the influence of electrolyzer cell voltage by temperature and pressure is analyzed according to the mathematical model of electrolytic water hydrogen production. In order to improve the adaptability of the electrolyzer of the hydrogen production system to the power fluctuation of renewable energy input, a wide power adaptation model with multiple electrolyzers sharing one set of gas-liquid handling device is proposed. The case study shows that by reasonably selecting the electrolyzer model of the hydrogen production system, the use of the wide power adaptation model can effectively adapt to the fluctuation of wind power and improve the adaptation capability of the electrolyzer to wide power fluctuations.
+---
+
+---
+DOI: 10.1002/1521-3773(20020315)41:6<965::aid-anie965>3.0.co;2-y
+Title: Template Effects, Asymmetry, and Twinning in Helical Inclusion Compounds
+Year: 2002
+Abstract: Previously unrecognized chiral and rotational twinning were revealed by optical microscopy, synchrotron white beam X-ray topography, and crystallography in the crystal structure of the inclusion compound of 2,12-tridecanedione/urea (see picture), which was otherwise intractable. Of the achiral substances in our world, only a small fraction are spontaneously resolved into enantiomorphic crystals that can be separated. Spontaneous resolution may occur when the molecular constituents of the crystal adopt chiral or skewed conformations or when molecules adopt chiral arrangements, such as a helices, which act as templates for further growth of the given enantiomorph. Certain inclusion compounds (such as those derived from urea and tri-o-thymotide) have received attention because spontaneous resolution of the inclusion compound leads to chiral discrimination between guest enantiomers.1, 2 For urea inclusion compounds (UICs), in which urea forms helical channels in the presence of long-chain guests,3 the literature has uniformly treated these materials as either right- or left-handed homochiral objects. In part, this misconception occurs because the typical needle morphology makes it difficult to observe the presence of enantiomorphic domains. Through the combined use of optical microscopy, synchrotron white beam X-ray topography (SWBXT), and crystallography, we demonstrate here the existence of two types of previously unrecognized macroscopic twinning in UICs. This work provides further support for our models of crystal growth4 and hydrogen-bond topologies in UICs containing bis(methyl ketone)s5 and provides a rationale for chiral (Brasil) twinning in these materials. This rationale may serve as a model for chiral twinning in other helical materials,6 especially those with double helices. Most urea inclusion compounds consist of well-defined host structures in which urea molecules are hydrogen-bonded to form honeycomb networks of nonintersecting hexagonal channels. Within these channels, long-chain guest molecules pack within van der Waals contact. Although UICs typically form high-symmetry, incommensurate (nonstoichiometric) structures,7 we have identified a series of commensurate UICs containing homologous bis(methyl ketone)s.3–5, 8 For such guests and their congeners, a reliable host–guest hydrogen-bonding motif can be used to control both internal symmetry and external shape of these crystals. In most bis(methyl ketone)/urea crystals that we have studied, urea molecules turn about their twofold axes to form hydrogen bonds with guest molecules in adjacent channels. Using this motif, we have developed a simple geometric model that allows us to use the host:guest stoichiometry, natural length of the guest, and the parity (odd or even) of the guest molecule's chain to restrict the possible host–guest hydrogen-bonding topologies. In the case of 2,12-tridecanedione/urea (1/urea), our prediction of the correct polymorphic structure was instrumental in our structure solution and refinement from the X-ray data.1 A description of helical wheels is given elsewhere,5 so only the salient features are presented here. Most UICs are chiral objects in which the two intertwined helices are of the same handedness and are related by C2 axes perpendicular to the channel. Each urea molecule in helix 1 (numbered 1, 2, and so on as one moves down the channel) has a counterpart directly across the channel (at the same z coordinate) in helix 2 (numbered 1′, 2′, and so on). These pairs of molecules (for example, 1 and 1′) lie parallel to each other. If the host:guest stoichiometry is known (or can be predicted), it is a simple matter to write down the relative positions of the urea molecules that are in position to use their syn N−H groups to form hydrogen bonds with the guest. For 1/urea, the natural length of the guest (18.8 Å)3, 4, 9 predicts a host:guest stoichiometry of 10:1, so the hydrogen-bonding motif requires that the two C=O groups of a given guest molecule are tethered to urea molecules in the first and eleventh positions in the channel (since half of a urea molecule is used at each end of the guest). The helical-wheel diagram shown in Figure 1 represents four possible combinations of host–guest connectivities (1–11, 1–11′, 1′–11, 1′–11′), the first and fourth of which are degenerate. Long arrows in the center of each diagram denote the orientations of the two carbonyl groups in one guest molecule and give a rough idea of the dihedral angle between them. Right-handed helical-wheel diagram showing four possible arrangements for host–guest hydrogen bonding in 1/urea. (An equivalent diagram can be drawn for a left-handed helix.) The numbered arrows around the periphery of the hexagon refer to the orientations of urea C=O groups. The C2 axis shared by A and D (which are degenerate) is shown in D. For this odd-chain guest, this simple model correctly predicts topology B (see Figure 4 e). For this odd-chain guest, whose natural length is slightly longer than the commensurate repeat of 18.36 Å, Figure 1 B predicts that a stable structure (with low torsional strain) can be formed. Indeed, the channel axis oscillation photograph indicates a commensurate structure with 3c=5c (urea: guest=10:1), and the crystals grow as thin {001} plates, as predicted for a commensurate structure in which guests are tethered to the host and offset from guests in adjacent channels by 0 Å.4 Further support for this structural motif came from atomic force microscopy (AFM), which showed that terraces on the {001} faces are molecularly smooth and offset along c by integral multiples of the guest length, with average height of 18.1(5) Å or a multiple thereof (Figure 2). Nevertheless, our early attempts to solve the structure from area detector data proved unsuccessful because of disorder of the guest. AFM images of the {001} face of 1/urea recorded in air on a Digital Nanoscope III instrument in tapping mode. The average step height for six different ledges was 18.1(5) Å or a multiple thereof. For a commensurate structure of 1/urea with 3c=5c one predicts that guests will be related by threefold (31) screw axes along the channels and that the crystals will therefore have uniaxial optical properties (that is, with no ferroelastic distortion in the ab plane).8 Photomicrographs can therefore reveal optical activity, which for most UICs is relatively insensitive to guest identity in the visible region of the spectrum.2b Because there were no previous reports of chiral twinning in UICs, we were surprised to find that in 1/urea and related materials (2-tridecanone/urea, 2,9-decanedione/urea,4 and mixed UICs of 2-undecanone and 6-undecanone), both dextrorotatory and levorotatory domains could be observed (Figure 3 a and b3). The twin boundaries that separate these domains occur every 60° and are coincident with the {110} faces of the crystal. a) Photomicrograph of 1/urea (0.26 mm thick) with polarized light at 546 nm and the analyzer rotated by +9° from the crossed position (dark=dextrorotatory). b) The same crystal with the analyzer rotated by −9° from the crossed position (dark=levorotatory). In each, the view is down the channel axis. Because the nature of the twin boundaries in UICs was important for our studies of domain switching in ferroelastic UICs8 (whose birefringence would mask any chiral twinning), we subjected this crystal to SWBXT at beamline X-19C at the National Synchrotron Light Source. In this technique, the highly collimated white beam provides topographic images with high spatial resolution for each Bragg reflection.10 The positions and intensities of the resulting images are sensitive to twinning, strain, dislocations, and differences in structure factors for reflections in different domains.11 After an exposure of 10–15 s, one obtains a Laue image corresponding to the most intense reflections in the diffraction pattern (Figure 4 a). For 1/urea, reflections occur in three separate sets, one of which shows no contrast. The other two sets form complementary images (labeled d and e) that reveal sectoring in addition to the chiral twinning described above (Figure 4 b and c4) and little or no apparent strain at any of the domain boundaries. a) SWBXT Laue image of 1/urea held with its {001} face perpendicular to the X-ray beam. Note complementary contrast in reflections labeled d and e. b) SWBXT of d1 reflection for 1/urea (g vector shown in upper right). Arrow on left denotes levorotatory region (2-(−)-d) used for X-ray crystal structure shown in Figure 4 d (see text). c) SWBXT of e1 reflection for 1/urea (g vector shown in upper right). Arrow on right denotes dextrorotatory region (7-(+)-e) used for X-ray crystal structure shown in Figure 4 e. Scale bar: 400 μm. d) and e) ORTEP diagrams (30 % ellipsoids) showing P3212 crystal structure of levorotatory fragment shown in Figure 4 b (d) and P3112 crystal structure of dextrorotatory fragment shown in Figure 4 c (e). The absolute configurations are not proven. In anticipation of a trigonal structure, we indexed the topograph with a nonprimitive, rhombohedral cell (a=55.96 Å, α=14.63°),12 and found that in the d and e reflections, the contrast pattern obeyed the conditions for obverse and reverse settings of a rhombohedral cell (−h+k+l=3 n and h−k+l=3 n). These unit cells are related by 180° (or equivalent 60°) rotation about the channel axis.13 Although this rotational (Dauphiné) twinning14 was invisible under the microscope, the X-ray topograph could be used as a guide for cleavage of this crystal into eleven fragments. Two complementary fragments [fragment 7-(+)-e (dextrorotatory type e) and fragment 2-(−)-d (levorotatory type d)] were used for X-ray data collection at −75 °C (see arrows in Figure 4 b and c4). Structure solution and refinement revealed that the apparent rhombohedral symmetry was only approximate, and that the structures could be solved in the trigonal space groups P3112 and P3212. Because there are no heavy atoms in these structures, the absolute structures could not be determined unambiguously with either Flack or Bijvoet methods,15 but the favored assignments (Figure 4 d and e4) agree with Schlenk's model-based correlation of positive optical rotation with the right-handed (31) sense of the urea helix.2b Nevertheless, the structures16 confirm that in the presence of host–guest hydrogen bonding, the helical-wheel method correctly predicts the observed polymorph (cf. Figures 1 B and 4 e). Facet indexing and correlation with the overall crystal morphology showed that the d and e domains are related to each other by 60° rotation about the channel axis. (For fragment 2-(−)-d, which was contaminated by a small amount of the adjacent type e domain, the largest peak in the difference Fourier map assumed the position of an oxygen atom in a guest carbonyl group rotated 58° about the channel axis.) This macroscopic rotational twinning is established during crystal growth, persists over a period of years, and is remarkable given the dynamic nature of guests in other UICs17 and the lack of ferroelastic distortion in 1/urea. (SWBXT of the upper right third of this crystal, which was held between −20 and 20 °C for two years after the initial topograph, showed no noticeable degradation in the Dauphiné twin boundaries.) Although chiral twinning is counterintuitive in a strongly hydrogen-bonded helical system, in which templated growth predominates, clues to the twinning mechanism in 1/urea come from our recent structures of a series of centrosymmetric UICs.18 For Br(CH2)6Br/urea and congeners (space group P21/n, b unique), the n-glide provides a convenient mechanism by which the structures on either side of certain (001)-type channel walls are related by mirror symmetry. In Br(CH2)6Br/urea, the n-glide generates a looplike topology of hydrogen bonds in which certain rows of urea molecules lying closest to the (001) plane are translated along the channel relative to their counterparts in helical structures. From a diagram based on our helical-wheel formalism, it is possible to show that the loop topology in Br(CH2)6Br/urea can serve as a template for the formation of enantiomorphic helices above and below the (001) plane (Figure 5). (No other primitive planes in the Br(CH2)6Br/urea structure can directly template both right- and left-handed helices.) Although the precise structure of the chiral twin boundaries is not available from SWBXT of 1/urea, support for this twinning mechanism comes from the structural correspondence between the {001} planes in Br(CH2)6Br/urea and the {110} planes of 1/urea, which exhibit chiral twinning.18 Modified helical-wheel diagram showing how the stacked loop structure of a centrosymmetric UIC (such as Br(CH2)6Br/urea) can serve as a template for the formation of left- and right-handed helices above and below the (001) plane. Arrows in the middle row of channels correspond to C=O axes for urea molecules in the P21/n structure found in numerous X(CH2)6X/urea inclusion compounds. The numbers correspond to the relative positions along the channel axis of those urea molecules. At the bottom of this centrosymmetric row, urea molecules 2 and 3 template the formation of a right-handed helix, in which the sequence 1, 2, 3, 4, 5, 6 leads in a clockwise sense away from the observer (down the channel). At the top, urea molecules 2 and 3 template the formation of a left-handed helix (counterclockwise from 1 through 6). These right- and left-handed helices correspond to the unprimed and primed helices described above in the helical-wheel formalism. Athough 1/urea is not ferroelastic, these results illuminate our studies of domain switching in ferroelastic crystals such as 2,10-undecanedione/urea, in which domain reorientation occurs under applied external anisotropic stress.8 Because the present work shows that chiral twinning may occur in helical urea systems, and that the most likely topology at this type of domain boundary is nonhelical, we anticipate that ferroelastic UICs containing such twin boundaries will have high barriers to domain wall motion.19 With the recent emergence of optical techniques for measuring chirality in biaxial crystals,20 identification of Brasil-type domain walls may soon be possible. 1/urea: A solution of 2,12-tridecanedione (0.301 g, 1.42 mmol, prepared by literature methods21), urea (0.857 g, 14.3 mmol, Baker AR) and MeOH (7.0 mL, Mallinckrodt) was allowed to evaporate at RT. After one day, thin plates (0.331 g) were collected. M.p. 134.5–135 °C, uncorrected; 1H NMR (400 MHz, [D6]DMSO): δ=5.41 (s, urea), 2.38 (t, 3J(H,H)=7.4 Hz), 2.04 (s), 1.41 (m), 1.20 (m), urea:guest (10.3:1); IR (Nujol): =1717 cm−1. Dedicated to Professor J. Michael McBride
+---
+
+---
+DOI: 10.1109/jbhi.2020.2991043
+Title: AI in Medical Imaging Informatics: Current Challenges and Future Directions
+Year: 2020
+Abstract: This paper reviews state-of-the-art research solutions across the spectrum of medical imaging informatics, discusses clinical translation, and provides future directions for advancing clinical practice. More specifically, it summarizes advances in medical imaging acquisition technologies for different modalities, highlighting the necessity for efficient medical data management strategies in the context of AI in big healthcare data analytics. It then provides a synopsis of contemporary and emerging algorithmic methods for disease classification and organ/ tissue segmentation, focusing on AI and deep learning architectures that have already become the de facto approach. The clinical benefits of in-silico modelling advances linked with evolving 3D reconstruction and visualization applications are further documented. Concluding, integrative analytics approaches driven by associate research branches highlighted in this study promise to revolutionize imaging informatics as known today across the healthcare continuum for both radiology and digital pathology applications. The latter, is projected to enable informed, more accurate diagnosis, timely prognosis, and effective treatment planning, underpinning precision medicine.
+---
+
+---
+DOI: 10.1016/j.est.2023.108367
+Title: A review of methods to study the fatigue life of nodes connecting marine composite hydrogen storage tanks to ships under the action of external forces
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/access.2019.2946515
+Title: Digital Twin: Vision, Benefits, Boundaries, and Creation for Buildings
+Year: 2019
+Abstract: The concept of a digital twin has been used in some industries where an accurate digital model of the equipment can be used for predictive maintenance. The use of a digital twin for performance is critical, and for capital-intensive equipment such as jet engines it proved to be successful in terms of cost savings and reliability improvements. In this paper, we aim to study the expansion of the digital twin in including building life cycle management and explore the benefits and shortcomings of such implementation. In four rounds of experimentation, more than 25,000 sensor reading instances were collected, analyzed, and utilized to create and test a limited digital twin of an office building facade element. This is performed to point out the method of implementation, highlight the benefits gained from digital twin, and to uncover some of the technical shortcomings of the current Internet of Things systems for this purpose.
+---
+
+---
+DOI: 10.1016/j.jhep.2025.08.007
+Title: Sex-related variations in liver homeostasis and disease: From zonation dynamics to clinical implications
+Year: 2025
+Abstract: The liver exhibits pronounced sexual dimorphism, characterised by sex-specific differences in structure, metabolic function, and susceptibility to disease. Although traditionally considered homogeneous, the liver exhibits significant zonal heterogeneity, with periportal and pericentral regions differing considerably in terms of oxygen availability, metabolic activity and cellular composition. In recent years, new technologies, such as single-cell RNA sequencing and spatial proteomics, have revealed numerous sex-specific differences in gene and protein expression that align with the spatial heterogeneity of liver functions. These spatial and functional dynamics are largely influenced by sex hormones, including oestrogens, androgens, and growth hormone, and their downstream endocrine signalling pathways. Consequently, men and women not only differ in their susceptibility to various liver diseases, but also in the rate and pattern of disease progression, including fibrogenesis. For instance, men are more prone to developing MASLD (metabolic dysfunction-associated steatotic liver disease) and HCC (hepatocellular carcinoma), whereas women have a higher prevalence of autoimmune liver diseases and are at increased risk of accelerated fibrosis progression after menopause. Digital twin models and innovative computer-assisted approaches continue to advance our understanding of liver dimorphism, offering the prospect of personalised strategies for diagnosis and treatment.
+---
+
+---
+DOI: 10.1016/j.mfglet.2024.09.144
+Title: A framework for digital twin integration in biofabrication and a scaffold 3D bioplotting case study
+Year: 2024
+Abstract: Biofabrication, which integrates biological sciences with advanced manufacturing, is vital for innovations in tissue engineering and regenerative medicine. One primary consideration in this domain is ensuring consistent, scalable, and adaptable processes that are amenable to clinical translation. Toward this, this paper introduces a new framework for digital twin integration in biofabrication. Digital twins, which are real-time virtual replicas of physical systems, can facilitate comprehensive monitoring, accurate prediction, and effective optimization to enable robust biofabrication processes and systems. The proposed framework incorporates major building blocks for implementing digital twins for biofabrication, including comprehensive data acquisition and analysis using sophisticated sensors to integrate biological, material, and process data; advanced modeling methods utilizing traditional and machine learning algorithms to refine process parameters; and feedback loop for real-time process adjustments. The first phase of the framework is demonstrated through a case study highlighting process optimization of 3D bioplotting of polycaprolactone (PCL) scaffolds. The digital twin’s insights streamline decisions on bioplotting parameters and post-processing, ensuring that the printed scaffold meets the desired mechanical and biological properties, thereby significantly enhancing cell proliferation and printing resolution. Key benefits of this approach include optimized biofabrication outcomes by integrating physical and biological models, promoting scalability and reproducibility with an accelerated research and development phase. This work underlines the promise of digital convergence in biofabrication, which can accelerate advancements in regenerative medicine and tissue engineering.
+---
+
+---
+DOI: 10.1109/access.2020.2981745
+Title: Communications in the 6G Era
+Year: 2020
+Abstract: The focus of wireless research is increasingly shifting toward 6G as 5G deployments get underway. At this juncture, it is essential to establish a vision of future communications to provide guidance for that research. In this paper, we attempt to paint a broad picture of communication needs and technologies in the timeframe of 6G. The future of connectivity is in the creation of digital twin worlds that are a true representation of the physical and biological worlds at every spatial and time instant, unifying our experience across these physical, biological and digital worlds. New themes are likely to emerge that will shape 6G system requirements and technologies, such as: (i) new man-machine interfaces created by a collection of multiple local devices acting in unison; (ii) ubiquitous universal computing distributed among multiple local devices and the cloud; (iii) multi-sensory data fusion to create multi-verse maps and new mixed-reality experiences; and (iv) precision sensing and actuation to control the physical world. With rapid advances in artificial intelligence, it has the potential to become the foundation for the 6G air interface and network, making data, compute and energy the new resources to be exploited for achieving superior performance. In addition, in this paper we discuss the other major technology transformations that are likely to define 6G: (i) cognitive spectrum sharing methods and new spectrum bands; (ii) the integration of localization and sensing capabilities into the system definition, (iii) the achievement of extreme performance requirements on latency and reliability; (iv) new network architecture paradigms involving sub-networks and RAN-Core convergence; and (v) new security and privacy schemes.
+---
+
+---
+DOI: 10.1109/vtc2022-spring54318.2022.9860491
+Title: Digital Twin Empowered Model Free Prediction of Accident-Induced Congestion in Urban Road Networks
+Year: 2022
+Abstract: The occurrence of traffic accidents in cities is often accompanied by property losses, environmental pollution, casualties, and congestion. Predicting the spatio-temporal range of accident-induced congestion can mitigate the negative effects by taking appropriate measures to respond to traffic accidents in a timely manner. Unlike most existing traffic accident spatial-temporal prediction strategies that depend on existing traffic models, this paper proposes a model-free method by using the macroscopic road network images, which relieves the restriction of precise modeling of traffic dynamics and the detailed traffic data. Specifically, we first design a digital twin road network to observe the traffic operation from a macro perspective. Then, after designing the structure of the Convolutional LSTM (Conv-LSTM) cell, we stack multiple Conv-LSTM layers to form an encoding-decoding structure to predict spatio-temporal congestion caused by accidents in urban road networks. Finally, the simulation results indicate that the proposed method improves the prediction accuracy compared with the model-based method and the LSTM network model. The proposed strategy provides a new approach to predict the spatio-temporal congestion caused by accidents from a macroscopic perspective.
+---
+
+---
+DOI: 10.1016/j.jii.2025.100901
+Title: Digital twin-driven self-adaptive reconfiguration planning method of smart manufacturing systems using game theory and deep Q-network for industry 5.0
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/10_2020_147
+Title: Numerical Methods for the Design and Description of In Vitro Expansion Processes of Human Mesenchymal Stem Cells
+Year: 2020
+Abstract: Human mesenchymal stem cells (hMSCs) are a valuable source of cells for clinical applications (e.g., treatment of acute myocardial infarction or inflammatory diseases), especially in the field of regenerative medicine. However, for autologous (patient-specific) and allogeneic (off-the-shelf) hMSC-based therapies, in vitro expansion is necessary prior to the clinical application in order to achieve the required cell numbers. Safe, reproducible, and economic in vitro expansion of hMSCs for autologous and allogeneic therapies can be problematic because the cell material is restricted and the cells are sensitive to environmental changes. It is beneficial to collect detailed information on the hydrodynamic conditions and cell growth behavior in a bioreactor system, in order to develop a so called "Digital Twin" of the cultivation system and expansion process. Numerical methods, such as Computational Fluid Dynamics (CFD) which has become widely used in the biotech industry for studying local characteristics within bioreactors or kinetic growth modelling, provide possible solutions for such tasks.In this review, we will present the current state-of-the-art for the in vitro expansion of hMSCs. Different numerical tools, including numerical fluid flow simulations and cell growth modelling approaches for hMSCs, will be presented. In addition, a case study demonstrating the applicability of CFD and kinetic growth modelling for the development of an microcarrier-based hMSC process will be shown.
+---
+
+---
+DOI: 10.1016/b978-0-12-821631-6.00006-2
+Title: Digital twin model creation of solar panels
+Year: 2020
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/itc-cscc58803.2023.10212885
+Title: Cellular Metaverse: Enhancing Real-Time Communications in Virtual World
+Year: 2023
+Abstract: In the next few years, various technologies including artificial intelligence, the Internet of Things, virtual reality, and augmented reality will coexist to realize the objectives of 6G wireless systems. In this paper, we propose a digital twin (DT) prototype of conventional wireless communication systems in a metaverse/virtual environment. We develop the modelling scenario of a cellular communications set-up in the Unity platform at first. Then, we establish the real-time communication between BS/s and user/s' in a metaverse environment after introducing some features such as cell coverage area, operating frequency, and global positioning system (GPS). With the aid of GPS, we continuously monitor the user/s' position in the metaverse environment. Moreover, we use the C# scripting tool in the metaverse environment to make all the modelling units functional and interconnected. The experiment results show that the user/s' location can be localized in the digital world, creating the DT of the real cellular communications set-up.
+---
+
+---
+DOI: 10.1016/j.procir.2024.10.191
+Title: Communication between two distinct digital counterparts of a robotic cell digital twin via MQTT
+Year: 2024
+Abstract: Real-time communication is one of the essential features of the digital twin technology that allows real-time data transfer between digital and physical counterparts. This study provides an example of a use case that describes a communication link using the MQTT messaging architecture between two digital counterparts of a digital twin of a robotic cell. It explains how to construct several unique digital counterparts of a digital twin and how to establish communication between them and their physical counterpart. It also demonstrates how this communication makes it possible to conveniently conduct several optimization-related experiments and analyze robotic work cells in digital space. It is discussed that one digital counterpart serves a particular purpose, whereas the other serves a different kind of purpose. Additionally, the research's shortcomings and future directions have been highlighted.
+---
+
+---
+DOI: 10.1016/j.est.2024.114242
+Title: Extra throughput versus days lost in V2G services: Influence of dominant degradation mechanism
+Year: 2024
+Abstract: Electric vehicle (EV) batteries are often underutilized. Vehicle-to-grid (V2G) services can tap into this unused potential, but increased battery usage may lead to more degradation and shorter battery life. This paper substantiates the advantages of providing load-shifting V2G services when the battery is aging, primarily due to calendar aging mechanisms (active degradation mechanisms while the battery is not used). After parameterizing a physics-based digital-twin for three different dominant degradation patterns within the same chemistry (NMC), we introduce a novel metric for evaluating the benefit and associated harm of V2G services: throughput gained versus days lost (TvD) and show its strong relationship to the ratio of loss of lithium inventory (LLI) due to calendar aging to the total LLI ( LLI Cal / LLI ). Our results which focus systematically on degradation mechanisms via lifetime simulation of digital-twins significantly expand prior work that was primarily concentrating on quantifying and reducing the degradation of specific cells by probing their usage and charging patterns. Examining various cell chemistries and conditions enables us to take a broader view and determine whether a particular battery pack is appropriate for load-shifting V2G services. Our research demonstrates that the decision ”to V2G or not to V2G” can be made by merely estimating the portion of capacity deterioration caused by calendar aging. Specifically, TvD is primarily influenced by the importance of aging while EV is at rest and the environmental temperature where the car is parked, while the usage intensity and charging patterns of EVs play a lesser role. • Physics-based simulation of V2G for three distinct aging patterns • A new metric to quantify V2G impact: throughput gained versus days lost (TvD) • Qualification of the popular belief: “Use it or lose it” • The fraction of calendar aging to overall aging is the key factor for V2G impact • Charging protocols and driving behaviors are secondary factors
+---
+
+---
+DOI: 10.1016/j.copbio.2005.04.008
+Title: From genomes to in silico cells via metabolic networks
+Year: 2005
+Abstract: Genome-scale metabolic models are the focal point of systems biology as they allow the collection of various data types in a form suitable for mathematical analysis. High-quality metabolic networks and metabolic networks with incorporated regulation have been successfully used for the analysis of phenotypes from phenotypic arrays and in gene-deletion studies. They have also been used for gene expression analysis guided by metabolic network structure, leading to the identification of commonly regulated genes. Thus, genome-scale metabolic modeling currently stands out as one of the most promising approaches to obtain an in silico prediction of cellular function based on the interaction of all of the cellular components.
+---
+
+---
+DOI: 10.1016/j.copbio.2010.01.014
+Title: From fluxes and isotope labeling patterns towards in silico cells
+Year: 2010
+Abstract: Fluxes and metabolites are the functional manifestations of a living cell. Metabolic flux analysis evolved as a powerful means for systems biology to quantitatively analyze intracellular flux distributions. With the integration of data from tracer experiments, the formerly descriptive methodology has turned into a versatile tool to validate assumptions on genome-derived flux networks. Powerful modeling frameworks balancing 'isotopomers', 'cumomers', or 'elementary modeling units' have reduced computational effort and introduced rigorous statistical quality measures. The advent of metabolomics, stimulus response experiments, and highly sensitive mass spectrometry techniques for mass isotopomer analysis has extended the reach of metabolic flux analysis from steady-state to highly dynamic conditions. With the integration of regulatory circuits and more 'omics' data into mechanistic flux models, the simulation-based prediction of cellular responses to environmental and network perturbations becomes possible-an in silico cell.
+---
+
+---
+DOI: 10.1146/annurev-cellbio-111315-125201
+Title: Plasticity of Cell Migration In Vivo and In Silico
+Year: 2016
+Abstract: Cell migration results from stepwise mechanical and chemical interactions between cells and their extracellular environment. Mechanistic principles that determine single-cell and collective migration modes and their interconversions depend upon the polarization, adhesion, deformability, contractility, and proteolytic ability of cells. Cellular determinants of cell migration respond to extracellular cues, including tissue composition, topography, alignment, and tissue-associated growth factors and cytokines. Both cellular determinants and tissue determinants are interdependent; undergo reciprocal adjustment; and jointly impact cell decision making, navigation, and migration outcome in complex environments. We here review the variability, decision making, and adaptation of cell migration approached by live-cell, in vivo, and in silico strategies, with a focus on cell movements in morphogenesis, repair, immune surveillance, and cancer metastasis.
+---
+
+---
+DOI: 10.1016/j.ccell.2017.06.003
+Title: Tumor Evolution of Glioma-Intrinsic Gene Expression Subtypes Associates with Immunological Changes in the Microenvironment
+Year: 2017
+Abstract: We leveraged IDH wild-type glioblastomas, derivative neurospheres, and single-cell gene expression profiles to define three tumor-intrinsic transcriptional subtypes designated as proneural, mesenchymal, and classical. Transcriptomic subtype multiplicity correlated with increased intratumoral heterogeneity and presence of tumor microenvironment. In silico cell sorting identified macrophages/microglia, CD4+ T lymphocytes, and neutrophils in the glioma microenvironment. NF1 deficiency resulted in increased tumor-associated macrophages/microglia infiltration. Longitudinal transcriptome analysis showed that expression subtype is retained in 55% of cases. Gene signature-based tumor microenvironment inference revealed a decrease in invading monocytes and a subtype-dependent increase in macrophages/microglia cells upon disease recurrence. Hypermutation at diagnosis or at recurrence associated with CD8+ T cell enrichment. Frequency of M2 macrophages detection associated with short-term relapse after radiation therapy.
+---
+
+---
+DOI: 10.1101/gr.947203
+Title: Genome-Wide In Silico Identification of Transcriptional Regulators Controlling the Cell Cycle in Human Cells
+Year: 2003
+Abstract: Dissection of regulatory networks that control gene transcription is one of the greatest challenges of functional genomics. Using human genomic sequences, models for binding sites of known transcription factors, and gene expression data, we demonstrate that the reverse engineering approach, which infers regulatory mechanisms from gene expression patterns, can reveal transcriptional networks in human cells. To date, such methodologies were successfully demonstrated only in prokaryotes and low eukaryotes. We developed computational methods for identifying putative binding sites of transcription factors and for evaluating the statistical significance of their prevalence in a given set of promoters. Focusing on transcriptional mechanisms that control cell cycle progression, our computational analyses revealed eight transcription factors whose binding sites are significantly overrepresented in promoters of genes whose expression is cell-cycle-dependent. The enrichment of some of these factors is specific to certain phases of the cell cycle. In addition, several pairs of these transcription factors show a significant co-occurrence rate in cell-cycle-regulated promoters. Each such pair indicates functional cooperation between its members in regulating the transcriptional program associated with cell cycle progression. The methods presented here are general and can be applied to the analysis of transcriptional networks controlling any biological process. [Supplemental material is available online at www.genome.org , including full lists of genes whose promoters were found to contain high scoring sites for any of the enriched transcription factors reported in Tables 1 and 3.]
+---
+
+---
+DOI: 10.1016/j.ydbio.2005.10.003
+Title: Cell elongation is key to in silico replication of in vitro vasculogenesis and subsequent remodeling
+Year: 2005
+Abstract: Vasculogenesis, the de novo growth of the primary vascular network from initially dispersed endothelial cells, is the first step in the development of the circulatory system in vertebrates. In the first stages of vasculogenesis, endothelial cells elongate and form a network-like structure, called the primary capillary plexus, which subsequently remodels, with the size of the vacancies between ribbons of endothelial cells coarsening over time. To isolate such intrinsic morphogenetic ability of endothelial cells from its regulation by long-range guidance cues and additional cell types, we use an in vitro model of human umbilical vein endothelial cells (HUVEC) in Matrigel. This quasi-two-dimensional endothelial cell culture model would most closely correspond to vasculogenesis in flat areas of the embryo like the yolk sac. Several studies have used continuum mathematical models to explore in vitro vasculogenesis: such models describe cell ensembles but ignore the endothelial cells' shapes and active surface fluctuations. While these models initially reproduce vascular-like morphologies, they eventually stabilize into a disconnected pattern of vascular "islands." Also, they fail to reproduce temporally correct network coarsening. Using a cell-centered computational model, we show that the endothelial cells' elongated shape is key to correct spatiotemporal in silico replication of stable vascular network growth. We validate our simulation results against HUVEC cultures using time-resolved image analysis and find that our simulations quantitatively reproduce in vitro vasculogenesis and subsequent in vitro remodeling.
+---
+
+---
+DOI: 10.1002/bit.24445
+Title: Combined in silico modeling and metabolomics analysis to characterize fed‐batch CHO cell culture
+Year: 2012
+Abstract: Abstract The increasing demand for recombinant therapeutic proteins highlights the need to constantly improve the efficiency and yield of these biopharmaceutical products from mammalian cells, which is fully achievable only through proper understanding of cellular functioning. Towards this end, the current study exploited a combined metabolomics and in silico modeling approach to gain a deeper insight into the cellular mechanisms of Chinese hamster ovary (CHO) fed‐batch cultures. Initially, extracellular and intracellular metabolite profiling analysis shortlisted key metabolites associated with cell growth limitation within the energy, glutathione, and glycerophospholipid pathways that have distinct changes at the exponential‐stationary transition phase of the cultures. In addition, biomass compositional analysis newly revealed different amino acid content in the CHO cells from other mammalian cells, indicating the significance of accurate protein composition data in metabolite balancing across required nutrient assimilation, metabolic utilization, and cell growth. Subsequent in silico modeling of CHO cells characterized internal metabolic behaviors attaining physiological changes during growth and non‐growth phases, thereby allowing us to explore relevant pathways to growth limitation and identify major growth‐limiting factors including the oxidative stress and depletion of lipid metabolites. Such key information on growth‐related mechanisms derived from the current approach can potentially guide the development of new strategies to enhance CHO culture performance. Biotechnol. Bioeng. 2012; 109:1415–1429. © 2012 Wiley Periodicals, Inc.
+---
+
+---
+DOI: 10.1016/j.bbagen.2008.01.017
+Title: Flavonols and flavones as BACE-1 inhibitors: Structure–activity relationship in cell-free, cell-based and in silico studies reveal novel pharmacophore features
+Year: 2008
+Abstract: Generation and accumulation of the amyloid beta peptide (Abeta) following proteolytic processing of the amyloid precursor protein (APP) by BACE-1 (Beta-site APP Cleaving Enzyme-1, beta-secretase) and gamma-secretase is a main causal factor of Alzheimer's disease (AD). Consequently, inhibition of BACE-1, a rate-limiting enzyme in the production of Abeta, is an attractive therapeutic approach for the treatment of AD. In this study, we discovered that natural flavonoids act as non-peptidic BACE-1 inhibitors and potently inhibit BACE-1 activity and reduce the level of secreted Abeta in primary cortical neurons. In addition, we demonstrated the calculated docking poses of flavonoids to BACE-1 and revealed the interactions of flavonoids with the BACE-1 catalytic center. We firstly revealed novel pharmacophore features of flavonoids by using cell-free, cell-based and in silico docking studies. These results contribute to the development of new BACE-1 inhibitors for the treatment of AD.
+---
+
+---
+DOI: 10.1073/pnas.2536479100
+Title: <i>In silico</i>dissection of cell-type-associated patterns of gene expression in prostate cancer
+Year: 2004
+Abstract: Prostate tumors are complex entities composed of malignant cells mixed and interacting with nonmalignant cells. However, molecular analyses by standard gene expression profiling are limited because spatial information and nontumor cell types are lost in sample preparation. We scored 88 prostate specimens for relative content of tumor, benign hyperplastic epithelium, stroma, and dilated cystic glands. The proportions of these cell types were then linked in silico to gene expression levels determined by microarray analysis, revealing unique cell-specific profiles. Gene expression differences for malignant and nonmalignant epithelial cells (tumor versus benign hyperplastic epithelium) could be identified without being confounded by contributions from stroma that dominate many samples or sacrificing possible paracrine influences. Cell-specific expression of selected genes was validated by immunohistochemistry and quantitative PCR. The results provide patterns of gene expression for these three lineages with relevance to pathogenetic, diagnostic, and therapeutic considerations.
+---
+
+---
+DOI: 10.1038/nmat2040
+Title: Cell and biomolecular mechanics in silico
+Year: 2007
+Abstract: Recent developments in computational cell and biomolecular mechanics have provided valuable insights into the mechanical properties of cells, subcellular components and biomolecules, while simultaneously complementing new experimental techniques used for deciphering the structure-function paradigm in living cells. These computational approaches have direct implications in understanding the state of human health and the progress of disease and can therefore aid immensely in the diagnosis and treatment of diseases. We provide an overview of the computational approaches that are currently used in understanding various aspects of cell and bimolecular mechanics. Our emphasis is on state-of-the-art techniques and the progress made in addressing key challenges in biomechanics.
+---
+
+---
+DOI: 10.1182/blood-2007-11-126003
+Title: Discovery of agents that eradicate leukemia stem cells using an in silico screen of public gene expression data
+Year: 2008
+Abstract: Abstract Increasing evidence indicates that malignant stem cells are important for the pathogenesis of acute myelogenous leukemia (AML) and represent a reservoir of cells that drive the development of AML and relapse. Therefore, new treatment regimens are necessary to prevent relapse and improve therapeutic outcomes. Previous studies have shown that the sesquiterpene lactone, parthenolide (PTL), ablates bulk, progenitor, and stem AML cells while causing no appreciable toxicity to normal hematopoietic cells. Thus, PTL must evoke cellular responses capable of mediating AML selective cell death. Given recent advances in chemical genomics such as gene expression-based high-throughput screening (GE-HTS) and the Connectivity Map, we hypothesized that the gene expression signature resulting from treatment of primary AML with PTL could be used to search for similar signatures in publicly available gene expression profiles deposited into the Gene Expression Omnibus (GEO). We therefore devised a broad in silico screen of the GEO database using the PTL gene expression signature as a template and discovered 2 new agents, celastrol and 4-hydroxy-2-nonenal, that effectively eradicate AML at the bulk, progenitor, and stem cell level. These findings suggest the use of multicenter collections of high-throughput data to facilitate discovery of leukemia drugs and drug targets.
+---
+
+---
+DOI: 10.1038/s41587-023-01772-1
+Title: scDesign3 generates realistic in silico data for multimodal single-cell and spatial omics
+Year: 2023
+Abstract: We present a statistical simulator, scDesign3, to generate realistic single-cell and spatial omics data, including various cell states, experimental designs and feature modalities, by learning interpretable parameters from real data. Using a unified probabilistic model for single-cell and spatial omics data, scDesign3 infers biologically meaningful parameters; assesses the goodness-of-fit of inferred cell clusters, trajectories and spatial locations; and generates in silico negative and positive controls for benchmarking computational tools.
+---
+
+---
+DOI: 10.1021/cr1000783
+Title: Defect-Mediated Trafficking across Cell Membranes: Insights from <i>in Silico</i> Modeling
+Year: 2010
+Abstract: ADVERTISEMENT RETURN TO ISSUEPREVReviewNEXTDefect-Mediated Trafficking across Cell Membranes: Insights from in Silico ModelingAndrey A. Gurtovenko*†, Jamshed Anwar‡, and Ilpo Vattulainen§∥⊥View Author Information Institute of Macromolecular Compounds, Russian Academy of Sciences, Bolshoi Prospect 31, V.O., St. Petersburg, 199004 Russia, Computational Laboratory, Institute of Pharmaceutical Innovation, University of Bradford, Bradford, West Yorkshire BD7 1DP, U.K., Department of Physics, Tampere University of Technology, P.O. Box 692, FI-33101 Tampere, Finland, Aalto University, School of Science and Technology, Finland, and MEMPHYS—Center for Biomembrane Physics, University of Southern Denmark, Odense, Denmark* Corresponding author. E-mail: [email protected]. Web: biosimu.org.†Russian Academy of Sciences.‡University of Bradford.§Tampere University of Technology.∥Aalto University.⊥University of Southern Denmark.Cite this: Chem. Rev. 2010, 110, 10, 6077–6103Publication Date (Web):August 6, 2010Publication History Received4 March 2010Published online6 August 2010Published inissue 13 October 2010https://pubs.acs.org/doi/10.1021/cr1000783https://doi.org/10.1021/cr1000783review-articleACS PublicationsCopyright © 2010 American Chemical SocietyRequest reuse permissionsArticle Views3123Altmetric-Citations161LEARN ABOUT THESE METRICSArticle Views are the COUNTER-compliant sum of full text article downloads since November 2008 (both PDF and HTML) across all institutions and individuals. These metrics are regularly updated to reflect usage leading up to the last few days.Citations are the number of other articles citing this article, calculated by Crossref and updated daily. Find more information about Crossref citation counts.The Altmetric Attention Score is a quantitative measure of the attention that a research article has received online. Clicking on the donut icon will load a page at altmetric.com with additional details about the score and the social media presence for the given article. Find more information on the Altmetric Attention Score and how the score is calculated. Share Add toView InAdd Full Text with ReferenceAdd Description ExportRISCitationCitation and abstractCitation and referencesMore Options Share onFacebookTwitterWechatLinked InRedditEmail Other access optionsGet e-Alertsclose SUBJECTS:Ions,Lipids,Membranes,Molecules,Vesicles Get e-Alerts
+---
+
+---
+DOI: 10.1007/s43393-022-00117-4
+Title: In silico cell factory design driven by comprehensive genome-scale metabolic models: development and challenges
+Year: 2022
+Abstract: (no abstract available)
+---

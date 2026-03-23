@@ -1,0 +1,119 @@
+{
+  "batch_index": 45,
+  "dois": [
+    "10.3389/fphys.2018.01246",
+    "10.1038/s41598-023-40469-y",
+    "10.3390/biom10020165",
+    "10.3389/fbioe.2021.670341",
+    "10.1093/nsr/nwae451",
+    "10.1007/s10439-020-02449-5",
+    "10.1371/journal.pone.0020182",
+    "10.3389/fchem.2020.526679",
+    "10.3389/fimmu.2021.765923",
+    "10.3389/fimmu.2018.00674"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3389/fphys.2018.01246",
+      "problem": "Cellular migration mechanics characterization",
+      "method": "Multidimensional microscopy with computational analysis",
+      "finding": "Characterized cell migration protrusions",
+      "dataset": "fibroblasts",
+      "metric": "Bhattacharyya",
+      "baseline": "",
+      "result": "p=0.87"
+    },
+    {
+      "doi": "10.1038/s41598-023-40469-y",
+      "problem": "Bioprocess optimization under process-model mismatch",
+      "method": "Mathematical modeling of IPA production",
+      "finding": "Cell growth and IPA production compete for acetyl-CoA",
+      "dataset": "E. coli",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/biom10020165",
+      "problem": "Antiproliferative and anti-obesity activity of Nyctanthes extract",
+      "method": "Cell viability and phenolic content analysis",
+      "finding": "Phenolic compounds contribute to biological activity",
+      "dataset": "leukemia cells",
+      "metric": "specificity",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fbioe.2021.670341",
+      "problem": "Cell-free gene expression with linear DNA templates",
+      "method": "sfGFP fluorescence-based expression quantification",
+      "finding": "PCR-based linear DNA for cell-free expression",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1093/nsr/nwae451",
+      "problem": "Tumor heterogeneity in cancer progression and treatment resistance",
+      "method": "scRNA-seq profiling of tumor and adjacent tissues",
+      "finding": "Single-cell analysis reveals tumor heterogeneity",
+      "dataset": "patient tissues",
+      "metric": "R2",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1007/s10439-020-02449-5",
+      "problem": "Silver nanoparticle hazard assessment",
+      "method": "Nanosight characterization of Ag NPs",
+      "finding": "Mean effective diameter 120nm with monomodal distribution",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": "120nm"
+    },
+    {
+      "doi": "10.1371/journal.pone.0020182",
+      "problem": "3D cell organization with extracellular matrix interactions",
+      "method": "Pseudospectral 2D and 3D simulations",
+      "finding": "Identified three solution states for cell organization",
+      "dataset": "",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fchem.2020.526679",
+      "problem": "Autonomous glycolysis oscillations in central carbon metabolism",
+      "method": "Mathematical modeling of glycolytic oscillations",
+      "finding": "Self-control mechanisms in E. coli glycolysis",
+      "dataset": "E. coli",
+      "metric": "sensitivity",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fimmu.2021.765923",
+      "problem": "Tissue cellular composition predicts tumor response",
+      "method": "Seg-SOM method for cell feature transformation",
+      "finding": "Spatial cell analysis predicts therapy response",
+      "dataset": "tumor tissue",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fimmu.2018.00674",
+      "problem": "TCR binding to peptide-MHC complexes in T-cell immunity",
+      "method": "TCR expression, refolding and binding analysis",
+      "finding": "TCRs show diverse conformational strategies during binding",
+      "dataset": "",
+      "metric": "R2",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:53:16.080695",
+  "extraction_count": 10
+}

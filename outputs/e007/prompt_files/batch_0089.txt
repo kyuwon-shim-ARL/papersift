@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1111/jam.12043
+Title: Investigation into immunological responses against a native recombinant CTB whole-cell <i>Vibrio cholerae</i> vaccine in a rabbit model
+Year: 2012
+Abstract: It was proved that rCTB produced in this system can be used as a potent immunogenic protein to stimulate the immunity against V. cholerae strains and can be used for developing a native vaccine composed of our local strains with their own surface structures and antigenic determinants against cholera.
+---
+
+---
+DOI: 10.1055/s-2007-1007096
+Title: Hepatocyte Transplantation for the Treatment of Human Disease
+Year: 1999
+Abstract: A great deal of work with animal models indicates that hepatocytes transplanted into the liver or spleen survive, function, and participate in the normal regenerative process. Recent clinical studies suggest that hepatocyte transplantation may be useful for bridging patients to whole organ transplantation and for providing metabolic support during liver failure and for replacing whole organ transplantation in certain metabolic liver diseases. In specific situations where the rate of death of host hepatocytes is high, the transplanted cells can repopulate the native liver. Techniques have been established for the large scale isolation, culture and cryopreservation of human hepatocytes. Shortage of donor organs and the need for immunosuppression are two major hurdles to widespread application of this procedure, and current research in experimental animals is aimed at addressing these problems.
+---
+
+---
+DOI: 10.1038/ki.2011.450
+Title: Rip1 (Receptor-interacting protein kinase 1) mediates necroptosis and contributes to renal ischemia/reperfusion injury
+Year: 2012
+Abstract: Loss of kidney function in renal ischemia/reperfusion injury is due to programmed cell death, but the contribution of necroptosis, a newly discovered form of programmed necrosis, has not been evaluated. Here, we identified the presence of death receptor-mediated but caspase-independent cell death in murine tubular cells and characterized it as necroptosis by the addition of necrostatin-1, a highly specific receptor-interacting protein kinase 1 inhibitor. The detection of receptor-interacting protein kinase 1 and 3 in whole-kidney lysates and freshly isolated murine proximal tubules led us to investigate the contribution of necroptosis in a mouse model of renal ischemia/reperfusion injury. Treatment with necrostatin-1 reduced organ damage and renal failure, even when administered after reperfusion, resulting in a significant survival benefit in a model of lethal renal ischemia/reperfusion injury. Unexpectedly, specific blockade of apoptosis by zVAD, a pan-caspase inhibitor, did not prevent the organ damage or the increase in urea and creatinine in vivo in renal ischemia/reperfusion injury. Thus, necroptosis is present and has functional relevance in the pathophysiological course of ischemic kidney injury and shows the predominance of necroptosis over apoptosis in this setting. Necrostatin-1 may have therapeutic potential to prevent and treat renal ischemia/reperfusion injury.
+---
+
+---
+DOI: 10.1085/jgp.86.5.691
+Title: Cardiac Na currents and the inactivating, reopening, and waiting properties of single cardiac Na channels.
+Year: 1985
+Abstract: Tetrodotoxin (TTX)-sensitive Na currents were examined in single dissociated ventricular myocytes from neonatal rats. Single channel and whole cell currents were measured using the patch-clamp method. The channel density was calculated as 2/micron 2, which agreed with our usual finding of four channels per membrane patch. At 20 degrees C, the single channel conductance was 20 pS. The open time distributions were fit by a single-exponential function with a mean open time of approximately 1.0 ms at membrane potentials from -60 to -40 mV. Averaged single channel and whole cell currents were similar when scaled and showed both fast and slow rates of inactivation. The inactivation and activation gating shifted quickly to hyperpolarized potentials for channels in cell-attached as well as excised patches, whereas a much slower shift occurred in whole cells. Slowly inactivating currents were present in both whole cell and single channel current measurements at potentials as positive as -40 mV. In whole cell measurements, the potential range could be extended, and slow inactivation was present at potentials as positive as -10 mV. The curves relating steady state activation and inactivation to membrane potential had very little overlap, and slow inactivation occurred at potentials that were positive to the overlap. Slow inactivation is in this way distinguishable from the overlap or window current, and the slowly inactivating current may contribute to the plateau of the rat cardiac action potential. On rare occasions, a second set of Na channels having a smaller unit conductance and briefer duration was observed. However, a separate set of threshold channels, as described by Gilly and Armstrong (1984. Nature [Lond.]. 309:448), was not found. For the commonly observed Na channels, the number of openings in some samples far exceeded the number of channels per patch and the latencies to first opening or waiting times were not sufficiently dispersed to account for the slowly inactivating currents: the slow inactivation was produced by channel reopening. A general model was developed to predict the number of openings in each sample. Models in which the number of openings per sample was due to a dispersion of waiting times combined with a rapid transition from an open to an absorbing inactivated state were unsatisfactory and a model that was more consistent with the results was identified.
+---
+
+---
+DOI: 10.1101/gad.607311
+Title: Pluripotency factors regulate definitive endoderm specification through eomesodermin
+Year: 2011
+Abstract: Understanding the molecular mechanisms controlling early cell fate decisions in mammals is a major objective toward the development of robust methods for the differentiation of human pluripotent stem cells into clinically relevant cell types. Here, we used human embryonic stem cells and mouse epiblast stem cells to study specification of definitive endoderm in vitro. Using a combination of whole-genome expression and chromatin immunoprecipitation (ChIP) deep sequencing (ChIP-seq) analyses, we established an hierarchy of transcription factors regulating endoderm specification. Importantly, the pluripotency factors NANOG, OCT4, and SOX2 have an essential function in this network by actively directing differentiation. Indeed, these transcription factors control the expression of EOMESODERMIN ( EOMES ), which marks the onset of endoderm specification. In turn, EOMES interacts with SMAD2/3 to initiate the transcriptional network governing endoderm formation. Together, these results provide for the first time a comprehensive molecular model connecting the transition from pluripotency to endoderm specification during mammalian development.
+---
+
+---
+DOI: 10.1080/00207543.2019.1607978
+Title: Knowledge-driven digital twin manufacturing cell towards intelligent manufacturing
+Year: 2019
+Abstract: Rapid advances in new generation information technologies, such as big data analytics, internet of things (IoT), edge computing and artificial intelligence, have nowadays driven traditional manufacturing all the way to intelligent manufacturing. Intelligent manufacturing is characterised by autonomy and self-optimisation, which proposes new demands such as learning and cognitive capacities for manufacturing cell, known as the minimum implementation unit for intelligent manufacturing. Consequently, this paper proposes a general framework for knowledge-driven digital twin manufacturing cell (KDTMC) towards intelligent manufacturing, which could support autonomous manufacturing by an intelligent perceiving, simulating, understanding, predicting, optimising and controlling strategy. Three key enabling technologies including digital twin model, dynamic knowledge bases and knowledge-based intelligent skills for supporting the above strategy are analysed, which equip KDTMC with the capacities of self-thinking, self-decision-making, self-execution and self-improving. The implementing methods of KDTMC are also introduced by a thus constructed test bed. Three application examples about intelligent process planning, intelligent production scheduling and production process analysis and dynamic regulation demonstrate the feasibility of KDTMC, which provides a practical insight into the intelligent manufacturing paradigm.
+---
+
+---
+DOI: 10.1016/j.procir.2019.04.084
+Title: A data- and knowledge-driven framework for digital twin manufacturing cell
+Year: 2019
+Abstract: Intelligent manufacturing is regarded as the next generation manufacturing mode with powerful learning and cognitive capacities enabled by new generation information technologies such as Internet of Things, big data analytics, edge computing and artificial intelligence. To provide an insight into intelligent manufacturing, this paper takes autonomous manufacturing cell as implementation scenario and proposes a data- and knowledge-driven framework for digital twin manufacturing cell (DTMC), which could support autonomous manufacturing by an intelligent perceiving, simulating, understanding, predicting, optimizing and controlling strategy. In addition, three key enabling technologies including digital twin model, dynamic knowledge bases and knowledge-based intelligent skills for supporting the above strategy are analyzed. Then, the implementing methods of DTMC are introduced through a thus constructed digital twin robot, and the usage of data and knowledge for supporting the automous operations of DTMC is also discussed. Finally, benefits of DTMC in smart product-service systems (PSS) and its current challenges are summarized.
+---
+
+---
+DOI: 10.1016/j.egyai.2020.100004
+Title: Multi-physics-resolved digital twin of proton exchange membrane fuel cells with a data-driven surrogate model
+Year: 2020
+Abstract: The development of multi-physics-resolved digital twins of proton exchange membrane fuel cells (PEMFCs) is significant for the advancement of this technology. Here, to solve this scientific issue, a surrogate modelling method that combines a state-of-the-art three-dimensional PEMFC physical model and data-driven model is proposed. The surrogate modelling prediction results demonstrate that the test-set relative root mean square errors (rRMSEs) of the multi-physics fields range from 3.88% to 24.80% and can mirror the multi-physics field distribution characteristics well. In summary, for multi-physics field prediction, the data-driven surrogate model has a comparable accuracy to the comprehensive 3D physical model; however, it considerably reduces the cost of computation and time and achieves the efficient multi-physics-resolved digital-twin. Two model-based designs based on the as-developed digital twin framework, i.e. the PEMFC healthy operation envelope and the PEMFC state map, are demonstrated. This study highlights the potential of combining data-driven approaches and comprehensive physical models to develop the digital twin of complex systems, such as PEMFCs.
+---
+
+---
+DOI: 10.1007/978-3-030-03003-2_32
+Title: A Six-Layer Digital Twin Architecture for a Manufacturing Cell
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.knosys.2019.105247
+Title: Deep learning-enabled intelligent process planning for digital twin manufacturing cell
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/jiot.2020.3005729
+Title: Manufacturing Blockchain of Things for the Configuration of a Data- and Knowledge-Driven Digital Twin Manufacturing Cell
+Year: 2020
+Abstract: Configuring intelligent manufacturing systems (IMSs) is significant for manufacturing enterprises to take a step toward Industry 4.0. However, most current IMS is configured based on the Industrial Internet of Things (IIoT) with a centralized architecture, which results in poor flexibility to handle manufacturing disturbances and limits capacity to support security solutions. To solve the above issues, this article combines IIoT with the permissioned blockchain and proposes a novel manufacturing blockchain of things (MBCoT) architecture for the configuration of a secure, traceable, and decentralized IMS. Then, hardware infrastructures and software-defined components of MBCoT are designed to provide an insight into the industrial implementation of IMS. Furthermore, the consensus-oriented transaction logic of MBCoT is presented based on a crash fault-tolerant protocol, which empowers MBCoT with a strong but resource-efficient encryption mechanism to support the autonomous manufacturing process. Finally, the implementation of an MBCoT prototype system and its application examples justify that the proposed approach is practical and sound. The evaluation experiment demonstrates that MBCoT equips IMS with a secure, traceable, stable, and decentralized operating environment while achieving competitive throughput and latency performance.
+---
+
+---
+DOI: 10.1080/0951192x.2020.1775297
+Title: A digital twin-driven approach towards smart manufacturing: reduced energy consumption for a robotic cell
+Year: 2020
+Abstract: One of the significant trends in smart manufacturing is the idea of industrial digitalization, which is enabled through the use of new information technologies, such as the Internet of Things, big data, cloud computing, and artificial intelligence. However, manufacturing industries can only be achieved by combining the physical manufacturing world and digital world, to realize a series of smart manufacturing activities, such as active perception, real-time interaction, automatic processing, intelligent control, and real-time optimization, etc. In this paper, a digital twin-driven approach combines with agent-based decision-making for real-time optimization of motion planning in robotic cellular is proposed, with optimizing the physical and virtual layer at the manufacturing facility. Accordingly, an architecture of the digital twin-driven facility is design, and its operational mechanisms and implementation methods are explained in detail. Moreover, qualitative analysis and a quantitative comparison based on a real robotic cell are provided. Several key findings and observations are generated relating to managerial implications, which are valuable for various users to make manufacturing decisions under the digital twin-driven environment.
+---
+
+---
+DOI: 10.1016/j.ijhydene.2020.10.108
+Title: A data-driven digital-twin prognostics method for proton exchange membrane fuel cell remaining useful life prediction
+Year: 2020
+Abstract: Abstract Prognostics and health management of proton exchange membrane fuel cell (PEMFC) systems have driven increasing research attention in recent years as the durability of PEMFC stack remains as a technical barrier for its large-scale commercialization. To monitor the health state during PEMFC operation, digital twin (DT), as a smart manufacturing technique, is applied in this paper to establish an ensemble remaining useful life prediction system. A data-driven DT is constructed to integrate the physical knowledge of the system and a deep transfer learning model based on stacked denoising autoencoder is used to update the DT with online measurement. A case study with experimental PEMFC degradation data is presented where the proposed data-driven DT prognostics method has applied and reached a high prediction accuracy. Furthermore, the predicted results are proved to be less affected even with limited measurement data.
+---
+
+---
+DOI: 10.1016/j.tifs.2023.07.003
+Title: Overview of single cell protein: Production pathway, sustainability outlook, and digital twin potentials
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.ijhydene.2021.12.233
+Title: A data-driven digital-twin model and control of high temperature proton exchange membrane electrolyzer cells
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.ijhydene.2022.11.283
+Title: Digital twin of a hydrogen Fuel Cell Hybrid Electric Vehicle: Effect of the control strategy on energy efficiency
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jmsy.2021.02.001
+Title: The digital twin of the quality monitoring and control in the series solar cell production line
+Year: 2021
+Abstract: Abstract With the development of intelligent manufacturing (IM), the Digital twin (DT) has become an important means to the evolution mechanism of the process. Many researchers pay attention on the realization of DT in different industries. Based on the DT and Digital Twin Shop Floor (DTS) model, a novel, high throughput metrology method is proposed in the process quality monitoring and control of the Series Solar Cell Production Line (SSCPL) for detailed performance analysis. The variance of individual loss parameters and their impact on quality performance are quantified and mapped into the virtual space. The nature of their distributions and correlations provide great insights about quality loss mechanisms in process monitoring, helping to prioritize efforts for optimizing the control of the SSCPL in the physical space. Additionally, the parameters can be tied back to the physical space, allowing the data to be used directly for the control in the manufacturing. The data-loop of “Autonomous perception of process parameters - Dynamic behaver mapping - Online monitoring - Online data analysis - Parameters configuration & control” can be obtained in the model. This paper provides an application paradigm for DT and IM.
+---
+
+---
+DOI: 10.1007/978-1-0716-0159-4_15
+Title: Single-cell Digital Twins for Cancer Preclinical Investigation
+Year: 2019
+Abstract: Laboratory models derived from clinical samples represent a solid platform in preclinical research for drug testing and investigation of disease mechanisms. The integration of these laboratory models with their digital counterparts (i.e., predictive mathematical models) allows to set up digital twins essential to fully exploit their potential to face the enormous molecular complexity of human organisms. In particular, due to the close integration of cell metabolism with all other cellular processes, any perturbation in cellular physiology typically reflect on altered cells metabolic profiling. In this regard, changes in metabolism have been shown, also in our laboratory, to drive a causal role in the emergence of cancer disease. Nevertheless, a unique metabolic program does not describe the altered metabolic profile of all tumour cells due to many causes from genetic variability to intratumour heterogeneous dependency on nutrients consumption and metabolism by multiple co-existing subclones. Currently, fluxomics approaches just match with the necessity of characterizing the overall flux distribution of cells within given samples, by disregarding possible heterogeneous behaviors. For the purpose of stratifying cancer heterogeneous subpopulations, quantification of fluxes at the single-cell level is needed. To this aim, we here present a new computational framework called single-cell Flux Balance Analysis (scFBA) that aims to set up digital metabolic twins in the perspective of being better exploited within a framework that makes also use of laboratory patient cell models. In particular, scFBA aims at integrating single-cell RNA-seq data within computational population models in order to depict a snapshot of the corresponding single-cell metabolic phenotypes at a given moment, together with an unsupervised identification of metabolic subpopulations.
+---
+
+---
+DOI: 10.3390/electronics12091999
+Title: Robotic Cell Reliability Optimization Based on Digital Twin and Predictive Maintenance
+Year: 2023
+Abstract: Robotic systems have become a standard tool in modern manufacturing due to their unique characteristics, such as repeatability, precision, and speed, among others. One of the main challenges of robotic manipulators is the low degree of reliability. Low reliability increases the probability of disruption in manufacturing processes, minimizing in this way the productivity and by extension the profit of the company. To address the abovementioned challenges, this research work proposes a robotic cell reliability optimization method based on digital twin and predictive maintenance. Concretely, the simulation of the robot is provided, and emphasis is given to the reliability optimization of the robotic cell’s critical component. A supervised machine learning model is trained, aiming to detect and classify the faulty behavior of the critical component. Furthermore, a framework is proposed for the remaining useful life prediction with the aim to improve the reliability of the robotic cell. Thus, following the results of the current research work, appropriate maintenance tasks can be applied, preventing the robotic cell from serious failures and ensuring high reliability.
+---
+
+---
+DOI: 10.1016/j.apenergy.2022.119763
+Title: Three-dimensional multi-field digital twin technology for proton exchange membrane fuel cells
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1021/acssynbio.9b00400
+Title: Linking Engineered Cells to Their Digital Twins: A Version Control System for Strain Engineering
+Year: 2020
+Abstract: As DNA sequencing and synthesis become cheaper and more easily accessible, the scale and complexity of biological engineering projects is set to grow. Yet, although there is an accelerating convergence between biotechnology and digital technology, a deficit in software and laboratory techniques diminishes the ability to make biotechnology more agile, reproducible, and transparent while, at the same time, limiting the security and safety of synthetic biology constructs. To partially address some of these problems, this paper presents an approach for physically linking engineered cells to their digital footprint-we called it digital twinning. This enables the tracking of the entire engineering history of a cell line in a specialized version control system for collaborative strain engineering <i>via</i> simple barcoding protocols.
+---
+
+---
+DOI: 10.3390/wevj14040108
+Title: Concept for Digital Product Twins in Battery Cell Production
+Year: 2023
+Abstract: This paper presents an approach for the design and derivation for establishing a digital product twin for battery cells. A digital product twin is a virtual replica of a physical battery cell and can be used to predict and optimize quality properties and performance in real-time. The study focuses on pouch cell manufacturing and aims to map the large amount and variety of process information down to purchased parts and interim products. The approach for this study was to collect and analyze data from the physical production process and use this information to structure a digital battery product twin based on its product architecture. The main findings of this study indicate that a digital product twin can be effectively structured and implemented in a digital interface based on its product architecture in combination with data from the physical production process. The results of this study show the potential of digital product twins, in which statements about material, design, and behavior can be made using real information from production. Further research will focus on the practical application and implementation of digital product twins in a battery cell pilot production.
+---
+
+---
+DOI: 10.1016/j.procir.2023.09.140
+Title: Digital Twin Development and Operation of a Flexible Manufacturing Cell using ISO 23247
+Year: 2023
+Abstract: Digital twins are representations of real-world systems in the digital world, relying on physical system data to optimise, manipulate, detect, and interact. The requirements of digital twins diverge depending on the application in focus. The complexity ranges from simple to highly complex use cases, which increases setup time and reduces maintainability. Therefore, different representations and views of the digital twin are necessary, e.g., file type conversions or abstractions of geometry. Standards that try to solve these problems are ISO 21597, by providing containerisation and linkage of data, and ITU-T Y.3090 and ISO 23247, by providing frameworks to support the creation process of digital twins. Based on these standards, this paper aims to enable a holistic view of digital twin applications in flexible manufacturing cells to reduce the implementation effort when the system is installed or changes. We identify a digital twin's most relevant features, parameters, and assets. This feature set is categorised regarding the frequency of changes. The main observable manufacturing elements are machine tools, robots, peripheral devices like autonomous mobile robots (AMRs), manufacturing utilities like tools, and processes. Various information systems depend on or interact with these manufacturing cells, e.g., CAM, PLM, MES, tool management, fleet control, and cell control. While applying the framework of ISO 23247 to a flexible manufacturing cell, we found that life cycle changes are only considered for products and not for the digital twin itself. Therefore we try to emphasise life cycle changes by linking the manufacturing cell to a life cycle meta-layer, simplifying the design, deployment, and updates of digital twin applications. This linkage remains valid through changes, reducing application maintenance effort by allowing re-instantiation of the applications. Therefore, a multidimensional representation of the physical layer can address rapidly changing real-time data to hardly changing life cycle information.
+---
+
+---
+DOI: 10.1016/j.procir.2022.05.134
+Title: Interaction of Digital Twins in a Sustainable Battery Cell Production
+Year: 2022
+Abstract: 1216
+---
+
+---
+DOI: 10.1016/j.ijhydene.2023.10.148
+Title: Fault diagnosis method for proton exchange membrane fuel cell system based on digital twin and unsupervised domain adaptive learning
+Year: 2023
+Abstract: In recent years, supervised deep learning-based methods have achieved significant results in fuel cell system fault diagnosis. However, most existing deep learning-based fault prediction methods suffer from missing fault labels and data limitations due to the difficulty in obtaining fault and degradation data in real fuel cell systems. To address the above challenges, this paper proposes a fault diagnosis method based on digital twin and unsupervised domain adaptive learning. The method has two key features: First, a maximum-relevance minimum-redundancy algorithm is used to select the input signals. Then a high-order fuel cell system model is developed to obtain a large amount of digital domain fault data at low cost by simulating fault injection. Second, domain-invariant features are extracted using a domain-adaptive adversarial learning approach to reduce the distribution differences between the digital and real domains. The method successfully diagnosed nine typical faults in the fuel cell air, hydrogen, and thermal subsystems without real data fault labels. Under dynamic load conditions, the diagnostic accuracy reached 92.5 %. In addition, the method achieves a diagnostic accuracy of over 90 % under domain adversarial training using only normal real data. The experimental results show that the proposed method can achieve fuel cell system fault diagnosis without fault labels and significantly reduce the dependence on fault data.
+---
+
+---
+DOI: 10.3390/pr10050866
+Title: Digital Twin for HIV-Gag VLP Production in HEK293 Cells
+Year: 2022
+Abstract: The development and adoption of digital twins (DT) for Quality-by-Design (QbD)-based processes with flexible operating points within a proven acceptable range (PAR) and automation through Advanced Process Control (APC) with Process Analytical Technology (PAT) instead of conventional process execution based on offline analytics and inflexible process set points is one of the great challenges in modern biotechnology. Virus-like particles (VLPs) are part of a line of innovative drug substances (DS). VLPs, especially those based on human immunodeficiency virus (HIV), HIV-1 Gag VLPs, have very high potential as a versatile vaccination platform, allowing for pseudotyping with heterologous envelope proteins, e.g., the S protein of severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). As enveloped VLPs, optimal process control with minimal hold times is essential. This study demonstrates, for the first time, the use of a digital twin for the overall production process of HIV-1 Gag VLPs from cultivation, clarification, and purification to lyophilization. The accuracy of the digital twins is in the range of 0.8 to 1.4% in depth filtration (DF) and 4.6 to 5.2% in ultrafiltration/diafiltration (UFDF). The uncertainty due to variability in the model parameter determination is less than 4.5% (DF) and less than 3.8% (UFDF). In the DF, a prediction of the final filter capacity was demonstrated from as low as 5.8% (9mbar) of the final transmembrane pressure (TMP). The scale-up based on DT in chromatography shows optimization potential in productivity up to a factor of 2. The schedule based on DT and PAT for APC has been compared to conventional process control, and hold-time and process duration reductions by a factor of 2 have been achieved. This work lays the foundation for the short-term validation of the DT and PAT for APC in an automated S7 process environment and the conversion from batch to continuous production.
+---
+
+---
+DOI: 10.1016/j.jtice.2021.01.001
+Title: Digital twin model and dynamic operation for a plant-scale solid oxide fuel cell system
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1080/0951192x.2021.1992657
+Title: Digital twin of spacecraft assembly cell and case study
+Year: 2021
+Abstract: As the complexity of spacecraft function has increased, the requirements for assembly quality and reliability have become more stringent. The current digital assembly simulation stays in the idealized structure and method verification, however, the spacecraft assembly process relies on manual and discrete operations, making it challenging for real time assembly quality tracing and process clarification. This paper takes the spacecraft assembly process as the research object, studies the real-time data acquisition method that fuses the acquisition node and the assembly process, and establishes the virtual-real mapping process around the central data space. A Digital twin system corresponding to the actual spacecraft assembly process was constructed based on the spacecraft assembly cell unit. The states of the manufacturing process in the physical world are fed back to the virtual space. The problems faced during assembly are reflected in real-time, and the corresponding behaviour is simulated. Based on the real-time data acquisition, real-time monitoring and numerical analysis for comparison are realized, providing a feasible solution for the application of Digital twin in the spacecraft assembly scenario.
+---
+
+---
+DOI: 10.1016/j.ijhydene.2024.09.266
+Title: Self-adaptive digital twin of fuel cell for remaining useful lifetime prediction
+Year: 2024
+Abstract: Accurate prediction of the remaining useful life (RUL) of proton exchange membrane fuel cells (PEMFCs) is essential for maximizing their operational lifespan. However, existing methods often face limitations in two key areas: long-term prediction (beyond 168 h, or one week) and adaptability to varying operating conditions. To address these challenges, we propose a novel self-adaptive digital twin (SADT) model for RUL prediction of PEMFCs. Our approach uniquely integrates a deep convolutional neural network to generate robust health indicators (HIs) that maintain consistent monotonicity across diverse operating conditions. Additionally, we introduce a novel quantile Huber loss (QH-loss) function to enhance prediction accuracy and incorporate a transfer learning technique to improve adaptability under varying operational scenarios. Experimental results on PEMFC degradation datasets demonstrate that our method outperforms state-of-the-art techniques in long-term prediction accuracy, highlighting its potential to significantly extend fuel cell lifetimes. • A novel self-adaptive digital twin for predicting RUL of the PEMFC. • Transfer Learning enhanced RUL prediction accuracy and adaptability. • Universal monotonic HI applicable to various PEMFC operating conditions.
+---
+
+---
+DOI: 10.1016/j.compind.2023.103858
+Title: Real-time optimization for a Digital Twin of a robotic cell with human operators
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.procir.2022.02.150
+Title: Development of a Digital Twin for Improved Ramp-Up Processes in the Context of Li-Ion-Battery-Cell-Stack-Formation
+Year: 2022
+Abstract: The ramp-up of machines for stack formation processes in the context of battery cell production is difficult due to a lack of knowledge about cause-effect relationships. This concerns the initial setup of the machine as well as the change of process input variables. For example, there are strong material dependencies in the area of cell stack formation of battery cells. Individual adjustments of the machine parameters to the different materials are therefore necessary. Digital twins represent the production process and the machine operations in a virtual environment. Cause-effect relationships can thus be quantified and evaluated. Optimization approaches for ramp-up-processes can be tested with low risk in virtual space before they are implemented in reality. This paper describes the development process of a digital twin representing a machine for flexible cell stack formation of pouch cells. As basis for the digital twin, a kinematic process model of the machine is developed from the underlying CAD files. Sensors and actuators are virtually integrated in the design environment of the machine. Connecting the model to a virtual controller, allows virtual testing and evaluating of the developed PLC code within the digital twin. Furthermore, the development of a simulation model for the prediction of the electrode web tension, as a quality-critical parameter, is presented. This purpose requires relevant aspects of the machine, for example the unwinder drive behaviour, to be recognized and integrated. In order to enable near-real-time runability, this simulation model is converted into a reduced-order-model. This substitution can be validated by tracing and comparing the web tension during commissioning scenarios on the real machine. Therefore it is possible to virtually represent control-side kinematic processes while also making statements regarding the web tension of the electrode material. The resulting functional digital twin of the flexible stack formation machine will be used to optimize the process parameters as well as the current machine design.
+---
+
+---
+DOI: 10.1109/access.2022.3195905
+Title: A Digital Twin-Based Automatic Programming Method for Adaptive Control of Manufacturing Cells
+Year: 2022
+Abstract: The booming personalized and customized demands of customers in Industry 4.0 pose a great challenge for manufacturing enterprises in terms of flexibility and responsiveness. Nowadays, many effective dynamic scheduling approaches have been proposed for manufacturing systems to quickly respond to changes in customer demands, where, however, the implementation of an automatic programming method with high control accuracy and low control delay is still challenging. The above unaddressed issue brings about a lot of labor-intensive and time-consuming manual offline programming work when adjusting the scheduling scheme to meet dynamic customer demands, resulting in limited flexibility and responsiveness in current manufacturing systems. To bridge this gap, a bi-level adaptive control architecture enabled by an automatic programming method is proposed and embedded into a digital twin manufacturing cell (DTMC). The bi-level architecture aims to automatically map an input task scheduling scheme with a batch of jobs into a group of control programs through a behavior model network and a set of event models embedded in DTMC. It also provides an adaptive program modification mechanism to quickly adapt to the dynamic adjustment of the scheduling scheme caused by the changing of customer demands or production conditions, thus equipping DTMC with strong flexibility and responsiveness. Based on the bi-level architecture, a DTMC prototype system is developed, where its application and evaluation examples demonstrate the feasibility and effectiveness of the proposed method.
+---
+
+---
+DOI: 10.1016/j.it.2023.03.004
+Title: Towards systems immunology of critical illness at scale: from single cell ‘omics to digital twins
+Year: 2023
+Abstract: Single-cell 'omics methodology has yielded unprecedented insights based largely on data-centric informatics for reducing, and thus interpreting, massive datasets. In parallel, parsimonious mathematical modeling based on abstractions of pathobiology has also yielded major insights into inflammation and immunity, with these models being extended to describe multi-organ disease pathophysiology as the basis of 'digital twins' and in silico clinical trials. The integration of these distinct methods at scale can drive both basic and translational advances, especially in the context of critical illness, including diseases such as COVID-19. Here, I explore achievements and argue the challenges that are inherent to the integration of data-driven and mechanistic modeling approaches, highlighting the potential of modeling-based strategies for rational immune system reprogramming.
+---
+
+---
+DOI: 10.1016/j.egyai.2024.100412
+Title: Cross-domain diagnosis for polymer electrolyte membrane fuel cell based on digital twins and transfer learning network✰
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/978-3-319-70833-1_44
+Title: Flexible Work Cell Simulator Using Digital Twin Methodology for Highly Complex Systems in Industry 4.0
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/jsac.2023.3310050
+Title: Digital Twin-Aided Learning for Managing Reconfigurable Intelligent Surface-Assisted, Uplink, User-Centric Cell-Free Systems
+Year: 2023
+Abstract: This paper puts forth a new, reconfigurable intelligent surface (RIS)-assisted, uplink, user-centric cell-free (UCCF) system managed with the assistance of a digital twin (DT). Specifically, we propose a novel learning framework that maximizes the sum-rate by jointly optimizing the access point and user association (AUA), power control, and RIS beamforming. This problem is challenging and has never been addressed due to its prohibitively large and complex solution space. Our framework decouples the AUA from the power control and RIS beamforming (PCRB) based on the different natures of their variables, hence reducing the solution space. A new position-adaptive binary particle swarm optimization (PABPSO) method is designed for the AUA. Two twin-delayed deep deterministic policy gradient (TD3) models with new and refined state pre-processing layers are developed for the PCRB. Another important aspect is that a DT is leveraged to train the learning framework with its replay of channel estimates stored. The AUA, power control, and RIS beamforming are only tested in the physical environment at the end of selected epochs. Simulations show that using RISs contributes to considerable increases in the sum-rate of UCCF systems, and the DT dramatically reduces overhead with marginal performance loss. The proposed framework is superior to its alternatives in terms of sum-rate and convergence stability.
+---
+
+---
+DOI: 10.1016/j.etran.2024.100370
+Title: Microstructure-based digital twin thermo-electrochemical modeling of LIBs at the cell-to-module scale
+Year: 2024
+Abstract: As the application of lithium-ion batteries (LIBs) expands beyond conventional electric vehicles (EVs) to heavy vehicles such as electric trucks or trams, the importance of thermal management in LIB systems is increasing, even at the module or pack level. In particular, because monitoring the thermal behaviors of each cell is not feasible, thermo-electrochemical modeling and simulations in the module or pack level are essential for analyzing and ensuring thermal stability. However, because the conventional lumped thermo-electrochemical models cannot reflect the actual structure of LIB cells, there might be considerable differences may exist between simulation and experimental results. To fill these gaps, we have newly developed a 3D microstructure-based digital twin model of a battery module (8.8 Ah/18.5 V, five LIB pouch cells in series) for an unmanned railway vehicle . Unlike traditional lumped models , our digital twin model accurately well reflects the internal structure of cells and can calculate the heat generation of each component inside a cell. As a result, contrary to a lumped model, the digital twin model can not only simulate the inhomogeneous temperature gradient inside a cell, but also estimates higher local maximum temperatures (T DT, max /T L, max = 137.2 °C/123.9 °C @ 10C discharge) in cells which can trigger thermal runaway. Therefore, microstructure-based digital twin modeling can alleviate concerns regarding the thermal runaway of LIB cells, modules, and packs, and provide safe operating conditions. • Digital twin (DT) battery model was built reflecting actual internal cell structure. • Heat generation of components inside lithium-ion cells is included in DT model. • DT model can couple both electrochemical and thermal behaviors in module level. • Thus, DT model can well estimate maximum temperature than conventional lumped one.
+---
+
+---
+DOI: 10.1016/j.procir.2021.11.271
+Title: Real-time combination of material flow simulation, digital twins of manufacturing cells, an AGV and a mixed-reality application
+Year: 2021
+Abstract: The integration of material flow simulation and digital planning solutions raises new challenges for the methodology and technical implementation of simulation models. The paper describes the use of a material flow simulation, which is controlling an AGV and interacting with digital twins of manufacturing cells. The digital twins determine the exact machining times. In addition, a mixed-reality application visualizes the entire system, while the communication via MQTT ensures a quasi-synchronous behavior of the different models and the AGV. The paper provides a literature review on similar solutions, describes the concept of our approach and specifies the technical implementation.
+---
+
+---
+DOI: 10.1109/tte.2022.3229716
+Title: Implementation of an Early Stage Fuel Cell Degradation Prediction Digital Twin Based on Transfer Learning
+Year: 2022
+Abstract: International audience
+---
+
+---
+DOI: 10.3390/pr10020419
+Title: Process Design and Optimization towards Digital Twins for HIV-Gag VLP Production in HEK293 Cells, including Purification
+Year: 2022
+Abstract: Despite great efforts to develop a vaccine against human immunodeficiency virus (HIV), which causes AIDS if untreated, no approved HIV vaccine is available to date. A promising class of vaccines are virus-like particles (VLPs), which were shown to be very effective for the prevention of other diseases. In this study, production of HI-VLPs using different 293F cell lines, followed by a three-step purification of HI-VLPs, was conducted. The quality-by-design-based process development was supported by process analytical technology (PAT). The HI-VLP concentration increased 12.5-fold while &gt;80% purity was achieved. This article reports on the first general process development and optimization up to purification. Further research will focus on process development for polishing and formulation up to lyophilization. In addition, process analytical technology and process modeling for process automation and optimization by digital twins in the context of quality-by-design framework will be developed.
+---
+
+---
+DOI: 10.1109/twc.2023.3258143
+Title: Cell-Free Networking for Integrated Data and Energy Transfer: Digital Twin Based Double Parameterized DQN for Energy Sustainability
+Year: 2023
+Abstract: Cell-free networking enables full cooperation among distributed access points (APs). This paper focuses on reducing the long-term energy consumption of a cell-free network in the downlink integrated data and energy transfer (IDET) for achieving energy sustainability. The resultant design includes both the AP classification on a large time-scale and the beamforming of the APs on a small time-scale in order to simultaneously satisfy the IDET requirements of data users and energy users. For dealing with binary integer actions (AP classification) and continuous actions (beamforming) together, we innovatively propose a stable double parameterized deep-Q-network (DP-DQN), which can be enhanced by a digital twin (DT) running in the intelligent core processor (ICP) so as to achieve faster and more stable convergence. Therefore, the cell-free network may avoid suffering from performance fluctuation during the training process. The simulation results demonstrate that our DP-DQN exceeds in convergence compared to other benchmarks while guaranteeing an optimal solution.
+---
+
+---
+DOI: 10.3390/pr10020316
+Title: Towards Autonomous Process Control—Digital Twin for CHO Cell-Based Antibody Manufacturing Using a Dynamic Metabolic Model
+Year: 2022
+Abstract: The development of new biologics is becoming more challenging due to global competition and increased requirements for process understanding and assured quality in regulatory approval. As a result, there is a need for predictive, mechanistic process models. These reduce the resources and time required in process development, generating understanding, expanding the possible operating space, and providing the basis for a digital twin for automated process control. Monoclonal antibodies are an important representative of industrially produced biologics that can be used for a wide range of applications. In this work, the validation of a mechanistic process model with respect to sensitivity, as well as accuracy and precision, is presented. For the investigated process conditions, the concentration of glycine, phenylalanine, tyrosine, and glutamine have been identified as significant influencing factors for product formation via statistical evaluation. Cell growth is, under the investigated process conditions, significantly dependent on the concentration of glucose within the investigated design space. Other significant amino acids were identified. A Monte Carlo simulation was used to simulate the cultivation run with an optimized medium resulting from the sensitivity analysis. The precision of the model was shown to have a 95% confidence interval. The model shown here includes the implementation of cell death in addition to models described in the literature.
+---
+
+---
+DOI: 10.1051/e3sconf/202233406003
+Title: Digital Twin of Fuel Cell Hybrid Electric Vehicle: a detailed modelling approach of the hydrogen powertrain and the auxiliary systems
+Year: 2022
+Abstract: The transport sector is today a major source of pollutant and greenhouse gas emissions. Fuel Cell Hybrid Electric Vehicles are a solution to reduce its environmental impact, thanks to the zero pollutant tailpipe emissions and longer driving ranges if compared with full electric vehicles. A Digital Twin of a FCHEV is developed in this study, through the assessment of models of mechanical and thermal systems within the vehicle. The Simulink/Simscape model here presented is able to support both the design choices and the test of control strategies. The results obtained allow characterizing the impact of the auxiliary systems on the driving range, whose relative value ranges from 28% to 40% of the overall energy demand depending on the ambient temperature, and the range is between 430 km and 356 km respectively for mild and cold temperature.
+---
+
+---
+DOI: 10.1080/17517575.2018.1526324
+Title: The modelling and operations for the digital twin in the context of manufacturing
+Year: 2018
+Abstract: The lack of effective methods to develop the product, process and operation models based on virtual and physical convergence leads to the poor performance on intelligence, real-time capability and predictability in production management. This paper proposes an approach of modelling and operations for the digital twin in the context of manufacturing. Firstly, the concept and extension of the digital twin in the manufacturing context are elaborated to provide the implementation methods of virtual-physical convergence and information integration for a factory. Secondly, the modelling approaches of product digital twins, process digital twins and operation digital twins are presented, then the interoperation mode between these digital twins are explained. Thirdly, to elaborate how to execute operations between product, process and resource, Automation Markup Language (AutomationML) is used for modelling a structural parts machining cell. Finally, the performance evaluation is provided to demonstrate the improvement of production efficiency by using the proposed approach.
+---
+
+---
+DOI: 10.1016/j.cirp.2019.04.024
+Title: Development and operation of Digital Twins for technical systems and services
+Year: 2019
+Abstract: Abstract Digital Twins are new solution elements to enable ongoing digital monitoring and active functional improvement of interconnected products, devices and machines. In addition, benefits of horizontal and vertical integration in manufacturing are targeted by the introduction of Digital Twins. Using the test environment of smart factory cells, this paper investigates methodological, technological, operative, and business aspects of developing and operating Digital Twins. The following Digital Twin dimensions are considered in scientific and application oriented analysis: (1) integration breadth, (2) connectivity modes, (3) update frequency, (4) CPS intelligence, (5) simulation capabilities, (6) digital model richness, (7) human interaction, and (8) product lifecycle. From this, design elements for the development of Digital Twins are derived and presented.
+---

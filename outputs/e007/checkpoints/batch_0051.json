@@ -1,0 +1,119 @@
+{
+  "batch_index": 51,
+  "dois": [
+    "10.1371/journal.pcbi.1006640",
+    "10.1371/journal.pcbi.1003915",
+    "10.1371/journal.pcbi.1006052",
+    "10.1016/j.jcp.2015.12.038",
+    "10.1162/netn_a_00097",
+    "10.1371/journal.pone.0184561",
+    "10.1371/journal.pcbi.1009156",
+    "10.1371/journal.pcbi.1002740",
+    "10.1098/rsif.2013.1049",
+    "10.7554/elife.66440"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pcbi.1006640",
+      "problem": "How does heterogeneous mitochondrial arrangement in cardiomyocytes affect metabolite distributions and force dynamics, given that cardiac mitochondria are not arranged in crystalline columns as previously assumed?",
+      "method": "2D finite element modeling of cardiac bioenergetics on computational meshes derived from serial block face scanning electron microscopy (SBF-SEM) images, coupling ODE oxidative phosphorylation models with PDEs for metabolite diffusion.",
+      "finding": "Heterogeneous mitochondrial distributions cause significant spatial variation in Pi, Cr, and PCr concentrations, but the creatine kinase shuttle maintains near-uniform ATP/ADP ratios under normoxia. Under hypoxia, this buffering fails, leading to non-uniform force generation.",
+      "dataset": "SBF-SEM images of one complete rat cardiac cell, 3 cross-sections",
+      "metric": "spatial concentration gradients of phosphagens (ATP, ADP, Pi, Cr, PCr), twitch force variation",
+      "baseline": "idealized crystal lattice-like mitochondrial geometries from previous computational studies",
+      "result": "mitochondrial area fraction 45-55%, near-uniform ATP/ADP in normoxia, significant gradients under hypoxia"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1003915",
+      "problem": "To what extent can internal representations of computational object-vision models explain the representational geometry of inferior temporal (IT) cortex, and does supervised vs unsupervised training matter?",
+      "method": "Compared representational dissimilarity matrices (RDMs) of 37 computational models (HMAX, VisNet, SIFT, GIST, deep CNN) against human IT (fMRI) and monkey IT (cell recordings) for 96 stimuli using Kendall tau-A correlation.",
+      "finding": "A deep supervised convolutional network (trained on 1.2M labeled images) best explained IT representation. Unsupervised models failed to explain categorical clustering in IT. Remixing deep network features with category-discriminating linear combinations fully explained the IT data.",
+      "dataset": "96 object images, human IT fMRI (N=4), monkey IT cell recordings (674 neurons, 2 monkeys)",
+      "metric": "Kendall tau-A RDM correlation, categorization performance, noise ceiling",
+      "baseline": "27 not-strongly-supervised models (HMAX, VisNet, SIFT, GIST, unsupervised CNN, etc.)",
+      "result": "deep supervised CNN highest RDM correlation; remixed deep features fully reached noise ceiling"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1006052",
+      "problem": "How do fluctuations in epigenetic cofactors (metabolites used by histone-modifying enzymes) affect epigenetic landscapes and cell state transitions during aging and disease?",
+      "method": "Stochastic model of epigenetic regulation using Chemical Master Equation with Approximate Bayesian Computation (ABC) to generate ensemble of ER system configurations reflecting cofactor variability. Bifurcation analysis of mean-field QSSA equations.",
+      "finding": "Heterogeneity in epigenetic metabolites (HDM/HDAC levels) stochastically drives phenotypic variability, producing resilient states (large epigenetic barriers) and plastic states (lowered barriers sensitive to reprogramming). Fine-tuning cofactor levels can redirect between these states.",
+      "dataset": "computational ensemble of epigenetic regulation configurations (differentiation- and pluripotency-promoting genes)",
+      "metric": "epigenetic barrier height, bistability region boundaries, cell state transition probability",
+      "baseline": "previous stochastic epigenetic models by Dodd et al. and Menéndez et al.",
+      "result": "distinct resilient/plastic epi-states emerge from cofactor variability; metabolism-responsive loss of epigenetic resilience as aging mechanism"
+    },
+    {
+      "doi": "10.1016/j.jcp.2015.12.038",
+      "problem": "How to develop a robust computational method for solving coupled bulk-surface reaction-diffusion equations on evolving 2D domains, applicable to cell migration and chemotaxis?",
+      "method": "Moving mesh finite element method using a novel moving mesh PDE (MMPDE) approach for adaptive grid generation, with a conservative ALE scheme for bulk-surface coupled reaction-diffusion equations.",
+      "finding": "The method achieves second-order spatial and temporal accuracy on model problems with known solutions. Applied to cell migration, it predicts a novel mechanism where cells increase persistence and polarity by generating their own local chemoattractant gradients.",
+      "dataset": "model problems with known analytical solutions; simulated eukaryotic cell migration",
+      "metric": "spatial and temporal convergence order",
+      "baseline": "",
+      "result": "second-order spatial and temporal accuracy"
+    },
+    {
+      "doi": "10.1162/netn_a_00097",
+      "problem": "What mechanism underlies the lasting aftereffects of transcranial direct current stimulation (tDCS), and how do stimulation parameters affect network remodeling?",
+      "method": "Recurrent network model of excitatory and inhibitory leaky integrate-and-fire neurons with homeostatically regulated structural plasticity, simulated in NEST. Systematic testing of electrode size, montage, intensity, and duration.",
+      "finding": "Weak subthreshold tDCS perturbs homeostatic equilibrium, triggering synaptic growth response and cell assembly formation among stimulated neurons. Strong focal stimulation enhances connectivity within assemblies, and repetitive stimulation with well-chosen duty cycles further increases impact.",
+      "dataset": "simulated cortical network (excitatory and inhibitory neurons)",
+      "metric": "firing rate modulation, synaptic connectivity changes, cell assembly strength",
+      "baseline": "non-stimulated network at homeostatic equilibrium",
+      "result": "±0.1 mV polarization causes >±10% firing rate change; repetitive stimulation with alternating polarization induces highest connectivity changes"
+    },
+    {
+      "doi": "10.1371/journal.pone.0184561",
+      "problem": "Can an artificial neural network predict the output power of mono-crystalline, multi-crystalline, and amorphous photovoltaic cells under varying light intensity and temperature conditions?",
+      "method": "Three-layer ANN (input: light intensity and temperature; output: maximum output power) using Tansig/Purelin transfer functions and Traingdm training, with 62 training and 10 validation data points per cell type.",
+      "finding": "ANN predictions closely match experimental data. Optimal hidden neuron count varies by cell type: 3-4 for multi- and amorphous, 8 for mono-crystalline. Amorphous cells are least susceptible to external conditions but have lowest efficiency.",
+      "dataset": "3 PV cell types (mono-, multi-, amorphous crystalline), 72 data points each (6 light intensities × 12 temperatures)",
+      "metric": "correlation coefficient (R), mean squared error (MSE)",
+      "baseline": "experimental I-V curve measurements",
+      "result": "R=0.99988 for mono (n=8), R=0.99924 for multi (n=3), R=0.99928 for amorphous (n=4)"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1009156",
+      "problem": "How do cell-matrix adhesion dynamics explain the diversity of lymphocyte motility patterns (floating, stepping, pivoting, persistent vs Brownian walks) observed on different extracellular matrix substrates?",
+      "method": "Cellular Potts model extended with Act model for actin-driven propulsion and dynamic cell-matrix adhesions (de novo formation, growth, shrinkage, rupture, and feedback onto propulsion).",
+      "finding": "Increasing attachment area and adhesion strength decreases cell speed and persistence. The model recapitulates floating, stepping, and pivoting behaviors. Strongly adherent cells show short-term persistent but long-term subdiffusive motility. Small adhesions at the front allow more persistent motility than larger clusters at the back.",
+      "dataset": "simulated lymphocyte motility on ECM substrates (fibronectin, ICAM, casein analogs)",
+      "metric": "cell speed, persistence, mean squared displacement (MSD) exponent, autocorrelation of velocity",
+      "baseline": "Act model without cell-matrix adhesions",
+      "result": "subdiffusive MSD exponent <1 for strongly adherent cells; recapitulates B cell floating/stepping/pivoting and T cell walking/gliding"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1002740",
+      "problem": "What is the functional significance of the phasic firing pattern (long bursts and silences lasting tens of seconds) in vasopressin neurons for encoding afferent input information?",
+      "method": "Integrate-and-fire model with activity-dependent slow depolarising afterpotential (DAP) via calcium-inactivated potassium leak current, modulated by dynorphin release. Compared phasic and non-phasic neuron populations' encoding properties.",
+      "finding": "Phasic firing population responds linearly to increases in tonic synaptic input (0-10 spikes/s range), while non-phasic populations show nonlinear responses. Phasic cells encode transient input changes independently of background activity, providing functional advantages for information coding.",
+      "dataset": "in vivo recordings from rat supraoptic nucleus vasopressin neurons",
+      "metric": "ISI distribution, hazard function, burst duration, silence duration, mean firing rate, population response linearity",
+      "baseline": "non-phasic neuron population (identical cells without phasic firing mechanism)",
+      "result": "linear response in 0-10 spikes/s range for phasic cells; mean burst 154s, silence 16s, intraburst rate 8.91 Hz"
+    },
+    {
+      "doi": "10.1098/rsif.2013.1049",
+      "problem": "Do the two proposed lumen formation mechanisms in angiogenesis — vacuolation and cell-cell repulsion — work independently in different vessel types, or can they act synergistically?",
+      "method": "Agent-based computational model using compartmental Cellular Potts model (CPM) with modules for cell surface polarization, pinocytotic vesicle/vacuole formation, and cell-cell repulsion. Extensive sensitivity analysis across parameter space.",
+      "finding": "Each mechanism alone produces lumens only in a narrow parameter region, but combining both mechanisms makes lumen formation much more robust, suggesting they work synergistically in parallel rather than in different vessel types.",
+      "dataset": "simulated branched cord of 12 endothelial cells in ECM (2D cross-section)",
+      "metric": "lumen formation success across parameter space, lumen continuity",
+      "baseline": "each mechanism tested independently (vacuolation alone, cell-cell repulsion alone)",
+      "result": "combined mechanisms produce lumens across much wider parameter space than either alone"
+    },
+    {
+      "doi": "10.7554/elife.66440",
+      "problem": "How does WNT/CTNNB1 signaling regulate the dynamic distribution and complex state of endogenous CTNNB1 across subcellular compartments, and what are the key regulatory nodes?",
+      "method": "CRISPR/Cas9 knock-in of SGFP2 tag at endogenous CTNNB1 locus in haploid HAP1 cells, combined with quantitative live-cell microscopy (FCS, N&B analysis, FRAP), and ODE-based computational modeling of WNT signaling.",
+      "finding": "A substantial fraction of CTNNB1 resides in slow-diffusing cytoplasmic complexes regardless of pathway activation status, but the complex undergoes major size reduction upon WNT activation. Three regulatory nodes control CTNNB1 distribution: the destruction complex, nucleocytoplasmic shuttling, and nuclear retention.",
+      "dataset": "HAP1 haploid human cell line with SGFP2-CTNNB1 and SGFP2-CTNNB1(S45F) knock-in",
+      "metric": "absolute CTNNB1 concentration (nM), diffusion coefficient, molecular brightness, nuclear/cytoplasmic ratio",
+      "baseline": "unstimulated (physiological) vs WNT3A-treated and CHIR99021-treated (hyperactivated) conditions",
+      "result": "1.7-fold cytoplasmic and 3.0-fold nuclear increase after WNT3A; ~160 nM cytoplasmic CTNNB1 concentration"
+    }
+  ],
+  "timestamp": "2026-03-05T14:32:04.047261",
+  "extraction_count": 10
+}

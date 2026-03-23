@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1073/pnas.93.24.13635
+Title: Superoxide accelerates DNA damage by elevating free-iron levels
+Year: 1996
+Abstract: Superoxide promotes hydroxyl-radical formation and consequent DNA damage in cells of all types. The long-standing hypothesis that it primarily does so by delivering electrons to adventitious iron on DNA was refuted by recent studies in Escherichia coli . Alternative proposals have suggested that superoxide may accelerate oxidative DNA damage by leaching iron from storage proteins or enzymic [4Fe-4S] clusters. The released iron might then deposit on the surface of the DNA, where it could catalyze the formation of DNA oxidants using other electron donors. The latter model is affirmed by the experiments described here. Whole-cell electron paramagnetic resonance demonstrated that the level of loose iron in superoxide-stressed cells greatly exceeds that of unstressed cells. Bacterial iron storage proteins were not the major source for free iron, since superoxide also increased iron levels in mutants lacking these iron storage proteins. However, overproduction of an enzyme containing a labile [4Fe-4S] cluster dramatically increased the free iron content of cells when they were growing in air. The rates of spontaneous mutagenesis and DNA damage from exogenous H 2 O 2 increased commensurately. It is striking that both growth defects and DNA damage caused by superoxide ensue from its ability to damage a subset of iron–sulfur clusters.
+---
+
+---
+DOI: 10.1097/01.cji.0000179437.95335.23
+Title: Efficient Responses in a Murine Renal Tumor Model by Electroloading Dendritic Cells With Whole-Tumor Lysate
+Year: 2005
+Abstract: Electroporation of dendritic cells (DCs) with tumor lysate elicited greater antitumor responses in vitro and in vivo, using less lysate than standard coincubation. Electroloaded DCs had normal surface marker expression and matured into competent antigen-presenting cells. In a renal carcinoma (RENCA) model, mice were pretreated with lysate-loaded DCs before tumor challenge. Mice that received DCs electroloaded with RENCA lysate had significantly smaller tumors (9+/-6 mm2) than mice given DCs coincubated with the same lysate (23+/-5 mm2). To evaluate a metastatic therapeutic tumor model, mice were first injected with Lewis lung carcinoma (LLC) and then given 2 doses of cryopreserved LLC lysate-loaded DCs. Mice treated with electroloaded DCs had a 50% reduction in lung metastases compared with control mice that received no DCs or DCs loaded with liver lysate. In contrast, DCs coincubated with LLC lysate were indistinguishable from controls. Tumor lysate-electroloaded but not-coincubated DCs also primed syngeneic mouse splenocytes in vitro to produce interferon-gamma and, specifically, lyse tumor cells. The electroloaded DCs elicited specific T-cell responses with less lysate than the amount reported in standard coincubation procedures. This approach may be particularly useful when small amounts of tumor material are available.
+---
+
+---
+DOI: 10.1158/2326-6066.cir-13-0164
+Title: Whole-Body Irradiation Increases the Magnitude and Persistence of Adoptively Transferred T Cells Associated with Tumor Regression in a Mouse Model of Prostate Cancer
+Year: 2014
+Abstract: Abstract Adoptive immunotherapy has demonstrated efficacy in a subset of clinical and preclinical studies, but the T cells used for therapy often are rendered rapidly nonfunctional in tumor-bearing hosts. Recent evidence indicates that prostate cancer can be susceptible to immunotherapy, but most studies using autochthonous tumor models demonstrate only short-lived T-cell responses in the tolerogenic prostate microenvironment. Here, we assessed the efficacy of sublethal whole-body irradiation (WBI) to enhance the magnitude and duration of adoptively transferred CD8+ T cells in the transgenic adenocarcinoma of the mouse prostate (TRAMP) model. We demonstrate that WBI promoted high-level accumulation of granzyme B (GzB, Gzmb)–expressing donor T cells both in lymphoid organs and in the prostate of TRAMP mice. Donor T cells remained responsive to vaccination in irradiated recipients, but a single round of WBI-enhanced adoptive immunotherapy failed to affect significantly the existing disease. Addition of a second round of immunotherapy promoted regression of established disease in half of the treated mice, with no progression observed. Regression was associated with long-term persistence of effector/memory phenotype CD8+ donor cells. Administration of the second round of adoptive immunotherapy led to reacquisition of GzB expression by persistent T cells from the first transfer. These results indicate that WBI conditioning amplifies tumor-specific T cells in the TRAMP prostate and lymphoid tissue, and suggest that the initial treatment alters the tolerogenic microenvironment to increase antitumor activity by a second wave of donor cells. Cancer Immunol Res; 2(8); 777–88. ©2014 AACR.
+---
+
+---
+DOI: 10.1017/cbo9780511790515
+Title: Systems Biology: Properties of Reconstructed Networks
+Year: 2006
+Abstract: Genome sequences are now available that enable us to determine the biological components that make up a cell or an organism. The discipline of systems biology examines how these components interact and form networks, and how the networks generate whole cell functions corresponding to observable phenotypes. This 2006 textbook devoted to systems biology describes how to model networks, how to determine their properties, and how to relate these to phenotypic functions. The prerequisites are some knowledge of linear algebra and biochemistry. Though the links between the mathematical ideas and biological processes are made clear, the book reflects the irreversible trend of increasing mathematical content in biology education. Therefore to assist both teacher and student, in an associated web site Palsson provides problem sets, projects and Powerpoint slides, and keeps the presentation in the book concrete with illustrative material and experimental results.
+---
+
+---
+DOI: 10.1038/nature10846
+Title: Type VI secretion requires a dynamic contractile phage tail-like structure
+Year: 2012
+Abstract: Type VI secretion systems are bacterial virulence-associated nanomachines composed of proteins that are evolutionarily related to components of bacteriophage tails. Here we show that protein secretion by the type VI secretion system of Vibrio cholerae requires the action of a dynamic intracellular tubular structure that is structurally and functionally homologous to contractile phage tail sheath. Time-lapse fluorescence light microscopy reveals that sheaths of the type VI secretion system cycle between assembly, quick contraction, disassembly and re-assembly. Whole-cell electron cryotomography further shows that the sheaths appear as long tubular structures in either extended or contracted conformations that are connected to the inner membrane by a distinct basal structure. These data support a model in which the contraction of the type VI secretion system sheath provides the energy needed to translocate proteins out of effector cells and into adjacent target cells.
+---
+
+---
+DOI: 10.1038/s41578-018-0023-x
+Title: Extracellular matrix-based materials for regenerative medicine
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/8754_2010_1
+Title: Services-Based Systems Architecture for Modeling the Whole Cell: A Distributed Collaborative Engineering Systems Approach
+Year: 2010
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.bpj.2008.11.045
+Title: A Thermodynamic Model of the Cardiac Sarcoplasmic/Endoplasmic Ca2+ (SERCA) Pump
+Year: 2009
+Abstract: We present a biophysically based kinetic model of the cardiac SERCA pump that consolidates a range of experimental data into a consistent and thermodynamically constrained framework. The SERCA model consists of a number of sub-states with partial reactions that are sensitive to Ca(2+) and pH, and to the metabolites MgATP, MgADP, and Pi. Optimization of model parameters to fit experimental data favors a fully cooperative Ca(2+)-binding mechanism and predicts a Ca(2+)/H(+) counter-transport stoichiometry of 2. Moreover, the order of binding of the partial reactions, particularly the binding of MgATP, proves to be a strong determinant of the ability of the model to fit the data. A thermodynamic investigation of the model indicates that the binding of MgATP has a large inhibitory effect on the maximal reverse rate of the pump. The model is suitable for integrating into whole-cell models of cardiac electrophysiology and Ca(2+) dynamics to simulate the effects on the cell of compromised metabolism arising in ischemia and hypoxia.
+---
+
+---
+DOI: 10.1126/science.aat6806
+Title: Dynamic DNA methylation: In the right place at the right time
+Year: 2018
+Abstract: The classical model of cytosine DNA methylation (the presence of 5-methylcytosine, 5mC) regulation depicts this covalent modification as a stable repressive regulator of promoter activity. However, whole-genome analysis of 5mC reveals widespread tissue- and cell type–specific patterns and pervasive dynamics during mammalian development. Here we review recent findings that delineate 5mC functions in developmental stages and diverse genomic compartments as well as discuss the molecular mechanisms that connect transcriptional regulation and 5mC. Beyond the newly appreciated dynamics, regulatory roles for 5mC have been suggested in new biological contexts, such as learning and memory or aging. The use of new single-cell measurement techniques and precise editing tools will enable functional analyses of 5mC in gene expression, clarifying its role in various biological processes.
+---
+
+---
+DOI: 10.1146/annurev.arplant.043008.092054
+Title: The Circadian System in Higher Plants
+Year: 2009
+Abstract: The circadian clock regulates diverse aspects of plant growth and development and promotes plant fitness. Molecular identification of clock components, primarily in Arabidopsis, has led to recent rapid progress in our understanding of the clock mechanism in higher plants. Using mathematical modeling and experimental approaches, workers in the field have developed a model of the clock that incorporates both transcriptional and posttranscriptional regulation of clock genes. This cell-autonomous clock, or oscillator, generates rhythmic outputs that can be monitored at the cellular and whole-organism level. The clock not only confers daily rhythms in growth and metabolism, but also interacts with signaling pathways involved in plant responses to the environment. Future work will lead to a better understanding of how the clock and other signaling networks are integrated to provide plants with an adaptive advantage.
+---
+
+---
+DOI: 10.1146/annurev-pathol-012414-040418
+Title: Engineered In Vitro Disease Models
+Year: 2015
+Abstract: The ultimate goal of most biomedical research is to gain greater insight into mechanisms of human disease or to develop new and improved therapies or diagnostics. Although great advances have been made in terms of developing disease models in animals, such as transgenic mice, many of these models fail to faithfully recapitulate the human condition. In addition, it is difficult to identify critical cellular and molecular contributors to disease or to vary them independently in whole-animal models. This challenge has attracted the interest of engineers, who have begun to collaborate with biologists to leverage recent advances in tissue engineering and microfabrication to develop novel in vitro models of disease. As these models are synthetic systems, specific molecular factors and individual cell types, including parenchymal cells, vascular cells, and immune cells, can be varied independently while simultaneously measuring system-level responses in real time. In this article, we provide some examples of these efforts, including engineered models of diseases of the heart, lung, intestine, liver, kidney, cartilage, skin and vascular, endocrine, musculoskeletal, and nervous systems, as well as models of infectious diseases and cancer. We also describe how engineered in vitro models can be combined with human inducible pluripotent stem cells to enable new insights into a broad variety of disease mechanisms, as well as provide a test bed for screening new therapies.
+---
+
+---
+DOI: 10.1161/circresaha.110.223610
+Title: Whole-Heart Modeling
+Year: 2011
+Abstract: Recent developments in cardiac simulation have rendered the heart the most highly integrated example of a virtual organ. We are on the brink of a revolution in cardiac research, one in which computational modeling of proteins, cells, tissues, and the organ permit linking genomic and proteomic information to the integrated organ behavior, in the quest for a quantitative understanding of the functioning of the heart in health and disease. The goal of this review is to assess the existing state-of-the-art in whole-heart modeling and the plethora of its applications in cardiac research. General whole-heart modeling approaches are presented, and the applications of whole-heart models in cardiac electrophysiology and electromechanics research are reviewed. The article showcases the contributions that whole-heart modeling and simulation have made to our understanding of the functioning of the heart. A summary of the future developments envisioned for the field of cardiac simulation and modeling is also presented. Biophysically based computational modeling of the heart, applied to human heart physiology and the diagnosis and treatment of cardiac disease, has the potential to dramatically change 21st century cardiac research and the field of cardiology.
+---
+
+---
+DOI: 10.1006/biol.2000.0263
+Title: Investigation of an Aerosol Challenge Model as Alternative to the Intracerebral Mouse Protection Test for Potency Assay of Whole Cell Pertussis Vaccines
+Year: 2000
+Abstract: The current potency test for whole cell pertussis vaccines, the intracerebral mouse protection test, is still the only assay which has shown a correlation with protection in children. However, it has considerable disadvantages as it uses a severe challenge procedure and the results tend to show significant intra- and inter-laboratory variation. An alternative assay based on non-lethal aerosol challenge of mice has been investigated as a replacement for the current intracerebral mouse protection test. Evaluation of this indicated that the aerosol system allowed consistent inoculation of bacteria into mice and gave good reproducibility. The protective capacity of different vaccine preparations was distinguished by this assay. Furthermore, the viable counts of Bordetella pertussis in the lungs of challenged mice were immunisation dose-dependent, which allowed the relative potency of vaccines to be calculated. Comparison of potency of five batches of vaccine from different manufacturers assayed by both the intracerebral and the aerosol challenge methods ranked the vaccines in identical order. The results suggest that this method has potential for use as a potency test for whole cell pertussis vaccine which would result in a great reduction in the number of animals used. It would also replace the lethal challenge by a non-lethal procedure and thereby avoid the use of the severe intracerebral challenge procedure.
+---
+
+---
+DOI: 10.1007/s12079-011-0132-4
+Title: 3D tumour models: novel in vitro approaches to cancer studies
+Year: 2011
+Abstract: 3D in vitro models have been used in cancer research as a compromise between 2-dimensional cultures of isolated cancer cells and the manufactured complexity of xenografts of human cancers in immunocompromised animal hosts. 3D models can be tailored to be biomimetic and accurately recapitulate the native in vivo scenario in which they are found. These 3D in vitro models provide an important alternative to both complex in vivo whole organism approaches, and 2D culture with its spatial limitations. Approaches to create more biomimetic 3D models of cancer include, but are not limited to, (i) providing the appropriate matrix components in a 3D configuration found in vivo, (ii) co-culturing cancer cells, endothelial cells and other associated cells in a spatially relevant manner, (iii) monitoring and controlling hypoxia- to mimic levels found in native tumours and (iv) monitoring the release of angiogenic factors by cancer cells in response to hypoxia. This article aims to overview current 3D in vitro models of cancer and review strategies employed by researchers to tackle these aspects with special reference to recent promising developments, as well as the current limitations of 2D cultures and in vivo models. 3D in vitro models provide an important alternative to both complex in vivo whole organism approaches, and 2D culture with its spatial limitations. Here we review current strategies in the field of modelling cancer, with special reference to advances in complex 3D in vitro models.
+---
+
+---
+DOI: 10.1101/gr.5402306
+Title: High-resolution genomic profiling of chromosomal aberrations using Infinium whole-genome genotyping
+Year: 2006
+Abstract: Array-CGH is a powerful tool for the detection of chromosomal aberrations. The introduction of high-density SNP genotyping technology to genomic profiling, termed SNP-CGH, represents a further advance, since simultaneous measurement of both signal intensity variations and changes in allelic composition makes it possible to detect both copy number changes and copy-neutral loss-of-heterozygosity (LOH) events. We demonstrate the utility of SNP-CGH with two Infinium whole-genome genotyping BeadChips, assaying 109,000 and 317,000 SNP loci, to detect chromosomal aberrations in samples bearing constitutional aberrations as well tumor samples at sub-100 kb effective resolution. Detected aberrations include homozygous deletions, hemizygous deletions, copy-neutral LOH, duplications, and amplifications. The statistical ability to detect common aberrations was modeled by analysis of an X chromosome titration model system, and sensitivity was modeled by titration of gDNA from a tumor cell with that of its paired normal cell line. Analysis was facilitated by using a genome browser that plots log ratios of normalized intensities and allelic ratios along the chromosomes. We developed two modes of SNP-CGH analysis, a single sample and a paired sample mode. The single sample mode computes log intensity ratios and allelic ratios by referencing to canonical genotype clusters generated from ∼120 reference samples, whereas the paired sample mode uses a paired normal reference sample from the same individual. Finally, the two analysis modes are compared and contrasted for their utility in analyzing different types of input gDNA: low input amounts, fragmented gDNA, and Phi29 whole-genome pre-amplified DNA.
+---
+
+---
+DOI: 10.1101/gad.6.8.1466
+Title: Overexpression of Id protein inhibits the muscle differentiation program: in vivo association of Id with E2A proteins.
+Year: 1992
+Abstract: The helix-loop-helix (HLH) protein Id lacks the basic DNA-binding domain common to this class of proteins. In vitro experiments suggested that Id could associate tightly with two other HLH proteins encoded by the E2A gene, E12 and E47 (referred to here collectively as E proteins) and prevent their binding to a sequence present in the muscle creatine kinase (MCK) enhancer either as homo-oligomers or hetero-oligomers with MyoD. In this report we present evidence for the in vivo roles of Id and E proteins: (1) Id and E proteins co-fractionate and co-immunoprecipitate in whole-cell extracts prepared from myoblasts; (2) the loss of Id protein observed during the conversion of proliferating myoblasts into mature myotubes correlates with the formation of MyoD/E hetero-oligomeric complexes in whole-cell extracts (these complexes do not form when purified Id protein is added to the extracts); and (3) stable overexpression of Id mRNA and protein in the C2C12 muscle cell line inhibits differentiation in these cells 16 hr post-induction. The myotubes that do eventually form 48 hr post-induction have no detectable Id protein in the nucleus despite the persistence of exogenous Id mRNA. These data support a model in which Id can inhibit muscle cell differentiation by associating with E proteins and preventing them from forming active hetero-oligomeric complexes with the muscle determination gene products.
+---
+
+---
+DOI: 10.1038/s41375-018-0042-z
+Title: Whole-exome sequencing reveals acquisition of mutations leading to the onset of donor cell leukemia after hematopoietic transplantation: a model of leukemogenesis
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1088/1674-1056/25/1/018212
+Title: Multi-scale computation methods: Their applications in lithium-ion battery research and development
+Year: 2016
+Abstract: Based upon advances in theoretical algorithms, modeling and simulations, and computer technologies, the rational design of materials, cells, devices, and packs in the field of lithium-ion batteries is being realized incrementally and will at some point trigger a paradigm revolution by combining calculations and experiments linked by a big shared database, enabling accelerated development of the whole industrial chain. Theory and multi-scale modeling and simulation, as supplements to experimental efforts, can help greatly to close some of the current experimental and technological gaps, as well as predict path-independent properties and help to fundamentally understand path-independent performance in multiple spatial and temporal scales.
+---
+
+---
+DOI: 10.3791/57406
+Title: Whole-mount Confocal Microscopy for Adult Ear Skin: A Model System to Study Neuro-vascular Branching Morphogenesis and Immune Cell Distribution
+Year: 2018
+Abstract: Here, we present a protocol of a whole-mount adult ear skin imaging technique to study comprehensive three-dimensional neuro-vascular branching morphogenesis and patterning, as well as immune cell distribution at a cellular level. The analysis of peripheral nerve and blood vessel anatomical structures in adult tissues provides some insights into the understanding of functional neuro-vascular wiring and neuro-vascular degeneration in pathological conditions such as wound healing. As a highly informative model system, we have focused our studies on adult ear skin, which is readily accessible for dissection. Our simple and reproducible protocol provides an accurate depiction of the cellular components in the entire skin, such as peripheral nerves (sensory axons, sympathetic axons, and Schwann cells), blood vessels (endothelial cells and vascular smooth muscle cells), and inflammatory cells. We believe this protocol will pave the way to investigate morphological abnormalities in peripheral nerves and blood vessels as well as the inflammation in the adult ear skin under different pathological conditions.
+---
+
+---
+DOI: 10.1016/j.stem.2014.04.020
+Title: Low Incidence of Off-Target Mutations in Individual CRISPR-Cas9 and TALEN Targeted Human Stem Cell Clones Detected by Whole-Genome Sequencing
+Year: 2014
+Abstract: Genome editing has attracted wide interest for the generation of cellular models of disease using human pluripotent stem cells and other cell types. CRISPR-Cas systems and TALENs can target desired genomic sites with high efficiency in human cells, but recent publications have led to concern about the extent to which these tools may cause off-target mutagenic effects that could potentially confound disease-modeling studies. Using CRISPR-Cas9 and TALEN targeted human pluripotent stem cell clones, we performed whole-genome sequencing at high coverage in order to assess the degree of mutagenesis across the entire genome. In both types of clones, we found that off-target mutations attributable to the nucleases were very rare. From this analysis, we suggest that, although some cell types may be at risk for off-target mutations, the incidence of such effects in human pluripotent stem cells may be sufficiently low and thus not a significant concern for disease modeling and other applications.
+---
+
+---
+DOI: 10.1182/blood.v85.5.1341.bloodjournal8551341
+Title: Downregulation of proinflammatory cytokine release in whole blood from septic patients
+Year: 1995
+Abstract: Using animal models or healthy volunteers, injection of lipopolysaccharide (LPS) or bacteria causes activation of macrophages with excessive synthesis and secretion of proinflammatory cytokines. Although these models mimic the effects of LPS in the host, they may represent more of an experimental expression of endotoxemia than natural infection itself. Therefore, as an ex vivo model of sepsis, whole blood from 15 patients with severe sepsis and 20 control patients without infection was stimulated with LPS to study the kinetics of mRNA expression and release of proinflammatory cytokines, tumor necrosis factor (TNF)-alpha, interleukin (IL)-1 beta, and IL-6. Stimulation of whole blood with 1 microgram/mL LPS resulted in a maximum increase of cytokine secretion in the control group, while a marked (P &lt; .01) depression of TNF-alpha, IL-1 beta, and IL-6 release was observed in the septic group, which persisted up to 10 days after study enrollment. While IL-1 beta mRNA expression was similar in peripheral blood mononuclear cells (PBMCs) harvested from LPS-stimulated whole blood in septic and control patients, the half-life and consequently the expression of TNF-alpha and IL-6 mRNA were strongly reduced in the septic group. These data indicate a downregulatory mechanism of cytokine release in whole blood from patients with severe sepsis that occurs on different levels. Although excessive secretion of proinflammatory cytokines has been considered deleterious for the host, the reduced capacity of PBMCs in whole blood from septic patients to synthesize and secrete proinflammatory cytokines to an inflammatory stimulus may result in immunodeficiency, because these cytokines in low concentrations are involved in the upregulation of essential cellular and humoral immune functions.
+---
+
+---
+DOI: 10.1152/ajpheart.00514.2007
+Title: Determination of cell types and numbers during cardiac development in the neonatal and adult rat and mouse
+Year: 2007
+Abstract: Cardiac fibroblasts, myocytes, endothelial cells, and vascular smooth muscle cells are the major cellular constituents of the heart. The aim of this study was to observe alterations in myocardial cell populations during early neonatal development in the adult animal and to observe any variations of the cardiac cell populations in different species, specifically, the rat and mouse. Whole hearts were isolated from either mice or rats during the neonatal and adult stages of development, and single cell suspensions were prepared via sequential collagenase digestion. Heterogeneous cell populations were immunolabeled for specific cell types and analyzed using fluorescence-activated cell sorting (FACS). In addition, the left ventricle, right ventricle, and septa were isolated, fixed, and sectioned for morphometric analyses. These same cardiac regions were also analyzed using FACS. We observed that the adult murine myocardium is composed of ∼56% myocytes, 27% fibroblasts, 7% endothelial cells, and 10% vascular smooth muscle cells. Moreover, our morphometric and FACS data demonstrated similar percentages in the three regions examined. During murine neonatal cardiac development, we observed a marked increase in numbers of cardiac fibroblasts and a resultant decrease in percentages of myocytes in late neonatal development ( day 15). Finally, FACS analyses of the rat heart during development displayed similar results in relation to increases in cardiac fibroblasts during development; however, cell populations in the rat differed markedly from those observed in the mouse. Taken together, these data enabled us to establish a homeostatic model for the myocardium that can be compared with genetic and cardiac disease models.
+---
+
+---
+DOI: 10.1039/an9941900197
+Title: Mathematical model of toxicity monitoring sensors incorporating microbial whole cells
+Year: 1994
+Abstract: A model is presented that describes aspects of the transient and steady-state behaviour of toxicity monitoring biosensors that incorporate living microbial cells immobilized in a thin layer between an amperometric electrode and a porous (non-tortuous) membrane. In the example considered here, respiratory or photosynthetic electron-transport activity is monitored by using artificial redox mediators to divert electrons from the electron-transport systems to the working electrode poised at a suitable reducing potential. Such biosensors are being developed for a range of environmental monitoring applications. The mathematical model is used to demonstrate how the response of practical devices can be manipulated and to indicate potential pitfalls in the interpretation of toxicity assessment data derived by such biosensors.
+---
+
+---
+DOI: 10.1080/15376516.2021.2009949
+Title: Cytotoxicity, oxidative stress, and inflammatory response of smokeless tobacco extracts and cytotoxicity of combustible cigarette whole smoke in a 3D oral organotypic buccal cell model
+Year: 2021
+Abstract: Oral disease is frequently associated with viral and environmental exposures and oral hygiene. The use of tobacco is a risk factor in the development of oral disease. Cytotoxicity, inflammatory response, and oxidative stress have been reported to have a role in the development of oral disease. These three endpoints were evaluated in a 3D human oral buccal model, EpiOral™, following exposure to CORESTA reference smokeless tobacco products (CRPs) and cigarette whole smoke. CRPs for Swedish style snus (CRP1), moist snuff (CRP2), and dry snuff (CRP3) were each extracted in complete artificial saliva (CAS) with a ratio of 300 mg CRP to 1 mL of CAS. Each of the CRP extracts (15-300 mg/ml) were applied to the apical side of a 3D organotypic buccal cell model for 24 or 48 h continuously, then cytotoxicity (LDH), oxidative stress (8-isoprostane), and inflammatory response (IP10, IL-1α, and IL-8) were measured. Experiments with 3R4F cigarettes were conducted by exposing the buccal tissues to whole smoke for a maximum of 2.5 h. Cytotoxicity (MTT) was measured 24 h post-exposure. Exposure of buccal tissues to whole smoke from a cigarette induced a dose-dependent cytotoxic response. In contrast, the CRP extracts elicited minimal cytotoxicity (<15%) when compared to CAS (vehicle control), but time- and dose-dependent effects on oxidative stress and inflammatory response were observed. Collectively, these data demonstrate that a 3D organotypic buccal human model may be used to assess biological mechanisms (MOAs) involved in the development of oral disease following exposure to smokeless tobacco products and may be applicable for differentiation between tobacco product categories.
+---
+
+---
+DOI: 10.1172/jci96061
+Title: PD-L1 on host cells is essential for PD-L1 blockade–mediated tumor regression
+Year: 2018
+Abstract: Programmed death-ligand 1 (PD-L1) expression on tumor cells is essential for T cell impairment, and PD-L1 blockade therapy has shown unprecedented durable responses in several clinical studies. Although higher expression of PD-L1 on tumor cells is associated with a better immune response after Ab blockade, some PD-L1-negative patients also respond to this therapy. In the current study, we explored whether PD-L1 on tumor or host cells was essential for anti-PD-L1-mediated therapy in 2 different murine tumor models. Using real-time imaging in whole tumor tissues, we found that anti-PD-L1 Ab accumulates in tumor tissues, regardless of the status of PD-L1 expression on tumor cells. We further observed that, while PD-L1 on tumor cells was largely dispensable for the response to checkpoint blockade, PD-L1 in host myeloid cells was essential for this response. Additionally, PD-L1 signaling in defined antigen-presenting cells (APCs) negatively regulated and inhibited T cell activation. PD-L1 blockade inside tumors was not sufficient to mediate regression, as limiting T cell trafficking reduced the efficacy of the blockade. Together, these findings demonstrate that PD-L1 expressed in APCs, rather than on tumor cells, plays an essential role in checkpoint blockade therapy, providing an insight into the mechanisms of this therapy.
+---
+
+---
+DOI: 10.1016/j.tim.2008.11.005
+Title: Staphylococcus aureus: new evidence for intracellular persistence
+Year: 2009
+Abstract: Many reports have documented that Staphylococcus aureus can invade host cells and persist intracellularly for various periods of time in cell culture models. However, it is not clear whether intracellular persistence of S. aureus also occurs in the course of infections in whole organisms. This is a subject of intense debate and is difficult to assess experimentally. Intracellular persistence would provide S. aureus with an ideal strategy to escape from professional phagocytes and extracellular antibiotics and would promote recrudescent infection. Here, we present a brief overview of the mounting evidence that S. aureus has the potential to internalize and survive within host cells.
+---
+
+---
+DOI: 10.1016/j.cmpb.2023.107789
+Title: TGMIL: A hybrid multi-instance learning model based on the Transformer and the Graph Attention Network for whole-slide images classification of renal cell carcinoma
+Year: 2023
+Abstract: Background and objectivesThe pathological diagnosis of renal cell carcinoma is crucial for treatment. Currently, the multi-instance learning method is commonly used for whole-slide image classification of renal cell carcinoma, which is mainly based on the assumption of independent identical distribution. But this is inconsistent with the need to consider the correlation between different instances in the diagnosis process. Furthermore, the problem of high resource consumption of pathology images is still urgent to be solved. Therefore, we propose a new multi-instance learning method to solve this problem.MethodsIn this study, we proposed a hybrid multi-instance learning model based on the Transformer and the Graph Attention Network, called TGMIL, to achieve whole-slide image of renal cell carcinoma classification without pixel-level annotation or region of interest extraction. Our approach is divided into three steps. First, we designed a feature pyramid with the multiple low magnifications of whole-slide image named MMFP. It makes the model incorporates richer information, and reduces memory consumption as well as training time compared to the highest magnification. Second, TGMIL amalgamates the Transformer and the Graph Attention's capabilities, adeptly addressing the loss of instance contextual and spatial. Within the Graph Attention network stream, an easy and efficient approach employing max pooling and mean pooling yields the graph adjacency matrix, devoid of extra memory consumption. Finally, the outputs of two streams of TGMIL are aggregated to achieve the classification of renal cell carcinoma.ResultsOn the TCGA-RCC validation set, a public dataset for renal cell carcinoma, the area under a receiver operating characteristic (ROC) curve (AUC) and accuracy of TGMIL were 0.98±0.0015,0.9191±0.0062, respectively. It showcased remarkable proficiency on the private validation set of renal cell carcinoma pathology images, attaining AUC of 0.9386±0.0162 and ACC of 0.9197±0.0124. Furthermore, on the public breast cancer whole-slide image test dataset, CAMELYON 16, our model showed good classification performance with an accuracy of 0.8792.ConclusionsTGMIL models the diagnostic process of pathologists and shows good classification performance on multiple datasets. Concurrently, the MMFP module efficiently diminishes resource requirements, offering a novel angle for exploring computational pathology images.
+---
+
+---
+DOI: 10.1038/nbt720
+Title: Magnetic relaxation switches capable of sensing molecular interactions
+Year: 2002
+Abstract: Highly sensitive, efficient, and high-throughput biosensors are required for genomic and proteomic data acquisition in complex biological samples and potentially for in vivo applications. To facilitate these studies, we have developed biocompatible magnetic nanosensors that act as magnetic relaxation switches (MRS) to detect molecular interactions in the reversible self-assembly of disperse magnetic particles into stable nanoassemblies. Using four different types of molecular interactions (DNA-DNA, protein-protein, protein-small molecule, and enzyme reactions) as model systems, we show that the MRS technology can be used to detect these interactions with high efficiency and sensitivity using magnetic relaxation measurements including magnetic resonance imaging (MRI). Furthermore, the magnetic changes are detectable in turbid media and in whole-cell lysates without protein purification. The developed magnetic nanosensors can be used in a variety of biological applications such as in homogeneous assays, as reagents in miniaturized microfluidic systems, as affinity ligands for rapid and high-throughput magnetic readouts of arrays, as probes for magnetic force microscopy, and potentially for in vivo imaging.
+---
+
+---
+DOI: 10.1002/jps.20502
+Title: Physiologically based pharmacokinetic modelling 2: Predicting the tissue distribution of acids, very weak bases, neutrals and zwitterions
+Year: 2006
+Abstract: A key component of whole body physiologically based pharmacokinetic (WBPBPK) models is the tissue-to-plasma water partition coefficients (Kpu's). The predictability of Kpu values using mechanistically derived equations has been investigated for 7 very weak bases, 20 acids, 4 neutral drugs and 8 zwitterions in rat adipose, bone, brain, gut, heart, kidney, liver, lung, muscle, pancreas, skin, spleen and thymus. These equations incorporate expressions for dissolution in tissue water and, partitioning into neutral lipids and neutral phospholipids. Additionally, associations with acidic phospholipids were incorporated for zwitterions with a highly basic functionality, or extracellular proteins for the other compound classes. The affinity for these cellular constituents was determined from blood cell data or plasma protein binding, respectively. These equations assume drugs are passively distributed and that processes are nonsaturating. Resultant Kpu predictions were more accurate when compared to published equations, with 84% as opposed to 61% of the predicted values agreeing with experimental values to within a factor of 3. This improvement was largely due to the incorporation of distribution processes related to drug ionisation, an issue that is not addressed in earlier equations. Such advancements in parameter prediction will assist WBPBPK modelling, where time, cost and labour requirements greatly deter its application.
+---
+
+---
+DOI: 10.1016/j.bbmt.2015.11.1103
+Title: Dynamical System Modeling to Simulate Donor T Cell Response to Whole Exome Sequencing-Derived Recipient Peptides Demonstrates Different Alloreactivity Potential in HLA-Matched and -Mismatched Donor–Recipient Pairs
+Year: 2015
+Abstract: Immune reconstitution kinetics and subsequent clinical outcomes in HLA-matched recipients of allogeneic stem cell transplantation (SCT) are variable and difficult to predict. Considering SCT as a dynamical system may allow sequence differences across the exomes of the transplant donors and recipients to be used to simulate an alloreactive T cell response, which may allow better clinical outcome prediction. To accomplish this, whole exome sequencing was performed on 34 HLA-matched SCT donor-recipient pairs (DRPs) and the nucleotide sequence differences translated to peptides. The binding affinity of the peptides to the relevant HLA in each DRP was determined. The resulting array of peptide-HLA binding affinity values in each patient was considered as an operator modifying a hypothetical T cell repertoire vector, in which each T cell clone proliferates in accordance with the logistic equation of growth. Using an iterating system of matrices, each simulated T cell clone's growth was calculated with the steady-state population being proportional to the magnitude of the binding affinity of the driving HLA-peptide complex. Incorporating competition between T cell clones responding to different HLA-peptide complexes reproduces a number of features of clinically observed T cell clonal repertoire in the simulated repertoire, including sigmoidal growth kinetics of individual T cell clones and overall repertoire, Power Law clonal frequency distribution, increase in repertoire complexity over time with increasing clonal diversity, and alteration of clonal dominance when a different antigen array is encountered, such as in SCT. The simulated, alloreactive T cell repertoire was markedly different in HLA-matched DRPs. The patterns were differentiated by rate of growth and steady-state magnitude of the simulated T cell repertoire and demonstrate a possible correlation with survival. In conclusion, exome wide sequence differences in DRPs may allow simulation of donor alloreactive T cell response to recipient antigens and may provide a quantitative basis for refining donor selection and titration of immunosuppression after SCT.
+---
+
+---
+DOI: 10.1109/tmi.2018.2865709
+Title: Segmentation of Nuclei in Histopathology Images by Deep Regression of the Distance Map
+Year: 2018
+Abstract: The advent of digital pathology provides us with the challenging opportunity to automatically analyze whole slides of diseased tissue in order to derive quantitative profiles that can be used for diagnosis and prognosis tasks. In particular, for the development of interpretable models, the detection and segmentation of cell nuclei is of the utmost importance. In this paper, we describe a new method to automatically segment nuclei from Haematoxylin and Eosin (H&E) stained histopathology data with fully convolutional networks. In particular, we address the problem of segmenting touching nuclei by formulating the segmentation problem as a regression task of the distance map. We demonstrate superior performance of this approach as compared to other approaches using Convolutional Neural Networks.
+---
+
+---
+DOI: 10.1016/s0301-4622(98)00125-2
+Title: Spark-to-wave transition: saltatory transmission of calcium waves in cardiac myocytes
+Year: 1998
+Abstract: Using a modular approach, in which kinetic models of various mechanisms of calcium handling in cells are fine-tuned to in vivo and in vitro measurements before combining them into whole-cell models, three distinct modes of transmission of calcium waves in mature and immature frog eggs have been defined. Two modes of transmission are found in immature eggs, where the inositol 1,4,5-trisphosphate receptor (IP3R) controls release of calcium from the endoplasmic reticulum (ER). The first mode corresponds to an excitable physiological state of the cytoplasm and results in solitary waves that can appear as circular or spiral waves in two dimensions with the wave speed proportional to the square root of the diffusion constant of calcium. A second mode occurs when the state of the cytoplasm is oscillatory and because of the small size of the buffered diffusion constant for calcium, the wave speed can appear to be weakly dependent on diffusion. In the mature frog egg, where the sperm-induced Ca2+ fertilization wave is a propagating front, the cytoplasm appears to be bistable and in this mode the wave speed is also proportional to the square root of the diffusion constant. Here we investigate a fourth mode of propagation for cardiac myocytes, in which calcium release from the sarcoplasmic reticulum (SR) is dominated by clusters of ryanodine receptors spaced at regular intervals. In myocytes a stochastically excitable myoplasm leads to the spontaneous production of calcium 'sparks' that under certain conditions can merge into saltatory waves with a speed proportional to the diffusion constant.
+---
+
+---
+DOI: 10.1109/cvpr.2016.266
+Title: Patch-Based Convolutional Neural Network for Whole Slide Tissue Image Classification
+Year: 2016
+Abstract: Convolutional Neural Networks (CNN) are state-of-the-art models for many image classification tasks. However, to recognize cancer subtypes automatically, training a CNN on gigapixel resolution Whole Slide Tissue Images (WSI) is currently computationally impossible. The differentiation of cancer subtypes is based on cellular-level visual features observed on image patch scale. Therefore, we argue that in this situation, training a patch-level classifier on image patches will perform better than or similar to an image-level classifier. The challenge becomes how to intelligently combine patch-level classification results and model the fact that not all patches will be discriminative. We propose to train a decision fusion model to aggregate patch-level predictions given by patch-level CNNs, which to the best of our knowledge has not been shown before. Furthermore, we formulate a novel Expectation-Maximization (EM) based method that automatically locates discriminative patches robustly by utilizing the spatial relationships of patches. We apply our method to the classification of glioma and non-small-cell lung carcinoma cases into subtypes. The classification accuracy of our method is similar to the inter-observer agreement between pathologists. Although it is impossible to train CNNs on WSIs, we experimentally demonstrate using a comparable non-cancer dataset of smaller images that a patch-based CNN can outperform an image-based CNN.
+---
+
+---
+DOI: 10.1016/j.biomaterials.2011.08.076
+Title: Antibody conjugated magnetic iron oxide nanoparticles for cancer cell separation in fresh whole blood
+Year: 2011
+Abstract: A highly efficient process using iron oxide magnetic nanoparticles (IO)-based immunomagnetic separation of tumor cells from fresh whole blood has been developed. The process involved polymer coated 30 nm IO that was modified with antibodies (Ab) against human epithelial growth factor receptor 2 (anti-HER2 or anti-HER2/neu) forming IO-Ab. HER2 is a cell membrane protein that is overexpressed in several types of human cancer cells. Using a HER2/neu overexpressing human breast cancer cell line, SK-BR3, as a model cell, the IO-Ab was used to separate 73.6% (with a maximum capture of 84%) of SK-BR3 cells that were spiked in 1 mL of fresh human whole blood. The IO-Ab preferentially bound to SK-BR3 cells over normal cells found in blood due to the high level of HER2/neu receptor on the cancer cells unlike the normal cell surfaces. The results showed that the nanosized magnetic nanoparticles exhibited an enrichment factor (cancer cells over normal cells) of 1:10,000,000 in a magnetic field (with gradient of 100 T/m) through the binding of IO-Ab on the cell surface that resulted in the preferential capture of the cancer cells. This research holds promise for efficient separation of circulating cancer cells in fresh whole blood.
+---
+
+---
+DOI: 10.2337/diabetes.50.10.2199
+Title: Resistin / Fizz3 Expression in Relation to Obesity and Peroxisome Proliferator–Activated Receptor-γ Action in Humans
+Year: 2001
+Abstract: Recent studies in murine models suggest that resistin (also called Fizz3 [1]), a novel cysteine-rich protein secreted by adipocytes, may represent the long-sought link between obesity and insulin resistance (2). Furthermore, peroxisome proliferator–activated receptor-γ (PPAR-γ) agonists appear to inhibit resistin expression in murine adipocytes, providing a possible explanation for the mode of action of this class of insulin sensitizers (2). Using a fluorescent real-time reverse transcriptase–polymerase chain reaction–based assay, we found that resistin mRNA levels in whole adipose tissue samples were increased in morbidly obese humans compared with lean control subjects. However, in freshly isolated human adipocytes, resistin mRNA levels were very low and showed no correlation with BMI. Resistin mRNA was undetectable in preadipocytes, endothelial cells, and vascular smooth muscle cells, but it was readily detectable in circulating mononuclear cells. Although exposure of human mononuclear cells to PPAR-γ agonists markedly upregulated fatty acid–binding protein-4 expression, these agents had no effect on mononuclear cell resistin expression. Finally, resistin mRNA was undetectable in adipocytes from a severely insulin-resistant subject with a dominant-negative mutation in PPAR-γ (3). We conclude that the recently described relationships of murine resistin/Fizz3 expression with obesity, insulin resistance, and PPAR-γ action may not readily translate to humans. Further studies of this novel class of proteins are needed to clarify their roles in human metabolism.
+---
+
+---
+DOI: 10.1046/j.1365-2249.1998.00662.x
+Title: Tumour necrosis factor (TNF) gene polymorphism influences TNF-α production in lipopolysaccharide (LPS)-stimulated whole blood cell culture in healthy humans
+Year: 1998
+Abstract: SUMMARY TNF-α is involved in infectious and immuno-inflammatory diseases. Different individuals may have different capacities for TNF-α production. This might determine a predisposition to develop some complications or phenotypes of these diseases. The aims of our study were to assess the inter-individual variability of TNF-α production and to correlate this variability to a single base pair polymorphism located at position −308 in TNF gene. We studied 62 healthy individuals. TNF-α production after LPS stimulation was evaluated using a whole blood cell culture model. The TNF gene polymorphism was studied by an allele-specific polymerase chain reaction. Other cytokines produced in the culture, soluble CD14 concentrations and expression of CD14 on blood cells were also measured. Among the 62 individuals, 57 were successfully genotyped. There were 41 TNF1 homozygotes and 16 TNF1/TNF2 heterozygotes. TNF-α production after LPS stimulation of whole blood cell culture was higher among TNF2 carriers than among TNF1 homozygotes (929 pg/ml (480–1473 pg/ml) versus 521 pg/ml (178–1307 pg/ml); P &amp;lt; 0.05). This difference was even more significant after correction of TNF-α production for CD14 expression on blood cells. In conclusion, the single base pair polymorphism at position −308 in the TNF gene may influence TNF-α production in healthy individuals.
+---
+
+---
+DOI: 10.1210/en.2003-1099
+Title: Glucose Sensitivity and Metabolism-Secretion Coupling Studied during Two-Year Continuous Culture in INS-1E Insulinoma Cells
+Year: 2003
+Abstract: Abstract Rat insulinoma-derived INS-1 cells constitute a widely used β-cell surrogate. However, due to their nonclonal nature, INS-1 cells are heterogeneous and are not stable over extended culture periods. We have isolated clonal INS-1E cells from parental INS-1 based on both their insulin content and their secretory responses to glucose. Here we describe the stable differentiated INS-1E β-cell phenotype over 116 passages (no. 27–142) representing a 2.2-yr continuous follow-up. INS-1E cells can be safely cultured and used within passages 40–100 with average insulin contents of 2.30 ± 0.11 μg/million cells. Glucose-induced insulin secretion was dose-related and similar to rat islet responses. Secretion saturated with a 6.2-fold increase at 15 mm glucose, showing a 50% effective concentration of 10.4 mm. Secretory responses to amino acids and sulfonylurea were similar to those of islets. Moreover, INS-1E cells retained the amplifying pathway, as judged by glucose-evoked augmentation of insulin release in a depolarized state. Regarding metabolic parameters, INS-1E cells exhibited glucose dose-dependent elevations of NAD(P)H, cytosolic Ca2+, and mitochondrial Ca2+ levels. In contrast, mitochondrial membrane potential, ATP levels, and cell membrane potential were all fully activated by 7.5 mm glucose. Using the perforated patch clamp technique, 7.5 and 15 mm glucose elicited electrical activity to a similar degree. A KATP current was identified in whole cell voltage clamp using diazoxide and tolbutamide. As in native β-cells, tolbutamide induced electrical activity, indicating that the KATPconductance is important in setting the resting potential. Therefore, INS-1E cells represent a stable and valuable β-cell model.
+---
+
+---
+DOI: 10.1038/nn2040
+Title: Action potential generation requires a high sodium channel density in the axon initial segment
+Year: 2008
+Abstract: The axon initial segment (AIS) is a specialized region in neurons where action potentials are initiated. It is commonly assumed that this process requires a high density of voltage-gated sodium (Na(+)) channels. Paradoxically, the results of patch-clamp studies suggest that the Na(+) channel density at the AIS is similar to that at the soma and proximal dendrites. Here we provide data obtained by antibody staining, whole-cell voltage-clamp and Na(+) imaging, together with modeling, which indicate that the Na(+) channel density at the AIS of cortical pyramidal neurons is approximately 50 times that in the proximal dendrites. Anchoring of Na(+) channels to the cytoskeleton can explain this discrepancy, as disruption of the actin cytoskeleton increased the Na(+) current measured in patches from the AIS. Computational models required a high Na(+) channel density (approximately 2,500 pS microm(-2)) at the AIS to account for observations on action potential generation and backpropagation. In conclusion, action potential generation requires a high Na(+) channel density at the AIS, which is maintained by tight anchoring to the actin cytoskeleton.
+---
+
+---
+DOI: 10.1111/jeu.12746
+Title: Exploration of Genetic Variations through Single‐cell Whole‐genome Sequencing in the Model Ciliate <i>Tetrahymena thermophila</i>
+Year: 2019
+Abstract: Abstract Ciliates are unicellular eukaryotes with separate germline and somatic genomes and diverse life cycles, which make them a unique model to improve our understanding of population genetics through the detection of genetic variations. However, traditional sequencing methods cannot be directly applied to ciliates because the majority are uncultivated. Single‐cell whole‐genome sequencing ( WGS ) is a powerful tool for studying genetic variation in microbes, but no studies have been performed in ciliates. We compared the use of single‐cell WGS and bulk DNA WGS to detect genetic variation, specifically single nucleotide polymorphisms ( SNP s), in the model ciliate Tetrahymena thermophila . Our analyses showed that (i) single‐cell WGS has excellent performance regarding mapping rate and genome coverage but lower sequencing uniformity compared with bulk DNA WGS due to amplification bias (which was reproducible); (ii) false‐positive SNP sites detected by single‐cell WGS tend to occur in genomic regions with particularly high sequencing depth and high rate of C:G to T:A base changes; (iii) SNP s detected in three or more cells should be reliable (an detection efficiency of 83.4–97.4% was obtained for combined data from three cells). This analytical method could be adapted to measure genetic variation in other ciliates and broaden research into ciliate population genetics.
+---
+
+---
+DOI: 10.1200/jco.2017.75.3384
+Title: Molecular Determinants of Response to Anti–Programmed Cell Death (PD)-1 and Anti–Programmed Death-Ligand 1 (PD-L1) Blockade in Patients With Non–Small-Cell Lung Cancer Profiled With Targeted Next-Generation Sequencing
+Year: 2018
+Abstract: Purpose Treatment of advanced non–small-cell lung cancer with immune checkpoint inhibitors (ICIs) is characterized by durable responses and improved survival in a subset of patients. Clinically available tools to optimize use of ICIs and understand the molecular determinants of response are needed. Targeted next-generation sequencing (NGS) is increasingly routine, but its role in identifying predictors of response to ICIs is not known. Methods Detailed clinical annotation and response data were collected for patients with advanced non–small-cell lung cancer treated with anti–programmed death-1 or anti–programmed death-ligand 1 [anti-programmed cell death (PD)-1] therapy and profiled by targeted NGS (MSK-IMPACT; n = 240). Efficacy was assessed by Response Evaluation Criteria in Solid Tumors (RECIST) version 1.1, and durable clinical benefit (DCB) was defined as partial response/stable disease that lasted &gt; 6 months. Tumor mutation burden (TMB), fraction of copy number–altered genome, and gene alterations were compared among patients with DCB and no durable benefit (NDB). Whole-exome sequencing (WES) was performed for 49 patients to compare quantification of TMB by targeted NGS versus WES. Results Estimates of TMB by targeted NGS correlated well with WES (ρ = 0.86; P &lt; .001). TMB was greater in patients with DCB than with NDB ( P = .006). DCB was more common, and progression-free survival was longer in patients at increasing thresholds above versus below the 50th percentile of TMB (38.6% v 25.1%; P &lt; .001; hazard ratio, 1.38; P = .024). The fraction of copy number–altered genome was highest in those with NDB. Variants in EGFR and STK11 associated with a lack of benefit. TMB and PD-L1 expression were independent variables, and a composite of TMB plus PD-L1 further enriched for benefit to ICIs. Conclusion Targeted NGS accurately estimates TMB and elevated TMB further improved likelihood of benefit to ICIs. TMB did not correlate with PD-L1 expression; both variables had similar predictive capacity. The incorporation of both TMB and PD-L1 expression into multivariable predictive models should result in greater predictive power.
+---
+
+---
+DOI: 10.3892/ijo.2011.1155
+Title: Interferon/STAT1 and neuregulin signaling pathways are exploratory biomarkers of cetuximab (Erbituxï¿½) efficacy in KRAS wild-type squamous carcinomas: A pathway-based analysis of whole human-genome microarray data from cetuximab-adapted tumor cell-line models
+Year: 2011
+Abstract: KRAS mutation status is being used as the sole biomarker to predict therapeutic efficacy of cetuximab in metastatic colorectal cancer (mCRC). A significant number of mCRC patients with KRAS wild-type (WT) tumors, however, do not benefit from cetuximab. We are also lacking efficacy predictors in head and neck squamous cell carcinomas with an intact KRAS signaling and in non-small cell lung cancer in which KRAS mutations do not predict cetuximab efficacy. We recently established pre-clinical models of EGFR gene-amplified KRAS WT A431 squamous carcinoma cells chronically adapted to grow in the presence of cetuximab. We employed the ingenuity pathway analysis software to functionally interpret data from Agilent's whole human genome arrays in the context of biological processes, networks, and pathways. Cetuximab-induced activation of the interferon (IFN)/STAT1 appeared to switch from 'growth inhibitory' in acutely-treated cells to 'pro-survival' in chronically-adapted cells. Cetuximab treatment appeared to negatively select initially dominant IFN-sensitive clones and promoted selection of IFN- and cetuximab-refractory tumor clones constitutively bearing an up-regulated IFN/STAT1 signaling. High-levels of mRNAs coding for the EGFR ligands amphiregulin (AREG), epiregulin (EREG), and neuregulin-1/heregulin (NRG1) predicted for acute cetuximab's functioning. Chronic cetuximab, however, appeared to negatively select initially dominant AREG/EREG/NRG1-positive clones to promote selection of cetuximab-refractory clones exhibiting a knocked-down neuregulin signaling. Our current evolutionary mapping of the transcriptomic changes that occur during cetuximab-induced chronic blockade of EGFR/KRAS WT signaling strongly suggests that mRNAs coding for IFN/STAT1- and EGFR ligands-related genes can be evaluated as novel predictors of efficacy in KRAS WT squamous cancer patients being treated with cetuximab.
+---
+
+---
+DOI: 10.1093/jxb/erj003
+Title: Root responses to soil physical conditions; growth dynamics from field to cell
+Year: 2005
+Abstract: Root growth in the field is often slowed by a combination of soil physical stresses, including mechanical impedance, water stress, and oxygen deficiency. The stresses operating may vary continually, depending on the location of the root in the soil profile, the prevailing soil water conditions, and the degree to which the soil has been compacted. The dynamics of root growth responses are considered in this paper, together with the cellular responses that underlie them. Certain root responses facilitate elongation in hard soil, for example, increased sloughing of border cells and exudation from the root cap decreases friction; and thickening of the root relieves stress in front of the root apex and decreases buckling. Whole root systems may also grow preferentially in loose versus dense soil, but this response depends on genotype and the spatial arrangement of loose and compact soil with respect to the main root axes. Decreased root elongation is often accompanied by a decrease in both cell flux and axial cell extension, and recent computer-based models are increasing our understanding of these processes. In the case of mechanical impedance, large changes in cell shape occur, giving rise to shorter fatter cells. There is still uncertainty about many aspects of this response, including the changes in cell walls that control axial versus radial extension, and the degree to which the epidermis, cortex, and stele control root elongation. Optical flow techniques enable tracking of root surfaces with time to yield estimates of two-dimensional velocity fields. It is demonstrated that these techniques can be applied successfully to time-lapse sequences of confocal microscope images of living roots, in order to determine velocity fields and strain rates of groups of cells. In combination with new molecular approaches this provides a promising way of investigating and modelling the mechanisms controlling growth perturbations in response to environmental stresses.
+---
+
+---
+DOI: 10.1161/01.cir.0000023891.80661.ad
+Title: Successful Cardiopulmonary Resuscitation After Cardiac Arrest as a “Sepsis-Like” Syndrome
+Year: 2002
+Abstract: Background — We investigated the immunoinflammatory profile of patients successfully resuscitated after cardiac arrest, representing a model of whole-body ischemia/reperfusion syndrome. Methods and Results — Plasma cytokine, endotoxin, and ex vivo cytokine production in whole-blood assays was assessed in 61, 35, and 11 patients, respectively. On admission, high levels of plasma interleukin (IL)-6, IL-8, IL-10, and soluble tumor necrosis factor (TNF) receptor type II could discriminate between survivors and nonsurvivors. Among nonsurvivors, the initial need for a vasopressor agent was associated with higher levels of IL-1 receptor antagonist, IL-10, and IL-6 on day 1. Plasma endotoxin was detected in 46% of the analyzed patients within the 2 first days. Endotoxin-induced TNF and IL-6 productions were dramatically impaired in these patients compared with healthy control subjects, whereas an unaltered production was observed with heat-killed Staphylococcus aureus . In contrast, IL-1 receptor antagonist productions were enhanced in these patients compared with healthy control subjects. The productions of T-cell–derived IL-10 and interferon-γ were also impaired in these patients. Finally, using in vitro plasma exchange between healthy control subjects and patients, we demonstrated that the endotoxin-dependent hyporeactivity was an intrinsic property of patients’ leukocytes and that an immunosuppressive activity was also present in their plasma. Conclusions — Altogether, the high levels of circulating cytokines, the presence of endotoxin in plasma, and the dysregulated production of cytokines found in these patients recall the immunological profile found in patients with sepsis.
+---
+
+---
+DOI: 10.1088/0034-4885/77/4/046603
+Title: Tensegrity, cellular biophysics, and the mechanics of living systems
+Year: 2014
+Abstract: The recent convergence between physics and biology has led many physicists to enter the fields of cell and developmental biology. One of the most exciting areas of interest has been the emerging field of mechanobiology that centers on how cells control their mechanical properties, and how physical forces regulate cellular biochemical responses, a process that is known as mechanotransduction. In this article, we review the central role that tensegrity (tensional integrity) architecture, which depends on tensile prestress for its mechanical stability, plays in biology. We describe how tensional prestress is a critical governor of cell mechanics and function, and how use of tensegrity by cells contributes to mechanotransduction. Theoretical tensegrity models are also described that predict both quantitative and qualitative behaviors of living cells, and these theoretical descriptions are placed in context of other physical models of the cell. In addition, we describe how tensegrity is used at multiple size scales in the hierarchy of life—from individual molecules to whole living organisms—to both stabilize three-dimensional form and to channel forces from the macroscale to the nanoscale, thereby facilitating mechanochemical conversion at the molecular level.
+---
+
+---
+DOI: 10.1016/s0306-4522(01)00344-x
+Title: Fluctuating synaptic conductances recreate in vivo-like activity in neocortical neurons
+Year: 2001
+Abstract: To investigate the basis of the fluctuating activity present in neocortical neurons in vivo, we have combined computational models with whole-cell recordings using the dynamic-clamp technique. A simplified 'point-conductance' model was used to represent the currents generated by thousands of stochastically releasing synapses. Synaptic activity was represented by two independent fast glutamatergic and GABAergic conductances described by stochastic random-walk processes. An advantage of this approach is that all the model parameters can be determined from voltage-clamp experiments. We show that the point-conductance model captures the amplitude and spectral characteristics of the synaptic conductances during background activity. To determine if it can recreate in vivo-like activity, we injected this point-conductance model into a single-compartment model, or in rat prefrontal cortical neurons in vitro using dynamic clamp. This procedure successfully recreated several properties of neurons intracellularly recorded in vivo, such as a depolarized membrane potential, the presence of high-amplitude membrane potential fluctuations, a low-input resistance and irregular spontaneous firing activity. In addition, the point-conductance model could simulate the enhancement of responsiveness due to background activity. We conclude that many of the characteristics of cortical neurons in vivo can be explained by fast glutamatergic and GABAergic conductances varying stochastically.
+---

@@ -1,0 +1,119 @@
+{
+  "batch_index": 3,
+  "dois": [
+    "10.3389/fimmu.2023.1101387",
+    "10.1038/s41598-021-99939-w",
+    "10.1371/journal.pcbi.1009097",
+    "10.3390/ijms22094888",
+    "10.1016/j.tiv.2017.09.009",
+    "10.3389/fbioe.2023.1091294",
+    "10.1371/journal.pcbi.1011232",
+    "10.1186/s13065-019-0558-y",
+    "10.3389/fimmu.2023.1112985",
+    "10.3389/fncel.2020.00145"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3389/fimmu.2023.1101387",
+      "problem": "How iron oxide nanoparticles (IONPs) induce thromboinflammatory responses in human whole blood interacting with endothelial cells, and whether complement inhibition can attenuate these adverse effects.",
+      "method": "Lepirudin-anticoagulated human whole blood co-incubated with HLMECs and 10-30nm IONPs; complement activation measured by ELISA (C3bc, sC5b-9); 27-cytokine profiling; flow cytometry for cell activation markers; complement inhibitors Cp40 (C3) and PMX53 (C5aR1).",
+      "finding": "IONPs induced dose-dependent complement activation primarily at C3-level, significantly increased 21/27 cytokines, activated endothelial cells, monocytes, granulocytes, and platelets; C3 inhibitor Cp40 significantly attenuated ICAM-1 and selectin expression, demonstrating complement-dependent thromboinflammation.",
+      "dataset": "Human whole blood from healthy volunteers + human lung microvascular endothelial cells (HLMECs), n=3-6 donors",
+      "metric": "p-value, C3bc/sC5b-9 ELISA, cytokine levels, cell activation markers (ICAM-1, P/E-selectin, CD11b, CD62P, CD63, LDH, heme)",
+      "baseline": "PBS negative control, zymosan positive control",
+      "result": "21/27 cytokines p<0.05; ICAM-1 p<0.0001; Cp40 attenuated ICAM-1 (p<0.01) and selectins (p<0.05)"
+    },
+    {
+      "doi": "10.1038/s41598-021-99939-w",
+      "problem": "How to achieve high-resolution spatiotemporal imaging of endothelial cell-pericyte association in vivo, combining 4D intravital dynamics with molecular subtype identification.",
+      "method": "Adapted lightweight PEEK dorsal skinfold chamber (1.1g total) for 4D intravital multiphoton imaging combined with subsequent whole-mount immunohistology; transgenic fluorescent reporter mice (eNOStag-GFP for endothelial cells, Cspg4-DsRed for pericytes).",
+      "finding": "The lightweight PEEK chamber (3.4x lighter than titanium) improved animal welfare while enabling longitudinal 4D tracking of endothelial cell-pericyte dynamics; whole-mount staining preserved spatial positions for molecular subtype identification at single-cell resolution.",
+      "dataset": "C57BL/6 transgenic mice with B16BL6 melanoma or Lewis lung carcinoma tumors",
+      "metric": "Chamber weight, animal body weight, imaging resolution, animal welfare indicators",
+      "baseline": "Classical titanium dorsal skinfold chamber (Jain et al. design)",
+      "result": "3.4-fold lighter than titanium; full motion capacity retained; weight gain comparable to no-window controls"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1009097",
+      "problem": "How PKCδ (pro-nociceptive) and SOM (anti-nociceptive) neuron populations in the central amygdala interact to produce system-level pain responses, and what role their relative proportion plays in pain prediction.",
+      "method": "Agent-based computational model of bilateral CeA with PKCδ and SOM neurons; inhibitory connectivity network; parameters estimated from ex vivo slice electrophysiology and immunohistochemistry; stochastic firing rate updates with damage accumulation during noxious stimulation.",
+      "finding": "The relative proportion of PKCδ:SOM neurons is a key parameter predicting pain output; model reproduced expected pain changes during and after injury; comparison with behavioral data revealed areas of similarity and distinctions suggesting future experiments.",
+      "dataset": "Mouse CeA electrophysiology (PKCδ-Cre/Sst-Cre x Ai9 reporter mice, sciatic cuff injury model)",
+      "metric": "Firing rate (Hz), pain index (cumulative pro- vs anti-nociceptive output), standardized mean difference",
+      "baseline": "Equal proportion (50:50) PKCδ:SOM model; sham/naïve control electrophysiology",
+      "result": "PKCδ spontaneous 2.838 Hz, SOM 4.887 Hz; model validated against behavioral data across three proportion scenarios"
+    },
+    {
+      "doi": "10.3390/ijms22094888",
+      "problem": "Whether necroptosis (RIPK-dependent programmed necrosis) is an alternative cell death mechanism to apoptosis in bovine ovarian follicle atresia.",
+      "method": "RT-qPCR for RIPK1/RIPK3 mRNA in granulosa and theca cells from healthy vs atretic follicles classified by E2:P4 ratio; protein-protein interaction network analysis using IMEx database in Cytoscape; correlation networks via CluePedia with MIC and Pearson correlation.",
+      "finding": "RIPK1 and RIPK3 mRNA were significantly upregulated in granulosa cells from atretic follicles; network analysis confirmed interactions between necroptosis and apoptosis pathways; both death mechanisms occur in granulosa cells of dominant follicles undergoing luteinization and theca cells of newly selected follicles.",
+      "dataset": "Bovine ovarian follicles (granulosa and theca cells, healthy E2:P4>1 vs atretic E2:P4<0.01)",
+      "metric": "mRNA expression (normalized to GAPDH), p-value, E2:P4 ratio, network topology (hubs, bottlenecks)",
+      "baseline": "Healthy follicles (E2:P4 > 1)",
+      "result": "RIPK1 p<0.05 and RIPK3 p<0.05 higher in atretic granulosa; no significant difference in theca (p>0.05)"
+    },
+    {
+      "doi": "10.1016/j.tiv.2017.09.009",
+      "problem": "How to predict human in vivo toxic doses from in vitro data by simulating intracellular and intra-mitochondrial chemical concentrations to replace animal testing.",
+      "method": "Virtual Cell Based Assay (VCBA) mathematical model extended with mitochondrial compartment using Trapp-Horobin uptake approach; simulates chemical fate (partitioning to plastic, headspace, serum proteins, cells, mitochondria) coupled with cell growth and toxicodynamic models.",
+      "finding": "VCBA successfully simulated mitochondrial membrane potential disruption in both HepaRG hepatocytes and ICell cardiomyocytes for three chemicals; cardiomyocytes showed higher sensitivity to FCCP than hepatocytes; proof of concept for organelle-level toxicity simulation.",
+      "dataset": "HepaRG hepatocytes and ICell cardiomyocytes (iPSC-derived) exposed to FCCP, caffeine, amiodarone",
+      "metric": "Cell viability (%), mitochondrial membrane potential (RFU), no effect concentration (NEC), killing rate (kr)",
+      "baseline": "Solvent control (100%)",
+      "result": "FCCP: mmp ~40% at 10μM in HepaRG, effect at 5μM in cardiomyocytes; caffeine: viability decrease from 1.5mM"
+    },
+    {
+      "doi": "10.3389/fbioe.2023.1091294",
+      "problem": "How to simulate trabecular bone remodeling at the single-cell level integrating mechanomics, receptor-ligand kinetics, and cytokine signaling to predict the effects of OPG/RANKL/Scl changes on bone microarchitecture.",
+      "method": "3D micro-multiphysics agent-based (micro-MPA) model with single-cell agents, receptor-ligand kinetics, diffusion/decay of cytokines, and micro-FE mechanical analysis; validated against longitudinal in vivo micro-CT data from PolgA premature aging mice over 4 weeks.",
+      "finding": "OPG and RANKL levels were positively and negatively correlated with BV/TV respectively; sclerostin was the main driver of remodeling equilibrium; model successfully simulated homeostatic, anabolic, anti-anabolic, catabolic, and anti-catabolic bone responses.",
+      "dataset": "PolgA (D257A/D257A) premature aging mice, 6th caudal vertebra, n=5, micro-CT at 10.5μm resolution",
+      "metric": "BV/TV (bone volume fraction), Tb.Sp, Tb.N, Tb.Th (trabecular morphometry)",
+      "baseline": "In vivo sham loading (0N) data; basal cytokine parameter configuration",
+      "result": "In vivo BV/TV ~2% decrease over 4 weeks; in silico BV/TV not significantly different from in vivo on average"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1011232",
+      "problem": "How stochastic single-cell gene expression heterogeneity in E. coli affects population-level antibiotic resistance, particularly for sub-generationally expressed resistance genes.",
+      "method": "Whole-cell E. coli model embedded in shared spatial environment via Vivarium framework for colony-scale simulation; parallelized cloud computing (224 CPUs, Google Compute Engine); new submodels for tetracycline (protein synthesis inhibition) and ampicillin (cell wall disruption) response pathways.",
+      "finding": "Over 50% of E. coli genes are sub-generationally expressed; stochastic variation in AmpC beta-lactamase was the most significant factor in determining cell survival under ampicillin; tetracycline response showed less cell-to-cell variation despite heterogeneous OmpF/TolC expression.",
+      "dataset": "Simulated E. coli colonies on minimal M9 medium + 1mM glucose, 3 replicate seeds per condition",
+      "metric": "MIC, growth rate, periplasmic/cytoplasmic antibiotic concentration, mRNA/protein counts, spatial autocorrelation",
+      "baseline": "Baseline glucose simulations (no antibiotic exposure)",
+      "result": ">50% genes sub-generationally expressed; ampC variation dominated ampicillin survival determination"
+    },
+    {
+      "doi": "10.1186/s13065-019-0558-y",
+      "problem": "Design and evaluate novel naphthol diazenyl scaffold-based Schiff base derivatives as potential antimicrobial and anticancer agents against colorectal carcinoma.",
+      "method": "Synthesis of 18 diazenyl Schiff bases via diazotization-coupling-condensation; antimicrobial evaluation by MIC/MBC; cytotoxicity by MTT assay on HT-29 cells; apoptosis by Annexin-V/PI flow cytometry; cell cycle analysis by flow cytometry.",
+      "finding": "NS-2, NS-8, NS-21, and NS-23 showed potent cytotoxicity against HT-29 (IC50 4-19 μg/ml); NS-2 induced >90% apoptosis surpassing doxorubicin (68%); active derivatives arrested cell growth in S and G2/M phases.",
+      "dataset": "HT-29 human colorectal carcinoma cell line; E. coli, S. enterica, B. subtilis, A. fumigatus",
+      "metric": "IC50 (μg/ml), MIC, % apoptotic cells, cell cycle phase distribution",
+      "baseline": "Doxorubicin (68% apoptosis)",
+      "result": "NS-2/NS-8/NS-21/NS-23 IC50 4-19 μg/ml; NS-2 >90% apoptosis vs 68% doxorubicin"
+    },
+    {
+      "doi": "10.3389/fimmu.2023.1112985",
+      "problem": "How to integrate the heterogeneous molecular and cellular interactions of dendritic cells across biological scales to create a predictive platform for studying immune responses and discovering therapeutics.",
+      "method": "Logic-based (Boolean) mechanistic model with 281 components and 702 interactions spanning molecular signaling to cell-cell communication; constructed from 92 publications; validated against literature-reported DC responses; implemented in Cell Collective platform.",
+      "finding": "Model successfully characterized DC response to SARS-CoV-2/influenza co-infection (107 molecules analyzed), predicted DC-T cell crosstalk in cancer microenvironment, and identified 45 diseases and 24 molecular pathways addressable by the DC model via KEGG enrichment.",
+      "dataset": "Human dendritic cell subtypes (pDC, cDC1, cDC2, MoDC); 92 publications (83 original, 9 reviews)",
+      "metric": "Activity level (Boolean 0/1), KEGG enrichment analysis, number of addressable diseases/pathways",
+      "baseline": "Published literature-reported DC responses to specific extracellular stimuli",
+      "result": "281 components, 702 interactions; 107 molecules in co-infection analysis; 45 diseases, 24 pathways identified"
+    },
+    {
+      "doi": "10.3389/fncel.2020.00145",
+      "problem": "How to sparsely label specific neuron types throughout the whole brain to screen morphological changes in disease models such as autism spectrum disorder.",
+      "method": "AAV-hSyn-DIO-EGFP-P2A-EGFPf with FLEX Cre-switch system delivered by retro-ocular injection in CaMKIIα-Cre mice; Sholl analysis for dendritic complexity; dendritic spine density quantification in Shank3 KO autism model.",
+      "finding": "Shank3 KO mice showed brain region-specific morphological deficits: reduced dendritic complexity in striatal medium spiny neurons, increased complexity in cortical layer 5 neurons, and altered spine density in hippocampal CA1, demonstrating differential vulnerability across projection neuron populations.",
+      "dataset": "Shank3 KO x CaMKIIα-Cre mice and littermate controls; striatum, cortex, hippocampus",
+      "metric": "Dendritic complexity (Sholl analysis, intersection count), dendritic spine density (spines/μm)",
+      "baseline": "Littermate Shank3+/+:CaMKIIα-Cre control mice",
+      "result": "Differential dendritic deficits across striatum (reduced), cortex (increased), hippocampus (altered) in Shank3 KO"
+    }
+  ],
+  "timestamp": "2026-03-05T14:08:07.876522",
+  "extraction_count": 10
+}

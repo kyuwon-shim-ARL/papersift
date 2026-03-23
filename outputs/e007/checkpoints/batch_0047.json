@@ -1,0 +1,119 @@
+{
+  "batch_index": 47,
+  "dois": [
+    "10.1038/ncomms13929",
+    "10.3389/neuro.06.004.2008",
+    "10.3389/fbioe.2015.00206",
+    "10.1371/journal.pcbi.1007042",
+    "10.1371/journal.pone.0080516",
+    "10.3389/fonc.2019.00010",
+    "10.1186/1752-0509-1-43",
+    "10.4161/auto.22532",
+    "10.1016/j.cub.2019.01.077",
+    "10.1371/journal.pone.0049174"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1038/ncomms13929",
+      "problem": "Computational model coupling cell mechanics and gene regulation in embryogenesis",
+      "method": "MecaGen discrete-element method for ellipsoidal cells",
+      "finding": "Model couples mechanical behavior and GRN in 3D space",
+      "dataset": "zebrafish",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/neuro.06.004.2008",
+      "problem": "Representational similarity analysis connecting branches of systems neuroscience",
+      "method": "RSA correlation-distance matrix analysis",
+      "finding": "FFA but not EVC shows category-specific representations",
+      "dataset": "human fMRI",
+      "metric": "correlation",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fbioe.2015.00206",
+      "problem": "Adult stem cell therapies for wound healing with biomaterials",
+      "method": "Biomaterial-based scaffolds for wound healing",
+      "finding": "Review of computational models for skin repair",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1007042",
+      "problem": "Cardiac conduction in cell-based computational model",
+      "method": "EMI model for cardiac tissue electrophysiology",
+      "finding": "Non-uniform sodium channel distribution affects conduction",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pone.0080516",
+      "problem": "Cell migration mechanism in intestinal crypt",
+      "method": "2D cylindrical and 3D models of crypt dynamics",
+      "finding": "Passive mechanism sufficient for crypt cell migration",
+      "dataset": "mouse",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fonc.2019.00010",
+      "problem": "Macrophage-tumor cell crosstalk computational modeling",
+      "method": "Mathematical models of cancer-macrophage interaction",
+      "finding": "Crosstalk leads to two distinct steady states",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/1752-0509-1-43",
+      "problem": "Cell sorting pattern recapitulation using computational model",
+      "method": "Hexagonal lattice cell model with autonomous movement",
+      "finding": "Model reproduces inside-outside cell sorting pattern",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.4161/auto.22532",
+      "problem": "Autophagic vesicle dynamics computational modeling",
+      "method": "Live-cell microscopy with LC3-fluorescent tagging",
+      "finding": "Single cell autophagy analysis system developed",
+      "dataset": "U2OS cells",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.cub.2019.01.077",
+      "problem": "Visual recognition memory via grid cells",
+      "method": "Computational model using grid cell associations",
+      "finding": "Model performs one-shot learning for recognition",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pone.0049174",
+      "problem": "Cell rigidity sensing dynamic mechanisms",
+      "method": "Actomyosin network tethered to 3D domains",
+      "finding": "Molecular motors act as rigidity sensors",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": "40%"
+    }
+  ],
+  "timestamp": "2026-03-09T01:56:37.635828",
+  "extraction_count": 10
+}

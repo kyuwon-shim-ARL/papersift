@@ -1,0 +1,344 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.3156/jsoft.29.5_177_2
+Title: GAN（Generative Adversarial Nets）
+Year: 2017
+Abstract: We propose a new framework for estimating generative models via an adversarial process, in which we simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G. The training procedure for G is to maximize the probability of D making a mistake. This framework corresponds to a minimax two-player game. In the space of arbitrary functions G and D, a unique solution exists, with G recovering the training data distribution and D equal to ½ everywhere. In the case where G and D are defined by multilayer perceptrons, the entire system can be trained with backpropagation. There is no need for any Markov chains or unrolled approximate inference networks during either training or generation of samples. Experiments demonstrate the potential of the framework through qualitative and quantitative evaluation of the generated samples.
+---
+
+---
+DOI: 10.1007/bf00656997
+Title: Improved patch-clamp techniques for high-resolution current recording from cells and cell-free membrane patches
+Year: 1981
+Abstract: 1. The extracellular patch clamp method, which first allowed the detection of single channel currents in biological membranes, has been further refined to enable higher current resolution, direct membrane patch potential control, and physical isolation of membrane patches. 2. A description of a convenient method for the fabrication of patch recording pipettes is given together with procedures followed to achieve giga-seals i.e. pipette-membrane seals with resistances of 10(9) - 10(11) omega. 3. The basic patch clamp recording circuit, and designs for improved frequency response are described along with the present limitations in recording the currents from single channels. 4. Procedures for preparation and recording from three representative cell types are given. Some properties of single acetylcholine-activated channels in muscle membrane are described to illustrate the improved current and time resolution achieved with giga-seals. 5. A description is given of the various ways that patches of membrane can be physically isolated from cells. This isolation enables the recording of single channel currents with well-defined solutions on both sides of the membrane. Two types of isolated cell-free patch configurations can be formed: an inside-out patch with its cytoplasmic membrane face exposed to the bath solution, and an outside-out patch with its extracellular membrane face exposed to the bath solution. 6. The application of the method for the recording of ionic currents and internal dialysis of small cells is considered. Single channel resolution can be achieved when recording from whole cells, if the cell diameter is small (less than 20 micrometer). 7. The wide range of cell types amenable to giga-seal formation is discussed.
+---
+
+---
+DOI: 10.1073/pnas.95.25.14863
+Title: Cluster analysis and display of genome-wide expression patterns
+Year: 1998
+Abstract: A system of cluster analysis for genome-wide expression data from DNA microarray hybridization is described that uses standard statistical algorithms to arrange genes according to similarity in pattern of gene expression. The output is displayed graphically, conveying the clustering and the underlying expression data simultaneously in a form intuitive for biologists. We have found in the budding yeast Saccharomyces cerevisiae that clustering gene expression data groups together efficiently genes of known similar function, and we find a similar tendency in human data. Thus patterns seen in genome-wide expression experiments can be interpreted as indications of the status of cellular processes. Also, coexpression of genes of known function with poorly characterized or novel genes may provide a simple means of gaining leads to the functions of many genes for which information is not available currently.
+---
+
+---
+DOI: 10.1126/science.959840
+Title: The Clonal Evolution of Tumor Cell Populations
+Year: 1976
+Abstract: It is proposed that most neoplasms arise from a single cell of origin, and tumor progression results from acquired genetic variability within the original clone allowing sequential selection of more aggressive sublines. Tumor cell populations are apparently more genetically unstable than normal cells, perhaps from activation of specific gene loci in the neoplasm, continued presence of carcinogen, or even nutritional deficiencies within the tumor. The acquired genetic instability and associated selection process, most readily recognized cytogenetically, results in advanced human malignancies being highly individual karyotypically and biologically. Hence, each patient's cancer may require individual specific therapy, and even this may be thwarted by emergence of a genetically variant subline resistant to the treatment. More research should be directed toward understanding and controlling the evolutionary process in tumors before it reaches the late stage usually seen in clinical cancer.
+---
+
+---
+DOI: 10.1126/science.1116995
+Title: Tissue Cells Feel and Respond to the Stiffness of Their Substrate
+Year: 2005
+Abstract: Normal tissue cells are generally not viable when suspended in a fluid and are therefore said to be anchorage dependent. Such cells must adhere to a solid, but a solid can be as rigid as glass or softer than a baby's skin. The behavior of some cells on soft materials is characteristic of important phenotypes; for example, cell growth on soft agar gels is used to identify cancer cells. However, an understanding of how tissue cells—including fibroblasts, myocytes, neurons, and other cell types—sense matrix stiffness is just emerging with quantitative studies of cells adhering to gels (or to other cells) with which elasticity can be tuned to approximate that of tissues. Key roles in molecular pathways are played by adhesion complexes and the actinmyosin cytoskeleton, whose contractile forces are transmitted through transcellular structures. The feedback of local matrix stiffness on cell state likely has important implications for development, differentiation, disease, and regeneration.
+---
+
+---
+DOI: 10.1038/nature06196
+Title: Identification of stem cells in small intestine and colon by marker gene Lgr5
+Year: 2007
+Abstract: The intestinal epithelium is the most rapidly self-renewing tissue in adult mammals. It is currently believed that four to six crypt stem cells reside at the +4 position immediately above the Paneth cells in the small intestine; colon stem cells remain undefined. Lgr5 (leucine-rich-repeat-containing G-protein-coupled receptor 5, also known as Gpr49) was selected from a panel of intestinal Wnt target genes for its restricted crypt expression. Here, using two knock-in alleles, we reveal exclusive expression of Lgr5 in cycling columnar cells at the crypt base. In addition, Lgr5 was expressed in rare cells in several other tissues. Using an inducible Cre knock-in allele and the Rosa26-lacZ reporter strain, lineage-tracing experiments were performed in adult mice. The Lgr5-positive crypt base columnar cell generated all epithelial lineages over a 60-day period, suggesting that it represents the stem cell of the small intestine and colon. The expression pattern of Lgr5 suggests that it marks stem cells in multiple adult tissues and cancers.
+---
+
+---
+DOI: 10.1126/science.1188302
+Title: Reconstituting Organ-Level Lung Functions on a Chip
+Year: 2010
+Abstract: Just Breathe Design of artificial systems that mimic in vivo organs could provide a better alternative for understanding mechanisms underlying physiological responses than current cell-based models or animal tests. Huh et al. (p. 1662 ) have created a tissue-tissue interface of human-cultured epithelial cells and endothelial cells together, with extracellular matrix in a device that models the alveolar-capillary interface of the human lung. The device mimicked physiological organ-level functions, including pathogen-induced inflammatory responses and responses to cytokine exposure. Breathing-type movements affected acute pulmonary cell toxicity and proinflammatory activity of widely used nanoparticulates.
+---
+
+---
+DOI: 10.1016/j.ccr.2005.08.010
+Title: Tensional homeostasis and the malignant phenotype
+Year: 2005
+Abstract: Tumors are stiffer than normal tissue, and tumors have altered integrins. Because integrins are mechanotransducers that regulate cell fate, we asked whether tissue stiffness could promote malignant behavior by modulating integrins. We found that tumors are rigid because they have a stiff stroma and elevated Rho-dependent cytoskeletal tension that drives focal adhesions, disrupts adherens junctions, perturbs tissue polarity, enhances growth, and hinders lumen formation. Matrix stiffness perturbs epithelial morphogenesis by clustering integrins to enhance ERK activation and increase ROCK-generated contractility and focal adhesions. Contractile, EGF-transformed epithelia with elevated ERK and Rho activity could be phenotypically reverted to tissues lacking focal adhesions if Rho-generated contractility or ERK activity was decreased. Thus, ERK and Rho constitute part of an integrated mechanoregulatory circuit linking matrix stiffness to cytoskeletal tension through integrins to regulate tissue phenotype.
+---
+
+---
+DOI: 10.1002/9781118878330
+Title: Fuel Cell Systems Explained
+Year: 2003
+Abstract: Building on the success of the first edition Fuel Cell Systems Explained presents a balanced introduction to this growing area. In summary, an altogether satisfying book that puts within its covers the academic tools necessary for explaining fuel cell systems on a multidisciplinary basis. Power Engineering Journal. An excellent book well written and produced. Journal of Power and Energy. Fully revised and updated, the second edition: Provides an essential guide to the principles, design and application of fuel cell systems. Includes full and updated coverage of fuel processing and hydrogen generation and storage systems. Presents a full and clear explanation of the operation of all the major fuel cell types, and an introduction to possible future technology, such as biological fuel cells. Features a new chapter on the direct methanol fuel cell. Now includes examples of the modelling, design and engineering of real fuel cell systems. A clear overview of fuel cell operation and thermodynamics. Coverage of the complete fuel cell system including compressors, turbines, and the electrical and electronic sub-systems such as regulators, inverters, grid inter-ties, electric motors, and hybrid fuel cell/battery systems.
+---
+
+---
+DOI: 10.1038/nrc1075
+Title: Tumour-cell invasion and migration: diversity and escape mechanisms
+Year: 2003
+Abstract: Cancer cells possess a broad spectrum of migration and invasion mechanisms. These include both individual and collective cell-migration strategies. Cancer therapeutics that are designed to target adhesion receptors or proteases have not proven to be effective in slowing tumour progression in clinical trials--this might be due to the fact that cancer cells can modify their migration mechanisms in response to different conditions. Learning more about the cellular and molecular basis of these different migration/invasion programmes will help us to understand how cancer cells disseminate and lead to new treatment strategies.
+---
+
+---
+DOI: 10.1109/access.2018.2793265
+Title: Digital Twin and Big Data Towards Smart Manufacturing and Industry 4.0: 360 Degree Comparison
+Year: 2018
+Abstract: With the advances in new-generation information technologies, especially big data and digital twin, smart manufacturing is becoming the focus of global manufacturing transformation and upgrading. Intelligence comes from data. Integrated analysis for the manufacturing big data is beneficial to all aspects of manufacturing. Besides, the digital twin paves a way for the cyber-physical integration of manufacturing, which is an important bottleneck to achieve smart manufacturing. In this paper, the big data and digital twin in manufacturing are reviewed, including their concept as well as their applications in product design, production planning, manufacturing, and predictive maintenance. On this basis, the similarities and differences between big data and digital twin are compared from the general and data perspectives. Since the big data and digital twin can be complementary, how they can be integrated to promote smart manufacturing are discussed.
+---
+
+---
+DOI: 10.1083/jcb.200909003
+Title: Plasticity of cell migration: a multiscale tuning model
+Year: 2009
+Abstract: Cell migration underlies tissue formation, maintenance, and regeneration as well as pathological conditions such as cancer invasion. Structural and molecular determinants of both tissue environment and cell behavior define whether cells migrate individually (through amoeboid or mesenchymal modes) or collectively. Using a multiparameter tuning model, we describe how dimension, density, stiffness, and orientation of the extracellular matrix together with cell determinants—including cell–cell and cell–matrix adhesion, cytoskeletal polarity and stiffness, and pericellular proteolysis—interdependently control migration mode and efficiency. Motile cells integrate variable inputs to adjust interactions among themselves and with the matrix to dictate the migration mode. The tuning model provides a matrix of parameters that control cell movement as an adaptive and interconvertible process with relevance to different physiological and pathological contexts.
+---
+
+---
+DOI: 10.1242/jcs.00359
+Title: Tensegrity I. Cell structure and hierarchical systems biology
+Year: 2003
+Abstract: In 1993, a Commentary in this journal described how a simple mechanical model of cell structure based on tensegrity architecture can help to explain how cell shape, movement and cytoskeletal mechanics are controlled, as well as how cells sense and respond to mechanical forces (J. Cell Sci.104, 613-627). The cellular tensegrity model can now be revisited and placed in context of new advances in our understanding of cell structure,biological networks and mechanoregulation that have been made over the past decade. Recent work provides strong evidence to support the use of tensegrity by cells, and mathematical formulations of the model predict many aspects of cell behavior. In addition, development of the tensegrity theory and its translation into mathematical terms are beginning to allow us to define the relationship between mechanics and biochemistry at the molecular level and to attack the larger problem of biological complexity. Part I of this two-part article covers the evidence for cellular tensegrity at the molecular level and describes how this building system may provide a structural basis for the hierarchical organization of living systems — from molecule to organism. Part II, which focuses on how these structural networks influence information processing networks, appears in the next issue.
+---
+
+---
+DOI: 10.1056/nejmoa0908679
+Title: Patient-Specific Induced Pluripotent Stem-Cell Models for Long-QT Syndrome
+Year: 2010
+Abstract: We generated patient-specific pluripotent stem cells from members of a family affected by long-QT syndrome type 1 and induced them to differentiate into functional cardiac myocytes. The patient-derived cells recapitulated the electrophysiological features of the disorder. (Funded by the European Research Council and others.)
+---
+
+---
+DOI: 10.1016/j.ymben.2003.09.002
+Title: The effects of alternate optimal solutions in constraint-based genome-scale metabolic models
+Year: 2003
+Abstract: Genome-scale constraint-based models of several organisms have now been constructed and are being used for model driven research. A key issue that may arise in the use of such models is the existence of alternate optimal solutions wherein the same maximal objective (e.g., growth rate) can be achieved through different flux distributions. Herein, we investigate the effects that alternate optimal solutions may have on the predicted range of flux values calculated using currently practiced linear (LP) and quadratic programming (QP) methods. An efficient LP-based strategy is described to calculate the range of flux variability that can be present in order to achieve optimal as well as suboptimal objective states. Sample results are provided for growth predictions of E. coli using glucose, acetate, and lactate as carbon substrates. These results demonstrate the extent of flux variability to be highly dependent on environmental conditions and network composition. In addition we examined the impact of alternate optima for growth under gene knockout conditions as calculated using QP-based methods. It was observed that calculations using QP-based methods can show significant variation in growth rate if the flux variability among alternate optima is high. The underlying biological significance and general source of such flux variability is further investigated through the identification of redundancies in the network (equivalent reaction sets) that lead to alternate solutions. Collectively, these results illustrate the variability inherent in metabolic flux distributions and the possible implications of this heterogeneity for constraint-based modeling approaches. These methods also provide an efficient and robust method to calculate the range of flux distributions that can be derived from quantitative fermentation data.
+---
+
+---
+DOI: 10.1126/science.1151721
+Title: Complete Chemical Synthesis, Assembly, and Cloning of a <i>Mycoplasma genitalium</i> Genome
+Year: 2008
+Abstract: We have synthesized a 582,970–base pair Mycoplasma genitalium genome. This synthetic genome, named M. genitalium JCVI-1.0, contains all the genes of wild-type M. genitalium G37 except MG408, which was disrupted by an antibiotic marker to block pathogenicity and to allow for selection. To identify the genome as synthetic, we inserted “watermarks” at intergenic sites known to tolerate transposon insertions. Overlapping “cassettes” of 5 to 7 kilobases (kb), assembled from chemically synthesized oligonucleotides, were joined by in vitro recombination to produce intermediate assemblies of approximately 24 kb, 72 kb (“1/8 genome”), and 144 kb (“1/4 genome”), which were all cloned as bacterial artificial chromosomes in Escherichia coli . Most of these intermediate clones were sequenced, and clones of all four 1/4 genomes with the correct sequence were identified. The complete synthetic genome was assembled by transformation-associated recombination cloning in the yeast Saccharomyces cerevisiae , then isolated and sequenced. A clone with the correct sequence was identified. The methods described here will be generally useful for constructing large DNA molecules from chemically synthesized pieces and also from combinations of natural and synthetic DNA segments.
+---
+
+---
+DOI: 10.1073/pnas.0510013103
+Title: Essential genes of a minimal bacterium
+Year: 2006
+Abstract: Mycoplasma genitalium has the smallest genome of any organism that can be grown in pure culture. It has a minimal metabolism and little genomic redundancy. Consequently, its genome is expected to be a close approximation to the minimal set of genes needed to sustain bacterial life. Using global transposon mutagenesis, we isolated and characterized gene disruption mutants for 100 different nonessential protein-coding genes. None of the 43 RNA-coding genes were disrupted. Herein, we identify 382 of the 482 M. genitalium protein-coding genes as essential, plus five sets of disrupted genes that encode proteins with potentially redundant essential functions, such as phosphate transport. Genes encoding proteins of unknown function constitute 28% of the essential protein-coding genes set. Disruption of some genes accelerated M. genitalium growth.
+---
+
+---
+DOI: 10.1016/j.actbio.2004.09.001
+Title: Connections between single-cell biomechanics and human disease states: gastrointestinal cancer and malaria
+Year: 2004
+Abstract: We investigate connections between single-cell mechanical properties and subcellular structural reorganization from biochemical factors in the context of two distinctly different human diseases: gastrointestinal tumor and malaria. Although the cell lineages and the biochemical links to pathogenesis are vastly different in these two cases, we compare and contrast chemomechanical pathways whereby intracellular structural rearrangements lead to global changes in mechanical deformability of the cell. This single-cell biomechanical response, in turn, seems to mediate cell mobility and thereby facilitates disease progression in situations where the elastic modulus increases or decreases due to membrane or cytoskeleton reorganization. We first present new experiments on elastic response and energy dissipation under repeated tensile loading of epithelial pancreatic cancer cells in force- or displacement-control. Energy dissipation from repeated stretching significantly increases and the cell's elastic modulus decreases after treatment of Panc-1 pancreatic cancer cells with sphingosylphosphorylcholine (SPC), a bioactive lipid that influences cancer metastasis. When the cell is treated instead with lysophosphatidic acid, which facilitates actin stress fiber formation, neither energy dissipation nor modulus is noticeably affected. Integrating recent studies with our new observations, we ascribe these trends to possible SPC-induced reorganization primarily of keratin network to perinuclear region of cell; the intermediate filament fraction of the cytoskeleton thus appears to dominate deformability of the epithelial cell. Possible consequences of these results to cell mobility and cancer metastasis are postulated. We then turn attention to progressive changes in mechanical properties of the human red blood cell (RBC) infected with the malaria parasite Plasmodium falciparum. We present, for the first time, continuous force-displacement curves obtained from in-vitro deformation of RBC with optical tweezers for different intracellular developmental stages of parasite. The shear modulus of RBC is found to increase up to 10-fold during parasite development, which is a noticeably greater effect than that from prior estimates. By integrating our new experimental results with published literature on deformability of Plasmodium-harbouring RBC, we examine the biochemical conditions mediating increases or decreases in modulus, and their implications for disease progression. Some general perspectives on connections among structure, single-cell mechanical properties and biological responses associated with pathogenic processes are also provided in the context of the two diseases considered in this work.
+---
+
+---
+DOI: 10.1038/msb.2009.77
+Title: Applications of genome‐scale metabolic reconstructions
+Year: 2009
+Abstract: The availability and utility of genome‐scale metabolic reconstructions have exploded since the first genome‐scale reconstruction was published a decade ago. Reconstructions have now been built for a wide variety of organisms, and have been used toward five major ends: (1) contextualization of high‐throughput data, (2) guidance of metabolic engineering, (3) directing hypothesis‐driven discovery, (4) interrogation of multi‐species relationships, and (5) network property discovery. In this review, we examine the many uses and future directions of genome‐scale metabolic reconstructions, and we highlight trends and opportunities in the field that will make the greatest impact on many fields of biology.
+---
+
+---
+DOI: 10.1364/ao.47.000a52
+Title: Digital holographic microscopy for live cell applications and technical inspection
+Year: 2007
+Abstract: Digital holographic microscopy enables a quantitative phase contrast metrology that is suitable for the investigation of reflective surfaces as well as for the marker-free analysis of living cells. The digital holographic feature of (subsequent) numerical focus adjustment makes possible applications for multifocus imaging. An overview of digital holographic microscopy methods is described. Applications of digital holographic microscopy are demonstrated by results obtained from livings cells and engineered surfaces.
+---
+
+---
+DOI: 10.1074/jbc.274.42.30169
+Title: Quantification of Short Term Signaling by the Epidermal Growth Factor Receptor
+Year: 1999
+Abstract: During the past decade, our knowledge of molecular mechanisms involved in growth factor signaling has proliferated almost explosively. However, the kinetics and control of information transfer through signaling networks remain poorly understood. This paper combines experimental kinetic analysis and computational modeling of the short term pattern of cellular responses to epidermal growth factor (EGF) in isolated hepatocytes. The experimental data show transient tyrosine phosphorylation of the EGF receptor (EGFR) and transient or sustained response patterns in multiple signaling proteins targeted by EGFR. Transient responses exhibit pronounced maxima, reached within 15-30 s of EGF stimulation and followed by a decline to relatively low (quasi-steady-state) levels. In contrast to earlier suggestions, we demonstrate that the experimentally observed transients can be accounted for without requiring receptor-mediated activation of specific tyrosine phosphatases, following EGF stimulation. The kinetic model predicts how the cellular response is controlled by the relative levels and activity states of signaling proteins and under what conditions activation patterns are transient or sustained. EGFR signaling patterns appear to be robust with respect to variations in many elemental rate constants within the range of experimentally measured values. On the other hand, we specify which changes in the kinetic scheme, rate constants, and total amounts of molecular factors involved are incompatible with the experimentally observed kinetics of signal transfer. Quantitation of signaling network responses to growth factors allows us to assess how cells process information controlling their growth and differentiation.
+---
+
+---
+DOI: 10.1088/0951-7715/23/1/r01
+Title: Nonlinear modelling of cancer: bridging the gap between cells and tumours
+Year: 2009
+Abstract: Despite major scientific, medical and technological advances over the last few decades, a cure for cancer remains elusive. The disease initiation is complex, and including initiation and avascular growth, onset of hypoxia and acidosis due to accumulation of cells beyond normal physiological conditions, inducement of angiogenesis from the surrounding vasculature, tumour vascularization and further growth, and invasion of surrounding tissue and metastasis. Although the focus historically has been to study these events through experimental and clinical observations, mathematical modelling and simulation that enable analysis at multiple time and spatial scales have also complemented these efforts. Here, we provide an overview of this multiscale modelling focusing on the growth phase of tumours and bypassing the initial stage of tumourigenesis. While we briefly review discrete modelling, our focus is on the continuum approach. We limit the scope further by considering models of tumour progression that do not distinguish tumour cells by their age. We also do not consider immune system interactions nor do we describe models of therapy. We do discuss hybrid-modelling frameworks, where the tumour tissue is modelled using both discrete (cell-scale) and continuum (tumour-scale) elements, thus connecting the micrometre to the centimetre tumour scale. We review recent examples that incorporate experimental data into model parameters. We show that recent mathematical modelling predicts that transport limitations of cell nutrients, oxygen and growth factors may result in cell death that leads to morphological instability, providing a mechanism for invasion via tumour fingering and fragmentation. These conditions induce selection pressure for cell survivability, and may lead to additional genetic mutations. Mathematical modelling further shows that parameters that control the tumour mass shape also control its ability to invade. Thus, tumour morphology may serve as a predictor of invasiveness and treatment prognosis.
+---
+
+---
+DOI: 10.1186/s40323-020-00147-4
+Title: How to tell the difference between a model and a digital twin
+Year: 2020
+Abstract: “When I use a word, it means whatever I want it to mean”: Humpty Dumpty in Alice’s Adventures Through The Looking Glass, Lewis Carroll. “Digital twin” is currently a term applied in a wide variety of ways. Some differences are variations from sector to sector, but definitions within a sector can also vary significantly. Within engineering, claims are made regarding the benefits of using digital twinning for design, optimisation, process control, virtual testing, predictive maintenance, and lifetime estimation. In many of its usages, the distinction between a model and a digital twin is not made clear. The danger of this variety and vagueness is that a poor or inconsistent definition and explanation of a digital twin may lead people to reject it as just hype, so that once the hype and the inevitable backlash are over the final level of interest and use (the “plateau of productivity”) may fall well below the maximum potential of the technology. The basic components of a digital twin (essentially a model and some data) are generally comparatively mature and well-understood. Many of the aspects of using data in models are similarly well-understood, from long experience in model validation and verification and from development of boundary, initial and loading conditions from measured values. However, many interesting open questions exist, some connected with the volume and speed of data, some connected with reliability and uncertainty, and some to do with dynamic model updating. In this paper we highlight the essential differences between a model and a digital twin, outline some of the key benefits of using digital twins, and suggest directions for further research to fully exploit the potential of the approach.
+---
+
+---
+DOI: 10.1529/biophysj.104.047449
+Title: A Mathematical Treatment of Integrated Ca Dynamics within the Ventricular Myocyte
+Year: 2004
+Abstract: We have developed a detailed mathematical model for Ca2+ handling and ionic currents in the rabbit ventricular myocyte. The objective was to develop a model that: 1), accurately reflects Ca-dependent Ca release; 2), uses realistic parameters, particularly those that concern Ca transport from the cytosol; 3), comes to steady state; 4), simulates basic excitation-contraction coupling phenomena; and 5), runs on a normal desktop computer. The model includes the following novel features: 1), the addition of a subsarcolemmal compartment to the other two commonly formulated cytosolic compartments (junctional and bulk) because ion channels in the membrane sense ion concentrations that differ from bulk; 2), the use of realistic cytosolic Ca buffering parameters; 3), a reversible sarcoplasmic reticulum (SR) Ca pump; 4), a scheme for Na-Ca exchange transport that is [Na]i dependent and allosterically regulated by [Ca]i; and 5), a practical model of SR Ca release including both inactivation/adaptation and SR Ca load dependence. The data describe normal electrical activity and Ca handling characteristics of the cardiac myocyte and the SR Ca load dependence of these processes. The model includes a realistic balance of Ca removal mechanisms (e.g., SR Ca pump versus Na-Ca exchange), and the phenomena of rest decay and frequency-dependent inotropy. A particular emphasis is placed upon reproducing the nonlinear dependence of gain and fractional SR Ca release upon SR Ca load. We conclude that this model is more robust than many previously existing models and reproduces many experimental results using parameters based largely on experimental measurements in myocytes.
+---
+
+---
+DOI: 10.1038/nrg3885
+Title: Quantitative and logic modelling of molecular and gene networks
+Year: 2015
+Abstract: Behaviours of complex biomolecular systems are often irreducible to the elementary properties of their individual components. Explanatory and predictive mathematical models are therefore useful for fully understanding and precisely engineering cellular functions. The development and analyses of these models require their adaptation to the problems that need to be solved and the type and amount of available genetic or molecular data. Quantitative and logic modelling are among the main methods currently used to model molecular and gene networks. Each approach comes with inherent advantages and weaknesses. Recent developments show that hybrid approaches will become essential for further progress in synthetic biology and in the development of virtual organisms.
+---
+
+---
+DOI: 10.1109/access.2017.2766453
+Title: A Digital Twin-Based Approach for Designing and Multi-Objective Optimization of Hollow Glass Production Line
+Year: 2017
+Abstract: Various new national advanced manufacturing strategies, such as Industry 4.0, Industrial Internet, and Made in China 2025, are issued to achieve smart manufacturing, resulting in the increasing number of newly designed production lines in both developed and developing countries. Under the individualized designing demands, more realistic virtual models mirroring the real worlds of production lines are essential to bridge the gap between design and operation. This paper presents a digital twin-based approach for rapid individualized designing of the hollow glass production line. The digital twin merges physics-based system modeling and distributed real-time process data to generate an authoritative digital design of the system at pre-production phase. A digital twin-based analytical decoupling framework is also developed to provide engineering analysis capabilities and support the decision-making over the system designing and solution evaluation. Three key enabling techniques as well as a case study in hollow glass production line are addressed to validate the proposed approach.
+---
+
+---
+DOI: 10.1016/s0167-7799(03)00030-1
+Title: Genome-scale microbial in silico models: the constraints-based approach
+Year: 2003
+Abstract: Genome sequencing and annotation has enabled the reconstruction of genome-scale metabolic networks. The phenotypic functions that these networks allow for can be defined and studied using constraints-based models and in silico simulation. Several useful predictions have been obtained from such in silico models, including substrate preference, consequences of gene deletions, optimal growth patterns, outcomes of adaptive evolution and shifts in expression profiles. The success rate of these predictions is typically in the order of 70-90% depending on the organism studied and the type of prediction being made. These results are useful as a basis for iterative model building and for several practical applications.
+---
+
+---
+DOI: 10.1103/physrevlett.101.118105
+Title: Accurate Coarse-Grained Modeling of Red Blood Cells
+Year: 2008
+Abstract: We develop a systematic coarse-graining procedure for modeling red blood cells (RBCs) using arguments based on mean-field theory. The three-dimensional RBC membrane model takes into account the bending energy, in-plane shear energy, and constraints of fixed surface area and fixed enclosed volume. The coarse-graining procedure is general, it can be used for arbitrary level of coarse-graining and does not employ any fitting parameters. The sensitivity of the coarse-grained model is investigated and its behavior is validated against available experimental data and in dissipative particle dynamics (DPD) simulations of RBCs in capillary and shear flows.
+---
+
+---
+DOI: 10.1080/00207543.2018.1471243
+Title: Digital twin-driven rapid individualised designing of automated flow-shop manufacturing system
+Year: 2018
+Abstract: Under a mass individualisation paradigm, the individualised design of manufacturing systems is difficult as it involves adaptive integrating both new and legacy machines for the formation of part families with uncertainty. A systematic virtual model mirroring the real world of manufacturing system is essential to bridge the gap between its design and operation. This paper presents a digital twin-driven methodology for rapid individualised designing of the automated flow-shop manufacturing system. The digital twin merges physics-based system modelling and distributed semi-physical simulation to provide engineering solution analysis capabilities and generates an authoritative digital design of the system at pre-production phase. An effective feedbacking of collected decision-support information from the intelligent multi-objective optimisation of the dynamic execution is presented to boost the applicability of the digital twin vision in the designing of AFMS. Finally, a bi-level iterative coordination mechanism is proposed to achieve optimal design performance for required functions of AFMS. A case study is conducted to prove the feasibility and effectiveness of the proposed methodology.
+---
+
+---
+DOI: 10.1023/a:1003964201327
+Title: Three-dimensional numerical simulation of straight channel PEM fuel cells
+Year: 2000
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/access.2019.2897018
+Title: Prototyping a Digital Twin for Real Time Remote Control Over Mobile Networks: Application of Remote Surgery
+Year: 2019
+Abstract: The concept of digital twin (DT) has emerged to enable the benefits of future paradigms such as the industrial Internet of Things and Industry 4.0. The idea is to bring every data source and control interface description related to a product or process available through a single interface, for auto-discovery and automated communication establishment. However, designing the architecture of a DT to serve every future application is an ambitious task. Therefore, the prototyping systems for specific applications are required to design the DT incrementally. We developed a novel DT prototype to analyze the requirements of communication in a mission-critical application such as mobile networks supported remote surgery. Such operations require low latency and high levels of security and reliability and therefore are a perfect subject for analyzing DT communication and cybersecurity. The system comprised of a robotic arm and HTC vive virtual reality (VR) system connected over a 4G mobile network. More than 70 test users were employed to assess the system. To address the cybersecurity of the system, we incorporated a network manipulation module to test the effect of network outages and attacks; we studied state of the art practices and their utilization within DTs. The capability of the system for actual remote surgery is limited by capabilities of the VR system and insufficient feedback from the robot. However, simulations and research of remote surgeries could be conducted with the system. As a result, we propose ideas for communication establishment and necessary cybersecurity technologies that will help in developing the DT architecture. Furthermore, we concluded that developing the DT requires cross-disciplinary development in several different engineering fields. Each field makes use of its own tools and methods, which do not always fit together perfectly. This is a potentially major obstacle in the realization of Industry 4.0 and similar concepts.
+---
+
+---
+DOI: 10.1073/pnas.1304382110
+Title: Experimentally calibrated population of models predicts and explains intersubject variability in cardiac cellular electrophysiology
+Year: 2013
+Abstract: Significance Causes of intersubject variability in electrophysiological activity are unknown. We describe a methodology to unravel the ionic determinants of variability exhibited in experimental cardiac action potential recordings, based on the construction and calibration of populations of models. We show that 213 of 10,000 candidate models are consistent with the control experimental dataset. Ionic properties across the model population cover a wide range of values, and particular combinations of ionic properties determine shape, amplitude, and rate dependence of specific action potentials. Finally, we demonstrate that the calibrated model population quantitatively predicts effects caused by four concentrations of a potassium channel blocker.
+---
+
+---
+DOI: 10.1093/bioinformatics/btg442
+Title: A multi-algorithm, multi-timescale method for cell simulation
+Year: 2004
+Abstract: Abstract Motivation: Many important problems in cell biology require the dense nonlinear interactions between functional modules to be considered. The importance of computer simulation in understanding cellular processes is now widely accepted, and a variety of simulation algorithms useful for studying certain subsystems have been designed. Many of these are already widely used, and a large number of models constructed on these existing formalisms are available. A significant computational challenge is how we can integrate such sub-cellular models running on different types of algorithms to construct higher order models. Results: A modular, object-oriented simulation meta-algorithm based on a discrete-event scheduler and Hermite polynomial interpolation has been developed and implemented. It is shown that this new method can efficiently handle many components driven by different algorithms and different timescales. The utility of this simulation framework is demonstrated further with a ‘composite’ heat-shock response model that combines the Gillespie–Gibson stochastic algorithm and deterministic differential equations. Dramatic improvements in performance were obtained without significant accuracy drawbacks. A multi-timescale demonstration of coupled harmonic oscillators is also shown. Availability: An implementation of the method is available as part of E-Cell Simulation Environment Version 3 downloadable from http://www.e-cell.org/software. Benchmark models are included in the package, and also available upon request. Supplementary information: Complete lists of reactions and parameters of the heat-shock model, and more results are available at http://www.e-cell.org/bioinfo/takahashi03-1-supp.pdf
+---
+
+---
+DOI: 10.1126/science.abf3370
+Title: Using digital twins in viral infection
+Year: 2021
+Abstract: Personalized computer simulations of infection could allow more effective treatments
+---
+
+---
+DOI: 10.1137/04060370x
+Title: Multiscale Two-Dimensional Modeling of a Motile Simple-Shaped Cell
+Year: 2005
+Abstract: Cell crawling is an important biological phenomenon underlying coordinated cell movement in morphogenesis, cancer, and wound healing. In recent decades the process of cell crawling has been experimentally and theoretically dissected into further subprocesses: protrusion of the cell at its leading edge, retraction of the cell body, and graded adhesion. A number of one-dimensional (1-D) models explain successfully a proximal-distal organization and movement of the motile cell. However, more adequate two-dimensional (2-D) models are lacking. We propose a multiscale 2-D computational model of the lamellipodium (motile appendage) of a simply shaped, rapidly crawling fish keratocyte cell. We couple submodels of (i) protrusion and adhesion at the leading edge, (ii) the elastic 2-D lamellipodial actin network, (iii) the actin-myosin contractile bundle at the rear edge, and (iv) the convection-reaction-diffusion actin transport on the free boundary lamellipodial domain. We simulate the combined model numerically using a finite element approach. The simulations reproduce observed cell shapes, forces, and movements and explain some experimental results on perturbations of the actin machinery. This novel 2-D model of the crawling cell makes testable predictions and posits questions to be answered by future modeling.
+---
+
+---
+DOI: 10.1016/j.parco.2014.03.009
+Title: Simulation of reaction diffusion processes over biologically relevant size and time scales using multi-GPU workstations
+Year: 2014
+Abstract: Simulation of in vivo cellular processes with the reaction-diffusion master equation (RDME) is a computationally expensive task. Our previous software enabled simulation of inhomogeneous biochemical systems for small bacteria over long time scales using the MPD-RDME method on a single GPU. Simulations of larger eukaryotic systems exceed the on-board memory capacity of individual GPUs, and long time simulations of modest-sized cells such as yeast are impractical on a single GPU. We present a new multi-GPU parallel implementation of the MPD-RDME method based on a spatial decomposition approach that supports dynamic load balancing for workstations containing GPUs of varying performance and memory capacity. We take advantage of high-performance features of CUDA for peer-to-peer GPU memory transfers and evaluate the performance of our algorithms on state-of-the-art GPU devices. We present parallel e ciency and performance results for simulations using multiple GPUs as system size, particle counts, and number of reactions grow. We also demonstrate multi-GPU performance in simulations of the Min protein system in E. coli. Moreover, our multi-GPU decomposition and load balancing approach can be generalized to other lattice-based problems.
+---
+
+---
+DOI: 10.1101/gr.234503
+Title: Genome-Scale Reconstruction of the <i>Saccharomyces cerevisiae</i> Metabolic Network
+Year: 2003
+Abstract: The metabolic network in the yeast Saccharomyces cerevisiae was reconstructed using currently available genomic, biochemical, and physiological information. The metabolic reactions were compartmentalized between the cytosol and the mitochondria, and transport steps between the compartments and the environment were included. A total of 708 structural open reading frames (ORFs) were accounted for in the reconstructed network, corresponding to 1035 metabolic reactions. Further, 140 reactions were included on the basis of biochemical evidence resulting in a genome-scale reconstructed metabolic network containing 1175 metabolic reactions and 584 metabolites. The number of gene functions included in the reconstructed network corresponds to ∼16% of all characterized ORFs in S. cerevisiae . Using the reconstructed network, the metabolic capabilities of S. cerevisiae were calculated and compared with Escherichia coli . The reconstructed metabolic network is the first comprehensive network for a eukaryotic organism, and it may be used as the basis for in silico analysis of phenotypic functions. [Supplemental material is available online at www.genome.org . The detailed genome-scale reconstructed model of Saccharomyces cerevisiae can be found at http://www.cpb.dtu.dk/models/yeastmodel.html or http://geneticcircuits.ucsd.edu/organisms/yeast.html .]
+---
+
+---
+DOI: 10.5860/choice.30-5638
+Title: Numerical recipes in C: the art of scientific computing
+Year: 1993
+Abstract: From the Publisher:
+This is the revised and greatly expanded Second Edition of the hugely popular Numerical Recipes: The Art of Scientific Computing. The product of a unique collaboration among four leading scientists in academic research and industry, Numerical Recipes is a complete text and reference book on scientific computing. In a self-contained manner it proceeds from mathematical and theoretical considerations to actual practical computer routines. With over 100 new routines (now well over 300 in all), plus upgraded versions of many of the original routines, this book is more than ever the most practical, comprehensive handbook of scientific computing available today. The book retains the informal, easy-to-read style that made the first edition so popular, with many new topics presented at the same accessible level. In addition, some sections of more advanced material have been introduced, set off in small type from the main body of the text. Numerical Recipes is an ideal textbook for scientists and engineers and an indispensable reference for anyone who works in scientific computing. Highlights of the new material include a new chapter on integral equations and inverse methods; multigrid methods for solving partial differential equations; improved random number routines; wavelet transforms; the statistical bootstrap method; a new chapter on less-numerical algorithms including compression coding and arbitrary precision arithmetic; band diagonal linear systems; linear algebra on sparse matrices; Cholesky and QR decomposition; calculation of numerical derivatives; Pade approximants, and rational Chebyshev approximation; new special functions; Monte Carlo integration in high-dimensional spaces; globally convergent methods for sets of nonlinear equations; an expanded chapter on fast Fourier methods; spectral analysis on unevenly sampled data; Savitzky-Golay smoothing filters; and two-dimensional Kolmogorov-Smirnoff tests. All this is in addition to material on such basic top
+---
+
+---
+DOI: 10.1023/a:1008889222784
+Title: On Limits of Wireless Communications in a Fading Environment when Using Multiple Antennas
+Year: 1998
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/ng.2764
+Title: The Cancer Genome Atlas Pan-Cancer analysis project
+Year: 2013
+Abstract: Current clinical practice is organized according to tissue or organ of origin of tumors. Now, The Cancer Genome Atlas (TCGA) Research Network has started to identify genomic and other molecular commonalities among a dozen different types of cancer. Emerging similarities and contrasts will form the basis for targeted therapies of the future and for repurposing existing therapies by molecular rather than histological similarities of the diseases. The Cancer Genome Atlas (TCGA) Research Network has profiled and analyzed large numbers of human tumors to discover molecular aberrations at the DNA, RNA, protein and epigenetic levels. The resulting rich data provide a major opportunity to develop an integrated picture of commonalities, differences and emergent themes across tumor lineages. The Pan-Cancer initiative compares the first 12 tumor types profiled by TCGA. Analysis of the molecular aberrations and their functional roles across tumor types will teach us how to extend therapies effective in one cancer type to others with a similar genomic profile.
+---
+
+---
+DOI: 10.1038/361315a0
+Title: Inositol trisphosphate and calcium signalling
+Year: 1993
+Abstract: Inositol trisphosphate is a second messenger that controls many cellular processes by generating internal calcium signals. It operates through receptors whose molecular and physiological properties closely resemble the calcium-mobilizing ryanodine receptors of muscle. This family of intracellular calcium channels displays the regenerative process of calcium-induced calcium release responsible for the complex spatiotemporal patterns of calcium waves and oscillations. Such a dynamic signalling pathway controls many cellular processes, including fertilization, cell growth, transformation, secretion, smooth muscle contraction, sensory perception and neuronal signalling.
+---
+
+---
+DOI: 10.1007/978-3-642-56026-2
+Title: Computational Methods for Fluid Dynamics
+Year: 2002
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/49.414651
+Title: A framework for uplink power control in cellular radio systems
+Year: 1995
+Abstract: In cellular wireless communication systems, transmitted power is regulated to provide each user an acceptable connection by limiting the interference caused by other users. Several models have been considered including: (1) fixed base station assignment where the assignment of users to base stations is fixed, (2) minimum power assignment where a user is iteratively assigned to the base station at which its signal to interference ratio is highest, and (3) diversity reception where a user's signal is combined from several or perhaps all base stations. For the above models, the uplink power control problem can be reduced to finding a vector p of users' transmitter powers satisfying p/spl ges/I(p) where the jth constraint p/sub j//spl ges/I/sub j/(p) describes the interference that user j must overcome to achieve an acceptable connection. This work unifies results found for these systems by identifying common properties of the interference constraints. It is also shown that systems in which transmitter powers are subject to maximum power limitations share these common properties. These properties permit a general proof of the synchronous and totally asynchronous convergence of the iteration p(t+1)=I(p(t)) to a unique fixed point at which total transmitted power is minimized.< <ETX xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">&gt;</ETX>
+---
+
+---
+DOI: 10.1109/tit.2003.809594
+Title: How much training is needed in multiple-antenna wireless links?
+Year: 2003
+Abstract: Multiple-antenna wireless communication links promise very high data rates with low error probabilities, especially when the wireless channel response is known at the receiver. In practice, knowledge of the channel is often obtained by sending known training symbols to the receiver. We show how training affects the capacity of a fading channel-too little training and the channel is improperly learned, too much training and there is no time left for data transmission before the channel changes. We compute a lower bound on the capacity of a channel that is learned by training, and maximize the bound as a function of the received signal-to-noise ratio (SNR), fading coherence time, and number of transmitter antennas. When the training and data powers are allowed to vary, we show that the optimal number of training symbols is equal to the number of transmit antennas-this number is also the smallest training interval length that guarantees meaningful estimates of the channel matrix. When the training and data powers are instead required to be equal, the optimal number of symbols may be larger than the number of antennas. We show that training-based schemes can be optimal at high SNR, but suboptimal at low SNR.
+---
+
+---
+DOI: 10.1146/annurev.genom.2.1.343
+Title: A N<scp>EW</scp>A<scp>PPROACH TO</scp>D<scp>ECODING</scp>L<scp>IFE</scp>: Systems Biology
+Year: 2001
+Abstract: ▪ Abstract Systems biology studies biological systems by systematically perturbing them (biologically, genetically, or chemically); monitoring the gene, protein, and informational pathway responses; integrating these data; and ultimately, formulating mathematical models that describe the structure of the system and its response to individual perturbations. The emergence of systems biology is described, as are several examples of specific systems approaches.
+---

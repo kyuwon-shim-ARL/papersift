@@ -1,0 +1,119 @@
+{
+  "batch_index": 28,
+  "dois": [
+    "10.3389/fcell.2016.00134",
+    "10.3389/fphys.2017.00563",
+    "10.1371/journal.pone.0090832",
+    "10.3390/ijms22063210",
+    "10.1038/s41592-022-01412-7",
+    "10.1021/acsomega.0c03796",
+    "10.1038/s41598-019-47903-0",
+    "10.1186/1471-2407-5-97",
+    "10.1186/1479-5876-12-128",
+    "10.1111/bph.13282"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3389/fcell.2016.00134",
+      "problem": "Stem cell potency assessment lacks standardized methods; functional assays are cumbersome and molecular markers show discrepancies across cell types.",
+      "method": "Review of functional assays (teratoma, blastocyst chimerism, tetraploid complementation) and in silico diagnostics including genomic profiling (DNA microarrays), bioinformatics algorithms (Stem Cell Matrix, PluriTest, ScoreCard), and epigenetic/metabolic marker evaluation.",
+      "finding": "Pluripotency is a dynamic state regulated by many molecular factors; bioinformatics approaches (PluriTest, ScoreCard) show promise but functional assays remain the gold standard; no single molecular signature reliably predicts pluripotency across all cell types.",
+      "dataset": "Human ESCs, iPSCs, multipotent and unipotent stem cells",
+      "metric": "",
+      "baseline": "Functional assays (teratoma formation, blastocyst chimerism, tetraploid complementation)",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fphys.2017.00563",
+      "problem": "Accurate modeling of blood flow requires cell-level simulation of red blood cells, but existing constitutive models for RBC membranes perform poorly at high shear rates.",
+      "method": "HemoCell parallel computing framework using lattice Boltzmann method for plasma flow coupled with immersed boundary method for RBC membranes; a new constitutive material model based on strain energy formulation replacing WLC-based spectrin-link model.",
+      "finding": "The new material model accurately reproduces apparent viscosity (Fåhræus–Lindqvist effect) across vessel diameters 20–128 μm and captures solid-like behavior of dense RBC suspensions at low shear rates; it outperforms the spectrin-link model at shear rates over 1,500 s⁻¹.",
+      "dataset": "Simulated blood flow in straight vessels D=20–128 μm, hematocrit 20–45%, ~2×10⁴ cells",
+      "metric": "Relative apparent viscosity vs vessel diameter",
+      "baseline": "Coarse-grained spectrin-link model (Fedosov et al. 2010); experimental data from Pries et al. 1992",
+      "result": "Good agreement with Pries et al. experimental viscosity curves; improved accuracy at shear rates >1,500 s⁻¹; scalable to 10⁶ cells on 8,192 cores"
+    },
+    {
+      "doi": "10.1371/journal.pone.0090832",
+      "problem": "The metabolic changes underlying clonal variation in monoclonal antibody-producing CHO cells are poorly understood, and the link between metabolic burden and recombinant protein productivity remains unclear.",
+      "method": "Kinetic metabolic model for CHO cells with regulatory terms (hexokinase inhibition by G6P, PGI inhibition by PEP) calibrated against intracellular/extracellular metabolite profiles from shake flask batch cultures; simulation of intracellular fluxes and biomarker ratios.",
+      "finding": "Clone-to-clone metabolic variation is more significant than the effect of recombinant protein expression; the high-producer clone shows efficient glucose utilization, increased pyruvate dehydrogenase flux, and higher TCA cycle flux with increased anaplerosis via pyruvate carboxylase.",
+      "dataset": "CHO-Cum2 parental, high-producer, and low-producer clones (cumate-inducible anti-CD20 mAb), shake flask batch cultures over 6 days",
+      "metric": "Intracellular flux distributions, ATP/ADP ratio, NADH/NAD ratio, extracellular metabolite concentrations",
+      "baseline": "Parental (non-producing) CHO cell line; model without regulatory terms",
+      "result": "mAb production accounts for at most 5% of total carbon uptake; regulatory terms (HK inhibition by G6P + PGI inhibition by PEP) significantly reduced simulation error for glucose and nucleotide ratios"
+    },
+    {
+      "doi": "10.3390/ijms22063210",
+      "problem": "Linear B-cell epitope prediction methods show poor and inconsistent performance, and many existing tools are unavailable online, hindering vaccine design efforts particularly during COVID-19.",
+      "method": "Benchmarking of 7 CLI-available B-cell epitope predictors (BcePred, BepiPred, ABCpred, COBEpro, SVMTriP, LBtope, LBEEP) on standardized datasets; development of consensus classifiers combining per-residue and per-peptide predictions.",
+      "finding": "Individual predictors show modest performance (MCC 0.01–0.08); the consensus classifier achieved the best per-residue MCC and accuracy; BepiPred had the best per-peptide MCC; ~45% of published predictor web servers are no longer available.",
+      "dataset": "Consensus_NR dataset (tens of thousands of epitope/non-epitope peptide sequences, 20-residue window)",
+      "metric": "MCC, accuracy, sensitivity, specificity",
+      "baseline": "Individual predictors (BcePred, BepiPred, ABCpred, COBEpro, SVMTriP, LBtope, LBEEP)",
+      "result": "Per-peptide best MCC=0.0778 (BepiPred); per-residue consensus MCC=0.0489; consensus accuracy=55.59% (per-peptide), 53.04% (per-residue)"
+    },
+    {
+      "doi": "10.1038/s41592-022-01412-7",
+      "problem": "Bulk-tissue DNA methylomes average over many cell types, obscuring cell-type-specific contributions to disease; existing computational deconvolution methods are limited to blood.",
+      "method": "EpiSCORE algorithm imputing cell-type-specific DNA methylation reference matrices from tissue-specific scRNA-seq atlases using promoter DNAm–mRNA anticorrelation; weighted robust partial correlation (wRPC) for cell-type fraction estimation in bulk methylomes.",
+      "finding": "The DNAm-atlas covers 13 solid tissue types and 40 cell types with >90% validation accuracy in 8/13 tissues; it correctly predicts cancer cell of origin, discovers prognostic associations in olfactory neuroblastoma and stage 2 melanoma, and identifies neuronal origin for schizophrenia-associated differential methylation enriched for GWAS risk loci.",
+      "dataset": "13 human solid tissue types, 40 cell types; TCGA bulk DNAm data; independent single-nucleus DNAm datasets",
+      "metric": "Validation accuracy, tumor purity correlation (vs ESTIMATE, ABSOLUTE, LUMP), prognostic association (survival)",
+      "baseline": "ESTIMATE, ABSOLUTE, LUMP for tumor purity; existing blood-only deconvolution methods",
+      "result": "Validation accuracy >90% for 8/13 tissues; tolerates up to 30–40% imputation error rate; novel prognostic subtypes identified in ONB and melanoma"
+    },
+    {
+      "doi": "10.1021/acsomega.0c03796",
+      "problem": "Designing efficient non-fullerene acceptors (NFAs) for organic solar cells with improved near-infrared absorption and photovoltaic properties beyond the Y21 reference molecule.",
+      "method": "DFT and TDDFT at B3LYP/6-31G(d,p) level to calculate band gap, exciton binding energy, transition density matrix, reorganization energy, absorption maxima, and open-circuit voltage of four novel Y-series NFAs (YA1–YA4) with modified end-capped acceptors.",
+      "finding": "YA1 shows the best photovoltaic properties among designed molecules with the lowest energy gap, smallest reorganization energies, highest absorption maxima, and fine open-circuit voltage; all designed molecules outperform the Y21 reference.",
+      "dataset": "Y21 reference molecule and 4 designed NFAs (YA1–YA4); PM6 donor polymer",
+      "metric": "HOMO-LUMO gap, λmax, reorganization energy (λe, λh), open-circuit voltage (Voc), exciton binding energy",
+      "baseline": "Y21 (experimentally synthesized, 15% efficient NFA, λmax=741 nm)",
+      "result": "YA1: energy gap=1.924 eV, λe=0.0073 eV, λh=0.0083 eV, λmax=783.36 nm (gas)/715.20 nm (CHCl₃), Voc=1.17 V"
+    },
+    {
+      "doi": "10.1038/s41598-019-47903-0",
+      "problem": "Whether anthocyanins can inhibit immune checkpoint proteins PD-1 and PD-L1 in colorectal cancer, thereby activating anti-tumor immune response in the tumor microenvironment.",
+      "method": "In vitro cell viability assays (MTS) on HCT-116 and HT-29 colorectal cancer cells with pure anthocyanins; molecular docking (AutoDock Vina) for PD-1/PD-L1 binding; Western blot and immunofluorescence for PD-L1 expression; flow cytometry for PD-1 on PBMCs in mono- and co-culture.",
+      "finding": "Cyanidin-3-O-glucoside (C3G) showed highest molecular docking affinity for PD-1 and PD-L1; C3G decreased PD-L1 fluorescence by 39% and PD-1 expression in PBMCs by 26–55% depending on culture conditions; D3G was the only effective anthocyanin for direct cancer cell inhibition.",
+      "dataset": "HCT-116 (microsatellite instable), HT-29 (chromosomal instability) colorectal cancer cells; human PBMCs",
+      "metric": "IC50, binding energy (kcal/mol), PD-L1 fluorescence intensity, PD-1 expression (%)",
+      "baseline": "Atezolizumab and pembrolizumab (clinical immune checkpoint inhibitors); untreated controls",
+      "result": "C3G PD-1 docking: −6.8 kcal/mol, PD-L1: −9.6 kcal/mol; D3G IC50: 396±23 (HCT-116), 329±17 μg/mL (HT-29); C3G decreased PD-L1 by 39%, PD-1 by 26–55%"
+    },
+    {
+      "doi": "10.1186/1471-2407-5-97",
+      "problem": "Identifying novel inhibitors of COP9 signalosome (CSN)-associated kinases CK2 and PKD that can stabilize tumor suppressor p53 and induce apoptosis in tumor cells.",
+      "method": "In silico 2D/3D conformer screening of ~10⁶ compound database using curcumin and emodin as lead structures (3D RMSD superposition + 2D Tanimoto similarity); Lipinski's rule-of-five filtering; QSTR toxicity prediction; in vitro kinase assays and apoptosis assays (annexin V-FITC, DNA fragmentation, caspase activity).",
+      "finding": "35 compounds identified by in silico screening; 7 compounds (3 curcumin-group including piceatannol, 4 emodin-group including anthraquinone) potently inhibited CSN-associated kinases, increased p53 levels, and induced apoptosis in tumor cells.",
+      "dataset": "In-house database of ~10⁶ compounds; HeLa tumor cells",
+      "metric": "Kinase inhibition (% activity), Tanimoto coefficient, RMSD, p53 levels, annexin V binding, DNA fragmentation, caspase activity",
+      "baseline": "Curcumin and emodin (known CSN kinase inhibitors)",
+      "result": "7/35 compounds confirmed as potent kinase inhibitors; 2D similarity threshold <85% (scaffold hoppers successfully identified); all compounds passed Lipinski and toxicity filters"
+    },
+    {
+      "doi": "10.1186/1479-5876-12-128",
+      "problem": "Predicting drug sensitivity of cancer cells to targeted therapies using genomic profiling, to enable personalized treatment stratification.",
+      "method": "In silico tumor model (Cellworks v7.3) comprising >4,700 biological entities, ~6,500 reactions, ~25,000 kinetic parameters covering major signaling pathways; genomic profiles (copy number variation) used to create simulation avatars; predictions compared against empirical drug sensitivity data.",
+      "finding": "The in silico model accurately predicted ~85% of gene mutation–drug sensitivity associations from the Garnett et al. study and achieved ~75% agreement with in vitro experimental findings on patient-derived GBM cell lines.",
+      "dataset": "45/639 cancer cell lines from Garnett et al. study; patient-derived GBM cell lines (Mayo Clinic); 70/130 drugs, 51/84 genes",
+      "metric": "Agreement rate (% concordance between in silico predictions and experimental results)",
+      "baseline": "Garnett et al. empirical drug sensitivity screening (hypothesis-independent); in vitro experimental data",
+      "result": "~85% retrospective agreement (22/25 testable associations); ~75% prospective agreement with in vitro GBM data"
+    },
+    {
+      "doi": "10.1111/bph.13282",
+      "problem": "Whether in silico hiPSC-derived cardiomyocyte models can reliably predict drug-induced ionic current block effects compared to adult ventricular cardiomyocyte models, for cardiac safety pharmacology.",
+      "method": "In silico action potential models (Paci2013 for hiPSC-CMs, O'Hara-Rudy for hAdultV-CMs) simulating four degrees of selective block (0.1×IC50, IC50, 2×IC50, full) of eight major cardiac transmembrane currents (INa, ICaL, If, IK1, IKr, IKs, Ito, INaCa).",
+      "finding": "hiPSC-CMs and hAdultV-CMs show qualitatively similar responses to ionic current block, but hiPSC-CMs are quantitatively more sensitive to ICaL block (up to 4× greater APD shortening) and IK1 block (repolarization failure) due to NCX overexpression and reduced repolarization reserve; IKr block effects are nearly identical at therapeutic concentrations.",
+      "dataset": "In silico ventricular-like and atrial-like hiPSC-CM models; hAdultV-CM (O'Hara-Rudy endocardial) model",
+      "metric": "APD30, APD50, APD70, APD90, MDP, AP amplitude, dV/dtmax",
+      "baseline": "hAdultV-CM O'Hara-Rudy model; experimental data from Ma et al. 2011",
+      "result": "IKr block: nearly identical APD prolongation at 0.1×IC50 and IC50; ICaL block: APD shortening up to 4× larger in hiPSC-CM; IK1 block: repolarization failure in hiPSC-CM but not hAdultV-CM"
+    }
+  ],
+  "timestamp": "2026-03-05T14:21:55.076778",
+  "extraction_count": 10
+}

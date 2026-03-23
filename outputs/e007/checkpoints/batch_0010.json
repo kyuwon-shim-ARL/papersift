@@ -1,0 +1,119 @@
+{
+  "batch_index": 10,
+  "dois": [
+    "10.1038/s41385-018-0100-x",
+    "10.1186/s13244-021-01146-8",
+    "10.3389/fgene.2021.764170",
+    "10.3390/ijms20143404",
+    "10.1093/nar/gkz240",
+    "10.1038/s41467-019-08550-1",
+    "10.3389/fphar.2018.00173",
+    "10.1371/journal.pone.0258546",
+    "10.1016/j.isci.2023.108102",
+    "10.1080/14756366.2020.1740924"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1038/s41385-018-0100-x",
+      "problem": "Whether helminth infection, typically associated with immunosuppression, can confer cross-protection against unrelated bacterial infections, and what immune mechanism mediates this effect.",
+      "method": "In vivo mouse infection model: C57BL/6 and BALB/c mice infected with Heligmosomoides polygyrus, drug-cured, then challenged with Listeria monocytogenes (i.p.) or Yersinia pseudotuberculosis (oral). Flow cytometry for CD8 TVM cell phenotyping (CD44hi CD49dlo CD62Lhi). Adoptive transfer, mixed bone marrow chimeras, IL-4 reporter mice, and KO strains.",
+      "finding": "Helminth infection drives IL-4-dependent, antigen-independent expansion of virtual memory CD8 T (TVM) cells that disseminate systemically and confer innate non-cognate 'collateral protection' against bacterial infection, transferable to naïve animals.",
+      "dataset": "C57BL/6 and BALB/c mice, H. polygyrus / L. monocytogenes / Y. pseudotuberculosis infection models",
+      "metric": "survival rate, bacterial burden (CFU in liver/spleen), CD8 TVM cell frequency and number, median survival time",
+      "baseline": "Hp-uninfected naïve control mice",
+      "result": "~50% survival in Hp-cured vs 0% naïve for Yp challenge, 11-day median survival prolongation, significantly reduced Lm liver burden at day 3"
+    },
+    {
+      "doi": "10.1186/s13244-021-01146-8",
+      "problem": "Whether virtual non-contrast (VNC) images and virtual monoenergetic images (VMIs) from dual-layer spectral CT can replace true non-contrast and corticomedullary phase scans for renal cell carcinoma diagnosis, thereby reducing radiation dose.",
+      "method": "Retrospective analysis of 62 RCC patients who underwent four-phase contrast-enhanced dual-layer spectral CT. Quantitative comparison of attenuation (HU), noise (SD), SNR between TNC and VNC images; comparison of corticomedullary phase with 40-100 keV VMIs from nephrographic phase. Subjective image quality scoring by two radiologists.",
+      "finding": "VNC images are equivalent to TNC for RCC lesion characterization (no significant difference in attenuation, noise, SNR). VMIs from nephrographic phase can approximate corticomedullary phase information. Eliminating TNC and corticomedullary phases reduces radiation dose by 50.5%.",
+      "dataset": "62 pathologically confirmed RCC patients (51 ccRCC, 5 papillary, 3 chromophobe, 3 other)",
+      "metric": "CT attenuation (HU), image noise (SD), SNR, subjective image quality score, radiation dose (DLP)",
+      "baseline": "True non-contrast (TNC) images and corticomedullary phase images",
+      "result": "TNC vs VNC tumor attenuation p>0.05, attenuation difference <3 HU for all tissues except fat, 96.78% within 10 HU, 50.5% dose reduction"
+    },
+    {
+      "doi": "10.3389/fgene.2021.764170",
+      "problem": "Existing VR tools for single-cell data visualization require expensive hardware ($2,300-$4,550) and advanced computational skills, limiting accessibility for experimental biologists.",
+      "method": "Web-based VR platform (singlecellVR) compatible with low-cost hardware (Google Cardboard, ~$8). Companion package scvr for one-command data conversion from Scanpy, Seurat, PAGA, STREAM, scVelo. Supports clustering, trajectory inference, and RNA velocity visualization in 3D VR.",
+      "finding": "singlecellVR provides accessible VR visualization of single-cell transcriptomic, epigenomic, and proteomic data at minimal cost, with a growing database of pre-analyzed datasets and streamlined data preparation.",
+      "dataset": "Multiple single-cell RNA-seq, scATAC-seq, and CITE-seq datasets (preloaded database)",
+      "metric": "",
+      "baseline": "CellexalVR (~$2,300-$4,550 hardware), Theia (proprietary), Starmap (manual preprocessing)",
+      "result": "Hardware cost ~$8 (Google Cardboard) vs $2,300-$4,550 for competing tools"
+    },
+    {
+      "doi": "10.3390/ijms20143404",
+      "problem": "Identifying selective small-molecule modulators of E-cadherin-mediated cell-cell adhesion as potential anti-cancer agents, leveraging the first crystal structure of a cadherin-inhibitor complex.",
+      "method": "Structure-based virtual screening using Glide (Schrödinger) against E-cadherin X-dimer (PDB: 4ZTE) with MD-reconstructed adhesion arms. Screened Asinex and LifeChemicals databases. Validated by spheroid cell-cell adhesion assays and cell invasion assays in BxPC-3 cells with selective E-cadherin/P-cadherin knockdown.",
+      "finding": "Two compounds (AS9 and AS11) selectively inhibit E-cadherin-mediated cell-cell adhesion at micromolar concentrations without affecting P-cadherin or cell viability. AS11 also shows anti-invasive properties.",
+      "dataset": "BxPC-3 human pancreatic tumor cells (E-cadh/P-cadh, E-cadh only, P-cadh only knockdown lines)",
+      "metric": "spheroid compactness (area), cell invasion assay, cell viability (trypan blue exclusion)",
+      "baseline": "DMSO control, FR159 peptidomimetic inhibitor (active at 1 mM)",
+      "result": "AS9 and AS11 effective at 0.05 mM (50 µM), selective for E-cadherin over P-cadherin (p values significant)"
+    },
+    {
+      "doi": "10.1093/nar/gkz240",
+      "problem": "Lack of user-friendly web-based tools for comprehensive gene expression profiling, network analysis, and meta-analysis that integrate multiple network types and modern visualization including VR.",
+      "method": "Web platform supporting 17 species, with Galaxy-based RNAseq pipeline (HISAT2, kallisto), differential expression (limma, edgeR, DESeq2), multiple network types (PPI, gene regulatory, co-expression, tissue-specific), and visualization in 2D, 3D, and VR. Interactive heatmaps, enrichment networks, Venn/chord diagrams for meta-analysis.",
+      "finding": "NetworkAnalyst 3.0 fills gaps in web-based network analysis, meta-analysis, and visual analytics for gene expression data, with new features including raw RNAseq processing, cell-type-specific networks, project management, and VR visualization.",
+      "dataset": "17 species transcriptome databases, multiple PPI/regulatory network databases",
+      "metric": "",
+      "baseline": "Cytoscape (standalone), R/Bioconductor packages (command-line meta-analysis)",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41467-019-08550-1",
+      "problem": "Whether environmental sensory information and self-motion are encoded in complementary or unified representations by place and grid cells, and whether these cell types differentially weight visual vs. physical motion inputs.",
+      "method": "Virtual reality system for head-fixed mice navigating 2D virtual open arenas with dissociated visual and physical motion gains (G=2/3, G=1, G=2). Tetrode recordings of CA1 place cells and mEC grid cells. Motor influence (MI) scores computed from firing rate maps and population vectors.",
+      "finding": "Place cell firing predominantly reflects visual environmental inputs (MI near 0), while grid cell firing shows greater influence of physical motion (MI closer to 1). Even simultaneously recorded place and grid cells need not be mutually coherent.",
+      "dataset": "CA1 place cells and mEC grid cells in head-fixed mice navigating virtual 2D arenas",
+      "metric": "motor influence score (MI), spatial information (bits/spike), firing rate, gridness score, stretch factor F",
+      "baseline": "Baseline gain G=1 trial (visual and physical motion matched)",
+      "result": "Place cells MI near 0 (visual), grid cells MI significantly higher (p<0.001); place field size ratio unchanged in visual coords (p=0.77) but significant in motor coords (p<0.001)"
+    },
+    {
+      "doi": "10.3389/fphar.2018.00173",
+      "problem": "Identifying novel non-SAM-competitive PRMT5 inhibitors for non-small cell lung cancer therapy, targeting the newly discovered EPZ015666 binding site rather than the SAM-binding pocket.",
+      "method": "Three-level structure-based virtual screening (HTVS, SP, XP) using Glide against PRMT5-SAM complex (PDB: 4X61). Screened 1,671,908 compounds from Chemdiv, Specs, TargetMol. Validated by MTT assay, Western blot (H4R3me2s, FGFR3, eIF4E, PI3K/AKT/mTOR, ERK), MD simulation and normal mode analysis.",
+      "finding": "Compound T1551 identified as a non-SAM-competitive PRMT5 inhibitor that reduces H4R3me2s levels, downregulates FGFR3 and eIF4E, and disrupts PI3K/AKT/mTOR and ERK signaling in NSCLC cells.",
+      "dataset": "A549 and H460 non-small cell lung cancer cell lines",
+      "metric": "IC50 (cell viability), enrichment factor (EF), AUC-ROC, H4R3me2s level",
+      "baseline": "EPZ015666 (known PRMT5 inhibitor), PRMT5-EPZ015666 docking model without SAM (EF1%=38.3, AUC=0.92)",
+      "result": "T1551 IC50=5.8±1.0 µM (72h, A549), IC50=11.2±2.5 µM (24h, A549); SAM-inclusive model EF1%=44.6, AUC=0.96"
+    },
+    {
+      "doi": "10.1371/journal.pone.0258546",
+      "problem": "Generating fluorescence microscopy images from bright-field images (virtual staining) for adipocyte cells, where cellular structures like nuclei and lipid defects are poorly visible in bright-field, to enable downstream feature extraction without toxic staining.",
+      "method": "Deep learning models (DenseNet-based U-Net) tailored per channel: privileged information (segmentation masks via LUPI) for nuclear channel, image gradient loss + adversarial training (GAN) for lipids channel. Ablation study across three training-validation splits. Feature-level evaluation using CellProfiler (morphology, intensity, count).",
+      "finding": "LUPI paradigm with segmentation masks significantly improved nuclear morphology and count features. Gradient + adversarial loss faithfully captured lipid defects (intensity depressions). Feature-level model selection outperforms pixel-level MAE for downstream biological analysis.",
+      "dataset": "Adipocyte cell images (bright-field and fluorescence, nuclei/lipids/cytoplasm channels)",
+      "metric": "MAE (pixel-level), CellProfiler feature MAE (morphology, intensity, count), Mann-Whitney rank test",
+      "baseline": "L1-only base model (MAE loss), models without LUPI or adversarial components",
+      "result": "Significant improvements (p<0.05 Mann-Whitney) in morphology and count features with LUPI; adversarial training improved lipid defect reconstruction"
+    },
+    {
+      "doi": "10.1016/j.isci.2023.108102",
+      "problem": "Whether grid cells or other spatially-tuned neural populations are truly responsible for path integration, and how grid cell remapping relates to place cell remapping across multiple environments.",
+      "method": "Continuous attractor recurrent neural network (CARNN) trained on path integration across multiple environments with global place cell remapping. Dimensionality reduction (UMAP), persistent homology (Ripser), DBSCAN clustering. Pruning studies to assess contribution of cell subpopulations to path integration performance.",
+      "finding": "Toroidal cells (band-like, not high grid score) are crucial for path integration while grid cells are not. A persistent torus manifold across environments underlies path integration. The model reveals generalization limits when scaling to many environments.",
+      "dataset": "Simulated 2D random walk trajectories in square environments with remapped place cell ensembles",
+      "metric": "decoding error (MSE), grid score, toroidal structure persistence (persistent homology), path integration accuracy",
+      "baseline": "Random cell pruning, grid cell pruning, full unpruned network",
+      "result": "Pruning toroidal cells rapidly degrades path integration; pruning grid cells has relatively little impact on decoding accuracy"
+    },
+    {
+      "doi": "10.1080/14756366.2020.1740924",
+      "problem": "Discovering novel ATAD2 bromodomain inhibitors with selective scaffolds for breast cancer therapy, as ATAD2 is a validated oncology target with few known inhibitors.",
+      "method": "Structure-based virtual screening (pharmacophore + CDOCKER docking) against ATAD2 (PDB: 5LJ0) from 1.7M compounds (Specs, Chemdiv). Counter-screening against BRD4 for selectivity. Validated by TR-FRET binding assay, MTT viability, Western blot, flow cytometry (apoptosis/autophagy markers).",
+      "finding": "AM879 is a potent selective ATAD2 bromodomain inhibitor with no BRD2-4 cross-reactivity. It suppresses c-Myc expression, induces apoptosis and autophagy via PI3K-AKT-mTOR signaling in MDA-MB-231 breast cancer cells.",
+      "dataset": "MDA-MB-231 triple-negative breast cancer cells",
+      "metric": "IC50 (enzyme inhibition, cell viability), inhibition rate at 20 µM, apoptosis rate",
+      "baseline": "BAY850 (positive control ATAD2 inhibitor), BRD2-4 selectivity panel",
+      "result": "AM879 ATAD2 IC50=3565 nM, MDA-MB-231 IC50=2.43 µM, 90% inhibition at 20 µM, no BRD2-4 activity"
+    }
+  ],
+  "timestamp": "2026-03-05T14:11:23.188165",
+  "extraction_count": 10
+}

@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1021/bi00322a029
+Title: Biodehalogenation: reactions of cytochrome P-450 with polyhalomethanes
+Year: 1985
+Abstract: The products, stoichiometry, and kinetics of the oxidation of the enzyme cytochrome P-450 cam by five polyhalomethanes and chloronitromethane are described. The reactivity of the enzyme is compared with that of deuteroheme and with the enzyme in its native cell, Pseudomonas putida (PpG-786). In all cases, the reaction entails hydrogenolysis of the carbon-halogen bond: 2FeIIP + RCXn----2FeIIIP + RCHXn-1 (P = porphyrin or P-450 cam in vitro and in vivo). Trichloronitromethane was the fastest reacting substrate, and chloroform was the slowest. The results establish that P. putida is a valid whole cell model for the reductase activity of the P-450 complement in these reactions. The reactions of cytochrome P-450 with polyhaloalkanes proceed in a manner quite analogous to other iron(II) proteins in the G conformation. The chemistry observed for the enzyme parallels that of its iron(II) porphyrin active site. Iron-bonded carbenes are not intermediates, and hydrolytically stable iron alkyls are not products of these reactions.
+---
+
+---
+DOI: 10.1016/s0264-410x(99)00189-9
+Title: AIDS vaccination studies using feline immunodeficiency virus as a model: immunisation with inactivated whole virus suppresses viraemia levels following intravaginal challenge with infected cells but not following intravenous challenge with cell-free virus
+Year: 1999
+Abstract: The feline immunodeficiency virus (FIV) provides an excellent model system for AIDS vaccination studies. In the present experiments we investigated the immunogenicity and the protective activity of two inactivated vaccines prepared from a primary virus isolate. One vaccine was composed of whole virus inactivated with paraformaldehyde and then purified (WIV) and the other of viral proteins extracted with Tween-ether (TEV). Both vaccines elicited robust antiviral responses, but neither conferred appreciable levels of resistance against systemic challenge with the homologous virus. In addition, we tested whether the WIV vaccine, that had appeared more immunogenic, could protect against nontraumatic intravaginal exposure to FIV-infected cells. Although the proportions of control and vaccinated animals that became infected following mucosal challenge were similar, the vaccinees had significantly lower viral burdens than the controls, thus suggesting that immunisation with the WIV vaccine had limited FIV replication following intravaginal challenge.
+---
+
+---
+DOI: 10.1016/j.tcb.2011.12.001
+Title: Secreted microRNAs: a new form of intercellular communication
+Year: 2012
+Abstract: In multicellular organisms, cell-to-cell communication is of particular importance for the proper development and function of the organism as a whole. Intensive studies over the past three years suggesting horizontal transfer of secreted microRNAs (miRNAs) between cells point to a potentially novel role for these molecules in intercellular communication. Using a microvesicle-dependent, or RNA-binding protein-associated, active trafficking system, secreted miRNAs can be delivered into recipient cells where they function as endogenous miRNAs, simultaneously regulating multiple target genes or signaling events. In this Opinion, we summarize recent literature on the biogenesis and uptake of secreted miRNAs, propose a possible working model for how secreted miRNAs might be sorted and transferred between cells and speculate on their biological significance.
+---
+
+---
+DOI: 10.1109/tps.2006.878996
+Title: Skin Heating and Injury by Prolonged Millimeter-Wave Exposure: Theory Based on a Skin Model Coupled to a Whole Body Model and Local Biochemical Release From Cells at Supraphysiologic Temperatures
+Year: 2006
+Abstract: Energy dissipation by millimeter-wavelength electromagnetic-radiation (MMW; f~3-300 GHz) exposure to mammalian skin occurs within the outer surface. The penetration depth is less than 1 mm for frequencies above 25 GHz. A transport-lattice system model is used, which incorporates two spatial scales to estimate heat and chemical transport in rat skin in vivo: 1) a layered skin model involving the outer several millimeters of the body coupled to 2) a whole body model. The whole body model accounts for core-body heating, which provides a time-dependent reference temperature for blood perfusion in the skin model as well as the chemical concentration in the bloodstream and renal elimination. The model's thermal response to MMW exposure is consistent with the subcutaneous and colonic temperature measurements reported for 75 mWmiddotcm <sup xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">-2</sup> and 40-min exposures at 94 GHz in anesthetized rats. The simultaneous involvement of two biophysical mechanisms that create different chemical changes in response to the field exposure is also considered. First, a traditional nonspecific thermal-injury indicator is used to estimate denaturing molecular change due directly to heating as a function of depth in the skin. Rat skin exposed in vivo to 75 mWmiddotcm <sup xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">-2</sup> for long times (40 min) has a significant direct injury, while a 10-s exposure to 1 Wmiddotcm <sup xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">-2</sup> results in a much less direct injury. Second, the biophysical mechanism of biochemical release through cell membranes within the tissue regions that reach supraphysiologic temperatures is also considered. The released molecules are delivered to other skin regions by diffusion and into the bloodstream by perfusion, where according to our hypothesis, the molecules interact with susceptible cells. This raises the possibility of additional indirect injury at nearby deeper skin regions that experience insignificant heating. Biochemical release may also lead to injury at distant sites within the body by perfusion clearance that transfers molecules into the systemic circulation to reach other susceptible cells. The hypothesis of simultaneous direct- and indirect-injury mechanisms is also illustrated by creating and solving didactic, coupled thermal, and chemical transport-lattice models
+---
+
+---
+DOI: 10.1146/annurev-bioeng-071910-124743
+Title: Whole-Organ Tissue Engineering: Decellularization and Recellularization of Three-Dimensional Matrix Scaffolds
+Year: 2011
+Abstract: The definitive treatment for end-stage organ failure is orthotopic transplantation. However, the demand for transplantation far exceeds the number of available donor organs. A promising tissue-engineering/regenerative-medicine approach for functional organ replacement has emerged in recent years. Decellularization of donor organs such as heart, liver, and lung can provide an acellular, naturally occurring three-dimensional biologic scaffold material that can then be seeded with selected cell populations. Preliminary studies in animal models have provided encouraging results for the proof of concept. However, significant challenges for three-dimensional organ engineering approach remain. This manuscript describes the fundamental concepts of whole-organ engineering, including characterization of the extracellular matrix as a scaffold, methods for decellularization of vascular organs, potential cells to reseed such a scaffold, techniques for the recellularization process and important aspects regarding bioreactor design to support this approach. Critical challenges and future directions are also discussed.
+---
+
+---
+DOI: 10.1126/science.2392679
+Title: A Network Model of Catecholamine Effects: Gain, Signal-to-Noise Ratio, and Behavior
+Year: 1990
+Abstract: At the level of individual neurons, catecholamine release increases the responsivity of cells to excitatory and inhibitory inputs. A model of catecholamine effects in a network of neural-like elements is presented, which shows that (i) changes in the responsivity of individual elements do not affect their ability to detect a signal and ignore noise but (ii) the same changes in cell responsivity in a network of such elements do improve the signal detection performance of the network as a whole. The second result is used in a computer simulation based on principles of parallel distributed processing to account for the effect of central nervous system stimulants on the signal detection performance of human subjects.
+---
+
+---
+DOI: 10.2217/epi-2016-0091
+Title: Training a Model for Estimating Leukocyte Composition using Whole-Blood DNA Methylation and Cell Counts as Reference
+Year: 2016
+Abstract: Our model provided precise estimates for the common cell types.
+---
+
+---
+DOI: 10.1007/s00262-005-0061-2
+Title: The biological effects of syngeneic and allogeneic cytokine-expressing prophylactic whole cell vaccines and the influence of irradiation in a murine melanoma model
+Year: 2005
+Abstract: Allogeneic whole tumour cell vaccines are inherently practical compared with autologous vaccines. Cell lines are derived from allogeneic tumour, grown in bulk and then administered as a vaccine to the patient, following irradiation, which not only prevents any replication but also enhances antigen presentation. Protection is believed to occur through the presentation of antigens shared between the syngeneic and allogeneic tumours. Although cytokine-transfected tumour whole cell vaccines have been used clinically, little data is available comparing the effects of immunomodulatory cytokine-transfection directly on the same cells when used as both an allogeneic and autologous vaccine. To address this, weakly immunogenic B16-F10 (H-2b) murine melanoma was transfected to secrete either GM-CSF, IL-4 or IL-7. Prophylactic vaccination of both syngeneic C57/BL6 (H-2b) (B6) and allogeneic C3H/Hej (H-2k) (C3H) mice showed the effects of transfected cytokine varied between models. Both GM-CSF and IL-7 significantly (P0.05) within C3H allogeneic mice. Allogeneic B16-F10 cells and syngeneic K1735 cells generated CTL against K1735 suggesting cross-reactive immunity. Using cells labeled with fluorescent dye we demonstrate that irradiated vaccines, of either syngeneic or allogeneic origin, appear to generate potent immune responses and fragments of either vaccine remain at the injection site for up to 9 days. This study shows that protection can be enhanced in vivo by using transfected cytokine, but suggests that irradiated whole cell vaccines, of either tissue-type, are rapidly processed. This leads to the conclusion that the cytokine effects are transient and thus transfection with cytokine may be of limited long-term use in situ.
+---
+
+---
+DOI: 10.1002/syn.890020113
+Title: A reevaluation of the mathematical models for simulating single‐channel and whole‐cell ionic currents
+Year: 1988
+Abstract: Abstract We have developed a technique that allows for the simulation of both single‐channel and whole cell ionic currents given any arbitrary first‐order kinetic scheme for the conformational states of an ion channel. The procedure is based on the solution of the master equation, which, in turn, is a general expression for a Markov process. The solution is expressed in terms of the eigenvalues and eigenvectors of the kinetic system and the system's deviation from equilibrium. Our derived expression provides a general recipe for the calculation of whole‐cell currents. By further manipulation of this expression, we show how conditional probabilities are derived that can be used for the simulation of single‐channel currents. We discuss computer implementation of the results so that complicated kinetic schemes can be solved numerically. Finally, we demonstrate the procedure by providing a worked example of a simple model of activation followed by inactivation.
+---
+
+---
+DOI: 10.1016/j.celrep.2017.12.066
+Title: Diverse Brain Myeloid Expression Profiles Reveal Distinct Microglial Activation States and Aspects of Alzheimer’s Disease Not Evident in Mouse Models
+Year: 2018
+Abstract: Microglia, the CNS-resident immune cells, play important roles in disease, but the spectrum of their possible activation states is not well understood. We derived co-regulated gene modules from transcriptional profiles of CNS myeloid cells of diverse mouse models, including new tauopathy model datasets. Using these modules to interpret single-cell data from an Alzheimer's disease (AD) model, we identified microglial subsets-distinct from previously reported "disease-associated microglia"-expressing interferon-related or proliferation modules. We then analyzed whole-tissue RNA profiles from human neurodegenerative diseases, including a new AD dataset. Correcting for altered cellular composition of AD tissue, we observed elevated expression of the neurodegeneration-related modules, but also modules not implicated using expression profiles from mouse models alone. We provide a searchable, interactive database for exploring gene expression in all these datasets (http://research-pub.gene.com/BrainMyeloidLandscape). Understanding the dimensions of CNS myeloid cell activation in human disease may reveal opportunities for therapeutic intervention.
+---
+
+---
+DOI: 10.1016/s0022-5193(76)80131-2
+Title: A clock and wavefront model for control of the number of repeated structures during animal morphogenesis
+Year: 1976
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/nature02116
+Title: Balanced inhibition underlies tuning and sharpens spike timing in auditory cortex
+Year: 2003
+Abstract: Neurons in the primary auditory cortex are tuned to the intensity and specific frequencies of sounds, but the synaptic mechanisms underlying this tuning remain uncertain. Inhibition seems to have a functional role in the formation of cortical receptive fields, because stimuli often suppress similar or neighbouring responses, and pharmacological blockade of inhibition broadens tuning curves. Here we use whole-cell recordings in vivo to disentangle the roles of excitatory and inhibitory activity in the tone-evoked responses of single neurons in the auditory cortex. The excitatory and inhibitory receptive fields cover almost exactly the same areas, in contrast to the predictions of classical lateral inhibition models. Thus, although inhibition is typically as strong as excitation, it is not necessary to establish tuning, even in the receptive field surround. However, inhibition and excitation occurred in a precise and stereotyped temporal sequence: an initial barrage of excitatory input was rapidly quenched by inhibition, truncating the spiking response within a few (1-4) milliseconds. Balanced inhibition might thus serve to increase the temporal precision and thereby reduce the randomness of cortical operation, rather than to increase noise as has been proposed previously.
+---
+
+---
+DOI: 10.1167/iovs.12-10898
+Title: Endothelial Cell Whole Genome Expression Analysis in a Mouse Model of Early-Onset Fuchs' Endothelial Corneal Dystrophy
+Year: 2013
+Abstract: The present study provides the first endothelial whole genome expression analysis in an animal model of FECD and represents a useful resource for future studies of the disease. In particular endothelial COX2 up-regulation warrants further investigation of its role in FECD.
+---
+
+---
+DOI: 10.1038/nphoton.2017.60
+Title: Dye-sensitized solar cells for efficient power generation under ambient lighting
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/bit.21051
+Title: A model system for increasing the intensity of whole‐cell biocatalysis: Investigation of the rate of oxidation of <scp>D</scp>‐sorbitol to <scp>L</scp>‐sorbose by thin bi‐layer latex coatings of non‐growing <i>Gluconobacter oxydans</i>
+Year: 2006
+Abstract: Abstract We developed a novel &lt;50‐µm thick nano‐porous bi‐layer latex coating for preserving Gluconobacter oxydans , a strict aerobe, as a whole cell biocatalyst. G. oxydans was entrapped in an acrylate/vinyl acetate co‐polymer matrix ( T g ∼10°C) and cast into 12.7‐mm diameter patch coatings (cellcoat) containing ∼10 9 CFU covered by a nano‐porous topcoat. The oxidation of D ‐sorbitol to L ‐sorbose was used to investigate the coating catalytic properties. Intrinsic kinetics was studied in microbioreactors using a pH 6.0 D ‐sorbitol, phosphate, pyruvate (SPP) non‐growth medium at 30°C, and the Michaelis–Menten constants determined. By using a diffusion cell, cellcoat and topcoat diffusivities, optimized by arresting polymer particle coalescence by glycerol and/or sucrose addition, were determined. Cryo‐FESEM images revealed a two‐layer structure with G. oxydans surrounded by &lt;40‐nm pores. Viable cell density, cell leakage, and oxidation kinetics in SPP medium for &gt;150 h were investigated. Even though the coatings were optimized for permeability, ∼50% of G. oxydans viability was lost during cellcoat drying and further reduction was observed as the topcoat was added. High reaction rates per unit volume of coating (80–100 g/L · h) were observed which agreed with predictions of a diffusion‐reaction model using parameters estimated by independent experiments. Cellcoat effectiveness factors of 0.22–0.49 were observed which are 20‐fold greater than any previously reported for this G. oxydans oxidation. These nano‐structured coatings and the possibility of improving their ability to preserve G. oxydans viability may be useful for engineering highly reactive adhesive coatings for multi‐phase micro‐channel and membrane bioreactors to dramatically increase the intensity of whole‐cell oxidations. © 2006 Wiley Periodicals, Inc.
+---
+
+---
+DOI: 10.1016/j.jmb.2004.12.031
+Title: Refined Structure of the Nicotinic Acetylcholine Receptor at 4Å Resolution
+Year: 2004
+Abstract: We present a refined model of the membrane-associated Torpedo acetylcholine (ACh) receptor at 4A resolution. An improved experimental density map was obtained from 342 electron images of helical tubes, and the refined structure was derived to an R-factor of 36.7% (R(free) 37.9%) by standard crystallographic methods, after placing the densities corresponding to a single molecule into an artificial unit cell. The agreement between experimental and calculated phases along the helical layer-lines was used to monitor progress in the refinement and to give an independent measure of the accuracy. The atomic model allowed a detailed description of the whole receptor in the closed-channel form, including the ligand-binding and intracellular domains, which have not previously been interpreted at a chemical level. We confirm that the two ligand-binding alpha subunits have a different extended conformation from the three other subunits in the closed channel, and identify several interactions on both pairs of subunit interfaces, and within the alpha subunits, which may be responsible for their "distorted" structures. The ACh-coordinating amino acid side-chains of the alpha subunits are far apart in the closed channel, indicating that a localised rearrangement, involving closure of loops B and C around the bound ACh molecule, occurs upon activation. A comparison of the structure of the alpha subunit with that of AChBP having ligand present, suggests how the localised rearrangement overcomes the distortions and initiates the rotational movements associated with opening of the channel. Both vestibules of the channel are strongly electronegative, providing a cation-stabilising environment at either entrance of the membrane pore. Access to the pore on the intracellular side is further influenced by narrow lateral windows, which would be expected to screen out electrostatically ions of the wrong charge and size.
+---
+
+---
+DOI: 10.1109/iccw.2009.5208045
+Title: Optimal Energy Savings in Cellular Access Networks
+Year: 2009
+Abstract: In this paper we study with simple analytical models the energy-aware management of cellular access networks, trying to characterize the amount of energy that can be saved by reducing the number of active cells during the periods when they are not necessary because traffic is low. When some cells are switched off, radio coverage and service provisioning are taken care of by the cells that remain active, so as to guarantee that service is available over the whole area. We show how to optimize the energy saving, first assuming that any fraction of cells can be turned off, and then accounting for the constraints resulting from the cell layout.
+---
+
+---
+DOI: 10.1083/jcb.82.1.114
+Title: Microtrabecular lattice of the cytoplasmic ground substance. Artifact or reality.
+Year: 1979
+Abstract: The cytoplasmic ground substance of cultured cells prepared for high voltage transmission electron microscopy (glutaraldehyde/osmium fixed, alcohol or acetone dehydrated, critical-point dried) consists of slender (3-6 nm Diam) strands--the microtrabeculae (55)--that form an irregular three-dimensional lattice (the microtrabecular lattice). The microtrabeculae interconnect the membranous and nonmembranous organelles and are confluent with the cortices of the cytoplast. The lattice is found in all portions of the cytoplast of all cultured cells examined. The possibility that the lattice structure is an artifact of specimen preparation has been tested by (a) subjecting whole cultured cells (WI-38, NRK, chick embryo fibroblasts) to various chemical (aldehydes, osmium tetroxide) and nonchemical (freezing) fixation schedules, (b) examination of model systems (erythrocytes, protein solutions), (c) substantiating the relaibility of critical-point drying, and (d) comparing images of whole cells with conventionally prepared (plastic-embedded) cells. The lattice structure is preserved by chemical and nonchemical fixation, though alterations in ultrastructure can occur especially after prolonged exposure to osmium tetroxide. The critical-point method for drying specimens appears to be reliable as is the freeze-drying method. The discrepancies between images of plastic-embedded and sectioned cells, and images of whole, critical-point dried cells appear to be related, in part, to the electron-scattering properties of the embedding resin. The described observations indicate that the microtrabecular lattice seen in electron micrographs closely represents the nonrandom structure of the cytoplasmic ground substance of living cultured cells.
+---
+
+---
+DOI: 10.2174/187152610791163336
+Title: Plasmodium Dihydroorotate Dehydrogenase: A Promising Target for Novel Anti-Malarial Chemotherapy
+Year: 2010
+Abstract: Malaria remains a globally prevalent infectious disease that leads to significant morbidity and mortality. While there are a number of drugs approved for its treatment, drug resistance has compromised most of them, making the development of new drugs for the treatment and prevention of malaria essential. The completion of the Plasmodium falciparum genome and a growing understanding of parasite biology are fueling the search for novel drug targets. Despite this, few targets have been chemically validated in vivo. The pyrimidine biosynthetic pathway illustrates one of the best examples of successful identification of anti-malarial drug targets. This review focuses on recent studies to exploit the fourth enzyme in the de novo pyrimidine biosynthetic pathway of P. falciparum, dihydroorotate dehydrogenase (PfDHODH), as a new target for drug discovery. Several chemical scaffolds have been identified by high throughput screening as potent inhibitors of PfDHODH and these show strong selectivity for the malarial enzyme over that from the human host. Potent activity against parasites in whole cell models with good correlation between activity on the enzyme and the parasite have also been observed for a number of the identified series. Lead optimization of a triazolopyrimidine-based series has identified an analog with prolonged plasma exposure, that is orally bioavailable, and which shows good efficacy against the in vivo mouse model of the disease. These data provide strong evidence that PfDHODH is a validated target for the identification of new antimalarial chemotherapy. The challenge remains to identify compounds with the necessary combination of potency and metabolic stability to allow identification of a clinical candidate.
+---
+
+---
+DOI: 10.1093/imammb/dqi005
+Title: A hybrid mathematical model of solid tumour invasion: the importance of cell adhesion
+Year: 2005
+Abstract: In this paper we present a hybrid mathematical model of the invasion of healthy tissue by a solid tumour. In particular we consider early vascular growth, just after angiogenesis has occurred. We examine how the geometry of the growing tumour is affected by tumour cell heterogeneity caused by genetic mutations. As the tumour grows, mutations occur leading to a heterogeneous tumour cell population with some cells having a greater ability to migrate, proliferate or degrade the surrounding tissue. All of these cell properties are closely controlled by cell-cell and cell-matrix interactions and as such the physical geometry of the whole tumour will be dependent on these individual cell interactions. The hybrid model we develop focuses on four key variables implicated in the invasion process: tumour cells, host tissue (extracellular matrix), matrix-degradative enzymes and oxygen. The model is considered to be hybrid since the latter three variables are continuous (i.e. concentrations) and the tumour cells are discrete (i.e. individuals). With this hybrid model we examine how individual-based cell interactions (with one another and the matrix) can affect the tumour shape and discuss which of these interactions is perhaps most crucial in influencing the tumour's final structure.
+---
+
+---
+DOI: 10.1029/2000gb001360
+Title: Landscapes as patches of plant functional types: An integrating concept for climate and ecosystem models
+Year: 2002
+Abstract: While most land models developed for use with climate models represent vegetation as discrete biomes, this is, at least for mixed life‐form biomes, inconsistent with the leaf‐level and whole‐plant physiological parameterizations needed to couple these biogeophysical models with biogeochemical and ecosystem dynamics models. In this paper, we present simulations with the National Center for Atmospheric Research land surface model (NCAR LSM) that examined the effect of representing vegetation as patches of plant functional types (PFTs) that coexist within a model grid cell. This approach is consistent with ecological theory and models and allows for unified treatment of vegetation in climate and ecosystem models. In the standard NCAR LSM the PFT composition and leaf area for each grid cell are obtained by classifying grid cells as 1 of 28 possible biomes. Here, we develop a data set from 1‐km satellite data that provides each model grid cell a unique PFT composition and leaf area for each PFT. Global simulations at 3° × 3° spatial resolution showed that ground temperature, ground evaporation, and northern high‐latitude winter albedo exhibited direct responses to these landscape changes, which led to indirect effects such as in soil moisture and sensible and latent heat fluxes. Additional simulations at 2° × 2° and 1° × 1° spatial resolution showed that low‐resolution simulations masked landscape heterogeneity in both approaches but the satellite‐based, continuous representation of vegetation reduced model sensitivity to resolution. It is argued that the use of spatially continuous distributions of coexisting PFTs is a necessary step to link climate and ecosystem models.
+---
+
+---
+DOI: 10.1016/0021-9290(94)90010-8
+Title: A model for the excitation of osteocytes by mechanical loading-induced bone fluid shear stresses
+Year: 1994
+Abstract: A new experimentally testable hypothesis is advanced for the mechanosensory transduction mechanism by which communicating osteocytes sense the very small in vivo strains in the calcified matrix components of bone. We propose that the osteocytes, although not responsive to substantial fluid pressures, can be stimulated by relatively small fluid shear stresses acting on the membranes of their osteocytic processes. Biot's porous media theory is used to relate the combined axial and bending loads applied to a whole bone to the flow past the osteocytic processes in their canaliculi. In this theory, the bone pores of interest are the proteoglycan filled fluid annuli that surround the osteocytic processes in the canaliculi. We show that previously predicted fluid pore pressure relaxation times were a hundred-fold too short for the lacunar-canalicular porosity because they neglected the fluid drag associated with proteoglycan matrix on the surface membrane of the osteocyte and its cell processes. The recent theory developed in Tsay and Weinbaum [J. Fluid Mech. 226, 125-148 (1991)] for flow through cross-linked fiber filled channels is used to model the flow through this proteoglycan matrix. The predicted pore relaxation time, 1-2 s, closely corresponds to the times measured by Salzstein and Pollack [J. Biomechanics 20, 271-280 (1987)]. Furthermore, using this model, the magnitude of the predicted fluid induced shear stresses, 8-30 dyn cm-2, is shown to be similar to the fluid shear stresses measured in osteoblasts and other cells in which an intracellular Ca2+ shear stress response had been observed. This model is also used, in conjunction with anatomical data and the pore fluid pressure relaxation time data, to show that the spacing between the fibers is approximately 7 nm. The result is consistent with the notion that the canalicular pore space is filled with glycosaminoglycans that are ordered by albumin according to the model of Michel [J. Physiol. 404, 1-29 (1988)]. The new hypothesis is also shown to be consistent with the experiments of McLeod et al. [J. Biomechanics (submitted)] which suggest that high-frequency low-amplitude postural strains can maintain and even increase bone mass.
+---
+
+---
+DOI: 10.1038/nature14187
+Title: Polyploidy can drive rapid adaptation in yeast
+Year: 2015
+Abstract: Polyploidy is observed across the tree of life, yet its influence on evolution remains incompletely understood. Polyploidy, usually whole-genome duplication, is proposed to alter the rate of evolutionary adaptation. This could occur through complex effects on the frequency or fitness of beneficial mutations. For example, in diverse cell types and organisms, immediately after a whole-genome duplication, newly formed polyploids missegregate chromosomes and undergo genetic instability. The instability following whole-genome duplications is thought to provide adaptive mutations in microorganisms and can promote tumorigenesis in mammalian cells. Polyploidy may also affect adaptation independently of beneficial mutations through ploidy-specific changes in cell physiology. Here we perform in vitro evolution experiments to test directly whether polyploidy can accelerate evolutionary adaptation. Compared with haploids and diploids, tetraploids undergo significantly faster adaptation. Mathematical modelling suggests that rapid adaptation of tetraploids is driven by higher rates of beneficial mutations with stronger fitness effects, which is supported by whole-genome sequencing and phenotypic analyses of evolved clones. Chromosome aneuploidy, concerted chromosome loss, and point mutations all provide large fitness gains. We identify several mutations whose beneficial effects are manifest specifically in the tetraploid strains. Together, these results provide direct quantitative evidence that in some environments polyploidy can accelerate evolutionary adaptation.
+---
+
+---
+DOI: 10.1107/s0021889886088982
+Title: Whole-powder-pattern fitting without reference to a structural model: application to X-ray powder diffraction data
+Year: 1986
+Abstract: The procedure of whole-powder-pattern fitting without reference to a structural model, first proposed by Pawley for use with neutron powder data [J. Appl. Cryst. (1981). 14, 357–361], was extended as a tool for analyzing X-ray whole-powder data. X-ray data for α-SiO2, α-Al2O3 and CaCO3 used as test samples were first analyzed by individual profile-fitting techniques to establish the angle-dependent profile-shape model. Then the results were incorporated into the profile model of whole-powder-pattern fitting, where peak maximum positions of individual reflections are a function of unit-cell parameters while integrated intensities are independent variables. Whole-powder-pattern fits for the test samples showed that the correction for peak shift has a large influence on the overall fit of the pattern and the accuracy of refined parameters. It is also important to take into account the asymmetry and the angular dependence of the intensity decay rate in modelling the diffraction profile. The method developed was applied to an analysis of the powder pattern of a mixed monoclinic tetragonal ZrO2.
+---
+
+---
+DOI: 10.1073/pnas.132266999
+Title: On the evolution of cells
+Year: 2002
+Abstract: A theory for the evolution of cellular organization is presented. The model is based on the (data supported) conjecture that the dynamic of horizontal gene transfer (HGT) is primarily determined by the organization of the recipient cell. Aboriginal cell designs are taken to be simple and loosely organized enough that all cellular componentry can be altered and/or displaced through HGT, making HGT the principal driving force in early cellular evolution. Primitive cells did not carry a stable organismal genealogical trace. Primitive cellular evolution is basically communal. The high level of novelty required to evolve cell designs is a product of communal invention, of the universal HGT field, not intralineage variation. It is the community as a whole, the ecosystem, which evolves. The individual cell designs that evolved in this way are nevertheless fundamentally distinct, because the initial conditions in each case are somewhat different. As a cell design becomes more complex and interconnected a critical point is reached where a more integrated cellular organization emerges, and vertically generated novelty can and does assume greater importance. This critical point is called the “Darwinian Threshold” for the reasons given.
+---
+
+---
+DOI: 10.1038/nature03550
+Title: Non-equilibration of hydrostatic pressure in blebbing cells
+Year: 2005
+Abstract: Current models for protrusive motility in animal cells focus on cytoskeleton-based mechanisms, where localized protrusion is driven by local regulation of actin biochemistry. In plants and fungi, protrusion is driven primarily by hydrostatic pressure. For hydrostatic pressure to drive localized protrusion in animal cells, it would have to be locally regulated, but current models treating cytoplasm as an incompressible viscoelastic continuum or viscous liquid require that hydrostatic pressure equilibrates essentially instantaneously over the whole cell. Here, we use cell blebs as reporters of local pressure in the cytoplasm. When we locally perfuse blebbing cells with cortex-relaxing drugs to dissipate pressure on one side, blebbing continues on the untreated side, implying non-equilibration of pressure on scales of approximately 10 microm and 10 s. We can account for localization of pressure by considering the cytoplasm as a contractile, elastic network infiltrated by cytosol. Motion of the fluid relative to the network generates spatially heterogeneous transients in the pressure field, and can be described in the framework of poroelasticity.
+---
+
+---
+DOI: 10.1109/twc.2012.081612.111361
+Title: Heterogeneous Cellular Networks with Flexible Cell Association: A Comprehensive Downlink SINR Analysis
+Year: 2012
+Abstract: In this paper we develop a tractable framework for SINR analysis in downlink heterogeneous cellular networks (HCNs) with flexible cell association policies. The HCN is modeled as a multi-tier cellular network where each tier's base stations (BSs) are randomly located and have a particular transmit power, path loss exponent, spatial density, and bias towards admitting mobile users. For example, as compared to macrocells, picocells would usually have lower transmit power, higher path loss exponent (lower antennas), higher spatial density (many picocells per macrocell), and a positive bias so that macrocell users are actively encouraged to use the more lightly loaded picocells. In the present paper we implicitly assume all base stations have full queues; future work should relax this. For this model, we derive the outage probability of a typical user in the whole network or a certain tier, which is equivalently the downlink SINR cumulative distribution function. The results are accurate for all SINRs, and their expressions admit quite simple closed-forms in some plausible special cases. We also derive the \emph{average ergodic rate} of the typical user, and the \emph{minimum average user throughput} -- the smallest value among the average user throughputs supported by one cell in each tier. We observe that neither the number of BSs or tiers changes the outage probability or average ergodic rate in an interference-limited full-loaded HCN with unbiased cell association (no biasing), and observe how biasing alters the various metrics.
+---
+
+---
+DOI: 10.1523/jneurosci.0167-10.2010
+Title: Cellular and Synaptic Mechanisms of Anti-NMDA Receptor Encephalitis
+Year: 2010
+Abstract: We recently described a severe, potentially lethal, but treatment-responsive encephalitis that associates with autoantibodies to the NMDA receptor (NMDAR) and results in behavioral symptoms similar to those obtained with models of genetic or pharmacologic attenuation of NMDAR function. Here, we demonstrate that patients' NMDAR antibodies cause a selective and reversible decrease in NMDAR surface density and synaptic localization that correlates with patients' antibody titers. The mechanism of this decrease is selective antibody-mediated capping and internalization of surface NMDARs, as Fab fragments prepared from patients' antibodies did not decrease surface receptor density, but subsequent cross-linking with anti-Fab antibodies recapitulated the decrease caused by intact patient NMDAR antibodies. Moreover, whole-cell patch-clamp recordings of miniature EPSCs in cultured rat hippocampal neurons showed that patients' antibodies specifically decreased synaptic NMDAR-mediated currents, without affecting AMPA receptor-mediated currents. In contrast to these profound effects on NMDARs, patients' antibodies did not alter the localization or expression of other glutamate receptors or synaptic proteins, number of synapses, dendritic spines, dendritic complexity, or cell survival. In addition, NMDAR density was dramatically reduced in the hippocampus of female Lewis rats infused with patients' antibodies, similar to the decrease observed in the hippocampus of autopsied patients. These studies establish the cellular mechanisms through which antibodies of patients with anti-NMDAR encephalitis cause a specific, titer-dependent, and reversible loss of NMDARs. The loss of this subtype of glutamate receptors eliminates NMDAR-mediated synaptic function, resulting in the learning, memory, and other behavioral deficits observed in patients with anti-NMDAR encephalitis.
+---
+
+---
+DOI: 10.1146/annurev.iy.04.040186.002525
+Title: The Molecular Genetics of the T-Cell Antigen Receptor and T-Cell Antigen Recognition
+Year: 1986
+Abstract: The genes encoding the alpha and beta chain of the T-cell receptor and the gamma gene have been cloned, and their structure, organization, ontogeny of expression, pattern of rearrangement, and diversification are now generally understood. In most cases, the immunoglobulin paradigm applied very well to the corresponding phenomena in T cells, although as described above, some interesting and potentially important differences exist. Nevertheless, there are still many unanswered questions regarding the ontogeny and mechanism of MHC-restricted antigen recognition, and it is not clear how far the immunoglobulin model can take us in understanding these phenomena. Although the alpha/beta heterodimer looks like an antibody and the binding sites of the two molecules may be similar, the rules governing B- and T-cell activation are clearly different, and the ligand(s) bound by the receptor are still poorly characterized. In the future, T-cell receptor genes, as well as those encoding the T-cell accessory molecules, will be altered in vitro and transferred into mammalian cells in culture and into whole organisms in an attempt to understand T-cell antigen recognition. These tools will allow us to manipulate the mammalian immune response in a variety of different ways that will have a profound impact both on our understanding of immunology and on medicine in the future.
+---
+
+---
+DOI: 10.1109/ted.2018.2870484
+Title: Optimization for Cell Arrangement Design of Gate-Commutated Thyristors Based on Whole Wafer Model and Tabu Search
+Year: 2018
+Abstract: Gate-commutated thyristors (GCTs) are subject to uneven impedances along the current path from GCT circles to the gate contact, which leads to current redistribution between the GCT circles during turn-off. The current redistribution inequality significantly limits the maximum controllable current of GCTs. This paper presents an optimization method for GCT cell arrangement design to minimize the current redistribution inequality. First, the whole GCT wafer model is applied to calculate the inequality of the current redistribution. The whole GCT wafer model is a hybrid model built by physics-based GCT cell models connected with lumped parameter models. The GCT cell models applied here are improved compact models with multiple physical mechanisms, while the lumped parameter models represent the uneven impedances of the GCT circles along the GCT wafer. In order to measure those impedances, a set of physical concentric contact rings are developed. Finally, the Tabu search (TS), a heuristic algorithm, is applied to optimize the GCT cell arrangement. Using the optimization method based on TS, an optimized set of GCT cell numbers for a 4-in GCT wafer is obtained, reducing the inequality of the current redistribution by 20%.
+---
+
+---
+DOI: 10.1038/37605
+Title: Fear conditioning induces a lasting potentiation of synaptic currents in vitro
+Year: 1997
+Abstract: The amygdala plays a critical role in the mediation of emotional responses, particularly fear, in both humans and animals. Fear conditioning, a conditioned learning paradigm, has served as a model for emotional learning in animals, and the neuroanatomical circuitry underlying the auditory fear-conditioning paradigm is well characterized. Synaptic transmission in the medial geniculate nucleus (MGN) to lateral nucleus of the amygdala (LA) pathway, a key segment of the auditory fear conditioning circuit, is mediated largely through N-methyl-D-aspartate (NMDA) and non-NMDA (such as alpha-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid (AMPA)) glutamate receptors; the potential for neural plasticity in this pathway is suggested by its capacity to support long-term potentiation (LTP). Here we report a long-lasting increase in the synaptic efficacy of the MGN-LA pathway attributable to fear-conditioning itself, rather than an electrically induced model of learning. Fear-conditioned animals show a presynaptic facilitation of AMPA-receptor-mediated transmission, directly measured in vitro with whole-cell recordings in lateral amygdala neurons. These findings represent one of the first in vitro measures of synaptic plasticity resulting from emotional learning by whole animals.
+---
+
+---
+DOI: 10.1586/14760584.2014.938642
+Title: The mouse intranasal challenge model for potency testing of whole-cell pertussis vaccines
+Year: 2014
+Abstract: The mouse nasopharyngeal challenge model could be considered as a potency and release assay for wP vaccines. Whether this model directly correlates with clinical vaccine efficacy requires further investigations. Whether this model directly correlates with clinical vaccine efficacy requires further investigations. The mouse nasopharyngeal challenge model could be considered as a potency and release assay for wP vaccines.
+---
+
+---
+DOI: 10.1146/annurev-cellbio-092910-154036
+Title: The Ins and Outs of the Epithelial to Mesenchymal Transition in Health and Disease
+Year: 2011
+Abstract: The epithelial to mesenchymal transition (EMT) converts epithelial cells into migratory and invasive cells and is a fundamental event in morphogenesis. Although its relevance in the progression of cancer and organ fibrosis had been debated until recently, the EMT is now established as an important step in the metastatic cascade of epithelial tumors. The similarities between pathological and developmental EMTs validate the embryo as the best model to understand the molecular and cellular mechanisms involved in this process, identifying those that are hijacked during the progression of cancer and organ degeneration. Our ever-increasing understanding of how transcription factors regulate the EMT has revealed complex regulatory loops coupled to posttranscriptional and epigenetic regulatory programs. The EMT is now integrated into the systemic activities of whole organisms, establishing links with cell survival, stemness, inflammation, and immunity. In addition, the EMT now constitutes a promising target for the treatment of cancer and organ-degenerative diseases.
+---
+
+---
+DOI: 10.1038/ng.2569
+Title: The draft genome of the fast-growing non-timber forest species moso bamboo (Phyllostachys heterocycla)
+Year: 2013
+Abstract: Bamboo represents the only major lineage of grasses that is native to forests and is one of the most important non-timber forest products in the world. However, no species in the Bambusoideae subfamily has been sequenced. Here, we report a high-quality draft genome sequence of moso bamboo (P. heterocycla var. pubescens). The 2.05-Gb assembly covers 95% of the genomic region. Gene prediction modeling identified 31,987 genes, most of which are supported by cDNA and deep RNA sequencing data. Analyses of clustered gene families and gene collinearity show that bamboo underwent whole-genome duplication 7-12 million years ago. Identification of gene families that are key in cell wall biosynthesis suggests that the whole-genome duplication event generated more gene duplicates involved in bamboo shoot development. RNA sequencing analysis of bamboo flowering tissues suggests a potential connection between drought-responsive and flowering genes.
+---
+
+---
+DOI: 10.1016/j.cell.2022.06.054
+Title: Glioblastoma hijacks neuronal mechanisms for brain invasion
+Year: 2022
+Abstract: Glioblastomas are incurable tumors infiltrating the brain. A subpopulation of glioblastoma cells forms a functional and therapy-resistant tumor cell network interconnected by tumor microtubes (TMs). Other subpopulations appear unconnected, and their biological role remains unclear. Here, we demonstrate that whole-brain colonization is fueled by glioblastoma cells that lack connections with other tumor cells and astrocytes yet receive synaptic input from neurons. This subpopulation corresponds to neuronal and neural-progenitor-like tumor cell states, as defined by single-cell transcriptomics, both in mouse models and in the human disease. Tumor cell invasion resembled neuronal migration mechanisms and adopted a Lévy-like movement pattern of probing the environment. Neuronal activity induced complex calcium signals in glioblastoma cells followed by the de novo formation of TMs and increased invasion speed. Collectively, superimposing molecular and functional single-cell data revealed that neuronal mechanisms govern glioblastoma cell invasion on multiple levels. This explains how glioblastoma's dissemination and cellular heterogeneity are closely interlinked.
+---
+
+---
+DOI: 10.1016/j.cell.2015.03.031
+Title: Quantifying Memory CD8 T Cells Reveals Regionalization of Immunosurveillance
+Year: 2015
+Abstract: Memory CD8 T cells protect against intracellular pathogens by scanning host cell surfaces; thus, infection detection rates depend on memory cell number and distribution. Population analyses rely on cell isolation from whole organs, and interpretation is predicated on presumptions of near complete cell recovery. Paradigmatically, memory is parsed into central, effector, and resident subsets, ostensibly defined by immunosurveillance patterns but in practice identified by phenotypic markers. Because isolation methods ultimately inform models of memory T cell differentiation, protection, and vaccine translation, we tested their validity via parabiosis and quantitative immunofluorescence microscopy of a mouse memory CD8 T cell population. We report three major findings: lymphocyte isolation fails to recover most cells and biases against certain subsets, residents greatly outnumber recirculating cells within non-lymphoid tissues, and memory subset homing to inflammation does not conform to previously hypothesized migration patterns. These results indicate that most host cells are surveyed for reinfection by segregated residents rather than by recirculating cells that migrate throughout the blood and body.
+---
+
+---
+DOI: 10.1073/pnas.1215397109
+Title: Vascular normalizing doses of antiangiogenic treatment reprogram the immunosuppressive tumor microenvironment and enhance immunotherapy
+Year: 2012
+Abstract: The recent approval of a prostate cancer vaccine has renewed hope for anticancer immunotherapies. However, the immunosuppressive tumor microenvironment may limit the effectiveness of current immunotherapies. Antiangiogenic agents have the potential to modulate the tumor microenvironment and improve immunotherapy, but they often are used at high doses in the clinic to prune tumor vessels and paradoxically may compromise various therapies. Here, we demonstrate that targeting tumor vasculature with lower vascular-normalizing doses, but not high antivascular/antiangiogenic doses, of an anti-VEGF receptor 2 (VEGFR2) antibody results in a more homogeneous distribution of functional tumor vessels. Furthermore, lower doses are superior to the high doses in polarizing tumor-associated macrophages from an immune inhibitory M2-like phenotype toward an immune stimulatory M1-like phenotype and in facilitating CD4 + and CD8 + T-cell tumor infiltration. Based on this mechanism, scheduling lower-dose anti-VEGFR2 therapy with T-cell activation induced by a whole cancer cell vaccine therapy enhanced anticancer efficacy in a CD8 + T-cell–dependent manner in both immune-tolerant and immunogenic murine breast cancer models. These findings indicate that vascular-normalizing lower doses of anti-VEGFR2 antibody can reprogram the tumor microenvironment away from immunosuppression toward potentiation of cancer vaccine therapies. Given that the combinations of high doses of bevacizumab with chemotherapy have not improved overall survival of breast cancer patients, our study suggests a strategy to use antiangiogenic agents in breast cancer more effectively with active immunotherapy and potentially other anticancer therapies.
+---
+
+---
+DOI: 10.1007/bf00342633
+Title: Cognitron: A self-organizing multilayered neural network
+Year: 1975
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1073/pnas.93.24.14025
+Title: Frequent clones of p53-mutated keratinocytes in normal human skin
+Year: 1996
+Abstract: The multiple genetic hit model of cancer predicts that normal individuals should have stable populations of cancer-prone, but noncancerous, mutant cells awaiting further genetic hits. We report that whole-mount preparations of human skin contain clonal patches of p53-mutated keratinocytes, arising from the dermal–epidermal junction and from hair follicles. These clones, 60–3000 cells in size, are present at frequencies exceeding 40 cells per cm 2 and together involve as much as 4% of the epidermis. In sun-exposed skin, clones are both more frequent and larger than in sun-shielded skin. We conclude that, in addition to being a tumorigenic mutagen, sunlight acts as a tumor promoter by favoring the clonal expansion of p53-mutated cells. These combined actions of sunlight result in normal individuals carrying a substantial burden of keratinocytes predisposed to cancer.
+---
+
+---
+DOI: 10.1200/jco.2008.21.4809
+Title: Prognostic Factors for Overall Survival in Patients With Metastatic Renal Cell Carcinoma Treated With Vascular Endothelial Growth Factor–Targeted Agents: Results From a Large, Multicenter Study
+Year: 2009
+Abstract: Purpose There are no robust data on prognostic factors for overall survival (OS) in patients with metastatic renal cell carcinoma (RCC) treated with vascular endothelial growth factor (VEGF) –targeted therapy. Methods Baseline characteristics and outcomes on 645 patients with anti-VEGF therapy–naïve metastatic RCC were collected from three US and four Canadian cancer centers. Cox proportional hazards regression, followed by bootstrap validation, was used to identify independent prognostic factors for OS. Results The median OS for the whole cohort was 22 months (95% CI, 20.2 to 26.5 months), and the median follow-up was 24.5 months. Overall, 396, 200, and 49 patients were treated with sunitinib, sorafenib, and bevacizumab, respectively. Four of the five adverse prognostic factors according to the Memorial Sloan-Kettering Cancer Center (MSKCC) were independent predictors of short survival: hemoglobin less than the lower limit of normal (P &lt; .0001), corrected calcium greater than the upper limit of normal (ULN; P = .0006), Karnofsky performance status less than 80% (P &lt; .0001), and time from diagnosis to treatment of less than 1 year (P = .01). In addition, neutrophils greater than the ULN (P &lt; .0001) and platelets greater than the ULN (P = .01) were independent adverse prognostic factors. Patients were segregated into three risk categories: the favorable-risk group (no prognostic factors; n = 133), in which median OS (mOS) was not reached and 2-year OS (2y OS) was 75%; the intermediate-risk group (one or two prognostic factors; n = 301), in which mOS was 27 months and 2y OS was 53%; and the poor-risk group (three to six prognostic factors; n = 152), in which mOS was 8.8 months and 2y OS was 7% (log-rank P &lt; .0001). The C-index was 0.73. Conclusion This model validates components of the MSKCC model with the addition of platelet and neutrophil counts and can be incorporated into patient care and into clinical trials that use VEGF-targeted agents.
+---
+
+---
+DOI: 10.1038/346177a0
+Title: Presynaptic enhancement shown by whole-cell recordings of long-term potentiation in hippocampal slices
+Year: 1990
+Abstract: Long-term potentiation (LTP) of synaptic transmission in the hippocampus is a widely studied model system for understanding the cellular mechanisms of memory. In region CA1, LTP is triggered postsynaptically by Ca2(+)-dependent activation of protein kinases, but the locus of persistent modification remains controversial. Statistical analysis of synaptic variability has been proposed as a means of settling this debate, although a major obstacle has been the poor signal-to-noise ratio of conventional intracellular recordings. We have applied the whole-cell voltage clamp technique to study synaptic transmission in conventional hippocampal slices (compare refs 28-30). Here we report that robust LTP can be recorded with much improved signal resolution and biochemical access to the postsynaptic cell. Prolonged dialysis of the postsynaptic cell blocks the triggering of LTP, with no effect on expression of LTP. The improved signal resolution unmasks a large trial-to-trial variability, reflecting the probabilistic nature of transmitter release. Changes in the synaptic variability, and a decrease in the proportion of synaptic failures during LTP, suggest that transmitter release is significantly enhanced.
+---
+
+---
+DOI: 10.1115/1.3167075
+Title: Theory of Dislocations (2nd ed.)
+Year: 1983
+Abstract: of Engineering of the University of Arizona, contained about 60 presentations which covered a wide variety of finite element applications in biomechanics.The conference organizers (editors of this book) invited the authors of 18 of these presentations to prepare manuscripts for publication in this book.The book starts with the introduction of a clinician's view and then a finite element specialist view of the method.G. T. Rab presents his views on the finite element method, special model problems with biologic materials, and problem of clinician-engineer collaboration.O. C. Zienkiewicz and D. W. Kelley then present the basic outline of the finite element process, its historical development, present trends, and its impact on the field of bioengineering.The remainder of the book presents a diverse array of finite element applications in biomechanics.Two chapters address the mechanics of biologic fluid flow.Normal mechanics of capillary flow, arterial flow, blood cell deformation, and peristaltic flow are discussed.Special problems of pulsatile flow through a stenosis and through an aneurysm are also considered.The application of the finite element method in soft tissue mechanics is demonstrated in an introductory chapter and a subsequent series of chapters dealing with the mechanics of the lungs and heart.Analyses of the role of interfacial forces in lung deformation, lung parenchyma, and the heart's left ventricle are discussed.The remainder of the book, and by far the most indepth treatment of a subject, is devoted to the finite element method applied to solid mechanics, predominantly orthopaedic problems.After a survey chapter on the role of finite element models in orthopaedics, subsequent chapters address specific orthopaedic applications.An application of the finite method to external fracture fixation devices is followed by studies of stress-morphology relationships in trabecular bone, stress distributions in the femoral head, intervertebral disk function, the mechanics of artificial joint fixation, cement-bone failure, the function of femoral endoprostheses, and head and neck injury mechanisms.This book assembles the highlights of what was a very interesting biomechanics conference.The presentations chosen for inclusion in this book survey well the diverse application of the finite element method to biomechanics problems and illustrate important problems unique to finite element modeling of biologic systems.The reader is introduced to problems associated with biologic variability, growth and maturation, nonlinear materials, anisotropic materials, incompressible materials, viscoelastic materials, and structural pathology.The book as a whole serves as an excellent introduction for the experienced finite element programmer to the applications and special problems of biologic system modeling.The individual chapters present new data, discussion, and reference useful to the reader with interest in one or more of the specific subject areas.
+---
+
+---
+DOI: 10.1016/j.bbamem.2017.04.006
+Title: The critical role of phosphatidylcholine and phosphatidylethanolamine metabolism in health and disease
+Year: 2017
+Abstract: Phosphatidylcholine (PC) and phosphatidylethanolamine (PE) are the most abundant phospholipids in all mammalian cell membranes. In the 1950s, Eugene Kennedy and co-workers performed groundbreaking research that established the general outline of many of the pathways of phospholipid biosynthesis. In recent years, the importance of phospholipid metabolism in regulating lipid, lipoprotein and whole-body energy metabolism has been demonstrated in numerous dietary studies and knockout animal models. The purpose of this review is to highlight the unappreciated impact of phospholipid metabolism on health and disease. Abnormally high, and abnormally low, cellular PC/PE molar ratios in various tissues can influence energy metabolism and have been linked to disease progression. For example, inhibition of hepatic PC synthesis impairs very low density lipoprotein secretion and changes in hepatic phospholipid composition have been linked to fatty liver disease and impaired liver regeneration after surgery. The relative abundance of PC and PE regulates the size and dynamics of lipid droplets. In mitochondria, changes in the PC/PE molar ratio affect energy production. We highlight data showing that changes in the PC and/or PE content of various tissues are implicated in metabolic disorders such as atherosclerosis, insulin resistance and obesity. This article is part of a Special Issue entitled: Membrane Lipid Therapy: Drugs Targeting Biomembranes edited by Pablo V. Escribá.
+---
+
+---
+DOI: 10.1016/j.physleta.2012.08.006
+Title: Mathematical model of the glucose–insulin regulatory system: From the bursting electrical activity in pancreatic β-cells to the glucose dynamics in the whole body
+Year: 2012
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0008-6363(00)00135-8
+Title: The sinoatrial node, a heterogeneous pacemaker structure
+Year: 2000
+Abstract: This article focuses on the regional heterogeneity of the mammalian sinoatrial (SA) node in terms of cell morphology, pacemaker activity, action potential configuration and conduction, densities of ionic currents (i(Na), i(Ca,L), i(to), i(K,r), i(K,s) and i(f)), expression of gap junction proteins (Cx40, Cx43 and Cx45), autonomic regulation, and ageing. Experimental studies on the single SA node cell to the whole animal are reviewed. The heterogeneity is considered in terms of the gradient model of the SA node, in which there is gradual change in the intrinsic properties of SA node cells from periphery to centre, and the alternative mosaic model, in which there is a variable mix of atrial and SA node cells from periphery to centre. The heterogeneity is important for the dependable functioning of the SA node as the pacemaker for the heart, because (i) via multiple mechanisms, it allows the SA node to drive the surrounding atrial muscle without being suppressed electrotonically; (ii) via an action potential duration gradient and a conduction block zone, it promotes antegrade propagation of excitation from the SA node to the right atrium and prevents reentry of excitation; and (iii) via pacemaker shift, it allows pacemaking to continue under diverse pathophysiological circumstances.
+---

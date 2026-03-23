@@ -1,0 +1,119 @@
+{
+  "batch_index": 2,
+  "dois": [
+    "10.1038/s41598-021-82077-8",
+    "10.1016/j.isci.2021.103251",
+    "10.3389/fmolb.2022.849363",
+    "10.1187/cbe.16-03-0141",
+    "10.3389/fimmu.2019.01289",
+    "10.1038/s41598-020-66599-1",
+    "10.1038/s41598-020-70145-4",
+    "10.1016/j.tiv.2017.01.009",
+    "10.3389/fonc.2021.810387",
+    "10.1093/nar/gkad435"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1038/s41598-021-82077-8",
+      "problem": "Increasing current amplitude impacts accuracy of biophysical analyses of macroscopic ion currents",
+      "method": "Kinetic modeling, patch-clamp electrophysiology",
+      "finding": "",
+      "dataset": "rat",
+      "metric": "",
+      "baseline": "",
+      "result": "2%"
+    },
+    {
+      "doi": "10.1016/j.isci.2021.103251",
+      "problem": "Single-cell RNAseq requires tools for exploring heterogeneity within cell populations",
+      "method": "Virtual reality visualization of single-cell data",
+      "finding": "VR is excellent medium for scrutinizing complex single-cell data",
+      "dataset": "rat",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fmolb.2022.849363",
+      "problem": "CAR T-cell therapy for treating cancers requires optimization of design features",
+      "method": "Agent-based modeling of CAR T-cell therapy",
+      "finding": "Tuning individual features revealed key insights for CAR T-cell design",
+      "dataset": "cho",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1187/cbe.16-03-0141",
+      "problem": "Testing efficacy of learning module for Virtual Cell Animation Collection",
+      "method": "Educational assessment of animation-based learning module",
+      "finding": "Animation-based module effectively conveyed meiosis conceptual understanding",
+      "dataset": "students",
+      "metric": "correlation",
+      "baseline": "traditional learning",
+      "result": "70%"
+    },
+    {
+      "doi": "10.3389/fimmu.2019.01289",
+      "problem": "Adaptive immune response initiation through DC-T cell contact in lymph nodes",
+      "method": "Stochastic simulation, agent-based modeling",
+      "finding": "Modeled dendritic cell-T cell interactions in lymph nodes",
+      "dataset": "",
+      "metric": "sensitivity",
+      "baseline": "random walk motility",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41598-020-66599-1",
+      "problem": "HCC characterized by whole-chromosome instability and near-homozygous genome",
+      "method": "Cellular characterization of cancer cell lines",
+      "finding": "FTC-236 showed diminished complex activities compared to other cell lines",
+      "dataset": "cell lines",
+      "metric": "",
+      "baseline": "other cell lines",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41598-020-70145-4",
+      "problem": "Understanding cellular processes through fundamental biochemical interactions",
+      "method": "Metabolic network modeling",
+      "finding": "Almost all known cellular processes found among reaction nodes",
+      "dataset": "rat",
+      "metric": "correlation",
+      "baseline": "",
+      "result": "95%"
+    },
+    {
+      "doi": "10.1016/j.tiv.2017.01.009",
+      "problem": "Predicting in vivo toxic doses from in vitro concentrations for animal testing replacement",
+      "method": "Differential equations-based PBPK modeling",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fonc.2021.810387",
+      "problem": "Allogeneic stem cell transplantation relapse in acute myeloid leukemia",
+      "method": "Clinical analysis of stem cell transplantation outcomes",
+      "finding": "",
+      "dataset": "patient cohort",
+      "metric": "",
+      "baseline": "allo-SCT",
+      "result": "72%"
+    },
+    {
+      "doi": "10.1093/nar/gkad435",
+      "problem": "Incorporating tRNA aminoacylation and polypeptide elongation into whole-cell model",
+      "method": "Stochastic simulation of translation machinery",
+      "finding": "Required kcat values were higher than expected",
+      "dataset": "E. coli",
+      "metric": "sensitivity",
+      "baseline": "previous model",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:45:11.660959",
+  "extraction_count": 10
+}

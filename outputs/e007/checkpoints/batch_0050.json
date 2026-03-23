@@ -1,0 +1,119 @@
+{
+  "batch_index": 50,
+  "dois": [
+    "10.1186/s12918-015-0230-7",
+    "10.3389/fphys.2011.00020",
+    "10.1111/acel.12177",
+    "10.3389/fninf.2018.00020",
+    "10.1371/journal.pcbi.1008249",
+    "10.1016/j.isci.2021.102935",
+    "10.3389/fphar.2016.00183",
+    "10.3390/ijms241311226",
+    "10.1016/j.pbiomolbio.2016.06.003",
+    "10.1136/jitc-2022-005360"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1186/s12918-015-0230-7",
+      "problem": "Tip cell overtaking during angiogenic sprouting",
+      "method": "Cellular Potts models of angiogenesis",
+      "finding": "Tip cell overtaking occurs spontaneously from stochastic motion",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fphys.2011.00020",
+      "problem": "ABMs for mechano-chemo-biological cellular responses",
+      "method": "Agent-based model with literature-derived rules",
+      "finding": "Rule-set confidence scoring for 19 rules",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1111/acel.12177",
+      "problem": "Stem cell aging decline in tissue function",
+      "method": "Artificial genome multiscale model of transcriptional regulation",
+      "finding": "In silico stem cell aging modeling",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fninf.2018.00020",
+      "problem": "Reproducibility of published neuroscience research",
+      "method": "Computational reproduction methods",
+      "finding": "",
+      "dataset": "",
+      "metric": "MSE",
+      "baseline": "reference",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1008249",
+      "problem": "Computational model for cell flow in microchannels",
+      "method": "PyOIF software for cell flow modeling",
+      "finding": "Demonstrated cell flow simulation in bifurcations",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.isci.2021.102935",
+      "problem": "Intratumoral hypoxia fate mapping",
+      "method": "In vivo fate mapping of hypoxic cells",
+      "finding": "Characterized hypoxic/post-hypoxic tumor phenotype",
+      "dataset": "mouse tumors",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fphar.2016.00183",
+      "problem": "Pulmonary fibrosis pathologic remodeling",
+      "method": "In vitro fibroblast proliferation studies with TGF-β1/PGE2",
+      "finding": "TGF-β1 and PGE2 dose-dependent fibroblast modulation",
+      "dataset": "IMR-90 fibroblasts",
+      "metric": "correlation",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/ijms241311226",
+      "problem": "Eukaryotic cell membrane and lipid raft study",
+      "method": "Advanced analytical methods for membrane characterization",
+      "finding": "Resolution improved 5000x from 1μm to 0.2nm",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.pbiomolbio.2016.06.003",
+      "problem": "Computational cardiac electrophysiology modeling",
+      "method": "Cardiac electrophysiology computational methods",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1136/jitc-2022-005360",
+      "problem": "CD19 CAR T-cell therapy response prediction",
+      "method": "Computational model of CAR T-cell dynamics",
+      "finding": "Critical determinants of remission, resistance, relapse",
+      "dataset": "patient data",
+      "metric": "correlation",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:56:37.636223",
+  "extraction_count": 10
+}

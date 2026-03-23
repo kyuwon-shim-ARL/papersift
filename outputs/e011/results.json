@@ -1,0 +1,98 @@
+{
+  "experiment": "e011",
+  "description": "T2 high-df dampening A/B (incremental on T1 Jaccard)",
+  "resolution": 1.6,
+  "df_threshold": 0.2,
+  "high_df_entities": {
+    "whole-cell": 91,
+    "virtual cell": 77
+  },
+  "baseline_jaccard": {
+    "metrics": {
+      "cluster_count": 12,
+      "major_count": 6,
+      "singleton_count": 4
+    },
+    "edge_decomposition": {
+      "title_only": 8402,
+      "abstract_new": 6681,
+      "mixed": 1170,
+      "total": 16253,
+      "abstract_influenced": 7851,
+      "abstract_influenced_pct": 48.3
+    }
+  },
+  "dampened_jaccard": {
+    "metrics": {
+      "cluster_count": 16,
+      "major_count": 9,
+      "singleton_count": 5
+    },
+    "edge_decomposition": {
+      "title_only": 8402,
+      "abstract_new": 6681,
+      "mixed": 1170,
+      "total": 16253,
+      "abstract_influenced": 7851,
+      "abstract_influenced_pct": 48.3
+    }
+  },
+  "ari": 0.6403,
+  "preservation": {
+    "rate": 1.0,
+    "count": 6,
+    "preserved": 6,
+    "details": [
+      {
+        "cluster": 0,
+        "size": 81,
+        "match": 2,
+        "overlap": 0.605,
+        "jaccard": 0.563,
+        "preserved": true
+      },
+      {
+        "cluster": 1,
+        "size": 81,
+        "match": 1,
+        "overlap": 0.716,
+        "jaccard": 0.682,
+        "preserved": true
+      },
+      {
+        "cluster": 2,
+        "size": 76,
+        "match": 0,
+        "overlap": 0.895,
+        "jaccard": 0.895,
+        "preserved": true
+      },
+      {
+        "cluster": 3,
+        "size": 54,
+        "match": 3,
+        "overlap": 0.889,
+        "jaccard": 0.889,
+        "preserved": true
+      },
+      {
+        "cluster": 4,
+        "size": 29,
+        "match": 4,
+        "overlap": 0.621,
+        "jaccard": 0.429,
+        "preserved": true
+      },
+      {
+        "cluster": 5,
+        "size": 25,
+        "match": 5,
+        "overlap": 0.6,
+        "jaccard": 0.417,
+        "preserved": true
+      }
+    ]
+  },
+  "abstract_influenced_reduction_pct": 0.0,
+  "verdict": "KILL — marginal effect < 5%, dampening 불필요"
+}

@@ -1,0 +1,119 @@
+{
+  "batch_index": 16,
+  "dois": [
+    "10.4161/cc.28401",
+    "10.1016/j.cell.2018.02.020",
+    "10.1038/nm.3545",
+    "10.1038/nm.3707",
+    "10.1371/journal.pgen.0030078",
+    "10.1038/ncomms11295",
+    "10.1038/s41598-017-04426-w",
+    "10.1038/msb.2013.52",
+    "10.3389/fimmu.2018.01055",
+    "10.1038/s41541-024-00968-z"
+  ],
+  "extractions": [
+    {
+      "doi": "10.4161/cc.28401",
+      "problem": "How does partial inhibition of Cdk1 from early G2 phase affect mitotic progression, and what is the balance between Cdk1 kinase activity and PP2A phosphatase activity during mitosis?",
+      "method": "Dose-titration of Cdk1 inhibitor RO3306 on thymidine-synchronized HeLa cells with semi-automated IncuCyte live-cell imaging, western blot for Cdk1 substrate phosphorylation, flow cytometry, and live-cell microscopy (H2B-mCherry/EB3-GFP).",
+      "finding": "Mild Cdk1 inhibition from G2 decouples mitotic events—cells initiate nuclear envelope breakdown but fail to complete pro-metaphase, undergoing simultaneous cytokinesis and metaphase despite active SAC, producing viable polyploid cells. PP2A inhibition by Okadaic acid rescued the defects.",
+      "dataset": "HeLa cells stably expressing H2B-mCherry and EB3-GFP",
+      "metric": "mitotic index (%), polyploidy proportion, Cdk1 substrate phosphorylation (pSerCdk) levels",
+      "baseline": "untreated DMSO control cells",
+      "result": "low-dose RO: 15-20% vs 10% control mitotic cells; 7.5-10µM arrested in G2; OA rescued mitotic defects"
+    },
+    {
+      "doi": "10.1016/j.cell.2018.02.020",
+      "problem": "What are the timing and evolutionary trajectories of landmark genomic events driving clear cell renal cell carcinoma, particularly chromosome 3p loss?",
+      "method": "Whole-genome sequencing (average 67x depth) of 95 multi-regional biopsies from 33 ccRCC patients, with phylogenetic reconstruction, molecular clock analysis, and mathematical modeling of age-incidence curves for sporadic vs inherited cancers.",
+      "finding": "Chromosome 3p loss—often via chromothripsis generating simultaneous 3p loss and 5q gain—is typically the initiating event, occurring in childhood or adolescence decades before diagnosis. The number of initiating cells capable of sporadic tumors is no more than a few hundred.",
+      "dataset": "95 biopsies across 33 ccRCC patients (TRACERx Renal prospective cohort)",
+      "metric": "mutation burden, clonality, molecular timing of driver events, age-incidence modeling",
+      "baseline": "matched germline DNA from blood samples",
+      "result": "3p loss in childhood/adolescence; 36% patients show t(3;5) chromothripsis; TERT 5'UTR hotspot mutations; avg 7,680 somatic substitutions per patient"
+    },
+    {
+      "doi": "10.1038/nm.3545",
+      "problem": "What is the pathophysiology underlying cardiomyopathy in Barth syndrome (BTHS), a mitochondrial disorder caused by TAZ mutation, and can it be modeled using iPSC and tissue engineering?",
+      "method": "Patient-derived and CRISPR Cas9-engineered iPSC-derived cardiomyocytes cultured on muscular thin film 'heart-on-chip' constructs; metabolic profiling, ROS measurement, gene replacement via modRNA, and genome editing to establish causality.",
+      "finding": "TAZ mutation causes sparse sarcomere assembly and weak tissue contraction via excess ROS, not global ATP depletion. Gene replacement and genome editing confirmed TAZ mutation is necessary and sufficient. ROS scavenging with MitoTEMPO rescued contractile function.",
+      "dataset": "BTHS patient iPSC-CMs (2 patients), CRISPR-corrected isogenic controls, neonatal rat ventricular myocytes",
+      "metric": "twitch stress, peak systolic stress, sarcomere organization, ROS levels, cardiolipin profiles",
+      "baseline": "wild-type iPSC-CMs (WT1/WT2/WT3) and TAZ-corrected isogenic lines",
+      "result": "BTHS heart-on-chip tissues contracted weakly; MitoTEMPO rescued contraction; normal whole-cell ATP despite impaired contractility"
+    },
+    {
+      "doi": "10.1038/nm.3707",
+      "problem": "How do megakaryocytes regulate hematopoietic stem cell pool size and quiescence in the bone marrow niche, and what is the molecular mediator?",
+      "method": "3D whole-mount imaging of bone marrow, selective in vivo megakaryocyte depletion (Cxcl4-cre;iDTR + diphtheria toxin), CXCL4 injection studies, Cxcl4 knockout mice, computational spatial modeling, and competitive transplantation assays.",
+      "finding": "HSCs are nonrandomly located adjacent to megakaryocytes, which regulate HSC quiescence through CXCL4 secretion. MK depletion caused loss of HSC quiescence and marked expansion of functional HSCs; CXCL4 injection increased quiescence while Cxcl4−/− mice showed increased HSC proliferation.",
+      "dataset": "C57BL/6 mice, Cxcl4-cre;iDTR mice, Cxcl4−/− mice, Nes-GFP mice",
+      "metric": "HSC cell cycle status (Ki67/DAPI), HSC frequency, spatial Euclidean distance, competitive repopulation",
+      "baseline": "wild-type/non-depleted controls, random spatial distribution models (Random 1 and Random 2)",
+      "result": "MK depletion: specific loss of HSC quiescence + marked HSC expansion; CXCL4 injection: reduced HSC number via increased quiescence; Cxcl4−/−: increased HSC number and proliferation"
+    },
+    {
+      "doi": "10.1371/journal.pgen.0030078",
+      "problem": "What is the mechanism underlying off-target cell death effects induced by morpholino oligonucleotides (MOs) and other knockdown technologies?",
+      "method": "MO and gripNA injections in zebrafish embryos compared directly with well-characterized genetic mutants (wnt5/ppt, smo/smu); TUNEL and acridine orange assays for cell death; qRT-PCR, microarrays, and whole-mount in situ hybridization for transcriptional profiling.",
+      "finding": "MOs and gripNAs induce off-target neural cell death via p53 activation pathway, accompanied by diagnostic transcription of a Δ113 truncated p53 isoform. Co-knockdown of p53 specifically suppresses off-target cell death without affecting on-target gene silencing efficiency.",
+      "dataset": "zebrafish (Danio rerio) embryos, wnt5/ppt and smo/smu mutant lines",
+      "metric": "neural cell death (TUNEL, acridine orange), p21 transcriptional activation, Δ113p53 isoform expression",
+      "baseline": "genetic mutants (wnt5/ppt, smo/smu), uninjected embryos, alternative-sequence MOs",
+      "result": "p53 co-knockdown ameliorated off-target neural death; Δ113p53 is diagnostic marker; effect is sequence-specific but target-independent"
+    },
+    {
+      "doi": "10.1038/ncomms11295",
+      "problem": "Do gene expression changes observed in neurodegenerative disease whole-tissue profiling reflect true transcriptional regulation or merely altered cellular composition from neuronal loss and gliosis?",
+      "method": "Acute FACS purification of neurons, astrocytes, and microglia from adult mouse brains followed by RNA-seq; applied to LPS endotoxemia model and PS2APP Alzheimer's model; compared cell-type-specific with whole-tissue transcriptomes.",
+      "finding": "Whole-tissue expression changes primarily reflect altered cell type composition, not transcriptional regulation. Cell-type-specific sorting revealed hundreds of changes undetected in bulk tissue and showed the astrocytic inflammatory response requires Tnfr1.",
+      "dataset": "PS2APP Alzheimer's model mice (7 and 13 months), C57BL/6 mice (LPS-treated), GRN-mutant FTD patient cortex",
+      "metric": "differential expression (fold change ≥2, adjusted P ≤0.05), cell type composition mapping, Z-score normalized expression",
+      "baseline": "PBS-injected controls, non-transgenic age-matched mice, non-diseased human controls",
+      "result": "hundreds of cell-type-specific changes undetected in whole tissue; astrocytic LPS response abolished in Tnfr1−/−"
+    },
+    {
+      "doi": "10.1038/s41598-017-04426-w",
+      "problem": "How well do single-nucleus RNA-seq (SNS) transcriptomes compare to whole-cell transcriptomes for accurately predicting cell-type-specific gene expression?",
+      "method": "Single-nucleus RNA-seq from frozen mouse somatosensory cortex using Fluidigm C1 with modified SmartSeq protocol; compared with published whole-cell scRNA-seq datasets; developed normalization strategy to reduce method-specific length biases.",
+      "finding": "High concordance between nuclear and whole-cell transcriptomes for cell type markers and metabolic modeling genes, but reduced concordance for mitochondrial respiration genes. SNS accurately resolves transcriptional subpopulations and cortical layer identity.",
+      "dataset": "mouse somatosensory cortex (S1) nuclei (P21 CD1 mice), published S1 cortical and CA1 hippocampal whole-cell data",
+      "metric": "Pearson correlation, gene detection count, cell-type marker concordance, ERCC spike-in consistency",
+      "baseline": "published whole-cell single-cell RNA-seq (Zeisel et al., S1 cortex and CA1 hippocampus)",
+      "result": "ERCC Pearson r=0.86 (nuclei); mean 5,619 genes (nuclei) vs 4,797 (S1 cells); high concordance for cell type/metabolic markers"
+    },
+    {
+      "doi": "10.1038/msb.2013.52",
+      "problem": "Can a unified genome-scale model integrating metabolism and gene expression accurately predict multi-scale bacterial growth phenotypes from molecular to whole-cell level?",
+      "method": "Constructed an ME-Model for E. coli integrating metabolic reconstruction with gene expression network (1,541 ORFs, 109 RNA genes); growth optimization via sequential linear programming with growth-rate-dependent coupling constraints.",
+      "finding": "The ME-Model computes ~80% of the functional proteome by mass and accurately predicts growth rate, nutrient uptake, by-product secretion, metabolic fluxes, and gene expression levels, unifying many existing principles of bacterial growth.",
+      "dataset": "E. coli K-12",
+      "metric": "gene essentiality accuracy, precision, recall, growth rate prediction, proteome mass fraction",
+      "baseline": "M-Model (metabolic model alone: accuracy 91.2%, precision 81%, recall 68%)",
+      "result": "gene essentiality accuracy 88.8% (precision 60.4%, recall 75%); 1,295 functional protein complexes; ~80% proteome coverage by mass"
+    },
+    {
+      "doi": "10.3389/fimmu.2018.01055",
+      "problem": "How does systemic nutritional status (undernutrition and overnutrition) affect immune cell metabolism and function, particularly T cell responses?",
+      "method": "Literature review synthesizing human clinical studies and mouse models examining effects of nutritional status on circulating cytokines, immune cell populations, and T cell metabolic pathways.",
+      "finding": "Undernutrition causes immunosuppression via reduced leptin and mTOR signaling, while overnutrition promotes chronic low-grade inflammation through elevated leptin and pro-inflammatory cytokines. Leptin is a key mediator linking nutritional status to T cell metabolism and function.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41541-024-00968-z",
+      "problem": "Can a killed whole-cell Chlamydia vaccine be developed that preserves surface epitope integrity during inactivation to elicit protective immunity?",
+      "method": "Gamma-irradiation of Chlamydia muridarum elementary bodies with Mn2+-Decapeptide Phosphate (MDP) antioxidant protection; murine intravaginal challenge model; ELISA for antibody quantification; TEM for structural integrity; IFU assays for bacterial burden.",
+      "finding": "MDP preserves EB structural integrity during gamma inactivation while allowing DNA destruction. Ir-Cm(+MDP) vaccinated mice showed elevated Cm-specific IgG and IgA, reduced bacterial burden, accelerated clearance, and distinctive cytokine responses compared to controls.",
+      "dataset": "C57BL/6 mice, Chlamydia muridarum Nigg strain, C. trachomatis serovar L2",
+      "metric": "IFU (bacterial burden), IgG/IgA antibody titers, clearance kinetics, cytokine levels",
+      "baseline": "unvaccinated controls and EBs irradiated without MDP",
+      "result": "~1,000 Gy inactivates ~10^8 IFU; Ir-Cm(+MDP) showed significant protection with elevated IgG/IgA, reduced burden, and accelerated clearance vs controls"
+    }
+  ],
+  "timestamp": "2026-03-05T14:14:51.045199",
+  "extraction_count": 10
+}

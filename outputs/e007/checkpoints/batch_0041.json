@@ -1,0 +1,119 @@
+{
+  "batch_index": 41,
+  "dois": [
+    "10.3390/membranes12030331",
+    "10.1038/gim.2015.30",
+    "10.1038/s41416-019-0600-9",
+    "10.3390/plants11050610",
+    "10.1371/journal.pone.0110997",
+    "10.3390/molecules26123619",
+    "10.3390/ijms19051542",
+    "10.1007/s10989-020-10077-9",
+    "10.1155/2014/483905",
+    "10.1371/journal.pone.0057625"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3390/membranes12030331",
+      "problem": "Understanding how benzothiadiazine drug derivatives interact with phospholipid cell membranes to inform drug design for hypertension, hypoglycemia, and HIV treatments.",
+      "method": "Microsecond all-atom molecular dynamics simulations using CHARMM36m force field with DOPC/DOPS/cholesterol bilayer models constructed via CHARMM-GUI; four in silico-designed DBD derivatives with electron-donating and electron-accepting substituents.",
+      "finding": "All benzothiadiazine derivatives show strong affinity for the membrane interface and form single/double hydrogen bonds (1.6–2.1 Å) with lipids and cholesterol, though solvation characteristics vary significantly between derivatives (fully water-solvated vs. continuously membrane-attached for 10–70 ns).",
+      "dataset": "DOPC/DOPS-K/cholesterol bilayer model (112 DOPC, 28 DOPS, 60 cholesterol, 10,000 water molecules), 5 DBD derivative systems",
+      "metric": "area per lipid, membrane thickness, radial distribution functions, hydrogen bond length and occupancy",
+      "baseline": "previously simulated DBD1 reference; experimental values from Nagle et al.",
+      "result": "A=52.2 Å² (exp 54.4 Å²), Δz≈43.0 Å (exp 40 Å), H-bond lengths 1.6–2.1 Å, <5% fluctuation in membrane properties"
+    },
+    {
+      "doi": "10.1038/gim.2015.30",
+      "problem": "Lack of standardized terminology and systematic criteria for interpreting sequence variants identified through increasingly complex clinical genetic testing including NGS panels, exomes, and genomes.",
+      "method": "Expert workgroup consensus (ACMG/AMP/CAP) with two rounds of surveys to >100 sequencing laboratories, open forums, workshops, and iterative testing of classification criteria against known variants.",
+      "finding": "Established a 5-tier classification system (pathogenic, likely pathogenic, uncertain significance, likely benign, benign) with 28 evidence-based criteria combining population, computational, functional, and segregation data for Mendelian disorder variant interpretation.",
+      "dataset": "surveys from >45 laboratories in North America, protocols from 11 labs",
+      "metric": "",
+      "baseline": "previous ACMG 2007 variant interpretation guidelines",
+      "result": "5-tier system with 28 criteria adopted by majority of surveyed labs; 'likely pathogenic/benign' defined as >90% certainty"
+    },
+    {
+      "doi": "10.1038/s41416-019-0600-9",
+      "problem": "Drug-tolerant CD44v9-positive cancer cell subpopulations in gastric tumors cause early relapse after cytotoxic chemotherapy, and no established treatment strategy exists to eliminate them.",
+      "method": "Gene expression signature-based in silico screening using JFCR_LinCAGE anticancer compound database on patient-derived gastric cancer cells, validated in BALB/c-nu/nu mouse xenograft models with flow cytometry, MTT assays, and Western blotting.",
+      "finding": "EGFR inhibitors (afatinib, erlotinib) selectively target CD44v9-positive cells at clinically relevant concentrations by downregulating AKT/ERK pathways, significantly reducing residual cancer cells and enhancing irinotecan's antitumor effect in vivo.",
+      "dataset": "gastric cancer patient-derived cells (JSC15-3, JSC17-2, JSC17-7), 66 clinical tissue microarray samples, BALB/c-nu/nu xenograft",
+      "metric": "cell viability (MTT IC50), CD44v9+ fraction (flow cytometry), colony formation, tumor volume",
+      "baseline": "SN-38 or 5-FU treatment alone, DMSO control",
+      "result": "CD44v9 in 34.8% of gastric cancers (66 cases), EGFR inhibitors significantly reduced residual cells after cytotoxic treatment"
+    },
+    {
+      "doi": "10.3390/plants11050610",
+      "problem": "Bacterial biofilm formation on food matrices and processing equipment causes persistent contamination, and traditional sanitizers have inadequate efficacy against biofilms.",
+      "method": "Agar well diffusion, MIC/MBC determination, biofilm disruption assays (crystal violet, XTT, LDH), light/scanning electron microscopy, and molecular docking of identified phytochemicals against bacterial adhesion proteins (Sortase A, EspA, OprD, type IV b pilin).",
+      "finding": "E. sativa ethanolic crude extract effectively inhibits planktonic growth and disrupts established biofilms of all tested food-borne pathogens; molecular docking suggests the mechanism involves targeting cell adhesion proteins.",
+      "dataset": "S. aureus MTCC 96, E. coli MTCC 9537, P. aeruginosa MTCC 741, S. enterica ser. typhi MTCC 8767",
+      "metric": "zone of inhibition, MIC, MBC, biofilm inhibition %, EPS reduction %, XTT cell viability",
+      "baseline": "chloramphenicol (1 mg/mL positive control), 10% DMSO (negative control)",
+      "result": "MIC 125–500 µg/mL, MBC 250–1000 µg/mL, biofilm inhibition 58.68–73.45%, EPS reduction 59.73–82.77%"
+    },
+    {
+      "doi": "10.1371/journal.pone.0110997",
+      "problem": "Need for rationally designed dual kinase inhibitors that simultaneously target angiogenesis (VEGFR2) and cell cycle progression (CDK1) for anti-cancer therapy.",
+      "method": "In silico molecular modeling (SPROUT, Glide) for dual-target compound design, validated by recombinant kinase assays ([γ-³³P]-ATP), endothelial-fibroblast co-culture angiogenesis model, and murine ex vivo aortic ring assay.",
+      "finding": "JK-31 potently inhibits both VEGFR2 and CDK1, blocks VEGF-A-mediated signaling and mitotic entry, displays anti-angiogenic activity in co-culture and ex vivo models, and reduces growth of endothelial and MCF-7 breast cancer cells.",
+      "dataset": "human primary endothelial cells, MCF-7 breast cancer cells, murine aortic ring ex vivo model",
+      "metric": "IC50, predicted pKi (binding affinity), cell proliferation, kinase inhibition %",
+      "baseline": "vatalanib, sunitinib (VEGFR2 inhibitors), AT7519, JNJ-7706621 (CDK1 inhibitors), staurosporine",
+      "result": "predicted pKi ≤ -7 (nanomolar affinity) for both targets, greater VEGFR2 than CDK1 potency, greater CDK1 inhibition than AT7519"
+    },
+    {
+      "doi": "10.3390/molecules26123619",
+      "problem": "Molecular mechanisms of caffeine's anticancer effects on melanoma are not fully elucidated, particularly regarding effects at defined differentiation levels of cancer cells.",
+      "method": "In silico screening of caffeine molecular targets in GEO GDS1375 melanoma dataset (ROC analysis, cross-validation via IST Online and GEPIA2), followed by in vitro proliferation, melanin production, and cytokine profiling on BRAF-mutated melanoma-initiating cells (MICs).",
+      "finding": "Tyrosinase (TYR) is a key mediator of caffeine's action on melanoma; caffeine promotes melanin production and reduces secretion of inflammatory cytokines (IL-1β, IP-10, MIP-1α, MIP-1β, RANTES) in MICs. Low TYR expression correlates with poor prognosis in BRAF-mutated melanoma.",
+      "dataset": "GEO GDS1375 (45 primary melanomas, 18 nevi), BRAF-mutated MICs (Mel1, Mel3)",
+      "metric": "AUC-ROC, cell count, melanin content, cytokine concentration (Luminex), overall survival (Kaplan-Meier)",
+      "baseline": "untreated MICs, benign nevi samples",
+      "result": "8 genes with AUC≥0.85 (TYR AUC=0.94, PARP1 AUC=0.98), low TYR significantly associated with unfavorable prognosis in BRAF-mutated melanoma"
+    },
+    {
+      "doi": "10.3390/ijms19051542",
+      "problem": "Need for effective natural PTP1B and α-glucosidase dual inhibitors for T2DM treatment, as existing synthetic inhibitors have dose-dependent side effects and have failed clinical trials.",
+      "method": "Enzyme inhibition assays (PTP1B with p-NPP, α-glucosidase with p-NPG), Lineweaver-Burk and Dixon plot kinetic analysis, molecular docking (AutoDock 4.2), and glucose uptake measurement (2-NBDG) in insulin-resistant HepG2 cells.",
+      "finding": "Mulberrofuran G, albanol B, and kuwanon G from M. alba root bark show potent mixed-type dual inhibition of PTP1B and α-glucosidase, enhance glucose uptake, and decrease PTP1B expression dose-dependently in insulin-resistant HepG2 cells.",
+      "dataset": "insulin-resistant HepG2 cells, recombinant human PTP1B, α-glucosidase",
+      "metric": "IC50, Ki, binding energy (kcal/mol), glucose uptake (2-NBDG fluorescence), PTP1B expression (Western blot)",
+      "baseline": "ursolic acid (PTP1B IC50 3.54 µM), acarbose (α-glucosidase IC50 119.16 µM), rosiglitazone",
+      "result": "PTP1B IC50: 0.57 µM (mulberrofuran G), 0.80 µM (albanol B), 2.26 µM (kuwanon G); α-glucosidase IC50: 1.31–2.35 µM; binding energy -8.24 kcal/mol (allosteric PTP1B)"
+    },
+    {
+      "doi": "10.1007/s10989-020-10077-9",
+      "problem": "Whipple's disease caused by T. whipplei is rare but fatal, and current treatments (hydroxychloroquine/doxycycline for 12–18 months) are ineffective with lifetime follow-up required; no vaccine exists.",
+      "method": "Immuno-informatics pipeline: allergenicity screening (AllergenFP), T-cell epitope prediction (NetMHCII PAN 3.2), antigenicity scoring (VaxiJen ≥0.7), 3D modeling (PEP-FOLD 3), molecular docking (PatchDock), and molecular dynamics simulation.",
+      "finding": "Two epitopes predicted — VLMVSAFPL (from RNA polymerase β subunit, 4 HLA DRB1 alleles) and IRYLAALHL (from membrane protein insertase YidC, 6 HLA DRB1 alleles) — with satisfactory docking interactions and population coverage.",
+      "dataset": "T. whipplei proteome (5 proteins from NCBI/UniProtKB)",
+      "metric": "atomic contact energy (ACE), binding score, RMSD, VaxiJen antigenicity score, 1-log50k affinity, population coverage",
+      "baseline": "reference HLA-peptide crystal structures from RCSB-PDB (4AH2, 4IS6)",
+      "result": "RMSD 0–1.5 Å, VaxiJen ≥0.94 for both epitopes, ACE -443.3 kcal/mol, satisfactory world population coverage"
+    },
+    {
+      "doi": "10.1155/2014/483905",
+      "problem": "Need to characterize B and T cell epitopes of Der f 25, a major allergen from house dust mite D. farinae, to support allergen immunotherapy development.",
+      "method": "Bioinformatics-based epitope prediction using DNAStar, BPAP, BepiPred 1.0 (B cell), NetMHCIIpan-3.0 and NetMHCII-2.2 (T cell), with homology modeling (SWISS-MODEL) and structural validation (Ramachandran, ERRAT, VERIFY 3D, ProSA).",
+      "finding": "Eight B cell epitopes and five T cell epitopes were predicted for Der f 25, which belongs to the triosephosphate isomerase family with a TPI pattern (PS001371). The homology model was validated as high quality.",
+      "dataset": "Der f 25 protein from D. farinae (NCBI KC305500.1), template T. molitor TPI (PDB: 2I9E, 74% identity)",
+      "metric": "Ramachandran plot (% favored), ERRAT quality factor, VERIFY 3D, ProSA Z-score, RMSD",
+      "baseline": "template 2I9E (T. molitor TPI)",
+      "result": "93% Ramachandran favored, ERRAT 97.034, 8 B cell + 5 T cell epitopes predicted"
+    },
+    {
+      "doi": "10.1371/journal.pone.0057625",
+      "problem": "mRNA levels predict no more than 40% of protein abundance in human cells, and the contribution of translation efficiency to this discrepancy is poorly characterized across cell lines.",
+      "method": "Bioinformatic integration of genome-wide mRNA (NGS/FPKM via tophat/cufflinks) and protein (mass spectrometry/IBAQ) levels with protein stability data (pulsed SILAC from HeLa) across five human cell lines to estimate translation efficiency.",
+      "finding": "Estimated translation efficiency shows considerable consistency between cell lines for many genes; deviations are attributable to regulated protein degradation or known translational control mechanisms, suggesting improved models for interpreting mRNA expression data are feasible.",
+      "dataset": "5 human cell lines (MCF-7, HeLa, A-431, U-2 OS, U-251 MG), 8,170 genes, 24,920 mRNA-protein pairs",
+      "metric": "Spearman correlation, R², translation efficiency (proteins/mRNA/h)",
+      "baseline": "mRNA-only prediction of protein levels",
+      "result": "mRNA predicts 24–34% (R²) of protein levels, TE estimated for 3,990 genes, median ~43.6 proteins/mRNA/h"
+    }
+  ],
+  "timestamp": "2026-03-05T14:28:54.444912",
+  "extraction_count": 10
+}

@@ -1,0 +1,119 @@
+{
+  "batch_index": 38,
+  "dois": [
+    "10.3389/fonc.2022.883301",
+    "10.1371/journal.pone.0086310",
+    "10.6026/97320630003008",
+    "10.3389/fphar.2018.00355",
+    "10.1155/2010/108159",
+    "10.1093/nar/gkv1270",
+    "10.3390/biom10101429",
+    "10.1186/s43141-020-00066-2",
+    "10.1016/j.xpro.2021.100988",
+    "10.3389/fimmu.2014.00529"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3389/fonc.2022.883301",
+      "problem": "Identifying novel lncRNA-mRNA regulatory axes in diffuse large B-cell lymphoma (DLBCL) to understand mechanisms of disease progression.",
+      "method": "Batch Cox regression screening, random forest hub lncRNA selection, Spearman correlation for target prediction, GO/KEGG enrichment, GSEA, and expression validation using TCGA, GEO, and CCLE databases.",
+      "finding": "LINC00654 identified as hub lncRNA with NINL as downstream target; high NINL expression associated with therapy response but is a risk factor for OS/DSS in older and advanced-stage patients; NINL involved in neutrophil-mediated immunity and NF-κB signaling.",
+      "dataset": "TCGA DLBCL (N=48), GSE32018 (22 DLBCL + 7 normal), GSE18376 (23 DLBCL), 6 CCLE cell lines",
+      "metric": "HR, p-value, Spearman correlation, random forest importance (>0.3)",
+      "baseline": "Known DLBCL-associated lncRNAs (LINC01545, LINC00115)",
+      "result": "LINC00654 HR=5.53 (p=0.009), NINL therapy response p=0.036, 1443 target mRNAs identified"
+    },
+    {
+      "doi": "10.1371/journal.pone.0086310",
+      "problem": "Investigating whether routinely administered ALL chemotherapeutic agents can bind and inhibit deregulated cell cycle proteins (Cyclins E1, D1, D3, A1 and CDK2, CDK6).",
+      "method": "Schrödinger Glide XP molecular docking of chemotherapeutic drugs (Doxorubicin, Daunorubicin, Clofarabine, Nelarabine, Flavopiridol) to PDB crystal structures of cell cycle proteins.",
+      "finding": "Drugs successfully docked to Cyclins E1, A1 and CDK2, CDK6 but failed for Cyclins D1 and D3; Doxorubicin showed highest binding affinity to CCNE1, outperforming known inhibitors.",
+      "dataset": "PDB crystal structures (1W98, 3NUP, 2W96, 3G33, 1FIN), drugs from NCI and BindingDB",
+      "metric": "Glide GScore (kcal/mol), docking energy (kcal/mol)",
+      "baseline": "Known cyclin E1 inhibitors Baicalein (−6.693 kcal/mol) and Silymarin (−5.573 kcal/mol)",
+      "result": "Doxorubicin GScore −8.978 kcal/mol (CCNE1), Daunorubicin −7.769 kcal/mol; range −8.978 to −2.868 kcal/mol"
+    },
+    {
+      "doi": "10.6026/97320630003008",
+      "problem": "Understanding the role of nitric oxide synthase (NOS) structural and functional features in the extreme radioresistance of Lepidopteran insect cells compared to mammalian cells.",
+      "method": "In silico analysis including PSI-BLAST homology search across 22 organisms, SWISS-MODEL tertiary structure prediction, NetPhos 2.0 phosphorylation prediction, and WoLFPSORT subcellular localization.",
+      "finding": "Lepidopteran NOS has significantly higher phosphorylation scores and primarily cytoplasmic localization compared to mammalian NOS, which may reduce NOS activation by radiation and limit oxidative damage amplification.",
+      "dataset": "NOS protein sequences from 22 organisms (Bombyx mori, Drosophila, rat nNOS)",
+      "metric": "Phosphorylation score (NetPhos 2.0), WoLFPSORT localization score, sequence identity (%)",
+      "baseline": "Mammalian nNOS",
+      "result": "Lepidopteran phosphorylation 0.885±0.02 vs mammalian 0.694±0.094; cytoplasmic score 23 vs 10"
+    },
+    {
+      "doi": "10.3389/fphar.2018.00355",
+      "problem": "Identifying natural compounds that can bypass or overcome multidrug resistance (MDR) mechanisms in cancer, including P-gp, BCRP, p53 knockout, and ΔEGFR.",
+      "method": "Resazurin cytotoxicity assays on drug-resistant cell panels, Schrödinger molecular docking and dynamics on Akt/EGFR pathway proteins, Western blot for Akt/STAT3, and NCI-60 pharmacogenomics correlation.",
+      "finding": "Oridonin bypasses major drug resistance mechanisms with much lower cross-resistance than doxorubicin; dose-dependently downregulates Akt and STAT3; ΔEGFR cells were even more sensitive to oridonin.",
+      "dataset": "CCRF-CEM/CEM-ADR5000, MDA-MB-231/BCRP, HCT116 p53+/−, U87MG/ΔEGFR, HepG2/AML12, NCI 60 cell lines",
+      "metric": "IC50 (μM), degree of resistance (fold), Glide docking score",
+      "baseline": "Doxorubicin",
+      "result": "Oridonin P-gp resistance 5.17-fold vs doxorubicin 975.60-fold; IC50 1.65 μM (CCRF-CEM); ΔEGFR resistance 0.88-fold"
+    },
+    {
+      "doi": "10.1155/2010/108159",
+      "problem": "Improving plasma half-life and fibrin affinity of tissue plasminogen activator (t-PA) for thrombolytic therapy by designing a novel chimeric truncated form.",
+      "method": "In silico modeling (MODELLER 9v1, Swiss-PDB, GROMOS96 energy minimization, Ramachandran analysis), SOEing-PCR gene construction, CHO DG44 cell expression, amidolytic and fibrin binding assays.",
+      "finding": "Novel chimeric GHRP-SYQ-K2S truncated t-PA successfully expressed in CHO cells, preserving thrombolytic activity with 86% fibrin binding of full-length t-PA and favorable structural integrity.",
+      "dataset": "CHO DG44 cell line, recombinant t-PA (PDB: 1tpk, 1bda, 1fzv, 2flh)",
+      "metric": "Expression level (IU/ml), specific activity (IU/mg), fibrin binding (%), RMSD",
+      "baseline": "Full-length t-PA, Reteplase (commercial truncated t-PA)",
+      "result": "752 IU/ml expression, 566,917 IU/mg specific activity, 86% fibrin binding, RMSD 0.53 (serine protease domain)"
+    },
+    {
+      "doi": "10.1093/nar/gkv1270",
+      "problem": "Building a comprehensive database of miRNA:lncRNA interactions to understand the sponge/decoy regulatory function of lncRNAs in the miRNA interactome.",
+      "method": "Semi-automated text mining of publications, in-house analysis of 153 AGO CLIP-Seq libraries (PAR-CLIP, HITS-CLIP), DIANA-microT algorithm for in silico target prediction, and RNA-Seq expression analysis.",
+      "finding": "LncBase v2 provides >70,000 experimentally supported miRNA:lncRNA interactions (14-fold increase over v1), covering 66 cell types across 36 tissues; identified ~400 viral-miRNA:lncRNA pairs and tissue-specific regulation patterns.",
+      "dataset": "153 AGO CLIP-Seq libraries, >6 billion RNA-Seq reads, human and mouse transcriptomes",
+      "metric": "Number of interactions, MRE conservation scores, binding affinity scores",
+      "baseline": "LncBase v1",
+      "result": "14-fold increase in experimental interactions, >70,000 supported interactions, ~12,900 lncRNA transcripts with MREs"
+    },
+    {
+      "doi": "10.3390/biom10101429",
+      "problem": "Understanding the dual protective and pathogenic roles of glutathione (GSH) in cancer initiation, progression, and treatment resistance.",
+      "method": "Comprehensive literature review of GSH mechanisms in redox regulation, signal transduction, and therapeutic approaches including direct/indirect GSH targeting and GSH-based prodrugs.",
+      "finding": "Elevated GSH in tumor cells drives progression and drug resistance; novel therapies targeting the GSH antioxidant system show promise; computational methods enable in silico testing of GSH-targeted treatments.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/s43141-020-00066-2",
+      "problem": "Designing novel imidazol-5-one derivatives with improved cytotoxicity against HCT116 colorectal cancer cells and potent CDK2 inhibition.",
+      "method": "QSAR modeling via genetic function algorithm with DFT-optimized descriptors, ligand-based drug design, and AutoDock Vina molecular docking to CDK2 (PDB: 6GUE).",
+      "finding": "Four designed compounds (e, h, j, l) showed significantly better cytotoxicity than template with IC50 < 5.0 μM and better CDK2 inhibition than standard drugs sorafenib and kenpaullone.",
+      "dataset": "36 imidazole-5-ones, HCT116 colorectal cancer cell line, CDK2 (PDB: 6GUE)",
+      "metric": "R², R²adj, Q²cv, R²ext, IC50 (μM), binding affinity (kcal/mol), VIF",
+      "baseline": "Template imidazole-5-one, sorafenib, kenpaullone",
+      "result": "QSAR R²=0.7397, Q²cv=0.5547, R²ext=0.7202; binding affinity −10.8 to −11.0 kcal/mol; IC50 <5.0 μM"
+    },
+    {
+      "doi": "10.1016/j.xpro.2021.100988",
+      "problem": "Developing robust, efficient bioprocesses for mass production of human pluripotent stem cells (hPSCs) in stirred tank bioreactors for therapeutic and industrial applications.",
+      "method": "In silico process modeling with computable upscaling, fully controlled hPSC expansion in stirred tank bioreactors with perfusion feeding strategy and optimized E8 medium formulations.",
+      "finding": "Protocol enables high-density hPSC culture at 35×10⁶ cells/mL while reducing culture medium consumption by 75%, providing a systematic blueprint for scalable hPSC bioprocessing.",
+      "dataset": "Human pluripotent stem cells (hPSCs) in stirred tank bioreactors",
+      "metric": "Cell density (cells/mL), medium consumption reduction (%)",
+      "baseline": "Conventional hPSC expansion methods",
+      "result": "35×10⁶ cells/mL density, 75% medium reduction"
+    },
+    {
+      "doi": "10.3389/fimmu.2014.00529",
+      "problem": "Quantifying the HLA-specific alloreactivity potential from minor histocompatibility antigens (mHA) in stem-cell transplant donor-recipient pairs using whole exome sequencing.",
+      "method": "Whole exome sequencing of 9 SCT donor-recipient pairs, ANNOVAR-based nonameric peptide generation from nsSNPs, and HLA class I binding prediction using IEDB SMM and NetMHCpan algorithms.",
+      "finding": "A very large library of potentially immunogenic peptides exists even in HLA-matched pairs; unrelated donor pairs have significantly more presented peptides than matched related donors, explaining higher GVHD incidence.",
+      "dataset": "9 SCT donor-recipient pairs (4 MRD, 5 URD), whole exome sequences",
+      "metric": "Peptide binding affinity (IC50 nM), number of presented peptides, Mann-Whitney U test p-value",
+      "baseline": "MRD vs URD comparison, NCBI dbSNP reference",
+      "result": "Median 18,396 presented peptides (IC50<500nM), 2,254 strongly presented (IC50<50nM); URD>MRD p=0.016"
+    }
+  ],
+  "timestamp": "2026-03-05T14:27:16.461843",
+  "extraction_count": 10
+}

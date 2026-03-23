@@ -1,0 +1,119 @@
+{
+  "batch_index": 44,
+  "dois": [
+    "10.3389/fimmu.2017.01255",
+    "10.1371/journal.pone.0150637",
+    "10.3390/ph16020276",
+    "10.1186/s12859-020-03849-z",
+    "10.1038/s41598-017-18799-5",
+    "10.3390/v13030365",
+    "10.1038/s42003-022-03473-y",
+    "10.1038/s41598-023-32554-z",
+    "10.1515/jib-2020-0027",
+    "10.1039/d1ra09112c"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3389/fimmu.2017.01255",
+      "problem": "Whether B cells can activate CD4+ T cells in the CNS of MS patients by presenting idiotopes from their own immunoglobulin variable regions on HLA class II molecules, and whether prerequisites for such idiotope-driven T-B cell collaboration exist.",
+      "method": "High-throughput sequencing of IGHV transcripts from CSF and blood of MS/OIND patients combined with in silico prediction of cathepsin cleavage, HLA-peptide binding affinity (NetMHCIIpan), and T cell-exposed motif (TCEM) rarity analysis.",
+      "finding": "CDR3 idiotopes from MS patients have high predicted affinity for HLA-DRB1*15:01, are predicted to be endosomally processed by cathepsins S and L in positions allowing HLA binding, and CSF B cells from MS patients contain more rare TCEMs than OIND controls, associated with preferential IGHV4 gene family usage.",
+      "dataset": "11 relapsing-remitting MS patients and 6 OIND controls, 1,812,920 IGHV amino acid sequences from CSF and blood",
+      "metric": "predicted HLA binding affinity (IC50 nM), cathepsin cleavage probability (>0.8), TCEM rarity frequency, p-value",
+      "baseline": "OIND patient CSF B cells, blood B cells from same patients",
+      "result": "CDR3 lengths MS CSF 15.55aa vs OIND 15.25aa (p<0.001), cathepsin cleavage variation across IGHV families p<0.0001, IGHV4 preferentially cleaved by cathepsin S"
+    },
+    {
+      "doi": "10.1371/journal.pone.0150637",
+      "problem": "Understanding the factors limiting predictive accuracy of allogeneic HSCT-related non-relapse mortality, including statistical methodology, number of features, and population size.",
+      "method": "In-silico iterative simulations using 6 machine learning algorithms (AdaBoost, ADT, logistic regression, MLP, naive Bayes, random forest) with varying sample sizes, subpopulations, and feature selection on EBMT registry data.",
+      "finding": "Predictive performance plateaus at ~6,000-8,800 patients reaching max AUC of 0.67; only 3-5 variables are needed for near-maximal AUC; top 3 variables across all algorithms are disease stage, donor type, and conditioning regimen. Traditional HSCT data has been 'worn out'.",
+      "dataset": "25,923 adult acute leukemia patients from EBMT registry (2005-2013), 326 European centers",
+      "metric": "AUC-ROC",
+      "baseline": "Comparison across 6 ML algorithms and varying sample sizes/subpopulations",
+      "result": "Max AUC=0.67 (LR and AdaBoost), plateau at 6,611-8,814 patients, CR2 subpopulation AUC=0.55-0.59, NRM prevalence 9.2% at day 100"
+    },
+    {
+      "doi": "10.3390/ph16020276",
+      "problem": "Determining the biological effect of chlorogenic acid (CGA) on colorectal cancer cells HT-29 and SW480, and its potential modulatory mechanism on the Wnt/β-catenin pathway via interactions with β-catenin and LRP6.",
+      "method": "In vitro flow cytometry assays (PI/DiOC6 viability, MitoTracker Red ROS, DNA content cell cycle) and in silico molecular docking against β-catenin and LRP6 protein targets.",
+      "finding": "CGA at 2000 µM significantly reduces viability and causes DNA fragmentation in SW480 cells but not HT-29; induces dose-dependent ROS production in both lines. CGA shows similar docking affinity to LRP6 as niclosamide and higher affinity for β-catenin than reference inhibitors C2 and iCRT14.",
+      "dataset": "SW480 and HT-29 colorectal cancer cell lines",
+      "metric": "mean fluorescence intensity (MFI), cell cycle phase distribution (%), docking binding affinity (kcal/mol), p-value",
+      "baseline": "Untreated cells; reference ligands niclosamide (LRP6), C2 and iCRT14 (β-catenin)",
+      "result": "CGA 2000µM: significant DiOC6 decrease and PI increase in SW480 (p≤0.001), dose-dependent ROS increase (p≤0.0001), sub-G1 increase at ≥500µM"
+    },
+    {
+      "doi": "10.1186/s12859-020-03849-z",
+      "problem": "Ranking natural phenolic compounds for their therapeutic effectiveness against cancer stem cells (CSCs) to identify potential CSC-targeted therapy candidates.",
+      "method": "Bipartite graph construction of 21 phenolics and 1118 CSC genes weighted by interaction strength, Disease Specificity Index (DSI), and Disease Pleiotropy Index (DPI), ranked using a modified PageRank algorithm. Top candidates evaluated for drug-likeness via Lipinski's Rule of Five.",
+      "finding": "Top 5 ranked phenolics are Resveratrol, Curcumin, Quercetin, Epigallocatechin Gallate, and Genistein; all except EGCG satisfy Lipinski's Rule of Five with favorable oral bioavailability and pharmacokinetic properties.",
+      "dataset": "21 phenolics from literature, 1118 CSC genes from CSCdb database, PCIDB interaction database",
+      "metric": "PageRank score, Lipinski Rule of Five compliance, molecular weight, logP, H-bond donors/acceptors, polar surface area",
+      "baseline": "",
+      "result": "Top 5: Resveratrol, Curcumin, Quercetin, EGCG, Genistein; MW range 228-458, logP 2-5, ≤7 rotatable bonds"
+    },
+    {
+      "doi": "10.1038/s41598-017-18799-5",
+      "problem": "Understanding the mechanism of action underlying mechanical conditioning of cardiac adipose tissue-derived progenitor cells (ATDPCs) within the physiological range for cardiac regeneration applications.",
+      "method": "Custom magnet-based mechanical stimulator applying ~10% stretch at 1 Hz for 7 days to cardiac ATDPCs on 3 patterned PDMS surfaces (vertical, horizontal, smooth); gene/protein expression analysis (RT-qPCR, western blot) and in silico artificial neural network analysis of secretome.",
+      "finding": "Mechanical stretching upregulated structural cardiac genes and showed rising trends in cardiac transcription factors, with modulations dependent on surface pattern. Secretome analysis revealed upregulation of proteins associated with myocardial infarction and cardiac regeneration (immune response, angiogenesis, cell adhesion regulators).",
+      "dataset": "Cardiac and subcutaneous ATDPCs from human patients, 3 surface patterns × mechanical stimulation conditions",
+      "metric": "gene expression fold change (RT-qPCR), protein expression levels, artificial neural network disease association scores",
+      "baseline": "Unstimulated cells on same surface patterns; subcutaneous ATDPCs as tissue control",
+      "result": "~10% longitudinal elongation achieved, PDMS Young's modulus 1.3 MPa, trapezoidal waveform 1 Hz with 100ms rise/fall times mimicking cardiac cycle"
+    },
+    {
+      "doi": "10.3390/v13030365",
+      "problem": "Developing comprehensive in silico, in vitro, and in cellulo approaches to specifically monitor the SARS-CoV-2 spike/ACE2 interaction for characterizing viral entry and identifying potential antiviral inhibitors.",
+      "method": "400 ns molecular dynamics simulation (AMBER18/ff14SB) of S-RBD/ACE2 complex, pulldown assays, AlphaLISA and biolayer interferometry (BLI) binding assays, pseudotyped lentiviral transduction assays, cell imaging, and flow cytometry.",
+      "finding": "Identified transient druggable pockets at the S/ACE2 interface via MD clustering; determined kinetic binding parameters by BLI; established pseudotyped lentiviral system recapitulating S-mediated entry and cell fusion; developed cell-surface S/ACE2 interaction monitoring by imaging and flow cytometry.",
+      "dataset": "SARS-CoV-2 S-RBD (PDB 6M0J, 2.45Å), recombinant RBD(438-516)/ACE2 proteins, HEK293T-ACE2 cell lines",
+      "metric": "RMSD, hydrogen bond occupancy (%), AlphaLISA signal (AS units), BLI kinetic parameters (kon, koff, KD), transduction efficiency",
+      "baseline": "X-ray crystal structure (PDB 6M0J) as reference; VSV-G pseudotyped vectors as positive control",
+      "result": "400ns MD simulation, 8 structural clusters identified, AlphaLISA up to 1,000,000 AS units at nM protein concentrations, DMSO tolerance confirmed"
+    },
+    {
+      "doi": "10.1038/s42003-022-03473-y",
+      "problem": "Addressing the small sample size problem in high-dimensional scRNA-seq data where the number of cell samples is far smaller than the feature (gene) size, limiting downstream analysis.",
+      "method": "LSH-GAN: a modified GAN using locality-sensitive hashing (LSH) to subsample real data for augmenting generator input, training with 2-layer MLP (16,16) architecture; evaluated on gene selection and cell clustering tasks.",
+      "finding": "LSH-GAN generates more realistic cell samples than benchmarks (cscGAN, SUGAR, Splatter) with lower Wasserstein distance; generated samples improve downstream gene selection and cell clustering performance across multiple datasets.",
+      "dataset": "5 scRNA-seq datasets: Yan (90 cells, 20214 genes), Klein (2717 cells), Darmanis (466 cells), Pollen (299 cells), Melanoma (67,461 cells)",
+      "metric": "Wasserstein distance, adjusted Rand index (ARI), normalized mutual information (NMI)",
+      "baseline": "cscGAN, SUGAR, Splatter; gene selection methods: GLM-PCA, CV2 Index, M3Drop, Fano Factor, Seurat HVG",
+      "result": "LSH-GAN achieves lowest Wasserstein distance across datasets; sample:feature ratio as low as 0.012; k=5, t=1-2 optimal LSH parameters"
+    },
+    {
+      "doi": "10.1038/s41598-023-32554-z",
+      "problem": "Investigating whether MDSC depletion combined with tumor cell vaccination can elicit effective anti-tumor immunity and sustain tumor dormancy in triple-negative breast cancer (TNBC).",
+      "method": "Deterministic ODE mathematical model with 3 variables (cancer cells, MDSCs, effector immune cells) using Gompertz tumor growth, calibrated against experimental 4T1 murine TNBC data; simulations of MDSC depletion schedules and vaccination protocols.",
+      "finding": "MDSC depletion every 48h controls tumor growth; vaccination with small number of tumor cells combined with MDSC depletion elicits effective immune response suppressing subsequent aggressive tumor challenge, resulting in sustained tumor dormancy.",
+      "dataset": "Murine 4T1 TNBC-like cell line and MR20 dormant derivative in BALB/c mice (calibrated to published experimental data by Lan et al.)",
+      "metric": "tumor cell count over time, immune cell dynamics, MDSC population size, dormancy threshold",
+      "baseline": "Tumor growth without MDSC depletion; published experimental data from Lan et al.",
+      "result": "MDSC depletion every 48h starting day 7 halts tumor growth for up to 70,000 initially injected cells; vaccination + MDSC depletion achieves sustained dormancy"
+    },
+    {
+      "doi": "10.1515/jib-2020-0027",
+      "problem": "Investigating the role of viscoelastic cell-ECM mechanical interactions in avascular glioma tumor spheroid growth and invasion patterns.",
+      "method": "Continuous two-component in silico model simulating oxygen transport, three cell phenotype transitions (proliferative, hypoxic, necrotic), hydrostatic forces in cell-ECM composite, cell motility and adhesion, with visco-elastic cell aggregation and elastic ECM scaffold.",
+      "finding": "ECM stiffness, mechanical deformations, and cell-cell adhesion strongly affect tumor progression; a Transition Layer on the spheroid surface facilitates invasion; at certain high ECM stiffness, distant multicellular clusters form, while at further increased stiffness subtumors do not form.",
+      "dataset": "U87WT and U87ΔEGFR glioma cell line experimental data from Stein et al.",
+      "metric": "cell density profiles (cells/mm³), spheroid radius, invasive zone width, core-IZ boundary densities",
+      "baseline": "Experimental MTS data from Stein et al. for U87WT (C_IZ=10⁴ cells/mm³) and U87ΔEGFR (C_IZ=2.5×10³ cells/mm³)",
+      "result": "Simulated densities match experiment in major spheroid part; center density ~60% of measured value; ECM stiffness threshold determines cluster formation vs. no subtumor formation"
+    },
+    {
+      "doi": "10.1039/d1ra09112c",
+      "problem": "Evaluating graphyne as a drug carrier for hesperetin delivery to cancer cells and characterizing the supramolecular interactions governing the complex formation.",
+      "method": "DFT calculations (B3LYP/Lanl2DZ) with Gaussian 09 for geometry optimization, TDDFT for excited states, NBO analysis, charge decomposition analysis (CDA), noncovalent interaction (NCI) analysis, and IEF-PCM solvation model in water.",
+      "finding": "Hesperetin adsorbs onto graphyne via two C-H noncovalent interactions (2.54 and 3.68 Å bond distances); complex formation increases dipole moment to 2.02 Debye enhancing hydrophilicity; HOMO-LUMO analysis confirms charge transfer from hesperetin to graphyne carrier, enabling controlled drug delivery.",
+      "dataset": "Hesperetin (HPT) and graphyne (GRP) molecular structures",
+      "metric": "adsorption energy (Ead), HOMO-LUMO gap, dipole moment (Debye), bond distance (Å), solvation energy",
+      "baseline": "Isolated GRP and HPT molecules; gas phase vs. water solvent phase",
+      "result": "Dipole moment increased to 2.02 Debye upon complexation, C-H bond distances 2.54 and 3.68 Å, charge transfer from HPT HOMO to GRP LUMO confirmed"
+    }
+  ],
+  "timestamp": "2026-03-05T14:28:56.678195",
+  "extraction_count": 10
+}

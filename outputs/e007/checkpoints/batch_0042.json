@@ -1,0 +1,119 @@
+{
+  "batch_index": 42,
+  "dois": [
+    "10.3390/molecules25204691",
+    "10.3390/cells8060520",
+    "10.1002/prp2.170",
+    "10.1093/nar/gkw430",
+    "10.1186/1471-2105-14-s6-s9",
+    "10.1186/1471-2105-9-s9-s4",
+    "10.1038/s41392-023-01644-9",
+    "10.1038/ncomms7683",
+    "10.3389/fphar.2021.598925",
+    "10.3389/fmolb.2023.1124563"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3390/molecules25204691",
+      "problem": "Most known MMP9 inhibitors have failed in clinical trials for metastatic cancer. This study aims to identify natural plant-derived inhibitors targeting the hemopexin-like domain of MMP9 (PEX9) as anti-breast cancer agents.",
+      "method": "In silico virtual screening of 200 natural compounds via AutoDock Vina molecular docking against PEX9, followed by bioguided fractionation with FRET-based MMP9 inhibition assay and MTT cytotoxicity assay on breast cancer cell lines.",
+      "finding": "Six of eight plant crude extracts inhibited MMP9; Ageratum conyzoides and Ixora coccinea fractions showed strong MMP9 inhibition, and Ageratum crude extract demonstrated potent anti-proliferative activity against 4T1 breast cancer cells with a high safety index.",
+      "dataset": "200 natural compounds from Indonesian herbal databases; 8 local plant extracts; 4T1 and T47D breast cancer cell lines; HFL1 noncancerous cells",
+      "metric": "binding affinity (kcal/mol), IC50, inhibition %, True Positive Rate (TPR), RMSD, safety index",
+      "baseline": "NNGH (hydroxamate MMP9 inhibitor) as positive control; sulfate ion native ligand for control docking; doxorubicin for cytotoxicity",
+      "result": "Top hits binding affinity −11.2 to −8.1 kcal/mol; Ageratum fractions IC50=43 µg/mL (MMP9), IC50=22 µg/mL (4T1); TPR=65%; RMSD=1.99 Å"
+    },
+    {
+      "doi": "10.3390/cells8060520",
+      "problem": "Lignin accumulation in pear fruit drives stone cell formation that negatively impacts fruit quality. The role of the RBOH gene family, key enzymes in ROS metabolism required for lignin polymerization, is unknown in most fruit trees.",
+      "method": "Genome-wide in silico identification of RBOH genes across five fruit tree genomes using BLASTp, followed by phylogenetic analysis, chromosomal mapping, cis-acting element analysis, qRT-PCR expression profiling, and subcellular localization in pear fruit.",
+      "finding": "40 RBOHs were identified across five fruit trees; PbRBOHA and PbRBOHD are plasma membrane-localized candidate genes whose expression correlates with stone cell content during pear fruit development, implicating them in ROS-mediated lignification.",
+      "dataset": "Genomes of Pyrus bretschneideri, Prunus persica, Citrus sinensis, Vitis vinifera, Prunus mume; pear fruit developmental stages (15-145 DAF)",
+      "metric": "transcript abundance (qRT-PCR), apoplastic O2.− content, phylogenetic bootstrap (1000 replications)",
+      "baseline": "Arabidopsis AtRBOH family (10 members) as query reference; known lignification-related RBOHs for phylogenetic comparison",
+      "result": "10 PbRBOHs on 8 chromosomes; 3 PbRBOHs closely related to lignification RBOHs; PbRBOHA/PbRBOHD expression consistent with stone cell content changes"
+    },
+    {
+      "doi": "10.1002/prp2.170",
+      "problem": "P-glycoprotein (P-gp) overexpression causes multidrug resistance in cancer, and prior P-gp inhibitors have failed clinically because they are themselves transport substrates of the pump.",
+      "method": "Ultrahigh throughput in silico screening for drug-like molecules targeting P-gp nucleotide-binding domains (not drug-binding sites), followed by in vitro MTT cell viability assays on paired DU145/DU145TXR prostate cancer cells and noncancerous HFL1 cells.",
+      "finding": "Three of four computationally identified P-gp inhibitors reversed multidrug resistance in DU145TXR cells, restoring paclitaxel sensitivity comparable to naive cells at low potentiation concentrations without significant toxicity to noncancerous cells.",
+      "dataset": "DU145 (naïve) and DU145TXR (MDR, P-gp overexpressing) human prostate cancer cells; HFL1 noncancerous human fetal lung cells",
+      "metric": "IC50, fold resistance, percent cell survival (MTT assay)",
+      "baseline": "Verapamil (known P-gp inhibitor); DU145 naïve cells (drug-sensitive parental line)",
+      "result": "DU145TXR >2,400-fold resistant to paclitaxel; inhibitor potentiation concentrations <3 µmol/L; sensitivity restored to naïve cell levels"
+    },
+    {
+      "doi": "10.1093/nar/gkw430",
+      "problem": "Constructing pseudo-temporal orderings of single cells from scRNA-seq data is useful for studying gene expression dynamics, but limited computational tools exist and quantitative methods for comparing them are lacking.",
+      "method": "TSCAN uses cluster-based minimum spanning tree (MST) construction: cells are first clustered, MST connects cluster centers, and pseudo-time is obtained by projecting cells onto the tree. PCA is applied for dimensionality reduction after gene-level clustering to mitigate dropout effects.",
+      "finding": "Cell clustering before MST construction reduces tree space complexity, improving accuracy and robustness of pseudo-time reconstruction. TSCAN provides competitive performance across multiple datasets and includes quantitative evaluation measures (POS score) for method comparison.",
+      "dataset": "HSMM (human skeletal muscle myoblasts), LPS (dendritic cells), qNSC (quiescent neural stem cells) single-cell RNA-seq datasets",
+      "metric": "POS score (pseudo-time ordering accuracy), cell ordering similarity (robustness), detection of known differentially expressed genes",
+      "baseline": "Monocle, Waterfall (existing pseudo-time reconstruction methods); 518 a priori differentiation genes from Monocle analysis",
+      "result": "TSCAN detected same two-branch topology as Monocle on HSMM; clustering improved ordering accuracy vs non-clustering approaches"
+    },
+    {
+      "doi": "10.1186/1471-2105-14-s6-s9",
+      "problem": "Whether CD8Treg-mediated killing of encephalitogenic CD4Th1 cells requires both cell types to be primed by the same dendritic cell is unknown, and the factors controlling the magnitude of the cytotoxic T lymphocyte response in murine EAE are unclear.",
+      "method": "Agent-based simulation (ARTIMMUS) of experimental autoimmune encephalomyelitis in Java/MASON framework, with 1000 simulation runs per experiment analyzed using non-parametric A-Tests for effect magnitude.",
+      "finding": "Effective CD4Th1 regulation does not require co-priming on the same DC; only ~1% of DCs present both peptide types. Spatial competition between CD4Treg and CD8Treg cells and timing of Qa-1 expression critically determine CTL response magnitude.",
+      "dataset": "Simulated murine EAE immune system (ARTIMMUS); 1000 simulation runs per condition",
+      "metric": "A-Test effect magnitude score (thresholds: >0.71 or <0.29 = large/significant), cell population counts, % CD4Th1 apoptosis",
+      "baseline": "Control simulations (normal DC antigen presentation) vs mutually exclusive peptide presentation experiments",
+      "result": "~90% DCs present single peptide type; mutually exclusive presentation: ~10% reduction in CD8Treg priming, ~5% reduction in CD4Th1 killing; A-Test=0.415 (not significant)"
+    },
+    {
+      "doi": "10.1186/1471-2105-9-s9-s4",
+      "problem": "Standard microarray normalization and analysis methods require many replicates and may miss biologically meaningful gene expression changes. An integrated approach is needed to analyze how the extracellular matrix modulates cancer cell phenotype.",
+      "method": "Noise-level normalization of microarrays, robust linear regression for global adjustment, hypervariable (HV) gene identification via global F-test, hierarchical and K-means clustering, pathway analysis (IPA), TRE analysis (PAINT), and experimental TF validation using Panomics arrays.",
+      "finding": "Over 2,000 HV genes were identified when papilloma cells were cultured on cancer-remodeled ECM. A subset of 'beacon genes' representing largest changes captured essential biology and predicted transcriptional regulatory networks that were confirmed experimentally.",
+      "dataset": "RT4 bladder transitional cell papilloma cells on plastic vs Matrigel (crECM); 22,464 long-oligo spotted arrays; 15,287 expressed genes; GEO GSE9291",
+      "metric": "standard deviations above noise (expression threshold), relative SD (HV threshold >3.8 SD, p<6.7×10⁻⁵), p-value for false positives",
+      "baseline": "Cells cultured on plastic (2 arrays) vs cells on cancer-remodeled ECM (9 arrays over time course)",
+      "result": "HV threshold >3.8 SD (p<6.7×10⁻⁵); beacon genes >5 SD (p<2.87×10⁻⁷); >2,000 genes of interest; predicted TRE patterns confirmed by Panomics TF arrays"
+    },
+    {
+      "doi": "10.1038/s41392-023-01644-9",
+      "problem": "Current neoantigen vaccine design focuses only on MHC-peptide binding affinity, ignoring other antigen presentation steps, leading to a gap between high prediction accuracy and low clinical effectiveness (~20% validated).",
+      "method": "Neo-intline integrates six in-silico steps simulating the full T-cell epitope presentation pathway: mutation expression filtering, proteasome cleavage prediction, TAP binding, MHC-I/II binding affinity, and TCR recognition scoring. Validated with TESLA benchmark and in vivo mouse melanoma experiments.",
+      "finding": "Neo-intline outperformed MuPeXi, Neopepsee, and pTuneos on melanoma samples. Both MHC-I and MHC-II predicted peptides recruited corresponding T cells in vivo, and combination with GM-CSF/poly(I:C) or PD-1 antibodies showed significant anticancer effects.",
+      "dataset": "7 clinical samples (3 melanoma, 3 GI, 1 BRCA); TESLA benchmark; IEDB validated peptides; B16F10 mouse melanoma model (C57BL/6)",
+      "metric": "Rank Coverage Score (RCS), Rank Score (RS), AUC-ROC for drug classification, CD4+/CD8+ T cell recruitment",
+      "baseline": "MuPeXi, Neopepsee, pTuneos (state-of-the-art neoantigen prediction pipelines)",
+      "result": "Neo-intline best in 5/7 samples; RS=0.43 (vs 0.45 pTuneos, 0.48 MuPeXi, 0.74 Neopepsee) for positive samples"
+    },
+    {
+      "doi": "10.1038/ncomms7683",
+      "problem": "Transcriptional reprogramming of proliferative melanoma cells into an invasive subpopulation drives metastasis, but the regulatory mechanisms and key transcription factors underlying this phenotypic switch are poorly understood.",
+      "method": "Integration of transcriptome (RNA-seq), open chromatin (FAIRE-seq), histone modification (ChIP-seq), and DNA methylation data from melanoma cultures and TCGA biopsies, with NMF clustering, GSEA, and regulatory motif analysis to identify master regulators.",
+      "finding": "Thousands of genomic regulatory regions distinguish proliferative (SOX10/MITF-driven) and invasive (AP-1/TEAD-driven) states. TEAD knockdown established a causal role in the invasive gene network and linked TEADs to cell invasion and MAPK inhibitor sensitivity.",
+      "dataset": "TCGA-SKCM (375 samples RNA-seq, 345 exome), two microarray compendia (135 and 263 melanoma samples), 11 melanoma cultures (FAIRE-seq, ChIP-seq, RNA-seq)",
+      "metric": "adjusted p-value (limma/DESeq2), GSEA enrichment, NMF clustering, Fisher's exact test, Kruskal-Wallis test, Bonferroni correction",
+      "baseline": "Hoek gene signatures (97 genes) for proliferative/invasive states; known melanocyte lineage markers (SOX10, MITF, PAX3)",
+      "result": "643 invasive + 772 proliferative signature genes; 3 NMF clusters in each compendium; no mutation enrichment between states; TEAD knockdown reduced invasion"
+    },
+    {
+      "doi": "10.3389/fphar.2021.598925",
+      "problem": "There is urgent need to identify therapeutic targets and repurpose existing drugs for treating severe COVID-19 patients, particularly by understanding the immune system's protein interactions with SARS-CoV-2.",
+      "method": "Immune system protein-protein interactome network construction (1,584 nodes, Cytoscape/STRING, confidence cutoff 0.9), single-cell RNA sequencing analysis of ACE2/TMPRSS2 co-expressing cells, and fully connected deep neural networks for multitask drug activity classification.",
+      "finding": "25 potential therapeutic targets were identified as significantly overexpressed in nasal goblet cells, lung type II pneumocytes, and ileal enterocytes. Deep neural networks predicted activity of 10,672 drugs, identifying approved drugs and investigational compounds for COVID-19 treatment.",
+      "dataset": "332 SARS-CoV-2-associated human proteins; 3,885 immune system proteins (IMGT, InnateDB, DAVID); scRNA-seq of human tissues; 10,672 drugs from ChEMBL",
+      "metric": "degree centrality, AUC-ROC (deep neural network classification), gene expression significance in scRNA-seq",
+      "baseline": "Gordon et al. SARS-CoV-2 protein interaction map; Overmyer et al. severe COVID-19 proteomics (146 proteins); Bouhaddou et al. phosphoproteomics (97 proteins)",
+      "result": "PPi network: 1,584 nodes, 332,968 edges; 25 overexpressed targets in ACE2+/TMPRSS2+ cells; degree centrality mean 44.5 (immune) vs 23.6 (SARS-CoV-2 associated)"
+    },
+    {
+      "doi": "10.3389/fmolb.2023.1124563",
+      "problem": "Non-small cell lung cancer (NSCLC) has low treatment success rates with conventional therapies, necessitating identification of new drug candidates targeting NSCLC-associated receptor molecules.",
+      "method": "DFT quantum chemical calculations (B3LYP/LANL2DZ) for molecular characterization of lochnericine, molecular docking (AutoDock Vina/PyRx) against EGFR, KRAS, Ntrk, ALK, and TRIM11, molecular dynamics simulation, ADME prediction, and MTT assay on A549 cells.",
+      "finding": "Lochnericine showed favorable binding affinity to NSCLC-associated target proteins, stable protein-ligand complexes in MD simulation, and demonstrated remarkable anti-proliferative and apoptotic activity against A549 lung cancer cells.",
+      "dataset": "A549 lung cancer cell line; NSCLC target proteins: EGFR (2ITY), KRAS (7LGI), Ntrk (7VKO), ALK (2XP2), TRIM11 (Q96F44)",
+      "metric": "binding affinity (kcal/mol), FMO band gap energy, RMSD (MD simulation), ADME parameters (Lipinski's rule), MTT cell viability",
+      "baseline": "Known co-crystallized ligands for each target protein; Lipinski's Rule of Five for drug-likeness",
+      "result": "Optimized energy 1,111.43 a.u.; lochnericine inhibits all five NSCLC targets; stable MD trajectory; anti-proliferative against A549 confirmed"
+    }
+  ],
+  "timestamp": "2026-03-05T14:28:52.224893",
+  "extraction_count": 10
+}

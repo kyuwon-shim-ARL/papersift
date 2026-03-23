@@ -1,0 +1,119 @@
+{
+  "batch_index": 12,
+  "dois": [
+    "10.1093/database/bau095",
+    "10.1096/fj.202200253r",
+    "10.1016/j.ajhg.2015.12.013",
+    "10.1371/journal.pcbi.0030169",
+    "10.1021/acssynbio.9b00448",
+    "10.1371/journal.pone.0114410",
+    "10.1186/scrt337",
+    "10.4103/jpi.jpi_24_19",
+    "10.1038/mto.2016.31",
+    "10.3390/s120201544"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1093/database/bau095",
+      "problem": "Researchers lack tools to organize, search, and retrieve large-scale whole-cell model simulation data for analysis.",
+      "method": "Developed WholeCellSimDB, a hybrid relational/HDF database architecture combining fast metadata search with efficient retrieval of large simulation result datasets, with a Web-based graphical interface.",
+      "finding": "The hybrid architecture enables researchers to quickly search metadata and retrieve large amounts of results data; the database stores simulations of M. genitalium whole-cell model and three E. coli models.",
+      "dataset": "M. genitalium whole-cell model, E. coli ODE central carbon metabolism model",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1096/fj.202200253r",
+      "problem": "Whole-cell modeling requires spatial constraints and structural data from imaging that cannot be obtained by computation alone.",
+      "method": "Soft X-ray Tomography (SXT) generates 3D reconstructions of cellular ultrastructure at ~25 nm resolution; combined with correlative fluorescence microscopy and cryoET for molecular-level detail.",
+      "finding": "SXT provides a foundational structural framework for whole-cell modeling by quantifying organelle landscapes, detecting biochemical composition changes, and enabling overlay of molecular information from correlative imaging.",
+      "dataset": "Whole cells imaged at mesoscopic scale (~25 nm)",
+      "metric": "Spatial resolution (~25 nm), linear absorption coefficient (LAC)",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.ajhg.2015.12.013",
+      "problem": "Comprehensive characterization of somatic structural variations (SVs) and their mutational mechanisms in esophageal squamous cell carcinoma (ESCC) is largely unclear.",
+      "method": "Re-analyzed whole-genome sequencing data from 31 ESCCs using Meerkat algorithm for somatic SV prediction and Patchwork for copy-number changes; validated with PCR (98% accuracy).",
+      "finding": "Deletions and translocations with NHEJ/alt-EJ signatures dominate; chromothripsis, kataegis, and BFB events occur in 55% of ESCCs leading to oncogene amplification (FGFR1, CCND1, EGFR, MYC); ~30% harbor BFB-derived CCND1 amplification; high frequency of whole-genome duplication and recurrent CDCA7 amplification identified.",
+      "dataset": "31 paired ESCC tumors and matched normal tissues (WGS, EGA)",
+      "metric": "SV count per genome, PCR validation rate",
+      "baseline": "",
+      "result": "Average 168 SVs/tumor (range 10-364), 98% PCR validation (48/49), 55% with chromothripsis/kataegis/BFB, ~30% with BFB-derived CCND1 amplification"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.0030169",
+      "problem": "Single-channel recording limitations discourage physiologists from determining ion channel kinetic mechanisms; existing methods analyze stimulation traces individually rather than simultaneously.",
+      "method": "Genetic search algorithm combined with gradient descent, using NEURON simulator on a 10-node parallel cluster, to fit whole-cell voltage-clamp data to Hodgkin-Huxley and Markov chain models via full-trace analysis of all stimulation protocols simultaneously.",
+      "finding": "The GA with adaptive Gaussian mutation range successfully fits ion channel kinetics from whole-cell recordings without requiring initial parameter guesses, reproducing voltage-gated sodium and potassium channel behavior from rat cortical pyramidal neurons.",
+      "dataset": "Layer 5 pyramidal neurons of rat cortex (nucleated outside-out patch configuration)",
+      "metric": "Cost function (sum of squared differences), parameter convergence",
+      "baseline": "Gradient descent algorithms, disjoint conventional single-trace analysis",
+      "result": "Successful convergence from random starting points within ~500 generations; adaptive Gaussian mutation proved more efficient than fixed ranges"
+    },
+    {
+      "doi": "10.1021/acssynbio.9b00448",
+      "problem": "Optimal gene expression levels for whole cell biosensor regulatory components are nonintuitive, and classical iterative approaches cannot efficiently explore multidimensional experimental space.",
+      "method": "Design of experiments (DoE) methodology with definitive screening design to systematically vary genetic regulatory elements (promoters, RBS) of PCA and ferulic acid biosensors in E. coli, building statistical models of component interactions.",
+      "finding": "DoE-guided optimization achieved up to 30-fold increase in maximum signal output, >500-fold dynamic range improvement, ~4-order sensing range expansion, and >1500-fold sensitivity increase; enabled both digital and analogue dose-response behavior.",
+      "dataset": "E. coli DH5α, BL21, BW25113 with PCA and ferulic acid biosensors",
+      "metric": "Dynamic range (ON/OFF ratio), sensitivity (EC50), signal output (fluorescence), sensing range",
+      "baseline": "Single-plasmid PAB biosensor (ON/OFF = 417)",
+      "result": "30-fold max signal increase, >500-fold dynamic range, ~4-order magnitude sensing range, >1500-fold sensitivity increase"
+    },
+    {
+      "doi": "10.1371/journal.pone.0114410",
+      "problem": "Multidrug resistant A. baumannii infections are increasing, and whole-cell vaccines contain high endotoxin levels from LPS that complicate human use.",
+      "method": "Developed LPS-deficient A. baumannii strain IB010 (462-nt lpxD deletion), formalin-inactivated, with Alhydrogel adjuvant; tested in C57BL/6 and BALB/c mouse disseminated infection models with cyclophosphamide-induced immunosuppression.",
+      "finding": "IB010 vaccination produced robust IgG1/IgG2c antibody responses, significantly reduced post-infection tissue bacterial loads and pro-inflammatory cytokines (IL-1β, TNF-α, IL-6), and protected mice against both ATCC 19606 and a clinical isolate.",
+      "dataset": "C57BL/6 and BALB/c mice, A. baumannii ATCC 19606 and clinical isolate Ab-154",
+      "metric": "Endotoxin units (EU), bacterial CFU/organ, serum cytokine levels, antibody titers (ELISA)",
+      "baseline": "PBS + adjuvant control, wild-type ATCC 19606 whole cells (LPS-containing)",
+      "result": "Endotoxin <1.0 EU/10^6 cells (vs wild-type), significantly lower tissue bacterial loads (P<0.05), significantly lower IL-1β/TNF-α/IL-6 (P<0.05)"
+    },
+    {
+      "doi": "10.1186/scrt337",
+      "problem": "Non-invasive assessment of mesenchymal stem cell integration and bio-distribution is needed to evaluate cell therapy for rheumatoid arthritis and enable clinical translation.",
+      "method": "SPION (SiMAG)-labelled murine MSCs tracked via MRI in a collagen-induced arthritis mouse model; in vitro and in vivo detection thresholds established with varying particle concentrations (0-10 μg/ml) and cell doses (10³-5×10⁵).",
+      "finding": "SiMAG labelling did not affect cell viability, proliferation, or differentiation; labelled MSCs were trackable in the synovial joint up to 7 days by MRI; SiMAG-labelled and unlabelled MSCs both significantly reduced joint swelling.",
+      "dataset": "BALB/c and C57Bl/6 mice, collagen-induced arthritis model, 300,000 mMSCs",
+      "metric": "T2eff (MRI), joint swelling measurement, Prussian blue staining",
+      "baseline": "Unlabelled MSCs, PBS control",
+      "result": "In vitro threshold: 1 μg/ml (300K cells) or 100K cells (5-10 μg/ml); significant joint swelling decrease (P<0.01); in vivo tracking up to 7 days"
+    },
+    {
+      "doi": "10.4103/jpi.jpi_24_19",
+      "problem": "PD-L1 immunohistochemistry is needed to guide PD-1/PD-L1 inhibitor therapy in NSCLC, but the association between PD-L1 status and tumor histopathological patterns is poorly understood.",
+      "method": "Multi-field-of-view deep learning model with residual neural network backbone trained on >145,000 tiles from H&E whole-slide images (48 training, 82 test NSCLC patients) to predict PD-L1 status.",
+      "finding": "The model accurately predicted tumor PD-L1 status from H&E images, remaining robust across PD-L1 cutoff thresholds and simulated interpathologist disagreement, suggesting PD-L1 expression correlates with morphological features of the tumor microenvironment.",
+      "dataset": "130 NSCLC patients (48 train, 82 test), paired H&E and PD-L1 immunostained WSIs",
+      "metric": "AUC-ROC, P-value",
+      "baseline": "Random label shuffling (simulated interpathologist disagreement)",
+      "result": "AUC=0.80 (P<<0.01), AUC=0.67-0.81 across cutoff thresholds, AUC=0.63-0.77 with label shuffling"
+    },
+    {
+      "doi": "10.1038/mto.2016.31",
+      "problem": "Cancer vaccine application is limited because few cancer-associated antigens are known to induce tumor rejection, especially in cancers lacking specific antigens.",
+      "method": "Ex vivo infection of murine CRC cells (CT26, CMT93) with Ad881 oncolytic adenovirus (E1 driven by midkine promoter) to induce immunogenic cell death; formalin-free whole cell vaccination in BALB/c mouse colorectal cancer model.",
+      "finding": "Repeated vaccination with Ad881-infected cells induced prophylactic immunity with 38% tumor rejection; Ad881 induced significantly higher immunogenic cell death markers (HMGB1 and ATP) compared to replication-defective Ad884 or oxaliplatin.",
+      "dataset": "BALB/c mice, CT26 and CMT93 murine CRC cell lines, DLD-1 human CRC cells",
+      "metric": "Tumor rejection rate, HMGB1 (ng/ml), ATP (nmol/l), cell viability (Alamar blue)",
+      "baseline": "Replication-defective Ad884, oxaliplatin treatment, no vaccination",
+      "result": "Tumor rejection: 0% (no vax), 4% (single), 38% (repeated); HMGB1: 24.3 vs 8.6 (Ad884) vs 3.7 (oxaliplatin) ng/ml; ATP: 48.2 vs 15.4 vs 1.8 nmol/l"
+    },
+    {
+      "doi": "10.3390/s120201544",
+      "problem": "Understanding the utility and limitations of genetically engineered whole-cell bioreporters for environmental monitoring of bioremediation and pollution.",
+      "method": "Review of P. fluorescens HK44, a bioluminescent (luxCDABE) bioreporter with naphthalene-responsive catabolic pathway, applied across solids, liquids, and volatile environments; genome recently sequenced.",
+      "finding": "HK44 serves as a model bioreporter for PAH detection in environmental matrices, complementing standard analytical methods through speed, cost, and bioavailability assessment; regulatory restrictions and single-chemical focus limit real-world applications.",
+      "dataset": "P. fluorescens HK44 in soils, sands, water, wastewater, air matrices",
+      "metric": "Bioluminescence emission (luxCDABE), detection limits, response time",
+      "baseline": "Standard chemical analytical methods",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-05T14:12:31.262685",
+  "extraction_count": 10
+}

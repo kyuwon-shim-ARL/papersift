@@ -1,0 +1,344 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1002/jat.4202
+Title: Characterization of toxicological effects of complex nano‐sized metal particles using <i>in vitro</i> human cell and whole blood model systems
+Year: 2021
+Abstract: Abstract Metal oxide fumes form at high temperatures, for instance, during welding or firing ammunition. Inhalation exposure to high levels of airborne metal oxide particles can cause metal fume fever, cardiovascular effects, and lung damage in humans, but the associated underlying pathological mechanisms are still not fully understood. Using human alveolar epithelial cells, vascular endothelial cells, and whole blood model systems, we aimed to elucidate the short‐term effects of well‐characterized metal particles emitted while firing pistol ammunition. Human lung epithelial cells exposed to gunshot smoke particles (0.1–50 μg/ml) produced reactive oxygen species (ROS) and pro‐inflammatory cytokines (interleukin 8 (IL‐8), granulocyte‐macrophage colony‐stimulating factor (GM‐CSF)) that activate and recruit immune cells. Particles comprising high copper (Cu) and zinc (Zn) content activated human endothelial cells via a non‐ROS‐mediated mechanism that triggered immune activation (IL‐8, GM‐CSF), leukocyte adhesion to the endothelium (soluble intercellular adhesion molecule 1 (sICAM‐1)), and secretion of regulators of the acute‐phase protein synthesis (interleukin 6 (IL‐6)). In human whole blood, metal oxides in gunshot smoke demonstrated intrinsic properties that activated platelets (release of soluble cluster of differentiation 40 ligand (sCD40L), platelet‐derived growth factor B‐chain homodimer(PDGF‐BB), and vascular endothelial growth factor A (VEGF‐A)) and blood coagulation and induced concomitant release of pro‐inflammatory cytokines from blood leukocytes that further orchestrate thrombogenesis. The model systems applied provide useful tools for health risk assessment of particle exposures, but more studies are needed to further elucidate the mechanisms of metal fume fever and to evaluate the potential risk of long‐term cardiovascular diseases.
+---
+
+---
+DOI: 10.2760/715415
+Title: Application of the Virtual Cell Based Assay for Simulation of in vitro Chemical fate following Acute Exposure
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.toxlet.2016.07.410
+Title: Modeling carcinoma reversion using virtual cell
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/s11164-024-05473-5
+Title: Exploring Schiff base ligand and their transition metal complexes: synthesis, characterization, antimicrobial, ADME and computational insight as cholesterol lowering agents and anticancer activity on HeLa cells
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.cmpb.2024.108046
+Title: A simple agent-based hybrid model to simulate the biophysics of glioblastoma multiforme cells and the concomitant evolution of the oxygen field
+Year: 2024
+Abstract: In the collective migration, the survival of the clusters prevails at the expense of cell mitosis, regardless of the size of the groups, which delays the formation of necrotic foci and reduces the rate of oxygen consumption.
+---
+
+---
+DOI: 10.1007/978-3-319-50257-1_66-1
+Title: Multiscale Modeling of Malaria-Infected Red Blood Cells
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.ijhydene.2022.04.178
+Title: Simulation and modeling of copper-chlorine cycle, molten carbonate fuel cell alongside a heat recovery system named regenerative steam cycle and electric heater with the incorporation of PID controller in MATLAB/SIMULINK
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.apenergy.2022.119324
+Title: A generalized whole-cell model for wastewater-fed microbial fuel cells
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1089/aivt.2016.29004.rtl
+Title: The Importance of <i>In Vitro</i> Liver Models: Experts Discuss Whole-Cell Systems, Transporter Function, and the Best Models for Future <i>In Vitro</i> Testing
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/978-1-0716-0822-7_14
+Title: Minimal Genome Design Algorithms Using Whole-Cell Models
+Year: 2020
+Abstract: Synthetic biologists engineer cells and cellular functions using design-build-test cycles; when the task is to extensively engineer entire genomes, the lack of appropriate design tools and biological knowledge about each gene in a cell can lengthen the process, requiring time-consuming and expensive experimental iterations.Whole-cell models represent a new avenue for genome design; the bacteria Mycoplasma genitalium has the first (and currently only published) whole-cell model which combines 28 cellular submodels and represents the integrated functions of every gene and molecule in a cell.We created two minimal genome design algorithms, GAMA and Minesweeper, that produced 1000s of in silico minimal genomes by running simulations on multiple supercomputers. Here we describe the steps to produce in silico cells with reduced genomes, combining minimisation algorithms with whole-cell model simulations.We foresee that the combination of similar algorithms and whole-cell models could later be used for a broad spectrum of genome design applications across cellular species when appropriate models become available.
+---
+
+---
+DOI: 10.1504/ijbex.2022.122750
+Title: Fuzzy c-means clustering approach for virtual cell formation
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/access.2021.3091855
+Title: Flexible Virtual Cell Design for Ultradense Networks: A Machine Learning Approach
+Year: 2021
+Abstract: With the ever-growing demand for even higher throughput, ultradense networks (UDNs) are being deployed for the fifth generation (5G) mobile communications. Although massively distributed radio access points (APs) result in a considerable increase in throughput, they also cause some critical problems. When employing a wireless backhaul, the backhaul capacity becomes a limiting factor, which may result in a high packet loss rate. Furthermore, dense deployment of APs leads to more frequent handoffs for mobile user equipments, which results in heavy measurement and signaling overhead. To address the problem of frequent handoffs, virtual cell (VC) has been considered as a promising solution. However, the limited wireless backhaul capacity encountered by inflexible VC design may still result in an intolerable packet loss rate. For a better trade-off between the packet loss rate and the handoff overhead, a machine learning approach for flexible VC design is proposed that leverages particle swarm optimization (PSO) to quickly find the optimal VC solution. To be responsive to the dynamic traffic demand and backhaul capacity of APs, a new parameter called &#x201C;weighted distance&#x201D; is employed in the modified K-means algorithm, which is nested in the PSO procedures for master AP selection and VC boundary determination. Compared with an exhaustive search, optimal VC solutions can be found efficiently through considerably fewer iterations. The proposed method is generic and applicable to disparate UDN application scenarios.
+---
+
+---
+DOI: 10.1101/2025.02.07.637070
+Title: A perturbation proteomics-based foundation model for virtual cell construction
+Year: 2025
+Abstract: Abstract Building a virtual cell requires comprehensive understanding of protein network dynamics of a cell which necessitates large-scale perturbation proteome data and intelligent computational models learned from the proteome data corpus. Here, we generate a large-scale dataset of over 38 million perturbed protein measurements in breast cancer cell lines and develop a neural ordinary differential equation-based foundation model, namely ProteinTalks. During pretraining, ProteinTalks gains a fundamental understanding of cellular protein network dynamics. Our model encodes protein networks and exhibits consistently improved predictive accuracy across various downstream tasks, highlighting its generalization capabilities and adaptability. In cancer cells, ProteinTalks robustly predicts drug efficacy and synergy, identifies novel drug combinations, and, through its interpretability, uncovers resistance-associated proteins. When applied to more complex system, patient-derived tumor xenografts, ProteinTalks predicts potential responses to drugs. Its integration with clinical patient data enhances the prognosis prediction of breast cancer patients. Collectively, we present a foundational model based on proteome dynamics, offering potential for various downstream applications, including drug discovery, and providing a basis for developing virtual cells.
+---
+
+---
+DOI: 10.1016/j.jcp.2022.111499
+Title: Immersed boundary simulations of cell-cell interactions in whole blood
+Year: 2022
+Abstract: We present a new method for the geometric reconstruction of elastic surfaces simulated by the immersed boundary method with the goal of simulating the motion and interactions of cells in whole blood. Our method uses parameter-free radial basis functions for high-order meshless parametric reconstruction of point clouds and the elastic force computations required by the immersed boundary method. This numerical framework allows us to consider the e ﬀ ect of endothelial geometry and red blood cell motion on the motion of platelets. We ﬁnd red blood cells to be crucial for understanding the motion of platelets, to the point that the geometry of the vessel wall has a negligible e ﬀ ect in the presence of RBCs. We describe certain interactions that force the platelets to remain near the endothelium for extended periods, including a novel platelet motion that can be seen only in 3-dimensional simulations that we term “unicycling.” We also observe red blood cell-mediated interactions between platelets and the endothelium for which the platelet has reduced speed. We suggest that these behaviors serve as mechanisms that allow platelets to better maintain vascular integrity.
+---
+
+---
+DOI: 10.1016/j.compbiomed.2019.02.020
+Title: Application of agent-based modelling to assess single-molecule transport across the cell envelope of E. coli
+Year: 2019
+Abstract: This work presented a novel agent-based model to study the effect of the initial concentration of low molecular weight molecules on cellular noise. Cellular noise during molecule diffusion was found to be concentration-dependent and size-independent. The new model holds considerable potential for future, more complex analyses, when emerging experimental data may enable modelling of membrane transport mechanisms.
+---
+
+---
+DOI: 10.1016/b978-0-444-64241-7.50237-8
+Title: High Performance Agent-Based Modeling to Simulate Mammalian Cell Culture Bioreactor
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/jlb.6mr1218-505r
+Title: Data analysis to modeling to building theory in NK cell biology and beyond: How can computational modeling contribute?
+Year: 2019
+Abstract: Abstract The use of mathematical and computational tools in investigating Natural Killer (NK) cell biology and in general the immune system has increased steadily in the last few decades. However, unlike the physical sciences, there is a persistent ambivalence, which however is increasingly diminishing, in the biology community toward appreciating the utility of quantitative tools in addressing questions of biological importance. We survey some of the recent developments in the application of quantitative approaches for investigating different problems in NK cell biology and evaluate opportunities and challenges of using quantitative methods in providing biological insights in NK cell biology.
+---
+
+---
+DOI: 10.1101/136648
+Title: ELEMENT-FREE MULTISCALE MODELING OF LARGE DEFORMATION BEHAVIOR OF RED BLOOD CELL MEMBRANE WITH MALARIA INFECTION
+Year: 2017
+Abstract: SUMMARY In normal physiological and healthy conditions, red blood cells (RBCs) deform readily as they pass through the microcapillaries and the spleen. In this paper, we examine the effects of Plasmodium falciparum infection and maturation on the large deformation behavior of malaria-infected red blood cells (iRBCs) by means of a three-dimensional (3D) multiscale meshfree method. We numerically simulated the optical tweezers experiment and observed the force-displacement response of the iRBC membrane as malaria infection progresses. Our simulation results agree well with experimental data and confirm that the deformability of malaria-infected cells decreases significantly as malaria infection progresses.
+---
+
+---
+DOI: 10.1007/s11120-024-01124-3
+Title: Elucidating light-induced changes in excitation energy transfer of photosystem I and II in whole cells of two model cyanobacteria
+Year: 2024
+Abstract: Excitation energy transfer between the photochemically active protein complexes is key for photosynthetic processes. Phototrophic organisms like cyanobacteria experience subtle changes in irradiance under natural conditions. Such changes need adjustments to the excitation energy transfer between the photosystems for sustainable growth. Spectroscopic assessments on purified photosystems usually fail to capture these subtle changes. In this study, we examined whole cells from two model cyanobacteria, Synechocystis sp. PCC 6803 and Synechococcus elongatus UTEX 2973, grown under high and low light conditions to decode the high light tolerance of the latter. This allowed us to study photosynthetic machinery in the native state and in this work we particularly focused on the excitation energy transfer within PSII and PSI manifold. Understanding the high-light tolerance mechanism is imperative as it can help design strategies for increasing the light tolerance of cyanobacteria used for carbon neutral bioproduction. Our observations suggest that Synechococcus 2973 employs an uncommon photoprotection strategy, and the absence of hydroxy-echinenone pigment in this strain opens the possibility of an orange carotenoid protein homolog utilizing zeaxanthin as a scavenger of reactive oxygen species to provide photoprotection. Furthermore, the adjustments to the high-light adaptation mechanism involve downregulating the phycobilisome antenna in Synechococcus 2973, but not in Synechocystis 6803. Additionally, the stoichiometric changes to PSII/PSI are more tightly regulated in Synechococcus 2973.
+---
+
+---
+DOI: 10.1111/dgd.12897
+Title: Technologies for whole‐cell modeling: Genome‐wide reconstruction of a cell in silico
+Year: 2023
+Abstract: Abstract With advances in high‐throughput, large‐scale in vivo measurement and genome modification techniques at the single‐nucleotide level, there is an increasing demand for the development of new technologies for the flexible design and control of cellular systems. Computer‐aided design is a powerful tool to design new cells. Whole‐cell modeling aims to integrate various cellular subsystems, determine their interactions and cooperative mechanisms, and predict comprehensive cellular behaviors by computational simulations on a genome‐wide scale. It has been applied to prokaryotes, yeasts, and higher eukaryotic cells, and utilized in a wide range of applications, including production of valuable substances, drug discovery, and controlled differentiation. Whole‐cell modeling, consisting of several thousand elements with diverse scales and properties, requires innovative model construction, simulation, and analysis techniques. Furthermore, whole‐cell modeling has been extended to multiple scales, including high‐resolution modeling at the single‐nucleotide and single‐amino acid levels and multicellular modeling of tissues and organs. This review presents an overview of the current state of whole‐cell modeling, discusses the novel computational and experimental technologies driving it, and introduces further developments toward multihierarchical modeling on a whole‐genome scale.
+---
+
+---
+DOI: 10.1016/j.jtbi.2020.110459
+Title: Deterministic modeling of single-channel and whole-cell currents
+Year: 2020
+Abstract: As a complement to the experimental work, mathematical models are extensively used to study the functional properties of ionic channels. Even though it is generally assumed that the gating of ionic channels is a Markovian phenomenon, reports based on non-traditional analyses of experimental recordings suggest that non-Markovian processes might be also present. While the stochastic Markov models are by far the most adopted approach for the modeling of ionic channels, a model based on the idea of a deterministic process underlying the gating of ionic channels was proposed by Liebovitch and Toth (Liebovitch, L.S. and Toth, T.I., 1991. Journal of Theoretical Biology, 148(2), pp.243-267.) Here, by using a voltage-dependent K+ channel as a first approximation, we propose a modified version of the deterministic model of Liebovitch and Toth that, in addition to reproducing the single-channel currents simulated by a two-states Markov model, it is capable of reproducing the whole-cell currents produced by a population of K+ channels.
+---
+
+---
+DOI: 10.1299/jbse.16-00670
+Title: The opposite mechano-response of paxillin phosphorylation between subcellular and whole-cell levels is explained by a minimal model of cell-substrate adhesions
+Year: 2017
+Abstract: Cell-substrate adhesions are a mechanosensitive protein complex that regulates various cellular functions. Molecular mechanisms underlying the physical force-dependent regulation remain elusive partly because endogenous forces are distributed in a spatially heterogeneous manner within cells, thus complicating the interpretation on the effect of forces. Here we use a micropatterning technique to focus spatially distributed intracellular contractile forces onto a particular subcellular area, with which mechanical and pharmacological effects are separately analyzed. Single human osteosarcoma U2OS cells were plated within square micropatterns, and phosphorylation of an adhesion-associated adaptor protein paxillin was analyzed. Paxillin, visualized with immunostaining, was highly accumulated in the proximity of the corners of the square micropatterns where cellular forces are concentrated, but the huge paxillin-labeled adhesions were less phosphorylated compared to those present elsewhere as a small patch. Pharmacological inhibition of the endogenous forces resulted in disassembly of the huge dephoshorylated paxillin clusters; in contrast, the small, highly phosphorylated paxillin patches persisted. Similar negative regulation of paxillin phosphorylation is also induced upon loading of exogenous forces. Unexpectedly, on the other hand, immunoblot of cell lysates showed a tendency of a reduction in paxillin phosphorylation upon the same pharmacological inhibition of the endogenous forces. Thus, the response of paxillin phosphorylation to mechanical forces was the opposite between the immunostaining and immunoblot data; i.e., the phosphorylation is reduced and enhanced at subcellular level and whole-cell level, respectively, in response to loading of mechanical forces. To reconcile the contradictory results, we submit a simple model that is consistent with not only the present but also previous reports on the regulation of paxillin. The model implies that similar opposite response can generally emerge if the protein activation is negatively regulated at a local place while the activation trigger alters the assembly of the protein to the local place.
+---
+
+---
+DOI: 10.1007/s40430-023-04363-y
+Title: Slow motion of couple stress fluid past a solid sphere in a virtual cell: slip effect
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1177/02611929221082200
+Title: Extension of the Virtual Cell Based Assay from a 2-D to a 3-D Cell Culture Model
+Year: 2022
+Abstract: Prediction of chemical toxicity is very useful in risk assessment. With the current paradigm shift towards the use of in vitro and in silico systems, we present herein a theoretical mathematical description of a quasi-diffusion process to predict chemical concentrations in 3-D spheroid cell cultures. By extending a 2-D Virtual Cell Based Assay (VCBA) model into a 3-D spheroid cell model, we assume that cells are arranged in a series of concentric layers within the sphere. We formulate the chemical quasi-diffusion process by simplifying the spheroid with respect to the number of cells in each layer. The system was calibrated and tested with acetaminophen (APAP). Simulated predictions of APAP toxicity were compared with empirical data from in vitro measurements by using a 3-D spheroid model. The results of this first attempt to extend the VCBA model are promising — they show that the VCBA model simulates close correlation between the influence of compound concentration and the viability of the HepaRG 3-D cell culture. The 3-D VCBA model provides a complement to current in vitro procedures to refine experimental setups, to fill data gaps and help in the interpretation of in vitro data for the purposes of risk assessment.
+---
+
+---
+DOI: 10.1504/ijise.2018.10009807
+Title: A flexible clustering approach for virtual cell formation considering real-life production factors using Kohonen self-organising map
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.procs.2020.03.058
+Title: Extended Urban Cell Transmission Model Using Agent-based Modeling
+Year: 2020
+Abstract: In this study, we propose an extended Urban Cell Transmission Model (UCTM) that uses the agent concept to handle complex traffic behavior such as signalized intersections in urban arterial traffic. In particular, the proposed model accounts for the turning and traffic signal modeling in intersections, and the lane-changing behavior. The proposed model replicates the periodical queue generation and dissipation caused by the traffic signal at the intersection. For a realistic lane-changing behavior, we define two types of lane-changing depending whether to follow the route or to obtain additional benefits from the travel time. The model is validated with the NGSIM arterial dataset and the results show that the performance of the proposed model replicates the overall urban traffic phenomena adequately.
+---
+
+---
+DOI: 10.3390/pr6090141
+Title: Agent-Based Modeling of Immune Response to Study the Effects of Regulatory T Cells in Type 1 Diabetes
+Year: 2018
+Abstract: Regulatory T cells (Tregs) have an important role in self-tolerance. Understanding the functions of Tregs is important for preventing or slowing the progress of Type 1 Diabetes. We use a two-dimensional (2D) agent-based model to simulate immune response in mice and test the effects of Tregs in tissue protection. We compared the immune response with and without Tregs, and also tested the effects of Tregs from different sources or with different functions. The results show that Tregs can inhibit the proliferation of effector T cells by inhibiting antigens presenting via dendritic cells (DCs). Although the number and function of Tregs affect the inhibition, a small number of Tregs compared to CD4+ T cells can effectively protect islets in pancreatic tissue. Finally, we added Tregs to the system in the middle phase of the immune response. The simulation results show that Tregs can inhibit the production of effector CD8+ T cells and maintain a good environment for β cell regeneration.
+---
+
+---
+DOI: 10.1080/10255842.2020.1815326
+Title: Agent-based modelling of the smooth muscle cells migration induced by mechanical vibration: a preliminary study
+Year: 2020
+Abstract: International audience
+---
+
+---
+DOI: 10.48550/arxiv.2102.05531
+Title: Quantifying the relative contribution of free virus and cell-to-cell\n transmission routes to the propagation of hepatitis C virus infections in\n vitro using an agent-based model
+Year: 2021
+Abstract: Experiments have shown that hepatitis C virus (HCV) infections in vitro disseminate both distally via the release and diffusion of cell-free virus through the medium, and locally via direct, cell-to-cell transmission. To determine the relative contribution of each mode of infection to HCV dissemination, we developed an agent-based model (ABM) that explicitly incorporates both distal and local modes of infection. The ABM tracks the concentration of extracellular infectious virus in the supernatant and the number of intracellular HCV RNA segments within each infected cell over the course of simulated in vitro HCV infections. Experimental data for in vitro HCV infections conducted in the presence and absence of free-virus neutralizing antibodies was used to validate the ABM and constrain the value of its parameters. We found that direct, cell-to-cell infection accounts for 99% (84%$-$100%, 95% credible interval) of infection events, making it the dominant mode of HCV dissemination in vitro. Yet, when infection via the free-virus route is blocked, a 57% reduction in the number of infection events at 72 hpi is observed experimentally; a result consistent with that found by our ABM. Taken together, these findings suggest that while HCV spread via cell-free virus contributes little to the total number of infection events in vitro, it plays a critical role in enhancing cell-to-cell HCV dissemination by providing access to distant, uninfected areas, away from the already established large infection foci.
+---
+
+---
+DOI: 10.1093/micmic/ozad067.600
+Title: The Role of Soft X-ray Tomography in Generating Whole-cell Models
+Year: 2023
+Abstract: Journal Article The Role of Soft X-ray Tomography in Generating Whole-cell Models Get access Valentina Loconte, Valentina Loconte Department of Anatomy, University of California San Francisco, San Francisco, California, USAMolecular Biophysics and Integrated Bioimaging Division, Lawrence Berkeley National Laboratory, Berkeley, California, USANational Center for X-ray Tomography, Advanced Light Source, Berkeley, California, USA Search for other works by this author on: Oxford Academic Google Scholar Jian-Hua Chen, Jian-Hua Chen Department of Anatomy, University of California San Francisco, San Francisco, California, USAMolecular Biophysics and Integrated Bioimaging Division, Lawrence Berkeley National Laboratory, Berkeley, California, USANational Center for X-ray Tomography, Advanced Light Source, Berkeley, California, USA Search for other works by this author on: Oxford Academic Google Scholar Bieke Vanslembrouck, Bieke Vanslembrouck Department of Anatomy, University of California San Francisco, San Francisco, California, USAMolecular Biophysics and Integrated Bioimaging Division, Lawrence Berkeley National Laboratory, Berkeley, California, USANational Center for X-ray Tomography, Advanced Light Source, Berkeley, California, USA Search for other works by this author on: Oxford Academic Google Scholar Axel A Ekman, Axel A Ekman National Center for X-ray Tomography, Advanced Light Source, Berkeley, California, USA Search for other works by this author on: Oxford Academic Google Scholar Gerry McDermott, Gerry McDermott Department of Anatomy, University of California San Francisco, San Francisco, California, USAMolecular Biophysics and Integrated Bioimaging Division, Lawrence Berkeley National Laboratory, Berkeley, California, USANational Center for X-ray Tomography, Advanced Light Source, Berkeley, California, USA Search for other works by this author on: Oxford Academic Google Scholar Mark A Le Gros, Mark A Le Gros Department of Anatomy, University of California San Francisco, San Francisco, California, USAMolecular Biophysics and Integrated Bioimaging Division, Lawrence Berkeley National Laboratory, Berkeley, California, USANational Center for X-ray Tomography, Advanced Light Source, Berkeley, California, USA Search for other works by this author on: Oxford Academic Google Scholar Carolyn A Larabell Carolyn A Larabell Department of Anatomy, University of California San Francisco, San Francisco, California, USAMolecular Biophysics and Integrated Bioimaging Division, Lawrence Berkeley National Laboratory, Berkeley, California, USANational Center for X-ray Tomography, Advanced Light Source, Berkeley, California, USA Corresponding author: carolyn.larabell@ucsf.edu Search for other works by this author on: Oxford Academic Google Scholar Microscopy and Microanalysis, Volume 29, Issue Supplement_1, 1 August 2023, Page 1170, https://doi.org/10.1093/micmic/ozad067.600 Published: 22 July 2023
+---
+
+---
+DOI: 10.1001/jamapediatrics.2016.2603
+Title: Modeling the Effects of Priming With the Whole-Cell Bordetella Pertussis Vaccine
+Year: 2016
+Abstract: Our website uses cookies to enhance your experience. By continuing to use our site, or clicking "Continue," you are agreeing to our Cookie Policy | Continue JAMA Pediatrics HomeNew OnlineCurrent IssueFor Authors Podcast Publications JAMA JAMA Network Open JAMA Cardiology JAMA Dermatology JAMA Health Forum JAMA Internal Medicine JAMA Neurology JAMA Oncology JAMA Ophthalmology JAMA Otolaryngology–Head & Neck Surgery JAMA Pediatrics JAMA Psychiatry JAMA Surgery Archives of Neurology & Psychiatry (1919-1959) JN Learning / CMESubscribeJobsInstitutions / LibrariansReprints & Permissions Terms of Use | Privacy Policy | Accessibility Statement 2023 American Medical Association. All Rights Reserved Search All JAMA JAMA Network Open JAMA Cardiology JAMA Dermatology JAMA Forum Archive JAMA Health Forum JAMA Internal Medicine JAMA Neurology JAMA Oncology JAMA Ophthalmology JAMA Otolaryngology–Head & Neck Surgery JAMA Pediatrics JAMA Psychiatry JAMA Surgery Archives of Neurology & Psychiatry Input Search Term Sign In Individual Sign In Sign inCreate an Account Access through your institution Sign In Purchase Options: Buy this article Rent this article Subscribe to the JAMA Pediatrics journal
+---
+
+---
+DOI: 10.1063/1.4968706
+Title: Simulation step size analysis of a whole-cell computational model of bacteria
+Year: 2016
+Abstract: Understanding how complex phenotypes arise from individual molecules and their interactions is a major challenge in biology and, to meet this challenge, computational approaches are increasingly employed. As an example, a recent paper [1] proposed a whole-cell model Mycoplasma genitalium including all cell components and their interactions. 28 modules representing several cell functions were modeled independently, and then integrated into a single computational model. One assumption considered in the whole-cell model of M.Genitalium is that all 28 modules can be modeled independently given the 1 second step size used in simulations. This is a major assumption, since it simplifies the modeling of several cell functions and makes the modeling of the system as a whole feasible. In this paper we investigate the dependency of experimental results on that assumption. We have simulated the M.Genitalium cell cycle using several simulation time step sizes and compared the results to the ones obtained with the system using 1 second simulation time step.
+---
+
+---
+DOI: 10.4172/2155-6210.1000250
+Title: Mathematical Model for Laboratory System of Bioluminescent Whole-Cell Biosensor with Optical Element
+Year: 2018
+Abstract: The fiber-optic biosensor with encapsuled bioreporters use a special optical element (OE) from pure silica with an active layer contents bioluminescent bioreporters was developed as a real in-situ detector for on-line measurement in remote localities. The active layer of biosensor contents bioluminescent bioreporters – genetic modified cells, which are sensitive to its surrounding environment-immobilized in silica matrix on the end of OE. Bioreporters are able to react by emission of visible light (≈500 nm) – bioluminiscence reaction (BL) – in presence of specific analyte.
+The genetic modified bacterial stain Pseudomonas putida TVA8 was chosen as biorecognition part of biosensor producing BL in the presence of benzene, toluene, ethylbenzene and xylens (BTEX). Very low level of BL signal was detected by high-sensitive photon-counter. The sensitivity of biosensor depends on a value of detected BL and it can be very low. The signal is also affected by number of cells (light sources) immobilized into the active layer and transmission through OE. Mathematical model of OE shape was developed based on geometric optics. The numerical model is built around the MATLAB scripting language. Simulation of ray transmission was calculated for OE with different shape.
+---
+
+---
+DOI: 10.1145/3459930.3471161
+Title: Towards dynamic simulation of a whole cell model
+Year: 2021
+Abstract: Whole-cell models (WCMs) aim to integrate the sum of our knowledge about the mechanistic processes of an organism that are inherently multi-scale and dynamic. Such comprehensive models would enable us to address many challenging questions, such as understanding interactions and coupling between pathways, examining system properties, and identifying gaps in our biological knowledge. WCMs integrate a diverse array of intracellular pathways through an equally diverse assortment of computational methods. Among these methods, stochastic simulation helps implement the most detailed model. However, it is also the most time consuming to execute. Furthermore, WCMs involve some of the largest known biochemical reaction networks. To speed up the simulation and accelerate the development of such a model, we present a parallel implementation of stochastic simulation algorithm (SSA) and its application to a whole cell reaction network.
+---
+
+---
+DOI: 10.1016/j.est.2023.108396
+Title: Development of a cell design environment for bottom-up estimation of performance parameters for lithium-ion batteries and virtual cell design – ISEA Cell &amp; Pack Database (ICPD)
+Year: 2023
+Abstract: As research in lithium-ion batteries covers multiple scales from materials development to system design, implications of improvements in material characteristics on battery cell performance are often hard to quantify. However, assessing the influence of changes within the material level on key cell characteristics is crucial for accelerated battery development and enables optimized tailor-made cell and material designs for specific battery applications. Within this publication, the authors present a battery cell design model calculating cell performance parameters solely based on design parameters and material characteristics to bridge the gap between material and cell performance. This model includes key aspects of the cell design in a bottom-up functional database structure stretching from material level to cell level and automatically calculating fundamental cell characteristics. It can be applied for both storage of cell characterization data of existing battery cells and virtually cell design for any cell chemistry. The model is validated on two different battery cells and provides accurate estimations for the cells' weight, capacity and energy density.
+---
+
+---
+DOI: 10.1038/d41586-025-02011-0
+Title: Can AI build a virtual cell? Scientists race to model life’s smallest unit
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1063/5.0063717
+Title: Virtual cell model for osmotic pressure calculation of charged biomolecules
+Year: 2021
+Abstract: The osmotic pressure of dilute electrolyte solutions containing charged macro-ions as well as counterions can be computed directly from the particle distribution via the well-known cell model. Originally derived within the Poisson–Boltzmann mean-field approximation, the cell model considers a single macro-ion centered into a cell, together with counterions needed to neutralize the total cell charge, while it neglects the phenomena due to macro-ion correlations. While extensively applied in coarse-grained Monte Carlo (MC) simulations of continuum solvent systems, the cell model, in its original formulation, neglects the macro-ion shape anisotropy and details of the surface charge distribution. In this paper, by comparing one-body and two-body coarse-grained MC simulations, we first establish an upper limit for the assumption of neglecting correlations between macro-ions, and second, we validate the approximation of using a non-spherical macro-ion. Next, we extend the cell model to all-atom molecular dynamics simulations and show that protein concentration-dependent osmotic pressures can be obtained by confining counterions in a virtual, spherical subspace defining the protein number density. Finally, we show the possibility of using specific interaction parameters for the protein–ion and ion–ion interactions, enabling studies of protein concentration-dependent ion-specific effects using merely a single protein molecule.
+---
+
+---
+DOI: 10.1007/978-3-031-09327-2_7
+Title: Morphological Variation in an Endothelial Cell Population: A Virtual-Cell Model
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1101/2025.02.05.636766
+Title: CellProphet: Dissecting Virtual Cell Differentiation through AI-Powered Dynamic Gene Regulatory Network Inference
+Year: 2025
+Abstract: Abstract The AI Virtual Cell (AIVC) framework promises to revolutionize biological research through high-fidelity simulations of cellular behaviors and responses to perturbations. Central to realizing this vision is the ability to model cell differentiation dynamics, which requires accurate inference of gene regulatory network (GRN) that govern cell fate decisions. However, existing computational approaches rely on static GRN models that fail to capture the dynamic changes of regulatory relationships during differentiation, limiting their utility for simulating developmental processes and predicting perturbation outcomes. Here, we present CellProphet, an interpretable AI model that infers dynamic GRN by integrating temporal causality with transformer self-attention mechanism. CellProphet captures time-lagged dependencies between transcription factor (TF) expression and target gene activation while providing interpretable regulatory weights, enabling both accurate prediction and mechanistic insight. When benchmarked against nine state-of-the-art methods across seven differentiation datasets, CellProphet achieves superior performance in all evaluation metrics. Applied to mouse embryonic stem cell differentiation, CellProphet identifies both well-known and potentially novel TFs with substantially high sensitivity and successfully reconstructs dynamic regulatory relations validated through multi-modal epigenomic data. In mouse hematopoietic differentiation, CellProphet accurately predicts cell fate transitions and gene expression changes following in silico perturbation of key TFs Gata1 and Spi1 , demonstrating its capability for virtual experimentation. These results establish CellProphet as a foundational tool for the AIVC framework, enabling researchers to decode the dynamic regulatory logic of differentiation, accelerate discovery of key regulatory factors, and design targeted cellular interventions for widespread applications.
+---
+
+---
+DOI: 10.1089/sur.2023.115
+Title: Characterizing the Crosstalk Between Programmed Cell Death Pathways in Cytokine Storm With an Agent-Based Model
+Year: 2023
+Abstract: <b><i>Background:</i></b> There is increasing recognition of extensive crosstalk between programmed cell death pathways (PCDPs), such as apoptosis, pyroptosis, and necroptosis, resulting in a highly redundant system responsive to a breadth of potential pathogens. However, because pyroptosis and necroptosis propagate inflammation, these redundancies also present challenges for therapeutic control of dysregulated hyperinflammation seen in cytokine storm (CS) generated organ dysfunction. <b><i>Hypothesis:</i></b> We hypothesize that the conversion of existing knowledge regarding apoptosis, pyroptosis, and necroptosis into a computational model can enhance our understanding of the crosstalk between PCDPs via simulation experiments of microbe interactions and experimental interventions. <b><i>Materials and Methods:</i></b> Literature regarding apoptosis, pyroptosis, and necroptosis was reviewed and transposed into an agent-based model, the programmed cell death agent-based model (PCDABM). Computational experiments were performed to simulate the activation of various PCDPs as seen by differing microbes, specifically: influenza A virus (IAV), enteropathic <i>Escherichia coli</i> (EPEC), and <i>Salmonella enterica</i> (SE). The potential protective value of PCDP crosstalk was evaluated by silencing either pyroptosis, necroptosis, or both. Computational experiments were also performed simulating the effect of potential therapies blocking tumor necrosis factor (TNF) and interleukin (IL)-1. <b><i>Results:</i></b> The PCDABM was implemented in the agent-based modeling toolkit NetLogo. Computational experiments of infection with IAV, EPEC, and SE reproduced cross-activation of PCDPs with effective microbial clearance. Simulations of anti-TNF and anti-IL-1 did not reduce the aggregated amount of inflammation-generated system damage, the surrogate for CS-generated tissue damage. <b><i>Conclusions:</i></b> Redundancies have evolved in host PCDPs to maintain protection against a wide range of pathogens. However, these redundancies also challenge attempts at dampening the pathogenic hyperinflammatory state of CS using therapeutic immunomodulation. Integrative simulation models such as the PCDABM can aid in identifying potentially targetable inflection points to mitigate CS while maintaining effective host defense.
+---
+
+---
+DOI: 10.1016/b978-0-323-85159-6.50367-5
+Title: An agent-based model for cost-effectiveness analysis in the manufacture of allogeneic human induced pluripotent cells in Japan
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.tet.2024.134305
+Title: Steroid-based hydrazones as anabolic agents: Design, synthesis, computational studies, and biological evaluation in human skeletal muscle cell line
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/s10441-019-09360-0
+Title: A GPU Algorithm for Agent-Based Models to Simulate the Integration of Cell Membrane Signals
+Year: 2019
+Abstract: Simulation of complex biological systems with agent-based models is becoming more relevant with the increase in Graphics Processing Unit (GPU) power. In those simulations, up to millions of virtual cells are individually computed, involving daunting processing times. An important part of computational models is the algorithm that manages how agents perceive their surroundings. This can be particularly problematic in three-dimensional environments where agents have deformable virtual membranes. This article presents a GPU algorithm that gives the possibility for agents to integrate the signals scattered on their virtual membrane. It is detailed to be coded in languages like OpenCL or Cuda. Its performances are tested to show its speed with current GPU devices. Finally, it was implemented inside an existing software to test and illustrate the possibilities it offers.
+---
+
+---
+DOI: 10.1162/978-0-262-33936-0-ch090
+Title: Eukaryo: An Agent-based, Interactive Simulation of a Eukaryotic Cell
+Year: 2016
+Abstract: Eukaryo is a 3D, interactive simulation of a eukaryotic cell. In comparison to existing cell simulations, our model illustrates the structures and processes within a biological cell with increased fidelity and a higher degree of real-time interactivity using a virtual reality environment. Implemented in a game engine, Eukaryo is a hybrid model that combines agent-based and mathematical modelling. Through the use of visual scripting, Eukaryo incorporates both agent-based modelling and mathematical representations to describe gene expression, energy production and waste removal within the cell in a highly visual, interactive simulation environment. With the help of virtual reality displays, users can be immersed in the crowded spaces of biomolecular worlds and observe metabolic reactions at a high level of detail. Compared to traditional media, such as illustrations and videos, Eukaryo offers superior representations of cellular architecture, its components and dynamics of the machineries of life.
+---
+
+---
+DOI: 10.1007/978-981-10-9035-6_98
+Title: Agent-Based Model of the Budding Yeast Cell Cycle Regulatory Network
+Year: 2018
+Abstract: (no abstract available)
+---

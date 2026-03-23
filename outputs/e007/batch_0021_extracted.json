@@ -1,0 +1,102 @@
+[
+  {
+    "doi": "10.3390/s22218153",
+    "problem": "A digital twin for a multifunctional technology for flexible manufacturing on an assembly, disassembly, and repair mechatronics line (A/D/RML), assisted by a complex autonomous system (CAS), is presented in the paper. The hardware architecture consists of the A/D/RML and a six-workstation (WS) mecha",
+    "method": "The hardware architecture consists of the A/D/RML and a six-workstation (WS) mechatronics line (ML) connected to a flexible cell (FC) and equipped with a six-degree of freedom (DOF) industrial robotic manipulator (IRM). The CAS has in its structure two driving wheels and one free wheel (2DW/1FW)-whe",
+    "finding": "5. Discussions The monitoring signals of the successive actions for each functionality were: assembly ( Figure 9 ), disassembly ( Figure 12 ), and repair ( Figure 15 ), resulting from the Sirphyco simulation of SPN and SHPN, and are approximately temporally close to the monitoring signals provided b",
+    "dataset": "",
+    "metric": "",
+    "baseline": "",
+    "result": ""
+  },
+  {
+    "doi": "10.3390/s20164637",
+    "problem": "The UK is home to several major air commercial and transport hubs. As a result, there is a high demand for Maintenance, Repair, and Overhaul (MRO) services to ensure that fleets of aircraft are in airworthy conditions. MRO services currently involve heavy manual labor. This creates bottlenecks, low ",
+    "method": "As a result, there is a high demand for Maintenance, Repair, and Overhaul (MRO) services to ensure that fleets of aircraft are in airworthy conditions. MRO services currently involve heavy manual labor",
+    "finding": "4. Discussion In this paper, we explored how to automate material removal during fan-blade reconditioning process for high-value aerospace MRO. We presented an approach that makes use of a digital twin supported by a vision-based digitization scheme. The scheme enables surfaces of fan blades to be d",
+    "dataset": "",
+    "metric": "",
+    "baseline": "",
+    "result": ""
+  },
+  {
+    "doi": "10.1038/s41746-024-01084-x",
+    "problem": "Cardiac digital twins provide a physics and physiology informed framework to deliver personalized medicine. However, high-fidelity multi-scale cardiac models remain a barrier to adoption due to their extensive computational costs. Artificial Intelligence-based methods can make the creation of fast a",
+    "method": "However, high-fidelity multi-scale cardiac models remain a barrier to adoption due to their extensive computational costs. Artificial Intelligence-based methods can make the creation of fast and accurate whole-heart digital twins feasible",
+    "finding": "Discussion In this work, we propose a surrogate model based on LNODEs to learn the pressure-volume temporal dynamics of 3D-0D closed-loop four-chamber heart electromechanical simulations 23 . The geometry is retrieved from a heart failure patient and some functional aspects have been incorporated in",
+    "dataset": "",
+    "metric": "",
+    "baseline": "",
+    "result": ""
+  },
+  {
+    "doi": "10.1038/s41467-024-54313-y",
+    "problem": "The pulverization of silicon (Si) anode materials is recognized as a major cause of their poor cycling performance, yet a mechanistic understanding of this degradation from a full cell perspective remains elusive. Here, we identify an overlooked contributor to Si anode failure: mechanical shutdown o",
+    "method": "Here, we identify an overlooked contributor to Si anode failure: mechanical shutdown of separators. Through mechano-structural characterization of Si full cells, combined with digital-twin simulation, we demonstrate that the volume expansion of Si exerts localized compressive stress on commercial po",
+    "finding": "Discussion In summary, we demonstrated that the deformation of battery separator pores, alongside the well-known issue of Si pulverization, has a critical impact on the cycling performance of Si anodes. Particularly, the mechano-structural characterization of Si full cells revealed the disruption of",
+    "dataset": "",
+    "metric": "",
+    "baseline": "",
+    "result": ""
+  },
+  {
+    "doi": "10.1002/adma.202102641",
+    "problem": "Abstract Mechanobiology explores how forces regulate cell behaviors and what molecular machinery are responsible for the sensing, transduction, and modulation of mechanical cues. To this end, probing of cells cultured on planar substrates has served as a primary experimental setting for many decades",
+    "method": "To this end, probing of cells cultured on planar substrates has served as a primary experimental setting for many decades. However, native extracellular matrices (ECMs) consist of fibrous protein assemblies where the physical properties spanning from the individual fiber to the network architecture ",
+    "finding": "3. Discussion Actuation based on the application of magnetic torque has several advantages over alternative techniques. Optomechanical actuation, which is particularly appealing considering the spatial and temporal resolution of laser illumination, [ 34 , 37 , 38 , 55 ] is limited in throughput beca",
+    "dataset": "",
+    "metric": "",
+    "baseline": "",
+    "result": ""
+  },
+  {
+    "doi": "10.3390/ma14123294",
+    "problem": "Pore networks with multimodal pore size distributions combining advantages from isotropic and anisotropic shaped pores of different sizes are highly attractive to optimize the physical properties of porous ceramics. Multimodal porous Al2O3 ceramics were manufactured using pyrolyzed cellulose fibers ",
+    "method": "Multimodal porous Al2O3 ceramics were manufactured using pyrolyzed cellulose fibers (l = 150 µm, d = 8 µm) and two types of isotropic phenolic resin spheres (d = 30 and 300 µm) as sacrificial templates. The sacrificial templates were homogeneously distributed in the Al2O3 matrix, compacted by uniaxi",
+    "finding": "3. Results and Discussion 3.1. Microstructural Characterization—SEM and µCT Macroporous alumina samples with multimodal pore size distributions within a porosity range of 2.3 to 59.1 Vol% were obtained after sintering at 1700 °C, as shown in Table 1 . The target porosity of each sample was calculate",
+    "dataset": "",
+    "metric": "",
+    "baseline": "",
+    "result": ""
+  },
+  {
+    "doi": "10.1111/cts.13228",
+    "problem": "Abstract Inflammatory bowel disease (IBD) is a chronic and relapsing disease with multiple underlying influences and notable heterogeneity among its clinical and response‐to‐treatment phenotypes. There is no cure for IBD, and none of the currently available therapies have demonstrated clinical effic",
+    "method": "There is no cure for IBD, and none of the currently available therapies have demonstrated clinical efficacies beyond 40%–60%. Data collected about its omics, pathogenesis, and treatment strategies have grown exponentially with time making IBD a prime candidate for artificial intelligence (AI) mediat",
+    "finding": "CONCLUSIONS AI, and, more specifically, multiscale hybrid computational and ML models or platforms, may foster improved drug development and bring increased accuracy to the design of clinical studies, which may facilitate the best possible understanding of the clinical benefits of these technologies",
+    "dataset": "",
+    "metric": "",
+    "baseline": "",
+    "result": ""
+  },
+  {
+    "doi": "10.3390/cancers16132354",
+    "problem": "Understanding signaling patterns of transformation and controlling cell phenotypes is a challenge of current biology. Here we applied a cell State Transition Assessment and Regulation (cSTAR) approach to a perturbation dataset of single cell phosphoproteomic patterns of multiple breast cancer (BC) a",
+    "method": "Here we applied a cell State Transition Assessment and Regulation (cSTAR) approach to a perturbation dataset of single cell phosphoproteomic patterns of multiple breast cancer (BC) and normal breast tissue-derived cell lines. Following a separation of luminal, basal, and normal cell states, we ident",
+    "finding": "4. Discussion In previous work we showed that cSTAR can accurately detect cell states and devise precise interventions to convert undesired into desired cell states [ 5 , 36 ]. This is achieved through cSTAR capabilities to extract dynamic mechanistic models from omics data using perturbation approa",
+    "dataset": "",
+    "metric": "",
+    "baseline": "",
+    "result": ""
+  },
+  {
+    "doi": "10.3390/polym12040940",
+    "problem": "The use of digital twins in tissue engineering (TE) applications is of paramount importance to reduce the number of in vitro and in vivo tests. To pursue this aim, a novel multimodal bioreactor is developed, combining 3D design with numerical stimulation. This approach will facilitate the reproducib",
+    "method": "To pursue this aim, a novel multimodal bioreactor is developed, combining 3D design with numerical stimulation. This approach will facilitate the reproducibility between studies and the platforms optimisation (physical and digital) to enhance TE",
+    "finding": "3. Results and Discussion 3.1. Cytotoxicity Study Candidate materials for the fabrication of the bioreactor platform were evaluated in terms of their cytotoxicity effect using a L929 fibroblast cell line and following the ISO 10993-5 standards as described in the Materials and Methods section ( Figu",
+    "dataset": "",
+    "metric": "",
+    "baseline": "",
+    "result": ""
+  },
+  {
+    "doi": "10.1016/j.csbj.2023.07.003",
+    "problem": "Mammalian cells produce up to 80 % of the commercially available therapeutic proteins, with Chinese Hamster Ovary (CHO) cells being the primary production host. Manufacturing involves a train of reactors, the last of which is typically run in fed-batch mode, where cells grow and produce the required",
+    "method": "Manufacturing involves a train of reactors, the last of which is typically run in fed-batch mode, where cells grow and produce the required protein. The feeding strategy is decided a priori, from either past operations or the design of experiments and rarely considers the current state of the proces",
+    "finding": "3 Results & discussion 3.1 Metabolic model Fig. 3 shows the results of the optimal rate of cell growth and the uptake rate of key metabolites as a function of time in days. Growth (biomass flux) is at maximum at the early stages of the batch, decreasing in later stages, being the lowest in the stati",
+    "dataset": "",
+    "metric": "",
+    "baseline": "",
+    "result": ""
+  }
+]

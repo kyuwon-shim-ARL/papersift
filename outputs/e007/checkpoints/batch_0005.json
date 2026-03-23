@@ -1,0 +1,119 @@
+{
+  "batch_index": 5,
+  "dois": [
+    "10.3389/fmolb.2021.732079",
+    "10.1371/journal.pcbi.1012109",
+    "10.1038/s41598-023-45998-0",
+    "10.1371/journal.pone.0298105",
+    "10.1101/gr.279771.124",
+    "10.3390/biomedicines11071795",
+    "10.3390/vaccines10060833",
+    "10.1021/acssynbio.1c00415",
+    "10.3390/ijms21186473",
+    "10.1093/femsyr/foae011"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3389/fmolb.2021.732079",
+      "problem": "Whole-cell modelling applications in lab experiment design and predictive drug testing",
+      "method": "Machine learning pipeline for whole-cell model analysis",
+      "finding": "Pipeline for weak labelling, neural network classification, and network analysis",
+      "dataset": "270 simulations",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1012109",
+      "problem": "High-throughput omics technologies impact on fundamental and translational research",
+      "method": "Genome-scale metabolic model reconstruction for red blood cells",
+      "finding": "Generated refined RBC-GEM reconstruction from iAB-RBC-283",
+      "dataset": "RBC",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41598-023-45998-0",
+      "problem": "Developing whole-cell computational platform for HBV infection cycle in hepatocytes",
+      "method": "Combined spatial and kinetic models of HBV infection cycle",
+      "finding": "Constructed spatially-resolved hepatocyte model for HBV infection",
+      "dataset": "hepatocyte",
+      "metric": "",
+      "baseline": "data-driven whole-cell strategy",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pone.0298105",
+      "problem": "Realistic electrophysiological descriptions of C. elegans neurons",
+      "method": "Electrophysiological modeling of interneurons and motor neurons",
+      "finding": "Models of three interneurons (AVA, RIM, AIY) and three motor neurons (VA5, VB6, VD5)",
+      "dataset": "C. elegans",
+      "metric": "",
+      "baseline": "existing models",
+      "result": ""
+    },
+    {
+      "doi": "10.1101/gr.279771.124",
+      "problem": "Understanding cell-cell interactions from single-cell data",
+      "method": "Agent-based modeling framework integrating gene expression with ligand-receptor interactions",
+      "finding": "CellAgentChat framework for comprehensive cell-cell interaction analysis",
+      "dataset": "single-cell datasets",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/biomedicines11071795",
+      "problem": "Subunit vaccines have lower immunogenicity compared to whole-cell vaccines",
+      "method": "Immunogenicity evaluation of vaccine formulations",
+      "finding": "Evaluated reactogenic responses to vaccine formulations",
+      "dataset": "animal model",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/vaccines10060833",
+      "problem": "Whole-microbe inactivation technology for rapid pathogen inactivation retaining epitopes",
+      "method": "Whole-microbe inactivation technology development",
+      "finding": "Technology enables rapid pathogen inactivation while retaining epitope integrity",
+      "dataset": "pathogen",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1021/acssynbio.1c00415",
+      "problem": "Novel approach using dedicated hardware for whole-cell simulation of mRNA translation",
+      "method": "Hardware-based whole-cell simulation of mRNA translation",
+      "finding": "Demonstrated approach for whole-cell translation simulation",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/ijms21186473",
+      "problem": "Immunological synapse formation and TCR-pMHC affinity impact on T cell activation",
+      "method": "Agent-based model replicating T cell activation on supported lipid bilayers",
+      "finding": "Model replicated T cell activation experiments",
+      "dataset": "T cells",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1093/femsyr/foae011",
+      "problem": "High quality data prerequisite for precise whole-cell models",
+      "method": "Data curation for whole-cell model parameterization",
+      "finding": "Reviewed data requirements for whole-cell model construction",
+      "dataset": "yeast",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:45:11.661253",
+  "extraction_count": 10
+}

@@ -1,0 +1,262 @@
+{
+  "experiment": "e009",
+  "description": "Abstract predefined-entity enrichment — additive 2-arm",
+  "dataset": "/home/kyuwon/projects/papersift/results/virtual-cell/papers_with_abstracts.json",
+  "controls": {
+    "resolution": 1.0,
+    "seed": 42,
+    "use_topics": false
+  },
+  "arm_a": {
+    "entity_stats": {
+      "total_mean": 4.3192090395480225,
+      "total_median": 3.0,
+      "predefined_mean": 1.2542372881355932,
+      "predefined_median": 1.0,
+      "heuristic_mean": 3.0649717514124295,
+      "low_entity_count": 63,
+      "low_entity_pct": 17.8,
+      "type_breakdown": {
+        "METHOD": 1140,
+        "CONCEPT": 274,
+        "ORGANISM": 113,
+        "DATASET": 2
+      },
+      "top_universal_connectors": [
+        {
+          "entity": "whole-cell",
+          "doc_freq": 88,
+          "pct": 24.9
+        },
+        {
+          "entity": "virtual cell",
+          "doc_freq": 76,
+          "pct": 21.5
+        },
+        {
+          "entity": "agent-based",
+          "doc_freq": 53,
+          "pct": 15.0
+        },
+        {
+          "entity": "virtual",
+          "doc_freq": 49,
+          "pct": 13.8
+        }
+      ],
+      "cluster_count": 13
+    },
+    "cluster_stats": {
+      "cluster_count": 13,
+      "size_distribution": [
+        100,
+        80,
+        79,
+        68,
+        18,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "edge_count": 9572,
+      "density": 0.1532,
+      "weight_1_pct": 85.1,
+      "weight_mean": 1.17
+    }
+  },
+  "arm_b": {
+    "entity_stats": {
+      "total_mean": 6.245762711864407,
+      "total_median": 5.0,
+      "predefined_mean": 3.1807909604519775,
+      "predefined_median": 3.0,
+      "heuristic_mean": 3.0649717514124295,
+      "low_entity_count": 27,
+      "low_entity_pct": 7.6,
+      "type_breakdown": {
+        "METHOD": 1276,
+        "CONCEPT": 649,
+        "ORGANISM": 279,
+        "DATASET": 7
+      },
+      "top_universal_connectors": [
+        {
+          "entity": "whole-cell",
+          "doc_freq": 91,
+          "pct": 25.7
+        },
+        {
+          "entity": "virtual cell",
+          "doc_freq": 77,
+          "pct": 21.8
+        },
+        {
+          "entity": "simulation",
+          "doc_freq": 62,
+          "pct": 17.5
+        },
+        {
+          "entity": "human",
+          "doc_freq": 57,
+          "pct": 16.1
+        },
+        {
+          "entity": "dynamics",
+          "doc_freq": 56,
+          "pct": 15.8
+        },
+        {
+          "entity": "agent-based",
+          "doc_freq": 53,
+          "pct": 15.0
+        },
+        {
+          "entity": "virtual",
+          "doc_freq": 49,
+          "pct": 13.8
+        },
+        {
+          "entity": "response",
+          "doc_freq": 39,
+          "pct": 11.0
+        },
+        {
+          "entity": "cancer",
+          "doc_freq": 38,
+          "pct": 10.7
+        }
+      ],
+      "cluster_count": 8
+    },
+    "cluster_stats": {
+      "cluster_count": 8,
+      "size_distribution": [
+        96,
+        89,
+        88,
+        77,
+        1,
+        1,
+        1,
+        1
+      ],
+      "edge_count": 16253,
+      "density": 0.2601,
+      "weight_1_pct": 78.7,
+      "weight_mean": 1.27
+    },
+    "abstract_additions": {
+      "total_entities_added": 682,
+      "papers_enriched": 215
+    }
+  },
+  "comparison": {
+    "ari": 0.752,
+    "nmi": 0.734,
+    "preservation": {
+      "preservation_rate": 1.0,
+      "major_cluster_count": 5,
+      "preserved_count": 5,
+      "details": [
+        {
+          "arm_a_cluster": 0,
+          "size": 100,
+          "best_arm_b_cluster": 0,
+          "overlap_pct": 0.93,
+          "jaccard": 0.903,
+          "preserved": true
+        },
+        {
+          "arm_a_cluster": 1,
+          "size": 80,
+          "best_arm_b_cluster": 3,
+          "overlap_pct": 0.95,
+          "jaccard": 0.938,
+          "preserved": true
+        },
+        {
+          "arm_a_cluster": 2,
+          "size": 79,
+          "best_arm_b_cluster": 2,
+          "overlap_pct": 0.911,
+          "jaccard": 0.758,
+          "preserved": true
+        },
+        {
+          "arm_a_cluster": 3,
+          "size": 68,
+          "best_arm_b_cluster": 1,
+          "overlap_pct": 0.897,
+          "jaccard": 0.635,
+          "preserved": true
+        },
+        {
+          "arm_a_cluster": 4,
+          "size": 18,
+          "best_arm_b_cluster": 1,
+          "overlap_pct": 0.889,
+          "jaccard": 0.176,
+          "preserved": true
+        }
+      ]
+    },
+    "edge_decomposition": {
+      "title_only_edges": 8402,
+      "abstract_new_edges": 6681,
+      "mixed_edges": 1170,
+      "total_edges": 16253,
+      "abstract_new_pct": 41.1
+    }
+  },
+  "abstract_bias": {
+    "has_abstract_count": 264,
+    "no_abstract_count": 90,
+    "has_abstract_mean_delta": 2.58,
+    "no_abstract_mean_delta": 0.0,
+    "abstract_length_correlation": 0.44,
+    "has_abstract_arm_a_mean": 4.16,
+    "has_abstract_arm_b_mean": 6.75,
+    "no_abstract_arm_a_mean": 4.78,
+    "no_abstract_arm_b_mean": 4.78
+  },
+  "judgment": {
+    "verdict": "CONDITIONAL GO",
+    "criteria": {
+      "C1_predefined_increase": {
+        "value": 153.6,
+        "threshold": 30,
+        "pass": true
+      },
+      "C2_low_entity_reduction": {
+        "arm_a": 63,
+        "arm_b": 27,
+        "pass": true
+      },
+      "C3_preservation": {
+        "value": 1.0,
+        "threshold": 0.8,
+        "pass": true
+      },
+      "C4_ari_range": {
+        "value": 0.752,
+        "range": [
+          0.5,
+          0.9
+        ],
+        "pass": true
+      },
+      "C5_cluster_count_stability": {
+        "arm_a": 13,
+        "arm_b": 8,
+        "change_pct": 38.5,
+        "threshold": 30,
+        "pass": false
+      }
+    }
+  }
+}

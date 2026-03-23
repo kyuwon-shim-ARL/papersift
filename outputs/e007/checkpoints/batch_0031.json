@@ -1,0 +1,119 @@
+{
+  "batch_index": 31,
+  "dois": [
+    "10.1074/mcp.m111.014647",
+    "10.1038/s41598-020-60356-0",
+    "10.3389/fimmu.2016.00327",
+    "10.1371/journal.pone.0082241",
+    "10.1186/1471-2105-8-55",
+    "10.1371/journal.pcbi.1011891",
+    "10.1038/s41598-020-69862-7",
+    "10.3389/fphys.2011.00106",
+    "10.1007/s12015-021-10122-0",
+    "10.1186/1748-717x-8-144"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1074/mcp.m111.014647",
+      "problem": "ECM protein characterization in tissues",
+      "method": "Enrichment and MS analysis of extracellular matrix proteins",
+      "finding": "ECM protein composition analysis across tissues",
+      "dataset": "mouse tissues",
+      "metric": "specificity",
+      "baseline": "",
+      "result": "75%"
+    },
+    {
+      "doi": "10.1038/s41598-020-60356-0",
+      "problem": "Cold atmospheric plasma effects on melanoma",
+      "method": "Softjet CAP treatment of cancer cell lines",
+      "finding": "Physical parameter effects of CAP on cancer cells",
+      "dataset": "melanoma cells",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fimmu.2016.00327",
+      "problem": "In silico vaccine design for leishmaniasis",
+      "method": "Linear epitope prediction from Leishmania proteome",
+      "finding": "Feasibility of in silico peptide vaccine approach",
+      "dataset": "Leishmania spp.",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pone.0082241",
+      "problem": "NSCLC prognostic biomarker discovery",
+      "method": "Integrated lung cancer microarray database analysis",
+      "finding": "Identified prognostic genes from 1,715 patients",
+      "dataset": "N=1715 NSCLC",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": "95%"
+    },
+    {
+      "doi": "10.1186/1471-2105-8-55",
+      "problem": "NF-kB regulated gene identification in pancreatic beta-cells",
+      "method": "TFBS discriminant analysis in promoter sequences",
+      "finding": "Over-represented TFBS in NF-kB regulated genes",
+      "dataset": "beta-cell genes",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1011891",
+      "problem": "Detecting functional cell assemblies from neural recordings",
+      "method": "Large-scale cortical microcircuit simulation (211K neurons)",
+      "finding": "Diverse assemblies detected from network simulations",
+      "dataset": "cortical model",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41598-020-69862-7",
+      "problem": "3D cell culture simulation in polymeric scaffolds",
+      "method": "SALSA hybrid discrete/continuous cellular automaton",
+      "finding": "Validated simulation matches in vitro cell density",
+      "dataset": "cell culture",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": "22%"
+    },
+    {
+      "doi": "10.3389/fphys.2011.00106",
+      "problem": "Genotype-to-phenotype variation for personalized medicine",
+      "method": "LNCS cardiac cell model with detailed parameterization",
+      "finding": "Design patterns for computational genotype-phenotype studies",
+      "dataset": "mouse cardiac",
+      "metric": "sensitivity",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1007/s12015-021-10122-0",
+      "problem": "MSC-derived EVs therapeutic potential for COVID-19",
+      "method": "In silico analysis of miRNA/mRNA in MSC-EVs",
+      "finding": "MSC-EVs show potential against COVID-19 inflammation",
+      "dataset": "MSC exosomes",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/1748-717x-8-144",
+      "problem": "Post-operative radiotherapy optimization for NSCLC",
+      "method": "IMRT, PSPT, and IMPT plan comparison",
+      "finding": "Proton therapy spares lung dose vs IMRT",
+      "dataset": "N=10 patients",
+      "metric": "dose",
+      "baseline": "IMRT",
+      "result": "4.6%"
+    }
+  ],
+  "timestamp": "2026-03-09T01:53:16.080590",
+  "extraction_count": 10
+}

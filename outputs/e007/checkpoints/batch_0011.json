@@ -1,0 +1,119 @@
+{
+  "batch_index": 11,
+  "dois": [
+    "10.1093/nargab/lqaa025",
+    "10.1186/s12979-018-0122-y",
+    "10.3389/fcimb.2018.00043",
+    "10.1126/sciadv.adr4831",
+    "10.1038/nn.3466",
+    "10.1016/j.jtcme.2021.04.001",
+    "10.1038/icb.2016.36",
+    "10.4014/jmb.2203.03050",
+    "10.1371/journal.pcbi.1004096",
+    "10.1186/1471-2105-14-253"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1093/nargab/lqaa025",
+      "problem": "Need for user-friendly tools for multimodal single-cell data visualization",
+      "method": "Single-Cell Virtual Cytometer software for flow cytometry-like visualization",
+      "finding": "Open-source software for cell population definition and UMAP/t-SNE mapping",
+      "dataset": "PBMC CITE-seq",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/s12979-018-0122-y",
+      "problem": "Understanding aging effects on CD8 T cell responses to influenza",
+      "method": "Comparative analysis of CD8 T cell response in aged versus young mice",
+      "finding": "Aged mice CD8 T cell response dominated by memory T cell pool-derived cells",
+      "dataset": "aged and young mice",
+      "metric": "",
+      "baseline": "young mice",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fcimb.2018.00043",
+      "problem": "Quantifying bacterial abundance in cell culture requires high-throughput methods",
+      "method": "Virtual Colony Counting for automated bacterial quantification",
+      "finding": "VCC enables automated threshold-based bacterial quantification",
+      "dataset": "bacterial strains",
+      "metric": "absorbance threshold",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1126/sciadv.adr4831",
+      "problem": "3D organoid cultures require scaffold materials complicating cell interactions",
+      "method": "Acoustic virtual scaffold for scaffold-free tumor organoid culture",
+      "finding": "Contact-free 3D cell manipulation for organoid-immune cell interactions",
+      "dataset": "tumor organoids",
+      "metric": "",
+      "baseline": "traditional bioscaffolds",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/nn.3466",
+      "problem": "Grid cells represent spatial location during navigation",
+      "method": "Direct recording of grid-like neuronal activity in human patients",
+      "finding": "Grid cell activity recorded from human brain during navigation",
+      "dataset": "human patients",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.jtcme.2021.04.001",
+      "problem": "Virtual screening for compounds targeting SARS-CoV-2 spike protein",
+      "method": "Protein-protein docking of host proteases with spike protein",
+      "finding": "Phytochemicals bind at active sites of furin and TMPRSS2",
+      "dataset": "SARS-CoV-2",
+      "metric": "binding affinity",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/icb.2016.36",
+      "problem": "T cell activation requires integration of multiple signals from dendritic cells",
+      "method": "Virtual lymph node model for T cell priming dynamics",
+      "finding": "T cell priming spans 3-4 days before clonal expansion and egress",
+      "dataset": "mice",
+      "metric": "expansion kinetics",
+      "baseline": "",
+      "result": "3-4 day priming"
+    },
+    {
+      "doi": "10.4014/jmb.2203.03050",
+      "problem": "Esophageal squamous cell carcinoma lacks effective therapeutic options",
+      "method": "Differential gene expression analysis from TCGA and GEO databases",
+      "finding": "Identified potential therapeutic targets in ESCC",
+      "dataset": "ESCC patients",
+      "metric": "p-value",
+      "baseline": "",
+      "result": "p<0.05"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1004096",
+      "problem": "Whole-cell models require parameter estimation for genotype-to-phenotype prediction",
+      "method": "DREAM8 Parameter Estimation Challenge for M. genitalium submodels",
+      "finding": "45 researchers from 16 institutions tested parameter estimation methods",
+      "dataset": "M. genitalium",
+      "metric": "parameter estimation accuracy",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/1471-2105-14-253",
+      "problem": "Whole-cell simulations need visualization tools for data exploration",
+      "method": "WholeCellViz web-based interactive visualization software",
+      "finding": "14 animated visualizations including metabolic and signaling pathways",
+      "dataset": "whole-cell simulations",
+      "metric": "",
+      "baseline": "",
+      "result": "14 modules"
+    }
+  ],
+  "timestamp": "2026-03-09T01:45:11.661482",
+  "extraction_count": 10
+}

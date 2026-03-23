@@ -1,0 +1,119 @@
+{
+  "batch_index": 20,
+  "dois": [
+    "10.3390/s25061821",
+    "10.1007/s10237-020-01393-6",
+    "10.3390/s24030998",
+    "10.3390/ma15093331",
+    "10.1111/cts.13501",
+    "10.1038/s41598-020-78758-5",
+    "10.1038/s41388-021-01861-y",
+    "10.2196/29455",
+    "10.1021/acsomega.5c03703",
+    "10.1002/ctm2.70096"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3390/s25061821",
+      "problem": "IoT-Cloud control of robotic cell with digital twin",
+      "method": "Inverse kinematics with hardware-in-the-loop digital twin",
+      "finding": "Validated DT virtual model for robotic cell",
+      "dataset": "robotic cell",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1007/s10237-020-01393-6",
+      "problem": "Cardiovascular digital twin using inverse analysis",
+      "method": "LSTM-based neural network for inverse cardiovascular analysis",
+      "finding": "Enabled cardiovascular digital twin using deep learning",
+      "dataset": "N=4137",
+      "metric": "CI",
+      "baseline": "",
+      "result": "95%"
+    },
+    {
+      "doi": "10.3390/s24030998",
+      "problem": "Digital twin development methodology for robotic cells",
+      "method": "Systematic DT development approach for electro-pneumatic cells",
+      "finding": "Created digital twin for robotic electro-pneumatic cell",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/ma15093331",
+      "problem": "Battery life prediction using digital twins",
+      "method": "Bayesian-based adaptive model evolution for battery degradation",
+      "finding": "Adaptive evolution method for battery capacity prediction",
+      "dataset": "battery",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": "5%"
+    },
+    {
+      "doi": "10.1111/cts.13501",
+      "problem": "Clinical dose-response characterization with digital twins",
+      "method": "QSP model generating individual virtual patients",
+      "finding": "Digital twins calibrated to match 140 clinical patients",
+      "dataset": "N=73 NHL patients",
+      "metric": "AUC",
+      "baseline": "",
+      "result": "50%"
+    },
+    {
+      "doi": "10.1038/s41598-020-78758-5",
+      "problem": "Immunogenic landscape prediction for SARS-CoV-2 vaccines",
+      "method": "AI-based epitope mapping across HLA groups",
+      "finding": "Immunogenic landscape reveals HLA diversity in population",
+      "dataset": "SARS-CoV-2",
+      "metric": "",
+      "baseline": "SVM",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41388-021-01861-y",
+      "problem": "AI disruption in hematology diagnostics",
+      "method": "Review of AI-based methods for hematology",
+      "finding": "AI technologies transforming hematology diagnostics",
+      "dataset": "",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.2196/29455",
+      "problem": "Optimal treatment selection for oropharyngeal carcinoma",
+      "method": "Deep Q-Learning with patient-physician digital twin",
+      "finding": "Treatment outcome prediction matching clinical decisions",
+      "dataset": "N=402 patients",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": "87.35%"
+    },
+    {
+      "doi": "10.1021/acsomega.5c03703",
+      "problem": "Digital twin for hMSC-derived extracellular vesicle production",
+      "method": "DT-guided autonomous bioreactor operation",
+      "finding": "Digital twin enabled autonomous EV production",
+      "dataset": "hMSC",
+      "metric": "",
+      "baseline": "classical cell therapy",
+      "result": "98%"
+    },
+    {
+      "doi": "10.1002/ctm2.70096",
+      "problem": "Clinical AI framework for single-cell biology",
+      "method": "caiSC framework for single-cell analysis",
+      "finding": "Framework advances clinical decision-making from single-cell data",
+      "dataset": "",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:49:19.121141",
+  "extraction_count": 10
+}

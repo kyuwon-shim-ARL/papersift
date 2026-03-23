@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1016/j.nanoen.2016.06.011
+Title: Quantitative structure-property relationship model leading to virtual screening of fullerene derivatives: Exploring structural attributes critical for photoconversion efficiency of polymer solar cell acceptors
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3322/canjclin.49.2.74
+Title: T cell-based immunotherapy for cancer: a virtual reality?
+Year: 1999
+Abstract: The goal of harnessing the immune system to recognize tumor as "nonself" is not new. Now, thanks to new knowledge and new techniques, however, modalities that seek to activate the host immune system are becoming increasingly feasible as treatments for advanced malignancies.
+---
+
+---
+DOI: 10.1016/j.protcy.2015.07.030
+Title: Design of a Virtual Reality Training System for Micro-robotic Cell Injection
+Year: 2015
+Abstract: This paper discusses the design of a virtual reality (VR) training system for micro-robotic cell injection.A brief explanation of cell injection and the challenges associated with the procedure are first presented.This is followed by discussion of the skills required by the bio-operator to achieve successful injection, such as accuracy, trajectory and applied force.The design of the VR system which includes the visual display, input controllers, mapping strategies, haptic guidance and output data is then discussed.Initial evaluation of the VR system is presented including analysis and discussion based on conducted user evaluations.Finally, given the findings of the initial evaluation, this paper concludes that an effective haptically-enabled virtual cell injection training system is feasible, and recommendations for improvement and future work are given.
+---
+
+---
+DOI: 10.1109/glocom.1999.829963
+Title: Distributed cell scheduling algorithms for virtual-output-queued switches
+Year: 2003
+Abstract: Input buffered switches most efficiently use memory and crossbar bandwidth. Virtual output queueing (VOQ) is required to circumvent the head-of-line blocking limiting the throughput to 58.6%. For the slotted access control to the switch fabric, weighted arbitration algorithms achieve 100% throughput with lowest delays under all admissible traffic. Following the arbitration decision, distributed QoS-aware cell schedulers decide locally in each input port upon the next cell to forward. We treat cell scheduling algorithms employed in VOQ switches, in contrast to output queueing (OQ). We show that typical scheduling properties also hold under the VOQ architecture and give representative quantitative performance results.
+---
+
+---
+DOI: 10.1016/j.bmc.2015.01.013
+Title: Cell-based and virtual fragment screening for adrenergic α2C receptor agonists
+Year: 2015
+Abstract: Fragment-based drug discovery has emerged as an alternative to conventional lead identification and optimization strategies generally supported by biophysical detection techniques. Membrane targets like G protein-coupled receptors (GPCRs), however, offer challenges in lack of generic immobilization or stabilization methods for the dynamic, membrane-bound supramolecular complexes. Also modeling of different functional states of GPCRs proved to be a challenging task. Here we report a functional cell-based high concentration screening campaign for the identification of adrenergic α2C receptor agonists compared with the virtual screening of the same ligand set against an active-like homology model of the α2C receptor. The conventional calcium mobilization-based assay identified active fragments with a similar incidence to several other reported fragment screens on GPCRs. 16 out of 3071 screened fragments turned out as specific ligands of α2C, two of which were identified by virtual screening as well and several of the hits possessed surprisingly high affinity and ligand efficiency. Our results indicate that in vitro biological assays can be utilized in the fragment hit identification process for GPCR targets.
+---
+
+---
+DOI: 10.1109/pimrc.2018.8580970
+Title: Dynamic Functional Split Selection in Energy Harvesting Virtual Small Cells Using Temporal Difference Learning
+Year: 2018
+Abstract: &amp;lt;p&amp;gt;Flexible functional split in Cloud Radio Access Network (CRAN) is a promising approach to overcome the capacity and latency challenges in the fronthaul. In such architecture, the baseband processing takes place partially at local base stations and the remaining processes are executed at the central cloud. On the other hand, we have seen a recent trend of powering base stations with ambient energy sources to achieve both environmental sustainability and profit advantages. As the base stations become smaller and deployed in densified manner, it is evident that baseband processing power consumption has a huge share in the total base station power consumption breakdown. Given that such base stations are powered by energy harvesting sources, energy availability conditions the decision on where to place each baseband function in the system. This work focuses on applying reinforcement learning techniques, in particular Q-learning and SARSA, for optimal placement of baseband functional split options in virtualized small cells that are solely powered by energy harvesting sources. In addition, a comparison of such online optimization solution with respect to offline performance bounds is provided.&amp;lt;/p&amp;gt;
+---
+
+---
+DOI: 10.48550/arxiv.1508.03554
+Title: Virtualization of Multi-Cell 802.11 Networks: Association and Airtime Control
+Year: 2015
+Abstract: This paper investigates the virtualization and optimization of a multi-cell WLAN. We consider the station (STA)-access point (AP) association and airtime control for virtualized 802.11 networks to provide service customization and fairness across multiple internet service providers (ISPs) sharing the common physical infrastructure and network capacity. More specifically, an optimization problem is formulated on the STAs transmission probabilities to maximize the overall network throughput, while providing airtime usage guarantees for the ISPs. Subsequently, an algorithm to reach the optimal solution is developed by applying monomial approximation and geometric programming iteratively. Based on the proposed three-dimensional Markov-chain model of the enhanced distributed channel access (EDCA) protocol, the detailed implementation of the optimal transmission probability is also discussed. The accuracy of the proposed Markov-chain model and the performance of the developed association and airtime control scheme are evaluated through numerical results.
+---
+
+---
+DOI: 10.1038/aja.2013.115
+Title: Virtual drug design: Skp1–Skp2 inhibition targets cancer stem cells
+Year: 2013
+Abstract: The dysregulation of pathways regulating cellular function is a frequent hallmark of cancer and the development of specific pathway inhibitors that alter tumor growth and progression are the focus of multiple recent studies. E3 ubiquitin ligases are a large group of diverse protein enzymes that specifically target proteins for clearance, and their importance to normal cellular function is illustrated in the many diseases associated with their loss of function or inappropriate targeting. S-phase kinase-associated protein 2 (Skp2) is an F box protein that plays critical roles in cell-cycle progression, senescence, metabolism, and acts as an Skp1–Cullin-1–F box (SCF) ubiquitin ligase substrate recognition factor. Overexpression of Skp2 is associated with poor prognosis and metastasis in many cancers and is a well validated drug target. In a recent report, Chan et al. have identified an Skp2 inhibitor that selectively impairs Skp2 E3 ligase activity using an integrated virtual high-throughput drug screening and experimental validation approach. This Skp2 inhibitor restricts cancer stemness and potentiates sensitivity to chemotherapeutic agents in multiple animal tumor models. These findings identify a new novel small molecule that targets the Skp2 and reduces tumor growth by attenuating aerobic glycolysis and inducing cellular senescence.
+---
+
+---
+DOI: 10.1109/vtcfall.2018.8690929
+Title: Optimal Placement of Baseband Functions for Energy Harvesting Virtual Small Cells
+Year: 2018
+Abstract: Flexible functional split in Cloud Radio Access Network (CRAN) greatly overcomes fronthaul capacity and latency challenges. In such architecture, part of the baseband processing is done locally and the remaining is done remotely in the central cloud. On the other hand, Energy Harvesting (EH) technologies are increasingly adopted due to sustainability and economic advantages. Power consumption due to baseband processing has a huge share in the total power consumption breakdown of smaller base stations. Given that such base stations are powered by EH, in addition to QoS constraints, energy availability also conditions the decision on where to place each baseband function in the system. This work focuses on determining the performance bounds of an optimal placement of baseband functional split option in virtualized small cells that are solely powered by EH. The work applies Dynamic Programming (DP), in particular, Shortest Path search is used to determine the optimal functional split option considering traffic requirements and available energy budget.
+---
+
+---
+DOI: 10.1016/j.compeleceng.2017.04.030
+Title: Evaluation of a new virtual reality micro-robotic cell injection training system
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1364/boe.8.004160
+Title: Multi-MHz laser-scanning single-cell fluorescence microscopy by spatiotemporally encoded virtual source array
+Year: 2017
+Abstract: Apart from the spatial resolution enhancement, scaling of temporal resolution, equivalently the imaging throughput, of fluorescence microscopy is of equal importance in advancing cell biology and clinical diagnostics. Yet, this attribute has mostly been overlooked because of the inherent speed limitation of existing imaging strategies. To address the challenge, we employ an all-optical laser-scanning mechanism, enabled by an array of reconfigurable spatiotemporally-encoded virtual sources, to demonstrate ultrafast fluorescence microscopy at line-scan rate as high as 8 MHz. We show that this technique enables high-throughput single-cell microfluidic fluorescence imaging at 75,000 cells/second and high-speed cellular 2D dynamical imaging at 3,000 frames per second, outperforming the state-of-the-art high-speed cameras and the gold-standard laser scanning strategies. Together with its wide compatibility to the existing imaging modalities, this technology could empower new forms of high-throughput and high-speed biological fluorescence microscopy that was once challenged.
+---
+
+---
+DOI: 10.1109/tmech.2020.2972959
+Title: A Virtual Assisted Controller for Biological Cell Transportation in a Dynamic Environment with Variable Field of View
+Year: 2020
+Abstract: Existing control methods for cell transportation with optical tweezers are generally implemented under the following assumptions: The obstacles are known in advance; and that the field of view (FOV) of the microscope is fixed during the transportation process. The unknown obstacles suspended outside FOV may float closely to the targeted cell, thereby always leading to failure of existing transportation methods. Fixed FOV also restricts the available manipulation space, thereby limiting the transportation within a small area. In this article, a novel control method that abandons the mentioned impractical assumptions is designed. The approach integrates the functions of cell transportation, cell maintenance, and obstacle avoidance. A series of virtual-assisted geometrical models, including “virtual obstacles,” “protecting ring,” and “time varying reference region” are proposed to avoid unknown dynamic obstacles. Simulations and experiments on long-distance cell transportation with variable FOV, in accordance with the actual situation, are successfully performed. Therefore, the effectiveness of the proposed control method is demonstrated.
+---
+
+---
+DOI: 10.1111/j.1540-5915.1996.tb00862.x
+Title: A Virtual Cellular Manufacturing Approach to Batch Production
+Year: 1996
+Abstract: In this paper, Virtual Cellular Manufacturing (VCM), an alternative approach to implementing cellular manufacturing, is investigated. VCM combines the setup efficiency typically obtained by Group Technology (GT) cellular manufacturing (CM) systems with the routing flexibility of a job shop. Unlike traditional CM systems in which the shop is physically designed as a series of cells, family-based scheduling criteria are used to form logical cells within a shop using a process layout. The result is the formation of temporary, virtual cells as opposed to the more traditional, permanent, physical cells present in GT systems. Virtual cells allow the shop to be more responsive to changes in demand and workload patterns. Production using VCM is compared to production using traditional cellular and job shop approaches. Results indicate that VCM yields significantly better flow time and due date performance over a wide range of common operating conditions, as well as being more robust to demand variability.
+---
+
+---
+DOI: 10.1016/j.ejrad.2017.10.008
+Title: Impact of noise-optimized virtual monoenergetic dual-energy computed tomography on image quality in patients with renal cell carcinoma
+Year: 2017
+Abstract: ObjectiveThe aim of this study was to evaluate the impact of a noise-optimized virtual monoenergetic imaging (VMI+) reconstruction technique on image quality and lesion delineation in patients with renal cell carcinoma (RCC) undergoing abdominal dual-energy computed tomography (DECT).Materials and methodsFifty-two patients (33 men; 61.5±13.6years) with RCC underwent contrast-enhanced DECT during the corticomedullary and nephrogenic phase of renal enhancement. DECT datasets were reconstructed with standard linearly-blended (M_0.6), as well as traditional virtual monoenergetic (VMI) and VMI+ algorithms in 10-keV increments from 40 to 100 keV. Contrast-to-noise (CNR) and tumor-to-cortex ratios for corticomedullary- and nephrogenic-phase images were objectively measured by a radiologist with 3 years of experience. Subjective image quality and RCC delineation were evaluated by three independent radiologists.ResultsGreatest CNR values were found for 40-keV VMI+ series in both corticomedullary- (8.9±4.9) and nephrogenic-phase (7.1±4.6) images and were significantly higher compared to all other reconstructions (PConclusionLow-keV VMI+ reconstructions lead to improved image quality and lesion delineation of corticomedullary- and nephrogenic-phase DECT datasets in patients with RCC.
+---
+
+---
+DOI: 10.1109/iswcs.2016.7600873
+Title: Dynamic network configuration: Hotspot identification for Virtual Small Cells
+Year: 2016
+Abstract: One of the envisaged candidates technologies to be used in next generation mobile networks is the integration of a large number of antennas at the Base Station (BS), known as Massive Multiple-Input Multiple-Output (MIMO). Massive MIMO can focus the energy on a user or group of users to improve their throughput and the network capacity. An approach of this technology focuses on the creation of coverage areas with the size of a pico-cell, called Virtual Small Cells (VSCs). Their main advantage is that they allow increasing the network capacity while avoiding the deployment cost of new small BSs. Identifying the dense traffic areas in real time and serving them in a responsive way is a key challenge to be address. Our work focuses on dynamically identifying the dense traffic areas so that the VSCs can be implemented and adjust their coverage. To conduct this research we use the K-means method and propose an algorithm that dynamically determines the hotspot parameters for VSCs, i.e., center and radius in order to optimize the overall capacity of the mobile network. Note that this algorithm could be used to identify any group of users.
+---
+
+---
+DOI: 10.1073/pnas.92.9.3844
+Title: Theory of orientation tuning in visual cortex.
+Year: 1995
+Abstract: The role of intrinsic cortical connections in processing sensory input and in generating behavioral output is poorly understood. We have examined this issue in the context of the tuning of neuronal responses in cortex to the orientation of a visual stimulus. We analytically study a simple network model that incorporates both orientation-selective input from the lateral geniculate nucleus and orientation-specific cortical interactions. Depending on the model parameters, the network exhibits orientation selectivity that originates from within the cortex, by a symmetry-breaking mechanism. In this case, the width of the orientation tuning can be sharp even if the lateral geniculate nucleus inputs are only weakly anisotropic. By using our model, several experimental consequences of this cortical mechanism of orientation tuning are derived. The tuning width is relatively independent of the contrast and angular anisotropy of the visual stimulus. The transient population response to changing of the stimulus orientation exhibits a slow "virtual rotation." Neuronal cross-correlations exhibit long time tails, the sign of which depends on the preferred orientations of the cells and the stimulus orientation.
+---
+
+---
+DOI: 10.1080/00219266.2003.9655879
+Title: Virtual environments in biology teaching
+Year: 2003
+Abstract: This article reports on the design, development and evaluation of an educational virtual environment for biology teaching. In particular it proposes a highly interactive three-dimensional synthetic environment involving certain learning tasks for the support of teaching plant cell biology and the process of photosynthesis. The environment has been evaluated using a sample of 37 in-service teachers. Their attitudes towards virtual reality for educational use were positive. Almost all the teachers managed to integrate the process of photosynthesis inside the virtual cell and answer the relevant questions. One problem was that the teachers were unable to answer questions beyond the certain learning tasks, indicating that any educational software should also involve an integrated approach to the subject under study.
+---
+
+---
+DOI: 10.1007/978-4-431-55690-9_46
+Title: Haptic Virtual Reality Training Environment for Micro-robotic Cell Injection
+Year: 2015
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.2514/6.2003-1030
+Title: The Use of Virtual Sub-cells in DSMC Analysis of Orbiter Aerodynamics at High Altitudes Upon Reentry
+Year: 2003
+Abstract: o reduce the cell size constraint of the method on the flowfield cells. While the benefits of virtual sub -cells have been demonstrated on an idealized two - dimensional problem, the goal of this work is to investigate their effectiveness on a challenging th ree -dimensional problem. The enhanced resolution provided by the virtual sub -cells is leveraged in this study to reduce the total number of cells needed to discretize the computational domain. Using NASA's DSMC Analysis Code, results obtained using virtu al sub -cells are compared against both STS -62 flight data, and in some cases standard cells with the required mean -free -path resolution. The new technique has demonstrated a significant reduction in computer resources required to achieve accurate simulations for this configuration.
+---
+
+---
+DOI: 10.1093/cercor/6.6.823
+Title: The Parahippocampus Subserves Topographical Learning in Man
+Year: 1996
+Abstract: The hippocampus has been proposed as the site of neural representation of large-scale environmental space, based upon the identification of place cells (neurons with receptive fields for current position in the environment) within the rat hippocampus and the demonstration that hippocampal lesions impair place learning in the rat. The inability to identify place cells within the monkey hippocampus and the observation that unilateral hippocampal lesions do not selectively impair topographic behavior in humans suggest that alternate regions may subserve this function in man. To examine the contribution of the hippocampus and adjacent medial-temporal lobe structures to topographic learning in the human, a 'virtual' maze was used as a task environment during functional magnetic resonance imaging studies. During the learning and recall of topographic information, medial-temporal activity was confined to the para- hippocampal gyri. This activity accords well with the lesion site known to produce topographical disorientation in humans. Activity was also observed in cortical areas known to project to the parahippocampus and previously proposed to contribute to a network subserving spatially guided behavior.
+---
+
+---
+DOI: 10.1111/vox.13361
+Title: International Society of Blood Transfusion Working Party on Red Cell Immunogenetics and Blood Group Terminology Report of Basel and three virtual business meetings: Update on blood group systems
+Year: 2022
+Abstract: Abstract Background and Objectives Under the ISBT, the Working Party (WP) for Red Cell Immunogenetics and Blood Group Terminology is charged with ratifying blood group systems, antigens and alleles. This report presents the outcomes from four WP business meetings, one located in Basel in 2019 and three held as virtual meetings during the COVID‐19 pandemic in 2020 and 2021. Materials and Methods As in previous meetings, matters pertaining to blood group antigen nomenclature were discussed. New blood group systems and antigens were approved and named according to the serologic, genetic, biochemical and cell biological evidence presented. Results Seven new blood group systems, KANNO (defined numerically as ISBT 037), SID (038), CTL2 (039), PEL (040), MAM (041), EMM (042) and ABCC1 (043) were ratified. Two (039 and 043) were de novo discoveries, and the remainder comprised reported antigens where the causal genes were previously unknown. A further 15 blood group antigens were added to the existing blood group systems: MNS (002), RH (004), LU (005), DI (010), SC (013), GE (020), KN (022), JMH (026) and RHAG (030). Conclusion The ISBT now recognizes 378 antigens, of which 345 are clustered within 43 blood group systems while 33 still have an unknown genetic basis. The ongoing discovery of new blood group systems and antigens underscores the diverse and complex biology of the red cell membrane. The WP continues to update the blood group antigen tables and the allele nomenclature tables. These can be found on the ISBT website ( http://www.isbtweb.org/working-parties/red-cell-immunogenetics-and-blood-group-terminology/ ).
+---
+
+---
+DOI: 10.1145/1366230.1366265
+Title: Optimization strategies for a java virtual machine interpreter on the cell broadband engine
+Year: 2008
+Abstract: Virtual machines (VMs) such as the Java VM are a popular format for running architecture-neutral code in a managed runtime. Such VMs are typically implemented using a combination of interpretation and just-in-time compilation (JIT). A significant challenge for the portability of VM code is the growing popularity of multi-core architectures with specialized processing cores aimed at computation-intensive applications such as media processing. Such cores differ greatly in architectural design compared to traditional desktop processors. One such processing core is the Cell Broadband Engine's (Cell BE) Synergistic Processing Element (SPE). An SPE is a light weight VLIW processor core with a SIMD vector instruction set. In this paper we investigate some popular interpreter optimizations and introduce new optimizations exploiting the special hardware properties offered by the Cell BE's SPE
+---
+
+---
+DOI: 10.1038/s41581-018-0021-7
+Title: Single-cell RNA sequencing for the study of development, physiology and disease
+Year: 2018
+Abstract: An ongoing technological revolution is continually improving our ability to carry out very high-resolution studies of gene expression patterns. Current technology enables the global gene expression profiles of single cells to be defined, facilitating dissection of heterogeneity in cell populations that was previously hidden. In contrast to gene expression studies that use bulk RNA samples and provide only a virtual average of the diverse constituent cells, single-cell studies enable the molecular distinction of all cell types within a complex population mix, such as a tumour or developing organ. For instance, single-cell gene expression profiling has contributed to improved understanding of how histologically identical, adjacent cells make different differentiation decisions during development. Beyond development, single-cell gene expression studies have enabled the characteristics of previously known cell types to be more fully defined and facilitated the identification of novel categories of cells, contributing to improvements in our understanding of both normal and disease-related physiological processes and leading to the identification of new treatment approaches. Although limitations remain to be overcome, technology for the analysis of single-cell gene expression patterns is improving rapidly and beginning to provide a detailed atlas of the gene expression patterns of all cell types in the human body.
+---
+
+---
+DOI: 10.1109/mnet.2018.1800011
+Title: Ultra-Low Latency Mobile Networking
+Year: 2018
+Abstract: Mobile networking to achieve the ultra-low latency goal of 1 msec enables massive operation of autonomous vehicles and other intelligent mobile machines, and emerges as one of the most critical technologies beyond 5G mobile communications and state-of-the-art vehicular networks. Introducing fog computing and proactive network association, realizing virtual cell by integrating open-loop radio transmission and error control, and innovating anticipatory mobility management through machine learning, opens a new avenue toward ultra-low latency mobile networking.
+---
+
+---
+DOI: 10.1155/2017/2603410
+Title: A Robust Optimization Based Energy-Aware Virtual Network Function Placement Proposal for Small Cell 5G Networks with Mobile Edge Computing Capabilities
+Year: 2017
+Abstract: In the context of cloud-enabled 5G radio access networks with network function virtualization capabilities, we focus on the virtual network function placement problem for a multitenant cluster of small cells that provide mobile edge computing services. Under an emerging distributed network architecture and hardware infrastructure, we employ cloud-enabled small cells that integrate microservers for virtualization execution, equipped with additional hardware appliances. We develop an energy-aware placement solution using a robust optimization approach based on service demand uncertainty in order to minimize the power consumption in the system constrained by network service latency requirements and infrastructure terms. Then, we discuss the results of the proposed placement mechanism in 5G scenarios that combine several service flavours and robust protection values. Once the impact of the service flavour and robust protection on the global power consumption of the system is analyzed, numerical results indicate that our proposal succeeds in efficiently placing the virtual network functions that compose the network services in the available hardware infrastructure while fulfilling service constraints.
+---
+
+---
+DOI: 10.1016/j.cell.2012.05.044
+Title: A Whole-Cell Computational Model Predicts Phenotype from Genotype
+Year: 2012
+Abstract: Understanding how complex phenotypes arise from individual molecules and their interactions is a primary challenge in biology that computational approaches are poised to tackle. We report a whole-cell computational model of the life cycle of the human pathogen Mycoplasma genitalium that includes all of its molecular components and their interactions. An integrative approach to modeling that combines diverse mathematics enabled the simultaneous inclusion of fundamentally different cellular processes and experimental measurements. Our whole-cell model accounts for all annotated gene functions and was validated against a broad range of data. The model provides insights into many previously unobserved cellular behaviors, including in vivo rates of protein-DNA association and an inverse relationship between the durations of DNA replication initiation and replication. In addition, experimental analysis directed by model predictions identified previously undetected kinetic parameters and biological functions. We conclude that comprehensive whole-cell models can be used to facilitate biological discovery.
+---
+
+---
+DOI: 10.1016/j.mib.2015.06.004
+Title: The principles of whole-cell modeling
+Year: 2015
+Abstract: Whole-cell models which comprehensively predict how phenotypes emerge from genotype promise to enable rational bioengineering and precision medicine. Here, we outline the key principles of whole-cell modeling which have emerged from our work developing bacterial whole-cell models: single-cellularity; functional, genetic, molecular, and temporal completeness; biophysical realism including temporal dynamics and stochastic variation; species-specificity; and model integration and reproducibility. We also outline the whole-cell model construction process, highlighting existing resources. Numerous challenges remain to achieving fully complete models including developing new experimental tools to more completely characterize cells and developing a strong theoretical understanding of hybrid mathematics. Solving these challenges requires collaboration among computational and experimental biologists, biophysicists, biochemists, applied mathematicians, computer scientists, and software engineers.
+---
+
+---
+DOI: 10.1016/j.tcb.2015.09.004
+Title: Why Build Whole-Cell Models?
+Year: 2015
+Abstract: Our ability to build computational models that account for all known gene functions in a cell has increased dramatically. But why build whole-cell models, and how can they best be used? In this forum, we enumerate several areas in which whole-cell modeling can significantly impact research and technology.
+---
+
+---
+DOI: 10.1016/j.copbio.2014.01.012
+Title: The future of whole-cell modeling
+Year: 2014
+Abstract: Integrated whole-cell modeling is poised to make a dramatic impact on molecular and systems biology, bioengineering, and medicine--once certain obstacles are overcome. From our group's experience building a whole-cell model of Mycoplasma genitalium, we identified several significant challenges to building models of more complex cells. Here we review and discuss these challenges in seven areas: first, experimental interrogation; second, data curation; third, model building and integration; fourth, accelerated computation; fifth, analysis and visualization; sixth, model validation; and seventh, collaboration and community development. Surmounting these challenges will require the cooperation of an interdisciplinary group of researchers to create increasingly sophisticated whole-cell models and make data, models, and simulations more accessible to the wider community.
+---
+
+---
+DOI: 10.1038/nmeth.2724
+Title: Accelerated discovery via a whole-cell model
+Year: 2013
+Abstract: To test the promise of whole-cell modeling to facilitate scientific inquiry, we compared growth rates simulated in a whole-cell model with experimental measurements for all viable single-gene disruption Mycoplasma genitalium strains. Discrepancies between simulations and experiments led to predictions about kinetic parameters of specific enzymes that we subsequently validated. These findings represent, to our knowledge, the first application of whole-cell modeling to accelerate biological discovery.
+---
+
+---
+DOI: 10.1063/1.4811182
+Title: Towards a whole-cell modeling approach for synthetic biology
+Year: 2013
+Abstract: Despite rapid advances over the last decade, synthetic biology lacks the predictive tools needed to enable rational design. Unlike established engineering disciplines, the engineering of synthetic gene circuits still relies heavily on experimental trial-and-error, a time-consuming and inefficient process that slows down the biological design cycle. This reliance on experimental tuning is because current modeling approaches are unable to make reliable predictions about the in vivo behavior of synthetic circuits. A major reason for this lack of predictability is that current models view circuits in isolation, ignoring the vast number of complex cellular processes that impinge on the dynamics of the synthetic circuit and vice versa. To address this problem, we present a modeling approach for the design of synthetic circuits in the context of cellular networks. Using the recently published whole-cell model of Mycoplasma genitalium, we examined the effect of adding genes into the host genome. We also investigated how codon usage correlates with gene expression and find agreement with existing experimental results. Finally, we successfully implemented a synthetic Goodwin oscillator in the whole-cell model. We provide an updated software framework for the whole-cell model that lays the foundation for the integration of whole-cell models with synthetic gene circuit models. This software framework is made freely available to the community to enable future extensions. We envision that this approach will be critical to transforming the field of synthetic biology into a rational and predictive engineering discipline.
+---
+
+---
+DOI: 10.1126/science.1069881
+Title: Modeling the Heart--from Genes to Cells to the Whole Organ
+Year: 2002
+Abstract: Successful physiological analysis requires an understanding of the functional interactions between the key components of cells, organs, and systems, as well as how these interactions change in disease states. This information resides neither in the genome nor even in the individual proteins that genes code for. It lies at the level of protein interactions within the context of subcellular, cellular, tissue, organ, and system structures. There is therefore no alternative to copying nature and computing these interactions to determine the logic of healthy and diseased states. The rapid growth in biological databases; models of cells, tissues, and organs; and the development of powerful computing hardware and algorithms have made it possible to explore functionality in a quantitative manner all the way from the level of genes to the physiological function of whole organs and regulatory systems. This review illustrates this development in the case of the heart. Systems physiology of the 21st century is set to become highly quantitative and, therefore, one of the most computer-intensive disciplines.
+---
+
+---
+DOI: 10.1093/nar/gks1108
+Title: WholeCellKB: model organism databases for comprehensive whole-cell models
+Year: 2012
+Abstract: Whole-cell models promise to greatly facilitate the analysis of complex biological behaviors. Whole-cell model development requires comprehensive model organism databases. WholeCellKB (http://wholecellkb.stanford.edu) is an open-source web-based software program for constructing model organism databases. WholeCellKB provides an extensive and fully customizable data model that fully describes individual species including the structure and function of each gene, protein, reaction and pathway. We used WholeCellKB to create WholeCellKB-MG, a comprehensive database of the Gram-positive bacterium Mycoplasma genitalium using over 900 sources. WholeCellKB-MG is extensively cross-referenced to existing resources including BioCyc, KEGG and UniProt. WholeCellKB-MG is freely accessible through a web-based user interface as well as through a RESTful web service.
+---
+
+---
+DOI: 10.1016/j.pbiomolbio.2004.01.010
+Title: Development of models of active ion transport for whole-cell modelling: cardiac sodium–potassium pump as a case study
+Year: 2004
+Abstract: This study presents a method for the reduction of biophysically-based kinetic models for the active transport of ions. A lumping scheme is presented which exploits the differences in timescales associated with fast and slow transitions between model states, while maintaining the thermodynamic properties of the model. The goal of this approach is to contribute to modelling of the effects of disturbances to metabolism, associated with ischaemic heart disease, on cardiac cell function. The approach is illustrated for the sodium-potassium pump in the myocyte. The lumping scheme is applied to produce a 4-state representation from the detailed 15-state model of Läuger and Apell, Eur. Biophys. J. 13 (1986) 309, for which the principles of free energy transduction are used to link the free energy released from ATP hydrolysis (deltaGATP) to the transition rates between states of the model. An iterative minimisation algorithm is implemented to determine the transition rate parameters based on the model fit to experimental data. Finally, the relationship between deltaGATP and pump cycling direction is investigated and compared with recent experimental findings.
+---
+
+---
+DOI: 10.1073/pnas.1115855109
+Title: Subcellular calcium dynamics in a whole-cell model of an atrial myocyte
+Year: 2012
+Abstract: In this study, we present an innovative mathematical modeling approach that allows detailed characterization of Ca 2+ movement within the three-dimensional volume of an atrial myocyte. Essential aspects of the model are the geometrically realistic representation of Ca 2+ release sites and physiological Ca 2+ flux parameters, coupled with a computationally inexpensive framework. By translating nonlinear Ca 2+ excitability into threshold dynamics, we avoid the computationally demanding time stepping of the partial differential equations that are often used to model Ca 2+ transport. Our approach successfully reproduces key features of atrial myocyte Ca 2+ signaling observed using confocal imaging. In particular, the model displays the centripetal Ca 2+ waves that occur within atrial myocytes during excitation–contraction coupling, and the effect of positive inotropic stimulation on the spatial profile of the Ca 2+ signals. Beyond this validation of the model, our simulation reveals unexpected observations about the spread of Ca 2+ within an atrial myocyte. In particular, the model describes the movement of Ca 2+ between ryanodine receptor clusters within a specific z disk of an atrial myocyte. Furthermore, we demonstrate that altering the strength of Ca 2+ release, ryanodine receptor refractoriness, the magnitude of initiating stimulus, or the introduction of stochastic Ca 2+ channel activity can cause the nucleation of proarrhythmic traveling Ca 2+ waves. The model provides clinically relevant insights into the initiation and propagation of subcellular Ca 2+ signals that are currently beyond the scope of imaging technology.
+---
+
+---
+DOI: 10.1016/j.tibtech.2021.06.010
+Title: Multiscale models quantifying yeast physiology: towards a whole-cell model
+Year: 2021
+Abstract: The yeast Saccharomyces cerevisiae is widely used as a cell factory and as an important eukaryal model organism for studying cellular physiology related to human health and disease. Yeast was also the first eukaryal organism for which a genome-scale metabolic model (GEM) was developed. In recent years there has been interest in expanding the modeling framework for yeast by incorporating enzymatic parameters and other heterogeneous cellular networks to obtain a more comprehensive description of cellular physiology. We review the latest developments in multiscale models of yeast, and illustrate how a new generation of multiscale models could significantly enhance the predictive performance and expand the applications of classical GEMs in cell factory design and basic studies of yeast physiology.
+---
+
+---
+DOI: 10.1002/bit.27298
+Title: Comprehensive understanding of <i>Saccharomyces cerevisiae</i> phenotypes with whole‐cell model WM_S288C
+Year: 2020
+Abstract: Abstract Biological network construction for Saccharomyces cerevisiae is a widely used approach for simulating phenotypes and designing cell factories. However, due to a complicated regulatory mechanism governing the translation of genotype to phenotype, precise prediction of phenotypes remains challenging. Here, we present WM_S288C, a computational whole‐cell model that includes 15 cellular states and 26 cellular processes and which enables integrated analyses of physiological functions of Saccharomyces cerevisiae . Using WM_S288C to predict phenotypes of S. cerevisiae , the functions of 1140 essential genes were characterized and linked to phenotypes at five levels. During the cell cycle, the dynamic allocation of intracellular molecules could be tracked in real‐time to simulate cell activities. Additionally, one‐third of non‐essential genes were identified to affect cell growth via regulating nucleotide concentrations. These results demonstrated the value of WM_S288C as a tool for understanding and investigating the phenotypes of S. cerevisiae .
+---
+
+---
+DOI: 10.1016/j.bpj.2015.07.030
+Title: Toward a Whole-Cell Model of Ribosome Biogenesis: Kinetic Modeling of SSU Assembly
+Year: 2015
+Abstract: Central to all life is the assembly of the ribosome: a coordinated process involving the hierarchical association of ribosomal proteins to the RNAs forming the small and large ribosomal subunits. The process is further complicated by effects arising from the intracellular heterogeneous environment and the location of ribosomal operons within the cell. We provide a simplified model of ribosome biogenesis in slow-growing Escherichia coli. Kinetic models of in vitro small-subunit reconstitution at the level of individual protein/ribosomal RNA interactions are developed for two temperature regimes. The model at low temperatures predicts the existence of a novel 5'→3'→central assembly pathway, which we investigate further using molecular dynamics. The high-temperature assembly network is incorporated into a model of in vivo ribosome biogenesis in slow-growing E. coli. The model, described in terms of reaction-diffusion master equations, contains 1336 reactions and 251 species that dynamically couple transcription and translation to ribosome assembly. We use the Lattice Microbes software package to simulate the stochastic production of mRNA, proteins, and ribosome intermediates over a full cell cycle of 120 min. The whole-cell model captures the correct growth rate of ribosomes, predicts the localization of early assembly intermediates to the nucleoid region, and reproduces the known assembly timescales for the small subunit with no modifications made to the embedded in vitro assembly network.
+---
+
+---
+DOI: 10.1016/j.febslet.2007.05.062
+Title: The hard cell: From proteomics to a whole cell model
+Year: 2007
+Abstract: Proteomics has provided a wealth of data related to the nature of the proteome, including subcellular location, copy number, interaction partners and protein complexes. This raises the question of whether it is feasible to combine these data, together with other data related to overall cellular structure, to construct a static picture of the cell. In this minireview, we discuss these data, and the issues of turning them into whole cell models.
+---
+
+---
+DOI: 10.1007/978-0-387-22459-6_5
+Title: Whole—Cell Models
+Year: 2007
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/978-3-7643-7567-6_11
+Title: Toward whole cell modeling and simulation: Comprehensive functional genomics through the constraint-based approach
+Year: 2007
+Abstract: The increasing availability of various system-level, or so-called 'omics', datasets, in concert with existing data from the primary research literature, is facilitating the development of genome-scale metabolic models for many organisms. By incorporating the metabolic reaction stoichiometry as well as other physicochemical properties into systemic network reconstructions, these models account for the constraints that restrict an organism's phenotypic behavior. Accordingly, unlike many contemporary modeling strategies, this constraint-based modeling approach does not attempt to predict network behavior exactly; rather, it seeks to clearly distinguish those network states that a system can achieve from those that it cannot. A variety of analytical tools have been designed and developed to probe these models, thus enabling studies that investigate the metabolic capabilities of a number of organisms, that generate and test experimental hypotheses, and that predict accurately metabolic phenotypes and evolutionary outcomes. This chapter introduces the concepts that underlie the constraint-based modeling approach, and describes several of its applications with an emphasis on those potentially relevant to the drug development field. In addition, while this chapter focuses on the primary application of the constraint-based approach to date, namely in modeling metabolic networks, the latter sections of the chapter discuss its relatively recent application to modeling other cellular systems. Finally, the chapter concludes with an assessment of future directions focusing on the efforts that will be required to utilize the constraint-based approach in generating a holistic model of a viable organism.
+---
+
+---
+DOI: 10.1523/jneurosci.14-08-04613.1994
+Title: Detailed passive cable models of whole-cell recorded CA3 pyramidal neurons in rat hippocampal slices
+Year: 1994
+Abstract: Tight-seal whole-cell recordings were made from cleaned somata of CA3 pyramidal cells deep in hippocampal slices from 19–21-d-old rats. The cells were filled with biocytin, and their voltage responses to short current pulses were recorded. After washout of initial sag, responses scaled linearly with injected current and were stable over time. The dendritic and axonal arbors of four cells were reconstructed and measured using light microscopy. Dendritic spines and axonal boutons were counted and the additional membrane area was incorporated into the relevant segments. The morphology of each neuron was converted into a detailed branching cable model by assuming values for specific membrane capacitance Cm and resistance Rm, and cytoplasmic resistivity Ri. These parameters were optimized for each cell by directly matching the model's response to that of the real cell by means of a modified weighted least-squares fitting procedure. By comparing the deviations between model and experimental responses to control noise recordings, approximate 95% confidence intervals were established for each parameter. If a somatic shunt was allowed, a wide range of possible Rm values produced acceptable fits. With zero shunt, Cm was 0.7–0.8 microFcm-2, Ri was 170–340 omega cm, and Rm ranged between 120 and 200 k omega cm2. The electrotonic lengths of the basal and oblique dendrites were 0.2–0.3 space constants, and those of the apical tufts were 0.4–0.7 space constants. The steady-state electrical geometry of these cells was therefore compact; average dendritic tip/soma relative synaptic efficacies were &gt; 93% for the basal and oblique dendrites, and &gt; 81% for the tufts. With fast transient synaptic inputs, however, the models produced a wide range of postsynaptic potential shapes and marked filtering of voltage-clamp currents.
+---
+
+---
+DOI: 10.1529/biophysj.106.087098
+Title: Fibroblast Growth Factor 2 Induced Proliferation in Osteoblasts and Bone Marrow Stromal Cells: A Whole Cell Model
+Year: 2006
+Abstract: Fibroblast growth factor 2 (FGF2) can enhance the proliferative capacity of bone and bone marrow stromal cells; however, the mechanisms behind this effect are not well described. We present a whole-cell kinetic model relating receptor-mediated binding, internalization, and processing of FGF2 to osteoblastic proliferative response. Focusing on one of the potential signaling complex stoichiometries, we utilized experimentally measured and modeled estimated rate constants to predict in vitro proliferation and distinguish between potential binding orders. We found that piecewise assemblage of a ternary signaling complex may occur in several ways depending on the local binding environment. Using experimental data of endocytosed FGF2 as a constraint, we have also shown evidence of potential multistep processes involved in heparan-sulfate proteoglycans-bound FGF2 release, internalization, and fragment formation in conjunction with the normal metabolism of the proteoglycan.
+---
+
+---
+DOI: 10.1049/iet-syb:20070079
+Title: Incorporating genome-wide DNA sequence information into a dynamic whole-cell model of <i>Escherichia coli</i> : application to DNA replication
+Year: 2008
+Abstract: The advent of thousands of annotated genomes, detailed metabolic reconstructions and databases within the flourishing field of systems biology necessitates the development of functionally complete computer models of whole cells and cellular systems. Such models would realistically describe fundamental properties of living systems such as growth, division and chromosome replication. This will inevitably bridge bioinformatic technologies with ongoing mathematical modelling efforts and would allow for in silico prediction of important dynamic physiological events. To demonstrate a potential for the anticipated merger of bioinformatic genome-wide data with a whole-cell computer model, the authors present here an updated version of a dynamic model of Escherichia coli, including a module that correctly describes the initiation and control of DNA replication by nucleoprotein DnaA-ATP molecules. Specifically, a rigorous mathematical approach used to explicitly include the genome-wide distribution of DnaA-binding sites on the replicating chromosome into a computer model of a bacterial cell is discussed. A new simple deterministic approximation of the complex stochastic process of DNA replication initiation is also provided. It is shown for the first time that reasonable assumptions about the mechanism of DNA replication initiation can be implemented in a deterministic whole-cell model to make predictions about the timing of chromosome replication. Furthermore, it is proposed that a large increase in the concentration of DnaA-binding boxes will result in a decreased steady-state growth rate in E. coli.
+---
+
+---
+DOI: 10.1016/j.sbi.2014.01.005
+Title: Cellular and molecular structure as a unifying framework for whole-cell modeling
+Year: 2014
+Abstract: Whole-cell modeling has the potential to play a major role in revolutionizing our understanding of cellular biology over the next few decades. A computational model of the entire cell would allow cellular biologists to integrate data from many disparate sources in a single consistent framework. Such a comprehensive model would be useful both for hypothesis testing and in the discovery of new behaviors that emerge from complex biological networks. Cellular and molecular structure can and should be a key organizing principle in a whole-cell model, connecting models across time and length scales in a multiscale approach. Here I present a summary of recent research centered around using molecular and cellular structure to model the behavior of cells.
+---

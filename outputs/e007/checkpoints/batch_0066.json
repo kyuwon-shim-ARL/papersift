@@ -1,0 +1,53 @@
+{
+  "batch_index": 66,
+  "dois": [
+    "10.1016/j.cell.2021.12.045",
+    "10.1038/s41377-019-0129-y",
+    "10.1007/s11306-016-1051-4",
+    "10.1371/journal.pcbi.1004913"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1016/j.cell.2021.12.045",
+      "problem": "Conventional splicing-based RNA velocity analyses have fundamental limitations in accurately estimating velocities and predicting cell fate transitions, lacking a framework to extract governing regulatory functions from single-cell transcriptomic data.",
+      "method": "Dynamo infers absolute RNA velocity from metabolic labeling scRNA-seq, reconstructs continuous vector field functions, applies differential geometry (Jacobian, acceleration, curvature) to extract gene regulations, and uses the least-action-path (LAP) method for transition path prediction and in silico perturbation.",
+      "finding": "Dynamo overcomes intrinsic limitations of conventional RNA velocity, reveals mechanisms driving early megakaryocyte appearance, elucidates asymmetrical regulation in the PU.1-GATA1 circuit, accurately predicts drivers of hematopoietic transitions, and predicts cell-fate diversions from gene perturbations.",
+      "dataset": "Human CD34+ hematopoietic stem/progenitor cells (scNT-seq), HL60 cell differentiation (10x scRNA-seq), hematopoiesis clone tracing, scSLAM-seq, sci-fate, scEU-seq",
+      "metric": "Vector field topology (fixed points, separatrices), Jacobian regulatory network recovery, LAP transition path accuracy",
+      "baseline": "Conventional splicing-based RNA velocity (scVelo, velocyto)",
+      "result": "Absolute RNA velocity from metabolic labeling overcomes splicing-based velocity limitations; correctly identifies self-activation and mutual inhibition in toggle-switch; accurately predicts hematopoietic transition drivers"
+    },
+    {
+      "doi": "10.1038/s41377-019-0129-y",
+      "problem": "Histological staining of tissue samples for pathology is time-consuming, costly, and destructive to the specimen, limiting downstream analyses of the same tissue section.",
+      "method": "PhaseStain uses a generative adversarial network (GAN) trained on paired quantitative phase images (QPI) from lensfree holographic microscopy and corresponding brightfield images of histologically stained tissue to perform virtual digital staining.",
+      "finding": "PhaseStain produces virtually stained images from label-free QPI that closely match histologically stained brightfield images across three tissue/stain combinations, with high structural similarity and robustness to phase noise.",
+      "dataset": "Human skin tissue (H&E), kidney tissue (Jones' stain), liver tissue (Masson's trichrome), ~10 megapixel images per sample (~1.47 mm² FOV)",
+      "metric": "Structural Similarity Index (SSIM)",
+      "baseline": "Histochemically stained brightfield microscopy images (gold standard)",
+      "result": "SSIM = 0.8113 (skin/H&E), 0.8141 (kidney/Jones'), 0.8905 (liver/Masson's trichrome); inference time 0.617s per ~0.45 mm² FOV"
+    },
+    {
+      "doi": "10.1007/s11306-016-1051-4",
+      "problem": "Existing human genome-scale metabolic reconstructions lacked consensus, had incomplete metabolite annotations, mass/charge imbalances, and failed to correctly predict energy metabolism such as ATP yield on different carbon sources.",
+      "method": "Recon 2.2 was developed through manual curation (fatty acid beta-oxidation, oxidative phosphorylation, electron transport chain coupling) combined with automated error checking via linear programming for mass/charge balancing, and semi-automated curation using the SuBliMinaL Toolbox.",
+      "finding": "Recon 2.2 correctly predicts ATP yield on different carbon sources, integrates all prior Recon 2 versions into a new consensus, and provides the most complete and best-annotated human metabolic reconstruction with improved gene-protein-reaction relationships.",
+      "dataset": "Human metabolism (genome-scale), E. coli iJR904 reconstruction for validation context",
+      "metric": "ATP yield prediction accuracy on carbon sources, mass/charge balance completeness, reconstruction size",
+      "baseline": "Recon 2.1, Recon 2.04, previous Recon 2 variants",
+      "result": "5324 metabolites, 7785 reactions, 1675 genes; correct ATP yield predictions on multiple carbon sources; all reactions mass- and charge-balanced"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1004913",
+      "problem": "Standard Flux Balance Analysis (FBA) cannot explain the switch from respiration to fermentation with carbon overflow at fast growth rates, as it lacks proteome allocation constraints linking metabolism to protein biosynthetic costs.",
+      "method": "CAFBA extends FBA with a single genome-wide proteome allocation constraint derived from empirical bacterial growth laws, solved efficiently as a linear program (LP) with only 3 empirically determined parameters, using ensemble averaging over unknown protein costs.",
+      "finding": "CAFBA solutions cross over from respiratory, growth-yield maximizing states at slow growth to fermentative states with carbon overflow at fast growth, quantitatively predicting acetate excretion rate and growth yield in E. coli.",
+      "dataset": "E. coli K-12 MG1655, iJR904 GSM/GPR reconstruction, glucose-limited growth",
+      "metric": "Acetate excretion rate, growth yield, overflow onset ratio (λ_ac/λ_max)",
+      "baseline": "Standard FBA (growth-rate maximization without proteome constraints)",
+      "result": "Quantitatively accurate acetate excretion and growth yield predictions from only 3 parameters (w_R,0=0.169 h, φ_max=48.4%, λ_max); λ_ac/λ_max ratio robust across conditions"
+    }
+  ],
+  "timestamp": "2026-03-05T14:39:04.933498",
+  "extraction_count": 4
+}

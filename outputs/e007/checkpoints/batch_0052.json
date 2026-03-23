@@ -1,0 +1,119 @@
+{
+  "batch_index": 52,
+  "dois": [
+    "10.1371/journal.pone.0132208",
+    "10.1002/bit.27159",
+    "10.1016/j.celrep.2012.12.008",
+    "10.1038/s41598-022-13281-3",
+    "10.1021/acsomega.6b00534",
+    "10.1186/s12918-016-0379-8",
+    "10.7554/elife.22962",
+    "10.1002/sctm.19-0059",
+    "10.1038/s41598-021-83209-w",
+    "10.1371/journal.pone.0212502"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pone.0132208",
+      "problem": "Hematopoietic lineage commitment regulatory circuitry",
+      "method": "Commitment-switch computational model of gene interactions",
+      "finding": "Model reproduces bistable B-cell lineage commitment",
+      "dataset": "human CD34+ cells",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1002/bit.27159",
+      "problem": "Scalable iPSC-derived cardiomyocyte production",
+      "method": "3D spinner flask differentiation process",
+      "finding": "Established baseline for scalable cardiomyocyte production",
+      "dataset": "human iPSC LiPSC-18R",
+      "metric": "",
+      "baseline": "2D monolayer",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.celrep.2012.12.008",
+      "problem": "Somatic mutation processes in cancer genomes",
+      "method": "Mathematical model of mutational signature classification",
+      "finding": "Four classes of somatic mutations with distinct signatures",
+      "dataset": "cancer genomes",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41598-022-13281-3",
+      "problem": "Theory of biological tissue organization",
+      "method": "Cellular automaton for tissue expansion",
+      "finding": "Demonstrated tissue formation from single cells",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1021/acsomega.6b00534",
+      "problem": "Intermediate band solar cell material discovery",
+      "method": "Computational screening of 2100 compounds",
+      "finding": "Novel IB materials identified for solar cells",
+      "dataset": "2100 compounds",
+      "metric": "correlation",
+      "baseline": "",
+      "result": "63.2% theoretical"
+    },
+    {
+      "doi": "10.1186/s12918-016-0379-8",
+      "problem": "Mathematical models of mammalian circadian clock",
+      "method": "Review of cell-autonomous circadian oscillator models",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.7554/elife.22962",
+      "problem": "O-LM cell biophysical modeling in hippocampus",
+      "method": "Multi-compartment models with 9 ion channels",
+      "finding": "Examined spiking differences with different synaptic inputs",
+      "dataset": "rat hippocampal cells",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1002/sctm.19-0059",
+      "problem": "Cardiac progenitor cell exosomes for RVHF repair",
+      "method": "2D vs 3D CPC culture with exosome analysis",
+      "finding": "Donor-specific differential responses to exosome treatment",
+      "dataset": "3 human CPC donors",
+      "metric": "correlation",
+      "baseline": "2D monolayer",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41598-021-83209-w",
+      "problem": "Cerebellar stellate cell functional properties",
+      "method": "Electrophysiology with detailed model generation",
+      "finding": "Validated computational stellate cell models",
+      "dataset": "mouse cerebellum",
+      "metric": "correlation",
+      "baseline": "",
+      "result": "95%"
+    },
+    {
+      "doi": "10.1371/journal.pone.0212502",
+      "problem": "HSC lineage specification biological inducers",
+      "method": "Primary mouse cell culture growth profiling",
+      "finding": "Complex feedback mechanisms in HSC differentiation",
+      "dataset": "mouse HSCs",
+      "metric": "sensitivity",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:56:37.636332",
+  "extraction_count": 10
+}

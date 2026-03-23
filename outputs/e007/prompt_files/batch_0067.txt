@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1002/biot.201800421
+Title: Yeast Systems Biology: Model Organism and Cell Factory
+Year: 2019
+Abstract: For thousands of years, the yeast Saccharomyces cerevisiae ( S. cerevisiae ) has served as a cell factory for the production of bread, beer, and wine. In more recent years, this yeast has also served as a cell factory for producing many different fuels, chemicals, food ingredients, and pharmaceuticals. S. cerevisiae , however, has also served as a very important model organism for studying eukaryal biology, and even today many new discoveries, important for the treatment of human diseases, are made using this yeast as a model organism. Here a brief review of the use of S. cerevisiae as a model organism for studying eukaryal biology, its use as a cell factory, and how advances in systems biology underpin developments in both these areas, is provided.
+---
+
+---
+DOI: 10.1016/j.cell.2024.11.015
+Title: How to build the virtual cell with artificial intelligence: Priorities and opportunities
+Year: 2024
+Abstract: SUMMARY Cells are essential to understanding health and disease, yet traditional models fall short of modeling and simulating their function and behavior. Advances in AI and omics offer groundbreaking opportunities to create an AI virtual cell (AIVC), a multi-scale, multi-modal large-neural-network-based model that can represent and simulate the behavior of molecules, cells, and tissues across diverse states. This Perspective provides a vision on their design and how collaborative efforts to build AIVCs will transform biological research by allowing high-fidelity simulations, accelerating discoveries, and guiding experimental studies, offering new opportunities for understanding cellular functions and fostering interdisciplinary collaborations in open science.
+---
+
+---
+DOI: 10.1038/s41477-018-0328-1
+Title: A whole-cell electron tomography model of vacuole biogenesis in Arabidopsis root cells
+Year: 2018
+Abstract: Plant vacuoles are dynamic organelles that play essential roles in regulating growth and development. Two distinct models of vacuole biogenesis have been proposed: separate vacuoles are formed by the fusion of endosomes, or the single interconnected vacuole is derived from the endoplasmic reticulum. These two models are based on studies of two-dimensional (2D) transmission electron microscopy and 3D confocal imaging, respectively. Here, we performed 3D electron tomography at nanometre resolution to illustrate vacuole biogenesis in Arabidopsis root cells. The whole-cell electron tomography analysis first identified unique small vacuoles (SVs; 400-1,000 nm in diameter) as nascent vacuoles in early developmental cortical cells. These SVs contained intraluminal vesicles and were mainly derived/matured from multivesicular body (MVB) fusion. The whole-cell vacuole models and statistical analysis on wild-type root cells of different vacuole developmental stages demonstrated that central vacuoles were derived from MVB-to-SV transition and subsequent fusions of SVs. Further electron tomography analysis on mutants defective in MVB formation/maturation or vacuole fusion demonstrated that central vacuole formation required functional MVBs and membrane fusion machineries.
+---
+
+---
+DOI: 10.1098/rsif.2017.0237
+Title: How to deal with parameters for whole-cell modelling
+Year: 2017
+Abstract: Abstract Dynamical systems describing whole cells are on the verge of becoming a reality. But as models of reality, they are only useful if we have realistic parameters for the molecular reaction rates and cell physiological processes. There is currently no suitable framework to reliably estimate hundreds, let alone thousands, of reaction rate parameters. Here, we map out the relative weaknesses and promises of different approaches aimed at redressing this issue. While suitable procedures for estimation or inference of the whole (vast) set of parameters will, in all likelihood, remain elusive, some hope can be drawn from the fact that much of the cellular behaviour may be explained in terms of smaller sets of parameters. Identifying such parameter sets and assessing their behaviour is now becoming possible even for very large systems of equations, and we expect such methods to become central tools in the development and analysis of whole-cell models.
+---
+
+---
+DOI: 10.1016/j.snb.2016.10.075
+Title: The utilization of optically-induced-dielectrophoresis (ODEP)-based virtual cell filters in a microfluidic system for continuous isolation and purification of circulating tumour cells (CTCs) based on their size characteristics
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.copbio.2017.12.013
+Title: Emerging whole-cell modeling principles and methods
+Year: 2017
+Abstract: Whole-cell computational models aim to predict cellular phenotypes from genotype by representing the entire genome, the structure and concentration of each molecular species, each molecular interaction, and the extracellular environment. Whole-cell models have great potential to transform bioscience, bioengineering, and medicine. However, numerous challenges remain to achieve whole-cell models. Nevertheless, researchers are beginning to leverage recent progress in measurement technology, bioinformatics, data sharing, rule-based modeling, and multi-algorithmic simulation to build the first whole-cell models. We anticipate that ongoing efforts to develop scalable whole-cell modeling tools will enable dramatically more comprehensive and more accurate models, including models of human cells.
+---
+
+---
+DOI: 10.1016/j.coisb.2017.10.005
+Title: A blueprint for human whole-cell modeling
+Year: 2017
+Abstract: Whole-cell dynamical models of human cells are a central goal of systems biology. Such models could help researchers understand cell biology and help physicians treat disease. Despite significant challenges, we believe that human whole-cell models are rapidly becoming feasible. To develop a plan for achieving human whole-cell models, we analyzed the existing models of individual cellular pathways, surveyed the biomodeling community, and reflected on our experience developing whole-cell models of bacteria. Based on these analyses, we propose a plan for a project, termed the <i>Human Whole-Cell Modeling Project</i>, to achieve human whole-cell models. The foundations of the plan include technology development, standards development, and interdisciplinary collaboration.
+---
+
+---
+DOI: 10.1146/annurev-cellbio-100617-062542
+Title: Whole-Cell Models and Simulations in Molecular Detail
+Year: 2019
+Abstract: Comprehensive data about the composition and structure of cellular components have enabled the construction of quantitative whole-cell models. While kinetic network–type models have been established, it is also becoming possible to build physical, molecular-level models of cellular environments. This review outlines challenges in constructing and simulating such models and discusses near- and long-term opportunities for developing physical whole-cell models that can connect molecular structure with biological function.
+---
+
+---
+DOI: 10.1021/acssynbio.7b00121
+Title: BSim 2.0: An Advanced Agent-Based Cell Simulator
+Year: 2017
+Abstract: Agent-based models (ABMs) provide a number of advantages relative to traditional continuum modeling approaches, permitting incorporation of great detail and realism into simulations, allowing in silico tracking of single-cell behaviors and correlation of these with emergent effects at the macroscopic level. In this study we present BSim 2.0, a radically new version of BSim, a computational ABM framework for modeling dynamics of bacteria in typical experimental environments including microfluidic chemostats. This is facilitated through the implementation of new methods including cells with capsular geometry that are able to physically and chemically interact with one another, a realistic model of cellular growth, a delay differential equation solver, and realistic environmental geometries.
+---
+
+---
+DOI: 10.1016/j.coche.2021.100702
+Title: Bioprocess digital twins of mammalian cell culture for advanced biomanufacturing
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.bpj.2017.08.022
+Title: Compartmental and Spatial Rule-Based Modeling with Virtual Cell
+Year: 2017
+Abstract: In rule-based modeling, molecular interactions are systematically specified in the form of reaction rules that serve as generators of reactions. This provides a way to account for all the potential molecular complexes and interactions among multivalent or multistate molecules. Recently, we introduced rule-based modeling into the Virtual Cell (VCell) modeling framework, permitting graphical specification of rules and merger of networks generated automatically (using the BioNetGen modeling engine) with hand-specified reaction networks. VCell provides a number of ordinary differential equation and stochastic numerical solvers for single-compartment simulations of the kinetic systems derived from these networks, and agent-based network-free simulation of the rules. In this work, compartmental and spatial modeling of rule-based models has been implemented within VCell. To enable rule-based deterministic and stochastic spatial simulations and network-free agent-based compartmental simulations, the BioNetGen and NFSim engines were each modified to support compartments. In the new rule-based formalism, every reactant and product pattern and every reaction rule are assigned locations. We also introduce the rule-based concept of molecular anchors. This assures that any species that has a molecule anchored to a predefined compartment will remain in this compartment. Importantly, in addition to formulation of compartmental models, this now permits VCell users to seamlessly connect reaction networks derived from rules to explicit geometries to automatically generate a system of reaction-diffusion equations. These may then be simulated using either the VCell partial differential equations deterministic solvers or the Smoldyn stochastic simulator.
+---
+
+---
+DOI: 10.1098/rsif.2021.0274
+Title: Coordination of gene expression noise with cell size: analytical results for agent-based models of growing cell populations
+Year: 2021
+Abstract: The chemical master equation and the Gillespie algorithm are widely used to model the reaction kinetics inside living cells. It is thereby assumed that cell growth and division can be modelled through effective dilution reactions and extrinsic noise sources. We here re-examine these paradigms through developing an analytical agent-based framework of growing and dividing cells accompanied by an exact simulation algorithm, which allows us to quantify the dynamics of virtually any intracellular reaction network affected by stochastic cell size control and division noise. We find that the solution of the chemical master equation—including static extrinsic noise—exactly agrees with the agent-based formulation when the network under study exhibits stochastic concentration homeostasis , a novel condition that generalizes concentration homeostasis in deterministic systems to higher order moments and distributions. We illustrate stochastic concentration homeostasis for a range of common gene expression networks. When this condition is not met, we demonstrate by extending the linear noise approximation to agent-based models that the dependence of gene expression noise on cell size can qualitatively deviate from the chemical master equation. Surprisingly, the total noise of the agent-based approach can still be well approximated by extrinsic noise models.
+---
+
+---
+DOI: 10.1016/j.tiv.2016.07.013
+Title: Theoretical and mathematical foundation of the Virtual Cell Based Assay – A review
+Year: 2016
+Abstract: There is a need to interpret in vitro concentration-viability data in terms of the actual concentration that the cells are exposed to, rather than the nominal concentration applied to the test system. We have developed a process-based model to simulate the kinetics and dynamics of a chemical compound in cell-based in vitro assays. In the present paper we describe the mathematical equations governing this model as well as the parameters that are needed to run the model. The Virtual Cell Based Assay (VCBA) is an integrated model composed of: [1] a fate and transport model; [2] a cell partitioning model; [3] a cell growth and division model; [4] a toxicity and effects model; [5] the experimental set up. The purpose of the VCBA is to simulate the medium and intracellular concentrations, which can be used on its own to design and interpret in vitro experiments, and in combination with physiologically based kinetic (PBK) models to perform in vitro to in vivo extrapolation. The results can be used in chemical risk assessment to link an external dose to an internal effect or vice versa, using solely in vitro and in silico tools and thereby avoiding animal testing.
+---
+
+---
+DOI: 10.1016/j.ijhydene.2019.06.128
+Title: Coordinated power control with virtual inertia for fuel cell-based DC microgrids cluster
+Year: 2019
+Abstract: Abstract This paper proposes a coordinated power control method with virtual inertia (VI) for fuel cell-based DC microgrids (MGs) cluster based on the multi-agent system (MAS) control frame. In the primary control layer, a local energy management strategy with virtual inertia is adopted to suppress the bus voltage disturbance, smooth the output power of fuel cell, as well as manage the power flow in the DC MG. In the secondary and tertiary control layers, a coordinated power control method based on MAS frame is implemented for the power flow among the sub-MGs. More specifically, the secondary voltage control loop is used for the bus voltage smooth control at the moment of microgrids interconnection, and the power flow tertiary control regular is applied for the battery SoC converge uniformly in finite time. Also, a fuel cell-based DC microgrids cluster real-time simulation platform is established to verify the control performance of the proposed coordinated power control method on the bus voltage smooth control, the SoC consistency control, load abrupt response and ‘plug and play’ capability.
+---
+
+---
+DOI: 10.1021/acsnano.7b03732
+Title: Development of a Virtual Cell Model to Predict Cell Response to Substrate Topography
+Year: 2017
+Abstract: Cells can sense and respond to changes in the topographical, chemical, and mechanical information in their environment. Engineered substrates are increasingly being developed that exploit these physical attributes to direct cell responses (most notably mesenchymal stem cells) and therefore control cell behavior toward desired applications. However, there are very few methods available for robust and accurate modeling that can predict cell behavior prior to experimental evaluations, and this typically means that many cell test iterations are needed to identify best material features. Here, we developed a unifying computational framework to create a multicomponent cell model, called the "virtual cell model" that has the capability to predict changes in whole cell and cell nucleus characteristics (in terms of shape, direction, and even chromatin conformation) on a range of cell substrates. Modeling data were correlated with cell culture experimental outcomes in order to confirm the applicability of the virtual cell model and demonstrating the ability to reflect the qualitative behavior of mesenchymal stem cells. This may provide a reliable, efficient, and fast high-throughput approach for the development of optimized substrates for a broad range of cellular applications including stem cell differentiation.
+---
+
+---
+DOI: 10.1098/rsif.2018.0530
+Title: Estimation methods for heterogeneous cell population models in systems biology
+Year: 2018
+Abstract: Heterogeneity among individual cells is a characteristic and relevant feature of living systems. A range of experimental techniques to investigate this heterogeneity is available, and multiple modelling frameworks have been developed to describe and simulate the dynamics of heterogeneous populations. Measurement data are used to adjust computational models, which results in parameter and state estimation problems. Methods to solve these estimation problems need to take the specific properties of data and models into account. The aim of this review is to give an overview on the state of the art in estimation methods for heterogeneous cell population data and models. The focus is on models based on the population balance equation, but stochastic and individual-based models are also discussed. It starts with a brief discussion of common experimental approaches and types of measurement data that can be obtained in this context. The second part describes computational modelling frameworks for heterogeneous populations and the types of estimation problems occurring for these models. The third part starts with a discussion of observability and identifiability properties, after which the computational methods to solve the various estimation problems are described.
+---
+
+---
+DOI: 10.1016/j.jhazmat.2023.131030
+Title: Accurate and non-destructive monitoring of mold contamination in foodstuffs based on whole-cell biosensor array coupling with machine-learning prediction models
+Year: 2023
+Abstract: Mold contamination in foodstuffs causes huge economic losses, quality deterioration and mycotoxin production. Thus, non-destructive and accurate monitoring of mold occurrence in foodstuffs is highly required. We proposed a novel whole-cell biosensor array to monitor pre-mold events in foodstuffs. Firstly, 3 volatile markers ethyl propionate, 1-methyl-1 H-pyrrole and 2,3-butanediol were identified from pre-mold peanuts using gas chromatography-mass spectrometry. Together with other 3 frequently-reported volatiles from Aspergillus flavus infection, the volatiles at subinhibitory concentrations induced significant but differential response patterns from 14 stress-responsive Escherichia coli promoters. Subsequently, a whole-cell biosensor array based on the 14 promoters was constructed after whole-cell immobilization in calcium alginate. To discriminate the response patterns of the whole-cell biosensor array to mold-contaminated foodstuffs, optimal classifiers were determined by comparing 6 machine-learning algorithms. 100 % accuracy was achieved to discriminate healthy from moldy peanuts and maize, and 95 % and 98 % accuracy in discriminating pre-mold stages for infected peanuts and maize, based on random forest classifiers. 83 % accuracy was obtained to separate moldy peanuts from moldy maize by sparse partial least square determination analysis. The results demonstrated high accuracy and practicality of our method based on a whole-cell biosensor array coupling with machine-learning classifiers for mold monitoring in foodstuffs.
+---
+
+---
+DOI: 10.1016/j.snb.2021.131189
+Title: tQ[14]-based AIE supramolecular network polymers as potential bioimaging agents for the detection of Fe3+ in live HeLa cells
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/s41592-021-01150-2
+Title: Integrating experiments, theory and simulations into whole-cell models
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.tiv.2016.09.004
+Title: Repeated whole cigarette smoke exposure alters cell differentiation and augments secretion of inflammatory mediators in air-liquid interface three-dimensional co-culture model of human bronchial tissue
+Year: 2016
+Abstract: In vitro models of human bronchial epithelium are useful for toxicological testing because of their resemblance to in vivo tissue. We constructed a model of human bronchial tissue which has a fibroblast layer embedded in a collagen matrix directly below a fully-differentiated epithelial cell layer. The model was applied to whole cigarette smoke (CS) exposure repeatedly from an air-liquid interface culture while bronchial epithelial cells were differentiating. The effects of CS exposure on differentiation were determined by histological and gene expression analyses on culture day 21. We found a decrease in ciliated cells and perturbation of goblet cell differentiation. We also analyzed the effects of CS exposure on the inflammatory response, and observed a significant increase in secretion of IL-8, GRO-α, IL-1β, and GM-CSF. Interestingly, secretion of these mediators was augmented with repetition of whole CS exposure. Our data demonstrate the usefulness of our bronchial tissue model for in vitro testing and the importance of exposure repetition in perturbing the differentiation and inflammation processes.
+---
+
+---
+DOI: 10.1016/j.nano.2017.03.019
+Title: Ultrasmall graphene oxide based T1 MRI contrast agent for in vitro and in vivo labeling of human mesenchymal stem cells
+Year: 2017
+Abstract: Herein, we report on development of a two-dimensional nanomaterial graphene oxide (GO)-based T1 magnetic resonance imaging (MRI) contrast agent (CA) for in vitro and in vivo labeling of human mesenchymal stem cells (hMSCs). The CA was synthesized by PEGylation of ultrasmall GO, followed by conjugation with a chelating agent DOTA and then gadolinium(III) to form GO-DOTA-Gd complexes. Thus-prepared GO-DOTA-Gd complexes exhibited significantly improved T1 relaxivity, and the r1 value was 14.2 mM-1s-1 at 11.7 T, approximately three times higher than Magnevist, a commercially available CA. hMSCs can be effectively labeled by GO-DOTA-Gd, leading to remarkably enhanced cellular MRI effect without obvious adverse effects on proliferation and differentiation of hMSCs. More importantly, in vivo experiment revealed that intracranial detection of 5×105 hMSCs labeled with GO-DOTA-Gd is achieved. The current work demonstrates the feasibility of the GO-based T1 MRI CA for stem cell labeling, which may find potential applications in regenerative medicine.
+---
+
+---
+DOI: 10.1007/s13205-018-1464-z
+Title: Moderate levels of glyphosate and its formulations vary in their cytotoxicity and genotoxicity in a whole blood model and in human cell lines with different estrogen receptor status
+Year: 2018
+Abstract: In vitro studies were conducted to determine the short-term cytotoxic and genotoxic effects of pure glyphosate and two glyphosate formulations (Roundup® and Wipeout®) at concentrations relevant to human exposure using whole blood (cytotoxicity) and various cancer cell lines (cytotoxicity and genotoxicity). Pure glyphosate (pure glyph) and Roundup® (Ro) showed similar non-monotonic toxicological profiles at low dose exposure (from 10 µg/ml), whereas Wipeout® (Wo) demonstrated a monotonic reduction in cell viability from a threshold concentration of 50 µg/ml, when tested in whole blood. We evaluated whether using various cancer cells (the estrogen-E2-responsive HEC1A, MCF7 and the estrogen-insensitive MDA-MB-231) exposed to moderate doses (75-500 µg/ml) would indicate varied toxicity and results indicated significant effects in the HEC1A cancer cells. A non-monotonic reduction in cell viability was observed in HEC1A exposed to pure glyph (75-500 µg/ml) and proliferative effects were observed after exposure to Wo (75, 125 and 250 µg/ml). Genotoxicity assessment (test concentration 500 µg/ml) demonstrated DNA damage in the HEC1A and MDA-MB-231 cells. Adjuvants and/or glyphosate impurities were potential contributing factors of toxicity based on the differential toxicities displayed by Ro and Wo in human whole blood and the HEC1A cells. This study contributes to the existing knowledge about in vitro exposure to moderate concentrations of glyphosate or glyphosate formulations at cytotoxic and genotoxic levels. In addition, a suggestion on the relevance of the estrogen receptor status of the cell lines used is provided, leading to the need to further investigate a potential endocrine disruptive role.
+---
+
+---
+DOI: 10.1016/j.ejpb.2021.11.004
+Title: Lecithin-based nanoemulsions of traditional herbal wound healing agents and their effect on human skin cells
+Year: 2021
+Abstract: In previous studies, lecithin-based nanoemulsions (NEs) have been shown to be skin friendly drug carrier systems. Due to their nontoxic properties, NEs might also be suitable as wound healing agents. Hence, different O/W NEs based on lecithin Lipoid® S 75 and plant oils or medium chain triglycerides were produced and characterised. Two lipophilic natural wound healing agents, a betulin-enriched extract from birch bark (BET) and a purified spruce balm (PSB), were successfully incorporated and their effects on primary human skin cells were studied in vitro. MTT, BrdU and scratch assays uncovered the positive influence of the drug-loaded NEs on cell viability, proliferation and potential wound closure. Compared to control formulations, the NEs loaded with either BET or PSB led to higher cell viability rates of fibroblasts and keratinocytes. Higher proliferative activity of keratinocytes and fibroblasts was observed after the treatment, which is a prerequisite for wound closure. Indeed, in scratch assays NEs with PSB and notably BET showed significantly ameliorated wound closure rates than the negative control (unloaded NEs) and the positive control (NEs with dexpanthenol). Our findings suggest that BET and PSB are outstanding wound healing drugs and their incorporation into lecithin-based NEs may represent a valid strategy for wound care.
+---
+
+---
+DOI: 10.1080/15548627.2018.1490851
+Title: Compromised phagosome maturation underlies RPE pathology in cell culture and whole animal models of Smith-Lemli-Opitz Syndrome
+Year: 2018
+Abstract: Treatment of rats with the cholesterol pathway inhibitor AY9944 produces an animal model of Smith-Lemli-Opitz syndrome (SLOS), an autosomal recessive disease caused by defective cholesterol synthesis. This SLOS rat model undergoes progressive and irreversible degeneration of the neural retina, with associated pathological features of the retinal pigmented epithelium (RPE). Here, we provide further insights into the mechanism involved in the RPE pathology. In the SLOS rat model, markedly increased RPE apical autofluorescence is observed, compared to untreated animals, which correlates with increased levels of A2E and other bisretinoids. Utilizing cultured human induced pluripotent stem cell (iPSC)- derived SLOS RPE cells, we found significantly elevated steady-state levels of 7-dehydrocholesterol (7DHC) and decreased cholesterol levels (key biochemical hallmarks of SLOS). Western blot analysis revealed altered levels of the macroautophagy/autophagy markers MAP1LC3B-II and SQSTM1/p62, and build-up of ubiquitinated proteins. Accumulation of immature autophagosomes was accompanied by inefficient degradation of phagocytized, exogenously supplied retinal rod outer segments (as evidenced by persistence of the C-terminal 1D4 epitope of RHO [rhodopsin]) in SLOS RPE compared to iPSC-derived normal human control. SLOS RPE cells exhibited lysosomal pH levels and CTSD activity within normal physiological limits, thus discounting the involvement of perturbed lysosomal function. Furthermore, 1D4-positive phagosomes that accumulated in the RPE in both pharmacological and genetic rodent models of SLOS failed to fuse with lysosomes. Taken together, these observations suggest that defective phagosome maturation underlies the observed RPE pathology. The potential relevance of these findings to SLOS and the requirement of cholesterol for phagosome maturation are discussed.
+---
+
+---
+DOI: 10.1093/bioinformatics/btw353
+Title: Rule-based modeling with Virtual Cell
+Year: 2016
+Abstract: Abstract Summary: Rule-based modeling is invaluable when the number of possible species and reactions in a model become too large to allow convenient manual specification. The popular rule-based software tools BioNetGen and NFSim provide powerful modeling and simulation capabilities at the cost of learning a complex scripting language which is used to specify these models. Here, we introduce a modeling tool that combines new graphical rule-based model specification with existing simulation engines in a seamless way within the familiar Virtual Cell (VCell) modeling environment. A mathematical model can be built integrating explicit reaction networks with reaction rules. In addition to offering a large choice of ODE and stochastic solvers, a model can be simulated using a network free approach through the NFSim simulation engine. Availability and implementation: Available as VCell (versions 6.0 and later) at the Virtual Cell web site (http://vcell.org/). The application installs and runs on all major platforms and does not require registration for use on the user’s computer. Tutorials are available at the Virtual Cell website and Help is provided within the software. Source code is available at Sourceforge. Contact: vcell_support@uchc.edu Supplementary information: Supplementary data are available at Bioinformatics online.
+---
+
+---
+DOI: 10.1002/cyto.a.23031
+Title: Virtual cell imaging: A review on simulation methods employed in image cytometry
+Year: 2016
+Abstract: Abstract The simulations of cells and microscope images thereof have been used to facilitate the development, selection, and validation of image analysis algorithms employed in cytometry as well as for modeling and understanding cell structure and dynamics beyond what is visible in the eyepiece. The simulation approaches vary from simple parametric models of specific cell components—especially shapes of cells and cell nuclei—to learning‐based synthesis and multi‐stage simulation models for complex scenes that simultaneously visualize multiple object types and incorporate various properties of the imaged objects and laws of image formation. This review covers advances in artificial digital cell generation at scales ranging from particles up to tissue synthesis and microscope image simulation methods, provides examples of the use of simulated images for various purposes ranging from subcellular object detection to cell tracking, and discusses how such simulators have been validated. Finally, the future possibilities and limitations of simulation‐based validation are considered. © 2016 International Society for Advancement of Cytometry
+---
+
+---
+DOI: 10.1016/j.cell.2025.06.008
+Title: Virtual Cell Challenge: Toward a Turing test for the virtual cell
+Year: 2025
+Abstract: Virtual cells are an emerging frontier at the intersection of artificial intelligence and biology. A key goal of these cell state models is predicting cellular responses to perturbations. The Virtual Cell Challenge is being established to catalyze progress toward this goal. This recurring and open benchmark competition from the Arc Institute will provide an evaluation framework, purpose-built datasets, and a venue for accelerating model development.
+---
+
+---
+DOI: 10.1016/b978-0-12-811718-7.00014-9
+Title: Off-Lattice Agent-Based Models for Cell and Tumor Growth
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/bit.28405
+Title: Data‐driven prediction models for forecasting multistep ahead profiles of mammalian cell culture toward bioprocess digital twins
+Year: 2023
+Abstract: Abstract Recently, the advancement in process analytical technology and artificial intelligence (AI) has enabled the generation of enormous culture data sets from biomanufacturing processes that produce various recombinant therapeutic proteins (RTPs), such as monoclonal antibodies (mAbs). Thus, now it is very important to exploit them for the enhanced reliability, efficiency, and consistency of the RTP‐producing culture processes and for the reduced incipient or abrupt faults. It is achievable by AI‐based data‐driven models (DDMs), which allow us to correlate biological and process conditions and cell culture states. In this work, we provide practical guidelines for choosing the best combination of model elements to design and implement successful DDMs for given hypothetical in‐line data sets during mAb‐producing Chinese hamster ovary cell culture, as such enabling us to forecast dynamic behaviors of culture performance such as viable cell density, mAb titer as well as glucose, lactate and ammonia concentrations. To do so, we created DDMs that balance computational load with model accuracy and reliability by identifying the best combination of multistep ahead forecasting strategies, input features, and AI algorithms, which is potentially applicable to implementation of interactive DDM within bioprocess digital twins. We believe this systematic study can help bioprocess engineers start developing predictive DDMs with their own data sets and learn how their cell cultures behave in near future, thereby rendering proactive decision possible.
+---
+
+---
+DOI: 10.1128/ecosalplus.esp-0001-2020
+Title: The E. coli Whole-Cell Modeling Project
+Year: 2021
+Abstract: The Escherichia coli whole-cell modeling project seeks to create the most detailed computational model of an E. coli cell in order to better understand and predict the behavior of this model organism. Details about the approach, framework, and current version of the model are discussed.
+---
+
+---
+DOI: 10.1080/23249935.2017.1280559
+Title: Agent-based pedestrian cell transmission model for evacuation
+Year: 2017
+Abstract: Describing dynamics of pedestrian evacuation is a challenging issue. Many related studies have been conducted in both microscopic and macroscopic views. Microscopic approaches focus on detailed movements of individual pedestrians and they are computationally expensive. Macroscopic approaches have less concern in the individuals, but they are lack of flexibility because they treat pedestrians as unthinking elements that cannot choose their destinations or routes. We propose the agent-based pedestrian cell transmission model (A-PCTM) that puts the merits of both microscopic and macroscopic approaches. We modify the original CTM to improve the computational efficiency and embed the concept of agents that make decisions on their destinations and travel directions. The A-PCTM has procedures of adaptive direction-based path finding, and the effect of such procedures is tested by some simulation cases with different geometric settings. The proposed model shows the flexibility in switching the destination and in choosing the travel direction depending on the situation ahead.
+---
+
+---
+DOI: 10.1016/j.bpj.2018.11.005
+Title: Agent-Based Modeling Reveals Possible Mechanisms for Observed Aggregation Cell Behaviors
+Year: 2018
+Abstract: Myxococcus xanthus is a soil bacterium that serves as a model system for biological self-organization. Cells form distinct, dynamic patterns depending on environmental conditions. An agent-based model was used to understand how M. xanthus cells aggregate into multicellular mounds in response to starvation. In this model, each cell is modeled as an agent represented by a point particle and characterized by its position and moving direction. At low agent density, the model recapitulates the dynamic patterns observed by experiments and a previous biophysical model. To study aggregation at high cell density, we extended the model based on the recent experimental observation that cells exhibit biased movement toward aggregates. We tested two possible mechanisms for this biased movement and demonstrate that a chemotaxis model with adaptation can reproduce the observed experimental results leading to the formation of stable aggregates. Furthermore, our model reproduces the experimentally observed patterns of cell alignment around aggregates.
+---
+
+---
+DOI: 10.1016/j.cell.2025.06.048
+Title: Human interpretable grammar encodes multicellular systems biology models to democratize virtual cell laboratories
+Year: 2025
+Abstract: Cells interact as dynamically evolving ecosystems. While recent single-cell and spatial multi-omics technologies quantify individual cell characteristics, predicting their evolution requires mathematical modeling. We propose a conceptual framework-a cell behavior hypothesis grammar-that uses natural language statements (cell rules) to create mathematical models. This enables systematic integration of biological knowledge and multi-omics data to generate in silico models, enabling virtual "thought experiments" that test and expand our understanding of multicellular systems and generate new testable hypotheses. This paper motivates and describes the grammar, offers a reference implementation, and demonstrates its use in developing both de novo mechanistic models and those informed by multi-omics data. We show its potential through examples in cancer and its broader applicability in simulating brain development. This approach bridges biological, clinical, and systems biology research for mathematical modeling at scale, allowing the community to predict emergent multicellular behavior.
+---
+
+---
+DOI: 10.1021/acs.jpcb.7b00672
+Title: Challenges of Integrating Stochastic Dynamics and Cryo-Electron Tomograms in Whole-Cell Simulations
+Year: 2017
+Abstract: Cryo-electron tomography (cryo-ET) has rapidly emerged as a powerful tool to investigate the internal, three-dimensional spatial organization of the cell. In parallel, the GPU-based technology to perform spatially resolved stochastic simulations of whole cells has arisen, allowing the simulation of complex biochemical networks over cell cycle time scales using data taken from -omics, single molecule experiments, and in vitro kinetics. By using real cell geometry derived from cryo-ET data, we have the opportunity to imbue these highly detailed structural data-frozen in time-with realistic biochemical dynamics and investigate how cell structure affects the behavior of the embedded chemical reaction network. Here we present two examples to illustrate the challenges and techniques involved in integrating structural data into stochastic simulations. First, a tomographic reconstruction of Saccharomyces cerevisiae is used to construct the geometry of an entire cell through which a simple stochastic model of an inducible genetic switch is studied. Second, a tomogram of the nuclear periphery in a HeLa cell is converted directly to the simulation geometry through which we study the effects of cellular substructure on the stochastic dynamics of gene repression. These simple chemical models allow us to illustrate how to build whole-cell simulations using cryo-ET derived geometry and the challenges involved in such a process.
+---
+
+---
+DOI: 10.1149/1945-7111/ac5a1a
+Title: Low Error Estimation of Half-Cell Thermodynamic Parameters from Whole-Cell Li-Ion Battery Experiments: Physics-Based Model Formulation, Experimental Demonstration, and an Open Software Tool
+Year: 2022
+Abstract: Low C-rate charge and discharge experiments, plus complementary differential voltage or differential capacity analysis, are among the most common battery characterization methods. Here, we adapt the multi-species, multi-reaction (MSMR) half-cell thermodynamic model to low C-rate cycling of whole-cell Li-ion batteries. MSMR models for the anode and cathode are coupled through whole-cell charge balances and cell-cycling voltage constraint equations, forming the basis for model-based estimation of MSMR half-cell parameters from whole-cell experimental data. Emergent properties of the whole-cell, like slippage of the anode and cathode lithiation windows, are also computed as cells cycle and degrade. A sequential least-square optimization scheme is used for parameter estimation from low-C cycling data of Samsung 18650 NMC∣C cells. Low-error fits of the open-circuit cell voltage (e.g., under 5 mV mean absolute error for charge or discharge curves) and differential voltage curves for fresh and aged cells are achieved. We explore the features (and limitations) of using literature reference values for the MSMR half-cell thermodynamic parameters (reducing our whole-cell formulation to a 1-degree-of-freedom fit) and demonstrate the benefits of expanding the degrees of freedom by letting the MSMR parameters be tailored to the cell under test, within a constrained neighborhood of the half-cell reference values. Bootstrap analysis is performed on each dataset to show the robustness of our fitting to experimental noise and data sampling over the course of 600 cell cycles. The results show which specific MSMR insertion reactions are most responsible for capacity loss in each half-cell and the collective interactions that lead to whole-cell slippage and changes in useable capacity. Open-source software is made available to easily extend this model-based analysis to other labs and battery chemistries.
+---
+
+---
+DOI: 10.1016/j.jobe.2021.103365
+Title: Estimation of the effective diffusivity of blowing agents in closed-cell low-density polyurethane foams based on thermal aging data
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.sbi.2022.102392
+Title: Integrating cellular and molecular structures and dynamics into whole-cell models
+Year: 2022
+Abstract: A complete description of the state of the cell requires knowledge of its size, shape, components, intracellular reactions, and interactions with its environment-all of these as a function of time and cell growth. Adding to this list is the need for theoretical models and simulations that integrate and help to interpret this daunting amount of experimental data. It seems like an overwhelming list of requirements, but progress is being made on many fronts. In this review, we discuss the current challenges and problems in obtaining sufficient information about each aspect of a dynamical whole-cell model (DWCM) for simple and well-studied bacterial systems.
+---
+
+---
+DOI: 10.1101/329102
+Title: CellexalVR: A virtual reality platform to visualise and analyse single-cell data
+Year: 2018
+Abstract: Abstract Single-cell RNAseq is a routinely used technique to explore the composition of cell populations, and they are often visualised using dimension reduction methods where the cells are represented in two or three dimensional space. Many tools are available to do this but visualising and cross-comparing these representations can be challenging, especially when cells are projected onto three dimensions which can be more informative for complex datasets. Here we present CellexalVR ( www.cellexalvr.med.lu.se ), a feature-rich, fully interactive virtual reality environment for the visualisation and analysis of single-cell experiments that allows researchers to intuitively and collaboratively gain an understanding of their data.
+---
+
+---
+DOI: 10.1093/bioinformatics/btaa969
+Title: Agent-based modeling reveals benefits of heterogeneous and stochastic cell populations during cGAS-mediated IFNβ production
+Year: 2020
+Abstract: Abstract Motivation The cGAS pathway is a component of the innate immune system responsible for the detection of pathogenic DNA and upregulation of interferon beta (IFNβ). Experimental evidence shows that IFNβ signaling occurs in highly heterogeneous cells and is stochastic in nature; however, the benefits of these attributes remain unclear. To investigate how stochasticity and heterogeneity affect IFNβ production, an agent-based model is developed to simulate both DNA transfection and viral infection. Results We show that heterogeneity can enhance IFNβ responses during infection. Furthermore, by varying the degree of IFNβ stochasticity, we find that only a percentage of cells (20–30%) need to respond during infection. Going beyond this range provides no additional protection against cell death or reduction of viral load. Overall, these simulations suggest that heterogeneity and stochasticity are important for moderating immune potency while minimizing cell death during infection. Availability and implementation Model repository is available at: https://github.com/ImmuSystems-Lab/AgentBasedModel-cGASPathway. Supplementary information Supplementary data are available at Bioinformatics online.
+---
+
+---
+DOI: 10.1016/j.jpowsour.2018.05.065
+Title: Interactions between a polymer electrolyte membrane fuel cell and boost converter utilizing a multiscale model
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1145/2901378.2901402
+Title: Toward Scalable Whole-Cell Modeling of Human Cells
+Year: 2016
+Abstract: Whole-cell (WC) models comprehensively predict cellular phenotypes by simulating the biochemistry in individual cells. WC models have the potential to enable bioengineers and physicians to rationally design microorganisms and medical therapies. WC models are developed by combining multiple mathematically distinct pathway sub-models into a single multi-algorithm model. The only existing WC model represents a small bacterium. However, to enable medical therapy, new scalable methods are needed to model human cells that contain 100 times more molecular species and 10,000-100,000 times more molecules. We describe the design of a novel system for building and simulating WC models, including an expressive sequence- and rule-based modeling language and a multi-algorithm simulator that employs optimistic parallel discrete event simulation.
+---
+
+---
+DOI: 10.1007/s40092-016-0151-0
+Title: A genetic algorithm for a bi-objective mathematical model for dynamic virtual cell formation problem
+Year: 2016
+Abstract: Nowadays, with the increasing pressure of the competitive business environment and demand for diverse products, manufacturers are force to seek for solutions that reduce production costs and rise product quality. Cellular manufacturing system (CMS), as a means to this end, has been a point of attraction to both researchers and practitioners. Limitations of cell formation problem (CFP), as one of important topics in CMS, have led to the introduction of virtual CMS (VCMS). This research addresses a bi-objective dynamic virtual cell formation problem (DVCFP) with the objective of finding the optimal formation of cells, considering the material handling costs, fixed machine installation costs and variable production costs of machines and workforce. Furthermore, we consider different skills on different machines in workforce assignment in a multi-period planning horizon. The biobjective model is transformed to a single-objective fuzzy goal programming model and to show its performance; numerical examples are solved using the LINGO software. In addition, genetic algorithm (GA) is customized to tackle large-scale instances of the problems to show the performance of the solution method.
+---
+
+---
+DOI: 10.1016/j.bpj.2017.04.035
+Title: Concise Whole-Cell Modeling of BK Ca -CaV Activity Controlled by Local Coupling and Stoichiometry
+Year: 2017
+Abstract: Large-conductance Ca2+-dependent K+ (BKCa) channels are important regulators of electrical activity. These channels colocalize and form ion channel complexes with voltage-dependent Ca2+ (CaV) channels. Recent stochastic simulations of the BKCa-CaV complex with 1:1 stoichiometry have given important insight into the local control of BKCa channels by fluctuating nanodomains of Ca2+. However, such Monte Carlo simulations are computationally expensive, and are therefore not suitable for large-scale simulations of cellular electrical activity. In this work we extend the stochastic model to more realistic BKCa-CaV complexes with 1:n stoichiometry, and analyze the single-complex model with Markov chain theory. From the description of a single BKCa-CaV complex, using arguments based on timescale analysis, we derive a concise model of whole-cell BKCa currents, which can readily be analyzed and inserted into models of cellular electrical activity. We illustrate the usefulness of our results by inserting our BKCa description into previously published whole-cell models, and perform simulations of electrical activity in various cell types, which show that BKCa-CaV stoichiometry can affect whole-cell behavior substantially. Our work provides a simple formulation for the whole-cell BKCa current that respects local interactions in BKCa-CaV complexes, and indicates how local-global coupling of ion channels may affect cell behavior.
+---
+
+---
+DOI: 10.1080/21691401.2019.1687498
+Title: Anti-tumour effects of a xenogeneic fibroblast activation protein-based whole cell tumour vaccine in murine tumour models
+Year: 2019
+Abstract: The clinical benefit of cancer immunotherapy, including tumour vaccines, is influenced by immunosuppressive factors in the tumour microenvironment. Among these factors, cancer-associated fibroblasts (CAFs) and their products, such as fibroblast activation protein-α (FAPα), greatly affect tumourigenesis, development, metastasis and treatment tolerance, which make them promising immunotherapy targets for cancer patients. Our previous study reported that a whole cell tumour vaccine (WCTV) expressing FAPα inhibited tumour growth by simultaneously attacking cancer cells and CAFs. This study aimed to improve WCTVs with xenoantigens to end immune tolerance and to further activate the adaptive immune system. In the present study, we designed a WCTV by transducing a vector encoding human FAPα (hFAPα) into murine tumour cells and evaluated its efficacy in multiple solid tumour models. Immunotherapy with this WCTV effectively delayed tumour growth and prevented recurrence. The anti-tumour responses were clearly linked to antigen-specific cytotoxic T cells, whereas CD4(+) T lymphocytes also played a role. Humoural immune responses were activated because the adoptive transfer of immunoglobulins induced abscopal anti-tumour effects, and autoantibodies against FAPα were specifically detected in the sera of immunized mice. Moreover, an increased number of apoptotic tumour cells along with a reduced number of CAFs within the tumours suggest that xenogeneic FAPα-based WCTV has the potential to drive T cell and antibody responses against cancer cells and CAFs. This finding could offer an advanced strategy to treat multiple solid tumours with individualized cancer immunotherapy techniques.
+---
+
+---
+DOI: 10.1016/j.tiv.2016.10.007
+Title: Practical use of the Virtual Cell Based Assay: Simulation of repeated exposure experiments in liver cell lines
+Year: 2016
+Abstract: The Virtual Cell Based Assay (VCBA) was applied to simulate the long-term (repeat dose) toxic effects of chemicals, including substances in cosmetics and personal care products. The presented model is an extension of the original VCBA for simulation of single exposure and is implemented in a KNIME workflow. This work illustrates the steps taken to simulate the repeated dose effects of two reference compounds, caffeine and amiodarone. Using caffeine, in vitro experimental viability data in single exposure from two human liver cell lines, HepG2 and HepaRG, were measured and used to optimize the VCBA, subsequently repeated exposure simulations were run. Amiodarone was then tested and simulations were performed under repeated exposure conditions in HepaRG. The results show that the VCBA can adequately predict repeated exposure experiments in liver cell lines. The refined VCBA model can be used not only to support the design of long term in vitro experiments but also practical applications in risk assessment. Our model is a step towards the development of in silico predictive approaches to replace, refine, and reduce the in vivo repeated dose systemic toxicity studies in the assessment of human safety.
+---

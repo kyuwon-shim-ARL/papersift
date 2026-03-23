@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1039/c2lc21004e
+Title: Virtual microwells for digital microfluidic reagent dispensing and cell culture
+Year: 2011
+Abstract: Digital microfluidic (DMF) liquid handling includes active (electrostatic) and passive (surface tension) mechanisms for reagent dispensing. Here we implement a simple and straightforward Teflon-AF liftoff protocol for patterning hydrophilic sites on a two-plate device for precise passive dispensing of reagents forming virtual microwells--an analogy to the wells found on a microtitre plate. We demonstrate here that devices formed using these methods are capable of reproducible dispensing of volumes ranging from ~80 to ~800 nL, with CVs of 0.7% to 13.8% CV. We demonstrate that passive dispensing is compatible with DMF operation in both air and oil, and provides for improved control of dispensed nano- and micro- litre volumes when compared to active electrostatic dispensing. Further, the technique is advantageous for cell culture and we report the first example of reagent dispensing on a single-plate DMF device. We anticipate this method will be useful for a wide range of applications--particularly those involving adherent cell culture and analysis.
+---
+
+---
+DOI: 10.3182/20120905-3-hr-2030.00112
+Title: Dynamic update of a virtual cell for programming and safe monitoring of an industrial robot
+Year: 2012
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/iccw.2019.8756741
+Title: Proactive Mobility Management Based on Virtual Cells in SDN-Enabled Ultra-Dense Networks
+Year: 2019
+Abstract: Ultra-dense networking (UDN) is a promising technology to improve the network capacity in the next-generation mobile communication system. However, it brings in some new challenges to mobility management due to the frequent handovers and heavy signaling overhead. The problem becomes severe for vehicles owing to their fast moving speed, making it more sensitive to the handover delay with reactive handover decision. In this paper, driven by a real-world vehicle mobility dataset, we propose a proactive mobility management solution based on the virtual cell technique for vehicles. Assisted by a trajectory prediction framework based on the long short-term memory neural network, four function modules are designed in the centralized Software-Defined Networking controller to support the proactive solution. The corresponding signaling procedure is then carefully designed, working with virtual cells to reduce the signaling cost. The prediction framework can achieve satisfactory performance of predicting the next location. The proposed proactive solution eliminates the handover delay and reduces the handover signaling cost by 35% compared with the reactive approach.
+---
+
+---
+DOI: 10.1080/00207543.2010.524902
+Title: Multi-objective cell formation and production planning in dynamic virtual cellular manufacturing systems
+Year: 2011
+Abstract: This article presents a fuzzy goal programming-based approach for solving a multi-objective mathematical model of cell formation problem and production planning in a dynamic virtual cellular manufacturing system. In a dynamic environment, the product mix and part demand change over a planning horizon decomposed into several time periods. Thus, the cell formation done for one period may be no longer efficient for subsequent periods and hence reconfiguration of cells is required. Due to the variation of demand and necessity of reconfiguration of cells, the virtual cellular manufacturing (VCM) concept has been proposed by researchers to utilise the benefits of cellular manufacturing without reconfiguration charges. In a VCM system, machines, parts and workers are temporarily grouped for one period during which machines and workers of a group dedicatedly serve the parts of that group. The only difference of VCM with a real CM is that machines of the same group are not necessarily brought to a physical proximity in VCM. The virtual cells are created periodically depending on changes in demand volumes and mix, as new parts accumulate during a planning horizon. The major advantage of the proposed model is the consideration of demand and part mix variation over a multi-period planning horizon with worker flexibility. The aim is to minimise holding cost, backorder cost and exceptional elements in a cubic space of machine–part–worker incidence matrix. To illustrate the applicability of the proposed model, an example has been solved and computational results are presented.
+---
+
+---
+DOI: 10.1109/milcom.2013.221
+Title: A Load Prediction Based Virtual Cell Breathing Scheme for LTE-A System
+Year: 2013
+Abstract: Load balancing is one of the key targets of the self-organizing network (SON) in LTE-A system. Virtual Cell breathing can virtually change wireless network cell size to adjust system load among system cells. This paper proposes a Load Prediction based Virtual Cell Breathing (LPVCB) scheme for system load balancing. By using system load prediction to reduce the influence of new load access and controlling system handover parameter, the cell individual offset(CIO), to transfer system load among cells, load balancing can be achieved more accurately. Simulation results show that it can improve the system performance.
+---
+
+---
+DOI: 10.1109/vtc.2002.1002821
+Title: "Virtual Cell Deployment Areas" and "Cluster Tracing" - new methods for directional channel modeling in microcells
+Year: 2003
+Abstract: We propose a new method for the simulation of microcellular propagation channels, which includes both deterministic and stochastic aspects. First, the geometrical layouts of "typical" deployment areas, called "Virtual Cell Deployment Areas" (VCDA), as well as routes of the mobile station (MS) through the VCDA, are defined. Then, the delays and directions-of-arrival of multipath clusters can be traced by geometrical means. Finally, the small-scale fading within the clusters is modelled stochastically. This approach was adopted by the COST259 DCM, the standard model for directional wireless channels.
+---
+
+---
+DOI: 10.1016/s0006-291x(67)80055-x
+Title: On the size of the active site in proteases. I. Papain
+Year: 1967
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/s10853-005-5069-7
+Title: Analysis of the mechanical behavior of woven fibrous material using virtual tests at the unit cell level
+Year: 2005
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1504/ijmr.2013.051838
+Title: Virtual cells: evaluation of different lot sizing splitting strategies
+Year: 2013
+Abstract: The main goal of this research work is to present a performance comparison of different lot sizing splitting strategies applied to virtual cells in a robust distributed layout. This paper considers basically three strategies related to lot sizing splitting, analysing firstly the performance of the production system without any lot sizing splitting. Next, considers an equally balanced of lot sizing to K virtual cells. And finally, unbalanced splitting is considered, where in this last case, it is proposed a makespan based procedure for determining different part quantities to each virtual cells. For the computational simulation, the sequences in which different parts are submitted for manufacturing (parts input orderings) are also considered. The results show that separating parts to virtual cells reduces significantly, in general, the makespan. The performance of the proposed method increases when the total number of machines and part input orderings are embedded in the analysis.
+---
+
+---
+DOI: 10.1080/00207549308956757
+Title: Virtual manufacturing cells: exploiting layout design and intercell flows for the machine sharing problem
+Year: 1993
+Abstract: Abstract Existing approaches to cell formation concentrate on machine grouping and part family formation. Since their input data usually do not consider flow directions and volumes, they neglect layout and handling strategies that can simplify the machine sharing problem. Hence, these approaches fail to relate the intracell and intercell layout decisions to the machine grouping and sharing decisions. This paper introduces a new approach for cell formation which integrates machine grouping and layout design, neglecting part family formation. The concepts of a hybrid cellular layout and virtual manufacturing cells are related. It is shown that a combination of overlapping GT cells, functional layout and handling reduces the need for machine duplication among cells. This approach questions the traditional emphasis on machine duplication to create independent cells that is suggested by the standard machine-part matrix clustering methods. The steps in the method are demonstrated by using two illustrative examples obtained from the literature.
+---
+
+---
+DOI: 10.1109/tetc.2019.2891713
+Title: Proposal and Performance Evaluation of Information Diffusion Technique with Novel Virtual-Cell-Based Wi-Fi Direct
+Year: 2019
+Abstract: Wi-Fi Direct (WFD) has attracted much attention in recent years as a device-to-device communication technology that enables the sharing and diffusion of information in disaster areas that lack existing communication infrastructures. In WFD, mobile devices such as smartphones and tablets establish communication groups (a wireless local area network (WLAN)), and transmit and/or receive data by Wi-Fi among devices autonomously. However, WFD is not effective for spreading data throughout a wide range because it randomly selects communication partners and needs to wait uselessly for random lengths of time to maintain access control. Thus, we propose a novel and efficient information diffusion method exploiting WFD and delay-tolerant networking (DTN). This method involves a unique virtual cell design based on device locations and enables efficient information diffusion without interference by assigning communication times to the virtual cells. As there is no deterministic means of evaluating multihop communication exploiting WFD and a mathematical model is needed to quantitatively indicate the performance of our method, we further construct a performance evaluation model using the reaction–diffusion model, which is a partial differential equation used to mathematically describe the spread of epidemic diseases. The effectiveness of this proposed diffusion method is evaluated exploiting the constructed model.
+---
+
+---
+DOI: 10.1109/icc45041.2023.10279306
+Title: Adaptive User-centric Virtual Cell Handover Decision-making in 5G Vehicular Networks
+Year: 2023
+Abstract: Connected vehicles enable massive data sharing and support intelligent transportation services. Consequently, a stable connection is compulsory to transmit across the network successfully, where 5G technology introduces more bandwidth, stability, and reliability. However, 5G communication is susceptible to frequent handovers and connection drops. A user-centric perspective helps cope with the smaller communication range in ultra-dense 5G networks. We thus introduce a Connectivity-oriented SARSA Reinforcement Learning (CO-SRL) algorithm for user-centric to efficiently handle virtual cell (VC) management and reduce the number of handovers (HO). The adaptability of the algorithm copes with high vehicular mobility and dynamic traffic and communication, deciding on in-rage cellular towers and VC size. Realistic simulated analyses showed CO-SRL reduced the number of handovers and the cumulative handover time.
+---
+
+---
+DOI: 10.1109/cnmt.2009.5374789
+Title: Joint Adaptive Soft Frequency Reuse and Virtual Cell Power Control in Relay Enhanced Cellular System
+Year: 2009
+Abstract: This paper proposed a joint adaptive soft frequency reuse and virtual cell power control (JAP) algorithm for relay enhanced cellular (REC) system in LTE-A. The JAP algorithm allocates bandwidth to base station and relay node adaptively according to user distribution and target data rate and achieves frequency reuse factor be one among sectors. Furthermore, the JAP algorithm controls transmit power based on SIR-balance principle and adjusts power in "virtual cell", which can greatly mitigate co-channel interference among sectors. Simulation results show that the proposed algorithm can obtain both high average spectral efficiency and edge user throughput.
+---
+
+---
+DOI: 10.1109/access.2018.2869134
+Title: Spectral Efficiency and Energy Efficiency of Bidirectional Distributed Antenna Systems With User Centric Virtual Cells
+Year: 2018
+Abstract: In this paper, we first introduce the bidirectional distributed antenna systems (DAS) and exploit the choosing algorithm to take user-centric virtual cells into this system. Then, we discuss different power allocation optimization problems with interferences in bidirectional DAS with and without user-centric virtual cells, respectively. The first objective problem is maximizing spectral efficiency (SE) of bidirectional DAS satisfying the requirements of the minimum SE of each user equipment and maximum transmit power of each remote access unit. First, we convert this non-convex objective function into a difference of convex functions (D.C.) problem, and then, we obtain the optimal power allocation by using the concave&#x2013;convex procedure (CCCP) algorithm. The second objective problem is maximizing energy efficiency (EE) of bidirectional DAS under the same constraints as the first problem. First, we exploit fractional programming theory to transform the second problem into an equivalent objective function with subtractive form, and then convert it into a D.C. problem and obtain the optimal solutions by using the CCCP algorithm. In each part, we propose the corresponding optimal power allocation algorithm and also use a similar method to obtain optimal solutions of the same optimization problems in bidirectional DAS with user-centric virtual cells. Simulation results showed the effectiveness of the proposed power allocation algorithms and demonstrate the SE and EE of the bidirectional DAS with user-centric virtual cells which are much better than bidirectional DAS.
+---
+
+---
+DOI: 10.1109/icsenst.2008.4757176
+Title: Reliable grouping GAF algorithm using hexagonal virtual cell structure
+Year: 2008
+Abstract: Energy consumption and routing fidelity are two of the most concerns in developing protocols and algorithms for wireless sensor networks. GAF is one of the most popular algorithms which can not only conserve energy but also keep the routing fidelity. GAF conserves energy by using geographic location information to identify the equivalence between nodes and then turn off their radio accordingly. However, the grid based equivalence is not consistent with the true radio diffusion nature so that the efficiency is not good enough. In this paper, analyses on the virtual grid structures are discussed and a new grouping GAF algorithm using hexagonal virtual cell is then proposed. Ideally, the proposed algorithm wakes up only 51.96% of nodes that GAF does without losing any network connectivity. Simulation results show that only 50.69% nodes have to be kept awaked comparing to GAF with only additional 1.16% packet delay.
+---
+
+---
+DOI: 10.1016/j.aeue.2018.09.015
+Title: Spectral efficiency and energy efficiency of distributed antenna systems with virtual cells
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/iscc50000.2020.9219691
+Title: A Vehicle-Centric Probabilistic Approach to Virtual Cell Management in Ultra-Dense 5G Networks
+Year: 2020
+Abstract: The fifth generation (5G) cellular networks tend to be ultra-dense networks (UDN). Among the 5G UDN challenges, it is the creation and the management of virtual cells centered on the user. By the literature was not found any work that has directly associated a vehicle-centric probabilistic approach to virtual cell management in ultra-dense 5G networks as proposed in this paper as a contribution to the technological development on 5G networks use, what indicates its originality. Considering scenarios involving high mobility, such as the Internet of Vehicles (IoV) or vehicle-to-network (V2N) communications, this challenge becomes even greater. For this purpose, this article presents a virtual cell selection probabilistic approach focused on V2N communications. All the processing based on speed criteria and complex network metrics is performed inside a controller that is required to manage the virtual cells. The motivation to use different metrics of radio masts is that one has physical applications as an algebras operator in purely mathematical contexts, while others find wide application in network theory. Simulations were performed through the Network Simulator ns3. The results show that the proposed approach allows more assertive virtual cell selection, improving the services offered by IoV through the 5G networks.
+---
+
+---
+DOI: 10.1016/s0167-7799(01)01636-5
+Title: Whole-cell simulation: a grand challenge of the 21st century
+Year: 2001
+Abstract: Study of the cell will never be complete unless its dynamic behavior is understood. The complex behavior of the cell cannot be determined or predicted unless a computer model of the cell is constructed and computer simulation is undertaken. Rapid accumulation of biological data from genome, proteome, transcriptome and metabolome projects can bring us to the point where it is no longer purely speculative to discuss how to construct virtual cells in silico. This article describes attempts to construct whole cell models. The E-CELL project has completed a couple of virtual cell models, and computer simulations have revealed some biological surprises.
+---
+
+---
+DOI: 10.4049/jimmunol.1301453
+Title: Two Separate Defects Affecting True Naive or Virtual Memory T Cell Precursors Combine To Reduce Naive T Cell Responses with Aging
+Year: 2013
+Abstract: Abstract Naive T cell responses are eroded with aging. We and others have recently shown that unimmunized old mice lose ≥70% of Ag-specific CD8 T cell precursors and that many of the remaining precursors acquire a virtual (central) memory (VM; CD44hiCD62Lhi) phenotype. In this study, we demonstrate that unimmunized TCR transgenic (TCRTg) mice also undergo massive VM conversion with age, exhibiting rapid effector function upon both TCR and cytokine triggering. Age-related VM conversion in TCRTg mice directly depended on replacement of the original TCRTg specificity by endogenous TCRα rearrangements, indicating that TCR signals must be critical in VM conversion. Importantly, we found that VM conversion had adverse functional effects in both old wild-type and old TCRTg mice; that is, old VM, but not old true naive, T cells exhibited blunted TCR-mediated, but not IL-15–mediated, proliferation. This selective proliferative senescence correlated with increased apoptosis in old VM cells in response to peptide, but decreased apoptosis in response to homeostatic cytokines IL-7 and IL-15. Our results identify TCR as the key factor in differential maintenance and function of Ag-specific precursors in unimmunized mice with aging, and they demonstrate that two separate age-related defects—drastic reduction in true naive T cell precursors and impaired proliferative capacity of their VM cousins—combine to reduce naive T cell responses with aging.
+---
+
+---
+DOI: 10.1109/lwc.2017.2734893
+Title: Cell-Free Massive MIMO: User-Centric Approach
+Year: 2017
+Abstract: Recently, the so-called cell-free (CF) massive MIMO architecture has been introduced, wherein a very large number of distributed access points simultaneously and jointly serve a much smaller number of mobile stations. This letter introduces a user-centric (UC) virtual cell approach to CF massive MIMO, wherein each user is served only by a limited number of access points. The UC approach requires less backhaul overhead than the CF approach, and outperforms the latter in terms of achievable rate-per-user for the vast majority of the users in the network.
+---
+
+---
+DOI: 10.1109/wts.2019.8715542
+Title: Performance Analysis for Virtual-Cell Based CoMP 5G Networks Using Deep Recurrent Neural Nets
+Year: 2019
+Abstract: Providing high date rates that are independent of user location in the network is one of the Fifth Generation (5G) wireless network goals. This goal becomes even more challenging when the mobility of users is taken into account. The handovers that happens as the user crosses from cell to another can cause a sever degradation in the user's perceived data rate. The concept of Virtual Cell (VC) that is based on Coordinated Multipoint (CoMP) transmission is a promising solution for providing high data rates independent of user location in the network, and in particular for cell edge users. Multiple base-stations (BS) can coordinate with each other creating a Virtual Cell (VC). Users can roam within a Virtual Cell (VC) without the need to perform a handover. This diminishes the number of handovers a user will encounter, and also enhances the data rate for cell edge user by mitigating the Inter-Cell Interference (ICI) within a virtual cell. However, to enable the concept of Virtual Cells (VCs) rapid decisions need to be taken about when to enable / disable the VC mode and which Base Stations should be joining/leaving the VC as the user roams in the network. In this paper, the performance analysis of a novel algorithm based on a modification in the hidden layer of the Recurrent Neural Network (RNN), referred to as Gated Recurrent Units (GRUs). The RNN-GRU model is used for predicting the triggering conditions on enabling / disabling the VC mode. Sequences of the Received Signal Strength (RSS) values for different users in the network, were used for training the RNN-GRU model. After training, the RNN-GRU was used to predict the future RSS values, which is then used for making proactive decisions on enabling/disabling VC mode. Simulation results demonstrates that the proposed GRU-RNN model achieves an accuracy of 92% to predict the triggering conditions for enabling and disabling the CoMP mode as required based on the mobility of users.
+---
+
+---
+DOI: 10.1201/9781439863619-15
+Title: Time-Frequency Analysis
+Year: 1996
+Abstract: Time-frequency analysis has been carried out for microwave radiation from a virtual-cathode oscillator. The ob- jective is to observe and understand the frequency behavior of virtual-cathode oscillation. The diagnostic results have given clear evidence of mode hopping and frequency shifting. The dependence of mode competition on diode operation parameters is also identi- fied. Initial particle-in-cell simulations using MAGIC code have been carried out, and the results were in general agreement with those obtained in the experiments.
+---
+
+---
+DOI: 10.1109/vetecs.2012.6240124
+Title: Cooperative Virtual Cell Clustering for Green Cellular Networks
+Year: 2012
+Abstract: In this paper, a novel cell cooperation-based scheme is proposed as a means of energy saving in an overlapped coverage area of several cells. Different from the existing singlecell serving mode, our proposal utilizes virtual cell clustering (VCC) technique, which aggregates spare bandwidth from all adjacent cells, to reduce energy consumption while satisfying the service requirement simultaneously. For the maximum energy saving gain, a service partition procedure is then introduced with an optimization problem modeled in the scenarios under consideration. Evidences from numerical simulations further demonstrate that the proposed scheme outperforms the existing mode with a significant energy saving achievement.
+---
+
+---
+DOI: 10.1007/11885191_7
+Title: Feedbacks and Oscillations in the Virtual Cell VICE
+Year: 2006
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/iccworkshops49005.2020.9145348
+Title: Dynamic Power Allocation and Virtual Cell Formation for Throughput-Optimal Vehicular Edge Networks in Highway Transportation
+Year: 2020
+Abstract: This paper investigates highly mobile vehicular networks from users' perspectives in highway transportation. Particularly, a centralized software-defined architecture is introduced in which centralized resources can be assigned, programmed, and controlled using the anchor nodes (ANs) of the edge servers. Unlike the legacy networks, where a typical user is served from only one access point (AP), in the proposed system model, a vehicle user is served from multiple APs simultaneously. While this increases the reliability and the spectral efficiency of the assisted users, it also necessitates an accurate power allocation in all transmission time slots. As such, a joint user association and power allocation problem is formulated to achieve enhanced reliability and weighted user sum rate. However, the formulated problem is a complex combinatorial problem, remarkably hard to solve. Therefore, fine-grained machine learning algorithms are used to efficiently optimize joint user associations and power allocations of the APs in a highly mobile vehicular network. Furthermore, a distributed single-agent reinforcement learning algorithm, namely SARL-MARL, is proposed which obtains nearly identical genie-aided optimal solutions within a nominal number of training episodes than the baseline solution. Simulation results validate that our solution outperforms existing schemes and can attain genie-aided optimal performances.
+---
+
+---
+DOI: 10.1109/ntms.2018.8328700
+Title: Location Privacy in Virtual Cell-Equipped Ultra-Dense Networks
+Year: 2018
+Abstract: Ultra-dense Networks are attracting significant interest due to their ability to provide the next generation 5G cellular networks with a high data rate, low delay, and seamless coverage. Several factors, such as interferences, energy constraints, and backhaul bottlenecks may limit wireless networks densification. In this paper, we study the effect of mobile node densification, access node densification, and their aggregation into virtual entities, referred to as virtual cells, on location privacy. Simulations show that the number of tracked mobile nodes might be statistically reduced up to 10 percent by implementing virtual cells. Moreover, experiments highlight that success of tracking attacks has an inverse relationship to the number of moving nodes. The present paper is a preliminary attempt to analyse the effectiveness of cell virtualization to mitigate location privacy threats in ultra-dense networks.
+---
+
+---
+DOI: 10.1186/s13638-018-1093-6
+Title: Fuzzy Logic-based Virtual Cell Design in Ultra-Dense Networks
+Year: 2018
+Abstract: Abstract One of the main trends in the fifth generation (5G) cellular network is the bifurcation of systems that enable network densification. With this trend, ultra-dense networks (UDN) become a pillar technology to provide high data rates gains. However, these gains come at the expense of more complex interference and higher handover frequency. The user-centric virtual cell conception has been proposed to solve these problems. But it still has encountered some challenges in practical application. In this paper, we propose a fuzzy logic-based virtual cell design to balance data rates and resource overhead in order to improve virtual cell applicability. In our design, we consider a practical UDN scenario with imperfect channel state information (CSI) feedback and model it by stochastic geometry theory. Then, we find the optimal radius of virtual cells by maximizing the system spectral efficiency. On the basis, we propose a fuzzy logic-based activation strategy selection (FASS) algorithm to rationally choose the virtual cell activation threshold and resources allocation scheme under different traffic loads and quality of service (QoS) requirement. Simulation results demonstrate that the proposed solution can effectively eliminate the interference, obviously improve the user’s system spectral efficiency and dynamically adapt to different traffic loads.
+---
+
+---
+DOI: 10.1109/wcnc.2018.8377148
+Title: A novel information diffusing method with virtual cells based Wi-Fi direct in disaster area networks
+Year: 2018
+Abstract: Recently, Wi-Fi Direct (WFD) enabled mobile Device-to-Device (D2D) communication emerged as a promising technique to carry out communication in disaster affected areas by exploiting its ability to operate without existing communication infrastructures. However, existing methods utilizing WFD randomly select communication partners, and therefore, are not effective in diffusing safety information pertaining to disaster victims over a wide coverage area. We address this issue in this paper, and propose a novel and efficient information diffusion method exploiting WFD by designing special virtual cells comprising the location information of the mobile devices. Our designed virtual cell enables information diffusion by allocating the same time to multiple areas without interference. We also evaluate the effectiveness of our proposed method through computer-based simulations. The simulation results demonstrate that the scheduling control of our proposal outperforms those of the conventional methods.
+---
+
+---
+DOI: 10.1114/1.1408929
+Title: Real-Time Linux Dynamic Clamp: A Fast and Flexible Way to Construct Virtual Ion Channels in Living Cells
+Year: 2001
+Abstract: We describe a system for real-time control of biological and other experiments. This device, based around the Real-Time Linux operating system, was tested specifically in the context of dynamic clamping, a demanding real-time task in which a computational system mimics the effects of nonlinear membrane conductances in living cells. The system is fast enough to represent dozens of nonlinear conductances in real time at clock rates well above 10 kHz. Conductances can be represented in deterministic form, or more accurately as discrete collections of stochastically gating ion channels. Tests were performed using a variety of complex models of nonlinear membrane mechanisms in excitable cells, including simulations of spatially extended excitable structures, and multiple interacting cells. Only in extreme cases does the computational load interfere with high-speed "hard" real-time processing (i.e., real-time processing that never falters). Freely available on the worldwide web, this experimental control system combines good performance. immense flexibility, low cost, and reasonable ease of use. It is easily adapted to any task involving real-time control, and excels in particular for applications requiring complex control algorithms that must operate at speeds over 1 kHz.
+---
+
+---
+DOI: 10.1111/imcb.12277
+Title: Similar but different: virtual memory CD8 T cells as a memory‐like cell population
+Year: 2019
+Abstract: Abstract Immunological memory is a phenomenon where the immune system can respond more rapidly to pathogens and immunological challenges that it has previously encountered. It is defined by several key hallmarks. After an initial encounter, immune cells (1) expand and (2) differentiate to form memory cell populations. Memory cells are (3) long‐lived and (4) facilitate more rapid immune responses to subsequent infection because of (i) an increase in cell number, (ii) a decrease in the signaling threshold required for entry into cell cycle or effector function and (iii) localization of cells to tissue sites for surveillance. Classically, immunological memory has been antigen specific but it is becoming apparent that mechanisms of immunological memory can be co‐opted by innate or antigen‐inexperienced immune cells to generate heterogeneity in immune responses. One such cell is the virtual memory CD 8 T ( T VM ) cell, which is a semi‐differentiated but antigen‐naïve CD 8 T‐cell population. This review will summarize current knowledge of how T VM cells are generated, their memory‐like hallmarks, how they are maintained during steady state, infection and aging, and propose a model to integrate key signaling pathways during their generation.
+---
+
+---
+DOI: 10.1109/iccict.2018.8325900
+Title: Virtual cells for infrastructureless MANETs
+Year: 2018
+Abstract: Mobile ad-hoc networks (MANETs) are deployed and operate in infrastructure-less environments. However, when the nodes in such networks are aware of their locations, a shared grid of virtual cells can be defined. It is then possible to pre-assign these cells with communication channels and other radio resources to facilitate distributed radio resource management (RRM) and to limit the exchange of control messages. The channel allocations in virtual cells can assume similar channel reuse schemes as those used in the legacy cellular networks. Assuming that the node clusters coincide with the virtual cells, the average signal-to-interference-noise ratio (SINR) is numerically compared for a random waypoint mobility (RWM) model with a deterministic component, and two sample designs of the orthogonal frequency hopping patterns assigned to the clusters of 3 and 7 virtual cells, respectively.
+---
+
+---
+DOI: 10.1007/978-0-387-35372-2_19
+Title: Virtual Cell: a General Framework for Simulating and Visualizing Cellular Physiology
+Year: 1998
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1108/09576060110393406
+Title: Concurrent process and facility prototyping for formation of virtual manufacturing cells
+Year: 2001
+Abstract: Reports on a new methodology for formation of virtual (“extended”) machining cells using generic capability patterns termed “resource elements”. Resource elements are used to uniquely describe the processing requirements of the component mix and dynamically match them to the processing capabilities of the machining shop. The virtual cell formation methodology is based on four steps: component requirement analysis and generation of processing alternatives; definition of virtual cell capability boundaries; machine tool selection; and system evaluation. The proposed methodology facilitates the dynamic formation of virtual manufacturing structures by providing accurate assessment of the component processing requirements and their matching with the available capabilities of the existing manufacturing facilities.
+---
+
+---
+DOI: 10.1007/978-1-4939-2806-4_4
+Title: Computer-Aided Virtual Screening and Designing of Cell-Penetrating Peptides
+Year: 2015
+Abstract: Cell-penetrating peptides (CPPs) have proven their potential as versatile drug delivery vehicles. Last decade has witnessed an unprecedented growth in CPP-based research, demonstrating the potential of CPPs as therapeutic candidates. In the past, many in silico algorithms have been developed for the prediction and screening of CPPs, which expedites the CPP-based research. In silico screening/prediction of CPPs followed by experimental validation seems to be a reliable, less time-consuming, and cost-effective approach. This chapter describes the prediction, screening, and designing of novel efficient CPPs using "CellPPD," an in silico tool.
+---
+
+---
+DOI: 10.1002/fld.1493
+Title: A simple axisymmetric extension to virtual cell embedding
+Year: 2007
+Abstract: Abstract Virtual cell embedding (VCE) is a simple cartesian gridding method that subdivides cells into discrete subcells to obtain the approximate obstructed cell area and side lengths. It can be used to make a very fast calculation method for the Euler equations in two dimensions. However, the original procedure for two spatial dimensions is inadequate for axisymmetric geometries, where radial co‐ordinates of cells and interfaces need to be known. Presented in this paper is a short, simple extension of the VCE method to handle axisymmetric cases with an accuracy consistent with the basic VCE surface representation in planar geometries. The method will be tested in basic conical flow simulations to show its usefulness for practical engineering design purposes. Copyright © 2007 John Wiley &amp; Sons, Ltd.
+---
+
+---
+DOI: 10.1007/s10696-006-8122-1
+Title: Virtual manufacturing cells: A taxonomy of past research and identification of future research issues
+Year: 2005
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0140-3664(97)00048-0
+Title: Virtual cell in mobile computer communications
+Year: 1997
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.5555/1218112.1218423
+Title: Think simulation - think experiment: the virtual cell paradigm
+Year: 2006
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/wsc.2006.322947
+Title: Think Simulation - Think Experiment: The Virtual Cell Paradigm
+Year: 2006
+Abstract: The Virtual Cell modeling and simulation framework is the product of interdisciplinary research in biology that applies the diverse strengths and experiences of individuals from engineering, the physical sciences, the biological sciences, and mathematics. A key feature is the separation of layers (core technologies and abstractions) representing biological models, physical mechanisms, geometry, mathematical models and numerical methods. This reduces software complexity, allowing independent development and verification, but most importantly it clarifies the impact of modeling decisions, assumptions, and approximations. The result is a physically consistent, mathematically rigorous, spatial modeling and simulation framework for cell biology. The Virtual Cell has a rich, interactive user interface which connects to remote services providing scalable access to a modeling database and a large dedicated cluster for shared computation and storage. In addition to new modeling capabilities, future developments will emphasize data and tool interoperability, extensibility, and experimentally oriented model analysis tools. 1
+---
+
+---
+DOI: 10.4018/978-1-60960-195-9.ch411
+Title: JavaMOO Virtual Cells for Science Learning
+Year: 2011
+Abstract: One of the World Wide Web Instructional Committee (WWWIC) at North Dakota State University’s (NDSU) long running projects is the Virtual Cell, a desktop immersive virtual environment developed for biology education. The focus of the content in the Virtual Cell is cellular biology, and the underlying focus of the content modules is the scientific method and analytical reasoning. However, the technical challenges encountered during the course of the project include designing deployable server architectures, designing robust simulations, and developing high quality animations without losing interactivity.
+---
+
+---
+DOI: 10.1016/j.cor.2009.10.006
+Title: A genetic algorithm based heuristic for scheduling of virtual manufacturing cells (VMCs)
+Year: 2009
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1098/rsif.2014.0442
+Title: Single molecule dynamics in a virtual cell: a three-dimensional model that produces simulated fluorescence video-imaging data
+Year: 2014
+Abstract: The analysis of single molecule imaging experiments is complicated by the stochastic nature of single molecule events, by instrument noise and by the limited information which can be gathered about any individual molecule observed. Consequently, it is important to cross check experimental results using a model simulating single molecule dynamics (e.g. movements and binding events) in a virtual cell-like environment. The output of such a model should match the real data format allowing researchers to compare simulated results with the real experiments. The proposed model exploits the advantages of ‘object-oriented’ computing. First of all, the ability to create and manipulate a number of classes, each containing an arbitrary number of single molecule objects. These classes may include objects moving within the ‘cytoplasm’; objects moving at the ‘plasma membrane’; and static objects located inside the ‘body’. The objects of a given class can interact with each other and/or with the objects of other classes according to their physical and chemical properties. Each model run generates a sequence of images, each containing summed images of all fluorescent objects emitting light under given illumination conditions with realistic levels of noise and emission fluctuations. The model accurately reproduces reported single molecule experiments and predicts the outcome of future experiments.
+---
+
+---
+DOI: 10.1109/access.2017.2728016
+Title: Downlink Ergodic Rate Analysis for Virtual Cell Based Cloud Radio Access Networks
+Year: 2017
+Abstract: Cloud Radio Access Network (CRAN) is a promising approach to cope with the challenges of next generation mobile communications. This paper studies the downlink ergodic rate of a (N, K) virtual cell-based CRAN, in which each mobile station (MS) selects the N closest remote radio heads (RRHs) to form its virtual cell and the K (K &#x2264; N) closest RRHs will serve the target MS cooperatively with a total transmit power constraint. Using the stochastic geometry, the locations of RRHs and MSs are modeled as two independent Poisson point processes, respectively. Then, a computationally tractable integral expression is derived for the downlink ergodic rate of the (N, K) virtual cell-based CRAN. The analytical expression indicates that in the interference limited regime, the ergodic rate only relies on the MS to RRH intensity ratio and is independent with the individual intensity of either the RRH or the MS. Therefore, without deteriorating the downlink ergodic rate significantly, the number of simultaneously served MSs can be improved by increasing the RRH intensity. Specially, when there is only one RRH in each virtual cell, the analytical expression reduces to the ergodic rate expression for the conventional cellular networks. Numerical results indicate that the cooperation among multiple RRHs within each virtual cell can improve the downlink ergodic rate significantly.
+---
+
+---
+DOI: 10.1109/coase.2013.6654054
+Title: Performance comparison of the virtual cell layout with cellular and job shop configurations using simulation and design of experiments
+Year: 2013
+Abstract: The appropriate choice of the physical layout of the shop floor is fundamental for the viability of an industrial activity in the current globalized and highly competitive economy. More and more specialized products, with successively shorter life cycles seek to respond to the frequent market changes, demanding an agile and flexible industrial system that at the same time is economically efficient. A large portion of the industrial companies manufacture their products in batch-based manufacturing systems using either the job shop or the traditional cell layouts. However, in those arrangements there is always a compromise solution between efficiency and flexibility. Seeking to provide a solution to this difficulty, the concept of virtual cell manufacturing appears, which encompasses the high routing flexibility of job shop production with the efficiency in terms of setup of the traditional cell configuration. However, the virtual cell layout can also present the disadvantages of both layouts, such as longer transport times and the need for additional resource capacity. Given this scenario, this paper seeks to investigate, through simulation and design of experiments, the performance of the virtual cell layout in comparison with job shop and cellular layouts, identifying the conditions in which the application of the former layout is advantageous compared with the others. These layouts are studied through the aid of models with identical capacities and subject to the same demand, and their production sequences are generated by priority criteria. A significant number of factors, levels and replications are used in order to delimit appropriately the scope in which virtual cells effectively lead to competitive advantages.
+---
+
+---
+DOI: 10.48550/arxiv.1901.06669
+Title: "Fog" Optimization via Virtual Cells in Cellular Network Resource Allocation
+Year: 2019
+Abstract: This work proposes a new resource allocation optimization framework for cellular networks using "fog" or neighborhood-based optimization rather than fully centralized or fully decentralized methods. In neighborhood-based optimization resources are allocated within virtual cells encompassing several base-stations and the users within their coverage area. As the number of base-stations within a virtual cell increases, the framework reverts to centralized optimization, and as this number decreases it reverts to decentralized optimization. We address two tasks that must be carried out in the fog optimization framework: forming the virtual cells and allocating the communication resources in each virtual cell effectively. We propose hierarchical clustering for the formation of the virtual cells given a particular number of such cells. Once the virtual cells are formed, we consider several optimization methods to solve the NP-hard joint channel access and power allocation problem within each virtual cell in order to maximize the sum rate of the entire system. We present numerical results for the system sum rate of each scheme under hierarchical clustering. Our results indicate that proper design of the fog optimization results in little degradation relative to centralized optimization even for a relatively large number of virtual cells. However, improper design leads to a significant decrease in sum rate relative to centralized optimization.
+---

@@ -1,0 +1,119 @@
+{
+  "batch_index": 30,
+  "dois": [
+    "10.1371/journal.pcbi.1003295",
+    "10.1371/journal.pgen.1000443",
+    "10.3389/fmolb.2024.1394398",
+    "10.1038/cddiscovery.2017.22",
+    "10.1016/j.cels.2016.09.002",
+    "10.3390/bioengineering4030066",
+    "10.1186/s12866-016-0761-0",
+    "10.1186/1476-4598-12-140",
+    "10.1186/s12906-022-03533-0",
+    "10.3390/molecules23102569"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pcbi.1003295",
+      "problem": "Tumor cell radiosensitivity varies by cell cycle phase",
+      "method": "3D agent-based tumor spheroid growth model",
+      "finding": "Simulated tumor growth and radiation response",
+      "dataset": "",
+      "metric": "sensitivity",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pgen.1000443",
+      "problem": "Taste receptor cell marker expression during development",
+      "method": "Expression analysis in circumvallate papillae",
+      "finding": "Characterized TRCSM expression during embryogenesis",
+      "dataset": "mouse",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fmolb.2024.1394398",
+      "problem": "Ion channel targeting for cancer therapy",
+      "method": "Calcium dynamics simulation with SOCE mechanisms",
+      "finding": "Model reproduces calcium imaging data and SOCE dynamics",
+      "dataset": "A549 cells",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/cddiscovery.2017.22",
+      "problem": "OSCC molecular pathogenesis from dysplastic lesions",
+      "method": "Microarray gene expression analysis from GEO database",
+      "finding": "Signaling network dysregulation in early OSCC tumorigenesis",
+      "dataset": "leukoplakia cohort",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.cels.2016.09.002",
+      "problem": "Inventory of human pancreas cell types and markers",
+      "method": "SORT-Seq deep single-cell sequencing",
+      "finding": "Transcriptomic profiling of pancreatic cell types",
+      "dataset": "human pancreas",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/bioengineering4030066",
+      "problem": "Tissue engineering scaffold design and fabrication",
+      "method": "SolidWorks 3D modeling for scaffold design",
+      "finding": "Computational scaffold design for tissue regeneration",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/s12866-016-0761-0",
+      "problem": "CAZy enzyme diversity in F. virguliforme",
+      "method": "CAZy identification and annotation",
+      "finding": "F. virguliforme produces diverse cellulose and pectin degrading enzymes",
+      "dataset": "F. virguliforme",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/1476-4598-12-140",
+      "problem": "Intronic lncRNA regulation in renal cell carcinoma",
+      "method": "Custom microarray with intronic lncRNA probes",
+      "finding": "29 intronic lncRNAs differentially expressed in RCC",
+      "dataset": "RCC patients",
+      "metric": "FDR",
+      "baseline": "",
+      "result": "<5%"
+    },
+    {
+      "doi": "10.1186/s12906-022-03533-0",
+      "problem": "Anti-cancer potential of Phoenix dactylifera extract",
+      "method": "Cell viability and apoptosis assays",
+      "finding": "PDSE inhibits breast and liver cancer cell proliferation",
+      "dataset": "MDA-MB-231",
+      "metric": "IC50",
+      "baseline": "",
+      "result": "85 ug/mL"
+    },
+    {
+      "doi": "10.3390/molecules23102569",
+      "problem": "Colon cancer treatment resistance and natural compounds",
+      "method": "Antiproliferative assays with hydroxyphenylacetic acids",
+      "finding": "Compounds reduce colon cancer cell viability",
+      "dataset": "colon cancer cells",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:53:16.080484",
+  "extraction_count": 10
+}

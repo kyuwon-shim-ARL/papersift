@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1016/j.jmsy.2019.10.001
+Title: Enabling technologies and tools for digital twin
+Year: 2019
+Abstract: Abstract Digital twin is revolutionizing industry. Fired by sensor updates and history data, the sophisticated models can mirror almost every facet of a product, process or service. In the future, everything in the physical world would be replicated in the digital space through digital twin technology. As a cutting-edge technology, digital twin has received a lot of attention. However, digital twin is far from realizing their potential, which is a complex system and long-drawn process. Researchers must model all the different parts of the objects or systems. Varied types of data needed to be collected and merged. Many researchers and participators in engineering are not clear which technologies and tools should be used. 5-dimension digital twin model provides reference guidance for understanding and implementing digital twin. From the perspective of 5-dimension digital twin model, this paper tries to investigate and summarize the frequently-used enabling technologies and tools for digital twin to provide technologies and tools references for the applications of digital twin in the future.
+---
+
+---
+DOI: 10.1128/jvi.55.3.836-839.1985
+Title: Induction of hepatitis A virus-neutralizing antibody by a virus-specific synthetic peptide
+Year: 1985
+Abstract: Comparative surface feature analyses of the VP1 sequences of hepatitis A virus (HAV) and poliovirus type 1 allowed an alignment of the two sequences and an identification of probable HAV neutralization antigenic sites. A synthetic peptide containing the HAV-specific amino acid sequence of one of these sites induced anti-HAV-neutralizing antibodies. It is concluded that a structural homology exists between the two viruses, despite minimal primary sequence conservation.
+---
+
+---
+DOI: 10.1016/j.eng.2019.01.014
+Title: Digital Twins and Cyber–Physical Systems toward Smart Manufacturing and Industry 4.0: Correlation and Comparison
+Year: 2019
+Abstract: Abstract State-of-the-art technologies such as the Internet of Things (IoT), cloud computing (CC), big data analytics (BDA), and artificial intelligence (AI) have greatly stimulated the development of smart manufacturing. An important prerequisite for smart manufacturing is cyber–physical integration, which is increasingly being embraced by manufacturers. As the preferred means of such integration, cyber–physical systems (CPS) and digital twins (DTs) have gained extensive attention from researchers and practitioners in industry. With feedback loops in which physical processes affect cyber parts and vice versa, CPS and DTs can endow manufacturing systems with greater efficiency, resilience, and intelligence. CPS and DTs share the same essential concepts of an intensive cyber–physical connection, real-time interaction, organization integration, and in-depth collaboration. However, CPS and DTs are not identical from many perspectives, including their origin, development, engineering practices, cyber–physical mapping, and core elements. In order to highlight the differences and correlation between them, this paper reviews and analyzes CPS and DTs from multiple perspectives.
+---
+
+---
+DOI: 10.1021/bi00367a013
+Title: New hydrophilicity scale derived from high-performance liquid chromatography peptide retention data: correlation of predicted surface residues with antigenicity and x-ray-derived accessible sites
+Year: 1986
+Abstract: A new set of hydrophilicity high-performance liquid chromatography (HPLC) parameters is presented. These parameters were derived from the retention times of 20 model synthetic peptides, Ac-Gly-X-X-(Leu)3-(Lys)2-amide, where X was substituted with the 20 amino acids found in proteins. Since hydrophilicity parameters have been used extensively in algorithms to predict which amino acid residues are antigenic, we have compared the profiles generated by our new set of hydrophilic HPLC parameters on the same scale as nine other sets of parameters. Generally, it was found that the HPLC parameters obtained in this study correlated best with antigenicity. In addition, it was shown that a combination of the three best parameters for predicting antigenicity further improved the predictions. These predicted surface sites or, in other words, the hydrophilic, accessible, or mobile regions were then correlated to the known antigenic sites from immunological studies and accessible sites determined by X-ray crystallographic data for several proteins.
+---
+
+---
+DOI: 10.1016/j.cirp.2018.04.055
+Title: Digital twin driven prognostics and health management for complex equipment
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/aic.690370805
+Title: Mathematical model of a gas diffusion electrode bonded to a polymer electrolyte
+Year: 1991
+Abstract: Abstract A mathematical model for an ion‐exchange membrane attached to a gas‐fed porous electrode is derived and discussed. The model is applied to simulate the oxygen electrode of a polymer‐electrolyte fuel cell. Our discussion focuses on cell polarization characteristics, water transport, and catalyst utilization—all of which must be considered for fuel‐cell design. Calculated polarization behavior is shown to compare favorably with published experimental data. Our results indicate that if the membrane maintains full saturation, its contribution to the total cell resistance is most significant at higher operating current densities (greater than 200 mA/cm 2 ). Polarization resistance due to the oxygen reduction reaction appears to be important for all practical current densities. Water transport, driven by pressure and electric‐potential forces, is shown to be a complicated function of the cell operating conditions. The utilization and distribution of noble‐metal catalyst is discussed.
+---
+
+---
+DOI: 10.1016/s0006-3495(73)85983-1
+Title: Strain Energy Function of Red Blood Cell Membranes
+Year: 1973
+Abstract: The several widely different values of the elastic modulus of the human red blood cell membrane which have been reported in the literature are incorporated into a single strain energy function consisting of two terms. One term gives the small stresses and low elastic modulus which is observed when the red cell membrane is deformed at constant area. The second term contributes a large isotropic stress dependent on the change of area. The strain energy function is applied to the process of sphering of red blood cells in a hypotonic solution. It is shown that a nearly perfect sphere can result even though the red blood cell membrane is homogeneous in all areas of the cell. Results pertinent to sieving and micropipette experiments are also explored.
+---
+
+---
+DOI: 10.1021/cr020729l
+Title: Modeling Transport in Polymer-Electrolyte Fuel Cells
+Year: 2004
+Abstract: In this review, we have examined the different models for polymer-electrolyte fuel cells operating with hydrogen. The major focus has been on transport of the various species within the fuel cell. The different regions of the fuel cell were examined, and their modeling methodologies and equations were elucidated. In particular, the 1-D fuel-cell sandwich was discussed thoroughly because it is the most important part of the fuel-cell assembly. Models that included other effects such as temperature gradients and transport in other directions besides through the fuel-cell sandwich were also discussed. Models were not directly compared to each other; instead they were broken down into their constitutive parts. The reason for this is that validation of the models is usually accomplished by comparison of simulation to experimental polarization data (e.g., Figure 3). However, other data can also be used such as the net flux of water through the membrane. In fitting these data, the models vary not only in their complexity and treatments but also in their number and kind of fitting parameters. This is one reason it is hard to justify one approach over another by just looking at the modeling results. In general, it seems reasonable that the more complex models, which are based on physical arguments and do not contain many fitting parameters, are perhaps closest to reality. Of course, this assumes that they fit the experimental data and observations. This last point has been overlooked in the validation of many models. For example, a model may fit the data very well for certain operating conditions, but if it does not at least predict the correct trend when one of those conditions is changed, then the model is shown to be valid only within a certain operating range. This review has highlighted the important effects that should be modeled. These include two-phase flow of liquid water and gas in the fuel-cell sandwich, a robust membrane model that accounts for the different membrane transport modes, nonisothermal effects, especially in the directions perpendicular to the sandwich, and multidimensional effects such as changing gas composition along the channel, among others. For any model, a balance must be struck between the complexity required to describe the physical reality and the additional costs of such complexity. In other words, while more complex models more accurately describe the physics of the transport processes, they are more computationally costly and may have so many unknown parameters that their results are not as meaningful. Hopefully, this review has shown and broken down for the reader the vast complexities of transport within polymer-electrolyte fuel cells and the various ways they have been and can be modeled.
+---
+
+---
+DOI: 10.1110/ps.062405906
+Title: Prediction of residues in discontinuous B‐cell epitopes using protein 3D structures
+Year: 2006
+Abstract: Abstract Discovery of discontinuous B‐cell epitopes is a major challenge in vaccine design. Previous epitope prediction methods have mostly been based on protein sequences and are not very effective. Here, we present DiscoTope, a novel method for discontinuous epitope prediction that uses protein three‐dimensional structural data. The method is based on amino acid statistics, spatial information, and surface accessibility in a compiled data set of discontinuous epitopes determined by X‐ray crystallography of antibody/antigen protein complexes. DiscoTope is the first method to focus explicitly on discontinuous epitopes. We show that the new structure‐based method has a better performance for predicting residues of discontinuous epitopes than methods based solely on sequence information, and that it can successfully predict epitope residues that have been identified by different techniques. DiscoTope detects 15.5% of residues located in discontinuous epitopes with a specificity of 95%. At this level of specificity, the conventional Parker hydrophilicity scale for predicting linear B‐cell epitopes identifies only 11.0% of residues located in discontinuous epitopes. Predictions by the DiscoTope method can guide experimental epitope mapping in both rational vaccine design and development of diagnostic tools, and may lead to more efficient epitope identification.
+---
+
+---
+DOI: 10.1016/s0006-3495(91)82027-6
+Title: Mathematical model for the effects of adhesion and mechanics on cell migration speed
+Year: 1991
+Abstract: Migration of mammalian blood and tissue cells over adhesive surfaces is apparently mediated by specific reversible reactions between cell membrane adhesion receptors and complementary ligands attached to the substratum. Although in a number of systems these receptors and ligand molecules have been isolated and identified, a theory capable of predicting the effects of their properties on cell migration behavior currently does not exist. We present a simple mathematical model for elucidating the dependence of cell speed on adhesion-receptor/ligand binding and cell mechanical properties. Our model can be applied to propose answers to questions such as: does an optimal adhesiveness exist for cell movement? How might changes in receptor and ligand density and/or affinity affect the rate of migration? Can cell rheological properties influence movement speed? This model incorporates cytoskeletal force generation, cell polarization, and dynamic adhesion as requirements for persistent cell movement. A critical feature is the proposed existence of an asymmetry in some cell adhesion-receptor property, correlated with cell polarity. We consider two major alternative mechanisms underlying this asymmetry: (a) a spatial distribution of adhesion-receptor number due to polarized endocytic trafficking and (b) a spatial variation in adhesion-receptor/ligand bond strength. Applying a viscoelastic-solid model for cell mechanics allows us to represent one-dimensional locomotion with a system of differential equations describing cell deformation and displacement along with adhesion-receptor dynamics. In this paper, we solve these equations under the simplifying assumption that receptor dynamics are at a quasi-steady state relative to cell locomotion. Thus, our results are strictly valid for sufficiently slow cell movement, as typically observed for tissue cells such as fibroblasts. Numerical examples relevant to experimental systems are provided. Our results predict how cell speed might vary with intracellular contractile force, cell rheology, receptor/ligand kinetics, and receptor/ligand number densities. A biphasic dependence is shown to be possible with respect to some of the system parameters, with position of the maxima essentially governed by a balance between transmitted contractile force and adhesiveness. We demonstrate that predictions for the two alternative asymmetry mechanisms can be distinguished and could be experimentally tested using cell populations possessing different adhesion-receptor numbers.
+---
+
+---
+DOI: 10.1016/j.est.2020.101557
+Title: Digital twin for battery systems: Cloud battery management system with online state-of-charge and state-of-health estimation
+Year: 2020
+Abstract: Abstract Battery management is critical to enhancing the safety, reliability, and performance of the battery systems. This paper presents a cloud battery management system for battery systems to improve the computational power and data storage capability by cloud computing. With the Internet of Things, all battery relevant data are measured and transmitted to the cloud seamlessly, building up the digital twin for the battery system, where battery diagnostic algorithms evaluate the data and open the window into battery’s charge and aging level. The application of equivalent circuit models in the digital twin for battery systems is explored with the development of cloud-suited state-of-charge and state-of-health estimation approaches. The proposed state-of-charge estimation with an adaptive extended H-infinity filter is robust and accurate for both lithium-ion and lead-acid batteries, even with a significant initialization error. Furthermore, a state-of-health estimation algorithm with particle swarm optimization is innovatively exploited to monitor both capacity fade and power fade of the battery during aging. The functionalities and stability of both hardware and software of the cloud battery management system are validated with prototypes under field operation and experimental validation for both stationary and mobile applications.
+---
+
+---
+DOI: 10.1016/j.ifacol.2016.11.115
+Title: Digital Twin Data Modeling with AutomationML and a Communication Methodology for Data Exchange
+Year: 2016
+Abstract: In the context of the Cyber Physical Systems toward the realization of a Digital Twin system for future manufacturing and product service systems we propose the use of AutomationML to model attributes related to the Digital Twin. Also, we propose that this model is very useful for data exchange between different systems that are connected with the Digital Twin. We present a case study where a industrial component was modeled and simulated to prove that our methodology works.
+---
+
+---
+DOI: 10.1093/bioinformatics/bth378
+Title: BioNetGen: software for rule-based modeling of signal transduction based on the interactions of molecular domains
+Year: 2004
+Abstract: Abstract Summary: BioNetGen allows a user to create a computational model that characterizes the dynamics of a signal transduction system, and that accounts comprehensively and precisely for specified enzymatic activities, potential post-translational modifications and interactions of the domains of signaling molecules. The output defines and parameterizes the network of molecular species that can arise during signaling and provides functions that relate model variables to experimental readouts of interest. Models that can be generated are relevant for rational drug discovery, analysis of proteomic data and mechanistic studies of signal transduction. Availability: http://cellsignaling.lanl.gov/bionetgen
+---
+
+---
+DOI: 10.1016/j.jpowsour.2003.07.007
+Title: Three-dimensional analysis of transport and electrochemical reactions in polymer electrolyte fuel cells
+Year: 2003
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0378-7753(03)00816-4
+Title: Three-dimensional computational analysis of transport phenomena in a PEM fuel cell—a parametric study
+Year: 2003
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/81125
+Title: The challenges of in silico biology
+Year: 2000
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1046/j.0960-7722.2001.00216.x
+Title: Cell migration and organization in the intestinal crypt using a lattice‐free model
+Year: 2001
+Abstract: Abstract. We present a novel class of spatial models of cell movement and arrangement applied to the two‐dimensional cellular organization of the intestinal crypt. The model differs from earlier approaches in using a dynamic movement on a lattice‐free cylindrical surface. Cell movement is a consequence of mitotic activity. Cells interact by viscoelastic forces. Voronoi tessellation permits simulations of individual cell boundaries. Simulations can be compared with experimental data obtained from cell scoring in sections. Simulation studies show that the model is consistent with the experimental results for the spatial distribution of labelling indices, mitotic indices and other observed phenomena using a fixed number of stem cells and a fixed number of transit cell divisions.
+---
+
+---
+DOI: 10.1007/s11538-006-9131-7
+Title: Polarization and Movement of Keratocytes: A Multiscale Modelling Approach
+Year: 2006
+Abstract: Eukariotic cell motility is a complex phenomenon, in which the cytoskeleton and its major constituent, actin, play an essential role. Actin forms polymers of long, stiff filaments that are cross-linked into an anisotropic network inside a thin sheet-like cellular protrusion, the lamellipod. At the leading edge of this structure, polymerization of actin filaments creates the force that pushes out the membrane and leads to translocation of a motile cell. Dynamics of the actin network account for changes in cell shape, crawling motion and turning of the cell in response to external cues. Regulating the dynamics of the cytoskeleton, and playing a central role in signal transduction in the cell, are Cdc42, Rac and Rho (GTPases of the rho family, collectively known as the small G-proteins) and the actin nucleating complex, Arp2/3. In this paper, we use a multiscale modelling approach in a 2D model of a motile cell. We describe the mutual interactions of the small G-proteins, and their effects on capping and side-branching of actin filaments. We incorporate the pushing exerted by oriented actin filament ends on the cell edge, and a Rho-dependent contraction force. Combining these biochemical and mechanical aspects, we investigate the dynamics of a model epidermal fish keratocyte through in silico experiments. Our model gives insight into how, in response to some cue, a cell can polarize, form a leading edge, and move; concomitantly it explains how a keratocyte cell can maintain its shape and polarity, even after removal of the initial stimulus, and how it can change direction quickly in response to changes in its environment. We show that establishment of polarity stems from interactions of Cdc42, Rac and Rho, while maintenance and robustness of polarity is due to the rapid cytosolic diffusion of the inactive (GDI-bound) forms of the small G-proteins. Our model produces a cell shape that closely resembles the keratocytes and correct speeds for biologically reasonable parameter values. Movies of the simulations can be obtained from http://theory.bio.uu.nl/stan/keratocyte.
+---
+
+---
+DOI: 10.1038/s41591-021-01558-5
+Title: Digital twins for predictive oncology will be a paradigm shift for precision cancer care
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/nri.2017.34
+Title: Antigen-inexperienced memory CD8+ T cells: where they come from and why we need them
+Year: 2017
+Abstract: Memory-phenotype CD8+ T cells exist in substantial numbers within hosts that have not been exposed to either foreign antigen or overt lymphopenia. These antigen-inexperienced memory-phenotype T cells can be divided into two major subsets: 'innate memory' T cells and 'virtual memory' T cells. Although these two subsets are nearly indistinguishable by surface markers alone, notable developmental and functional differences exist between the two subsets, which suggests that they represent distinct populations. In this Opinion article, we review the available literature on each subset, highlighting the key differences between these populations. Furthermore, we suggest a unifying model for the categorization of antigen-inexperienced memory-phenotype CD8+ T cells.
+---
+
+---
+DOI: 10.1016/j.bulm.2003.08.007
+Title: A continuum model of motility in ameboid cells
+Year: 2003
+Abstract: A continuum model of cell motility in ameboid cells based on a viscoelastic description of the cytoplasm and active stress generation controlled by extracellular signals is developed and analyzed. The characteristics of locomotion depend on the specific active stress, elastic and viscous properties of the cytoplasm as well as on the strength of cell-substrate interactions. A one-dimensional version of the model is applied to describe the motion of a fibroblast. The force balance equation for the cell is solved together with reaction diffusion equations describing the dynamics of proteins essential for cell locomotion. The cell deformation is calculated, and the deformation patterns observed experimentally are reproduced by the model. The cell velocity as a function of cell-substrate interaction is also computed for various cell characteristics such as the active stress generated, the cell elasticity and the coupling between cell-substrate interaction and the ability of the cell to contract.
+---
+
+---
+DOI: 10.1016/s0006-3495(00)76281-3
+Title: An Image-Based Model of Calcium Waves in Differentiated Neuroblastoma Cells
+Year: 2000
+Abstract: Calcium waves produced by bradykinin-induced inositol-1,4, 5-trisphosphate (InsP(3))-mediated release from endoplasmic reticulum (ER) have been imaged in N1E-115 neuroblastoma cells. A model of this process was built using the "virtual cell," a general computational system for integrating experimental image, biochemical, and electrophysiological data. The model geometry was based on a cell for which the calcium wave had been experimentally recorded. The distributions of the relevant cellular components [InsP(3) receptor (InsP(3)R)], sarcoplasmic/endoplasmic reticulum calcium ATPase (SERCA) pumps, bradykinin receptors, and ER] were based on 3D confocal immunofluorescence images. Wherever possible, known biochemical and electrophysiological data were used to constrain the model. The simulation closely matched the spatial and temporal characteristics of the experimental calcium wave. Predictions on different patterns of calcium signals after InsP(3) uncaging or for different cell geometries were confirmed experimentally, thus helping to validate the model. Models in which the spatial distributions of key components are altered suggest that initiation of the wave in the center of the neurite derives from an interplay of soma-biased ER distribution and InsP(3) generation biased toward the neurite. Simulations demonstrate that mobile buffers (like the indicator fura-2) significantly delay initiation and lower the amplitude of the wave. Analysis of the role played by calcium diffusion indicated that the speed of the wave is only slightly dependent on the ability of calcium to diffuse to and activate neighboring InsP(3) receptor sites.
+---
+
+---
+DOI: 10.1287/mnsc.40.4.466
+Title: Coping with the Loss of Pooling Synergy in Cellular Manufacturing Systems
+Year: 1994
+Abstract: The conversion of a functional layout into a cellular manufacturing system involves the partitioning of several multiserver work centers. The loss of pooling synergy in this process can be significant, and this paper investigates the impact of several measures to overcome the adverse effects on flow time, work-in-process inventory and machine utilization. These can be alleviated to a certain extent through reductions in setup times and lot sizes that has been traditionally emphasized in group technology, but a more concerted effort is required. Analytical models are first utilized to investigate the extent to which these adverse effects can be overcome through (1) reduction in setup time, (2) lot sizing, (3) reduction in the variability of process-times and job arrivals, and, (4) reduction in processing times through productivity improvements, all arising from part family-oriented processing. These insights are verified through a simulation comparison of five cellular manufacturing systems with a functional layout system in which optimal lot sizes, low move times and a part family-oriented scheduling rule are used.
+---
+
+---
+DOI: 10.1111/j.1749-6632.1979.tb14150.x
+Title: A MATHEMATICAL MODEL FOR THE GROWTH OF A SINGLE BACTERIAL CELL*
+Year: 1979
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1080/095372897235514
+Title: A simulation analysis of the impact of family configuration on virtual cellular manufacturing
+Year: 1997
+Abstract: Past research has shown that it is possible to simultaneously achieve the setup efficiencies of traditional cellular manufacturing systems and the routeing flexibility of a job shop by viewing cells not as permanent, physical structures, but as temporary, 'virtual' entities. This research demonstrates that the advantages of virtual manufacturing cells can be obtained over a range of part family configurations. In particular, virtual cellular manufacturing is robust to changes in the number and size of families being processed. Further, the research shows that the benefits can be obtained under setup conditions impartial to a family-oriented part environment.
+---
+
+---
+DOI: 10.1007/978-3-319-24574-4_28
+Title: U-Net: Convolutional Networks for Biomedical Image Segmentation
+Year: 2015
+Abstract: There is large consent that successful training of deep networks requires many thousand annotated training samples. In this paper, we present a network and training strategy that relies on the strong use of data augmentation to use the available annotated samples more efficiently. The architecture consists of a contracting path to capture context and a symmetric expanding path that enables precise localization. We show that such a network can be trained end-to-end from very few images and outperforms the prior best method (a sliding-window convolutional network) on the ISBI challenge for segmentation of neuronal structures in electron microscopic stacks. Using the same network trained on transmitted light microscopy images (phase contrast and DIC) we won the ISBI cell tracking challenge 2015 in these categories by a large margin. Moreover, the network is fast. Segmentation of a 512x512 image takes less than a second on a recent GPU. The full implementation (based on Caffe) and the trained networks are available at http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net .
+---
+
+---
+DOI: 10.1038/nmeth.2019
+Title: Fiji: an open-source platform for biological-image analysis
+Year: 2012
+Abstract: Fiji is a distribution of the popular open-source software ImageJ focused on biological-image analysis. Fiji uses modern software engineering practices to combine powerful software libraries with a broad range of scripting languages to enable rapid prototyping of image-processing algorithms. Fiji facilitates the transformation of new algorithms into ImageJ plugins that can be shared with end users through an integrated update system. We propose Fiji as a platform for productive collaboration between computer science and biology research communities.
+---
+
+---
+DOI: 10.1038/353737a0
+Title: A low-cost, high-efficiency solar cell based on dye-sensitized colloidal TiO2 films
+Year: 1991
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1159/000356667
+Title: Calcium's Role in Mechanotransduction during Muscle Development
+Year: 2014
+Abstract: Mechanotransduction is a process where cells sense their surroundings and convert the physical forces in their environment into an appropriate response. Calcium plays a crucial role in the translation of such forces to biochemical signals that control various biological processes fundamental in muscle development. The mechanical stimulation of muscle cells may for example result from stretch, electric and magnetic stimulation, shear stress, and altered gravity exposure. The response, mainly involving changes in intracellular calcium concentration then leads to a cascade of events by the activation of downstream signaling pathways. The key calcium-dependent pathways described here include the nuclear factor of activated T cells (NFAT) and mitogen-activated protein kinase (MAPK) activation. The subsequent effects in cellular homeostasis consist of cytoskeletal remodeling, cell cycle progression, growth, differentiation, and apoptosis, all necessary for healthy muscle development, repair, and regeneration. A deregulation from the normal process due to disuse, trauma, or disease can result in a clinical condition such as muscle atrophy, which entails a significant loss of muscle mass. In order to develop therapies against such diseased states, we need to better understand the relevance of calcium signaling and the downstream responses to mechanical forces in skeletal muscle. The purpose of this review is to discuss in detail how diverse mechanical stimuli cause changes in calcium homeostasis by affecting membrane channels and the intracellular stores, which in turn regulate multiple pathways that impart these effects and control the fate of muscle tissue.
+---
+
+---
+DOI: 10.1016/s0169-409x(96)00423-1
+Title: Experimental and computational approaches to estimate solubility and permeability in drug discovery and development settings
+Year: 1997
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/(sici)1096-987x(19981115)19:14<1639::aid-jcc10>3.0.co;2-b
+Title: Automated docking using a Lamarckian genetic algorithm and an empirical binding free energy function
+Year: 1998
+Abstract: ABSTRACT: A novel and robust automated docking method that predicts the bound conformations of flexible ligands to macromolecular targets has been developed and tested, in combination with a new scoring function that estimates the free energy change upon binding. Interestingly, this method applies a Lamarckian model of genetics, in which environmental adaptations of an individual’s phenotype are reverse transcribed into its genotype and become .heritable traits sic. We consider three search methods, Monte Carlo simulated annealing, a traditional genetic algorithm, and the Lamarckian genetic algorithm, and compare their performance in dockings of seven protein]ligand test systems having known three-dimensional structure. We show that both the traditional and Lamarckian genetic algorithms can handle ligands with more degrees of freedom than the simulated annealing method used in earlier versions of AUTODOCK, and that the Lamarckian genetic algorithm is the most efficient, reliable, and successful of the three. The empirical free energy function was calibrated using a set of 30 structurally known protein]ligand complexes with
+---
+
+---
+DOI: 10.1021/jm020017n
+Title: Molecular Properties That Influence the Oral Bioavailability of Drug Candidates
+Year: 2002
+Abstract: Oral bioavailability measurements in rats for over 1100 drug candidates studied at SmithKline Beecham Pharmaceuticals (now GlaxoSmithKline) have allowed us to analyze the relative importance of molecular properties considered to influence that drug property. Reduced molecular flexibility, as measured by the number of rotatable bonds, and low polar surface area or total hydrogen bond count (sum of donors and acceptors) are found to be important predictors of good oral bioavailability, independent of molecular weight. That on average both the number of rotatable bonds and polar surface area or hydrogen bond count tend to increase with molecular weight may in part explain the success of the molecular weight parameter in predicting oral bioavailability. The commonly applied molecular weight cutoff at 500 does not itself significantly separate compounds with poor oral bioavailability from those with acceptable values in this extensive data set. Our observations suggest that compounds which meet only the two criteria of (1) 10 or fewer rotatable bonds and (2) polar surface area equal to or less than 140 A(2) (or 12 or fewer H-bond donors and acceptors) will have a high probability of good oral bioavailability in the rat. Data sets for the artificial membrane permeation rate and for clearance in the rat were also examined. Reduced polar surface area correlates better with increased permeation rate than does lipophilicity (C log P), and increased rotatable bond count has a negative effect on the permeation rate. A threshold permeation rate is a prerequisite of oral bioavailability. The rotatable bond count does not correlate with the data examined here for the in vivo clearance rate in the rat.
+---
+
+---
+DOI: 10.1093/nar/gkh131
+Title: UniProt: the Universal Protein knowledgebase
+Year: 2003
+Abstract: To provide the scientific community with a single, centralized, authoritative resource for protein sequences and functional information, the Swiss-Prot, TrEMBL and PIR protein database activities have united to form the Universal Protein Knowledgebase (UniProt) consortium. Our mission is to provide a comprehensive, fully classified, richly and accurately annotated protein sequence knowledgebase, with extensive cross-references and query interfaces. The central database will have two sections, corresponding to the familiar Swiss-Prot (fully manually curated entries) and TrEMBL (enriched with automated classification, annotation and extensive cross-references). For convenient sequence searches, UniProt also provides several non-redundant sequence databases. The UniProt NREF (UniRef) databases provide representative subsets of the knowledgebase suitable for efficient searching. The comprehensive UniProt Archive (UniParc) is updated daily from many public source databases. The UniProt databases can be accessed online (http://www.uniprot.org) or downloaded in several formats (ftp://ftp.uniprot.org/pub). The scientific community is encouraged to submit data for inclusion in UniProt.
+---
+
+---
+DOI: 10.1126/science.277.5331.1453
+Title: The Complete Genome Sequence of <i>Escherichia coli</i> K-12
+Year: 1997
+Abstract: The 4,639,221–base pair sequence of Escherichia coli K-12 is presented. Of 4288 protein-coding genes annotated, 38 percent have no attributed function. Comparison with five other sequenced microbes reveals ubiquitous as well as narrowly distributed gene families; many families of similar genes within E. coli are also evident. The largest family of paralogous proteins contains 80 ABC transporters. The genome as a whole is strikingly organized with respect to the local direction of replication; guanines, oligonucleotides possibly related to replication and recombination, and most genes are so oriented. The genome also contains insertion sequence (IS) elements, phage remnants, and many other patches of unusual composition indicating genome plasticity through horizontal transfer.
+---
+
+---
+DOI: 10.1126/science.1132939
+Title: The Connectivity Map: Using Gene-Expression Signatures to Connect Small Molecules, Genes, and Disease
+Year: 2006
+Abstract: To pursue a systematic approach to the discovery of functional connections among diseases, genetic perturbation, and drug action, we have created the first installment of a reference collection of gene-expression profiles from cultured human cells treated with bioactive small molecules, together with pattern-matching software to mine these data. We demonstrate that this “Connectivity Map” resource can be used to find connections among small molecules sharing a mechanism of action, chemicals and physiological processes, and diseases and drugs. These results indicate the feasibility of the approach and suggest the value of a large-scale community Connectivity Map project.
+---
+
+---
+DOI: 10.1038/35002131
+Title: Construction of a genetic toggle switch in Escherichia coli
+Year: 2000
+Abstract: It has been proposed' that gene-regulatory circuits with virtually any desired property can be constructed from networks of simple regulatory elements. These properties, which include multistability and oscillations, have been found in specialized gene circuits such as the bacteriophage lambda switch and the Cyanobacteria circadian oscillator. However, these behaviours have not been demonstrated in networks of non-specialized regulatory components. Here we present the construction of a genetic toggle switch-a synthetic, bistable gene-regulatory network-in Escherichia coli and provide a simple theory that predicts the conditions necessary for bistability. The toggle is constructed from any two repressible promoters arranged in a mutually inhibitory network. It is flipped between stable states using transient chemical or thermal induction and exhibits a nearly ideal switching threshold. As a practical device, the toggle switch forms a synthetic, addressable cellular memory unit and has implications for biotechnology, biocomputing and gene therapy.
+---
+
+---
+DOI: 10.1038/nmeth.1315
+Title: mRNA-Seq whole-transcriptome analysis of a single cell
+Year: 2009
+Abstract: Next-generation sequencing technology is a powerful tool for transcriptome analysis. However, under certain conditions, only a small amount of material is available, which requires more sensitive techniques that can preferably be used at the single-cell level. Here we describe a single-cell digital gene expression profiling assay. Using our mRNA-Seq assay with only a single mouse blastomere, we detected the expression of 75% (5,270) more genes than microarray techniques and identified 1,753 previously unknown splice junctions called by at least 5 reads. Moreover, 8-19% of the genes with multiple known transcript isoforms expressed at least two isoforms in the same blastomere or oocyte, which unambiguously demonstrated the complexity of the transcript variants at whole-genome scale in individual cells. Finally, for Dicer1(-/-) and Ago2(-/-) (Eif2c2(-/-)) oocytes, we found that 1,696 and 1,553 genes, respectively, were abnormally upregulated compared to wild-type controls, with 619 genes in common.
+---
+
+---
+DOI: 10.1016/j.cell.2015.04.044
+Title: Droplet Barcoding for Single-Cell Transcriptomics Applied to Embryonic Stem Cells
+Year: 2015
+Abstract: It has long been the dream of biologists to map gene expression at the single-cell level. With such data one might track heterogeneous cell sub-populations, and infer regulatory relationships between genes and pathways. Recently, RNA sequencing has achieved single-cell resolution. What is limiting is an effective way to routinely isolate and process large numbers of individual cells for quantitative in-depth sequencing. We have developed a high-throughput droplet-microfluidic approach for barcoding the RNA from thousands of individual cells for subsequent analysis by next-generation sequencing. The method shows a surprisingly low noise profile and is readily adaptable to other sequencing-based assays. We analyzed mouse embryonic stem cells, revealing in detail the population structure and the heterogeneous onset of differentiation after leukemia inhibitory factor (LIF) withdrawal. The reproducibility of these high-throughput single-cell data allowed us to deconstruct cell populations and infer gene expression relationships. VIDEO ABSTRACT.
+---
+
+---
+DOI: 10.1016/j.cell.2017.10.049
+Title: A Next Generation Connectivity Map: L1000 Platform and the First 1,000,000 Profiles
+Year: 2017
+Abstract: We previously piloted the concept of a Connectivity Map (CMap), whereby genes, drugs and disease states are connected by virtue of common gene-expression signatures. Here, we report more than a 1,000-fold scale-up of the CMap as part of the NIH LINCS Consortium, made possible by a new, low-cost, high throughput reduced representation expression profiling method that we term L1000. We show that L1000 is highly reproducible, comparable to RNA sequencing, and suitable for computational inference of the expression levels of 81% of non-measured transcripts. We further show that the expanded CMap can be used to discover mechanism of action of small molecules, functionally annotate genetic variants of disease genes, and inform clinical trials. The 1.3 million L1000 profiles described here, as well as tools for their analysis, are available at https://clue.io. HIGHLIGHTS A new gene expression profiling method, L1000, dramatically lowers cost The Connectivity Map database now includes 1.3 million publicly accessible L1000 perturbational profiles This expanded Connectivity Map facilitates discovery of small molecule mechanism of action and functional annotation of genetic variants The work establishes feasibility and utility of a truly comprehensive Connectivity Map
+---
+
+---
+DOI: 10.1146/annurev.physchem.58.032806.104637
+Title: Stochastic Simulation of Chemical Kinetics
+Year: 2006
+Abstract: Stochastic chemical kinetics describes the time evolution of a well-stirred chemically reacting system in a way that takes into account the fact that molecules come in whole numbers and exhibit some degree of randomness in their dynamical behavior. Researchers are increasingly using this approach to chemical kinetics in the analysis of cellular systems in biology, where the small molecular populations of only a few reactant species can lead to deviations from the predictions of the deterministic differential equations of classical chemical kinetics. After reviewing the supporting theory of stochastic chemical kinetics, I discuss some recent advances in methods for using that theory to make numerical simulations. These include improvements to the exact stochastic simulation algorithm (SSA) and the approximate explicit tau-leaping procedure, as well as the development of two approximate strategies for simulating systems that are dynamically stiff: implicit tau-leaping and the slow-scale SSA.
+---
+
+---
+DOI: 10.1126/science.1188308
+Title: Quantifying <i>E. coli</i> Proteome and Transcriptome with Single-Molecule Sensitivity in Single Cells
+Year: 2010
+Abstract: Devil in the Detail Genetically identical cells in the same environment can show variation in gene expression that may cause phenotypic variation at the single-cell level. But how noisy are most genes? Taniguchi et al. (p. 533 ; see the Perspective by Tyagi ) now report single-cell global profiling of both messenger RNA (mRNA) and proteins in Escherichia coli using a yellow fluorescent protein fusion library. As well as a common extrinsic noise in high-abundance proteins, large fluctuations were observed in low-abundance proteins. Remarkably, in single-cell experiments, mRNA and protein levels for the same gene were uncorrelated.
+---
+
+---
+DOI: 10.1038/nrn1932
+Title: Path integration and the neural basis of the 'cognitive map'
+Year: 2006
+Abstract: The hippocampal formation can encode relative spatial location, without reference to external cues, by the integration of linear and angular self-motion (path integration). Theoretical studies, in conjunction with recent empirical discoveries, suggest that the medial entorhinal cortex (MEC) might perform some of the essential underlying computations by means of a unique, periodic synaptic matrix that could be self-organized in early development through a simple, symmetry-breaking operation. The scale at which space is represented increases systematically along the dorsoventral axis in both the hippocampus and the MEC, apparently because of systematic variation in the gain of a movement-speed signal. Convergence of spatially periodic input at multiple scales, from so-called grid cells in the entorhinal cortex, might result in non-periodic spatial firing patterns (place fields) in the hippocampus.
+---
+
+---
+DOI: 10.1038/nprot.2009.203
+Title: A protocol for generating a high-quality genome-scale metabolic reconstruction
+Year: 2010
+Abstract: Network reconstructions are a common denominator in systems biology. Bottom-up metabolic network reconstructions have been developed over the last 10 years. These reconstructions represent structured knowledge bases that abstract pertinent information on the biochemical transformations taking place within specific target organisms. The conversion of a reconstruction into a mathematical format facilitates a myriad of computational biological studies, including evaluation of network content, hypothesis testing and generation, analysis of phenotypic characteristics and metabolic engineering. To date, genome-scale metabolic reconstructions for more than 30 organisms have been published and this number is expected to increase rapidly. However, these reconstructions differ in quality and coverage that may minimize their predictive potential and use as knowledge bases. Here we present a comprehensive protocol describing each step necessary to build a high-quality genome-scale metabolic reconstruction, as well as the common trials and tribulations. Therefore, this protocol provides a helpful manual for all stages of the reconstruction process.
+---
+
+---
+DOI: 10.1126/science.283.5400.381
+Title: Emergent Properties of Networks of Biological Signaling Pathways
+Year: 1999
+Abstract: Many distinct signaling pathways allow the cell to receive, process, and respond to information. Often, components of different pathways interact, resulting in signaling networks. Biochemical signaling networks were constructed with experimentally obtained constants and analyzed by computational methods to understand their role in complex biological processes. These networks exhibit emergent properties such as integration of signals across multiple time scales, generation of distinct outputs depending on input strength and duration, and self-sustaining feedback loops. Feedback can result in bistable behavior with discrete steady-state activities, well-defined input thresholds for transition between states and prolonged signal output, and signal modulation in response to transient stimuli. These properties of signaling networks raise the possibility that information for “learned behavior” of biological systems may be stored within intracellular biochemical reactions that comprise signaling pathways.
+---
+
+---
+DOI: 10.1021/jp993732q
+Title: Efficient Exact Stochastic Simulation of Chemical Systems with Many Species and Many Channels
+Year: 2000
+Abstract: There are two fundamental ways to view coupled systems of chemical equations: as continuous, represented by differential equations whose variables are concentrations, or as discrete, represented by stochastic processes whose variables are numbers of molecules. Although the former is by far more common, systems with very small numbers of molecules are important in some applications (e.g., in small biological cells or in surface processes). In both views, most complicated systems with multiple reaction channels and multiple chemical species cannot be solved analytically. There are exact numerical simulation methods to simulate trajectories of discrete, stochastic systems, (methods that are rigorously equivalent to the Master Equation approach) but these do not scale well to systems with many reaction pathways. This paper presents the Next Reaction Method, an exact algorithm to simulate coupled chemical reactions that is also efficient: it (a) uses only a single random number per simulation event, and (b) takes time proportional to the logarithm of the number of reactions, not to the number of reactions itself. The Next Reaction Method is extended to include time-dependent rate constants and non-Markov processes and is applied to a sample application in biology (the lysis/lysogeny decision circuit of lambda phage). The performance of the Next Reaction Method on this application is compared with one standard method and an optimized version of that standard method.
+---

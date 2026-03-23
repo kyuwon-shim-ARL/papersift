@@ -1,0 +1,119 @@
+{
+  "batch_index": 18,
+  "dois": [
+    "10.1371/journal.pcbi.1000489",
+    "10.1177/2192568220948031",
+    "10.1186/1471-213x-13-8",
+    "10.3389/fimmu.2023.1207533",
+    "10.4103/ejd.ejd_147_17",
+    "10.1042/ebc20160015",
+    "10.1093/bioinformatics/btw252",
+    "10.1101/gr.164806.113",
+    "10.1038/nature11973",
+    "10.1186/s13046-022-02507-x"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pcbi.1000489",
+      "problem": "Predicting metabolic states from gene expression data is limited; existing methods do not utilize metabolic network models to directly predict changes in flux capacity.",
+      "method": "E-Flux extends Flux Balance Analysis by modeling maximum flux constraints as a function of measured gene expression, applied to mycolic acid biosynthesis and genome-scale M. tuberculosis models.",
+      "finding": "E-Flux correctly predicts 7 of 8 known fatty acid inhibitors and their specificity for fatty acid biosynthesis, and identifies additional potential modulators of mycolic acid production.",
+      "dataset": "M. tuberculosis, Boshoff TB expression compendium (400+ microarrays, 75 drugs/conditions)",
+      "metric": "Prediction accuracy of known inhibitor identification, specificity of inhibition prediction",
+      "baseline": "Standard FBA without expression constraints",
+      "result": "7/8 known fatty acid inhibitors correctly predicted (87.5%)"
+    },
+    {
+      "doi": "10.1177/2192568220948031",
+      "problem": "Whether physiologically relevant caffeine concentrations affect intervertebral disc cell viability and extracellular matrix composition, contributing to IVD degeneration.",
+      "method": "Whole organ culture model with 190 IVD explants from rat tails in injured/uninjured groups, treated with three caffeine concentrations (5, 10, 15 mg/L) in rotating wall vessel bioreactor for 21 days.",
+      "finding": "Caffeine causes significant dose-dependent loss of IVD cell viability and ECM composition, effects magnified and expedited in injured discs compared to controls.",
+      "dataset": "190 IVD whole organ explants from 16 skeletally mature Sprague-Dawley rats",
+      "metric": "Viable cell density (VCD), glycosaminoglycan concentration, PG-to-HP ratio, p-value",
+      "baseline": "Day 0 control IVDs (no caffeine, no injury, n=22)",
+      "result": "Low vs high caffeine VCD P=.037 (day 7), P≤.004 (day 21)"
+    },
+    {
+      "doi": "10.1186/1471-213x-13-8",
+      "problem": "Determining expression patterns of low-abundance transcripts in planarians remains challenging with established WISH and FISH protocols.",
+      "method": "Formamide bleaching step, optimized blocking with horse serum, copper sulfate autofluorescence quenching, iterative tyramide signal amplification, and heat-induced antigen retrieval for regenerating tissues.",
+      "finding": "Formamide bleaching dramatically enhances signal intensity and sensitivity for WISH and FISH; combined modifications enable detection of previously undetectable low-abundance transcripts in planarians.",
+      "dataset": "Schmidtea mediterranea (planarian), CIW4 asexual clonal line",
+      "metric": "Signal intensity, signal-to-noise ratio, development time",
+      "baseline": "Established planarian WISH protocol with overnight methanol/peroxide bleach",
+      "result": "Dramatically reduced development time, improved signal-to-noise ratio for all probes tested"
+    },
+    {
+      "doi": "10.3389/fimmu.2023.1207533",
+      "problem": "Non-invasive monitoring of T-cell location and function during PDAC tumor growth and checkpoint blockade treatment is needed to predict in vivo response.",
+      "method": "TbiLuc dual-color bioluminescence reporter mouse with AkaLumine substrate for red-shifted T-cell activation imaging, applied to hot/cold KPC PDAC clones with anti-PD-1/anti-CTLA-4 treatment.",
+      "finding": "TbiLuc mice distinguish T-cell infiltration between immunologically hot and cold tumors; checkpoint blockade increases bioluminescence in tumor-draining lymph nodes at day 7 post-treatment.",
+      "dataset": "TbiLuc mice with murine KPC PDAC clones (2838c3 'hot', 6694c2 'cold')",
+      "metric": "Bioluminescence signal intensity (photons), fold induction of active vs naive T-cells",
+      "baseline": "CycLuc 1 substrate (previous TbiLuc imaging protocol)",
+      "result": "AkaLumine 20-fold induction in active T-cells vs 5-fold for CycLuc1"
+    },
+    {
+      "doi": "10.4103/ejd.ejd_147_17",
+      "problem": "How do whole cell vs LPS components of Porphyromonas gingivalis differentially modulate TLR2 and TLR4 innate inflammatory responses in periodontal pathogenesis?",
+      "method": "28 Wistar rats randomized into 7 groups receiving intrasulcular injections of P. gingivalis LPS (3 doses) or whole cell (3 doses) or placebo; TLR2/TLR4 measured by ELISA at days 0, 4, and 11.",
+      "finding": "Whole cell P. gingivalis exposure increases TLR2 but decreases TLR4, while LPS exposure increases TLR4 but decreases TLR2, indicating different molecular mechanisms of pathogen recognition.",
+      "dataset": "28 male Wistar rats (8-10 weeks, 120-150g), 7 treatment groups",
+      "metric": "TLR2/TLR4 serum levels (ELISA), ANOVA, paired t-test, Shapiro-Wilk normality",
+      "baseline": "Placebo intrasulcular group (Group A) and day 0 pre-injection baseline",
+      "result": "Significant TLR2/TLR4 divergence at day 11 (P<0.05)"
+    },
+    {
+      "doi": "10.1042/ebc20160015",
+      "problem": "Synthetic biology circuits are typically transferred to E. coli which may be suboptimal; identifying properties of alternative chassis organisms is needed for better circuit function.",
+      "method": "Review of alternative microbial hosts analyzing desirable chassis properties: lifestyle, cell wall robustness, regulatory networks, whole-cell models, and tuneable metabolic fluxes.",
+      "finding": "Pseudomonas putida is highlighted as a prominent alternative chassis due to metabolic diversity, robustness, and ease of manipulation; a modular chassis designed from first principles is envisioned.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "E. coli as default synthetic biology chassis",
+      "result": ""
+    },
+    {
+      "doi": "10.1093/bioinformatics/btw252",
+      "problem": "Existing deep learning models for object recognition are not directly applicable to microscopy images with populations of cells; whole-image classification and segmentation without single-cell annotations is needed.",
+      "method": "CNN combined with multiple instance learning using a novel Noisy-AND pooling function, trained end-to-end on whole microscopy images with only image-level labels.",
+      "finding": "Convolutional MIL models outperform previous methods on both mammalian breast cancer and yeast protein localization datasets without requiring any segmentation or single-cell labeling steps.",
+      "dataset": "BBBC021v1 breast cancer screen (MCF-7, 12 MOA classes), yeast GFP localization (4144 strains, 17 classes), cluttered MNIST",
+      "metric": "Mean average precision, treatment-level accuracy",
+      "baseline": "Ensemble of 60 binary SVMs (yeast), factor analysis (breast cancer), CNN on cropped cells with bag-level labels",
+      "result": "Outperforms all benchmarks on both datasets without pre/post-processing"
+    },
+    {
+      "doi": "10.1101/gr.164806.113",
+      "problem": "The relationship between HPV integration into host genomes and the resulting genomic structural variation in human cancers is poorly understood at high resolution.",
+      "method": "Whole-genome sequencing (2×100bp paired-end, Illumina HiSeq 2000) of 10 cancer cell lines and 2 primary tumors, with breakpoint mapping and structural variation analysis at single-nucleotide resolution.",
+      "finding": "HPV integrants flank and bridge extensive host genomic amplifications, deletions, inversions, and translocations; a 'looping' model explains HPV-mediated concatemer formation and focal genomic instability distinct from chromothripsis.",
+      "dataset": "10 cancer cell lines (2 cervical, 8 HNSCC) + 2 HPV+ primary HNSCC tumors",
+      "metric": "Insertional breakpoint counts, viral copy number, CNV detection, PCR/Sanger verification rate",
+      "baseline": "Previous SNP array-based studies of HPV integration sites",
+      "result": "111 unique insertional breakpoints in 9 HPV-positive cases; viral copy number 0-830 per cell"
+    },
+    {
+      "doi": "10.1038/nature11973",
+      "problem": "Whether grid cell firing fields are generated by theta amplitude modulations (oscillatory interference models) or slow membrane potential ramps (attractor network models) is unresolved.",
+      "method": "In vivo whole-cell patch-clamp recordings from MEC grid cells in head-fixed mice running on virtual reality linear tracks, with biocytin fills for morphological identification.",
+      "finding": "Grid cells show large, reproducible membrane potential ramps tightly correlated with firing fields; theta oscillations influence spike timing but their amplitude modulations do not determine field locations, supporting attractor network models.",
+      "dataset": "MEC grid cells in C57BL/6J mice, virtual 1D linear tracks",
+      "metric": "Membrane potential depolarization amplitude, spatial information, correlation with firing rate, reliability",
+      "baseline": "Oscillatory interference model predictions (theta amplitude modulation)",
+      "result": "Ramps are larger, more reliable, and more informative about position than theta modulations"
+    },
+    {
+      "doi": "10.1186/s13046-022-02507-x",
+      "problem": "Can a functional in-silico digital twin of cancer cell electrophysiology predict effects of ion channel modulation on cell cycle progression and serve as a tool for drug development?",
+      "method": "Non-phenomenological digital twin of A549 lung adenocarcinoma cell electrophysiology, simulating membrane potential oscillations and effects of targeted ion channel activation/inactivation on cell cycle phases.",
+      "finding": "The A549 digital twin predicts that TRPC6 blockade causes strong hyperpolarization suppressing S-G2/M transition, enabling possible cell cycle arrest; all simulated hypotheses were verified by experimental studies.",
+      "dataset": "A549 human lung adenocarcinoma cell line",
+      "metric": "Membrane potential (mV), cell cycle phase transition prediction",
+      "baseline": "Experimental in-vivo and in-vitro verification studies",
+      "result": "All simulated research hypotheses verified by experimental studies"
+    }
+  ],
+  "timestamp": "2026-03-05T14:15:30.061350",
+  "extraction_count": 10
+}

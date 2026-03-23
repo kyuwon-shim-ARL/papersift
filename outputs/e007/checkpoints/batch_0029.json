@@ -1,0 +1,119 @@
+{
+  "batch_index": 29,
+  "dois": [
+    "10.1038/s41598-018-34521-5",
+    "10.1371/journal.ppat.1008243",
+    "10.1186/1742-4682-10-66",
+    "10.1155/2017/8569328",
+    "10.3390/vaccines7020034",
+    "10.3390/ijms24021689",
+    "10.1371/journal.pcbi.0020053",
+    "10.1186/1742-4682-11-1",
+    "10.3390/genes9040202",
+    "10.1186/s13059-024-03338-z"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1038/s41598-018-34521-5",
+      "problem": "The mechanisms driving variable invasive morphologies in Glioblastoma, ranging from individual to collective migration, and the role of cell-to-cell adhesion heterogeneity are not fully understood.",
+      "method": "Combined 3D in vitro spheroid invasion assays (patient-derived and U87MG cells in BME substrate) with a discrete, individual cell-based mathematical model incorporating stochastic cell-to-cell adhesion heterogeneity.",
+      "finding": "Primary GB spheroids exhibited a novel cohesive sheet-like invasive pattern mimicking perivascular invasion, while U87MG showed starburst non-cohesive migration. The mathematical model showed that cell-to-cell adhesive heterogeneity alone is sufficient to reproduce both invasive morphologies.",
+      "dataset": "Patient-derived primary GB cells (76-year-old male) and U87MG cell line, 3D spheroid invasion assay over 288h",
+      "metric": "Tumour expansion area, invasive pattern morphology, doubling time",
+      "baseline": "U87MG cell line (established starburst invasion pattern)",
+      "result": "Doubling times 30.8h (U87MG) and 25.4h (primary); distinct morphologies consistently reproduced in silico"
+    },
+    {
+      "doi": "10.1371/journal.ppat.1008243",
+      "problem": "No licensed vaccines exist for Trichuris trichiura, which infects 500 million people, and current treatments have limited efficacy.",
+      "method": "Systematic reverse vaccinology pipeline: in silico MHC-II T-cell epitope prediction (IEDB, NetMHC-II 2.2) from Trichuris genome ORFs, incorporation into Hepatitis B core antigen virus-like particles (VLPs), and in vivo challenge in mice.",
+      "finding": "IEDB and NetMHC-II 2.2 showed ~78% sensitivity for epitope prediction. Mice vaccinated with VLPs+T-cell epitopes showed significantly reduced worm burden, mounted Trichuris-specific IgM and IgG2c responses, and produced Th2 cytokines with goblet cell hyperplasia.",
+      "dataset": "T. muris genome (predicted ORFs), training set of 145 epitopes from 16 proteins, C57BL/6 mouse challenge model",
+      "metric": "Sensitivity of epitope prediction, worm burden reduction, antibody titers (IgM, IgG2c), Th2 cytokines",
+      "baseline": "VLPs without T-cell epitopes, Rankpep (10.61% sensitivity), SYFPEITHI (8.33% sensitivity)",
+      "result": "IEDB/NetMHC-II sensitivity ~78%; significant worm burden reduction in VLP+epitope group"
+    },
+    {
+      "doi": "10.1186/1742-4682-10-66",
+      "problem": "Abnormal proliferation and differentiation can initiate colon cancer, but no calibrated computational model existed to simulate stochastic cell dynamics in normal human colon crypts using measured human biopsy data.",
+      "method": "Agent-based model in NetLogo with position-dependent divide and die gradients along the crypt axis; calibrated via parameter sweeps against measured cell type counts from human biopsy specimens.",
+      "finding": "The model reproduced measured average numbers and variation of stem, proliferating, and differentiated cells, as well as monoclonal conversion by neutral drift, adenoma formation from mutations, and crypt recovery from cytotoxic agents. Demonstrated utility for evaluating fractionated chemotherapy scheduling.",
+      "dataset": "Normal human colon biopsy specimens (cell type counts from multiple crypts)",
+      "metric": "Cell type counts (mean and variance), monoclonal conversion dynamics, adenoma formation, crypt recovery",
+      "baseline": "Measured human biopsy cell type distributions",
+      "result": "Reproduced measured cell type numbers and variation; simulated optimal chemotherapy duration with fractionated dosing"
+    },
+    {
+      "doi": "10.1155/2017/8569328",
+      "problem": "Accurate patient-specific cancer prediction requires accounting for inter- and intratumoral proliferative heterogeneity, which is poorly characterized for primary Glioblastoma cell lines.",
+      "method": "In vitro doubling time and cell size estimation for three patient-derived GB cell lines (GBP03, GBP06, GBP08) plus U87MG control, used to parametrize an individual cell-based mathematical model with sensitivity analysis of proliferation, cell size, and clonal heterogeneity.",
+      "finding": "Intratumoral heterogeneity and differential proliferative capacity predict in vitro growth evolution. Multiclonal populations with the same mean proliferation exhibit greater tumor expansion than monoclonal ones, with variance increasing cumulatively over time.",
+      "dataset": "Patient-derived GB cells: GBP03 (70y male), GBP06 (47y female, secondary GB), GBP08 (53y male), U87MG control",
+      "metric": "Doubling time, cell diameter, tumor spheroid radius over time",
+      "baseline": "U87MG cell line (doubling time ~30h, diameter 19-24μm)",
+      "result": "GBP03 DT=49.7h (19μm), GBP06 DT=65.9h (16μm), GBP08 DT=31.2h (15μm); multiclonal variance reaches ~100μm radius difference at 14 days"
+    },
+    {
+      "doi": "10.3390/vaccines7020034",
+      "problem": "There is no effective vaccine against Ebola virus, and new approaches using in silico designed polyepitope T-cell immunogens need evaluation for immunogenicity.",
+      "method": "Designed two artificial polyepitope antigens (EV.CTL for CD8+ and EV.Th for CD4+ epitopes) using TEpredict/PolyCTLDesigner software, cloned into pcDNA3.1, and evaluated immunogenicity in BALB/c mice via IFN-γ ELISpot and intracellular cytokine staining (ICS).",
+      "finding": "Recombinant plasmids pEV.CTL and pEV.Th provided synthesis of corresponding mRNAs and proteins in transfected 293T cells and induced specific CD4+ and CD8+ T-lymphocyte responses in immunized mice.",
+      "dataset": "Ebola virus proteins GP, VP24, VP30, VP35, L, VP40, NP; BALB/c mice",
+      "metric": "IFN-γ ELISpot spot-forming cells, intracellular cytokine staining (ICS), mRNA/protein expression",
+      "baseline": "Empty pcDNA3.1 vector control",
+      "result": "Specific CD4+ and CD8+ T-cell responses detected in immunized mice by ELISpot and ICS"
+    },
+    {
+      "doi": "10.3390/ijms24021689",
+      "problem": "In silico estimation of cytotoxicity against tumor and normal cell lines is needed to reduce time and costs of drug development, but existing tools have limited coverage of cell lines and mechanisms of action.",
+      "method": "PASS approach using substructural atom-centric MNA descriptors and Bayesian algorithm to predict cytotoxicity against cell lines and molecular mechanisms of action, validated by leave-one-out and 20-fold cross-validation.",
+      "finding": "CLC-Pred 2.0 predicts cytotoxicity for 391 tumor and 47 normal cell lines with mean AUC 0.925, NCI60 panel with AUC 0.870-0.945 depending on threshold, and 2170 mechanisms of action with AUC 0.979.",
+      "dataset": "128,545 compounds from ChEMBL/PubChem (391 tumor + 47 normal cell lines); 22,726 compounds for NCI60; 656,011 compounds for MoA",
+      "metric": "AUC (LOO CV and 20-fold CV)",
+      "baseline": "CLC-Pred v1.0 (278 tumor + 27 normal cell lines, 59,882 compounds)",
+      "result": "AUC=0.925 (LOO CV) for cell lines; AUC=0.945 (NCI60, 1nM threshold); AUC=0.979 for MoA prediction"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.0020053",
+      "problem": "Validating hypothesized combinatorial cis regulatory codes for metazoan gene expression requires extensive experimental work; computational methods to evaluate such codes before experimental verification are needed.",
+      "method": "Developed CodeFinder framework integrating TFBS clustering (ModuleFinder) with gene expression data to evaluate enrichment of dTCF/Mad/Pnt/Twi/Tin motifs in non-coding sequences of Drosophila muscle founder cell genes, using evolutionary conservation across D. pseudoobscura and D. virilis.",
+      "finding": "The full 5-TF regulatory code applies only to a subset of founder cell genes (those up-regulated in Pnt gain-of-function), not all FC genes. Experimentally confirmed 6 of 12 tested new CRMs driving mesodermal expression, 4 in founder cells.",
+      "dataset": "159 validated Drosophila muscle founder cell genes, D. melanogaster genome (dm2 assembly)",
+      "metric": "Group specificity score, CodeFinder enrichment (p-value with Bonferroni correction), CRM validation rate",
+      "baseline": "Non-FC gene promoter regions (1,590 background regions)",
+      "result": "6/12 (50%) predicted CRMs experimentally validated; 4 drive founder cell expression"
+    },
+    {
+      "doi": "10.1186/1742-4682-11-1",
+      "problem": "Understanding how developmental systems evolve over time is key, but experimental hurdles limit our whole-system understanding of stem cell and organ development.",
+      "method": "Constructed in-silico agent-based models using software engineering tools (statecharts, activity diagrams) for three developmental systems, integrating known mechanisms with simplified assumptions where knowledge is limited.",
+      "finding": "Models of mouse pancreas, C. elegans gonad, and partial rodent brain recapitulated organ development, anticipated known experimental results, and generated novel testable predictions, some experimentally validated.",
+      "dataset": "Mouse pancreas, C. elegans gonad, rodent brain development",
+      "metric": "Qualitative recapitulation of developmental dynamics, prediction of experimental outcomes",
+      "baseline": "",
+      "result": "Models recapitulated development of 3 organs; novel predictions generated and some experimentally validated"
+    },
+    {
+      "doi": "10.3390/genes9040202",
+      "problem": "Fish nucleated red blood cells have been implicated in immune functions, but comprehensive functional pathway profiling of their transcriptome and proteome has not been performed.",
+      "method": "RNA-seq de novo assembly and label-free shotgun proteomics (cytosolic/membrane fractionation, hemoglobin removal, pH reversed-phase peptide fractionation, LC ESI-MS/MS) of rainbow trout RBCs, followed by Cytoscape pathway enrichment analysis.",
+      "finding": "Identified 13,937 expressed genes and 1,770 proteins; in silico functional analysis revealed immune networks including MHCII antigen presentation, leukocyte activation/differentiation, and hematopoietic stem cell differentiation regulation.",
+      "dataset": "Rainbow trout (Oncorhynchus mykiss) peripheral blood nucleated RBCs, 8 fish pooled",
+      "metric": "Gene read counts, PSM counts, PPI enrichment p-value, FDR",
+      "baseline": "",
+      "result": "14,008 genes, 1,770 proteins identified; MHCII network FDR p=1.37×10⁻²⁷, PPI enrichment p<1.0×10⁻¹⁶"
+    },
+    {
+      "doi": "10.1186/s13059-024-03338-z",
+      "problem": "Integration of single-cell multi-omics data is challenging due to modality-specific noise, data scarcity for less established modalities, and alignment difficulties across different omics layers.",
+      "method": "scCross uses variational autoencoders (VAE) coupled with generative adversarial networks (GAN) and mutual nearest neighbors (MNN) for modality alignment, enabling cross-modal data generation, multi-omics simulation, and in silico perturbation.",
+      "finding": "scCross achieves comparable or superior performance to state-of-the-art methods in multi-omics integration, excelling in cell clustering (ARI, NMI) and cell mixing metrics, while also enabling cross-modal generation and in silico perturbation analysis.",
+      "dataset": "Matched mouse cortex, matched mouse lymph nodes, matched mouse atherosclerotic plaque immune cells (GSE240753), unmatched mouse cortex (scRNA-seq + scATAC-seq + snmC-seq)",
+      "metric": "ARI, NMI, cell type average silhouette width (ASW), graph connectivity, ASW for omics layers",
+      "baseline": "Seurat v4, scglue, uniPort, sciCAN, scDART, Harmony",
+      "result": "Comparable or better ARI/NMI/ASW across all benchmark datasets vs. 6 state-of-the-art methods"
+    }
+  ],
+  "timestamp": "2026-03-05T14:22:15.830710",
+  "extraction_count": 10
+}

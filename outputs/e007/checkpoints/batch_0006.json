@@ -1,0 +1,119 @@
+{
+  "batch_index": 6,
+  "dois": [
+    "10.3390/biom13010072",
+    "10.1002/psp4.12932",
+    "10.1039/d5bm00630a",
+    "10.1016/j.redox.2024.103415",
+    "10.1098/rsta.2024.0224",
+    "10.1021/acs.jmedchem.5c00836",
+    "10.1016/j.mex.2023.102070",
+    "10.1038/s41598-024-70925-2",
+    "10.1038/s41746-025-02198-6",
+    "10.3389/frabi.2024.1362516"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3390/biom13010072",
+      "problem": "How LQT14-associated calmodulin mutations that reduce calcium-dependent inactivation (CDI) of L-type calcium channels can produce a CPVT4-like arrhythmic phenotype in cardiac myocytes.",
+      "method": "Stochastic whole-cell simulation of rat ventricular myocyte with 20,000 independent calcium release units (CRUs), each containing 49 RyR2s and 7 LCCs, under varying pacing rates and beta-adrenergic stimulation.",
+      "finding": "Small reductions in CaM-dependent CDI (factors of 0.75 for D96V and 0.90 for N98S) promote Ca2+ overload and arrhythmia under beta-adrenergic stimulation with rapid pacing, providing a mechanistic link between LQT14 mutations and CPVT4 phenotype.",
+      "dataset": "Rat cardiac ventricular myocyte computational model (20,000 CRUs, 49 RyR2 + 7 LCC per CRU)",
+      "metric": "APD50, APD90, Ca2+ transient amplitude, Ca2+ alternans onset",
+      "baseline": "Wild-type CaM (CDI factor 1.0)",
+      "result": "CDI 0.75 (D96V) and 0.90 (N98S) induced Ca2+ alternans at 6 Hz and arrhythmia above 2 Hz under beta-adrenergic stimulation"
+    },
+    {
+      "doi": "10.1002/psp4.12932",
+      "problem": "Understanding the complex pathophysiology of inflammatory bowel diseases and evaluating different treatment modalities using a mechanistic systems biology approach.",
+      "method": "ODE-based systems biology model (47 species, 133 reactions, 79 parameters) of mucosal immune response across three spatial compartments, with virtual patient population defined by phenotype rather than a priori parameter assumptions.",
+      "finding": "IBD patients characterized by persistent inflammation after trigger event reproduced diverse predispositions; model identifies characteristics of individual drug therapy and promising combination therapies for anti-TNF-α non-responders.",
+      "dataset": "Virtual IBD patient population, mucosal immune system (lumen, lamina propria, lymph nodes)",
+      "metric": "Qualitative immune response dynamics, treatment response classification",
+      "baseline": "Healthy mucosal immune response steady-state",
+      "result": "Model identifies alternative treatments with best prospects for anti-TNF-α non-responders and promising combination therapies"
+    },
+    {
+      "doi": "10.1039/d5bm00630a",
+      "problem": "Limited high-resolution methods exist to analyze cell-biomaterial interactions in thick, opaque 3D decellularized ECM scaffolds without compromising spatial information.",
+      "method": "Optical clearing, whole-mount light sheet fluorescence microscopy, and automated image analytics pipeline for decellularized ECM (dECM)-based in vitro models of colorectal cancer liver metastasis.",
+      "finding": "Pipeline enables volumetric quantification of cell invasion depth and distribution in CRLM models; decellularization achieved 96% DNA reduction while preserving collagen and GAG composition.",
+      "dataset": "Porcine liver dECM scaffolds, HCT116 human colorectal cancer cells (CRLM model)",
+      "metric": "DNA content (ng/μL/mg), hydroxyproline (% total protein), GAG content, cell invasion depth",
+      "baseline": "Fresh liver tissue (stage 1, pre-decellularization)",
+      "result": "96% DNA reduction (104.8±15.6 to 3.9±1.0 ng/μL/mg, p<0.0001), hydroxyproline 26.13±4.63% of total protein in dECM"
+    },
+    {
+      "doi": "10.1016/j.redox.2024.103415",
+      "problem": "Lack of effective treatments for ischemic stroke and slow progress in neuron-centered drug targets; need to understand the complex multifaceted roles of brain microvascular endothelial cells (BMECs) in stroke pathophysiology.",
+      "method": "Transcriptomics-informed (GEO GSE163752) mechanistic systems biology model of BMEC intracellular signaling with high-throughput sensitivity analyses and virtual target perturbations, validated in vitro and in vivo.",
+      "finding": "Targeting succinate effectively reversed detrimental BMEC phenotype under oxygen-glucose deprivation/reoxygenation, validated for regulating inflammatory factor production, free radical generation, and tight junction protection.",
+      "dataset": "GEO GSE163752 (mouse BMECs after tMCAO), in vitro OGD/R BMEC model, in vivo stroke model",
+      "metric": "GSEA enrichment, model sensitivity indices, inflammatory factor levels, ROS generation, tight junction integrity",
+      "baseline": "Healthy BMEC phenotype (contralateral hemisphere)",
+      "result": "Succinate identified as novel target; reversed detrimental BMEC phenotype under OGD/R in vitro and in vivo"
+    },
+    {
+      "doi": "10.1098/rsta.2024.0224",
+      "problem": "Standard deterministic methods for calibrating ion channel gating models cannot distinguish stochastic channel gating from measurement error noise, yielding biased parameter estimates, while conventional stochastic approaches are computationally demanding.",
+      "method": "State-space model based on stochastic reaction networks with maximum likelihood inference using differential moment equations (mean and covariance) of the Itô-type SDE process, applied to five-state and eight-state hERG channel models.",
+      "finding": "Method infers parameters with low uncertainty, outperforms deterministic approaches in distinguishing stochastic gating from measurement error, and correctly identified 50-Hz measurement artifact in experimental CHO cell recordings.",
+      "dataset": "Whole-cell voltage-clamp recordings from 9 CHO cells overexpressing hERG1a (Kv11.1)",
+      "metric": "Parameter uncertainty, negative log-likelihood, computational time vs Kalman filter",
+      "baseline": "Deterministic four-state ion channel model (Beattie et al.), Kalman filter approach",
+      "result": "Low parameter uncertainty; correctly distinguished 50-Hz measurement error from stochastic gating; computationally efficient vs Kalman filter"
+    },
+    {
+      "doi": "10.1021/acs.jmedchem.5c00836",
+      "problem": "Need for imaging tools to noninvasively monitor androgen receptor (AR) signaling dynamics in castrate-resistant prostate cancer (CRPC) driven by AR signaling.",
+      "method": "Synthesis of fluorescent AR inhibitors (ARi-FL) based on aryloxy cyclohexane scaffold with neolinker conjugation to BODIPY fluorophores; in silico molecular modeling across wild-type and mutant AR; in vivo/ex vivo validation in prostate cancer models.",
+      "finding": "ARi-FL probes showed potent AR inhibition and localized to AR-positive tumors in vivo; in silico modeling revealed consistent nanomolar binding affinities across WT and clinically relevant AR mutants.",
+      "dataset": "Human prostate cancer models (in vivo/ex vivo), AR WT and mutants (F877L, T878A, H875Y, W742C, F877L/T878A)",
+      "metric": "IC50, Kd, R², extinction coefficient, absorbance/fluorescence linearity",
+      "baseline": "Excess unlabeled ligand (blocking control)",
+      "result": "IC50 ~13 nM, Kd ~1-2 nM across WT and mutant AR, R²=0.98-0.99 linearity"
+    },
+    {
+      "doi": "10.1016/j.mex.2023.102070",
+      "problem": "Single cell dendritic spine modeling has not been used to explain the synaptic tagging and capture (STC) hypothesis, and it is difficult to relate physical properties of STC pathways to structural changes and synaptic strength.",
+      "method": "Mathematical model based on reported synaptic tagging networks built in Virtual Cell (VCell) software using ODE solvers and SBML-compatible open-source code, with compartmentalized single cell dendritic spine geometry.",
+      "finding": "The model provides a framework for analyzing STC hypothesis candidates, assessing their behavior against requirements outlined in the synaptic tagging hypothesis using VCell's reaction network and mass action/Michaelis-Menten kinetics.",
+      "dataset": "Single cell dendritic spine (SCDS) model, synaptic tagging candidate molecules",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41598-024-70925-2",
+      "problem": "Current single-molecule simulation models are limited to idealized systems (unit volumes or planar surfaces), lacking realistic 3D cellular structures for interpreting experimental fluorescence microscopy data.",
+      "method": "Object-oriented 3D voxelated virtual cell model combining Monte Carlo random walks with subcellular structures (nucleus, ER, cytoskeleton, vesicles, filopodia), producing simulated fluorescence video sequences with realistic noise.",
+      "finding": "Membrane curvature and simulation time-step significantly affect measured diffusion coefficients; model produces realistic video sequences directly comparable to experimental single-molecule tracking data.",
+      "dataset": "Simulated yeast cell (R=2 μm), 100 membrane proteins, D=0.1 μm²/s",
+      "metric": "Diffusion coefficient (D), MSD vs dT slope, spatial resolution (nm)",
+      "baseline": "Known input D=0.1 μm²/s, rectangular cell (flat membrane) control",
+      "result": "Accurate D recovery at Δt=0.1 ms; curved membrane restricts long-range diffusion vs flat surfaces; benchmark 57s for 1000×1000 molecules"
+    },
+    {
+      "doi": "10.1038/s41746-025-02198-6",
+      "problem": "Need for computational models integrating multimodal omics data to enable high-precision predictions of drug responses, gene perturbations, and disease progression while reducing animal testing.",
+      "method": "Review of AI-driven virtual cell models integrating deep generative models and graph neural networks with single-cell transcriptomics and proteomics, emphasizing closed-loop computational-to-experimental validation workflows.",
+      "finding": "Virtual cell models show potential for personalized drug screening and disease modeling but face challenges in regulatory acceptance, data privacy, and model interpretability; global standardization efforts are driving clinical translation.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/frabi.2024.1362516",
+      "problem": "Need for novel mycobacterial efflux-pump inhibitors (EPIs) as adjuvants in combination therapy to address antimicrobial resistance in mycobacterial infections.",
+      "method": "Whole-cell EtBr efflux-pump accumulation assays against M. smegmatis and M. abscessus, combined with machine learning-based homology modeling and full atomistic molecular dynamics simulations of MmpL4/5 embedded in lipid bilayer.",
+      "finding": "Compound Il identified as most potent EPI selective towards MmpL4, blocking critical Asp-Tyr dyad via hydrogen bonding and π-π stacking; showed additive profile with bedaquiline against M. abscessus.",
+      "dataset": "M. smegmatis mc²155 (ATCC 700084), M. abscessus (NCTC 13031)",
+      "metric": "MIC, relative fluorescence unit (RFU), fractional inhibitory concentration (FIC) index, binding free energy",
+      "baseline": "Verapamil (positive control EPI, 125 μg/mL for M. smegmatis, 256 μg/mL for M. abscessus)",
+      "result": "Compound Il most potent EPI in series; additive FIC index with bedaquiline against M. abscessus"
+    }
+  ],
+  "timestamp": "2026-03-05T14:09:44.843453",
+  "extraction_count": 10
+}

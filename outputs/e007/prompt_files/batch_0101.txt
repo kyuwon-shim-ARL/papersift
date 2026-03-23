@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1016/j.phymed.2012.04.009
+Title: Effect of diallyl disulfide on insulin-like growth factor signaling molecules involved in cell survival and proliferation of human prostate cancer cells in vitro and in silico approach through docking analysis
+Year: 2012
+Abstract: PurposeDiallyl Disulfide (DADS) is one of the major components of garlic, which inhibits the proliferation of various cancer cells. Our previous studies showed that DADS inhibits cell growth and induces apoptosis on prostate cancer cells. Insulin like growth factor signaling pathway plays a significant role on prostate cancer cell growth and survival and it's over expression also identified in human prostate cancers. The molecular mechanism of IGF mediated PI3K/Akt signaling remains to be elucidated. The present study was designed to evaluate the effects of diallyl disulfide on IGF signaling in androgen independent prostate cancer cells (PC-3).MethodsDADS (10-50 μM) caused dose-dependent inhibition of PC-3 cells, were analyzed by MTT, IC50 value of PC-3 cells was 40 μM for 24h. Interestingly, DADS also altered the mRNA and protein expressions of IGF signaling and apoptotic molecules which were confirmed by semi quantitative PCR and western blot method. Further the docking study of DADS with IGF receptor was carried out by Ligand Fit of Discovery studio. Accord Excel Package was used for the prediction of ADME properties of the compound.ResultsThe results suggests that DADS decreases the survival rate of androgen independent prostate cancer cells by modulating the expression of IGF system, which leads to inhibition of phosphorylation of Akt, thereby inhibits cell cycle progression and survival by lowering the expression of cyclin D1, NFkB and anti-apoptotic Bcl-2 molecule and increasing the level of pro-apoptotic (Bad and Bax) signaling molecules which leads to apoptosis.ConclusionThe present investigation showed downregulation of Akt and a concomitant increase in apoptosis in DADS treated prostate cancer cells. Since inhibition of this Akt pathway by DADS leads to inhibition in cancer cell progression, it is highly suggested that DADS has the potential use as a therapy for prostate cancer.
+---
+
+---
+DOI: 10.1038/s41598-019-55753-z
+Title: Publisher Correction: In silico prediction of housekeeping long intergenic non-coding RNAs reveals HKlincR1 as an essential player in lung cancer cell survival
+Year: 2019
+Abstract: An amendment to this paper has been published and can be accessed via a link at the top of the paper.
+---
+
+---
+DOI: 10.1016/j.fct.2020.111942
+Title: Interactions between T-2 toxin and its metabolites in HepG2 cells and in silico approach
+Year: 2020
+Abstract: The T-2 toxin (T-2) is commonly metabolized to HT-2 toxin (HT-2), Neosolaniol (NEO), T2-triol and T2-tetraol and they can modify the toxicity of T-2. In this study, T-2 and its modified forms were evaluated by in vitro and in silico methods. The in vitro cytotoxicity individually was evaluated by MTT and Total Protein Content (PC) assays in human hepatocarcinoma (HepG2) cells. The order of IC50 was T-2 tetraol > T-2 triol > NEO > T-2 = HT-2. The T-2 and HT-2 evidenced the highest cytotoxic effect in HepG2 cells individually. No differences were observed in binary combinations tested and the two mycotoxins in the mixture tested individually. The T-2+HT-2 combination showed the highest toxic potential with the lowest IC50 value of 34.42 ± 0.58 nM at 24 h. All binary combinations exhibited antagonistic interactions. The ADME and toxicity profile of mycotoxins were obtained by the in silico admetSAR predictive model which determines the metabolic and toxicological approaches in order to know if these mycotoxins might be taken into consideration to support a more realistic and adequate risk assessment.
+---
+
+---
+DOI: 10.1186/s43094-023-00476-2
+Title: Antioxidant properties and cytotoxic effects of Oxalis corniculata on human Hepatocarcinoma (Hep-G2) cell line: an in vitro and in silico evaluation
+Year: 2023
+Abstract: Abstract Background Oxalis corniculata is a well-known medicinal plant used in folk medicine for the management of many diseases. The aim is to determine the physico-chemical properties, microscopic study, phytochemical properties, in-silico, in-vitro antioxidant and anticancer activity on human Hepatocarcinoma (Hep-G2) cell line of O. corniculata plant extract. Results Microscopical study reaveals that presence of pericyclic fibres, starch gains, trichomes etc, and phytochemical screening is carried to find out secondary metabolites. The molecular docking study concluded that some of the phytocompounds showed inhibition of epidermal growth factor receptor tyrosine kinase domain (PDB ID: 1M17) inhibitor. Furthermore, ADMET and drug likeness study hints some of phytocompounds may act as lead for anticancer drug discovery and development. Among selected phytocompounds, compound apigenin possesses − 7.90 kcal/mol as compared to standard drug doxorubicin possesses − 7.63 kcal/mol against the epidermal growth factor receptor tyrosine kinase. The plant extract shown antioxidant activities based on the different tests were performed. The hydroalcoholic plant extracts were found to be selectively cytotoxic in vitro to human Hepatocarcinoma (Hep-G2) cell line with IC 50 values 34.494 ± 0.42 µg/ml and EAF showed at IC 50 value 30.245 ± 0.58 µg/ml of the cells were inhibited at the concentration of 50 µg/ml as compared with standard doxorubicin at IC 50 value 24.8939 ± 0.25 µg/ml, respectively. Conclusion The present study concluded that O. corniculata possesses potential antioxidant and cytotoxic properties based upon the computer aided drug design models and in-vitro activity.
+---
+
+---
+DOI: 10.1080/01635581.2018.1490445
+Title: Bixin Triggers Apoptosis of Human Hep3B Hepatocellular Carcinoma Cells: An Insight to Molecular and IN SILICO Approach
+Year: 2018
+Abstract: Hepatocellular carcinoma (HCC) is the most common liver cancer and is known to be resistant to conventional chemotherapy. The use of herbal medicine and supplements has increased over recent decades following side effects and resistant to conventional chemotherapy. The seeds of Bixa orellana L. commonly known as annatto have recently gained scientific attention due to presence of a carotenoid bixin for its substantial anticancer properties. However, molecular mechanisms underlying bixin-induced apoptosis are still unclear. Treatment of bixin significantly decreased the number of Hep3B cells and morphological study revealed the change in cellular and nuclear morphology that trigger the events of apoptosis confirmed by annexin V/PI staining. Further DCFDA and rhodamine 123 spectrofluorimetry study showed elevation in reactive oxygen species (ROS) production and loss of mitochondrial membrane potential (MMP), respectively. ROS production caused DNA damage and apoptosis was marked by cell cycle arrest, up-regulation of Bax and FasL protein as well as cleavage of caspase-9, caspase-8 and caspase-3 protein. Docking study with pro-apoptotic molecule Bax and surface Fas ligand exhibited energetically favourable binding interaction. Collectively, these results suggest that bixin capable of modulating the extrinsic and intrinsic molecules of apoptosis indicating its potential for development of promising candidate for hepatocellular carcinoma.
+---
+
+---
+DOI: 10.1155/2017/2680160
+Title: Fundamentals and Methods for T- and B-Cell Epitope Prediction
+Year: 2017
+Abstract: Adaptive immunity is mediated by T- and B-cells, which are immune cells capable of developing pathogen-specific memory that confers immunological protection. Memory and effector functions of B- and T-cells are predicated on the recognition through specialized receptors of specific targets (antigens) in pathogens. More specifically, B- and T-cells recognize portions within their cognate antigens known as epitopes. There is great interest in identifying epitopes in antigens for a number of practical reasons, including understanding disease etiology, immune monitoring, developing diagnosis assays, and designing epitope-based vaccines. Epitope identification is costly and time-consuming as it requires experimental screening of large arrays of potential epitope candidates. Fortunately, researchers have developed in silico prediction methods that dramatically reduce the burden associated with epitope mapping by decreasing the list of potential epitope candidates for experimental testing. Here, we analyze aspects of antigen recognition by T- and B-cells that are relevant for epitope prediction. Subsequently, we provide a systematic and inclusive review of the most relevant B- and T-cell epitope prediction methods and tools, paying particular attention to their foundations.
+---
+
+---
+DOI: 10.1242/dev.067512
+Title: A model of stem cell population dynamics: in silico analysis and in vivo validation
+Year: 2011
+Abstract: The proper renewal and maintenance of tissues by stem cell populations is simultaneously influenced by anatomical constraints, cell proliferation dynamics and cell fate specification. However, their relative influence is difficult to examine in vivo. To address this difficulty we built, as a test case, a cell-centered state-based computational model of key behaviors that govern germline development in C. elegans, and used it to drive simulations of cell population dynamics under a variety of perturbations. Our analysis provided unexpected possible explanations for laboratory observations, including certain ‘all-or-none’ phenotypes and complex differentiation patterns. The simulations also offered insights into niche-association dynamics and the interplay between cell cycle and cell fate. Subsequent experiments validated several predictions generated by the simulations. Notably, we found that early cell cycle defects influence later maintenance of the progenitor cell population. This general modeling approach is potentially applicable to other stem cell systems.
+---
+
+---
+DOI: 10.1099/mic.0.28048-0
+Title: Clustered regularly interspaced short palindrome repeats (CRISPRs) have spacers of extrachromosomal origin
+Year: 2005
+Abstract: Numerous prokaryote genomes contain structures known as clustered regularly interspaced short palindromic repeats (CRISPRs), composed of 25–50 bp repeats separated by unique sequence spacers of similar length. CRISPR structures are found in the vicinity of four genes named cas1 to cas4 . In silico analysis revealed another cluster of three genes associated with CRISPR structures in many bacterial species, named here as cas1B , cas5 and cas6 , and also revealed a certain number of spacers that have homology with extant genes, most frequently derived from phages, but also derived from other extrachromosomal elements. Sequence analysis of CRISPR structures from 24 strains of Streptococcus thermophilus and Streptococcus vestibularis confirmed the homology of spacers with extrachromosomal elements. Phage sensitivity of S. thermophilus strains appears to be correlated with the number of spacers in the CRISPR locus the strain carries. The authors suggest that the spacer elements are the traces of past invasions by extrachromosomal elements, and hypothesize that they provide the cell immunity against phage infection, and more generally foreign DNA expression, by coding an anti-sense RNA. The presence of gene fragments in CRISPR structures and the nuclease motifs in cas genes of both cluster types suggests that CRISPR formation involves a DNA degradation step.
+---
+
+---
+DOI: 10.1016/j.bpj.2023.05.022
+Title: In silico and in vitro study of the adhesion dynamics of erythrophagocytosis in sickle cell disease
+Year: 2023
+Abstract: Erythrophagocytosis occurring in the spleen is a critical process for removing senescent and diseased red blood cells (RBCs) from the microcirculation. Although some progress has been made in understanding how the biological signaling pathways mediate the phagocytic processes, the role of the biophysical interaction between RBCs and macrophages, particularly under pathological conditions such as sickle cell disease, has not been adequately studied. Here, we combine computational simulations with microfluidic experiments to quantify RBC-macrophage adhesion dynamics under flow conditions comparable to those in the red pulp of the spleen. We also investigate the RBC-macrophage interaction under normoxic and hypoxic conditions. First, we calibrate key model parameters in the adhesion model using microfluidic experiments for normal and sickle RBCs under normoxia and hypoxia. We then study the adhesion dynamics between the RBC and the macrophage. Our simulation illustrates three typical adhesion states, each characterized by a distinct dynamic motion of the RBCs, namely firm adhesion, flipping adhesion, and no adhesion (either due to no contact with macrophages or detachment from the macrophages). We also track the number of bonds formed when RBCs and macrophages are in contact, as well as the contact area between the two interacting cells, providing mechanistic explanations for the three adhesion states observed in the simulations and microfluidic experiments. Furthermore, we quantify, for the first time to our knowledge, the adhesive forces between RBCs (normal and sickle) and macrophages under different oxygenated conditions. Our results show that the adhesive forces between normal cells and macrophages under normoxia are in the range of 33-58 pN and 53-92 pN for sickle cells under normoxia and 155-170 pN for sickle cells under hypoxia. Taken together, our microfluidic and simulation results improve our understanding of the biophysical interaction between RBCs and macrophages in sickle cell disease and provide a solid foundation for investigating the filtration function of the splenic macrophages under physiological and pathological conditions.
+---
+
+---
+DOI: 10.2139/ssrn.5367160
+Title: Acquisition, Quality Control, and Architecture of a Large Image Dataset as a Tool for in Silico Cell Biological Research
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.ijpara.2013.04.005
+Title: Rhipicephalus microplus lipocalins (LRMs): Genomic identification and analysis of the bovine immune response using in silico predicted B and T cell epitopes
+Year: 2013
+Abstract: The attachment to host skin by Rhipicephalus microplus larvae induces a series of physiological events at the attachment site. The host-parasite interaction might induce a rejection of the larvae, as is frequently observed in Bos taurus indicus cattle, and under certain conditions in Bos taurus taurus cattle. Ticks deactivate the host rejection response by secreting specific proteins and lipids that play an essential role in manipulation of the host immune response. The available genomic information on the R. microplus tick was mined using bioinformatics approaches to identify R. microplus lipocalins (LRMs). This in silico examination revealed a total of 12 different putative R. microplus LRMs (LRM1-LRM12). The identity of the LRM family showed high sequence variability: from 6% between LRM7 and LRM8 to 55.9% between LRM2 and LRM6. However, the three-dimensional structure of the lipocalin family was conserved in the LRMs. The B and T cell epitopes in these lipocalins were then predicted, and six of the LRMs (5, 6, 9, 10, 11 and 12) were used to examine the host immune interactions with sera and peripheral blood mononuclear cells (PBMCs) collected from tick-susceptible and tick-resistant cattle challenged with R. microplus. On days 28-60 after tick infestation, the anti-LRM titres were higher in the resistant group compared with the susceptible cattle. After 60 day, the anti-LRM titres (except LRM9 and LRM11) decreased to zero in the sera of both the tick-resistant and tick-susceptible cattle. Using cell proliferation assays, the PBMCs challenged with some of the predicted T cell epitopes (LRM1_T1, T2; LRM_T1, T2 and LRM12_T) exhibited a significantly higher number of IFN-γ-secreting cells (Th1) in tick-susceptible Holstein-Friesians compared with tick-resistant Brahman cattle. In contrast, expression of the Th2 cytokine (IL-4) was lower in Holstein-Friesians cattle compared with Brahman cattle. Moreover, this study found that LRM6, LRM9 and LRM11 play important roles in the mechanism by which R. microplus interferes with the host's haemostasis mechanisms.
+---
+
+---
+DOI: 10.1002/cyto.a.23668
+Title: Immune Cell and Cell Cluster Phenotyping, Quantitation, and Visualization Using <i>In Silico</i> Multiplexed Images and Tissue Cytometry
+Year: 2018
+Abstract: Abstract Phenotyping immune cells and cell clusters in situ , including their activation state and function, can aid in interpretation of spatial relationships within the tissue microenvironment. Immune cell phenotypes require multiple biomarkers. However, conventional microscopy setups can only image up to four biomarkers at one time. In this report, we describe and give an example of a workflow to phenotype, quantitate, and visualize greater than four biomarkers in silico utilizing multiplexed fluorescence histology and the TissueFAXS quantitative imaging system with a conventional microscopy setup. Biomarkers were conjugated to Cy3 or Cy5. Multiplexed staining was performed on formalin‐fixed paraffin‐embedded tissue sections. We imaged the slides, inactivated the dyes, and repeated the process until all biomarkers were stained. Phenotype profiles were built based on in silico combinations of the biomarkers. We used algorithms that aligned all images to create a composite image, isolated each cell in the image, and identified biomarker positive cells in the image. The in silico phenotypes were quantitated and displayed through flow cytometry‐like histograms and dot scatterplots in addition to backgating into the tissue images. The advantage of our workflow is that it provides visual verification of cell isolation and identification as well as highlight characteristics of cells and cell clusters. © 2018 International Society for Advancement of Cytometry
+---
+
+---
+DOI: 10.1290/1543-706x(2002)38<582:ncimat>2.0.co;2
+Title: NOVEL COMPLEX INTEGRATING MITOCHONDRIA AND THE MICROTUBULAR CYTOSKELETON WITH CHROMOSOME REMODELING AND TUMOR SUPPRESSOR RASSF1 DEDUCED BY IN SILICO HOMOLOGY ANALYSIS, INTERACTION CLONING IN YEAST, AND COLOCALIZATION IN CULTURED CELLS
+Year: 2002
+Abstract: Availability of the complete sequence of the human genome and sequence homology analysis has accelerated new protein discovery and clues to protein function. Protein-protein interaction cloning suggests multisubunit complexes and pathways. Here, we combine these molecular approaches with cultured cell colocalization analysis to suggest a novel complex and a pathway that integrate the mitochondrial location and the microtubular cytoskeleton with chromosome remodeling, apoptosis, and tumor suppression based on a novel leucine-rich pentatricopeptide repeat-motif-containing protein (LRPPRC) that copurified with the fibroblast growth factor receptor complex. One round of interaction cloning and sequence homology analysis defined a primary LRPPRC complex with novel subunits cat eye syndrome chromosome region candidate 2 (CECR2), ubiquitously expressed transcript (UXT), and chromosome 19 open reading frames 5 (C19ORF5) but still of unknown function. Immuno, deoxyribonucleic acid (DNA), and green fluorescent protein (GFP) tag colocalization analyses revealed that LRPPRC appears in both cytosol and nuclei of cultured cells, colocalizes with mitochondria and beta-tubulin rather than with alpha-actin in the cytosol of interphase cells, and exhibits phase-dependent organization around separating chromosomes in mitotic cells. GFP-tagged CECR2B was strictly nuclear and colocalized with condensed DNA in apoptotic cells. GFP-tagged UXT and GFP-tagged C19ORF5 appeared in both cytosol and nuclei and colocalized with LRPPRC and beta-tubulin. Cells exhibiting nuclear C19ORF5 were apoptotic. Screening for interactive substrates with the primary LRPPRC substrates in the human liver complementary DNA library revealed that CECR2B interacted with chromatin-associated TFIID-associated protein TAFII30 and ribonucleic acid splicing factor SRP40, UXT bridged to CBP/p300-binding factor CITED2 and kinetochore-associated factor BUB3, and C19ORF5 complexed with mitochondria-associated NADH dehydrogenase I and cytochrome c oxidase I. C19ORF5 also interacted with RASSF1, providing a bridge to apoptosis and tumor suppression.
+---
+
+---
+DOI: 10.1016/j.ijbiomac.2016.09.113
+Title: In vitro and in silico studies of the interaction of three tetrazoloquinazoline derivatives with DNA and BSA and their cytotoxicity activities against MCF-7, HT-29 and DPSC cell lines
+Year: 2016
+Abstract: In this study, the interaction of three [1,2,3,4]tetrazolo[5,1-b]-quinazolin-8-one derivatives with salmon sperm DNA and BSA was investigated experimentally and theoretically. Fluorescence and absorption spectroscopy techniques were applied to determine the probable interaction mechanism and correlated binding constants and thermodynamic parameters. It was found that the compounds intercalate into the DNA duplex via minor groove in a moderately strong fashion with the binding constants of 104M-1. The values of binding constant for the interaction with BSA at different temperatures were also calculated to be in the range of 1.06×103-3.54×108M-1 indicating the relatively high propensity of the compounds to BSA. In vitro cytotoxicity studies on the effect of the compounds on MCF-7 and HT-29 cancerous cell lines as well as DPSC normal cell line were performed using MTT assay. It was observed that the compounds exhibited selective inhibitory effect against cancer cell growth. Moreover, each of the title compounds was separately docked to DNA and BSA using Autodock Vina as a molecular docking program. The obtained theoretical results were in good agreement with those obtained from Experimental studies.
+---
+
+---
+DOI: 10.1021/acs.est.1c08161
+Title: Bisphenol A Analogs Induce Cellular Dysfunction in Human Trophoblast Cells in a Thyroid Hormone Receptor-Dependent Manner: <i>In Silico</i> and <i>In Vitro</i> Analyses
+Year: 2022
+Abstract: Bisphenol A (BPA) and its analogs are frequently detected in human daily necessities and environmental media. Placental thyroid hormone plays an important role in fetal development. Herein, we followed the adverse outcome pathway (AOP) to explore the toxic mechanisms of BPA and its analogs toward placental thyroid hormone receptor (TR). First, the TOX21 database was used, and the interactions between BPA analogs and the ligand-binding domains (LBDs) of two subtypes of TR (TRα and TRβ) were subjected to <i>in silico</i> screening using molecular docking (MD) and molecular dynamics simulation (MDS). Fluorescence spectra and circular dichroism (CD) showed that BPA and its analogs interfere with TRs as a molecular initiation event (MIE), including static fluorescence quenching and secondary structural content changes in TR-LBDs. Key events (KEs) of the AOP, including the toxicity induced in placental chorionic trophoblast cells (HTR-8/SVneo) by an inverted U-shaped dose effect and changes in ROS levels, were tested <i>in vitro</i>. BPA, BPB, and BPAF significantly changed the expression level of TRβ, and only BPAF significantly downregulated the expression level of TRα. In conclusion, our study contributes to the health risk assessment of BPA and its analogs regarding placental adverse outcomes (AOs).
+---
+
+---
+DOI: 10.1016/j.bioorg.2022.105757
+Title: C-phycocyanin decreases proliferation and migration of melanoma cells: In silico and in vitro evidences
+Year: 2022
+Abstract: The incidence and number of deaths caused by melanoma have been increasing in recent years, and the pigment C-phycocyanin (C-PC) appears as a possible alternative to treat this disease. So, the objective of this study was to combine in silico and in vitro analysis to understand the main anti-melanoma pathways exerted by C-PC. We evaluated the ability of C-PC to bind to the main cellular targets related in the progression of melanoma through molecular docking, and the reflection of this bind in the biological effects in the B16F10 cell line through in vitro analysis. Our results showed that C-PC was able to bind BRAF and MEK, which are related to the signal transduction pathway for proliferation and survival. There was also an interaction between C-PC and cyclin-dependent kinase 4 and 6. In vitro analysis demonstrated that C-PC decreased B16F10 cell proliferation, as observed by cell viability and mitotic index assays. C-PC also interacted with matrix metalloproteinase 2 and 9 and N-cadherin, which may have caused the decrease in cell migration observed in vitro. Besides that, C-PC interacts with VEGF, a factor responsible for regulating the proliferation and cellular invasion pathways. Finally, C-PC did not alter the cell viability of the non-tumoral melanocytes. Therefore, C-PC is a strong anti-tumor candidate for the treatment of melanoma, since it acts in different cellular pathways of melanoma, without causing damage to non-tumoral cells.
+---
+
+---
+DOI: 10.1016/j.imu.2023.101169
+Title: An in silico reverse vaccinology approach to design a novel multiepitope peptide vaccine for non-small cell lung cancers
+Year: 2023
+Abstract: Non-small cell lung cancer (NSCLC) is the most prevalent and fatal lung cancer. The multiepitope vaccine is one of the immunotherapies successfully applied to treat NSCLC. We designed a multiepitope vaccine with MHC-I, MHC-II, CTL, and linear B cell epitopes of MAGE-A3, EGF, and MUC-1 oncoproteins employing in silico immunoinformatics approach. The structural assessment of the vaccine showed it as a well-stable protein (Z score of −7.53). The molecular docking between the vaccine and human receptors (TLR-2, TLR-4, MHC-I and MHC-II alleles) implied a high affinity of the vaccine to the receptors. The codon optimization and in silico cloning of the vaccine into the pET-28a (+) plasmid of the E. coli K12 strain revealed its potentiality upon expression (CAI value of 0.9607). Furthermore, immune simulation of the vaccine depicted its ability to stimulate immune responses (B cell, T cell, antibody, and cytokines) against NSCLC. Almost all developed NSCLC vaccines cannot treat or prevent NSCLC satisfactorily, and there is still no multiepitope vaccine available that contains all three significant oncoproteins; therefore, our designed vaccine could be a significant weapon against NSCLC. This novel multiepitope vaccine could be developed upon considering its safety, efficacy, and adverse effects on humans through further studies.
+---
+
+---
+DOI: 10.1088/0031-9155/60/6/2325
+Title: The cytoplasm as a radiation target: an in silico study of microbeam cell irradiation
+Year: 2015
+Abstract: We performed in silico microbeam cell irradiation modelling to quantitatively investigate ionisations resulting from soft x-ray and alpha particle microbeams targeting the cytoplasm of a realistic cell model. Our results on the spatial distribution of ionisations show that as x-rays are susceptible to scatter within a cell that can lead to ionisations in the nucleus, soft x-ray microbeams may not be suitable for investigating the DNA damage response to radiation targeting the cytoplasm alone. In contrast, ionisations from an ideal alpha microbeam are tightly confined to the cytoplasm, but a realistic alpha microbeam degrades upon interaction with components upstream of the cellular target. Thus it is difficult to completely rule out a contribution from alpha particle hits to the nucleus when investigating DNA damage response to cytoplasmic irradiation. We find that although the cytoplasm targeting efficiency of an alpha microbeam is better than that of a soft x-ray microbeam (the probability of stray alphas hitting the nucleus is 0.2% compared to 3.6% for x-rays), stray alphas produce more ionisations in the nucleus and thus have greater potential for initiating damage responses therein. Our results suggest that observed biological responses to cytoplasmic irradiation include a small component that can be attributed to stray ionisations in the nucleus resulting from the stochastic nature of particle interactions that cause out-of-beam scatter. This contribution is difficult to isolate experimentally, thus demonstrating the value of the in silico approach.
+---
+
+---
+DOI: 10.1111/fcp.12447
+Title: In silico analysis of the binding properties of solasonine to mortalin and p53, and in vitro pharmacological studies of its apoptotic and cytotoxic effects on human HepG2 and Hep3b hepatocellular carcinoma cells
+Year: 2019
+Abstract: Abstract Liver cancer, of which human hepatocellular carcinoma ( HCC ) is the most common type, represents the second most common cause of death from cancer worldwide. To date, treatments remain mostly ineffective and efforts are made to discover new molecules or therapeutic strategies against HCC . Mortalin, an hsp70 chaperone protein, is overexpressed in various cancer, including HCC . Mortalin sequesters p53 into the cytoplasm, thereby inhibiting its translocation to the nucleus and consequently, its cellular functions. Inhibition of mortalin–p53 interactions, which should activate the apoptotic process and the subsequent cell death, has thus been proposed as an anticancer strategy. In silico screening of a database of 354 natural compounds identified solasonine, a steroidal glycoalkaloid from Solanaceae, as a potent inhibitor of p53–mortalin interactions. Pharmacological studies confirmed that solasonine was able to inhibit efficiently mortalin–p53 interaction in HCC HepG2 cell line that expresses both mortalin and p53. This resulted in p53 translocation to the nucleus. Solasonine‐induced apoptosis and cell death of HCC cell lines either expressing p53 (HepG2) or not (Hep3b), indicating that apoptotic activities of solasonine can be mediated not only through p53‐dependent but also p53‐independent pathways. The cytotoxic effects of solasonine correlated in part with its apoptotic properties and differed in the two HCC cell lines, being reversed by pifithrin‐α, an inhibitor of p53 functions, in HepG2 cells but not in Hep3b cells. Nonapoptotic cell death was also observed, notably in Hep3b cells.
+---
+
+---
+DOI: 10.1016/j.bcp.2021.114749
+Title: Prediction of permeability across intestinal cell monolayers for 219 disparate chemicals using in vitro experimental coefficients in a pH gradient system and in silico analyses by trivariate linear regressions and machine learning
+Year: 2021
+Abstract: For medicines, the apparent membrane permeability coefficients (Papp) across human colorectal carcinoma cell line (Caco-2) monolayers under a pH gradient generally correlate with the fraction absorbed after oral intake. Furthermore, the in vitro Papp values of 29 industrial chemicals were found to have an inverse association with their reported no-observed effect levels for hepatotoxicity in rats. In the current study, we expanded our influx permeability predictions for the 90 previously investigated chemicals to both influx and efflux permeability predictions for 207 diverse primary compounds, along with those for 23 secondary compounds. Trivariate linear regression analysis found that the observed influx and efflux logPapp values determined by in vitro experiments significantly correlated with molecular weights and the octanol-water distribution coefficients at apical and basal pH levels (pH 6.0 and 7.4, respectively) (apical to basal, r = 0.76, n = 198; and basal to apical, r = 0.77, n = 202); the distribution coefficients were estimated in silico. Further, prediction accuracy was enhanced by applying a light gradient boosting machine learning system (LightGBM) to estimate influx and efflux logPapp values that incorporated 17 and 19 in silico chemical descriptors (r = 0.83-0.84, p < 0.001). The determination in vitro and/or prediction in silico of permeability coefficients across intestinal cell monolayers of a diverse range of industrial chemicals/food components/medicines could contribute to the safety evaluations of oral intakes of general chemicals in humans. Such new alternative methods could also reduce the need for animal testing during toxicity assessment.
+---
+
+---
+DOI: 10.1002/cbf.3747
+Title: Microarray and in silico analysis of DNA repair genes between human testis of patients with nonobstructive azoospermia and normal cells
+Year: 2022
+Abstract: Abstract DNA repair processes are critical to maintaining genomic integrity. As a result, dysregulation of repair genes is likely to be linked with health implications, such as an increased prevalence of infertility and an accelerated rate of aging. We evaluated all the DNA repair genes (322 genes) by microarray. This study has provided insight into the connection between DNA repair genes, including RAD23B, OBFC2A, PMS1, UBE2V1, ERCC5, SMUG1, RFC4, PMS2L5, MMS19, SHFM1, INO80, PMS2L1, CHEK2, TRIP13 , and POLD4 . The microarray analysis of six human cases with different nonobstructive azoospermia revealed that RAD23B, OBFC2A, PMS1, UBE2V1, ERCC5, SMUG1, RFC4, PMS2L5, MMS19, SHFM1 , and INO80 were upregulated, and expression of PMS2L1, CHEK2, TRIP13 , and POLD4 was downregulated versus the normal case. For this purpose, Enrich Shiny GO, STRING, and Cytoscape online evaluation was applied to predict proteins’ functional and molecular interactions and then performed to recognize the master pathways. Functional enrichment analysis revealed that the biological process (BP) terms “base‐excision repair, AP site formation,” “nucleotide‐excision repair, DNA gap filling,” and “nucleotide‐excision repair, preincision complex assembly” was significantly overexpressed in upregulated differentially expressed genes (DEGs). BP analysis of downregulated DEGs highlighted “histone phosphorylation,” “DNA damage response, detection DNA response,” “mitotic cell cycle checkpoint signaling,“ and “double‐strand break repair.” Overrepresented molecular function (MF) terms in upregulated DEGs included “Oxidized base lesion DNA N ‐glycosylase activity,” “uracil DNA N ‐glycosylase activity,” “bubble DNA binding” and “DNA clamp loader activity.” Interestingly, MF investigation of downregulated DEGs showed overexpression in “heterotrimeric G‐protein complex,” “5′‐deoxyribose‐5‐phosphate lyase activity,” “minor groove of adenine‐thymine‐rich DNA binding,” and “histone kinase activity.” Our findings suggest that these genes and their interacting hub proteins could help determine the pathophysiology of germ cell abnormalities and infertility.
+---
+
+---
+DOI: 10.1159/000049906
+Title: Gene Expression Profiling in silico: Relative Expression of Candidate Angiogenesis Associated Genes in Renal Cell Carcinomas
+Year: 2002
+Abstract: Recent advances in gene expression profiling have led to the development of comprehensive databases which can be queried in various manners. In the present report, we have taken a list of genes previously associated with angiogenesis, either in in vivo or in in vitro models, and queried a commercial database established by GeneLogic&lt;sup&gt;®&lt;/sup&gt; to determine the relative expression of these candidate genes in normal kidneys and in renal cell carcinomas (RCC). We identified a number of genes, including CXCR4, matrix metalloproteinase 9, thrombospondin 2, and vascular endothelial growth factor, that were highly expressed in RCC versus normal tissue. One gene, hevin, appears to be selectively upregulated in RCC in contrast to downregulation of this gene in lung and colon tumors. This approach provides a powerful means to identify potential markers of tumor vascularization.
+---
+
+---
+DOI: 10.1161/circresaha.107.153916
+Title: Role of Dicer and Drosha for Endothelial MicroRNA Expression and Angiogenesis
+Year: 2007
+Abstract: MicroRNAs (miRNAs) are small noncoding RNAs that regulate gene expression by binding to the cellular transcript leading to translational repression or degradation of the target mRNA. Dicer and Drosha are the miRNA processing enzymes that are required for the maturation of miRNAs. Here, we investigated the role of Dicer and Drosha for angiogenesis. Endothelial cells were transfected with siRNA against Dicer and Drosha to inhibit miRNA biogenesis. Genetic silencing of Dicer and Drosha significantly reduced capillary sprouting of endothelial cells and tube forming activity. Migration of endothelial cells was significantly decreased in Dicer siRNA–transfected cells, whereas Drosha siRNA had no effect. Silencing of Dicer but not of Drosha reduced angiogenesis in vivo. Next, we attempted to identify miRNAs expressed in endothelial cells. A screening analysis of 168 human miRNAs using real-time PCR revealed that members of the let-7 family, mir-21, mir-126, mir-221, and mir-222 are highly expressed in endothelial cells. Dicer and Drosha siRNA reduced lef-7f and mir-27b expression. Inhibitors against let-7f and mir-27b also reduced sprout formation indicating that let-7f and mir-27b promote angiogenesis by targeting antiangiogenic genes. In silico analysis of predicted targets for let-7 cluster identified the endogenous angiogenesis inhibitor thrombospondin-1. Indeed, Dicer and Drosha siRNA significantly increased the expression of thrombospondin-1. Taken together, transient reduction of the miRNA-regulating enzyme Dicer impairs angiogenesis in vitro and in vivo, whereas Drosha siRNA induced a minor antiangiogenic effect in vitro and was not effective in vivo. The let-7 family and mir-27b appear to be attractive targets for modulating angiogenesis.
+---
+
+---
+DOI: 10.1038/ncomms6757
+Title: Steric engineering of metal-halide perovskites with tunable optical band gaps
+Year: 2014
+Abstract: Owing to their high energy-conversion efficiency and inexpensive fabrication routes, solar cells based on metal-organic halide perovskites have rapidly gained prominence as a disruptive technology. An attractive feature of perovskite absorbers is the possibility of tailoring their properties by changing the elemental composition through the chemical precursors. In this context, rational in silico design represents a powerful tool for mapping the vast materials landscape and accelerating discovery. Here we show that the optical band gap of metal-halide perovskites, a key design parameter for solar cells, strongly correlates with a simple structural feature, the largest metal–halide–metal bond angle. Using this descriptor we suggest continuous tunability of the optical gap from the mid-infrared to the visible. Precise band gap engineering is achieved by controlling the bond angles through the steric size of the molecular cation. On the basis of these design principles we predict novel low-gap perovskites for optimum photovoltaic efficiency, and we demonstrate the concept of band gap modulation by synthesising and characterising novel mixed-cation perovskites. The performance of solar cells based on metal-halide perovskites has improved rapidly in recent years. First principles calculations and experiments performed by Filip et al.suggest new routes to controlling the band gap of these materials, which could enable further improvements in their performance.
+---
+
+---
+DOI: 10.1111/j.1742-4658.2009.06932.x
+Title: A study of microRNAs <i>in silico</i> and <i>in vivo</i>: emerging regulators of embryonic stem cells
+Year: 2009
+Abstract: MicroRNAs (miRNAs) are noncoding regulatory RNAs that function via the degradation of target mRNAs and inhibition of translation. They are found widely in higher eukaryotic organisms, and in several species that have been closely examined, hundreds of miRNAs have thus far been discovered with mechanistically conserved, yet functionally diverse, roles necessary for the proper development, homeostasis and metabolism of the organisms. Mammalian cells produce miRNAs in a cell‐type‐specific manner and utilize them to regulate unique subsets of genes expressed in the host cells. This rule also appears to apply to the pluripotent embryonic stem cells, according to several recent studies that reported identification of specifically expressed miRNAs. Intense interest in these miRNAs stems in part from the possibility that they are one of the determinants of the salient characteristics of these cells: self‐renewal capacity and pluripotency. As functional data supporting this hypothesis are beginning to accumulate, it can be envisioned that miRNAs may be useful as molecular tools for manipulating ESCs. This review focuses on the recent discovery and functional characterization of miRNAs in human and mouse ESCs and provides perspectives on future research directions.
+---
+
+---
+DOI: 10.1126/stke.2003.170.pe8
+Title: Meeting Report: In Silico Cell Signaling UndergroundA report of the meeting "International Conference on Systems Biology," Karolinska Institute, Stockholm, Sweden, 13 to 15 December 2002.
+Year: 2003
+Abstract: Cell signaling is becoming a darling of systems biology. Because cell signaling is a relatively well understood, complex, but not overwhelming area of biology, it has become an attractive focal point for computational modeling and simulation efforts by engineers, computer scientists, mathematicians, and systems biologists. The flow of information within and between cells points to a possible conceptual and theoretical kinship with similar phenomena in computer networks, communication theory, information theory, and information flow in engineered systems. Although still in its infancy, the field is experiencing a growth in interest, as evidenced by the poster sessions at the recent International Conference on Systems Biology (ICSB 2002). This report focuses on some of those efforts to mathematically model and simulate cell signaling and signal transduction networks.
+---
+
+---
+DOI: 10.1002/cbdv.202301089
+Title: Synthesis and Anticancer Activity of Novel Derivatives of α,β‐Unsaturated Ketones Based on Oleanolic Acid: <i>in Vitro</i> and <i>in Silico</i> Studies against Prostate Cancer Cells
+Year: 2023
+Abstract: Abstract Herein, new derivatives of α , β‐ unsaturated ketones based on oleanolic acid ( 4 a – i ) were designed, synthesized, characterized, and tested against human prostate cancer (PC3). According to the in vitro cytotoxic study, title compounds ( 4 a – i ) showed significantly lower toxicity toward healthy cells (HUVEC) in comparison with the reference drug doxorubicin. The compounds with the lowest IC 50 values on PC3 cell lines were 4 b (7.785 μM), 4 c (8.869 μM), and 4 e (8.765 μM). The results of the ADME calculations showed that the drug‐likeness parameters were within the defined ranges according to Lipinski's and Jorgensen's rules. For the most potent compounds 4 b , 4 c , and 4 e , a molecular docking analysis using the induced fit docking (IFD) protocol was performed against three protein targets (PARP, PI3K, and mTOR). Based on the IFD scores, compound 4 b had the highest calculated affinity for PARP1, while compound 4 c had higher affinities for mTOR and PI3K. The MM‐GBSA calculations showed that the most potent compounds had high binding affinities and formed stable complexes with the protein targets. Finally, a 50 ns molecular dynamics simulation was performed to study the behavior of protein target complexes under in silico physiological conditions.
+---
+
+---
+DOI: 10.1098/rstb.2011.0227
+Title: <i>In silico</i>analyses of pericycle cell populations reinforce their relation with associated vasculature in<i>Arabidopsis</i>
+Year: 2012
+Abstract: In Arabidopsis , lateral root initiation occurs in a subset of pericycle cells at the xylem pole that will divide asymmetrically to give rise to a new lateral root organ. While lateral roots never develop at the phloem pole, it is unclear how the interaction with xylem and phloem poles determines the distinct pericycle identities with different competences. Nevertheless, pericycle cells at these poles are marked by differences in size, by ultrastructural features and by specific proteins and gene expression. Here, we provide transcriptional evidence that pericycle cells are intimately associated with their vascular tissue instead of being a separate concentric layer. This has implications for the identification of cell- and tissue-specific promoters that are necessary to drive and/or alter gene expression locally, avoiding pleiotropic effects. We were able to identify a small set of genes that display specific expression in the phloem or xylem pole pericycle cells, and we were able to identify motifs that are likely to drive expression in either one of those tissues.
+---
+
+---
+DOI: 10.2174/138920012800840419
+Title: Physiologically Based Pharmacokinetic Models: Integration of In Silico Approaches with Micro Cell Culture Analogues
+Year: 2012
+Abstract: There is a large emphasis within the pharmaceutical industry to provide tools that will allow early research and development groups to better predict dose ranges for and metabolic responses of candidate molecules in a high throughput manner, prior to entering clinical trials. These tools incorporate approaches ranging from PBPK, QSAR, and molecular dynamics simulations in the in silico realm, to micro cell culture analogue (CCAs)s in the in vitro realm. This paper will serve to review these areas of high throughput predictive research, and highlight hurdles and potential solutions. In particular we will focus on CCAs, as their incorporation with PBPK modeling has the potential to replace animal testing, with a more predictive assay that can combine multiple organ analogs on one microfluidic platform in physiologically correct volume ratios. While several advantages arise from the current embodiments of CCAS in a microfluidic format that can be exploited for realistic simulations of drug absorption, metabolism and action, we explore some of the concerns with these systems, and provide a potential path forward to realizing animal-free solutions. Furthermore we envision that, together with theoretical modeling, CCAs may produce reliable predictions of the efficacy of newly developed drugs.
+---
+
+---
+DOI: 10.1038/nbt.3520
+Title: Integrated digital error suppression for improved detection of circulating tumor DNA
+Year: 2016
+Abstract: High-throughput sequencing of circulating tumor DNA (ctDNA) promises to facilitate personalized cancer therapy. However, low quantities of cell-free DNA (cfDNA) in the blood and sequencing artifacts currently limit analytical sensitivity. To overcome these limitations, we introduce an approach for integrated digital error suppression (iDES). Our method combines in silico elimination of highly stereotypical background artifacts with a molecular barcoding strategy for the efficient recovery of cfDNA molecules. Individually, these two methods each improve the sensitivity of cancer personalized profiling by deep sequencing (CAPP-Seq) by about threefold, and synergize when combined to yield ∼15-fold improvements. As a result, iDES-enhanced CAPP-Seq facilitates noninvasive variant detection across hundreds of kilobases. Applied to non-small cell lung cancer (NSCLC) patients, our method enabled biopsy-free profiling of EGFR kinase domain mutations with 92% sensitivity and >99.99% specificity at the variant level, and with 90% sensitivity and 96% specificity at the patient level. In addition, our approach allowed monitoring of NSCLC ctDNA down to 4 in 105 cfDNA molecules. We anticipate that iDES will aid the noninvasive genotyping and detection of ctDNA in research and clinical settings.
+---
+
+---
+DOI: 10.1093/cvr/cvy090
+Title: Personalizing therapy for atrial fibrillation: the role of stem cell and in silico disease models
+Year: 2018
+Abstract: Atrial fibrillation (AF) is the most common cardiac arrhythmia and is associated with substantial morbidity. There is considerable inter-patient variability in the pathologic processes that promote AF, and this variability likely has a significant genetic basis. Clinically this is reflected by the observation that anti-arrhythmic drugs and interventional procedures have highly variable efficacy, and this highlights the need for adopting a more efficacious personalized approach. We explore recent advancements in both in silico and stem cell disease models that set the stage for a personalized approach. Specifically we highlight new mechanistic insights in AF; the future role of computational models in planning personalized ablation strategies; the potential role of stem cell models as a preclinical platform for drug development; and the potential to use gene-editing technology to create patient-specific stem cell models. Finally, we introduce the concept of integrating stem cell models with computational modelling to create a novel pipeline for patient-specific drug discovery and development.
+---
+
+---
+DOI: 10.1016/j.abb.2007.01.006
+Title: C-Phycocyanin inhibits 2-acetylaminofluorene-induced expression of MDR1 in mouse macrophage cells: ROS mediated pathway determined via combination of experimental and In silico analysis
+Year: 2007
+Abstract: We studied the effects of C-Phycocyanin (C-PC), a biliprotein from Spirulina platensis on the 2-acetylaminofluorene (2-AAF)-induced expression of MDR1, encoded by the multidrug resistance (MDR1) gene, in mouse macrophage cell line (RAW 264.7). Our experimental and In silico studies revealed a significant inhibition of 2-AAF-induced expression of MDR1 protein in C-PC treated mouse macrophage cell line. MDR1 induction by 2-AAF was dependent on ROS (reactive oxygen species)-Akt (protein kinase B)-NF-kappaB (Nuclear factor kappa B) signaling pathway. Generation of ROS, phosphorylation of Akt and corresponding nuclear translocation of NF-kappaB, the events that play a major role in the induction of MDR1 expression, were decreased significantly in C-PC treated cells. NADPH oxidase inhibitor, DPI (Diphenyl iodide), and pharmacological inhibitor of Akt, Akt inhibitor IV, also showed a reduction in MDR1 expression, although not to the same extent as C-PC mediated inhibition of MDR1 expression. To further understand the mechanism, we created a computational model of the detailed ROS-Akt-NF-kappaB pathway. C-PC was modeled purely as a ROS scavenger and this representation matched the experimental trends accurately. Also the ROS levels determined through In silico investigation showed that C-PC was more effective in reduction of MDR1 expression than inhibitors of NADPH oxidase and Akt. Our experimental and In silico studies collectively suggest that 2-AAF induces MDR1 by ROS dependent pathway and C-PC is a potential negative regulator of MDR1 expression. This down regulation of MDR1 expression, induced by xenobiotics such as 2-AAF, suggests C-PC's usefulness in overcoming the drug resistance in cellular systems.
+---
+
+---
+DOI: 10.1259/bjr.20190879
+Title: Photons or protons for reirradiation in (non-)small cell lung cancer: Results of the multicentric ROCOCO <i>in silico</i> study
+Year: 2019
+Abstract: Objective: Locally recurrent disease is of increasing concern in (non-)small cell lung cancer [(N)SCLC] patients. Local reirradiation with photons or particles may be of benefit to these patients. In this multicentre in silico trial performed within the Radiation Oncology Collaborative Comparison (ROCOCO) consortium, the doses to the target volumes and organs at risk (OARs) were compared when using several photon and proton techniques in patients with recurrent localised lung cancer scheduled to undergo reirradiation. Methods: 24 consecutive patients with a second primary (N)SCLC or recurrent disease after curative-intent, standard fractionated radio(chemo)therapy were included in this study. The target volumes and OARs were centrally contoured and distributed to the participating ROCOCO sites. Remaining doses to the OARs were calculated on an individual patient’s basis. Treatment planning was performed by the participating site using the clinical treatment planning system and associated beam characteristics. Results: Treatment plans for all modalities (five photon and two proton plans per patient) were available for 22 patients (N = 154 plans). 3D-conformal photon therapy and double-scattered proton therapy delivered significantly lower doses to the target volumes. The highly conformal techniques, i.e., intensity modulated radiation therapy (IMRT), volumetric modulated arc therapy (VMAT), CyberKnife, TomoTherapy and intensity-modulated proton therapy (IMPT), reached the highest doses in the target volumes. Of these, IMPT was able to statistically significantly decrease the radiation doses to the OARs. Conclusion: Highly conformal photon and proton beam techniques enable high-dose reirradiation of the target volume. They, however, significantly differ in the dose deposited in the OARs. The therapeutic options, i.e., reirradiation or systemic therapy, need to be carefully weighed and discussed with the patients. Advances in knowledge: Highly conformal photon and proton beam techniques enable high-dose reirradiation of the target volume. In light of the abilities of the various highly conformal techniques to spare specific OARs, the therapeutic options need to be carefully weighed and patients included in the decision-making process.
+---
+
+---
+DOI: 10.1089/omi.2006.0004
+Title: Identification of Functional Cell Adhesion Molecules with a Potential Role in Metastasis by a Combination of <i>in vivo</i> Phage Display and <i>in silico</i> Analysis
+Year: 2007
+Abstract: Organ-specific homing of malignant cells involves interactions mediated through cell adhesion molecules and their receptors on the cell surface. Identification of peptides that mimic these receptor-ligand interactions is critical for analyzing the functional role of these proteins and is therapeutically significant to target or block organ-specific homing of tumor cells. Following three cycles of in vivo biopanning using a phage display peptide library injected into mice, we identified 11 unique peptides that were specific for homing to lung, liver, bone marrow, or brain. We developed a bioinformatics strategy to identify putative cell adhesion molecules (CAM) involved in tumor cell migration, invasion, and metastasis based on identified organ-specific peptides. Structural information, including surface exposure and the binding preference of any of these residues in the identified proteins, was examined. These studies resulted in identification of Semaphorin 5A (mouse, Sema5A; human, SEMA5A) and its receptor Plexin B3. The gene expression profile of these proteins in tumors and tumor cell lines was assessed using virtual microarray and serial analysis of gene expression (SAGE) databases and was further confirmed using reverse transcriptase polymerase chain reaction (RT-PCR). Our data demonstrate an association between the expression of SEMA5A and Plexin B3 and the aggressiveness of pancreatic and prostate cancer cells. In summary, using a combined experimental and bioinformatics approach, we have identified functional tumor-specific CAMs, which may be critical for organ-specific metastasis.
+---
+
+---
+DOI: 10.1126/science.1086507
+Title: The Immunological Synapse Balances T Cell Receptor Signaling and Degradation
+Year: 2003
+Abstract: The immunological synapse is a specialized cell-cell junction between T cell and antigen-presenting cell surfaces. It is characterized by a central cluster of antigen receptors, a ring of integrin family adhesion molecules, and temporal stability over hours. The role of this specific organization in signaling for T cell activation has been controversial. We use in vitro and in silico experiments to determine that the immunological synapse acts as a type of adaptive controller that both boosts T cell receptor triggering and attenuates strong signals.
+---
+
+---
+DOI: 10.1002/bit.21247
+Title: An in silico model for HIF‐α regulation and hypoxia response in tumor cells
+Year: 2006
+Abstract: Abstract The dependency of the growth and metastasis of tumors on the new blood vessel formation, or angiogenesis, has opened up new potentials to tumor therapy, nevertheless understanding the molecular mechanisms involved in angiogenesis is crucial in the bioengineering of novel anti‐angiogenic drugs. The key component in hypoxia sensing in tumor cells is the hypoxia‐inducible factor, HIF‐1α, which is inactivated through proteosome‐mediated degradation under normoxic conditions. Two enzymes have been reported to hydroxylate HIF‐1α, namely prolyl hydroxylase (PH), recruiting the proetasome complex and degrading cytoplasmic HIF‐1α, and asparaginyl hydroxylase/factor inhibiting HIF‐1α (FIH‐1), downregulating the recruitment of p300 to the promoter, thereby reducing the transcriptional activity of HIF‐1α. In this study, we have constructed an in silico model of a tumor cell using the GEPASI 3.30 biochemical simulation software (http://www.gepasi.org) and studied the performances of PH and FIH‐1 on HIF‐1α degradation and inactivation, respectively, as monitored by expression of the vascular endothelial growth factor, VEGF, during hypoxia. In our biochemical models, FIH‐1 can successfully increase hypoxic transcription of VEGF, however FIH‐1 on its own is not sufficient to inactivate HIF‐1 completely, leading to background VEGF transcription under normoxic conditions. On the other hand, PH is necessary to increase the hypoxic transcriptional response, and can effectively shut off normoxic transcription. We therefore propose that regulating PH activity can be a primary target for anti‐angiogenic bioengineering research. Biotechnol. Bioeng. 2007;97: 588–600. © 2006 Wiley Periodicals, Inc.
+---
+
+---
+DOI: 10.1006/geno.2002.6691
+Title: In Silico Comparison of the Transcriptome Derived from Purified Normal Breast Cells and Breast Tumor Cell Lines Reveals Candidate Upregulated Genes in Breast Tumor Cells
+Year: 2002
+Abstract: Genes that are differentially expressed in tumor tissues are potential diagnostic markers and drug targets. The DNA sequence information available in the public databases can be used to identify transcripts differentially expressed in cancer. We report here the combined use of the ORESTES sequences generated in the FAPESP/LICR Human Cancer Genome Project and information available in the UniGene and SAGE databases to characterize the transcriptome of normal and breast tumor cells. We have identified 154 genes as candidates for overexpression in breast tumor cells. Among these, 28 genes have been shown by others to be overexpressed in breast or other tumors. Using RT-PCR, we tested 11 candidate genes and found that 9 were indeed overexpressed in breast tumor cells.
+---
+
+---
+DOI: 10.1080/1062936x.2013.821092
+Title: <i>In silico</i>modelling for predicting the cationic hydrophobicity and cytotoxicity of ionic liquids towards the<i>Leukemia</i>rat cell line,<i>Vibrio fischeri</i>and<i>Scenedesmus vacuolatus</i>based on molecular interaction potentials of ions
+Year: 2013
+Abstract: In this study we present prediction models for estimating in silico the cationic hydrophobicity and the cytotoxicity (log [1/EC50]) of ionic liquids (ILs) towards the Leukemia rat cell line (IPC-81), the marine bacterium Vibrio fischeri and the limnic green algae Scenedesmus vacuolatus using linear free energy relationship (LFER) descriptors computed by COSMO calculations. The LFER descriptors used for the prediction model (i.e. excess molar refraction (E), dipolarity/polarizability (S), hydrogen-bonding acidity (A), hydrogen-bonding basicity (B) and McGowan volume (V)) were calculated using sub-descriptors (sig2, sig3, HBD3, HBA4, MR, and volume) derived from COSMO-RS, COSMO and OBPROP. With the combination of two solute descriptors (B, V) of the cation we were able to predict cationic hydrophobicity values (log ko ) with r (2) = 0.987 and standard error (SE) = 0.139 log units. By using the calculated log k o values, we were able to deduce a linear toxicity prediction model. In the second prediction study for the cytotoxicity of ILs, analysis of descriptor sensitivity helped us to determine that the McGowan volume (V) terms of the cation was the most important predictor of cytotoxicity and to simplify prediction models for cytotoxicity of ILs towards the IPC-81 (r (2) of 0.778, SE of 0.450 log units), Vibrio fischeri (r (2) of 0.762, SE of 0.529 log units) and Scenedesmus vacuolatus (r (2) of 0.776, SE of 0.825 log units). The robustness and predictivity of the two models for IPC-81 and Vibrio fischeri were checked by comparing the calculated SE and r (2) (coefficient of determination) values of the test set.
+---
+
+---
+DOI: 10.5530/pj.2018.3.69
+Title: In silico and in vitro Studies on Lyngbya majuscula using against Lung Cancer Cell Line (A549)
+Year: 2018
+Abstract: Objective: To predict an anticancer drug from the members of cyanobacteria, in silico molecular docking was carried out between the cyanobacterial bioactive compounds and lung cancer causing receptor. The highest docking score was produced by Lyngbyastatin (Lyngbya majuscula). In the present study anticancer potential of L. majuscula was evaluated on human lung cancer cell line (A549) using its methanolic extract. Methods: Molecular docking was carried out between the Epidermal Growth Factor Receptor tyrosine kinase and cyanobacterial compounds. Based on the docking results, Lyngbyastatin was found to be the most effective compound. As this compound is present in the L. majuscula, the cytotoxicity of this organism was assessed by standard cell viability assays like MTT method. Algal methanolic extract treated with A 549 cell line morphology was studied by DAPI staining. DNA fragmentation assay was also conducted to study the presence of DNA laddering. Results: Totally 75 bioactive compounds were docked with Epidermal Growth Factor Receptor tyrosine kinase . Of them, 12 compounds were selected based on the docking score. Among the 12 bioactive compounds, Lyngbyastatin found to be most effective compound. L. majuscula showed potential anticancer activity against A549 cell line with IC50 value of 14.82± 0.62 μg/ml in MTT method. Most of the treated cells lost their characteristic stretched appearance with shrinkage of nucleus. DNA profile revealed the presence of sheared DNA in treated ones but no fragmentation was observed. Conclusion: The results indicated potent anticancer of algal methanolic extract on A549 cell line, which may be good candidates for further investigation to isolate bioactive anticancer compounds.
+---
+
+---
+DOI: 10.1038/84379
+Title: In silico predictions of Escherichia coli metabolic capabilities are consistent with experimental data
+Year: 2001
+Abstract: A significant goal in the post-genome era is to relate the annotated genome sequence to the physiological functions of a cell. Working from the annotated genome sequence, as well as biochemical and physiological information, it is possible to reconstruct complete metabolic networks. Furthermore, computational methods have been developed to interpret and predict the optimal performance of a metabolic network under a range of growth conditions. We have tested the hypothesis that Escherichia coli uses its metabolism to grow at a maximal rate using the E. coli MG1655 metabolic reconstruction. Based on this hypothesis, we formulated experiments that describe the quantitative relationship between a primary carbon source (acetate or succinate) uptake rate, oxygen uptake rate, and maximal cellular growth rate. We found that the experimental data were consistent with the stated hypothesis, namely that the E. coli metabolic network is optimized to maximize growth under the experimental conditions considered. This study thus demonstrates how the combination of in silico and experimental biology can be used to obtain a quantitative genotype-phenotype relationship for metabolism in bacterial cells.
+---
+
+---
+DOI: 10.1126/scisignal.aai9062
+Title: In silico modeling identifies CD45 as a regulator of IL-2 synergy in the NKG2D-mediated activation of immature human NK cells
+Year: 2017
+Abstract: The basis for how the cytokine IL-2 boosts the activation of natural killer cells in response to NKG2D stimulation is uncovered.
+---
+
+---
+DOI: 10.1038/nrm3769
+Title: The integrin adhesome: from genes and proteins to human disease
+Year: 2014
+Abstract: The adhesive interactions of cells with their environment through the integrin family of transmembrane receptors have key roles in regulating multiple aspects of cellular physiology, including cell proliferation, viability, differentiation and migration. Consequently, failure to establish functional cell adhesions, and thus the assembly of associated cytoplasmic scaffolding and signalling networks, can have severe pathological effects. The roles of specific constituents of integrin-mediated adhesions, which are collectively known as the 'integrin adhesome', in diverse pathological states are becoming clear. Indeed, the prominence of mutations in specific adhesome molecules in various human diseases is now appreciated, and experimental as well as in silico approaches provide insights into the molecular mechanisms underlying these pathological conditions.
+---
+
+---
+DOI: 10.1007/s13205-021-02668-0
+Title: Comparative accounts of probiotic properties of spore and vegetative cells of Bacillus clausii UBBC07 and in silico analysis of probiotic function
+Year: 2021
+Abstract: In this study, the spores and vegetative cells of B. clausii were independently evaluated for probiotic properties such as acid, gastric juice, bile, and intestinal fluid tolerance, adhesion to solvents/mucin and zeta potential. In addition, in silico identification of genome features contributing to probiotic properties were investigated. The results showed that spores were highly stable at gastric acidity and capable to germinate and multiply under intestinal conditions as compared to vegetative cells. The higher hydrophobicity of spores, compared to vegetative cells, is advantageous for colonization and persistence in the intestine. Furthermore, the presence of F 0 F 1 ATP synthase, amino acid decarboxylase, bile acid symporter, mucin/collagen/fibronectin-binding proteins, heat/cold shock proteins, and universal stress proteins suggests that the strain is able to survive stress. In conclusion, the results demonstrate that B. clausii UBBC07 spores show significantly higher survival and adhesion in in vitro gastrointestinal conditions as compared to vegetative cells. Besides, this study provides a comparative analysis of the in vitro probiotic properties of spores and vegetative cells of Bacillus clausii UBBC07.
+---
+
+---
+DOI: 10.1016/j.ces.2012.09.006
+Title: Genome-scale in silico modeling and analysis for designing synthetic terpenoid-producing microbial cell factories
+Year: 2012
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.phyplu.2023.100419
+Title: Integrated network pharmacology and in-silico approaches to decipher the pharmacological mechanism of Selaginella tamariscina in the treatment of non-small cell lung cancer
+Year: 2023
+Abstract: (no abstract available)
+---

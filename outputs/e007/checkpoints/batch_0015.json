@@ -1,0 +1,119 @@
+{
+  "batch_index": 15,
+  "dois": [
+    "10.1007/s13238-015-0153-5",
+    "10.1038/nature14347",
+    "10.1371/journal.pone.0129237",
+    "10.1038/s41598-023-50859-x",
+    "10.1101/gr.180281.114",
+    "10.1038/ncomms7744",
+    "10.1186/s12859-016-1452-4",
+    "10.3390/biomedicines9040440",
+    "10.1016/j.celrep.2016.12.041",
+    "10.1371/journal.pcbi.0020091"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1007/s13238-015-0153-5",
+      "problem": "The efficiency, specificity, and off-target effects of CRISPR/Cas9-mediated gene editing in human pre-implantation embryos are poorly understood, representing a critical knowledge gap for clinical applications.",
+      "method": "CRISPR/Cas9 with three gRNAs targeting HBB was applied to human tripronuclear (3PN) zygotes; editing outcomes were assessed by T7E1 assay, Sanger sequencing, and whole-exome sequencing.",
+      "finding": "CRISPR/Cas9 effectively cleaved HBB but HDR efficiency was low (14.3% ssDNA-mediated), embryos were mosaic, off-target cleavage was detected, and the endogenous HBD gene competed with exogenous donor oligos as repair template via non-crossover HDR.",
+      "dataset": "Human tripronuclear (3PN) zygotes (N=54 injected, 28 survived) and 293T cells",
+      "metric": "HDR efficiency, NHEJ frequency, T7E1 cleavage assay, whole-exome sequencing off-target detection",
+      "baseline": "GFP mock vector (293T cells), oligo-only control",
+      "result": "48.3% HDR in 293T clones (14/29), 14.3% ssDNA-mediated editing in embryos (4/28), 25% endogenous HDR, off-target at C1QC despite 8bp mismatch"
+    },
+    {
+      "doi": "10.1038/nature14347",
+      "problem": "The clonal relationships among metastases and the principles governing cancer cell dissemination to distant organs in lethal metastatic prostate cancer are poorly understood.",
+      "method": "Whole-genome sequencing of multiple metastases from 10 prostate cancer patients with integrated subclonal architecture analysis to reconstruct metastatic spread patterns.",
+      "finding": "Metastasis-to-metastasis spread was common, with polyclonal seeding observed in 5 patients; tumor suppressor mutations occurred as single events while androgen receptor pathway mutations showed convergent evolution across metastases.",
+      "dataset": "Multiple metastases from 10 androgen-deprived metastatic prostate cancer patients",
+      "metric": "Subclonal architecture, clonal relationship inference, convergent mutation events",
+      "baseline": "",
+      "result": "Polyclonal seeding in 5/10 patients, convergent AR pathway mutations across independent metastases"
+    },
+    {
+      "doi": "10.1371/journal.pone.0129237",
+      "problem": "Tumor vaccines have shown little clinical success due to poor antigen presentation and tumor-exploited immunosuppression; effective vaccination strategies for neuroblastoma are needed.",
+      "method": "Id2 knockdown Neuro2a whole tumor cell vaccine combined with anti-CTLA-4 checkpoint blockade was tested in syngeneic A/J mouse neuroblastoma models, with immune cell depletion and flow cytometry analysis.",
+      "finding": "Id2-kd N2a cells were rejected by 60% of immune-competent mice and induced lasting immunity; combination with anti-CTLA-4 eradicated large established tumors via CD8+ T cell-mediated cytotoxicity supported by CD4+ T helper cells.",
+      "dataset": "Murine neuroblastoma (Neuro2a) in A/J, SCID, and nude mice",
+      "metric": "Tumor rejection rate, survival, tumor volume, CD8+ T cell infiltration, IFN-gamma production",
+      "baseline": "Wild-type Neuro2a cells, scrambled shRNA controls, IgG2b isotype control",
+      "result": "60% tumor rejection (Id2-kd alone), 8/9 protected on re-challenge, complete eradication of established tumors with combination therapy"
+    },
+    {
+      "doi": "10.1038/s41598-023-50859-x",
+      "problem": "Pseudomonas aeruginosa is a multidrug-resistant opportunistic pathogen causing severe infections, and effective immunotherapy-based treatments are needed to combat MDR-PA infections.",
+      "method": "Polyclonal avian IgY antibodies raised against inactivated whole cells of PAO1 were evaluated in vitro (motility, biofilm, opsonophagocytic killing) and in vivo (acute pneumonia and burn wound murine models) against homologous and heterologous PA strains.",
+      "finding": "Anti-PAO1-IgY reduced motility, biofilm formation, and cell internalization, enhanced opsonophagocytic killing, and completely protected mice against all PA strains in both acute pneumonia and burn wound models.",
+      "dataset": "P. aeruginosa PAO1, PAK, MDR-R5 strains; BALB/c mice burn wound and pneumonia models",
+      "metric": "Survival rate, bacterial load (CFU), motility reduction, biofilm inhibition, opsonophagocytic killing percentage",
+      "baseline": "Control IgY (C-IgY from non-immunized hens), PBS control",
+      "result": "100% survival in immunotherapy groups, 32-89% growth reduction (PAO1), 17-91% (PAK), 21-63% (R5)"
+    },
+    {
+      "doi": "10.1101/gr.180281.114",
+      "problem": "Computational methods for inferring copy number alterations and loss of heterozygosity while accounting for tumor subclonal heterogeneity in whole-genome sequencing data remain underdeveloped.",
+      "method": "TITAN, a probabilistic model using a two-chain factorial HMM, jointly analyzes allelic ratios and read depth at heterozygous SNP loci to infer CNA/LOH events and estimate cellular prevalences of tumor subpopulations.",
+      "finding": "TITAN accurately detected subclonal CNA/LOH events and estimated cellular prevalences, outperforming existing methods; predictions were experimentally validated by FISH and single-cell sequencing in ovarian cancer samples.",
+      "dataset": "5 HGS ovarian cancer specimens (DG1136) at ~30x WGS, 23 breast tumor whole genomes",
+      "metric": "True positive rate (TPR), false positive rate (FPR), cellular prevalence estimation accuracy",
+      "baseline": "HMMcopy, Control-FREEC, OncoSNP, Battenberg",
+      "result": "TPR>=0.9 for events>=100 SNPs (54/54 detected), FPR=0.04, prevalence estimates within range (0.52 vs expected 0.52, 0.36 vs expected 0.39)"
+    },
+    {
+      "doi": "10.1038/ncomms7744",
+      "problem": "Pancreatic ductal adenocarcinoma has a dismal prognosis and insights into genetic diversity, disease etiology, and therapeutic targets are needed.",
+      "method": "Whole-exome sequencing of 109 micro-dissected PDA cases with MutSigCV analysis, copy number profiling, and pathway analysis; validated with Sanger sequencing and an independent cohort.",
+      "finding": "PDA harbors greater mutational burden than previously reported (~67 non-synonymous mutations/case); MYC amplification associates with poor outcome, RBM10 mutations with longer survival, KRAS Q61 alleles with improved survival, and oncogenic BRAF mutations define vemurafenib sensitivity.",
+      "dataset": "109 micro-dissected pancreatic ductal adenocarcinoma cases with clinical annotation",
+      "metric": "Mutation burden, MutSigCV q-value, overall survival, Sanger validation rate",
+      "baseline": "Prior PDA sequencing studies (~26 mutations/case), GFP mock",
+      "result": "67 non-synonymous mutations/case (vs 26 prior), 92% Sanger validation, >90% KRAS mutated, BRAF mutations mutually exclusive with KRAS"
+    },
+    {
+      "doi": "10.1186/s12859-016-1452-4",
+      "problem": "Parameter estimation in large-scale systems biology ODE models is computationally prohibitive due to non-convexity and high dimensionality, requiring days of computation time.",
+      "method": "A self-adaptive cooperative enhanced scatter search (saCeSS) parallelized with MPI, featuring asynchronous cooperation between heterogeneous metaheuristic threads with self-tuning mechanisms.",
+      "finding": "saCeSS consistently solved medium and large-scale parameter estimation benchmarks with computation time reductions from days to minutes compared to previous methods, even with small numbers of processors.",
+      "dataset": "BioPreDyn-bench suite: S. cerevisiae (1759 params), E. coli (116-178 params), CHO cells (117 params), D. melanogaster (37 params), signal transduction (86 params)",
+      "metric": "Computation time, convergence to best known objective value, speedup ratio",
+      "baseline": "Non-cooperative parallel eSS (np-eSS), synchronous cooperative CeSS",
+      "result": "Days to minutes computation time reduction, robust convergence across all 6 benchmarks with small processor counts"
+    },
+    {
+      "doi": "10.3390/biomedicines9040440",
+      "problem": "Metachromatic leukodystrophy (MLD) is a rare neurodegenerative disease with no effective treatments, and developing brain organoid models for drug repurposing is expensive and time-consuming.",
+      "method": "DeepNEU (v6.2) hybrid deep-machine learning platform simulating artificially induced whole-brain organoids (aiWBO) using a literature-validated RNN with 4,660 genes/proteins and 43,498 relationships, validated against peer-reviewed data.",
+      "finding": "aiWBO simulations accurately predicted neural cell types, brain regions, cortical layers, and MLD disease pathology; identified combined metabolic alkalosis and respiratory acidosis in MLD, and enabled evaluation of potential therapeutic options.",
+      "dataset": "Literature-derived gene/protein network (4,660 nodes, 43,498 relationships) for MLD simulation",
+      "metric": "Binomial test p-values for prediction accuracy of cell types, brain regions, cortical layers",
+      "baseline": "aiWBO wild-type simulation, peer-reviewed wet lab MLD disease profile",
+      "result": "9/9 neural cell types predicted (p=0.023), 9/9 ventral-dorsal regions (p=0.023), 6/6 cortical layers (p=0.081)"
+    },
+    {
+      "doi": "10.1016/j.celrep.2016.12.041",
+      "problem": "The precise temporal and spatial dynamics of the microglial population in the adult brain, including turnover rate and maintenance mechanisms, are unknown.",
+      "method": "BrdU pulse-chase studies, chronic two-photon in vivo imaging in CX3CR1-GFP mice, in utero intra-liver lentiviral tracing, and mouse models of dysregulated apoptosis (Bcl-2, Bim knockout) in mice and human postmortem tissue.",
+      "finding": "Microglia turn over remarkably fast (~96 days for complete renewal in mouse, ~4.2 years in humans), with population homeostasis maintained by tight spatial and temporal coupling of proliferation and apoptosis rather than long-lived self-renewal.",
+      "dataset": "CX3CR1-GFP/+ mice, human postmortem brain tissue (N=15/group, age 20-79)",
+      "metric": "BrdU incorporation rate, Ki67+ proliferation index, activated caspase-3+ apoptosis rate, microglial density",
+      "baseline": "Perinatal monocyte infiltration contribution (shown negligible in adults)",
+      "result": "~0.69% daily proliferation, ~96-day full population renewal in mice, ~4.2 years in humans, coupled proliferation-apoptosis rates"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.0020091",
+      "problem": "Ion channel models used in biophysics (Markov models) and whole-cell neural modeling (Hodgkin-Huxley) are disconnected, preventing integration of detailed channel data into realistic neuron simulations.",
+      "method": "Review and analysis of Markov model fitting approaches (inverse problem), parameter constraint analysis using different voltage-clamp protocols, and exploration of computational infrastructure needed to bridge biophysical and neural modeling.",
+      "finding": "Complex (naturalistic or random) voltage-clamp waveforms provide parameter constraints typically 10x tighter than standard step protocols; new computational infrastructure is needed to integrate diverse channel data sources into whole-cell models.",
+      "dataset": "Simulated delayed rectifier sodium channel (4-state Markov model)",
+      "metric": "Parameter constraint strength (second derivative of likelihood function), model identifiability",
+      "baseline": "Standard voltage step protocols",
+      "result": ">=10x tighter parameter constraints with complex waveforms vs standard step sequences"
+    }
+  ],
+  "timestamp": "2026-03-05T14:13:59.415871",
+  "extraction_count": 10
+}

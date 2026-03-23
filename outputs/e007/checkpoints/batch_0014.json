@@ -1,0 +1,119 @@
+{
+  "batch_index": 14,
+  "dois": [
+    "10.1186/gb-2014-15-3-r47",
+    "10.1093/nar/gkr900",
+    "10.1002/jev2.12368",
+    "10.3390/vaccines8040734",
+    "10.1038/s41467-019-08903-w",
+    "10.1113/jp277724",
+    "10.1038/nature21356",
+    "10.1038/nature13600",
+    "10.1038/nature23001",
+    "10.1093/nar/gkz030"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1186/gb-2014-15-3-r47",
+      "problem": "Predicting chemotherapeutic response in patients using baseline tumor gene expression data, bridging in vitro cell line drug sensitivity to in vivo clinical outcomes.",
+      "method": "Whole-genome ridge regression models fitted on gene expression vs drug IC50 in CGP cell lines, with ComBat batch correction, applied to baseline tumor expression from clinical trials.",
+      "finding": "Cell line-derived ridge regression models predict in vivo drug response in 3 of 4 clinical trials, with performance comparable to or better than gene signatures derived directly from clinical data.",
+      "dataset": "CGP cell line panel (~10,000 genes), docetaxel/bortezomib/cisplatin/erlotinib clinical trials",
+      "metric": "Classification accuracy, cross-validation performance",
+      "baseline": "Gene signatures derived from clinical trial data, random forests, PAM, Lasso, ElasticNet",
+      "result": "Predictions equally good or better than clinical-derived gene signatures in 3/4 trials"
+    },
+    {
+      "doi": "10.1093/nar/gkr900",
+      "problem": "Providing a freely accessible, comprehensive collection of small molecule crystal structures to support world-wide crystallographic collaboration.",
+      "method": "Open-access database with web-based search (unit cell parameters, chemical composition, SMARTS/SMILES substructure), CIF format storage, and user-driven deposition platform.",
+      "finding": "COD aggregated ~150,000 crystal structures with open access, enabling material identification via powder diffractograms, teaching, and grid computing applications.",
+      "dataset": "~150,000 crystal structures (organic, inorganic, metal-organic, minerals)",
+      "metric": "",
+      "baseline": "",
+      "result": "~150,000 structures collected, estimated ~800,000 total known structures"
+    },
+    {
+      "doi": "10.1002/jev2.12368",
+      "problem": "Understanding how extracellular vesicles interact with peripheral blood mononuclear cells in whole blood to inform EV-based targeted drug delivery.",
+      "method": "Ex vivo whole blood model using PalmGRET/MemGlow-labeled EVs spiked into macaque blood, quantified by flow cytometry and nanoluciferase assays across dose and time courses.",
+      "finding": "EVs preferentially associate with CD20+ B cells in ex vivo whole blood at levels similar to in vivo, validating ex vivo blood as a reliable model for studying EV-blood cell interactions.",
+      "dataset": "Pig-tailed macaque (Macaca nemestrina) whole blood, Expi293F- and U-87 MG-derived EVs",
+      "metric": "% EV-positive cells by flow cytometry, nanoluciferase RLU normalized by total protein",
+      "baseline": "In vivo intravenous EV administration in macaques",
+      "result": ">60% CD20+ B cells associated with EVs, ex vivo levels similar to in vivo"
+    },
+    {
+      "doi": "10.3390/vaccines8040734",
+      "problem": "Developing a vaccine against Vibrio harveyi vibriosis to reduce mortality in marine aquaculture fish as an alternative to antibiotics.",
+      "method": "Formalin-killed whole cell V. harveyi (FKVh) vaccine administered intraperitoneally with booster dose at week 2, evaluated by ELISA (IgM), lysozyme activity assays, and live challenge at 10^8 CFU/fish.",
+      "finding": "FKVh vaccination significantly enhanced survival and immune response (IgM antibodies in serum, mucus, gut lavage and lysozyme activity) in marine red hybrid tilapia against vibriosis.",
+      "dataset": "180 marine red hybrid tilapia (Oreochromis niloticus × O. mossambicus), V. harveyi strain Vh1",
+      "metric": "Relative percentage survival, IgM antibody titer (ELISA OD), lysozyme activity (U/mg)",
+      "baseline": "PBS-injected unvaccinated control group",
+      "result": "87% survival (vaccinated) vs 20% (control), p<0.05"
+    },
+    {
+      "doi": "10.1038/s41467-019-08903-w",
+      "problem": "Creating a comprehensive, executable mechanistic model of the cell division cycle molecular network to enable genome-scale signaling models and eventually eukaryotic whole-cell models.",
+      "method": "rxncon reaction-contingency language for genome-scale mechanistic modeling with parameter-free Boolean network simulation (BoolNet), validated by genotype-to-phenotype predictions at residue resolution.",
+      "finding": "The cell division cycle control network comprises three distinct control circuits (G1/S, G2/M, M/G1) monitoring three independent replication cycles, rather than a single closed cycle as previously modeled.",
+      "dataset": "Saccharomyces cerevisiae cell division cycle (357 components, 229 proteins, 790 reactions, 1238 states, 598 contingencies)",
+      "metric": "Phenotype prediction accuracy (viable/inviable mutants at residue resolution)",
+      "baseline": "Previous closed-cycle CDC models without explicit replication cycle dependence",
+      "result": "357 components, 790 reactions, 3 distinct control circuits identified"
+    },
+    {
+      "doi": "10.1113/jp277724",
+      "problem": "Developing a computational framework for iPSC-derived cardiomyocytes that incorporates experimental variability to predict patient-specific cardiac arrhythmia vulnerability.",
+      "method": "Whole-cell Hodgkin-Huxley model with single exponential voltage-dependent gating, parameterized to multiple experimental iPSC-CM datasets, with population-of-models variability analysis across 5 key currents.",
+      "finding": "Experimentally-informed population of cellular models reproduces the full range of inter-subject variability observed in iPSC-CMs and links molecular mechanisms to immature vs mature phenotypes.",
+      "dataset": "iPSC-CM experimental data from multiple laboratories (Ma et al., Jalife Lab — conventional and PDMS preparations)",
+      "metric": "Action potential duration, calcium transient amplitude, spontaneous beating rate, maximum diastolic potential",
+      "baseline": "ten Tusscher 2004 and Shannon 2004 cardiomyocyte model formulations",
+      "result": "Population models predict robust inter-subject variability matching experimental iPSC-CM phenotypes"
+    },
+    {
+      "doi": "10.1038/nature21356",
+      "problem": "Determining the frequency and functional importance of extrachromosomal DNA (ecDNA) amplification across human cancers.",
+      "method": "Whole-genome sequencing, FISH, metaphase cytogenetic analysis of 2,572 cells across 17 cancer types, with ECdetect software for automated ecDNA detection and mathematical modeling of amplification dynamics.",
+      "finding": "ecDNA is found in nearly half of human cancers but almost never in normal cells; driver oncogenes are most commonly amplified on ecDNA, increasing transcript levels and intratumoral heterogeneity.",
+      "dataset": "17 cancer types, 2,572 metaphase cells, NCI-60 cell line panel, patient-derived xenografts",
+      "metric": "ecDNA frequency, oncogene copy number, transcript levels, intratumoral heterogeneity",
+      "baseline": "Normal cells, chromosomal (HSR) amplification",
+      "result": "ecDNA in ~50% of cancers, almost never in normal cells"
+    },
+    {
+      "doi": "10.1038/nature13600",
+      "problem": "Understanding genomic diversity and mutational evolution within individual breast tumors at single-cell resolution.",
+      "method": "Nuc-seq: single nucleus whole-genome and exome sequencing using G2/M nuclei, combined with single nuclei copy number profiling and targeted single-molecule sequencing for validation.",
+      "finding": "Aneuploid rearrangements occurred early in punctuated bursts and remained stable during clonal expansion, while point mutations evolved gradually generating extensive clonal diversity; TNBC showed 13.3× increased mutation rate.",
+      "dataset": "ER+ breast cancer and triple-negative ductal carcinoma (two patients), single tumor and normal nuclei",
+      "metric": "Coverage breadth, mutation frequency, mutation rate",
+      "baseline": "Normal cells from same patients, bulk tumor sequencing",
+      "result": "91% mean coverage breadth, 13.3× increased mutation rate in TNBC, diverse mutations at <10% frequency"
+    },
+    {
+      "doi": "10.1038/nature23001",
+      "problem": "Understanding how chromosome conformation and organization change across the cell cycle at single-cell resolution in mammalian cells.",
+      "method": "High-throughput single-cell Hi-C with Mbo I digestion, Tn5 tagmentation, and FACS sorting into 96-well plates, analyzing thousands of mouse ESCs with whole-genome 3D structural modeling.",
+      "finding": "Chromosomal compartments, TADs, insulation and loops are governed by distinct cell-cycle dynamics; DNA replication builds compartments while reducing TAD insulation; loops remain stable from G1 through S/G2.",
+      "dataset": "2,924 F1 hybrid mouse ESCs (129 × Castaneus), 1,992 passed QC",
+      "metric": "Contact frequency, trans-contact fraction, TAD insulation score, compartment strength",
+      "baseline": "Bulk Hi-C maps, sorted M-phase cell Hi-C",
+      "result": "1,992 cells analyzed, median 127,233 distinct contacts/cell, 5.87% median trans-contacts"
+    },
+    {
+      "doi": "10.1093/nar/gkz030",
+      "problem": "Systematically identifying and characterizing E. coli K-12 genes that lack experimental evidence of function to support whole-cell modeling efforts.",
+      "method": "Semi-automated workflow integrating annotations from EcoCyc, EcoGene, UniProt and RegulonDB with keyword-based categorization, consensus rules, and manual curation.",
+      "finding": "1,600 of 4,623 E. coli genes (34.6%) lack experimental evidence of function; y-ome genes have lower expression, are enriched in the chromosome termination region, and most often encode membrane proteins and transporters.",
+      "dataset": "E. coli K-12 MG1655 genome (4,623 unique genes across 4 knowledge bases)",
+      "metric": "Gene count, percentage of genome, expression levels",
+      "baseline": "Previous estimate by Hu et al.",
+      "result": "1,600/4,623 genes (34.6%) in y-ome, 111 with absolutely no evidence of function"
+    }
+  ],
+  "timestamp": "2026-03-05T14:13:29.448085",
+  "extraction_count": 10
+}

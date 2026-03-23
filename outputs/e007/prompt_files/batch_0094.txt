@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1007/10_2020_136
+Title: Digital Twins and Their Role in Model-Assisted Design of Experiments
+Year: 2020
+Abstract: Rising demands for biopharmaceuticals and the need to reduce manufacturing costs increase the pressure to develop productive and efficient bioprocesses. Among others, a major hurdle during process development and optimization studies is the huge experimental effort in conventional design of experiments (DoE) methods. As being an explorative approach, DoE requires extensive expert knowledge about the investigated factors and their boundary values and often leads to multiple rounds of time-consuming and costly experiments. The combination of DoE with a virtual representation of the bioprocess, called digital twin, in model-assisted DoE (mDoE) can be used as an alternative to decrease the number of experiments significantly. mDoE enables a knowledge-driven bioprocess development including the definition of a mathematical process model in the early development stages. In this chapter, digital twins and their role in mDoE are discussed. First, statistical DoE methods are introduced as the basis of mDoE. Second, the combination of a mathematical process model and DoE into mDoE is examined. This includes mathematical model structures and a selection scheme for the choice of DoE designs. Finally, the application of mDoE is discussed in a case study for the medium optimization in an antibody-producing Chinese hamster ovary cell culture process.
+---
+
+---
+DOI: 10.1109/tpel.2021.3052607
+Title: Comprehensive Comparison of Modular Multilevel Converter Internal Energy Balancing Methods
+Year: 2021
+Abstract: Stacking of the floating structures, known as submodules or cells, provides the modular multilevel converter with theoretically unlimited voltage scalability. However, such a convenience comes at a price of increased control complexity, especially in the domain of internal energy control. In other words, energies of the submodule clusters must be controlled to their setpoint values, otherwise, stable and high-performance operation of the converter cannot be ensured. So far, several approaches towards balancing of the modular multilevel converter internal energy, in both vertical and horizontal directions, were proposed. Nevertheless, differences among them have never been analytically supported. In this paper, three seemingly different energy balancing strategies were thoroughly explained, providing a framework for the theoretical comparison of different dynamic responses provided by them. All the results were verified on the large scale hardware-in-the-loop platform, serving as a digital twin of a grid connected 3.3kVac/5kVdc, 1.25MW converter.
+---
+
+---
+DOI: 10.1109/16.65744
+Title: VIPMOS-a novel buried injector structure for EPROM applications
+Year: 1991
+Abstract: A buried injector is proposed as a source of electrons for substrate hot electrons injection. To enhance the compatibility with VLSI processing, the buried injector is formed by the local overlap of the n-well and p-well of a retrograde twin-well CMOS process. The injector is activated by means of punchthrough. This mechanism allows the realization of a selective injector without increasing the latchup susceptibility. The p-well profile controls the punchthrough voltage. The high injection probability and efficient electron supply mechanism lead to oxide current densities up to 1.0 Å.×cm-2. Programming times of 10 ¿s have been measured on nonoptimized cells. The realization of a structure for 5-V-only digital and analog applications is viable. A model of the structure for implementation in a circuit simulator, such as SPICE, is presented
+---
+
+---
+DOI: 10.1016/j.apenergy.2023.121531
+Title: Increasing the lifetime profitability of battery energy storage systems through aging aware operation
+Year: 2023
+Abstract: Lithium-ion cells are subject to degradation due to a multitude of cell-internal aging effects, which can significantly influence the economics of battery energy storage systems (BESS). Since the rate of degradation depends on external stress factors such as the state-of-charge, charge/discharge-rate, and depth of cycle, it can be directly influenced through the operation strategy. In this contribution, we propose a model predictive control (MPC) framework for designing aging aware operation strategies. By simulating the entire BESS lifetime on a digital twin, different aging aware optimization models can be benchmarked and the optimal value for aging cost can be determined. In a case study, the application of generating profit through arbitrage trading on the EPEX SPOT intraday electricity market is investigated. For that, a linearized model for the calendar and cyclic capacity loss of a lithium iron phosphate cell is presented. The results show that using the MPC framework to determine the optimal aging cost can significantly increase the lifetime profitability of a BESS, compared to the prevalent approach of selecting aging cost based on the cost of the battery system. Furthermore, the lifetime profit from energy arbitrage can be increased by an additional 24.9% when using the linearized calendar degradation model and by 29.3% when using both the linearized calendar and cyclic degradation model, compared to an energy throughput based aging cost model. By examining price data from 2019 to 2022, the case study demonstrates that the recent increases in prices and price fluctuations on wholesale electricity markets have led to a substantial increase of the achievable lifetime profit.
+---
+
+---
+DOI: 10.1109/tii.2023.3246066
+Title: QSCC: A Quaternion Semantic Cell Convolution Graph Neural Network for MBD Product Model Classification
+Year: 2023
+Abstract: Model-based definition (MBD) 3-D engineering has gained wide popularity that enables smart manufacturing. Its tip orientation to the effective reuse of MBD-based product models for creating efficient digital twins. The deep-learning-based 3-D model classification is an important way in the most recent years, but the existing methods only concern geometric information with very little or no manufacturing information. In this article, we proposed quaternion semantic cell convolution (QSCC), the quaternion semantic cell convolution graph neural network for MBD product model classification. It is mainly composed of the quaternion product semantic cell (QPSC) and the quaternion simple graph convolution (QSGC). The QPSC is established to fully express the digital twins' semantic information, which includes the multidimensional product manufacturing information of the MBD model. The QSGC is established by embedding QPSC into the quaternion vector space, which serializes the multigranularity semantic features to learn the context semantics through the gated recurrent unit. Compared with existing methods, our approach can solve the problem of model classification with similar geometry but different functions. Specifically, our approach can solve the ambiguity problem caused by blend features such as chamfer. We give quantitative and qualitative evaluations to demonstrate the accuracy and efficiency.
+---
+
+---
+DOI: 10.1007/s00170-024-13415-z
+Title: Research and application of simulation and optimization for CNC machine tool machining process under data semantic model reconstruction
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/aim.2018.8452707
+Title: Interactive Calibration and Visual Programming of Reconfigurable Robotic Workcells
+Year: 2018
+Abstract: Small and Medium Enterprises can utilize robotic assembly solutions to improve their productivity. This is especially true if the assembly cells can be reconfigured to accommodate smaller batch sizes and flexible tasks. The Horizon 2020 project "ReconCell" aims to develop such a reconfigurable work cell. We created a Digital Twin of this reconfigurable robot cell in order to follow the Industry 4.0 approach. Users can visually model and develop different assembly processes for the digital reconfigurable robot cell, as well as execute them in simulation. To be able to transfer the simulated processes to hardware, the Digital Twin has to be consistent with the setup of the real robot cell: It needs to be thoroughly calibrated before it can be used. In this contribution, we present methods to conduct such a calibration interactively, and use the resulting consistency to conduct virtual commissioning of simulated assembly processes and transfer such processes to a physical robot cell.
+---
+
+---
+DOI: 10.1002/adma.202306205
+Title: Lowering the Temperature of Solid Oxide Electrochemical Cells Using Triple‐Doped Bismuth Oxides
+Year: 2023
+Abstract: Abstract Despite the great potential of solid oxide electrochemical cells (SOCs) as highly efficient energy conversion devices, the undesirable high operating temperature limits their wider applicability. Herein, a novel approach to developing high‐performance low‐temperature SOCs (LT‐SOCs) is presented through the use of an Er, Y, and Zr triple‐doped bismuth oxide (EYZB). This study demonstrates that EYZB exhibits &gt; 147 times higher ionic conductivity of 0.44 S cm −1 at 600 °C compared to commercial Y‐stabilized zirconia electrolyte with excellent stability over 1000 h. By rationally incorporating EYZB in composite electrodes and bilayer electrolytes, the zirconia‐based electrolyte LT‐SOC achieves the unprecedentedly high performance of 3.45 and 2.02 W cm −2 in the fuel cell mode and 2.08 and 0.95 A cm −2 in the electrolysis cell mode at 700 °C and 600 °C, respectively. Further, a distinctive microstructural feature of EYZB that largely extends triple phase boundary at the interface is revealed through digital twinning. This work provides insights for developing high‐performance LT‐SOCs.
+---
+
+---
+DOI: 10.1007/978-3-030-69373-2_9
+Title: An Aggregated Digital Twin Solution for Human-Robot Collaboration in Industry 4.0 Environments
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/etfa.2018.8502627
+Title: Design Pattern for Decomposition or Aggregation of Automation Systems into Hierarchy Levels
+Year: 2018
+Abstract: In variable automation systems the encapsulation of sub-systems is a key factor for fast reconfiguration of modern production plants. This contribution proposes a generic and recursive design pattern for decomposing or aggregating automation systems into standardized abstract units. Depending on the use case, the top-down or bottom-up methodology is favorable for classifying the identified entities in different hierarchy levels. The intuitive, cross-domain approach creates commonly understandable, abstracted digital twins of the entities in form of integrated mechatronic models. The encapsulation of the entities allows a better exchangeability on each hierarchical level and paves the way for faster commissioning in variable automation systems. The approach is evaluated by means of a production cell presented at the automatica 2018 trade fair.
+---
+
+---
+DOI: 10.1109/tte.2023.3290999
+Title: A Model Review for Controller-Hardware-in-the- Loop Simulation in EV Powertrain Application
+Year: 2023
+Abstract: This article summarizes the state-of-the-art model for controller hardware-in-the-loop simulations (CHILs) used in electric vehicle (EV) powertrains. The main task is to discuss the model of the CHILs platform in two parts: the interfaced model and the powertrain model. The interfaced model discusses the effect of the communication between the digital real-time simulator (DRTS) and the digital controller. In the powertrain model, the general modeling technologies of power sources (fuel cell and lithium battery), power electronic converters, and the electrical machine, as well as the application of field-programmable-gate-arrays (FPGAs), are thoroughly discussed. Based on the above aspects, the present CHIL cases reported in the literature of different electric powertrains are summarized and analyzed in detail. At last, this article presents the future outlook associated with model refinement, prognostics health management, and digital twin. The reader could comprehensively understand the relevant CHIL technologies in electrified transportation and future development.
+---
+
+---
+DOI: 10.1007/s12541-023-00875-8
+Title: Integrating Virtual Twin and Deep Neural Networks for Efficient and Energy-Aware Robotic Deburring in Industry 4.0
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.chroma.2024.464672
+Title: Digital twin in high throughput chromatographic process development for monoclonal antibodies
+Year: 2024
+Abstract: The monoclonal antibody (mAb) industry is becoming increasingly digitalized. Digital twins are becoming increasingly important to test or validate processes before manufacturing. High-Throughput Process Development (HTPD) has been progressively used as a tool for process development and innovation. The combination of High-Throughput Screening with fast computational methods allows to study processes in-silico in a fast and efficient manner. This paper presents a hybrid approach for HTPD where equal importance is given to experimental, computational and decision-making stages. Equilibrium adsorption isotherms of 13 protein A and 16 Cation-Exchange resins were determined with pure mAb. The influence of other components in the clarified cell culture supernatant (harvest) has been under-investigated. This work contributes with a methodology for the study of equilibrium adsorption of mAb in harvest to different protein A resins and compares the adsorption behavior with the pure sample experiments. Column chromatography was modelled using a Lumped Kinetic Model, with an overall mass transfer coefficient parameter (kov). The screening results showed that the harvest solution had virtually no influence on the adsorption behavior of mAb to the different protein A resins tested. kov was found to have a linear correlation with the sample feed concentration, which is in line with mass transfer theory. The hybrid approach for HTPD presented highlights the roles of the computational, experimental, and decision-making stages in process development, and how it can be implemented to develop a chromatographic process. The proposed white-box digital twin helps to accelerate chromatographic process development.
+---
+
+---
+DOI: 10.1109/iciaict.2019.8784852
+Title: Digital Twin: Network Provisioning of Mission Critical Communication in Cyber Physical Production Systems
+Year: 2019
+Abstract: Digital Twin (DT) is widely used in various industrial sectors to optimize the operations and maintenance of physical assets, system and manufacturing processes. This paper applies the DT concept on analyzing the effects of network on the control of a real robot where its DT runs in a complex robot cell executing agile tasks. We present the design steps applied to reach a realizable DT in the Gazebo environment. We evaluate our proposed method with real network configurations against a fully simulated scenario solving the Agile Robotics for Industrial Automation Competition (ARIAC) [1]. The evaluation results show that for low delay setups the simulation provides accurate results. For high delay setups the DT should be used for network assessment. It is also shown that 5G Ultra-Reliable Low-Latency Communication (URLLC) is required for the best productivity performance of the robot cell, while the evaluated public LTE+ network can also be used with limited overall accuracy. The DT in action can be seen on [2].
+---
+
+---
+DOI: 10.3390/rs15071914
+Title: Solar Photovoltaic Hotspot Inspection Using Unmanned Aerial Vehicle Thermal Images at a Solar Field in South India
+Year: 2023
+Abstract: The sun is an abundant source of energy, and solar energy has been at the forefront of the renewable energy sector for years. A way to convert it into electricity is by the use of solar cells. Multiple solar cells, connected to each other, create solar panels, which in their turn, are connected in a solar string, and they create solar farms. These structures are extremely efficient in electricity production, but also, cells are fragile in nature and delicate to environmental conditions, which is the reason why some of them show discrepancies and are called defective. In this research, a thermal camera mounted on a drone has been used for the first time in the solar farm operating conditions of India in order to capture images of the solar field and investigate solar panels for defective cells and create an orthomosaic image of the entire area. This procedure next year will be established on an international scale as a best practice example for commercialization, providing effortless photovoltaic monitoring and maintenance planning. For this process, an open source software WebODM has been used, and the entire field was digitized so as to identify the location of defective panels in the field. This software was the base in order to provide and analyze a digital twin of the studied area and the included photovoltaic panels. The defects on solar cells were identified with the use of thermal bands, which record and point out their temperature of them, whereas anomalies in the detected temperature in defective solar cells were captured using thermal electromagnetic waves, and these areas are mentioned as hotspots. In this research, a total number of 232.934 solar panels were identified, and 2481 defective solar panels were automatically indicated. The majority of the defects were due to manufacturing failure and normal aging, but also due to persistent shadowing and soiling from aerosols and especially dust transport, as well as from extreme weather conditions, including hail. The originality of this study relies on the application of the proposed under development technology to the specific conditions of India, including high photovoltaic panels wear rates due to extreme aerosol loads (India presents one of the highest aerosol levels worldwide) and the monsoon effects. The ability to autonomously monitor solar farms in such conditions has a strong energy and economic benefit for production management and for long-term optimization purposes.
+---
+
+---
+DOI: 10.3390/en16052307
+Title: A Comprehensive Review of Shipboard Power Systems with New Energy Sources
+Year: 2023
+Abstract: A new energy ship is being developed to address energy shortages and greenhouse gas emissions. New energy ships feature low operational costs and zero emissions. This study discusses the characteristics and development of solar-powered ships, wind-powered ships, fuel cell-powered ships, and new energy hybrid ships. Three important technologies are used for the power system of the new energy ship: new-energy spatio-temporal prediction, ship power scheduling, and Digital Twin (DT). Research shows that new energy spatio-temporal prediction reduces the uncertainty for a ship power system. Ship power scheduling technology guarantees safety and low-carbon operation for the ship. DT simulates the navigational environment for the new energy ship to characterize the boundary of the shipboard’s new energy power generation. The future technical direction for new energy ship power systems is also being discussed.
+---
+
+---
+DOI: 10.1063/5.0123677
+Title: Quantitative phase imaging of biological cells using lensless inline holographic microscopy through sparsity-assisted iterative phase retrieval algorithm
+Year: 2022
+Abstract: The twin image-free phase reconstruction is still a challenge with single-shot inline holographic systems. Existing solutions mostly are based on the inverse problem approaches or alternating projections. However, there exists a trade-off between phase retrieval and twin image elimination. Recent studies have introduced a hybrid method involving both the approaches to mitigate this trade-off. Following these works, we propose a single-shot sparsity-assisted iterative phase retrieval approach that applies a sparsity constraint in the object domain and formulates phase retrieval as a minimization problem. We demonstrate lensless digital inline holographic microscopy for imaging transparent and weakly scattering biological samples over a large field-of-view of ∼29mm2. The proposed method achieves high fidelity phase reconstruction with faster convergence compared to the existing single-shot phase retrieval methods. We further demonstrate the phase quantification of label-free biological samples, such as cervical cells and RBCs, to highlight the potential of our technique in clinical applications.
+---
+
+---
+DOI: 10.1109/infocomwkshps61880.2024.10620908
+Title: An Open, Programmable, Multi-Vendor 5G O-RAN Testbed with NVIDIA ARC and OpenAirInterface
+Year: 2024
+Abstract: The transition of fifth generation (5G) cellular systems to softwarized, programmable, and intelligent networks depends on successfully enabling public and private 5G deployments that are (i) fully software-driven and (ii) with a performance at par with that of traditional monolithic systems. This requires hardware acceleration to scale the Physical (PHY) layer performance, end-to-end integration and testing, and careful planning of the Radio Frequency (RF) environment. In this paper, we describe how the X5G testbed at Northeastern University has addressed these challenges through the first 8-node network deployment of the NVIDIA Aerial RAN CoLab (ARC), with the Aerial Software Development Kit (SDK) for the PHY layer, accelerated on Graphics Processing Unit (GPU), and through its integration with higher layers from the OpenAirInterface (OAI) open-source project through the Small Cell Forum (SCF) Functional Application Platform Interface (FAPI). We discuss software integration, the network infrastructure, and a digital twin framework for RF planning. We then profile the performance with up to 4 Commercial Off-the-Shelf (COTS) smartphones for each base station with iPerf and video streaming applications, measuring a cell rate higher than 500 Mbps in downlink and 45 Mbps in uplink.
+---
+
+---
+DOI: 10.1007/978-3-031-17108-6_17
+Title: Safety Controller Synthesis for a Mobile Manufacturing Cobot
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/bit.27822
+Title: A scalable bubble‐free membrane aerator for biosurfactant production
+Year: 2021
+Abstract: Abstract The bioeconomy is a paramount pillar in the mitigation of greenhouse gas emissions and climate change. Still, the industrialization of bioprocesses is limited by economical and technical obstacles. The synthesis of biosurfactants as advanced substitutes for crude‐oil‐based surfactants is often restrained by excessive foaming. We present the synergistic combination of simulations and experiments towards a reactor design of a submerged membrane module for the efficient bubble‐free aeration of bioreactors. A digital twin of the combined bioreactor and membrane aeration module was created and the membrane arrangement was optimized in computational fluid dynamics studies with respect to fluid mixing. The optimized design was prototyped and tested in whole‐cell biocatalysis to produce rhamnolipid biosurfactants from sugars. Without any foam formation, the new design enables a considerable higher space–time yield compared to previous studies with membrane modules. The design approach of this study is of generic nature beyond rhamnolipid production.
+---
+
+---
+DOI: 10.1364/ol.39.004549
+Title: Simple, portable, and low-cost microscope based on off-axis digital holography using two spherical waves
+Year: 2014
+Abstract: In this Letter, we present a highly compact and low-cost holographic microscope which is especially suitable for observing transparent samples with certain specific supports such as microchannels. This microscope employs only an inexpensive laser diode, a dual precision round aperture, and a digital light sensor. The total cost of the system except for the digital sensor is less than 400 US dollars, and a hand-held system can be made based on our setup. Besides the simple, cheap, and compact setup, this system can capture the off-axis interference pattern of two spherical waves and reconstruct the quantitative phase profile along with the amplitude image of the observed sample with the twin image eliminated in real time. Experimental results show that the resolution of our system is better than 2 μm, and the 3D structure of blood cells can be retrieved.
+---
+
+---
+DOI: 10.1016/j.jtbi.2022.111042
+Title: A virtual host model of Mycobacterium tuberculosis infection identifies early immune events as predictive of infection outcomes
+Year: 2022
+Abstract: Tuberculosis (TB), caused by infection with Mycobacterium tuberculosis (Mtb), is one of the world's deadliest infectious diseases and remains a significant global health burden. TB disease and pathology can present clinically across a spectrum of outcomes, ranging from total sterilization of infection to active disease. Much remains unknown about the biology that drives an individual towards various clinical outcomes as it is challenging to experimentally address specific mechanisms driving clinical outcomes. Furthermore, it is unknown whether numbers of immune cells in the blood accurately reflect ongoing events during infection within human lungs. Herein, we utilize a systems biology approach by developing a whole-host model of the immune response to Mtb across multiple physiologic and time scales. This model, called HostSim, tracks events at the cellular, granuloma, organ, and host scale and represents the first whole-host, multi-scale model of the immune response following Mtb infection. We show that this model can capture various aspects of human and non-human primate TB disease and predict that biomarkers in the blood may only faithfully represent events in the lung at early time points after infection. We posit that HostSim, as a first step toward personalized digital twins in TB research, offers a powerful computational tool that can be used in concert with experimental approaches to understand and predict events about various aspects of TB disease and therapeutics.
+---
+
+---
+DOI: 10.2312/ceig.20171204
+Title: Extending Industrial Digital Twins with Optical Object Tracking
+Year: 2017
+Abstract: In the last year, the concept of Industry 4.0 and smart factories has increasingly gained more importance. One of the central aspects of this innovation is the coupling of physical systems with a corresponding virtual representation, known as the Digital Twin. This technology enables new powerful applications, such as real-time production optimization or advanced cloud services. To ensure the real-virtual equivalence it is necessary to implement multimodal data acquisition frameworks for each production system using their sensing capabilities, as well as appropriate communication and control architectures. In this paper we extend the concept of the digital twin of a production system adding a virtual representation of its operational environment. In this way the paper describes a proof of concept using an industrial robot, where the objects inside its working volume are captured by an optical tracking system. Detected objects are added to the digital twin model of the cell along with the robot, having in this way a synchronized virtual representation of the complete system that is updated in real time. The paper describes this tracking system as well as the integration of the digital twin in a Web3D based virtual environment that can be accessed from any compatible devices such as PCs, tablets and smartphones.
+---
+
+---
+DOI: 10.1088/1748-0221/3/08/s08004
+Title: The CMS experiment at the CERN LHC
+Year: 2008
+Abstract: The Compact Muon Solenoid (CMS) detector is described. The detector operates at the Large Hadron Collider (LHC) at CERN. It was conceived to study proton-proton (and lead-lead) collisions at a centre-of-mass energy of 14 TeV (5.5 TeV nucleon-nucleon) and at luminosities up to 10(34)cm(-2)s(-1) (10(27)cm(-2)s(-1)). At the core of the CMS detector sits a high-magnetic-field and large-bore superconducting solenoid surrounding an all-silicon pixel and strip tracker, a lead-tungstate scintillating-crystals electromagnetic calorimeter, and a brass-scintillator sampling hadron calorimeter. The iron yoke of the flux-return is instrumented with four stations of muon detectors covering most of the 4 pi solid angle. Forward sampling calorimeters extend the pseudo-rapidity coverage to high values (vertical bar eta vertical bar &lt;= 5) assuring very good hermeticity. The overall dimensions of the CMS detector are a length of 21.6 m, a diameter of 14.6 m and a total weight of 12500 t.
+---
+
+---
+DOI: 10.3390/axioms10040243
+Title: Estimation Algorithm for a Hybrid PDE–ODE Model Inspired by Immunocompetent Cancer-on-Chip Experiment
+Year: 2021
+Abstract: The present work is motivated by the development of a mathematical model mimicking the mechanisms observed in lab-on-chip experiments, made to reproduce on microfluidic chips the in vivo reality. Here we consider the Cancer-on-Chip experiment where tumor cells are treated with chemotherapy drug and secrete chemical signals in the environment attracting multiple immune cell species. The in silico model here proposed goes towards the construction of a “digital twin” of the experimental immune cells in the chip environment to better understand the complex mechanisms of immunosurveillance. To this aim, we develop a tumor-immune microfluidic hybrid PDE–ODE model to describe the concentration of chemicals in the Cancer-on-Chip environment and immune cells migration. The development of a trustable simulation algorithm, able to reproduce the immunocompetent dynamics observed in the chip, requires an efficient tool for the calibration of the model parameters. In this respect, the present paper represents a first methodological work to test the feasibility and the soundness of the calibration technique here proposed, based on a multidimensional spline interpolation technique for the time-varying velocity field surfaces obtained from cell trajectories.
+---
+
+---
+DOI: 10.1115/imece2020-23760
+Title: Multitier Digital Twin Approach for Agile Supply Chain Management
+Year: 2020
+Abstract: Abstract Multitier Digital Twin approach for agile supply chain management validated in the research lab. In the long run, the solution will ultimately help to reduce resources costs in production processes and throughput time of the supply chain. The Digital Twin approach can be applied in the manufacturing company and the supply chain and makes recommendations for making changes to the physical environment to meet the requirements of various specific orders. The Multitier Digital Twin approach is validated by modelling four tiers of Small and Medium Enterprise (SME) company: business processes, operations workflow processes and work cells operations. The simulation study is performed to evaluate the achieved results. The guidelines are developed to connect and integrate business process tier models with operations workflow and work cell tiers models. The authors defend that the current research will help to create new digital solutions to increase manufacturing flexibility by moving toward the company’s strategic goals directly from the offer preparation stage. The authors have validated the Digital Twin approach for agile supply chain management in the fields of manufacturing. Nevertheless, the proposed approach is adaptable to other fields also, whereas the focal player or project owner selects the best KPIs that support the implementation of the chosen strategy. The paper includes a feasibility case study for the approval of findings, where small and medium enterprise (SMEs) from the manufacturing field business processes are connected to manufacturing processes and work cell models to achieve a common strategic goal of the company.
+---
+
+---
+DOI: 10.3390/robotics11050113
+Title: Digital Twin as Industrial Robots Manipulation Validation Tool
+Year: 2022
+Abstract: The adoption of Digital Twin (DT) solutions for industrial purposes is increasing among small- and medium-sized enterprises and is already being integrated into many large-scale companies. As there is an increasing need for faster production and shortening of the learning curve for new emerging technologies, Virtual Reality (VR) interfaces for enterprise manufacturing DTs seem to be a good solution. Furthermore, with the emergence of Industry 5.0 (I5.0) paradigm, human operators will be increasingly integrated in the systems interfaces though advanced interactions, pervasive sensors, real time tracking and data acquisition. This scenario is especially relevant in collaborative automated systems where the introduction of immersive VR interfaces based on production cell DTs might provide a solution for the integration of the human factors in the modern industrial scenarios. This study presents experimental results of the comparison between users controlling a physical industrial robot system via a traditional teach pendant and a DT leveraging a VR user interface. The study group involves forty subjects including experts in robotics and VR as well as non-experts. An analysis of the data gathered in both the real and the virtual use case scenario is provided. The collected information includes time for performing a task with an industrial robot, stress level evaluation, physical and mental effort, and the human subjects’ perceptions of the physical and simulated robots. Additionally, operator gazes were tracked in the VR environment. In this study, VR interfaces in the DT representation are exploited to gather user centered metrics and validate efficiency and safety standards for modern collaborative industrial systems in I5.0. The goal is to evaluate how the operators perceive and respond to the virtual robot and user interface while interacting with them and detect if any degradation of user experience and task efficiency exists compared to the real robot interfaces. Results demonstrate that the use of DT VR interfaces is comparable to traditional tech pendants for the given task and might be a valuable substitute of physical interfaces. Despite improving the overall task performance and considering the higher stress levels detected while using the DT VR interface, further studies are necessary to provide a clearer validation of both interfaces and user impact assessment methods.
+---
+
+---
+DOI: 10.3390/en16062806
+Title: Intelligent Digital Twin Modelling for Hybrid PV-SOFC Power Generation System
+Year: 2023
+Abstract: Hydrogen (H2) energy is an ideal non-polluting renewable energy and can achieve long-term energy storage, which can effectively regulate the intermittence and seasonal fluctuation of solar energy. Solid oxide fuel cells (SOFC) can generate electricity from H2 with only outputs of water, waste heat, and almost no pollution. To solve the power generation instability and discontinuity of solar photovoltaic (PV) systems, a hybrid PV-SOFC power generation system has become one feasible solution. The “digital twin”, which integrates physical systems and information technology, offers a new view to deal with the current problems encountered during smart energy development. In particular, an accurate and reliable system model is the basis for achieving this vision. As core components, the reliable modelling of the PV cells and fuel cells (FCs) is crucial to the whole hybrid PV-SOFC power generation system’s optimal and reliable operation, which is based on the reliable identification of unknown model parameters. Hence, in this study, an artificial rabbits optimization (ARO)-based parameter identification strategy was proposed for the accurate modelling of PV cells and SOFCs, which was then validated on the PV double diode model (DDM) and SOFC electrochemical model under various operation scenarios. The simulation results demonstrated that ARO shows a more desirable performance in optimization accuracy and stability compared to other algorithms. For instance, the root mean square error (RMSE) obtained by ARO are 1.81% and 13.11% smaller than that obtained by ABC and WOA algorithms under the DDM of a PV cell. Meanwhile, for SOFC electrochemical model parameter identification under the 5 kW cell stack dataset, the RMSE obtained by ARO was only 2.72% and 4.88% to that of PSO for the (1 atm, 1173 K) and (3 atm, 1273 K) conditions, respectively. By establishing a digital twin model for PV cells and SOFCs, intelligent operation and management of both can be further achieved.
+---
+
+---
+DOI: 10.1016/j.cej.2023.148276
+Title: Uniformly scalable and stackable porous transport layer manufactured by tape casting and calendering for efficient water electrolysis
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.cogsys.2024.101264
+Title: Digital twin application in women’s health: Cervical cancer diagnosis with CervixNet
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.3390/fermentation9100922
+Title: From Shallow to Deep Bioprocess Hybrid Modeling: Advances and Future Perspectives
+Year: 2023
+Abstract: Deep learning is emerging in many industrial sectors in hand with big data analytics to streamline production. In the biomanufacturing sector, big data infrastructure is lagging compared to other industries. A promising approach is to combine deep neural networks (DNN) with prior knowledge in hybrid neural network (HNN) workflows that are less dependent on the quality and quantity of data. This paper reviews published articles over the past 30 years on the topic of HNN applications to bioprocesses. It reveals that HNNs have been applied to various bioprocesses, including microbial cultures, animal cells cultures, mixed microbial cultures, and enzyme biocatalysis. HNNs have been applied for process analysis, process monitoring, development of software sensors, open- and closed-loop control, batch-to-batch control, model predictive control, intensified design of experiments, quality-by-design, and recently for the development of digital twins. Most previous HNN studies have combined shallow feedforward neural networks (FFNNs) with physical laws, such as macroscopic material balance equations, following the semiparametric design principle. Only recently, deep HNNs based on deep FFNNs, convolution neural networks (CNN), long short-term memory (LSTM) networks and physics-informed neural networks (PINNs) have been reported. The biopharma sector is currently a major driver but applications to biologics quality attributes, new modalities, and downstream processing are significant research gaps.
+---
+
+---
+DOI: 10.1109/tcsi.2022.3168053
+Title: A 64 Kb Reconfigurable Full-Precision Digital ReRAM-Based Compute-In-Memory for Artificial Intelligence Applications
+Year: 2022
+Abstract: This work presents a fully-digital 64 Kb non-volatile ReRAM based compute-in-memory (CIM) macro for the modern artificial intelligence (AI) edge devices, using 65 nm technology. This digital CIM architecture effectively removes the analog-design issues, related to process variations, noise susceptibility, and data-conversion overhead. Hence, it offers no accuracy loss and high energy-efficiency for the computation. To incorporate the digital computation, a novel NAND logic based 3.25T1R bitcell is proposed. The digital behaviour of this cell makes it superior to the conventional 1T1R based analog bitcell. Also, with the inherent non-volatility of ReRAM, the proposed cell can be a good substitute for SRAM-based CIM architectures with <inline-formula xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink"> <tex-math notation="LaTeX">$4.62\times $ </tex-math></inline-formula> , <inline-formula xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink"> <tex-math notation="LaTeX">$1.96\times $ </tex-math></inline-formula> , <inline-formula xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink"> <tex-math notation="LaTeX">$3.96\times $ </tex-math></inline-formula> , and <inline-formula xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink"> <tex-math notation="LaTeX">$5.12\times $ </tex-math></inline-formula> lower area than the XNOR-based 12T, Twin-8T, 8T, and 6T SRAM cell respectively. Moreover, the proposed CIM architecture allows full reconfigurabiliy from 1 to 16b precision for both input and weight. It also allows activating any number of parallel inputs, ranging from 1 to 128. According to simulation results, the proposed macro successfully operates up to 166.6 MHz for 1/8/15b input/weight/output precision and achieves 27.28 TOPS/W without any accuracy loss. Removing sense amplifiers for the ReRAM mode of the proposed work claims additional area and power savings.
+---
+
+---
+DOI: 10.1038/s41413-018-0016-9
+Title: Rheumatoid arthritis: pathological mechanisms and modern pharmacologic therapies
+Year: 2018
+Abstract: Rheumatoid arthritis (RA) is a chronic systemic autoimmune disease that primarily affects the lining of the synovial joints and is associated with progressive disability, premature death, and socioeconomic burdens. A better understanding of how the pathological mechanisms drive the deterioration of RA progress in individuals is urgently required in order to develop therapies that will effectively treat patients at each stage of the disease progress. Here we dissect the etiology and pathology at specific stages: (i) triggering, (ii) maturation, (iii) targeting, and (iv) fulminant stage, concomitant with hyperplastic synovium, cartilage damage, bone erosion, and systemic consequences. Modern pharmacologic therapies (including conventional, biological, and novel potential small molecule disease-modifying anti-rheumatic drugs) remain the mainstay of RA treatment and there has been significant progress toward achieving disease remission without joint deformity. Despite this, a significant proportion of RA patients do not effectively respond to the current therapies and thus new drugs are urgently required. This review discusses recent advances of our  understanding of RA pathogenesis, disease modifying drugs, and provides perspectives on next generation therapeutics for RA.Rheumatoid Arthritis: A preventable disease?The preclinical stages of rheumatoid arthritis (RA) represent a golden window for the development of therapies which could someday prevent the onset of clinical disease. The autoimmune processes underpinning RA usually begin many years before symptoms such as joint pain and stiffness emerge. Recent studies have identified some of the key cellular players driving these processes and begun to unpick how genetic and environmental risk factors combine to trigger them; they also suggest the existence of several distinct subtypes of RA, which require further exploration. Jiake Xu at the University of Western Australia in Perth and colleagues review current treatment strategies for RA and how such insights could ultimately lead to the earlier diagnosis of RA - as well as providing new opportunities for drug treatment and prevention through behavioral changes in high-risk individuals.
+---
+
+---
+DOI: 10.1016/j.compositesb.2024.111674
+Title: Enhanced multifunctionality in carbon fiber/carbon nanotube reinforced PEEK hybrid composites: Superior combination of mechanical properties, electrical conductivity, and EMI shielding
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/isscc.1995.535459
+Title: A 34 Mb 3.3 V serial flash EEPROM for solid-state disk applications
+Year: 2002
+Abstract: This 34 Mb 3.3 V serial flash EEPROM for solid state disk applications has on-board digitally-controlled power registers compatible to the existing serially-controlled command architecture. A bank of high-linearity current-referenced DACs with fast-slewing regulated supply buffers creates multiple internal voltage sources that are completely accessible (and measurable) by the dedicated external controller. Also, new to this design is a verify (VFY) function that operates simultaneously with programming (PGM) and eliminates the need for an iterative PGM/VFY sequence. The die is fabricated using a triple poly single metal twin well 0.55 /spl mu/m CMOS process with memory cell size of 2.1 /spl mu/m/sup 2/.
+---
+
+---
+DOI: 10.1016/j.promfg.2020.10.021
+Title: Novel Robotic Cell Architecture for Zero Defect Intelligent Deburring
+Year: 2020
+Abstract: Deburring operations are critical to automate when high quality is required, due to the unpredictable presence and variable thickness of burrs that necessitate singular optimized process planning. Industrial anthropomorphic manipulators could effectively perform high quality deburring operations, but still lack the intelligence needed to generate quality and time-optimal deburring cycles. This paper presents a novel architecture of Zero Defect intelligent deburring robotic cells. Vision systems and metrological sensors allow the identification of the burrs and the overall quality and pose of the workpiece, while a novel model-based supervisory control, based on a digital twin, automatically calculates the optimal sequence of operations and working parameters needed to achieve the desired quality, generating also the PLC and robot controllers validated code to perform each task. Finally, the prototype of the proposed Zero Defect intelligent deburring cell has been developed.
+---
+
+---
+DOI: 10.1093/bib/bbae131
+Title: Leveraging multi-omics data to empower quantitative systems pharmacology in immuno-oncology
+Year: 2024
+Abstract: Abstract Understanding the intricate interactions of cancer cells with the tumor microenvironment (TME) is a pre-requisite for the optimization of immunotherapy. Mechanistic models such as quantitative systems pharmacology (QSP) provide insights into the TME dynamics and predict the efficacy of immunotherapy in virtual patient populations/digital twins but require vast amounts of multimodal data for parameterization. Large-scale datasets characterizing the TME are available due to recent advances in bioinformatics for multi-omics data. Here, we discuss the perspectives of leveraging omics-derived bioinformatics estimates to inform QSP models and circumvent the challenges of model calibration and validation in immuno-oncology.
+---
+
+---
+DOI: 10.1007/10_2020_137
+Title: Digital Seed Train Twins and Statistical Methods
+Year: 2020
+Abstract: Model-based concepts and simulation techniques in combination with digital tools emerge as a key to explore the full potential of biopharmaceutical production processes, which contain several challenging development and process steps. One of these steps is the time- and cost-intensive cell proliferation process (also called seed train) to increase cell number from cell thawing up to production scale. Challenges like complex cell metabolism, batch-to-batch variation, variabilities in cell behavior, and influences of changes in cultivation conditions necessitate adequate digital solutions to provide information about the current and near future process state to derive correct process decisions.For this purpose digital seed train twins have proved to be efficient, which digitally display the time-dependent behavior of important process variables based on mathematical models, strategies, and adaption procedures.This chapter will outline the needs for digitalization of seed trains, the construction of a digital seed train twin, the role of parameter estimation, and different statistical methods within this context, which are applicable to several problems in the field of bioprocessing. The results of a case study are presented to illustrate a Bayesian approach for parameter estimation and prediction of an industrial cell culture seed train for seed train digitalization. This chapter outlines the needs for digitalization of cell proliferation processes (seed trains), the construction of a digital seed train twin as well as the role of parameter estimation and different statistical methods within this context, which are applicable to several problems in the field of bioprocessing. The results of a case study are presented to illustrate a Bayesian approach for parameter estimation and prediction of an industrial cell culture seed, as an example for seed train digitalization. It has been shown in which way prior knowledge and input uncertainty can be considered and be propagated to predictive uncertainty.
+---
+
+---
+DOI: 10.1016/j.tust.2023.105544
+Title: Tunnel performance prediction through degradation inspection and digital twin construction
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.measurement.2022.111106
+Title: Optical diffraction tomography meets metrology — Measurement accuracy on cellular and subcellular level
+Year: 2022
+Abstract: Three-dimensional quantitative phase imaging (3D QPI) delivers volumetric information about the refractive index distribution within microobjects. Such imaging and measurement capabilities are of great interest for technical and biomedical applications, yet there are no standardized methods for testing and reporting metrological performance. Proper metrology is crucial for further developments in QPI and for cross-referencing a range of physical properties with other laboratories and techniques. In this paper we present methodology for metrological evaluation of the 3D QPI instruments for single-cell and subcellular structures. The methodology entails suitable phantom, its digital twin, quality assessment metric and easily reproducible protocol that is attainable for both numerical and experimental analysis. We demonstrate its applicability by comparing simulated reconstructions with measurement results from 3 optical diffraction tomography systems. The results will serve as a reference point for past and future research, encourage to benchmark the new systems in a similar manner and further the efforts towards the standardization in 3D QPI metrology.
+---
+
+---
+DOI: 10.1016/s0736-5845(02)00026-1
+Title: Flexible automation and intelligent manufacturing 2001
+Year: 2002
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/batt.202200369
+Title: From Battery Manufacturing to Smart Grids: Towards a Metaverse for the Energy Sciences**
+Year: 2022
+Abstract: Abstract We present two digital‐based educative games aiming to engage students and the general public with battery sciences. The first one is a multiscale simulator in Mixed Reality of a battery‐powered Electric Vehicle (EV) interacting with an Electrical Grid. One of the players drives the EV in a Virtual Reality (VR) environment where the EV can be recharged, and the other players control the electricity produced, distributed, consumed and stored by interacting with 3D‐printed devices. The second educative game is a digital twin of a lithium ion battery manufacturing pilot line, which can be played from an Internet Browser or by using VR hardware. The key steps of the manufacturing process of cylindrical cells are represented in an interactive way. In this concept, we reviewed the working principles of our games, their implications for motivation, engagement and learning, and why they pave the way towards new ways of collaborative R&amp;D in the battery field.
+---
+
+---
+DOI: 10.1007/978-3-031-16281-7_25
+Title: Optimal Robot Workpiece Placement for Maximized Repeatability
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/ente.202200679
+Title: Model‐Based Optimization of Web Tension Control for the Flexible Cell Stack Assembly of Lithium‐Ion Battery Cells
+Year: 2022
+Abstract: The transformation toward electromobility presents a significant challenge to the battery cell production processes. It is, therefore, necessary to establish efficient and robust operations and machines to meet the forecasted demand for manufactured cell capacity. Currently, the development and ramp‐up phases of production machines, especially for cell stack assembly, are characterized by high material scrap rates and large personnel expenses. Aspects such as the web tension of electrodes or separator materials during separation and stack assembly have a significant influence on the subsequent intermediate product properties, and therefore present a key challenge. Herein, the optimal methodology for the web tension control of electrode materials is determined via a model‐based approach by the means of a digital twin. The focus is hereby set on a production machine for the flexible cell stack assembly. Appropriate control methods are implemented and validated on the real system, thus reducing material scrap rates and overall costs. The control of the web tension by means of an unwinder and material storage was found to be optimal on the basis of the model and confirmed experimentally.
+---
+
+---
+DOI: 10.1109/tits.2024.3361807
+Title: Advancing Electric Vehicle Battery Analysis With Digital Twins in Intelligent Transportation Systems
+Year: 2024
+Abstract: In Intelligent Transportation Systems (ITS), vehicle-to-grid networks offer a promising solution to support the widespread adoption of electric vehicles (EVs) by enabling bidirectional power flow between the grid and EV batteries. However, the degradation of EV batteries over time poses challenges in assessing their reliability and minimizing system downtime. Traditional methods, such as complete charge and discharge cycles, could be more practical in dynamic operating conditions. This study, which looks at how virtual and real worlds can work together in ITS, solves this issue by showing a new way to measure how battery performance drops using a digital twin (DT) and the deep deterministic policy gradient (DDPG) method. To calculate the deterioration of battery performance and state of health (SoH), the DT records the complex interactions among state-of-charge (SoC), cell voltage, and health indicators (HI). The suggested method virtually drains the DT to estimate the actual battery capacity by using HI as a temporal measurement and the DDPG technique to train the DT model. This allows for an in-depth evaluation of performance degradation and SoH. The DT also calculates fuel consumption, offering essential battery efficiency information. In addition to demonstrating the usefulness of the DT in conjunction with the DDPG algorithm for assessing EV battery performance deterioration, SoH, and fuel consumption, experimental and simulation results also highlight the method’s potential in dynamic operating environments. Concerning practical EV applications, this comprehensive method helps to guarantee the safety, dependability, and efficiency of batteries within the framework of virtual-real integration in the ITS.
+---

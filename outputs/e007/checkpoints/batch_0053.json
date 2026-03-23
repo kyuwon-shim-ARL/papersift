@@ -1,0 +1,23 @@
+{
+  "batch_index": 53,
+  "dois": [
+    "10.1371/journal.pcbi.1005966",
+    "10.1371/journal.pcbi.1008109",
+    "10.1038/s41525-020-00158-5",
+    "10.1155/2014/618404",
+    "10.3389/fphys.2018.01760",
+    "10.1186/s13059-020-02015-1",
+    "10.1371/journal.pone.0053130",
+    "10.1098/rsif.2011.0726",
+    "10.1186/s13059-016-0923-2",
+    "10.1098/rsif.2016.0218"
+  ],
+  "extractions": [
+    {
+      "type": "text",
+      "text": "I'll read the file and follow its instructions."
+    }
+  ],
+  "timestamp": "2026-03-09T02:02:46.869555",
+  "extraction_count": 1
+}

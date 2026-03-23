@@ -1,0 +1,14 @@
+{
+  "total_papers": 3070,
+  "with_fulltext": 664,
+  "coverage": {
+    "problem": 31.7,
+    "method": 29.4,
+    "finding": 28.1,
+    "dataset": 28.8,
+    "metric": 23.9,
+    "baseline": 22.8,
+    "result": 23.0
+  },
+  "timestamp": "2026-03-08T23:29:21.063166"
+}

@@ -1,0 +1,218 @@
+{
+  "experiment": "e013",
+  "description": "T4 composability + T5 temporal momentum",
+  "dataset": "/home/kyuwon/projects/papersift/results/virtual-cell/papers_with_abstracts.json",
+  "t4_composability": {
+    "top_underexplored": [
+      {
+        "entity_a": "virtual cell",
+        "entity_b": "whole-cell",
+        "freq_a": 77,
+        "freq_b": 91,
+        "observed": 0,
+        "expected": 19.79,
+        "ratio": 0.0
+      },
+      {
+        "entity_a": "agent-based",
+        "entity_b": "whole-cell",
+        "freq_a": 53,
+        "freq_b": 91,
+        "observed": 0,
+        "expected": 13.62,
+        "ratio": 0.0
+      },
+      {
+        "entity_a": "virtual",
+        "entity_b": "whole-cell",
+        "freq_a": 49,
+        "freq_b": 91,
+        "observed": 0,
+        "expected": 12.6,
+        "ratio": 0.0
+      },
+      {
+        "entity_a": "agent-based",
+        "entity_b": "virtual cell",
+        "freq_a": 53,
+        "freq_b": 77,
+        "observed": 0,
+        "expected": 11.53,
+        "ratio": 0.0
+      },
+      {
+        "entity_a": "cancer",
+        "entity_b": "whole-cell",
+        "freq_a": 38,
+        "freq_b": 91,
+        "observed": 0,
+        "expected": 9.77,
+        "ratio": 0.0
+      },
+      {
+        "entity_a": "agent-based",
+        "entity_b": "virtual",
+        "freq_a": 53,
+        "freq_b": 49,
+        "observed": 0,
+        "expected": 7.34,
+        "ratio": 0.0
+      },
+      {
+        "entity_a": "signaling",
+        "entity_b": "whole-cell",
+        "freq_a": 17,
+        "freq_b": 91,
+        "observed": 0,
+        "expected": 4.37,
+        "ratio": 0.0
+      },
+      {
+        "entity_a": "multiscale",
+        "entity_b": "whole-cell",
+        "freq_a": 16,
+        "freq_b": 91,
+        "observed": 0,
+        "expected": 4.11,
+        "ratio": 0.0
+      },
+      {
+        "entity_a": "therapeutic",
+        "entity_b": "virtual cell",
+        "freq_a": 18,
+        "freq_b": 77,
+        "observed": 0,
+        "expected": 3.92,
+        "ratio": 0.0
+      },
+      {
+        "entity_a": "differentiation",
+        "entity_b": "whole-cell",
+        "freq_a": 14,
+        "freq_b": 91,
+        "observed": 0,
+        "expected": 3.6,
+        "ratio": 0.0
+      }
+    ],
+    "top_overexplored": [
+      {
+        "entity_a": "blood",
+        "entity_b": "red",
+        "freq_a": 6,
+        "freq_b": 6,
+        "observed": 6,
+        "expected": 0.1,
+        "ratio": 59.0
+      },
+      {
+        "entity_a": "cell fate",
+        "entity_b": "gene regulatory network",
+        "freq_a": 8,
+        "freq_b": 5,
+        "observed": 4,
+        "expected": 0.11,
+        "ratio": 35.4
+      },
+      {
+        "entity_a": "neuron",
+        "entity_b": "neuronal",
+        "freq_a": 6,
+        "freq_b": 5,
+        "observed": 3,
+        "expected": 0.08,
+        "ratio": 35.4
+      },
+      {
+        "entity_a": "culture",
+        "entity_b": "mammalian",
+        "freq_a": 5,
+        "freq_b": 7,
+        "observed": 3,
+        "expected": 0.1,
+        "ratio": 30.3429
+      },
+      {
+        "entity_a": "rule-based",
+        "entity_b": "spatial",
+        "freq_a": 5,
+        "freq_b": 5,
+        "observed": 2,
+        "expected": 0.07,
+        "ratio": 28.32
+      }
+    ],
+    "total_pairs": 1113,
+    "freq_entity_count": 75
+  },
+  "t5_temporal": {
+    "total_tests": 75,
+    "significant_count": 0,
+    "significant": [],
+    "top_rising": [
+      {
+        "entity": "dynamics",
+        "slope": 0.021319,
+        "p_value": 0.010928673874739121,
+        "freq": 56
+      },
+      {
+        "entity": "signaling",
+        "slope": 0.011884,
+        "p_value": 0.02722634429141367,
+        "freq": 17
+      },
+      {
+        "entity": "transcription",
+        "slope": 0.01101,
+        "p_value": 0.04222704123842339,
+        "freq": 7
+      },
+      {
+        "entity": "therapeutic",
+        "slope": 0.0213,
+        "p_value": 0.047924046905966494,
+        "freq": 18
+      },
+      {
+        "entity": "optimization",
+        "slope": 0.010891,
+        "p_value": 0.05645011007967757,
+        "freq": 12
+      }
+    ],
+    "top_declining": [
+      {
+        "entity": "simulation",
+        "slope": -0.030243,
+        "p_value": 0.000914117445491446,
+        "freq": 62
+      },
+      {
+        "entity": "bioinformatics",
+        "slope": -0.005028,
+        "p_value": 0.0033117885282916873,
+        "freq": 6
+      },
+      {
+        "entity": "eukaryotic",
+        "slope": -0.005016,
+        "p_value": 0.006933690840029346,
+        "freq": 6
+      },
+      {
+        "entity": "rule-based",
+        "slope": -0.006684,
+        "p_value": 0.02604682520497953,
+        "freq": 5
+      },
+      {
+        "entity": "effects",
+        "slope": -0.005778,
+        "p_value": 0.030688453281142287,
+        "freq": 6
+      }
+    ],
+    "verdict": "FAIL — only 0 significant (need >= 3)"
+  }
+}

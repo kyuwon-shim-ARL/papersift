@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.4049/jimmunol.210.supp.221.22
+Title: A multiscale mechanistic model of human dendritic cells for in-silico investigation of immune responses and novel therapeutics discovery
+Year: 2023
+Abstract: Abstract Given the critical role of dendritic cells (DCs) in shaping immunity, they present an attractive avenue as a therapeutic target to program the immune system and reverse immune disease disorders. DC-mediated immune response grows into a complex continuum of molecular and cellular networks where each scale decides to be later translated into a seamless phenotype. Computational models open novel frontiers in research by integrating large-scale interaction to interrogate the influence of complex biological behavior across scales. The ability of modeling to digest large amounts of biological networks will likely pave the way to understanding any complex system in more approachable ways. We developed a logical and predictive model of DC function that integrates the heterogeneity of DCs population, APC function, and cell-cell interaction, spanning molecular to population levels. We provided three sample use cases to apply the model in the context of studying cell dynamics and disease environments. First, we characterized the DC molecular response to Sars-Cov-2 and influenza by comparing single to co-infection conditions. The second example presents simulations to predict the crosstalk between DCs and T cells in a cancer microenvironment. Finally, for the third example, we used the Kyoto Encyclopedia of Genes and Genomes enrichment analysis against the model’s components to identify 45 diseases and 24 molecular pathways that the DC model can address. This study presents a resource to decode the complex dynamics underlying DC-derived APC communication and provides a platform for researchers to perform in-silico experiments on human DC for vaccine design, drug discovery, and immunotherapies. The work was supported by an NIH grant R35GM119770 to Tomáš Helikar
+---
+
+---
+DOI: 10.1182/blood-2023-181861
+Title: Mechanisms of Red Blood Cell Splenic Filtration Revealed By Multiscale Modeling and in-Vitro Microfluidic Experiments
+Year: 2023
+Abstract: Interendothelial slits in the spleen fulfill the major physiological function of continuously filtering red blood cells (RBCs) from the bloodstream to remove abnormal and aged cells. To date, the process of passage of 8 µm RBCs through 0.3-µm wide slits remains enigmatic. Should the slits increase their caliber during RBC passage as sometimes proposed in the literature? Here, we elucidated the mechanisms that govern the passage dynamics or retention of RBCs in slits by combining multiscale modeling, live imaging, and microfluidic experiments on an original device with slits of defined physiological dimensions, including submicron width. We observed that healthy RBCs pass through 0.28-µm wide rigid slits at body temperature. To achieve this tour de force, they must meet two requirements. Geometrically, their surface area-to-volume ratio must be compatible with a shape in two tether-connected equal spheres. Mechanically, they must be able to locally unfold their spectrin cytoskeleton inside the slits. In contrast, activation of the mechanosensitive PIEZO1 channel is not required. The RBC transit time through slits scales with in-slit pressure drop and slit width to the -1 and -3 power, respectively. This transit dynamics is similar to that of a Newtonian fluid in a 2D Poiseuille flow, thus showing that it is controlled by the RBC cytoplasmic viscosity. Altogether, our results clearly show that filtration through submicron-wide slits is possible without further slit opening. Furthermore, our approach addresses the critical need for in-vitro evaluation of splenic clearance of diseased or engineered RBCs for transfusion and drug delivery.
+---
+
+---
+DOI: 10.1016/j.trpro.2023.11.647
+Title: Accelerated multiscale and multiphysics modelling tools for battery cell manufacturing improvement
+Year: 2023
+Abstract: 1731
+---
+
+---
+DOI: 10.1080/19648189.2024.2423878
+Title: Experimental study on multiscale strain localisation based on soil cell element model
+Year: 2024
+Abstract: Abstract The granular and natural characteristics of soil introduce size effects to its deformation and strength properties. Therefore, investigating the phenomenon of strain localisation in soil requires a multi-scale characterisation. This study examined the intrinsic scale patterns in samples with different sizes of reinforcing particles through triaxial compression tests. Additionally, the formation mechanism of microscopic shear bands was investigated using numerical simulation methods. Drawing from the soil cell model theory, the average strain energy release coefficient was introduced to validate the transformation of the overall strain energy of the specimen after reaching the peak stress. This reflects the progressive initiation and competitive process of multiple bands. The results indicate that samples with different sizes and types of reinforcing particles exhibit various failure patterns, including single-type, ‘x’-shaped, ‘v’-shaped, parallel and others. The soil exhibits size effects, with the ratio of intrinsic scale to particle size decreasing as the size of reinforcing particles increases. Prior to the stress peak, non-elastic dissipation energy begins to increase, indicating the initiation of plastic deformation in the soil. Localised strain zones are activated, and after the peak, there is a sharp increase in stress within the shear bands, accompanied by rebound outside the band.
+---
+
+---
+DOI: 10.1302/1358-992x.2025.9.036
+Title: MULTISCALE MODELLING OF THE KNEE ARTICULAR CARTILAGE TO STUDY CELL-TISSUE COMMUNICATION DYNAMICS
+Year: 2025
+Abstract: Osteoarthritis is a degenerative joint condition driven by complex biological and mechanical interactions in chondrocytes and articular cartilage (AC). Assessing these factors simultaneously in experimental set-ups is challenging, making computational models valuable. Regulatory network-based models (RNM) describe chondrocyte regulation, while finite-element models (FEM) quantify tissue mechanics. However, chondrocyte-AC model integration is not fully tackled. Hence, a multi-scale model is proposed to simulate single-cell regulation coupled with the transport of diluted species in AC, validated with in vitro models. A 2D FEM represented an AC plug with chondrocytes randomly placed by local density. A chondrocyte RNM translated into 21 reaction terms formed a reaction-diffusion model. FEM nodes with RNM terms (R i ) were restricted to chondrocyte surfaces (C i surface ), in a pericellular matrix (PCM) with reduced diffusion (Figure 1). Diffusion was zero in bone, and synovium concentrations were null. The model, initialized as fixed, healthy, or pro-inflammatory RNM-based phenotypes, evolved until steady AC concentrations were predicted. Each chondrocyte RNM (X i ) was then regulated for a month by local FEM concentrations. An in vitro cartilage degradation model used 5 mm full-depth knee AC plugs from three young calves with two replicates per animal. Explants were exposed to 10 ng/mL Interleukin-1b for two weeks, and key OA gene expression was compared to controls. Results &amp; Discussion. Diffusion streamlines revealed chondrocyte communication, with varying gradients among cell clusters. Initial chondrocyte phenotypes persisted, according to literature findings illustrating the difficulty to regenerate the AC in OA states. Translation of RNM chondrocyte profiles into quantitative tissue concentrations enabled intercellular communication through the reaction-diffusion restricted model. Moreover, predicted pro-inflammatory chondrocyte activity matched the experimental model tendency after 2 weeks, supporting the validity of the computational multi-scale integration of models. Discrepancies between experimental and computational models were found for MMP3, IL-6 and ITGA5, being qualitative only for MMP3 and ITGA5, probably because of initial extraction injury of the plug. Next steps include the incorporation of mechanical stimulation, both in the experimental and computational models, which is ongoing work, as well as the incorporation of patient data such as synovial liquid concentrations.
+---
+
+---
+DOI: 10.1016/j.bpj.2026.01.004
+Title: Multiscale mechanobiochemical modeling of cell-substrate adhesion dynamics
+Year: 2026
+Abstract: Cell adhesion is a fundamental biological process that governs cell proliferation, differentiation, migration, and tissue development. Cells adhere to the extracellular matrix through specialized transmembrane proteins, whose structures and functions are well characterized. However, it remains unclear how mechanical, chemical, and biological factors interact to regulate these proteins and hence to shape cross-scale adhesion dynamics from molecular clustering to cellular migration. Here, we propose a multiscale mechanobiochemical coupling framework to investigate the dynamics of cell-substrate adhesions, integrating key molecular steps in the integrin life cycle, from activation and clustering to signal transduction and internalization. Our model elucidates the roles of caveolin-mediated trafficking and actin-generated traction in modulating integrin dynamics and focal adhesion (FA) morphology. It identifies an antagonistic interplay between integrin internalization and clustering that governs cross-scale adhesion dynamics. Furthermore, our model quantitatively demonstrates how the substrate stiffness regulates the integrin clustering size and internalization rate. These findings provide mechanistic insights into the adhesion-associated regulation of cell migration, particularly the experimentally observed transition between durotaxis and negative durotaxis, driven by intracellular and extracellular microenvironmental factors. Our model therefore offers an effective framework for understanding the cross-scale regulation of cell adhesion involved in physiological and pathological activities, such as stem cell differentiation and cancer metastasis.
+---
+
+---
+DOI: 10.1016/s0167-7799(01)01740-1
+Title: The Virtual Cell: a software environment for computational cell biology
+Year: 2001
+Abstract: The newly emerging field of computational cell biology requires software tools that address the needs of a broad community of scientists. Cell biological processes are controlled by an interacting set of biochemical and electrophysiological events that are distributed within complex cellular structures. Computational modeling is familiar to researchers in fields such as molecular structure, neurobiology and metabolic pathway engineering, and is rapidly emerging in the area of gene expression. Although some of these established modeling approaches can be adapted to address problems of interest to cell biologists, relatively few software development efforts have been directed at the field as a whole. The Virtual Cell is a computational environment designed for cell biologists as well as for mathematical biologists and bioengineers. It serves to aid the construction of cell biological models and the generation of simulations from them. The system enables the formulation of both compartmental and spatial models, the latter with either idealized or experimentally derived geometries of one, two or three dimensions.
+---
+
+---
+DOI: 10.1016/j.tcb.2003.09.002
+Title: Quantitative cell biology with the Virtual Cell☆
+Year: 2003
+Abstract: Cell biological processes are controlled by an interacting set of biochemical and electrophysiological events that are distributed within complex cellular structures. Computational models, comprising quantitative data on the interacting molecular participants in these events, provide a means for applying the scientific method to these complex systems. The Virtual Cell is a computational environment designed for cell biologists, to facilitate the construction of models and the generation of predictive simulations from them. This review summarizes how a Virtual Cell model is assembled and describes the physical principles underlying the calculations that are performed. Applications to problems in nucleocytoplasmic transport and intracellular calcium dynamics will illustrate the power of this paradigm for elucidating cell biology.
+---
+
+---
+DOI: 10.1049/iet-syb:20080102
+Title: Virtual Cell modelling and simulation software environment
+Year: 2008
+Abstract: The Virtual Cell (VCell; http://vcell.org/) is a problem solving environment, built on a central database, for analysis, modelling and simulation of cell biological processes. VCell integrates a growing range of molecular mechanisms, including reaction kinetics, diffusion, flow, membrane transport, lateral membrane diffusion and electrophysiology, and can associate these with geometries derived from experimental microscope images. It has been developed and deployed as a web-based, distributed, client-server system, with more than a thousand world-wide users. VCell provides a separation of layers (core technologies and abstractions) representing biological models, physical mechanisms, geometry, mathematical models and numerical methods. This separation clarifies the impact of modelling decisions, assumptions and approximations. The result is a physically consistent, mathematically rigorous, spatial modelling and simulation framework. Users create biological models and VCell will automatically (i) generate the appropriate mathematical encoding for running a simulation and (ii) generate and compile the appropriate computer code. Both deterministic and stochastic algorithms are supported for describing and running non-spatial simulations; a full partial differential equation solver using the finite volume numerical algorithm is available for reaction-diffusion-advection simulations in complex cell geometries including 3D geometries derived from microscope images. Using the VCell database, models and model components can be reused and updated, as well as privately shared among collaborating groups, or published. Exchange of models with other tools is possible via import/export of SBML, CellML and MatLab formats. Furthermore, curation of models is facilitated by external database binding mechanisms for unique identification of components and by standardised annotations compliant with the MIRIAM standard. VCell is now open source, with its native model encoding language (VCML) being a public specification, which stands as the basis for a new generation of more customised, experiment-centric modelling tools using a new plug-in based platform.
+---
+
+---
+DOI: 10.1109/jsac.2014.2328392
+Title: Virtual Cell Beamforming in Cooperative Networks
+Year: 2014
+Abstract: We study the coordinated transmission problem in cooperative cellular networks where a cluster of base stations forms a virtual cell to serve a mobile station (MS). The performance of such an MS-centric virtual cell network is dictated by the beamformer that enables to suppress interference; however, designing a beamformer is highly challenging due to the coupled nature of interference and desired signals under arbitrarily formed virtual cells. We develop a new formulation of the beamforming problem for sum-rate maximization in virtual cell networks and analyze the structure of its optimal solutions. Based on this analysis, we develop a beamforming algorithm that can balance between desired signal maximization and interference minimization, so as to maximize the sum-rate. We show through extensive simulations that our balanced beamforming algorithm mitigates edge user effect and outperforms existing algorithms in various scenarios where virtual cells are allowed to overlap.
+---
+
+---
+DOI: 10.1142/9789814447300_0023
+Title: The Virtual Cell
+Year: 1998
+Abstract: This paper describes a computational framework for cell biological modeling and simulation that is based on the mapping of experimental biochemical and electrophysiological data onto experimental images. The framework is designed to enable the construction of complex general models that encompass the general class of problems coupling reaction and diffusion.
+---
+
+---
+DOI: 10.1016/0360-8352(95)00075-c
+Title: Physically reconfigurable virtual cells: A dynamic model for a highly dynamic environment
+Year: 1995
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/wsbm.165
+Title: Virtual Cell: computational tools for modeling in cell biology
+Year: 2011
+Abstract: Abstract The Virtual Cell (VCell) is a general computational framework for modeling physicochemical and electrophysiological processes in living cells. Developed by the National Resource for Cell Analysis and Modeling at the University of Connecticut Health Center, it provides automated tools for simulating a wide range of cellular phenomena in space and time, both deterministically and stochastically. These computational tools allow one to couple electrophysiology and reaction kinetics with transport mechanisms, such as diffusion and directed transport, and map them onto spatial domains of various shapes, including irregular three‐dimensional geometries derived from experimental images. In this article, we review new robust computational tools recently deployed in VCell for treating spatially resolved models. WIREs Syst Biol Med 2012, 4:129–140. doi: 10.1002/wsbm.165 This article is categorized under: Models of Systems Properties and Processes &gt; Cellular Models Analytical and Computational Methods &gt; Computational Methods Models of Systems Properties and Processes &gt; Mechanistic Models
+---
+
+---
+DOI: 10.1109/twc.2015.2497678
+Title: Downlink Rate Analysis for Virtual-Cell Based Large-Scale Distributed Antenna Systems
+Year: 2015
+Abstract: Despite substantial rate gains achieved by joint transmission from a massive amount of geographically distributed antennas, the resulting computational cost and channel measurement overhead could be unaffordable for a large-scale distributed antenna system (DAS). A scalable signal processing framework is therefore highly desirable, which could be established based on the concept of virtual cell. In a virtual-cell based DAS, each user chooses a few neighboring base-station (BS) antennas to form its virtual cell, i.e, its own serving BS antenna set. In this paper, we focus on a downlink DAS with a large number of users and BS antennas uniformly distributed in a certain area, and aim to study the effect of the virtual cell size on the average user rate. Specifically, by assuming that maximum ratio transmission (MRT) is adopted in each user's virtual cell, the achievable ergodic rate of each user is derived as an explicit function of the large-scale fading coefficients from all the users to their virtual cells, and an upper-bound of the average user rate is established, based on which a rule of thumb is developed for determining the optimal virtual cell size to maximize the average user rate. The analysis is further extended to consider multiple users grouped together and jointly served by their virtual cells using zero-forcing beamforming (ZFBF). In contrast to the no-grouping case where a small virtual cell size is preferred, it is shown that by grouping users with overlapped virtual cells, the average user rate can be significantly improved by increasing the virtual cell size, though at the cost of a higher signal processing complexity.
+---
+
+---
+DOI: 10.1080/0020754031000087193
+Title: Virtual cell formation
+Year: 2003
+Abstract: The concept of a virtual cellular manufacturing system (VCMS), which operates very much like a traditional cellular manufacturing system (CMS), has attracted considerable attention in recent years. Unlike traditional cellular manufacturing systems, virtual cellular manufacturing systems are most suitable in production environments that experience frequent product mix changes. Whereas, in traditional CMS, the shop floor configuration is fixed, in VCMS the shop floor configuration changes in response to changes in product mix over time. Therefore, the life of a given shop floor configuration continues as long as the product mix remains relatively unchanged. Furthermore, whereas in traditional cellular manufacturing systems, a machine cell occupies a contiguous region of the shop floor, the same is not necessarily true with virtual cells. Virtual manufacturing cells are simply logical cells in which the machines belonging to the same cell need not occupy the same contiguous area. Because cell members are logical instead of physical, machines in a cell can be at any location on the floor. In this paper, we present a methodology for designing virtual manufacturing cells.
+---
+
+---
+DOI: 10.1093/bib/bbp010
+Title: The virtual cell--a candidate co-ordinator for 'middle-out' modelling of biological systems
+Year: 2009
+Abstract: Understanding the functioning of biological systems depends on tackling complexity spanning spatial scales from genome to organ to whole organism. The basic unit of life, the cell, acts to co-ordinate information received across these scales and processes the myriad of signals to produce an integrated cellular response. Cells interact with and respond to other cells through direct or indirect contact, resulting in emergent structure and function of tissues and organs. Systems biology has traditionally used either a 'top-down' or 'bottom-up' approach. However, neither approach takes account of heterogeneity or 'noise', which is an inherent feature of cellular behaviour and may have significant impact on system level behaviour. We review existing approaches to modelling that use cellular automata or agent-based methodologies, where individual cells are represented as equivalent virtual entities governed by simple rules. These paradigms allow a direct one-to-one mapping between real and virtual cells that can be exploited in terms of acquiring parameters from experimental systems, or for model validation. Such models are inherently extensible and can be integrated with other modelling modalities (e.g. partial or ordinary differential equations) to model multi-scale phenomena. Alternatively, hierarchical agent models may be used to explore the functions of biological systems across temporal and spatial scales. This review examines individual-based models and the application of the paradigm to explore multi-scale phenomena in biology. In so doing, it demonstrates how cellular-based models have begun to play an important role in the development of 'middle-out' models, but with considerable potential for future development.
+---
+
+---
+DOI: 10.1002/jcp.1041360316
+Title: Mitochondrial DNA molecules and virtual number of mitochondria per cell in mammalian cells
+Year: 1988
+Abstract: Abstract A new biochemical method for estimating the virtual number of mitochondria (mt) per cell was developed and used together with a plasmid probe to measure mt DNA/mitochondrion and mt DNA/cell. These methods were used in five cell types from four mammalian species. Mt DNA/mitochondrion was essentially constant in all cell types (mean 2.6 ± 0.30 SE mitochondrial DNA molecules/mt). Mt DNA molecules/cell encompassed an eight‐fold range between various cell types (low 220 ± 6.2; high 1,720 ± 162 mt DNA molecules/cell). Virtual mt number/cell ranged from 83 ± 17 to 677 ± 80 (SE) mt/cell in various cell types. All five mammalian virtual mitochondria contained the same genomic mass. The number of virtual mitochondria per cell and amount of mt DNA per cell appear to be closely regulated within a given cell type but differ widely from cell type to cell type.
+---
+
+---
+DOI: 10.1108/01443579610113979
+Title: Cellular manufacturing using virtual cells
+Year: 1996
+Abstract: Proposes a virtual cellular manufacturing approach to implementing cellular manufacturing systems that combines the set‐up efficiency typically obtained by traditional cellular manufacturing or group technology systems with the flexibility of a job shop. Unlike traditional cellular systems in which the shop is physically designed as a series of cells, cells are formed within a shop utilizing a process layout using scheduling mechanisms. The result is the formation of cells that are temporary and logical (virtual) in nature, allowing them to be more responsive to changes in demand patterns. Simulation runs comparing this approach to production using traditional cellular and job shop approaches indicate that this new approach yields significantly better shop performance over a range of operating conditions.
+---
+
+---
+DOI: 10.1111/j.1749-6632.2002.tb04535.x
+Title: The <i>Virtual Cell</i>
+Year: 2002
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/mcomstd.2018.1700060
+Title: Virtual Cells for 5G V2X Communications
+Year: 2018
+Abstract: The virtual cell (VC) is an emergent concept in cellular networks that shifts the base-station-centric point of view to a user-centric one. Instead of a single base station, VCs consist of a number of transmission points with an association pattern that is created for, and moves with, every user in the network. A particularly challenging application of VCs is that of V2X communications, where V2X messages are broadcast to groups of vehicles. In this scenario, a VC is not created for a single device but for hotspots that move over time. In this article, we present a realization of the VC concept for V2X broadcast groups. The proposed solution consists of three optimization stages, which are admission control, transmission weight selection, and power control.
+---
+
+---
+DOI: 10.1109/twc.2014.033114.130557
+Title: An Uplink Capacity Analysis of the Distributed Antenna System (DAS): From Cellular DAS to DAS with Virtual Cells
+Year: 2014
+Abstract: Performance of cellular networks is severely limited by intense inter-cell interference due to aggressive frequency reuse among cells. How to characterize the dependency of inter-cell interference on positions of BS antennas and users is a key question for the capacity analysis of cellular systems, which unfortunately remains elusive. In this paper, a comparative study on the uplink ergodic sum capacity of cellular systems is presented, where L <sub xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">c</sub> BS antennas are either co-located at the cell center or uniformly distributed within each cell. With a large number of users, the inter-cell interference density is shown to be inversely proportional to L <sub xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">c</sub> if the co-located antenna (CA) layout is adopted. With the distributed antenna (DA) layout, it scales in the order of L <sub xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">c</sub> <sup xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">-α/2</sup> , where α is the path-loss factor, and is much lower than that in the CA case when L <sub xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">c</sub> is large. Substantial gains on the uplink sum capacity are achieved by the DA layout thanks to the reduction of inter-cell interference level. The analysis also reveals that the inter-cell interference density of each BS antenna is sensitive to its position. With the DA layout, BS antennas at cell boundary areas suffer from much higher inter-cell interference than those at the cell center, which may exacerbate the performance disparity of users in cellular systems. To tackle the cell-edge problem, a distributed antenna system (DAS) is further considered, where L BS antennas are distributed over a wide area, and each user chooses V ≪ L surrounding BS antennas as its virtual cell, i.e., its own serving BS antenna set. A uniform inter-cell interference density is shown to be achieved thanks to the adaptive formation of virtual cells. More importantly, by the use of virtual cell, the number of users served by each BS antenna decreases with an increasing L, implying that much of the signal processing and information exchange can be performed in a local and distributed way. The uplink ergodic sum capacity and the ergodic rate with orthogonal access of DASs with V=1 are further derived, and shown to be close to each other even with a large L. It is in sharp contrast to cellular systems where a significant tradeoff between performance and complexity has to be made when the number of BS antennas is large.
+---
+
+---
+DOI: 10.1063/1.1350404
+Title: Analysis of nonlinear dynamics on arbitrary geometries with the Virtual Cell
+Year: 2001
+Abstract: The Virtual Cell is a modeling tool that allows biologists and theorists alike to specify and simulate cell-biophysical models on arbitrarily complex geometries. The framework combines an intuitive, front-end graphical user interface that runs in a web browser, sophisticated server-side numerical algorithms, a database for storage of models and simulation results, and flexible visualization capabilities. In this paper, we present an overview of the capabilities of the Virtual Cell, and, for the first time, the detailed mathematical formulation used as the basis for spatial computations. We also present summaries of two rather typical modeling projects, in order to illustrate the principal capabilities of the Virtual Cell.
+---
+
+---
+DOI: 10.1016/s0076-6879(00)21184-1
+Title: Physiological modeling with virtual cell framework
+Year: 2000
+Abstract: This article describes a computational framework for cell biological modeling and simulation that is based on the mapping of experimental biochemical and electrophysiological data onto experimental images. The framework is designed to enable the construction of complex general models that encompass the general class of problems coupling reaction and diffusion.
+---
+
+---
+DOI: 10.1007/978-3-540-25974-9_16
+Title: VICE: A VIrtual CEll
+Year: 2005
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/tvt.2017.2776240
+Title: Virtual Cell Based Resource Allocation for Efficient Frequency Utilization in Unmanned Aircraft Systems
+Year: 2017
+Abstract: Recently, unmanned aircraft systems (UASs) have attracted attention as a new avenue for commercial services. Using the flexible mobility of unmanned aircrafts (UAs), commercial services can be operated in wide areas. However, there is a problem in the wireless communication between the UA and its ground station. When several UASs are operated within the neighboring airspace, wireless-communication conflicts occur. One of the most effective solutions for this issue is to decide the communication schedule using a time-division multiple access (TDMA) scheme. Furthermore, by spatially reusing the time slot, numerous UAs can be operated within the neighboring airspace, in a limited frequency band. In this paper, we propose an efficient time-slot allocation for enhancing the frequency resource utilization. Our proposed scheme determines the time-slot allocation considering the time-slot spatial reuse, using a virtual cell based space partitioning method. In addition, we consider the influence of the UA mobility on the network to decide the parameters for the proposed resource allocation system. The effectiveness of our proposed resource allocation is evaluated through computer-based simulation.
+---
+
+---
+DOI: 10.1109/spawc.2014.6941550
+Title: User-centric virtual cell design for Cloud Radio Access Networks
+Year: 2014
+Abstract: The revolutionary Cloud Radio Access Network (C-RAN) enables real-time physical-layer coordination over a large number of distributed remote radio heads (RRHs). Connected via high-bandwidth low-latency optics, RRHs can cooperate dynamically and seamlessly according to user locations or traffic loads. Without limitations on the RRH cooperation, the traditional cellular structure that associates mobile users with cells centered around base stations (or RRHs in C-RAN) needs to be revamped. This paper proposes a novel concept, namely, user-centric virtual cell, to associate each mobile user with a set of cooperative RRHs. In particular, a virtual cell is configured with a mobile user at the cell center and its serving RRHs located in a circular area around the user.With this concept, we are interested in the optimal radius of virtual cells that maximizes the system downlink capacity. In contrast to previous works, the active RRHs in CRAN not only cluster around mobile users, but also have correlated transmit powers due to efficient power allocation. We first characterize the distribution of the interference based on the mean and variance. We then apply the results to obtain the optimal cell radius and discuss its dependence on various system parameters such as user separation distance, RRH density, etc. Our work here provides an important guideline to the cell plan of C-RAN in future 5G wireless networks.
+---
+
+---
+DOI: 10.1109/tap.2014.2310220
+Title: QuaDRiGa: A 3-D Multi-Cell Channel Model With Time Evolution for Enabling Virtual Field Trials
+Year: 2014
+Abstract: S.3242-3256
+---
+
+---
+DOI: 10.1016/s1937-6448(10)83001-1
+Title: Use of Virtual Cell in Studies of Cellular Dynamics
+Year: 2010
+Abstract: The Virtual Cell (VCell) is a unique computational environment for modeling and simulation of cell biology. It has been specifically designed to be a tool for a wide range of scientists, from experimental cell biologists to theoretical biophysicists. The models created with VCell can range from the simple, to evaluate hypotheses or to interpret experimental data, to complex multilayered models used to probe the predicted behavior of spatially resolved, highly nonlinear systems. In this chapter, we discuss modeling capabilities of VCell and demonstrate representative examples of the models published by the VCell users.
+---
+
+---
+DOI: 10.1080/09537280210130478
+Title: An integrated framework for reconfiguration of cellular manufacturing systems using virtual cells
+Year: 2002
+Abstract: Abstract Reconfiguration of manufacturing systems is discussed and an integrated framework which is mainly based on multiple objective simulation optimization is proposed for reconfiguration of manufacturing cells. The possibility of using virtual (logical) cells as a reconfiguration strategy in order to achieve performance targets of manufacturing cells facing changing production requirements is investigated. Creation of virtual cells is decided based on the overall performance of the system that is determined by the proposed integrated framework. In the framework generic capability units which are known as Resource Elements (RE) are used to define processing capabilities of virtual cells and processing requirements Keywords: Virtual CellsResource ElementsTabu Search
+---
+
+---
+DOI: 10.1016/b978-0-12-372550-9.00011-0
+Title: The Virtual Cell Project
+Year: 2010
+Abstract: The Virtual Cell is a modular computational framework that permits construction of models, application of numerical solvers to perform simulations, and analysis of simulation results. A key feature of the Virtual Cell is that it permits the incorporation of realistic experimental geometries within full 3D spatial models. An intuitive JAVA interface allows access via a web browser and includes options for database access, geometry definition (including directly from microscope images), specification of compartment topology, species definition and assignment, chemical reaction input and computational mesh. The system is designed for cell biologists to aid both the interpretation and the planning of experiments. It also contains sophisticated modelling tools that are appropriate for the needs of mathematical biologists. Thus, communication between these traditionally separate scientific communities can be facilitated. This paper will describe the status of the project and will survey several applications to cell biological problems.
+---
+
+---
+DOI: 10.1109/wamicon.2017.7930254
+Title: Base station prediction and proactive mobility management in virtual cells using recurrent neural networks
+Year: 2017
+Abstract: Multicell cooperation in 5G next-generation wireless networks is essential to increasing multiuser channel capacity. Multiple base stations need to coherently process their transmitted (or received) data streams to mitigate inter-cell interference and achieve significant diversity gains. This is only possible if the correct base stations are selected. As users demand higher data rates at higher mobility, the time required to predict the optimal set of base stations to create a virtual cell is significantly reduced. In this paper, a method based on a Recurrent Neural Network (RNN) is presented to rapidly predict the next base station that a mobile node will associate with. RNNs have been used in machine learning to identify sequential data patterns such as required in protein sequence classification. In this research a RNN, trained using sequences of Received Signal Strength (RSS) values, is used to predict base station association. Simulation results demonstrate that the proposed machine learning method achieves an accuracy of over 98% to predict the optimal virtual cell topology in the time required based on the mobility of users.
+---
+
+---
+DOI: 10.1023/a:1008117329327
+Title: Evaluating Virtual Cells and Multistage Flow Shops: An Analytical Approach
+Year: 1999
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.asoc.2010.12.018
+Title: Solving a dynamic virtual cell formation problem by linear programming embedded particle swarm optimization algorithm
+Year: 2010
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.cell.2012.07.001
+Title: The Dawn of Virtual Cell Biology
+Year: 2012
+Abstract: To fulfill systems biology's promise of providing fundamental new insights will require the development of quantitative and predictive models of whole cells. In this issue, Karr et al. present the first integrated and dynamic computational model of a bacterium that accounts for all of its components and their interactions.
+---
+
+---
+DOI: 10.1080/0951192x.2013.874596
+Title: Revised multi-choice goal programming for integrated supply chain design and dynamic virtual cell formation with fuzzy parameters
+Year: 2014
+Abstract: Cell formation, as one of the most important decision problems in designing a cellular manufacturing system, includes grouping machines in cells and the parts as part families. In a dynamic environment, the part demand/mix change is considered over a planning horizon divided to several periods. So, the cell formation for one period may no longer be effective for future periods and hence reconfiguration of cells is essential. Due to the variation of demand and necessity of cells reconfiguration, virtual cell formation concept is introduced by researchers to take the advantage of cell formation without reconfiguration charges. On the other hand, Simultaneous consideration of supply chain and cell formation results in lower distribution and procurement costs and faster response to customers. In this paper, a new bi-objective possibilistic optimisation mathematical model is developed for integrating procurement, production and distribution planning considering various conflicting objectives simultaneously as well as the imprecise nature of some critical parameters such as customer demands and machine capacities. Then, a revised multi-choice goal programming approach is applied to solve the proposed mathematical model and to find a preferred compromise solution. Moreover, a real-world industrial case is provided to validate how the proposed model works.
+---
+
+---
+DOI: 10.1016/s1474-6670(17)62794-0
+Title: The Virtual Manufacturing Cell
+Year: 1982
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1057/palgrave.jors.2601137
+Title: Job routing and operations scheduling: a network-based virtual cell formation approach
+Year: 2001
+Abstract: Abstract Virtual cellular manufacturing inherits the benefits of traditional cellular manufacturing and maintains the responsiveness to the changing market and routing flexibility of a job shop by integrating machine-grouping, shop layout design and intercellular flow handling. The primary goal of virtual cell formation is to minimize the throughput time of a given job. This paper proposes a method for virtual cell formation by adopting the double-sweep algorithm for the k-shortest path problem, and a heuristic is devised to schedule the virtual cells for the multiple job orders. Results generated from this method include not only the optimal candidates of the virtual cell with the shortest throughput time with sub-optimal alternative route(s) and throughput time(s) as the alternative candidates in case some resources are restricted or are not available. The procedure of virtual cell creation and scheduling is illustrated explicitly with examples. Since most of the scheduling problems are NP-hard and virtual cell scheduling is even more complex due to the bottleneck machines that are demanded by jobs at other cells. For multiplicity of possible virtual cell candidates, in addition to the precedence and resource constraints, heuristic solutions are found to be reasonable.
+---
+
+---
+DOI: 10.1109/tvt.2020.2995318
+Title: Proactive Mobility Management With Trajectory Prediction Based on Virtual Cells in Ultra-Dense Networks
+Year: 2020
+Abstract: Ultra-dense networking (UDN) is a promising technology to improve the network capacity in the next-generation mobile communication system. The virtualization paradigm is tightly integrated into UDN to address the problem of interference management. However, mobility management based on virtual cells meets significant challenges in UDN due to the frequent handovers and massive signaling overhead. These problems become severe for vehicles owing to their high-speed movement. In this paper, driven by trajectory prediction using a real-world vehicle mobility dataset, we propose a proactive mobility management solution based on virtual cells. Four modules are designed in the centralized Software-Defined Networking controller to support the proposed solution. The proposed LSTM-DR framework predicts the next locations of vehicles by integrating Long Short-Term Memory (LSTM) networks and Dead Reckoning (DR) method. The active gNBs selection algorithm selects the serving gNBs to form virtual cells according to predicted locations and mobility preferences. The corresponding signaling procedure is then carefully designed to further reduce the signaling overhead. Simulation results show that the proposed prediction framework can achieve higher accuracy and robustness in trajectory prediction. The proposed proactive solution reduces the handover frequency and handover failure rate and thereby saves the handover signaling overhead significantly.
+---
+
+---
+DOI: 10.1073/pnas.0409894102
+Title: A low-molecular-weight compound discovered through virtual database screening inhibits Stat3 function in breast cancer cells
+Year: 2005
+Abstract: This study focused on the screening of small-molecule inhibitors that target signal transducers and activators of transcription 3 (Stat3) in human breast carcinoma. The constitutive activation of Stat3 is frequently detected in human breast cancer cell lines as well as clinical breast cancer specimens and may play an important role in the oncogenesis of breast carcinoma. Activated Stat3 may participate in oncogenesis by stimulating cell proliferation, promoting tumor angiogenesis, and resisting apoptosis. Because a variety of human cancers are associated with constitutively active Stat3, Stat3 represents an attractive target for cancer therapy. In this study, of the nearly 429,000 compounds screened by virtual database screening, chemical samples of top 100 compounds identified as candidate small-molecule inhibitors of Stat3 were evaluated by using Stat3-dependent luciferase reporter as well as other cell-based assays. Through serial functional evaluation based on our established cell-based assays, one compound, termed STA-21, was identified as the best match for our selection criteria. Further investigation demonstrated that STA-21 inhibits Stat3 DNA binding activity, Stat3 dimerization, and Stat3-dependent luciferase activity. Moreover, STA-21 reduces the survival of breast carcinoma cells with constitutive Stat3 signaling but has minimal effect on the cells in which constitutive Stat3 signaling is absent. Together, these results demonstrate that STA-21 inhibits breast cancer cells that express constitutively active Stat3.
+---
+
+---
+DOI: 10.1109/tvt.2017.2788897
+Title: User-Centric Joint Transmission in Virtual-Cell-Based Ultra-Dense Networks
+Year: 2018
+Abstract: In ultra-dense networks (UDNs), distributed radio access points (RAPs) are configured into small virtual cells around mobile users for fair and high-throughput services. In this correspondence, we evaluate the performance of user-centric joint transmission (JT) in a UDN with a number of virtual cells. In contrast to existing cooperation schemes, which assume constant RAP transmit power, we consider a total transmit power constraint for each user, and assume that the total power is optimally allocated to the RAPs in each virtual cell using maximum ratio transmission (MRT). Based on stochastic geometry models of the RAP and user locations, we resolve the correlation of transmit powers introduced by MRT, and derive the average user throughput. Numerical results show that user-centric JT with MRT provides high signal-to-noise ratio without generating severe interference to other co-channel users. Moreover, we show that MRT precoding, while requiring channel-state-information (CSI), is essential for the success of JT.
+---
+
+---
+DOI: 10.1016/j.cor.2008.09.002
+Title: Analyzing the behaviors of virtual cells (VCs) and traditional manufacturing systems: Ant colony optimization (ACO)-based metamodels
+Year: 2008
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.2514/6.1997-1982
+Title: The virtual cell embedding method - A simple approach for building complex geometries
+Year: 1997
+Abstract: This paper discusses the virtual cell embedding (VCE) method, a simple, direct method for complex geometry grid generation where the underlying mesh is structured and rectilinear. The strength of the VCE gridding method is that, using a straight-forward algorithm, it can generate a grid for any body and/or multiple bodies represented as solid volumes in the flow. The accuracy, convergence, and flexibility of the VCE gridding method is discussed. The capabilities are demonstrated starting from several distinct geometry specifications. Examples used to illustrate the algorithms include a VCE resolution study of an arc airfoil, the flow solution using the Euler equations as input to the grid generator demonstrating the robustness and flexibility of VCE, and applications problems including ship airwake calculations and flow around highly complex overlapping bodies such as found in porous media flow. An excellent use of the VCE grid generator is in the design process for complex geometries where geometry modifications can be rapidly gridded and evaluated. Finally, the VCE grid generator is not intrinsically connected to a specific flow solver. It could be used in conjunction with any Cartesian-grid based flow solver that admits partial cell faces and volumes.
+---
+
+---
+DOI: 10.1017/s0022377899007515
+Title: Three-dimensional electromagnetic relativistic particle-in-cell code VLPL (Virtual Laser Plasma Lab)
+Year: 1999
+Abstract: The three-dimensional particle-in-cell (PIC) code VLPL (Virtual Laser Plasma Lab) allows, for the first time, direct fully electromagnetic simulations of relativistic laser–plasma interactions. Physical results on relativistic self-focusing in under-dense plasma are presented. It is shown that background plasma electrons are accelerated to multi-MeV energies and 10 4 T magnetic fields are generated in the process of self-focusing at high laser intensities. This physics is crucial for the fast ignitor concept in inertial confinement fusion. Advances in the numerical PIC algorithm used in the code VLPL are reviewed here.
+---
+
+---
+DOI: 10.1007/s00170-006-0871-1
+Title: A multi-stage methodology for virtual cell formation oriented agile manufacturing
+Year: 2006
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1126/scisignal.2001970
+Title: Developing Models in Virtual Cell
+Year: 2011
+Abstract: Lecture notes, slides, and a student assignment illustrate a strategy for teaching mathematical modeling using the Virtual Cell environment.
+---

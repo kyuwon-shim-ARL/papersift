@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1016/j.cell.2007.11.019
+Title: Induction of Pluripotent Stem Cells from Adult Human Fibroblasts by Defined Factors
+Year: 2007
+Abstract: Successful reprogramming of differentiated human somatic cells into a pluripotent state would allow creation of patient- and disease-specific stem cells. We previously reported generation of induced pluripotent stem (iPS) cells, capable of germline transmission, from mouse somatic cells by transduction of four defined transcription factors. Here, we demonstrate the generation of iPS cells from adult human dermal fibroblasts with the same four factors: Oct3/4, Sox2, Klf4, and c-Myc. Human iPS cells were similar to human embryonic stem (ES) cells in morphology, proliferation, surface antigens, gene expression, epigenetic status of pluripotent cell-specific genes, and telomerase activity. Furthermore, these cells could differentiate into cell types of the three germ layers in vitro and in teratomas. These findings demonstrate that iPS cells can be generated from adult human fibroblasts.
+---
+
+---
+DOI: 10.1016/s0169-409x(00)00129-0
+Title: Experimental and computational approaches to estimate solubility and permeability in drug discovery and development settings 1PII of original article: S0169-409X(96)00423-1. The article was originally published in Advanced Drug Delivery Reviews 23 (1997) 3–25. 1
+Year: 2001
+Abstract: Experimental and computational approaches to estimate solubility and permeability in discovery and development settings are described. In the discovery setting 'the rule of 5' predicts that poor absorption or permeation is more likely when there are more than 5 H-bond donors, 10 H-bond acceptors, the molecular weight (MWT) is greater than 500 and the calculated Log P (CLogP) is greater than 5 (or MlogP > 4.15). Computational methodology for the rule-based Moriguchi Log P (MLogP) calculation is described. Turbidimetric solubility measurement is described and applied to known drugs. High throughput screening (HTS) leads tend to have higher MWT and Log P and lower turbidimetric solubility than leads in the pre-HTS era. In the development setting, solubility calculations focus on exact value prediction and are difficult because of polymorphism. Recent work on linear free energy relationships and Log P approaches are critically reviewed. Useful predictions are possible in closely related analog series when coupled with experimental thermodynamic solubility measurements.
+---
+
+---
+DOI: 10.1002/jcc.20289
+Title: Scalable molecular dynamics with NAMD
+Year: 2005
+Abstract: Abstract NAMD is a parallel molecular dynamics code designed for high‐performance simulation of large biomolecular systems. NAMD scales to hundreds of processors on high‐end parallel platforms, as well as tens of processors on low‐cost commodity clusters, and also runs on individual desktop and laptop computers. NAMD works with AMBER and CHARMM potential functions, parameters, and file formats. This article, directed to novices as well as experts, first introduces concepts and methods used in the NAMD program, describing the classical molecular dynamics force field, equations of motion, and integration methods along with the efficient electrostatics evaluation algorithms employed and temperature and pressure controls used. Features for steering the simulation across barriers and for calculating both alchemical and conformational free energy differences are presented. The motivations for and a roadmap to the internal design of NAMD, implemented in C++ and based on Charm++ parallel objects, are outlined. The factors affecting the serial and parallel performance of a simulation are discussed. Finally, typical NAMD use is illustrated with representative applications to a small, a medium, and a large biomolecular system, highlighting particular features of NAMD, for example, the Tcl scripting language. The article also provides a list of the key features of NAMD and discusses the benefits of combining NAMD with the molecular graphics/sequence analysis software VMD and the grid computing/collaboratory software BioCoRE. NAMD is distributed free of charge with source code at www.ks.uiuc.edu . © 2005 Wiley Periodicals, Inc. J Comput Chem 26: 1781–1802, 2005
+---
+
+---
+DOI: 10.1021/j100540a008
+Title: Exact stochastic simulation of coupled chemical reactions
+Year: 1977
+Abstract: ADVERTISEMENT RETURN TO ISSUEPREVArticleNEXTExact stochastic simulation of coupled chemical reactionsDaniel T. GillespieCite this: J. Phys. Chem. 1977, 81, 25, 2340–2361Publication Date (Print):December 1, 1977Publication History Published online1 May 2002Published inissue 1 December 1977https://pubs.acs.org/doi/10.1021/j100540a008https://doi.org/10.1021/j100540a008research-articleACS PublicationsRequest reuse permissionsArticle Views28765Altmetric-Citations7236LEARN ABOUT THESE METRICSArticle Views are the COUNTER-compliant sum of full text article downloads since November 2008 (both PDF and HTML) across all institutions and individuals. These metrics are regularly updated to reflect usage leading up to the last few days.Citations are the number of other articles citing this article, calculated by Crossref and updated daily. Find more information about Crossref citation counts.The Altmetric Attention Score is a quantitative measure of the attention that a research article has received online. Clicking on the donut icon will load a page at altmetric.com with additional details about the score and the social media presence for the given article. Find more information on the Altmetric Attention Score and how the score is calculated. Share Add toView InAdd Full Text with ReferenceAdd Description ExportRISCitationCitation and abstractCitation and referencesMore Options Share onFacebookTwitterWechatLinked InRedditEmail Other access options Get e-Alerts
+---
+
+---
+DOI: 10.1038/nbt.2859
+Title: The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells
+Year: 2014
+Abstract: Defining the transcriptional dynamics of a temporal process such as cell differentiation is challenging owing to the high variability in gene expression between individual cells. Time-series gene expression analyses of bulk cells have difficulty distinguishing early and late phases of a transcriptional cascade or identifying rare subpopulations of cells, and single-cell proteomic methods rely on a priori knowledge of key distinguishing markers. Here we describe Monocle, an unsupervised algorithm that increases the temporal resolution of transcriptome dynamics using single-cell RNA-Seq data collected at multiple time points. Applied to the differentiation of primary human myoblasts, Monocle revealed switch-like changes in expression of key regulatory factors, sequential waves of gene regulation, and expression of regulators that were not known to act in differentiation. We validated some of these predicted regulators in a loss-of function screen. Monocle can in principle be used to recover single-cell gene expression kinetics from a wide array of cellular processes, including differentiation, proliferation and oncogenic transformation.
+---
+
+---
+DOI: 10.1126/science.1069492
+Title: Systems Biology: A Brief Overview
+Year: 2002
+Abstract: To understand biology at the system level, we must examine the structure and dynamics of cellular and organismal function, rather than the characteristics of isolated parts of a cell or organism. Properties of systems, such as robustness, emerge as central issues, and understanding these properties may have an impact on the future of medicine. However, many breakthroughs in experimental devices, advanced software, and analytical methods are required before the achievements of systems biology can live up to their much-touted potential.
+---
+
+---
+DOI: 10.1038/nbt.1614
+Title: What is flux balance analysis?
+Year: 2010
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/tii.2018.2873186
+Title: Digital Twin in Industry: State-of-the-Art
+Year: 2019
+Abstract: Digital twin (DT) is one of the most promising enabling technologies for realizing smart manufacturing and Industry 4.0. DTs are characterized by the seamless integration between the cyber and physical spaces. The importance of DTs is increasingly recognized by both academia and industry. It has been almost 15 years since the concept of the DT was initially proposed. To date, many DT applications have been successfully implemented in different industries, including product design, production, prognostics and health management, and some other fields. However, at present, no paper has focused on the review of DT applications in industry. In an effort to understand the development and application of DTs in industry, this paper thoroughly reviews the state-of-the-art of the DT research concerning the key components of DTs, the current development of DTs, and the major DT applications in industry. This paper also outlines the current challenges and some possible directions for future work.
+---
+
+---
+DOI: 10.1149/1.2085971
+Title: Polymer Electrolyte Fuel Cell Model
+Year: 1991
+Abstract: We present here an isothermal, one‐dimensional, steady‐state model for a complete polymer electrolyte fuel cell (PEFC) with a 117 Nafion® membrane. In this model we employ water diffusion coefficients electro‐osmotic drag coefficients, water sorption isotherms, and membrane conductivities, all measured in our laboratory as functions of membrane water content. The model predicts a net‐water‐per‐proton flux ratio of 0.2 under typical operating conditions, which is much less than the measured electro‐osmotic drag coefficient for a fully hydrated membrane. It also predicts an increase in membrane resistance with increased current density and demonstrates the great advantage of a thinner membrane in alleviating this resistance problem. Both of these predictions were verified experimentally under certain conditions.
+---
+
+---
+DOI: 10.1016/j.ifacol.2018.08.474
+Title: Digital Twin in manufacturing: A categorical literature review and classification
+Year: 2018
+Abstract: The Digital Twin (DT) is commonly known as a key enabler for the digital transformation, however, in literature is no common understanding concerning this term. It is used slightly different over the disparate disciplines. The aim of this paper is to provide a categorical literature review of the DT in manufacturing and to classify existing publication according to their level of integration of the DT. Therefore, it is distinct between Digital Model (DM), Digital Shadow (DS) and Digital Twin. The results are showing, that literature concerning the highest development stage, the DT, is scarce, whilst there is more literature about DM and DS.
+---
+
+---
+DOI: 10.1007/978-3-319-38756-7_4
+Title: Digital Twin: Mitigating Unpredictable, Undesirable Emergent Behavior in Complex Systems
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/s00170-017-0233-1
+Title: Digital twin-driven product design, manufacturing and service with big data
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.2514/6.2012-1818
+Title: The Digital Twin Paradigm for Future NASA and U.S. Air Force Vehicles
+Year: 2012
+Abstract: Future generations of NASA and U.S. Air Force vehicles will require lighter mass while being subjected to higher loads and more extreme service conditions over longer time periods than the present generation.Current approaches for certification, fleet management and sustainment are largely based on statistical distributions of material properties, heuristic design philosophies, physical testing and assumed similitude between testing and operational conditions and will likely be unable to address these extreme requirements.To address the shortcomings of conventional approaches, a fundamental paradigm shift is needed.This paradigm shift, the Digital Twin, integrates ultra-high fidelity simulation with the vehicle's on-board integrated vehicle health management system, maintenance history and all available historical and fleet data to mirror the life of its flying twin and enable unprecedented levels of safety and reliability.
+---
+
+---
+DOI: 10.1016/j.promfg.2017.07.198
+Title: A Review of the Roles of Digital Twin in CPS-based Production Systems
+Year: 2017
+Abstract: The Digital Twin (DT) is one of the main concepts associated to the Industry 4.0 wave. This term is more and more used in industry and research initiatives; however, the scientific literature does not provide a unique definition of this concept. The paper aims at analyzing the definitions of the DT concept in scientific literature, retracing it from the initial conceptualization in the aerospace field, to the most recent interpretations in the manufacturing domain and more specifically in Industry 4.0 and smart manufacturing research. DT provides virtual representations of systems along their lifecycle. Optimizations and decisions making would then rely on the same data that are updated in real-time with the physical system, through synchronization enabled by sensors. The paper also proposes the definition of DT for Industry 4.0 manufacturing, elaborated by the European H2020 project MAYA, as a contribution to the research discussion about DT concept.
+---
+
+---
+DOI: 10.1103/physrevlett.69.2013
+Title: Simulation of biological cell sorting using a two-dimensional extended Potts model
+Year: 1992
+Abstract: We simulate the sorting of a mixture of two types of biological cells using a modified version of the large-Q Potts model with differential adhesivity. We find long-distance cell movement leading to sorting with a logarithmic increase in the length scale of homogeneous clusters. Sorted clusters then round. We find two successive phases: A rapid boundary-driven creation of a low-cohesivity cell monolayer around the aggregate, and a slower boundary-independent internal rearrangement.
+---
+
+---
+DOI: 10.1073/pnas.0610772104
+Title: Global reconstruction of the human metabolic network based on genomic and bibliomic data
+Year: 2007
+Abstract: Metabolism is a vital cellular process, and its malfunction is a major contributor to human disease. Metabolic networks are complex and highly interconnected, and thus systems-level computational approaches are required to elucidate and understand metabolic genotype–phenotype relationships. We have manually reconstructed the global human metabolic network based on Build 35 of the genome annotation and a comprehensive evaluation of &gt;50 years of legacy data (i.e., bibliomic data). Herein we describe the reconstruction process and demonstrate how the resulting genome-scale (or global) network can be used ( i ) for the discovery of missing information, ( ii ) for the formulation of an in silico model, and ( iii ) as a structured context for analyzing high-throughput biological data sets. Our comprehensive evaluation of the literature revealed many gaps in the current understanding of human metabolism that require future experimental investigation. Mathematical analysis of network structure elucidated the implications of intracellular compartmentalization and the potential use of correlated reaction sets for alternative drug target identification. Integrated analysis of high-throughput data sets within the context of the reconstruction enabled a global assessment of functional metabolic states. These results highlight some of the applications enabled by the reconstructed human metabolic network. The establishment of this network represents an important step toward genome-scale human systems biology.
+---
+
+---
+DOI: 10.1016/j.ifacol.2015.06.141
+Title: About The Importance of Autonomy and Digital Twins for the Future of Manufacturing
+Year: 2015
+Abstract: Industrie 4.0 - the "brand" name of the German initiative driving the future of manufacturing - is one of several initiatives around the globe emphasizing the importance of industrial manufacturing for economy and society. Besides the socio-economical if not political question which has to be answered - including the question about the future of labor - there are a couple of substantial technical and technological questions that have to be taken care of as well.
+---
+
+---
+DOI: 10.1016/j.rcim.2019.101837
+Title: Digital Twin-driven smart manufacturing: Connotation, reference model, applications and research issues
+Year: 2019
+Abstract: Abstract This paper reviews the recent development of Digital Twin technologies in manufacturing systems and processes, to analyze the connotation, application scenarios, and research issues of Digital Twin-driven smart manufacturing in the context of Industry 4.0. To understand Digital Twin and its future potential in manufacturing, we summarized the definition and state-of-the-art development outcomes of Digital Twin. Existing technologies for developing a Digital Twin for smart manufacturing are reviewed under a Digital Twin reference model to systematize the development methodology for Digital Twin. Representative applications are reviewed with a focus on the alignment with the proposed reference model. Outstanding research issues of developing Digital Twins for smart manufacturing are identified at the end of the paper.
+---
+
+---
+DOI: 10.1149/1.2221251
+Title: A Mathematical Model of the Solid‐Polymer‐Electrolyte Fuel Cell
+Year: 1992
+Abstract: We present a mathematical model of the solid‐polymer‐electrolyte fuel cell and apply it to (i) investigate factors that limit cell performance and (ii) elucidate the mechanism of species transport in the complex network of gas, liquid, and solid phases of the cell. Calculations of cell polarization behavior compare favorably with existing experimental data. For most practical electrode thicknesses, model results indicate that the volume fraction of the cathode available for gas transport must exceed 20% in order to avoid unacceptably low cell‐limiting current densities. It is shown that membrane dehydration can also pose limitations on operating current density; circumvention of this problem by appropriate membrane and electrode design and efficient water‐management schemes is discussed. Our model results indicate that for a broad range of practical current densities there are no external water requirements because the water produced at the cathode is enough to satisfy the water requirement of the membrane. Inefficiencies due to the transport of unreacted hydrogen or oxygen through the membrane are shown to be insignificant at practical operating current densities. The transport of gases dissolved in the membrane phase, however, limits the utilization of catalyst. Predictions of cell performance with different types of membranes are also examined, and the model results compare favorably with experimental data.
+---
+
+---
+DOI: 10.1109/access.2017.2756069
+Title: Digital Twin Shop-Floor: A New Shop-Floor Paradigm Towards Smart Manufacturing
+Year: 2017
+Abstract: With the developments and applications of the new information technologies, such as cloud computing, Internet of Things, big data, and artificial intelligence, a smart manufacturing era is coming. At the same time, various national manufacturing development strategies have been put forward, such as Industry 4.0, Industrial Internet, manufacturing based on Cyber-Physical System, and Made in China 2025. However, one of specific challenges to achieve smart manufacturing with these strategies is how to converge the manufacturing physical world and the virtual world, so as to realize a series of smart operations in the manufacturing process, including smart interconnection, smart interaction, smart control and management, etc. In this context, as a basic unit of manufacturing, shop-floor is required to reach the interaction and convergence between physical and virtual spaces, which is not only the imperative demand of smart manufacturing, but also the evolving trend of itself. Accordingly, a novel concept of digital twin shopfloor (DTS) based on digital twin is explored and its four key components are discussed, including physical shop-floor, virtual shop-floor, shop-floor service system, and shop-floor digital twin data. What is more, the operation mechanisms and implementing methods for DTS are studied and key technologies as well as challenges ahead are investigated, respectively.
+---
+
+---
+DOI: 10.1016/j.cirp.2017.04.040
+Title: Shaping the digital twin for design and production engineering
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1128/aem.60.10.3724-3731.1994
+Title: Stoichiometric flux balance models quantitatively predict growth and metabolic by-product secretion in wild-type Escherichia coli W3110
+Year: 1994
+Abstract: Flux balance models of metabolism use stoichiometry of metabolic pathways, metabolic demands of growth, and optimality principles to predict metabolic flux distribution and cellular growth under specified environmental conditions. These models have provided a mechanistic interpretation of systemic metabolic physiology, and they are also useful as a quantitative tool for metabolic pathway design. Quantitative predictions of cell growth and metabolic by-product secretion that are experimentally testable can be obtained from these models. In the present report, we used independent measurements to determine the model parameters for the wild-type Escherichia coli strain W3110. We experimentally determined the maximum oxygen utilization rate (15 mmol of O2 per g [dry weight] per h), the maximum aerobic glucose utilization rate (10.5 mmol of Glc per g [dry weight] per h), the maximum anaerobic glucose utilization rate (18.5 mmol of Glc per g [dry weight] per h), the non-growth-associated maintenance requirements (7.6 mmol of ATP per g [dry weight] per h), and the growth-associated maintenance requirements (13 mmol of ATP per g of biomass). The flux balance model specified by these parameters was found to quantitatively predict glucose and oxygen uptake rates as well as acetate secretion rates observed in chemostat experiments. We have formulated a predictive algorithm in order to apply the flux balance model to describe unsteady-state growth and by-product secretion in aerobic batch, fed-batch, and anaerobic batch cultures. In aerobic experiments we observed acetate secretion, accumulation in the culture medium, and reutilization from the culture medium. In fed-batch cultures acetate is cometabolized with glucose during the later part of the culture period.(ABSTRACT TRUNCATED AT 250 WORDS)
+---
+
+---
+DOI: 10.1103/physreve.47.2128
+Title: Simulation of the differential adhesion driven rearrangement of biological cells
+Year: 1993
+Abstract: We show that differential adhesion with fluctuations is sufficient to explain a wide variety of cell re- arrangement, by using the extended large-Q Potts model with differential adhesivity to simulate different biological phenomena. Different values of relative surface energies correspond to different biological cases, including complete and partial cell sorting, checkerboard, position reversal, and dispersal. We examine the convergence and temperature dependence of the simulation and distinguish spontaneous, neutral, and activated processes by performing simulations at different temperatures. We discuss the biological and physical implications of our quantitative results.
+---
+
+---
+DOI: 10.1038/nature02456
+Title: Integrating high-throughput and computational data elucidates bacterial networks
+Year: 2004
+Abstract: The flood of high-throughput biological data has led to the expectation that computational (or in silico) models can be used to direct biological discovery, enabling biologists to reconcile heterogeneous data types, find inconsistencies and systematically generate hypotheses. Such a process is fundamentally iterative, where each iteration involves making model predictions, obtaining experimental data, reconciling the predicted outcomes with experimental ones, and using discrepancies to update the in silico model. Here we have reconstructed, on the basis of information derived from literature and databases, the first integrated genome-scale computational model of a transcriptional regulatory and metabolic network. The model accounts for 1,010 genes in Escherichia coli, including 104 regulatory genes whose products together with other stimuli regulate the expression of 479 of the 906 genes in the reconstructed metabolic network. This model is able not only to predict the outcomes of high-throughput growth phenotyping and gene expression experiments, but also to indicate knowledge gaps and identify previously unknown components and interactions in the regulatory and metabolic networks. We find that a systems biology approach that combines genome-scale experimentation and computation can systematically generate hypotheses on the basis of disparate data sources.
+---
+
+---
+DOI: 10.1007/s00170-018-1617-6
+Title: Digital twin-based smart production management and control framework for the complex product assembly shop-floor
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/aic.690441109
+Title: Two‐dimensional model for proton exchange membrane fuel cells
+Year: 1998
+Abstract: Abstract A 2‐D mathematical model for the entire sandwich of a proton‐exchange membrane fuel cell including the gas channels was developed. The self‐consistent model for porous media was used for the equations describing transport phenomena in the membrane, catalyst layers, and gas diffusers, while standard equations of Navier‐Stokes, energy transport, continuity, and species concentrations are solved in the gas channels. A special handling of the transport equations enabled us to use the same numerical method in the unified domain consisting of the gas channels, gas diffusers, catalyst layers and membrane. It also eliminated the need to prescribe arbitrary or approximate boundary conditions at the interfaces between different parts of the fuel cell sandwich. By solving transport equations, as well as the equations for electrochemical reactions and current density with the membrane phase potential, polarization curves under various operating conditions were obtained. Modeling results compare very well with experimental results from the literature. Oxygen and water vapor mole fraction distributions in the coupled cathode gas channel‐gas diffuser were studied for various operating current densities. Liquid water velocity distributions in the membrane and influences of various parameters on the cell performance were also obtained.
+---
+
+---
+DOI: 10.1080/00207548908942637
+Title: Cellular manufacturing in the U.S. industry: a survey of users
+Year: 1989
+Abstract: This paper reports the findings of a survey study of 32 U.S. firms involved with cellular manufacturing. Areas covered include the reasons for establishing cells, benefits achieved, types and sizes of cells, extent of cellularization in the plants, methods used to design the cells, changes to planning and control systems, labour-related issues and important experiences gained by the companies. The data presented here were collected as part of a larger study of various group technology (GT) applications in which 53 companies participated. GT applications other than cellular manufacturing are described in Hyer and Wemmerlöv, 1989, Group technology in the U.S. manufacturing industry: a survey of current practices, International Journal of Production Research.
+---
+
+---
+DOI: 10.1126/science.aav3751
+Title: Simultaneous cross-evaluation of heterogeneous <i>E. coli</i> datasets via mechanistic simulation
+Year: 2020
+Abstract: Testing biochemical data by simulation Can a bacterial cell model vet large datasets from disparate sources? Macklin et al. explored whether a comprehensive mathematical model can be used to verify or find conflicts in massive amounts of data that have been reported for the bacterium Escherichia coli , produced in thousands of papers from hundreds of labs. Although most data were consistent, there were data that could not accommodate known biological results, such as insufficient output of RNA polymerases and ribosomes to produce measured cell-doubling times. Other analyses showed that for some essential proteins, no RNA may be transcribed or translated in a cell's lifetime, but viability can be maintained without certain enzymes through a pool of stable metabolites produced earlier. Science , this issue p. eaav3751
+---
+
+---
+DOI: 10.4049/jimmunol.1203149
+Title: CD8α+ Dendritic Cell <i>Trans</i> Presentation of IL-15 to Naive CD8+ T Cells Produces Antigen-Inexperienced T Cells in the Periphery with Memory Phenotype and Function
+Year: 2013
+Abstract: Abstract Various populations of memory phenotype CD8+ T cells have been described over the last 15–20 y, all of which possess elevated effector functions relative to naive phenotype cells. Using a technique for isolating Ag-specific cells from unprimed hosts, we recently identified a new subset of cells, specific for nominal Ag, but phenotypically and functionally similar to memory cells arising as a result of homeostatic proliferation. We show in this study that these virtual memory (VM) cells are independent of previously identified innate memory cells, arising as a result of their response to IL-15 trans presentation by lymphoid tissue-resident CD8α+ dendritic cells in the periphery. The absence of IL-15, CD8+ T cell expression of either CD122 or eomesodermin or of CD8a+ dendritic cells all lead to the loss of VM cells in the host. Our results show that CD8+ T cell homeostatic expansion is an active process within the nonlymphopenic environment, is mediated by IL-15, and produces Ag-inexperienced memory cells that retain the capacity to respond to nominal Ag with memory-like function. Preferential engagement of these VM T cells into a vaccine response could dramatically enhance the rate by which immune protection develops.
+---
+
+---
+DOI: 10.1101/gr.1239303
+Title: Cytoscape: A Software Environment for Integrated Models of Biomolecular Interaction Networks
+Year: 2003
+Abstract: Cytoscape is an open source software project for integrating biomolecular interaction networks with high-throughput expression data and other molecular states into a unified conceptual framework. Although applicable to any system of molecular components and interactions, Cytoscape is most powerful when used in conjunction with large databases of protein-protein, protein-DNA, and genetic interactions that are increasingly available for humans and model organisms. Cytoscape's software Core provides basic functionality to layout and query the network; to visually integrate the network with expression profiles, phenotypes, and other molecular states; and to link the network to databases of functional annotations. The Core is extensible through a straightforward plug-in architecture, allowing rapid development of additional computational analyses and features. Several case studies of Cytoscape plug-ins are surveyed, including a search for interaction pathways correlating with changes in gene expression, a study of protein complexes involved in cellular recovery to DNA damage, inference of a combined physical/functional interaction network for Halobacterium , and an interface to detailed stochastic/kinetic gene regulatory models.
+---
+
+---
+DOI: 10.1006/meth.2001.1262
+Title: Analysis of Relative Gene Expression Data Using Real-Time Quantitative PCR and the 2−ΔΔCT Method
+Year: 2001
+Abstract: The two most commonly used methods to analyze data from real-time, quantitative PCR experiments are absolute quantification and relative quantification. Absolute quantification determines the input copy number, usually by relating the PCR signal to a standard curve. Relative quantification relates the PCR signal of the target transcript in a treatment group to that of another sample such as an untreated control. The 2(-Delta Delta C(T)) method is a convenient way to analyze the relative changes in gene expression from real-time quantitative PCR experiments. The purpose of this report is to present the derivation, assumptions, and applications of the 2(-Delta Delta C(T)) method. In addition, we present the derivation and applications of two variations of the 2(-Delta Delta C(T)) method that may be useful in the analysis of real-time, quantitative PCR data.
+---
+
+---
+DOI: 10.1023/a:1010933404324
+Title: Random Forests
+Year: 2001
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0022-2836(05)80360-2
+Title: Basic local alignment search tool
+Year: 1990
+Abstract: A new approach to rapid sequence comparison, basic local alignment search tool (BLAST), directly approximates alignments that optimize a measure of local similarity, the maximal segment pair (MSP) score. Recent mathematical results on the stochastic properties of MSP scores allow an analysis of the performance of this method as well as the statistical significance of alignments it generates. The basic algorithm is simple and robust; it can be implemented in a number of ways and applied in a variety of contexts including straightforward DNA and protein sequence database searches, motif searches, gene identification searches, and in the analysis of multiple regions of similarity in long DNA sequences. In addition to its flexibility and tractability to mathematical analysis, BLAST is an order of magnitude faster than existing sequence comparison tools of comparable sensitivity.
+---
+
+---
+DOI: 10.1038/nature14539
+Title: Deep learning
+Year: 2015
+Abstract: Deep learning allows computational models that are composed of multiple processing layers to learn representations of data with multiple levels of abstraction. These methods have dramatically improved the state-of-the-art in speech recognition, visual object recognition, object detection and many other domains such as drug discovery and genomics. Deep learning discovers intricate structure in large data sets by using the backpropagation algorithm to indicate how a machine should change its internal parameters that are used to compute the representation in each layer from the representation in the previous layer. Deep convolutional nets have brought about breakthroughs in processing images, video, speech and audio, whereas recurrent nets have shone light on sequential data such as text and speech.
+---
+
+---
+DOI: 10.1038/36285
+Title: Mutation of the mouse klotho gene leads to a syndrome resembling ageing.
+Year: 1997
+Abstract: A new gene, termed klotho, has been identified that is involved in the suppression of several ageing phenotypes. A defect in klotho gene expression in the mouse results in a syndrome that resembles human ageing, including a short lifespan, infertility, arteriosclerosis, skin atrophy, osteoporosis and emphysema. The gene encodes a membrane protein that shares sequence similarity with the beta-glucosidase enzymes. The klotho gene product may function as part of a signalling pathway that regulates ageing in vivo and morbidity in age-related diseases.
+---
+
+---
+DOI: 10.1093/bioinformatics/bts635
+Title: STAR: ultrafast universal RNA-seq aligner
+Year: 2012
+Abstract: Abstract Motivation: Accurate alignment of high-throughput RNA-seq data is a challenging and yet unsolved problem because of the non-contiguous transcript structure, relatively short read lengths and constantly increasing throughput of the sequencing technologies. Currently available RNA-seq aligners suffer from high mapping error rates, low mapping speed, read length limitation and mapping biases. Results: To align our large (&amp;gt;80 billon reads) ENCODE Transcriptome RNA-seq dataset, we developed the Spliced Transcripts Alignment to a Reference (STAR) software based on a previously undescribed RNA-seq alignment algorithm that uses sequential maximum mappable seed search in uncompressed suffix arrays followed by seed clustering and stitching procedure. STAR outperforms other aligners by a factor of &amp;gt;50 in mapping speed, aligning to the human genome 550 million 2 × 76 bp paired-end reads per hour on a modest 12-core server, while at the same time improving alignment sensitivity and precision. In addition to unbiased de novo detection of canonical junctions, STAR can discover non-canonical splices and chimeric (fusion) transcripts, and is also capable of mapping full-length RNA sequences. Using Roche 454 sequencing of reverse transcription polymerase chain reaction amplicons, we experimentally validated 1960 novel intergenic splice junctions with an 80–90% success rate, corroborating the high precision of the STAR mapping strategy. Availability and implementation: STAR is implemented as a standalone C++ code. STAR is free open source software distributed under GPLv3 license and can be downloaded from http://code.google.com/p/rna-star/. Contact: dobin@cshl.edu.
+---
+
+---
+DOI: 10.1016/s0092-8674(00)81683-9
+Title: The Hallmarks of Cancer
+Year: 2000
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.cell.2006.07.024
+Title: Induction of Pluripotent Stem Cells from Mouse Embryonic and Adult Fibroblast Cultures by Defined Factors
+Year: 2006
+Abstract: Differentiated cells can be reprogrammed to an embryonic-like state by transfer of nuclear contents into oocytes or by fusion with embryonic stem (ES) cells. Little is known about factors that induce this reprogramming. Here, we demonstrate induction of pluripotent stem cells from mouse embryonic or adult fibroblasts by introducing four factors, Oct3/4, Sox2, c-Myc, and Klf4, under ES cell culture conditions. Unexpectedly, Nanog was dispensable. These cells, which we designated iPS (induced pluripotent stem) cells, exhibit the morphology and growth properties of ES cells and express ES cell marker genes. Subcutaneous transplantation of iPS cells into nude mice resulted in tumors containing a variety of tissues from all three germ layers. Following injection into blastocysts, iPS cells contributed to mouse embryonic development. These data demonstrate that pluripotent stem cells can be directly generated from fibroblast cultures by the addition of only a few defined factors.
+---
+
+---
+DOI: 10.1201/9781482234213
+Title: Numerical Heat Transfer and Fluid Flow
+Year: 2018
+Abstract: The Special Issue "Numerical Heat Transfer and Fluid Flow 2022" contains scientific articles on experiments and simulations of heat transfer in compressible and incompressible fluids, including single- and two-phase flows. The articles present the current state of knowledge, solve scientific and industrial problems, and set directions for future research. The Special Issue is addressed to specialists from around the world dealing with numerical modelling and experiments on heat transfer in flowing fluids.
+---
+
+---
+DOI: 10.1038/nature11247
+Title: An integrated encyclopedia of DNA elements in the human genome
+Year: 2012
+Abstract: The human genome encodes the blueprint of life, but the function of the vast majority of its nearly three billion bases is unknown. The Encyclopedia of DNA Elements (ENCODE) project has systematically mapped regions of transcription, transcription factor association, chromatin structure and histone modification. These data enabled us to assign biochemical functions for 80% of the genome, in particular outside of the well-studied protein-coding regions. Many discovered candidate regulatory elements are physically associated with one another and with expressed genes, providing new insights into the mechanisms of gene regulation. The newly identified elements also show a statistical correspondence to sequence variants linked to human disease, and can thereby guide interpretation of this variation. Overall, the project provides new insights into the organization and regulation of our genes and genome, and is an expansive resource of functional annotations for biomedical research.
+---
+
+---
+DOI: 10.1016/j.cell.2019.05.031
+Title: Comprehensive Integration of Single-Cell Data
+Year: 2019
+Abstract: Single-cell transcriptomics has transformed our ability to characterize cell states, but deep biological understanding requires more than a taxonomic listing of clusters. As new methods arise to measure distinct cellular modalities, a key analytical challenge is to integrate these datasets to better understand cellular identity and function. Here, we develop a strategy to "anchor" diverse datasets together, enabling us to integrate single-cell measurements not only across scRNA-seq technologies, but also across different modalities. After demonstrating improvement over existing methods for integrating scRNA-seq data, we anchor scRNA-seq experiments with scATAC-seq to explore chromatin differences in closely related interneuron subsets and project protein expression measurements onto a bone marrow atlas to characterize lymphocyte populations. Lastly, we harmonize in situ gene expression and scRNA-seq datasets, allowing transcriptome-wide imputation of spatial gene expression patterns. Our work presents a strategy for the assembly of harmonized references and transfer of information across datasets.
+---
+
+---
+DOI: 10.1038/nbt.4096
+Title: Integrating single-cell transcriptomic data across different conditions, technologies, and species
+Year: 2018
+Abstract: Computational single-cell RNA-seq (scRNA-seq) methods have been successfully applied to experiments representing a single condition, technology, or species to discover and define cellular phenotypes. However, identifying subpopulations of cells that are present across multiple data sets remains challenging. Here, we introduce an analytical strategy for integrating scRNA-seq data sets based on common sources of variation, enabling the identification of shared populations across data sets and downstream comparative analysis. We apply this approach, implemented in our R toolkit Seurat (http://satijalab.org/seurat/), to align scRNA-seq data sets of peripheral blood mononuclear cells under resting and stimulated conditions, hematopoietic progenitors sequenced using two profiling technologies, and pancreatic cell 'atlases' generated from human and mouse islets. In each case, we learn distinct or transitional cell states jointly across data sets, while boosting statistical power through integrated analysis. Our approach facilitates general comparisons of scRNA-seq data sets, potentially deepening our understanding of how distinct cell states respond to perturbation, disease, and evolution.
+---
+
+---
+DOI: 10.1113/jphysiol.1962.sp006837
+Title: Receptive fields, binocular interaction and functional architecture in the cat's visual cortex
+Year: 1962
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.cell.2006.06.044
+Title: Matrix Elasticity Directs Stem Cell Lineage Specification
+Year: 2006
+Abstract: Microenvironments appear important in stem cell lineage specification but can be difficult to adequately characterize or control with soft tissues. Naive mesenchymal stem cells (MSCs) are shown here to specify lineage and commit to phenotypes with extreme sensitivity to tissue-level elasticity. Soft matrices that mimic brain are neurogenic, stiffer matrices that mimic muscle are myogenic, and comparatively rigid matrices that mimic collagenous bone prove osteogenic. During the initial week in culture, reprogramming of these lineages is possible with addition of soluble induction factors, but after several weeks in culture, the cells commit to the lineage specified by matrix elasticity, consistent with the elasticity-insensitive commitment of differentiated cell types. Inhibition of nonmuscle myosin II blocks all elasticity-directed lineage specification-without strongly perturbing many other aspects of cell function and shape. The results have significant implications for understanding physical effects of the in vivo microenvironment and also for therapeutic uses of stem cells.
+---
+
+---
+DOI: 10.1093/nar/gks1193
+Title: NCBI GEO: archive for functional genomics data sets—update
+Year: 2012
+Abstract: The Gene Expression Omnibus (GEO, http://www.ncbi.nlm.nih.gov/geo/) is an international public repository for high-throughput microarray and next-generation sequence functional genomic data sets submitted by the research community. The resource supports archiving of raw data, processed data and metadata which are indexed, cross-linked and searchable. All data are freely available for download in a variety of formats. GEO also provides several web-based tools and strategies to assist users to query, analyse and visualize data. This article reports current status and recent database developments, including the release of GEO2R, an R-based web application that helps users analyse GEO data.
+---

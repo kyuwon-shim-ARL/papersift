@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1080/0144929x.2022.2079560
+Title: Escaping the cell: virtual reality escape rooms in biology education
+Year: 2022
+Abstract: &lt;p&gt;Individuals’ conceptual knowledge of contemporary biological issues influences ethical attitudes and life decisions around health, as evidenced by the recent worldwide debate on vaccinations. The reasons for which the public opinion is so critically divided can be partially explained from the didactic approaches used in biology education. In view of the rapid evolution of Virtual Reality (VR) as well as the increasing interest that youths have shown toward Escape Rooms (ER), an unexplored research and development avenue is identified. In this experimental study, we present the design and development steps as well as the evaluation of a VRER dedicated to biology education. For comparison purposes, an educational instructional video utilising the storytelling technique was also prepared. Both approaches were examined in the upper secondary education context with participants (N = 50) emerging from the Applied Sciences academic path. The key-findings suggest that the active learning approach leads to increased knowledge acquisition, in the short term, as opposed to the passive learning approach but no significant differences were identified in the long term (knowledge retention) across the methods. Based on the instructional decisions made and the key-findings emerged we provide implications and guidelines for the design, development, and integration of VRER in education.&lt;br&gt;&lt;/p&gt;
+---
+
+---
+DOI: 10.1080/09511929308944575
+Title: Using the virtual cell concept for short-term production planning for flexible job shop manufacturing systems
+Year: 1993
+Abstract: Abstract Short-term production planning (STPP) problems in flexible job shop manufacturing systems (FJSMS), which consist of computerized numerically, controlled (CNC) machines and dedicated machines, are discussed here. Short-term production planning problems of FJSMS include part type selection, process selection, batch sizing and part family/ machine group formation. A proposed STPP system for FJSMS is developed for cases where production contents are frequently changed thus resulting in the physical machine layout being not justified. It mainly adopts a restricted-period planning approach, using a virtual cell's concept for solving the STPP problem. The planning goal of STPP is to satisfy quantity and due date requirements as determined by MRP/CRP, with due consideration to the features of NC machines and dedicated machines.
+---
+
+---
+DOI: 10.5121/ijwmn.2018.10401
+Title: Optimization of 5G Virtual Cell Based Coordinated Multipoint Networks Using Deep Machine Learning
+Year: 2018
+Abstract: &lt;p&gt;ABSTRACT&lt;/p&gt; &lt;p&gt;Providing seamless mobility and a uniform user experience, independent of location, is an important challenge for 5G wireless networks. The combination of Coordinated Multipoint (CoMP) networks and Virtual- Cells (VCs) are expected to play an important role in achieving high throughput independent of the mobile&rsquo;s location by mitigating inter-cell interference and enhancing the cell-edge user throughput. Userspecific VCs will distinguish the physical cell from a broader area where the user can roam without the need for handoff, and may communicate with any Base Station (BS) in the VC area. However, this requires rapid decision making for the formation of VCs. In this paper, a novel algorithm based on a form of Recurrent Neural Networks (RNNs) called Gated Recurrent Units (GRUs) is used for predicting the triggering condition for forming VCs via enabling Coordinated Multipoint (CoMP) transmission. Simulation results, show that based on the sequences of Received Signal Strength (RSS) values of different mobile nodes used for training the RNN, the future RSS values from the closest three BSs can be accurately predicted using GRU, which is then used for making proactive decisions on enabling CoMP transmission and forming VCs.&lt;/p&gt; &lt;p&gt;KEYWORDS&lt;/p&gt; &lt;p&gt;Coordinated multipoint (CoMP), machine learnin&lt;/p&gt;
+---
+
+---
+DOI: 10.1063/1.1946194
+Title: Impact of dislocation densities on n+∕p and p+∕n junction GaAs diodes and solar cells on SiGe virtual substrates
+Year: 2005
+Abstract: Recent experimental measurements have shown that in GaAs with elevated threading dislocation densities (TDDs) the electron lifetime is much lower than the hole lifetime [C. L. Andre, J. J. Boeckl, D. M. Wilt, A. J. Pitera, M. L. Lee, E. A. Fitzgerald, B. M. Keyes, and S. A. Ringel, Appl. Phys. Lett. 84, 3884 (2004)]. This lower electron lifetime suggests an increase in depletion region recombination and thus in the reverse saturation current (J0 for an n+∕p diode compared with a p+∕n diode at a given TDD. To confirm this, GaAs diodes of both polarities were grown on compositionally graded Ge∕Si1−xGex∕Si (SiGe) substrates with a TDD of 1×106cm−2. It is shown that the ratio of measured J0 values is consistent with the inverse ratio of the expected lifetimes. Using a TDD-dependent lifetime in solar cell current–voltage models we found that the Voc, for a given short-circuit current, also exhibits a poorer TDD tolerance for GaAs n+∕p solar cells compared with GaAs p+∕n solar cells. Experimentally, the open-circuit voltage (Voc) for the n+∕p GaAs solar cell grown on a SiGe substrate with a TDD of ∼1×106cm−2 was ∼880mV which was significantly lower than the ∼980mV measured for a p+∕n GaAs solar cell grown on SiGe at the same TDD and was consistent with the solar cell modeling results reported in this paper. We conclude that p+∕n polarity GaAs junctions demonstrate superior dislocation tolerance than n+∕p configured GaAs junctions, which is important for optimization of lattice-mismatched III–V devices.
+---
+
+---
+DOI: 10.3389/fphys.2015.00007
+Title: Ion channelopathies in human induced pluripotent stem cell derived cardiomyocytes: a dynamic clamp study with virtual IK1
+Year: 2015
+Abstract: Human induced pluripotent stem cell derived cardiomyocytes (hiPSC-CMs) are widely used in studying basic mechanisms of cardiac arrhythmias that are caused by ion channelopathies. Unfortunately, the action potential profile of hiPSC-CMs—and consequently the profile of individual membrane currents active during that action potential—differs substantially from that of native human cardiomyocytes, largely due to almost negligible expression of the inward rectifier potassium current (IK1).In the present study, we attempted to ‘normalize’ the action potential profile of our hiPSC-CMs by inserting a voltage dependent in silico IK1 into our hiPSC-CMs, using the dynamic clamp configuration of the patch clamp technique. Recordings were made from single hiPSC-CMs, using the perforated patch clamp technique at physiological temperature.We assessed three different models of IK1, with different degrees of inward rectification, and systematically varied the magnitude of the inserted IK1. Also, we modified the inserted IK1 in order to assess the effects of loss- and gain-of-function mutations in the KCNJ2 gene, which encodes the Kir2.1 protein that is primarily responsible for the IK1 channel in human ventricle.For our experiments, we selected spontaneously beating hiPSC-CMs, with negligible IK1 as demonstrated in separate voltage clamp experiments, which were paced at 1 Hz. Upon addition of in silico IK1 with a peak outward density of 4–6 pA/pF, these hiPSC-CMs showed a ventricular-like action potential morphology with a stable resting membrane potential near −80 mV and a maximum upstroke velocity &gt;150 V/s (n=9). Proarrhythmic action potential changes were observed upon injection of both loss-of-function and gain-of-function IK1, as associated with Andersen-Tawil syndrome type 1 and short QT syndrome type 3, respectively (n=6).We conclude that injection of in silico IK1 makes the hiPSC-CM a more reliable model for investigating mechanisms underlying cardiac arrhythmias.
+---
+
+---
+DOI: 10.1097/pas.0b013e3181a2aa36
+Title: Virtual-Karyotyping With SNP Microarrays in Morphologically Challenging Renal Cell Neoplasms
+Year: 2009
+Abstract: Approximately 7 % of renal cell tumors are reported to be "unclassified" renal cell carcinoma (RCC) under the current (morphology-based) classification. Genetic lesions characteristic for RCC subtypes can be identified by virtual karyotyping with single nucleotide polymorphisms (SNP) microarrays. In this study, we examined whether virtual karyotypes could be used to better classify a cohort of morphologically challenging/unclassified RCC. Tumor resection specimens from 21 patients were profiled by virtual karyotyping with Affymetrix 10K 2.0 or 250K Nsp SNP mapping arrays and were also evaluated independently by a panel of 7 genito-urinary pathologists. Tumors were classified by the established pattern of genomic imbalances based on a reference cohort of 98 cases with classic morphology and compared with the morphologic diagnosis of the pathologist panel. Virtual karyotyping analysis identified recognized patterns of chromosomal imbalances in all but 1 (16/17 or 94%) cases with successful analysis. Four cases failed owing to low DNA quality. All cases with a panel diagnosis of unclassified RCC and cases in which a majority diagnosis was not reached were classified by their virtual karyotypes. In 1 case, the molecular-based diagnosis was in disagreement with the majority diagnosis. One case with a majority diagnosis of oncocytoma showed a novel genomic pattern not previously identified in the classic morphology cohort. We conclude that virtual karyotypes generated by SNP arrays are a valuable tool for increasing diagnostic accuracy in morphologically challenging or unclassified renal neoplasms. We consider that this technique is a feasible and practical approach for resolving difficult-to-diagnose renal tumors in clinical practice.
+---
+
+---
+DOI: 10.1038/s41586-020-2223-y
+Title: Structure of Mpro from SARS-CoV-2 and discovery of its inhibitors
+Year: 2020
+Abstract: A new coronavirus, known as severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2), is the aetiological agent responsible for the 2019-2020 viral pneumonia outbreak of coronavirus disease 2019 (COVID-19)1-4. Currently, there are no targeted therapeutic agents for the treatment of this disease, and effective treatment options remain very limited. Here we describe the results of a programme that aimed to rapidly discover lead compounds for clinical use, by combining structure-assisted drug design, virtual drug screening and high-throughput screening. This programme focused on identifying drug leads that target main protease (Mpro) of SARS-CoV-2: Mpro is a key enzyme of coronaviruses and has a pivotal role in mediating viral replication and transcription, making it an attractive drug target for SARS-CoV-25,6. We identified a mechanism-based inhibitor (N3) by computer-aided drug design, and then determined the crystal structure of Mpro of SARS-CoV-2 in complex with this compound. Through a combination of structure-based virtual and high-throughput screening, we assayed more than 10,000 compounds-including approved drugs, drug candidates in clinical trials and other pharmacologically active compounds-as inhibitors of Mpro. Six of these compounds inhibited Mpro, showing half-maximal inhibitory concentration values that ranged from 0.67 to 21.4 μM. One of these compounds (ebselen) also exhibited promising antiviral activity in cell-based assays. Our results demonstrate the efficacy of our screening strategy, which can lead to the rapid discovery of drug leads with clinical potential in response to new infectious diseases for which no specific drugs or vaccines are available.
+---
+
+---
+DOI: 10.1088/0268-1242/21/6/011
+Title: Characterization of Ge-on-Si virtual substrates and single junction GaAs solar cells
+Year: 2006
+Abstract: A virtual substrate consisting of a Ge layer grown directly on Si without an intervening SiGe graded layer is characterized. The nominally 100% Ge overlayer is fully relaxed and contains a small amount (3%) of unintentional Si. A dislocation density of 108 cm−2 is estimated for the virtual substrate prior to GaAs epitaxial growth, which is reduced by a factor of 100 after the growth of GaAs. On this novel virtual substrate 1 cm2 single-junction GaAs photovoltaic cells were realized with an efficiency of 11.7% under AM0 compared with 20.2% for cells grown on a crystalline Ge substrate. Due to the high dislocation density a 50-fold higher dark current is measured in the virtual substrate cells compared to the crystalline Ge cells, leading to a lower short circuit current and open-circuit voltage of the cells fabricated on the virtual substrates. The post-GaAs growth dislocation density is estimated as 1 × 107 cm−2 in the base region and 4 × 105 cm−2 in the emitter region based on modelling and measurements.
+---
+
+---
+DOI: 10.1109/icc.2017.7997437
+Title: Downlink transmission capacity analysis for virtual cell based distributed antenna systems
+Year: 2017
+Abstract: Distributed antenna systems (DAS) is a promising approach to cope with challenges of next generation mobile communications. This paper studies the downlink ergodic capacity of a (N, K), (K ≤ N), virtual cell based DAS, in which each mobile station (MS) selects the N closest antenna ports (APs) to form its virtual cell and the K closest APs will serve the target MS cooperatively with a total transmit power constraint. Using the stochastic geometry, the locations of APs and MSs are modeled as two independent Poisson point processes, respectively. Then, a computationally tractable integral expression is derived for the downlink ergodic capacity of the (N, K) virtual cell based DAS. Numerical results indicate that the cooperation among multiple APs within each virtual cell can improve the downlink ergodic capacity significantly.
+---
+
+---
+DOI: 10.1016/j.jcp.2011.06.003
+Title: A sharp-interface immersed boundary method with improved mass conservation and reduced spurious pressure oscillations
+Year: 2011
+Abstract: A method for reducing the spurious pressure oscillations observed when simulating moving boundary flow problems with sharp-interface immersed boundary methods (IBMs) is proposed. By first identifying the primary cause of these oscillations to be the violation of the geometric conservation law near the immersed boundary, we adopt a cut-cell based approach to strictly enforce geometric conservation. In order to limit the complexity associated with the cut-cell method, the cut-cell based discretization is limited only to the pressure Poisson and velocity correction equations in the fractional-step method and the small-cell problem tackled by introducing a virtual cell-merging technique. The method is shown to retain all the desirable properties of the original finite-difference based IBM while at the same time, reducing pressure oscillations for moving boundaries by roughly an order of magnitude.
+---
+
+---
+DOI: 10.1007/s00170-015-7588-y
+Title: An exploratory study of virtual cell design for thin-film transistor–liquid crystal display (TFT-LCD) array manufacturing
+Year: 2015
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/s41467-020-15813-9
+Title: High-throughput cell and spheroid mechanics in virtual fluidic channels
+Year: 2020
+Abstract: Abstract Microfluidics by soft lithography has proven to be of key importance for biophysics and life science research. While being based on replicating structures of a master mold using benchtop devices, design modifications are time consuming and require sophisticated cleanroom equipment. Here, we introduce virtual fluidic channels as a flexible and robust alternative to microfluidic devices made by soft lithography. Virtual channels are liquid-bound fluidic systems that can be created in glass cuvettes and tailored in three dimensions within seconds for rheological studies on a wide size range of biological samples. We demonstrate that the liquid-liquid interface imposes a hydrodynamic stress on confined samples, and the resulting strain can be used to calculate rheological parameters from simple linear models. In proof-of-principle experiments, we perform high-throughput rheology inside a flow cytometer cuvette and show the Young’s modulus of isolated cells exceeds the one of the corresponding tissue by one order of magnitude.
+---
+
+---
+DOI: 10.1007/978-1-4614-2317-1_30
+Title: Modeling a Complex Production Line Using Virtual Cells
+Year: 2012
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.cej.2017.01.069
+Title: A systematic procedure for the virtual reconstruction of open-cell foams
+Year: 2017
+Abstract: Abstract Open-cell foams are considered a potential candidate as an innovative catalyst support in many processes of the chemical industry. In this respect, a deeper understanding of the transport phenomena in such structures can promote their extensive application. In this contribution, we propose a general procedure to recover a representative open-cell structure starting from some easily obtained information. In particular, we adopt a realistic description of the foam geometry by considering clusters of solid material at nodes and different strut-cross sectional shapes depending on the void fraction. The methodology avoids time-consuming and expensive measuring techniques, such as micro-computed tomography (μCT) or magnetic resonance imaging (MRI). Computational Fluid Dynamics (CFD) could be a powerful instrument to enable accurate analyses of the complex flow field and of the gas-to-solid heat and mass transport. The reconstructed geometry can be easily exploited to generate a suitable computational domain allowing for the detailed investigation of the transport properties on a realistic foam structure by means of CFD simulations. Moreover, the proposed methodology easily allows for parametric sensitivity analysis of the foam performances, thus being an instrument for the advanced design of these structures. The geometrical properties of the reconstructed foams are in good agreement with experimental measurements. The flow field established in complex tridimensional geometries reproduces the real foam behavior as proved by the comparison between numerical simulations and experiments.
+---
+
+---
+DOI: 10.1007/s11947-011-0775-4
+Title: Virtual Fruit Tissue Generation Based on Cell Growth Modelling
+Year: 2012
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/lcomm.2016.2635146
+Title: Virtual Small Cells Formation in 5G Networks
+Year: 2016
+Abstract: A novel virtual small cells formation approach for the fifth-generation mobile network is proposed in which a subset of qualified users is selected to serve as the base stations of virtual small cells in connecting other users to the macrocell base stations. In the proposed approach, the optimum virtual small cell density is obtained, so that the number of required communication links to the macrocell base stations for connecting all users directly or through small cells is minimized. It is shown that by using the proposed virtual small cell technique, the number of connections to the macrocell base stations becomes proportional to the logarithm of the user density. Since this relationship is linear in conventional cellular networks, utilization of virtual small cells can significantly increase the overall network capacity. In addition, the optimum virtual small cell density is derived for cases where the communications costs for a user-to-macrocell direct link and a small cell-to-macrocell trunk link are not the same.
+---
+
+---
+DOI: 10.1039/c9ta04097h
+Title: Designing promising molecules for organic solar cells <i>via</i> machine learning assisted virtual screening
+Year: 2019
+Abstract: Rational design of new OPV molecules <italic>via</italic> virtual screening of candidate materials using high-performing machine learning models.
+---
+
+---
+DOI: 10.1049/el.2016.4751
+Title: Co‐channel interference analysis of large‐scale distributed antenna systems with virtual cells
+Year: 2017
+Abstract: The mean co‐channel interference in a distributed antenna system with virtual cells is studied, where a few surrounding remote antenna ports of each user form a virtual cell and serve the user. By assuming that time‐division‐multiple‐access is adopted among the users with overlapping virtual cells, the positions of active users at each time slot are modelled as a Matérn point process of type II, and an upper bound of the mean interference is derived and verified by simulation. The analysis shows that the monotonicity of mean interference depends on the path‐loss factor α , which highlights the importance of a carefully selection of virtual cell size according to the propagation environment.
+---
+
+---
+DOI: 10.1007/s11947-013-1127-3
+Title: 3D Virtual Pome Fruit Tissue Generation Based on Cell Growth Modeling
+Year: 2013
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1021/jm3002839
+Title: Virtual Screening and Computational Optimization for the Discovery of Covalent Prolyl Oligopeptidase Inhibitors with Activity in Human Cells
+Year: 2012
+Abstract: Our docking program, Fitted, implemented in our computational platform, Forecaster, has been modified to carry out automated virtual screening of covalent inhibitors. With this modified version of the program, virtual screening and further docking-based optimization of a selected hit led to the identification of potential covalent reversible inhibitors of prolyl oligopeptidase activity. After visual inspection, a virtual hit molecule together with four analogues were selected for synthesis and made in one-five chemical steps. Biological evaluations on recombinant POP and FAPα enzymes, cell extracts, and living cells demonstrated high potency and selectivity for POP over FAPα and DPPIV. Three compounds even exhibited high nanomolar inhibitory activities in intact living human cells and acceptable metabolic stability. This small set of molecules also demonstrated that covalent binding and/or geometrical constraints to the ligand/protein complex may lead to an increase in bioactivity.
+---
+
+---
+DOI: 10.1038/srep27936
+Title: Fast fringe-field switching of a liquid crystal cell by two-dimensional confinement with virtual walls
+Year: 2016
+Abstract: Abstract We report a simple method for reducing the response time of a fringe-field switching liquid crystal cell by using two-dimensional confinement of the liquid crystals. Through both numerical calculations and experiments, we show that the switching speed can be increased by several fold in a fringe-field switching cell by simply using a rubbing angle of zero, which causes virtual walls to be built when an electric field is applied between the interdigitated electrodes and the common electrode, without requiring additional fabrication steps or complicated drive schemes. Furthermore, the devices fabricated with this method exhibit a reduced color shift and excellent dynamic stability, even with a high applied voltage and under external pressure.
+---
+
+---
+DOI: 10.1111/j.1464-410x.2007.07324.x
+Title: Real‐time virtual ultrasonographic radiofrequency ablation of renal cell carcinoma
+Year: 2008
+Abstract: OBJECTIVE To evaluate the usefulness of real‐time virtual ultrasonography (RVS) as a new navigational tool for percutaneous radiofrequency ablation (RFA) of solid renal cell carcinoma (RCC). PATIENTS AND METHODS Ten patients with 13 RCCs were treated with percutaneous RFA using RVS, which displays ultrasonograms and corresponding multiplanar reconstruction images of computed tomography in parallel. RESULTS RVS allowed excellent anatomical visualization and precise navigation of RFA for RCC. All patients were treated successfully in one session with percutaneous RVS RFA. There were no significant complications, and none of the patients had a local tumour recurrence during the follow‐up. CONCLUSION RVS for RFA of solid RCC is a new and promising alternative imaging method.
+---
+
+---
+DOI: 10.1109/access.2023.3341915
+Title: Enhanced C-V2X Mode-4 With Virtual Cell, Resource Usage Bitmap, and Smart Roaming
+Year: 2023
+Abstract: Successful exchanges of cooperative awareness messages (CAMs) among neighboring vehicles are essential in the intelligent transportation system (ITS) to ensure safe autonomous driving. Especially in cellular vehicle-to-everything (C-V2X) mode-4, where the resource allocation process in the vehicles is autonomous without centralized control, efficient resource selection to minimize collisions is necessary to enhance the CAM delivery ratio (CDR). In this paper, we propose an enhanced operation of LTE C-V2X mode-4 by using virtual cells (VCs) with orthogonal resource allocation, extended master information block (EMIB) with a resource usage bitmap (RuBMP), and smart roaming in the virtual cell boundary. We propose a virtual cell manager (VCM) that monitors resource usage via CAM broadcasts from vehicles, configures the RuBMP to show the overall resource block usage, includes it in EMIB messages, and broadcasts the EMIB every 10ms. The periodic broadcast of the EMIB with the RuBMP enables vehicles to avoid selection of resources currently used by other vehicles, and minimizes collisions during CAM broadcasts. Smart roaming enables seamless, successful CAM broadcasts even at the boundary of virtual cells where resources (subchannels and subframes) must be re-selected based on the state of the next virtual cell. The analytical model of the proposed scheme (including successful CDR) is provided, and the performances are analyzed with NS-3 simulations for overlapped virtual cells in metropolitan areas with high densities of vehicles. The proposed scheme shows a 99.2&#x0025; (or more) successful CAM delivery ratio for overlapped cells with up to 400 vehicles per virtual cell using four LTE sidelink subchannels.
+---
+
+---
+DOI: 10.1109/wpmc.2018.8713089
+Title: UAV-Assisted Information Diffusion Technique with Uniquely Virtual Cells Based on Wi-Fi Direct
+Year: 2018
+Abstract: In recent years, networks for unmanned aircraft vehicle (UAV)-assisted device-to-device (D2D) communication have attracted attention, as they can be employed for emergency communication in the event of a large-scale disaster. However, many existing UAV-assisted D2D communication technology strategies neglect the UAV energy consumption during flight. Further, only the links between the UAV and ground devices are evaluated, without assumption of a wide information diffusion range. Herein, we propose a novel multihop D2D communication method that exploits UAV technology and uniquely designed virtual cells to achieve information diffusion to remote areas. Moreover, we establish a model to evaluate the trade-off between the UAV flight energy consumption and the communication performance between the UAV and mobile devices. By employing the constructed model and demonstrating the energy efficiency trend, we confirm the effectiveness of the proposed method combining multihop D2D communication and UAV technology.
+---
+
+---
+DOI: 10.1109/twc.2024.3453940
+Title: Fine-Over-Coarse Spectrum Sharing With Shaped Virtual Cells for Hybrid Satellite-UAV-Terrestrial Maritime Networks
+Year: 2024
+Abstract: Spectrum sharing among the satellite, unmanned aerial vehicle (UAV), and terrestrial components is crucial to alleviate spectrum scarcity in a hybrid maritime communication network (MCN). Fine-grained spectrum sharing based on ms-level time-domain slices is widely envisioned. However, ms-level time synchronization is challenging in the hybrid MCN due to the large diversity in the link delay. To tackle this challenge, we propose a fine-over-coarse spectrum sharing framework based on coordinated link scheduling, which is realized by joint subcarrier and time slice allocation. Specially, by link-cluster-based scheduling with grouped time slice allocation for the satellite links, time-slice-oriented spectrum sharing is realized with coarse time synchronization at time scales much larger than a single time slice duration. In the framework, only large-scale channel state information (CSI) is utilized for saving cost. A worst-case model is introduced to depict interference caused by satellite link clusters, and an NP-hard mixed integer programming (MIP) problem is formulated. Based on analysis on the characteristics of the optimal solution, a novel link clustering algorithm is proposed to form a group of shaped virtual cells within the coverage area of the MCN. A suboptimal spectrum sharing scheme with only a small performance gap to the optimal one is then proposed. Simulations show that a significant improvement in both energy efficiency and spectrum efficiency can be achieved by the proposed framework.
+---
+
+---
+DOI: 10.1109/vetecs.2008.256
+Title: Multi-Cell Channel Estimation using Virtual Pilots
+Year: 2008
+Abstract: Multicellular radio systems are often limited due to the presence of cochannel interference. Proposed physical layer concepts, e.g. coordinated joint transmission and interference rejection combining, try to strengthen the signal while combating the interference. However, the performance may be limited by the available channel knowledge. We provide a concept for multi-cell channel estimation in the downlink applicable for for both physical layer concepts. This concept uses virtual pilots based on block-orthogonal sequences, e.g. Hadamard.
+---
+
+---
+DOI: 10.3174/ajnr.a4253
+Title: Different Spectral Hounsfield Unit Curve and High-Energy Virtual Monochromatic Image Characteristics of Squamous Cell Carcinoma Compared with Nonossified Thyroid Cartilage
+Year: 2015
+Abstract: Head and neck squamous cell carcinoma has significantly different attenuation on virtual monochromatic images of ≥95 keV, compared with nonossified thyroid cartilage.
+---
+
+---
+DOI: 10.1109/icspcc.2017.8242593
+Title: Virtual cell association and multi cell scheduling in ultra-dense networks
+Year: 2017
+Abstract: This paper considers the virtual cell(VC) association and multi cell scheduling in Ultra-Dense Network for sum-rate maximization where multi dimensional resources allocation strategy is coupled and interference environment is complex. For virtual cells association, a metric is proposed which is transformed from the non-convex problem via a series of decouples and captures the gain of multi user diversity and balanced cooperation strategy. For multi-cell scheduling, a graph-based framework is proposed, where users are firstly partitioned across different groups according to an edge weight which is proportional to the inter-cluster interference price, then greedy scheduling are carried out within each group to cope with the residual inter-VCs and intra-VCs interference. Simulation results confirm that the proposed association algorithm outperforms the reference algorithm. The results also show that the proposed user clustering with balanced strategy will prevents the complex interference from overwhelming the cell-splitting gains in Ultra-Dense Network.
+---
+
+---
+DOI: 10.1109/pimrc.2012.6362822
+Title: Dynamic cooperative power management algorithm for virtual cell-based femto networks
+Year: 2012
+Abstract: A large-scale deployment of femto BSs (FBSs) will result in the substantial energy consumption. One fairly intuitive way to improve energy efficiency for femtocells is a sleep mode where the FBS periodically transmits pilot signal especially in low traffic scenario. Nevertheless, it is inefficient when not involved an active call in the FBS coverage area. To address this issue, this paper proposes a dynamic FBS-cooperative power management algorithm (FCPMA) for virtual cell based femto network, where the FBS without the active user can entirely switch off pilot transmissions and the related processing all the time. Based on the proposed scheme, the state transition model is established, and the analytic formulas of energy consumption and average cumulative delay are derived. With the practical LTE system parameters, the numerical simulation and the theoretical analysis match pretty well. Furthermore, the tradeoff relation between energy consumption and average cumulative delay is also showed. The results provide some guidelines for deploying energy efficient femtocell networks.
+---
+
+---
+DOI: 10.1109/aim.2011.6026994
+Title: Efficient solutions for programming and safe monitoring of an industrial robot via a virtual cell
+Year: 2011
+Abstract: In the short- and mid-term visions for robotics development, robots are expected to be used also in small and medium-sized companies, sharing spaces with different manufacturing cycles and possibly with human operators. This objective can be fulfilled only assuring high flexibility in production control, safety for workers and for machinery, and interfaces that allow an easy use of the equipment. The development of a proper hardware/software architecture for robot motion planning and on-line safe monitoring is a fundamental step, which requires the solution of various problems, both from the theoretical and the practical point of view. A hardware/software architecture has been developed using Microsoft Robotics Developers Studio and implemented for a six-dof COMAU NS 12 robot, allowing in particular to dynamically constrain the robot motion, and to supervise it on-line. This paper develops (i) a fast and efficient procedure to perform iterative inverse kinematics, in order to achieve full programming capabilities in the Cartesian space, and (ii) safety solutions that avoid the robot to enter the off-limits regions of the workspace, considering the delays between the motion of the real robot and its replica in the virtual cell.
+---
+
+---
+DOI: 10.48550/arxiv.2505.14613
+Title: Virtual Cells: Predict, Explain, Discover
+Year: 2025
+Abstract: Drug discovery is fundamentally a process of inferring the effects of treatments on patients, and would therefore benefit immensely from computational models that can reliably simulate patient responses, enabling researchers to generate and test large numbers of therapeutic hypotheses safely and economically before initiating costly clinical trials. Even a more specific model that predicts the functional response of cells to a wide range of perturbations would be tremendously valuable for discovering safe and effective treatments that successfully translate to the clinic. Creating such virtual cells has long been a goal of the computational research community that unfortunately remains unachieved given the daunting complexity and scale of cellular biology. Nevertheless, recent advances in AI, computing power, lab automation, and high-throughput cellular profiling provide new opportunities for reaching this goal. In this perspective, we present a vision for developing and evaluating virtual cells that builds on our experience at Recursion. We argue that in order to be a useful tool to discover novel biology, virtual cells must accurately predict the functional response of a cell to perturbations and explain how the predicted response is a consequence of modifications to key biomolecular interactions. We then introduce key principles for designing therapeutically-relevant virtual cells, describe a lab-in-the-loop approach for generating novel insights with them, and advocate for biologically-grounded benchmarks to guide virtual cell development. Finally, we make the case that our approach to virtual cells provides a useful framework for building other models at higher levels of organization, including virtual patients. We hope that these directions prove useful to the research community in developing virtual models optimized for positive impact on drug discovery outcomes.
+---
+
+---
+DOI: 10.1155/2012/785418
+Title: Hybrid BS-Cooperative Power Management Scheme with Self-Organized Sleep Mode in Virtual Cell-Based Femto Networks
+Year: 2012
+Abstract: A large-scale deployment of femtocell BSs (FBSs) causes substantial energy consumption. This paper proposes a hybrid BS-cooperative power management (HBCPM) scheme with self-organized sleep mode in virtual cell-based femto networks. Firstly, HBCPM builds a leader-member virtual cell framework, in which only one FBS is a FBS leader (FL) and others are FBS members (FMs). Then, the FL acts as an autonomous entity and is responsible for detecting active calls in the virtual cell coverage, while the FMs without active connections can entirely shut down pilot transmissions and the related processing all the time. So it is suited for self-organizing networks (SONs). Based on the proposed scheme, the state transition model is established by the semi-Markov stochastic process, and the analytic formulas of average cumulative delay and interference time as well as the energy consumption are derived. Meanwhile, three prominent-related schemes are also studied by the proposed model. With the practical long-term evolution (LTE) system parameters and three-dimensional femtocell network model, the numerical simulation and theoretical analysis match pretty well, and the tradeoff between the energy consumption and average cumulative delay is also manifested. Moreover, simulation results show that the proposed algorithm outperforms other three schemes in terms of average cumulative interference time and the energy consumption.
+---
+
+---
+DOI: 10.1016/j.ijrobp.2009.04.028
+Title: Intensity-Modulated Proton Therapy Reduces the Dose to Normal Tissue Compared With Intensity-Modulated Radiation Therapy or Passive Scattering Proton Therapy and Enables Individualized Radical Radiotherapy for Extensive Stage IIIB Non-Small-Cell Lung Cancer: A Virtual Clinical Study
+Year: 2009
+Abstract: PurposeTo compare dose volume histograms of intensity-modulated proton therapy (IMPT) with those of intensity-modulated radiation therapy (IMRT) and passive scattering proton therapy (PSPT) for the treatment of stage IIIB non-small-cell lung cancer (NSCLC) and to explore the possibility of individualized radical radiotherapy.Methods and materialsDose volume histograms designed to deliver IMRT at 60 to 63 Gy, PSPT at 74 Gy, and IMPT at the same doses were compared and the use of individualized radical radiotherapy was assessed in patients with extensive stage IIIB NSCLC (n = 10 patients for each approach). These patients were selected based on their extensive disease and were considered to have no or borderline tolerance to IMRT at 60 to 63 Gy, based on the dose to normal tissue volume constraints (lung volume receiving 20 Gy [V20] of ResultsCompared with IMRT, IMPT spared more lung, heart, spinal cord, and esophagus, even with dose escalation from 63 Gy to 83.5 Gy, with a mean MTD of 74 Gy. Compared with PSPT, IMPT allowed further dose escalation from 74 Gy to a mean MTD of 84.4 Gy (range, 79.4-88.4 Gy) while all parameters of normal tissue sparing were kept at lower or similar levels. In addition, IMPT prevented lower-dose target coverage in patients with complicated tumor anatomies.ConclusionsIMPT reduces the dose to normal tissue and allows individualized radical radiotherapy for extensive stage IIIB NSCLC.
+---
+
+---
+DOI: 10.1002/jbmr.320
+Title: The amazing osteocyte
+Year: 2010
+Abstract: Abstract The last decade has provided a virtual explosion of data on the molecular biology and function of osteocytes. Far from being the “passive placeholder in bone,” this cell has been found to have numerous functions, such as acting as an orchestrator of bone remodeling through regulation of both osteoclast and osteoblast activity and also functioning as an endocrine cell. The osteocyte is a source of soluble factors not only to target cells on the bone surface but also to target distant organs, such as kidney, muscle, and other tissues. This cell plays a role in both phosphate metabolism and calcium availability and can remodel its perilacunar matrix. Osteocytes compose 90% to 95% of all bone cells in adult bone and are the longest lived bone cell, up to decades within their mineralized environment. As we age, these cells die, leaving behind empty lacunae that frequently micropetrose. In aged bone such as osteonecrotic bone, empty lacunae are associated with reduced remodeling. Inflammatory factors such as tumor necrosis factor and glucocorticoids used to treat inflammatory disease induce osteocyte cell death, but by different mechanisms with potentially different outcomes. Therefore, healthy, viable osteocytes are necessary for proper functionality of bone and other organs. © 2011 American Society for Bone and Mineral Research.
+---
+
+---
+DOI: 10.1109/pimrc.2016.7794932
+Title: Backhaul-aware adaptive TP selection for virtual cell in ultra-dense networks
+Year: 2016
+Abstract: Ultra-dense network (UDN) in 5G provides more potential transmission points (TPs) for users. To take advantage of dense TPs, 5G will shift the network paradigm from traditional cell-centric to user-centric. Virtual cell redefines the cell from the view of users to build user-centric networks. Virtual cell is a logical cell consisting of multi physical TPs. By data synchronization as a way of cooperation between TPs at different protocol layers, virtual cell can enhance spectral efficiency. Data synchronization will utilize backhaul resources. However, non-ideal backhaul will be extensively deployed, which will take a significant share of the energy consumption in future systems. Therefore, TP selection in a virtual cell should take spectral efficiency (SE) and energy efficiency (EE) into account. To trade off between the SE and EE, we present an analysis of the backhaul power consumption and put forward an adaptive algorithm for TP selection in a virtual cell. We define the normalized outage capacity as goodput to represent the SE. Then, we consider the power of backhaul link as the energy consumption. Thus, the objective of TP selection is maximizing the defined energy efficiency. A dynamic ergodic method is used to solve the problem. Our simulation shows the dynamic selection scheme has better performance than static scheme and random scheme. Besides, with the size of virtual cell increasing, the growth rate of energy efficiency is decreasing. Thus, the size of virtual cell and TP numbers should be controlled.
+---
+
+---
+DOI: 10.1109/glocom.2018.8647592
+Title: Performance Analysis of User-Centric Virtual Cell Dense Networks over mmWave Channels
+Year: 2018
+Abstract: This paper analyzes the ergodic capacity of a user-centric virtual cell (VC) dense network, where multiple access points (APs) form a VC for each user equipment (UE) and transmit data cooperatively over millimeter wave (mmWave) channels. Different from traditional microwave radio communications, blockage phenomena have an important effect on mmWave transmissions. Accordingly, we adopt a distance-dependent line- of-sight (LOS) probability function and model the locations of the LOS and non-line-of-sight (NLOS) APs as two independent non-homogeneous Poisson point processes (PPP). Invoking this model in a VC dense network, new expressions are derived for the downlink ergodic capacity, accounting for: blockage, small-scale fading and AP cooperation. In particular, we compare the ergodic capacity for different types of fading distributions, including Rayleigh and Nakagami. Numerical results validate our analytical expressions and show that AP cooperation can provide notable capacity gain, especially in low- AP-density regions.
+---
+
+---
+DOI: 10.1109/ieem.2011.6117934
+Title: Periodic Virtual Cell Manufacturing (P-VCM) - Concept, design and operation
+Year: 2011
+Abstract: This paper presents and discusses the concept of Periodic Virtual Cell Manufacturing (P-VCM). After giving an illustrative example of the operation and design complexity of a P-VCM system, we present an industrial case to study the applicability of the concept. The illustrative example and the industrial case indicate the context for which P-VCM is appropriate.
+---
+
+---
+DOI: 10.1016/s0021-9258(19)39370-6
+Title: A specific enhancing effect of N,N-dimethylsphingosine on epidermal growth factor receptor autophosphorylation. Demonstration of its endogenous occurrence (and the virtual absence of unsubstituted sphingosine) in human epidermoid carcinoma A431 cells.
+Year: 1990
+Abstract: Our previous study suggested that N,N-dimethylsphingosine, but not unsubstituted sphingosine, could be a modulator of protein kinase C in epidermoid carcinoma A431 cells, since N,N-dimethyl-D-erythrosphingenine showed a stronger stereospecific effect on protein kinase C activity in comparison with N,N-dimethyl-L-erythrosphingenine, unsubstituted D- or L-erythrosphingenine, and gangliosides (Igarashi, Y., Hakomori, S., Toyokuni, T., Dean, B., Fujita, S., Sugimoto, M., Ogawa, T., El-Ghendy, K., and Racker, E. (1989) Biochemistry 28, 6796-6800). Other studies also indicated that commercial sphingosine preparation has an enhancing effect on epidermal growth factor (EGF) receptor kinase activity in A431 cells (Davis, R. J., Girones, N., and Faucher, M. F. (1988) J. Biol. Chem. 263, 5373-5379; Faucher, M. F., Girones, N., Hannun, Y. A., Bell, R. M., and Davis, R. J. (1988) J. Biol. Chem. 263, 5319-5327). In the present paper, we report (i) the effect of N,N-dimethylsphingosine as compared with lyso-glycosphingolipids and other sphingolipid breakdown products on EGF receptor autophosphorylation and (ii) demonstration of endogenous N,N-dimethylsphingosine synthesis and the virtual absence of unsubstituted sphingosine in A431 cells. The autophosphorylation of EGF receptor in the absence of detergent was strongly enhanced by N,N-dimethyl-D-erythrosphingenine; this effect was even obvious in the absence of EGF and synergistic in the presence of EGF. Similar enhancing activity was not produced by N,N-dimethyl-L-erythrosphingenine, D- and L-erythrosphingenine, N-monomethyl-D-erythrosphingenine, N-acetyl-D-erythrosphingenine, or the five lyso-glycosphingolipids tested. Labeling of sphingosine in A431 cells by culturing in medium containing [3H]Ser for various durations, followed by extraction and isolation of sphingolipids by standard procedures, resulted in clear bands corresponding to N,N-dimethylsphingosine and ceramide, whereas the band corresponding to sphingosine was virtually absent. The bands corresponding to N,N-dimethylsphingosine and ceramide intensified when cells were treated with metabolic inhibitor for UDP-Glc:Cer beta-Glc transferase (which causes accumulation of ceramide). These results indicate that N,N-dimethylsphingosine acts as a stereospecific enhancer for EGF receptor kinase and is able to produce EGF-like activity in vitro even in the absence of EGF and detergent. Under physiological conditions, N,N-dimethylsphingosine is the major catabolite resulting from ceramide breakdown.
+---
+
+---
+DOI: 10.1056/nejm198112103052401
+Title: <i>Pneumocystis carinii</i>Pneumonia and Mucosal Candidiasis in Previously Healthy Homosexual Men
+Year: 1981
+Abstract: Four previously healthy homosexual men contracted Pneumocystis carinii pneumonia, extensive mucosal candidiasis, and multiple viral infections. In three of the patients these infections followed prolonged fevers of unknown origin. In all four cytomegalovirus was recovered from secretions. Kaposi's sarcoma developed in one patient eight months after he presented with esophageal candidiasis. All patients were anergic and lymphopenic; they had no lymphocyte proliferative responses to soluble antigens, and their responses to phytohemagglutinin were markedly reduced. Monoclonal-antibody analysis of peripheral-blood T-cell subpopulations revealed virtual elimination of the Leu-3+ helper/inducer subset, an increased percentage of the Leu-2+ suppressor/cytotoxic subset, and an increased percentage of cells bearing the thymocyte-associated antigen T10. The inversion of the T helper to suppressor/cytotoxic ratio suggested that cytomegalovirus infection was an important factor in the pathogenesis of the immunodeficient state. A high level of exposure of male homosexuals to cytomegalovirus-infected secretions may account for the occurrence of this immune deficiency. (N Engl J Med. 1981; 305:1425–31.)
+---
+
+---
+DOI: 10.1002/pbc.27525
+Title: Virtual reality as complementary pain therapy in hospitalized patients with sickle cell disease
+Year: 2018
+Abstract: Abstract Objective Due to incomplete management of vaso‐occlusive pain episodes (VOE) in patients with sickle cell disease (SCD), we sought to determine if immersive VR would be feasible for inpatients. Secondarily, we hypothesized that a single VR session would improve the VOE pain experience. Procedures Consecutive patients with SCD eight years and older admitted for VOE were offered one 15‐minute VR session, utilizing a relaxing underwater world specifically created for pediatric patients and to minimize potential simulator side effects. Safety and acceptability were evaluated with a brief survey before and after the session. Pain was evaluated utilizing the validated adolescent pediatric pain tool (APPT). Survey data and pain scores were analyzed using Wilcoxon signed‐rank test as the data were nonnormally distributed. Results Thirty patients, 21 female, with a median age of 16 years were enrolled, the majority having hemoglobin SS disease. The VR session had no reported side effects; all patients requested VR again in the future. Median pain intensity (pre‐VR 7.3 [interquartile range, IQR, 6.1, 8.8], post‐VR 5.8 [4.7, 7.9]), number of affected body areas (pre‐VR 3.0 [2.0, 7.8], post‐VR 2.0 [0, 4.8]), and qualitative measures including sensory, affective, evaluative, and temporal pain domains were all statistically reduced (i.e., P ≤0.01). Conclusions VR therapy was feasible in a cohort of patients with SCD admitted for VOE. In addition to standard therapies, VR may help reduce the pain experience with SCD VOE. Further study is required to determine the impact of VR therapy on opioid usage and length of stay in hospital.
+---
+
+---
+DOI: 10.1243/0954405991516688
+Title: The application of immersive virtual reality for layout planning of manufacturing cells
+Year: 1999
+Abstract: Immersive virtual reality (VR) is a new form of human-computer interaction, which has the potential to support a range of engineering applications. A recent review of the methods of planning and implementing manufacturing cells indicates that the visual capability of VR could assist the planning process. Current planning methods are restricted by two-dimensional and three-dimensional modelling systems, which provide visual representation of the cells but lack the full user interaction. This paper describes the framework of an immersive VR approach to the planning and implementation of manufacturing cells in which the planner enters the modelled world of the application.
+---
+
+---
+DOI: 10.1016/s0006-3495(97)78146-3
+Title: A general computational framework for modeling cellular structure and function
+Year: 1997
+Abstract: The "Virtual Cell" provides a general system for testing cell biological mechanisms and creates a framework for encapsulating the burgeoning knowledge base comprising the distribution and dynamics of intracellular biochemical processes. It approaches the problem by associating biochemical and electrophysiological data describing individual reactions with experimental microscopic image data describing their subcellular localizations. Individual processes are collected within a physical and computational infrastructure that accommodates any molecular mechanism expressible as rate equations or membrane fluxes. An illustration of the method is provided by a dynamic simulation of IP3-mediated Ca2+ release from endoplasmic reticulum in a neuronal cell. The results can be directly compared to experimental observations and provide insight into the role of experimentally inaccessible components of the overall mechanism.
+---
+
+---
+DOI: 10.1080/1062936x.2020.1818617
+Title: Cell-based multi-target QSAR model for design of virtual versatile inhibitors of liver cancer cell lines
+Year: 2020
+Abstract: Liver cancers are one of the leading fatal diseases among malignant neoplasms. Current chemotherapeutic treatments used to fight these illnesses have become less efficient in terms of both efficacy and safety. Therefore, there is a great need of search for new anti-liver cancer agents and this can be accelerated by using computer-aided drug discovery approaches. In this work, we report the development of the first cell-based multi-target model based on quantitative structure-activity relationships (CBMT-QSAR) for the design and prediction of chemicals as anticancer agents against 17 liver cancer cell lines. While having a good quality and predictive power (accuracy higher than 80%) in the training and test sets, respectively, the CBMT-QSAR model was employed as a tool to directly extract suitable fragments from the physicochemical and structural interpretations of the molecular descriptors. Some of these desirable fragments were assembled, leading to the virtual design of eight molecules with drug-like properties, with six of them being predicted as versatile anticancer agents against the 17 liver cancer cell lines reported here.
+---
+
+---
+DOI: 10.1109/tetci.2019.2926769
+Title: Deep Learning Based Hotspot Prediction and Beam Management for Adaptive Virtual Small Cell in 5G Networks
+Year: 2020
+Abstract: To meet the extremely stringent but diverse requirements of 5G, cost-effective network deployment and traffic-aware adaptive utilization of network resources are becoming essential. In this paper, a hotspot prediction based virtual small cell (VSC) operation scheme is adopted to improve both the cost efficiency and operational efficiency of 5G networks. This paper focuses on how to predict the hotspots by using deep learning, and then demonstrates how the predictions can be leveraged to support adaptive beamforming and VSC operation. We first leverage the feature extraction capabilities of deep learning and exploit use of a long short-term memory (LSTM) neural network to achieve hotspot prediction for the potential formation of the VSCs. To support the operation of VSCs, large-scale antenna array enabled hybrid beamforming is adaptively adjusted for highly directional transmission to cover these hotspot-based VSCs. Within each VSC, an appropriate user equipment is selected as a cell head to collect the intra-cell traffic in the unlicensed band and relays the aggregated traffic to the macro-cell base station by using the licensed band. Our simulation results illustrate that the proposed LSTM-based method can extract spatial and temporal traffic features of hotspot with higher accuracy, compared with some existing deep and non-deep learning approaches. Numerical results also show that VSCs with hotspot prediction and hybrid beamforming can improve the energy efficiency dramatically with flexible deployment and low latency, compared with the scenario of the convolutional fixed small cells.
+---
+
+---
+DOI: 10.1109/jsac.2010.101202
+Title: Multi-Cell MIMO Cooperative Networks: A New Look at Interference
+Year: 2010
+Abstract: This paper presents an overview of the theory and currently known techniques for multi-cell MIMO (multiple input multiple output) cooperation in wireless networks. In dense networks where interference emerges as the key capacity-limiting factor, multi-cell cooperation can dramatically improve the system performance. Remarkably, such techniques literally exploit inter-cell interference by allowing the user data to be jointly processed by several interfering base stations, thus mimicking the benefits of a large virtual MIMO array. Multi-cell MIMO cooperation concepts are examined from different perspectives, including an examination of the fundamental information-theoretic limits, a review of the coding and signal processing algorithmic developments, and, going beyond that, consideration of very practical issues related to scalability and system-level integration. A few promising and quite fundamental research avenues are also suggested.
+---

@@ -1,0 +1,119 @@
+{
+  "batch_index": 19,
+  "dois": [
+    "10.1186/s13073-022-01048-4",
+    "10.3389/fbioe.2021.765516",
+    "10.1038/s41540-024-00335-7",
+    "10.3390/s24175680",
+    "10.1007/s10845-023-02229-7",
+    "10.3390/cimb47050321",
+    "10.3390/jpm14050475",
+    "10.1155/2022/6003293",
+    "10.1093/bioinformatics/btae205",
+    "10.3390/s24237451"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1186/s13073-022-01048-4",
+      "problem": "Medical digital twins for drug discovery in seasonal allergic rhinitis",
+      "method": "scRNA-seq time-series multinomial network models",
+      "finding": "Thousands of DEGs across cell types, upstream regulator identification",
+      "dataset": "SAR patients and controls",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fbioe.2021.765516",
+      "problem": "Electrical stimulation digital twin for tissue engineering",
+      "method": "FEM numerical simulation of stimulation chamber",
+      "finding": "Linear FEM model enables digital twin for electrical stimulation",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": "90%"
+    },
+    {
+      "doi": "10.1038/s41540-024-00335-7",
+      "problem": "Predicting kinetics of infused T cells in adoptive therapy",
+      "method": "QSP model with ODEs for T cell kinetics",
+      "finding": "Digital twins capture kinetics of multiple T cell phenotypes",
+      "dataset": "solid tumor patients",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/s24175680",
+      "problem": "Digital twin for intelligent automation in Industry 4.0",
+      "method": "Three-layer DT architecture (physical, digital, communication)",
+      "finding": "DTs enhance operational efficiency in manufacturing",
+      "dataset": "",
+      "metric": "precision, accuracy",
+      "baseline": "",
+      "result": "99.99%"
+    },
+    {
+      "doi": "10.1007/s10845-023-02229-7",
+      "problem": "Reconfigurable manufacturing system optimization",
+      "method": "Layout optimization framework at machine and station levels",
+      "finding": "Optimized production layout for flexible manufacturing",
+      "dataset": "",
+      "metric": "",
+      "baseline": "traditional systems",
+      "result": "3.8x"
+    },
+    {
+      "doi": "10.3390/cimb47050321",
+      "problem": "CAR-T cell therapy limitations in solid cancers",
+      "method": "Review of CAR-T therapy mechanisms and resistance",
+      "finding": "Tumor evasion and immunosuppressive microenvironment limit efficacy",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/jpm14050475",
+      "problem": "Integrative modeling for precision medicine in cancer",
+      "method": "Multiscale computational modeling for personalized predictions",
+      "finding": "Proof of concept for personalized NSCLC treatment predictions",
+      "dataset": "patient",
+      "metric": "",
+      "baseline": "",
+      "result": "23%"
+    },
+    {
+      "doi": "10.1155/2022/6003293",
+      "problem": "Stem cell image segmentation, detection and tracking",
+      "method": "Digital twin-based lightweight deep learning segmentation",
+      "finding": "Improved stem cell image segmentation using DT approach",
+      "dataset": "stem cell images",
+      "metric": "recall, F1, accuracy",
+      "baseline": "",
+      "result": "0.043 higher"
+    },
+    {
+      "doi": "10.1093/bioinformatics/btae205",
+      "problem": "Neoantigen vaccine element selection optimization",
+      "method": "NeoAgDT: digital twin tumor simulation + vaccine optimization",
+      "finding": "Two-step approach for personalized neoantigen vaccine design",
+      "dataset": "7 patients",
+      "metric": "recall",
+      "baseline": "standard ranking",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/s24237451",
+      "problem": "IoT-cloud monitoring of robotic assembly cell",
+      "method": "IoT-cloud platform for real-time MRC monitoring",
+      "finding": "Real-time monitoring and control enabled via IoT platform",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:49:19.121010",
+  "extraction_count": 10
+}

@@ -1,0 +1,119 @@
+{
+  "batch_index": 33,
+  "dois": [
+    "10.1038/nature24284",
+    "10.1371/journal.pone.0240020",
+    "10.4230/lipics.wabi.2019.10",
+    "10.3390/molecules27041409",
+    "10.3389/fphys.2021.755881",
+    "10.1098/rstb.2019.0753",
+    "10.3390/molecules27103197",
+    "10.3390/molecules28041588",
+    "10.1371/journal.pcbi.1005981",
+    "10.1098/rsif.2014.1080"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1038/nature24284",
+      "problem": "Much of the genetic contribution to breast cancer risk remains unknown, with rare coding variants and common non-coding variants only partially explaining heritability.",
+      "method": "Genome-wide association study (GWAS) using the OncoArray and iCOGS platforms with imputation, combined with in silico functional annotation of risk loci in breast cells.",
+      "finding": "Identified 65 new breast cancer risk loci at genome-wide significance; credible risk SNPs fall predominantly in distal regulatory elements with strong overlap between candidate target genes and somatic driver genes in breast tumours.",
+      "dataset": "122,977 cases and 105,974 controls of European ancestry; 14,068 cases and 13,104 controls of East Asian ancestry (BCAC consortium)",
+      "metric": "P-value for association, heritability enrichment fold-change",
+      "baseline": "Previously known breast cancer risk loci from prior GWAS",
+      "result": "65 new loci at P < 5e-8; heritability in regulatory features 2-5-fold enriched vs genome-wide average"
+    },
+    {
+      "doi": "10.1371/journal.pone.0240020",
+      "problem": "Breast cancer stem cells (BCSCs) express high levels of anti-apoptotic survivin, and a natural compound targeting survivin to induce apoptosis in BCSCs is needed.",
+      "method": "In silico molecular docking (MOE 2010.10, MMFF94x, London dG scoring) of 7 natural compounds with survivin/caspase-9/caspase-3, followed by in vitro validation using qRT-PCR, ELISA, immunoblotting, and Annexin-V/PI flow cytometry on CD24-/CD44+ BCSCs.",
+      "finding": "Andrographolide was selected as lead compound due to specific interaction with survivin Thr34 phosphorylation site; it decreased survivin and phospho-survivin levels, increased caspase-3, and induced apoptosis in BCSCs with no cytotoxicity to MSCs.",
+      "dataset": "Human CD24-/CD44+ breast cancer stem cells and human mesenchymal stem cells (MSCs)",
+      "metric": "CC50, ΔG binding (kcal/mol), pKi, mRNA fold change, apoptosis percentage",
+      "baseline": "Rocaglamide (highest overall affinity but non-specific to Thr34); MSCs as selectivity control",
+      "result": "CC50 = 0.32 mM in BCSCs; andrographolide ΔG = -8.2617 kcal/mol at Thr34 vs rocaglamide ΔG = -5.3851 at Ile19"
+    },
+    {
+      "doi": "10.4230/lipics.wabi.2019.10",
+      "problem": "It is difficult to apply multiple sequencing technologies to the same single cell, requiring computational methods to integrate disjoint single-cell multi-omics measurements without correspondence information.",
+      "method": "Unsupervised manifold alignment algorithm (MMD-MA) combining maximum mean discrepancy, distortion preservation, and penalty terms to embed cells from different modalities into a shared latent space using kernel methods.",
+      "finding": "MMD-MA correctly aligned simulated multi-domain data and real single-cell gene expression and methylation data without requiring any correspondence information between cells or features.",
+      "dataset": "3 simulated manifolds (n=300 each, p1=1000, p2=2000); real scRNA-seq and methylation data from mouse embryonic stem cells",
+      "metric": "Average fraction of samples closer than the true match",
+      "baseline": "No direct comparison possible — other algorithms (e.g. UnionCom, MATCHER) require correspondence or were unavailable at time of study",
+      "result": "Fraction of samples closer than true match approaches zero across all three simulations"
+    },
+    {
+      "doi": "10.3390/molecules27041409",
+      "problem": "The bioactive metabolite profile, antibacterial, antioxidant, and anticancer potential of Eruca sativa leaves against colorectal carcinoma cells are not fully characterized.",
+      "method": "HR-LC/MS phytochemical profiling, agar well diffusion antibacterial assay, DPPH/H2O2 antioxidant assays, MTT cytotoxicity assay on HCT-116 and Caco-2 cells, and in silico ADME/Tox prediction (SwissADME, pkCSM).",
+      "finding": "E. sativa contains diverse bioactive compounds (vitamins, fatty acids, alkaloids, flavonoids, terpenoids, phenols) with antibacterial activity and promising anticancer activity against colorectal cancer cells in a dose/time-dependent manner.",
+      "dataset": "HCT-116 and Caco-2 colorectal carcinoma cell lines; P. aeruginosa, B. subtilis, E. coli, S. aureus bacterial strains",
+      "metric": "IC50, zone of inhibition",
+      "baseline": "Ascorbic acid (antioxidant standard); 5-fluorouracil (anticancer standard)",
+      "result": "DPPH IC50 = 66.16 μg/mL; H2O2 IC50 = 76.05 μg/mL; HCT-116 IC50 = 64.91 μg/mL; Caco-2 IC50 = 83.98 μg/mL"
+    },
+    {
+      "doi": "10.3389/fphys.2021.755881",
+      "problem": "Cell-based therapies for heart failure using hCICs and hMSCs are limited by incomplete understanding of their effects on host cardiomyocyte electrophysiology and calcium cycling.",
+      "method": "Developed a novel mathematical ODE model of hCIC electrophysiology fitted to patch-clamp data, coupled to existing hCM and hMSC models; ran population-of-models simulations (2,500 randomized models) of heterocellular coupling and paracrine signaling in healthy, failing, and fibrotic conditions.",
+      "finding": "Paracrine signaling was necessary and sufficient to correct abnormal electrophysiology and calcium cycling of heart failure cardiomyocytes in fibrotic (but not non-fibrotic) myocardium, counteracting fibrotic effects while restoring arrhythmia-related metrics.",
+      "dataset": "Digitized experimental hCIC patch-clamp data from Zhang et al. 2014; human cardiomyocyte model (O'Hara-Rudy)",
+      "metric": "Action potential duration (APD), calcium transient amplitude (CaT), upstroke velocity, resting membrane potential",
+      "baseline": "Healthy hCM electrophysiology; individual hCIC or hMSC coupling vs combined therapy vs fused CardioChimeras",
+      "result": "hCICs produced greater calcium cycling increases with lesser APD reduction than hMSCs; permutation of 2,500 models predicted correction in fibrotic but not non-fibrotic HF"
+    },
+    {
+      "doi": "10.1098/rstb.2019.0753",
+      "problem": "How endothelial cells make rapid collective decisions during tip cell selection in angiogenesis, and whether filopodia play a role beyond simple sensing.",
+      "method": "MemAgent-spring model (MSM) agent-based simulations of VEGF/Notch lateral inhibition with filopodia dynamics, validated with in vivo live imaging of zebrafish intersegmental vessel growth; information-theoretic measures from computational neuroscience applied to assess active perception.",
+      "finding": "Filopodia provide coupled positive feedback between movement and sensing that confers bistable switch-like properties to Notch lateral inhibition, speeding up tip cell selection; GOF filopodia can rescue patterning speed in LOF VEGF conditions.",
+      "dataset": "In silico: 10-cell MSM simulations; in vivo: zebrafish intersegmental vessel (ISV) live imaging",
+      "metric": "Time to pattern (salt-and-pepper selection), transfer entropy, active information storage",
+      "baseline": "Reduced filopodia (F=0.5 LOF) vs normal (F=2) vs enhanced (F=3 GOF); LOF VEGF gradient conditions",
+      "result": "LOF filopodia significantly delayed tip selection; GOF filopodia rescued patterning speed under LOF VEGF"
+    },
+    {
+      "doi": "10.3390/molecules27103197",
+      "problem": "The mechanism of action of algal-derived polysaccharides (fucoidan, alginate) on inflammatory biomarkers involved in early atherosclerosis — particularly selectins, MCP-1, and ICAM-1 — is poorly understood.",
+      "method": "Molecular docking (AutoDock 4.2.6) of fucoidan and alginate with L-selectin, E-selectin, MCP-1, and ICAM-1, followed by in vitro validation using THP-1 monocyte migration assay, LDH/crystal violet cytotoxicity, and qRT-PCR for MCP-1/ICAM-1 expression.",
+      "finding": "Fucoidan had greater binding affinity than alginate for all four inflammatory targets; it inhibited THP-1 monocyte migration and significantly suppressed MCP-1 and ICAM-1 expression in IFN-γ-stimulated THP-1 macrophages with no cytotoxicity up to 200 μg/mL.",
+      "dataset": "THP-1 human monocytic leukemia cells; L-selectin (5VC1), E-selectin (1G1T), MCP-1 (1DOK), ICAM-1 (1IAM) crystal structures",
+      "metric": "Binding energy (kcal/mol), inhibition constant (Ki), fold change in gene expression",
+      "baseline": "Alginate as comparison ligand; IFN-γ-only treated cells as positive control",
+      "result": "Fucoidan-L-selectin ΔG = -5.82 kcal/mol vs alginate -4.3 kcal/mol; MCP-1 suppressed 8-fold, ICAM-1 suppressed 4-fold vs IFN-γ only"
+    },
+    {
+      "doi": "10.3390/molecules28041588",
+      "problem": "Identifying natural inhibitors of anti-apoptotic Bcl-2 protein from Wedelia trilobata secondary metabolites to promote cancer cell apoptosis.",
+      "method": "In silico molecular docking (AutoDock Vina/PyRx) of 52 W. trilobata metabolites against Bcl-2 protein (PDB: 2W3L), molecular dynamics simulation (100 ns), and ADMET profiling (pkCSM, SwissADME).",
+      "finding": "Friedelin showed the best binding affinity (-10.1 kcal/mol) to Bcl-2, superior to the standard drug Obatoclax (-8.4 kcal/mol), with stable MD simulation over 100 ns and favorable ADMET properties including no AMES toxicity, hepatotoxicity, or skin sensitization.",
+      "dataset": "52 bioactive secondary metabolites from W. trilobata; Bcl-2 protein crystal structure (PDB: 2W3L)",
+      "metric": "Binding energy (kcal/mol), RMSD, ADMET parameters",
+      "baseline": "Obatoclax (standard Bcl-2 inhibitor drug, -8.4 kcal/mol)",
+      "result": "Friedelin ΔG = -10.1 kcal/mol vs Obatoclax -8.4 kcal/mol; stable complex over 100 ns MD simulation"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1005981",
+      "problem": "The role of biomechanical processes (as opposed to molecular signaling alone) in driving early tooth morphogenesis from bud to cap stage is poorly understood.",
+      "method": "3D computational model (EmbryoMaker) using overdamped Langevin dynamics with differential tissue growth and cell adhesion, validated against ex vivo cell-tracking, mechanical relaxation experiments, and observed tooth shape changes (mouse E13-E15).",
+      "finding": "Two biomechanical processes — differential tissue growth and differential cell adhesion — were sufficient to explain 3D cervical loop formation, their direction, and buccal-lingual vs anterior-posterior shape asymmetry; mesenchymal tensile stresses restrict lateral growth forcing downward cervical loop extension.",
+      "dataset": "Mouse molar tooth germs (E13-E15, bud to cap stage); ex vivo organ cultures with mechanical perturbations",
+      "metric": "Morphological shape comparison, cervical loop orientation, tissue relaxation response",
+      "baseline": "Alternative growth distribution hypotheses (uniform vs enamel-knot-restricted vs gradient)",
+      "result": "Accelerated epithelial growth + specific differential adhesion between 3 tissues reproduced observed 3D cap-stage morphology"
+    },
+    {
+      "doi": "10.1098/rsif.2014.1080",
+      "problem": "Traditional single-cell adhesion force experiments may not accurately reflect cell-cell interactions within colonies; understanding how adhesion forces scale in multicellular contexts is crucial for modeling cancer invasion.",
+      "method": "Multi-scale multi-compartment mathematical model coupling intracellular E-cadherin–β-catenin dynamics with cell-level mechanics, comparing static vs dynamic adhesion hypotheses and fitting to dual-pipette separation force data.",
+      "finding": "Only the dynamic adhesion model (where E-cadherin complexes redistribute among neighbors) fit experimental data; adhesion forces between cells in colonies are lower than single-cell experiments suggest; pressure-related cell-cycle arrest enables protrusive invasive structures independent of pro-invasion molecule expression.",
+      "dataset": "E-cadherin separation force data from Chu et al. dual-pipette assays; L929 cell colony experiments",
+      "metric": "Cell-cell separation force (nN), E-cadherin expression level correlation",
+      "baseline": "Static adhesion model (Model 1: fixed bond number per cell pair) vs dynamic adhesion model (Model 2: redistributed complexes)",
+      "result": "Dynamic model fit data well while static model failed; colony adhesion forces predicted lower than isolated two-cell measurements"
+    }
+  ],
+  "timestamp": "2026-03-05T14:24:04.186784",
+  "extraction_count": 10
+}

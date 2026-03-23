@@ -1,0 +1,119 @@
+{
+  "batch_index": 57,
+  "dois": [
+    "10.1371/journal.pone.0006046",
+    "10.1371/journal.pone.0235712",
+    "10.1007/s10439-015-1271-1",
+    "10.1371/journal.pone.0100288",
+    "10.1371/journal.pcbi.1002025",
+    "10.1038/s41580-023-00615-w",
+    "10.1186/s13059-019-1730-3",
+    "10.3389/fninf.2020.00034",
+    "10.1093/bioinformatics/btp324",
+    "10.1186/1745-7580-2-2"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pone.0006046",
+      "problem": "Which model of NK cell education—two-step selection or sequential—best explains the impact of MHC class I on the Ly49 receptor repertoire?",
+      "method": "Mathematical modeling of two NK cell education schemes (sequential and two-step selection) fitted to flow cytometry data of Ly49 receptor expression in single MHC class I mice, with parameter sweeps over binding strengths and maturation thresholds.",
+      "finding": "The two-step selection model fits biological data better than the sequential model; MHC class I favors maturation of NK cells with one or few self-receptors (positive selection), and Ly49 receptors are more promiscuous in MHC class I binding than previously thought.",
+      "dataset": "Single MHC class I mice (H2Kb, H2Db, H2Dd, H2Ld) and MHC-deficient C57BL/6 splenocyte NK cells",
+      "metric": "Model fit to observed Ly49 receptor co-expression frequencies (singletons, pairs, triplets)",
+      "baseline": "Sequential model of NK cell education",
+      "result": "Two-step selection model provides superior fit across all four single MHC class I backgrounds"
+    },
+    {
+      "doi": "10.1371/journal.pone.0235712",
+      "problem": "How do stress, strain, and deformation behave in single plant cells during drying at different moisture levels, and can this be computationally simulated in 3D?",
+      "method": "A 3D coupled Smoothed Particle Hydrodynamics (SPH) and Coarse-Grained (CG) meshfree computational model simulating cell fluid and cell wall mechanics under compression at varying dryness levels, turgor pressures, strain rates, and cell sizes.",
+      "finding": "The model effectively simulates cell shrinkage and compression mechanics during drying; fresh cells show higher stiffness and stress under compression while dried cells exhibit lower stiffness, and turgor pressure is the dominant factor controlling mechanical response.",
+      "dataset": "Simulated single apple parenchyma cells (100 µm diameter)",
+      "metric": "Stress-strain relationships, force-deformation curves, turgor pressure (200 kPa normal)",
+      "baseline": "Authors' previously published 2D SPH-CG model",
+      "result": "3D model reproduces expected stiffness reduction with drying (X/X0 from 1.0 to 0.1)"
+    },
+    {
+      "doi": "10.1007/s10439-015-1271-1",
+      "problem": "How do immune system parameters and stochastic processes influence the early stages of tumor initiation at the cellular level?",
+      "method": "A semi-stochastic cell-level computational model using Green's function solutions for chemokine diffusion, stochastic differential equations for cell migration (random walk, chemotaxis, haptotaxis), and individual-based simulation of epithelial cells, tumor cells, and T-cells in 2D and 3D.",
+      "finding": "A 'good' immune system response (higher T-cell mobility and appearance rate) can completely eliminate tumor cells in early stages, while a 'bad' immune response leads to tumor cell fractions reaching ~30%; stochastic variation between runs is considerable but qualitatively consistent.",
+      "dataset": "Simulated tissue domain (radius 40 µm) with epithelial cells, tumor cells, T-cells",
+      "metric": "Tumor cell fraction, T-cell counts, epithelial cell counts over time",
+      "baseline": "'Bad' immune system response (low T-cell mobility/appearance)",
+      "result": "Good immune system: tumor fraction ~0%; bad immune system: tumor fraction ~30%"
+    },
+    {
+      "doi": "10.1371/journal.pone.0100288",
+      "problem": "What mechanisms underlie the occasional onset and spontaneous termination of non-fatal cardiac arrhythmias, and what role do gap junction alterations in ischemic tissue play?",
+      "method": "A 2D computational model of 128×256 cardiac cells using the Beeler-Reuter electrophysiology model, simulated in the NEURON environment on a BlueGene/Q supercomputer, with ischemic areas modeled via reduced and randomly fluctuating gap junction conductance and rectifying properties.",
+      "finding": "Post-ischemic alteration of gap junction conductance in a small cardiac area can reproduce all main types of non-fatal arrhythmia (PVBs, bigeminy, trigeminy, couplets, triplets, VT); three potential treatments identified: surgical ablation, pharmacological reduction of rectifying properties, and decreased gap junction conductance.",
+      "dataset": "Simulated 2D cardiac tissue (12.8×4.1 mm, 32,768 cells) validated against ECG recordings from Physionet Database",
+      "metric": "Qualitative comparison to experimental ECG patterns (PVB, bigeminy, trigeminy, couplets, triplets, VT)",
+      "baseline": "Control conditions (normal gap junction conductance 30 nS, no ischemic area)",
+      "result": "Model reproduces all major non-fatal arrhythmia types; 130 sec simulation in ~3 hours on 1024 processors"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1002025",
+      "problem": "How does Hedgehog (Hh) signaling maintain compartment boundaries in the Drosophila wing disc, and why do perturbations of Hh signaling affect cell sorting far from the boundary?",
+      "method": "A cellular vertex model of tissue mechanics coupled to an explicit Hh signaling pathway model (diffusion + transduction PDEs/ODEs), simulating cell growth, division, and sorting in the wing primordium with smo mutant clone experiments for validation.",
+      "finding": "Hh signaling effects on cell sorting extend surprisingly far from the compartment boundary; the best simulation fit assumes Hh signaling redistributes tension locally within a cell (relative to neighbors' signaling status) rather than altering overall cell tension, suggesting homotypic interaction of a putative Hh target molecule at the cell surface.",
+      "dataset": "Drosophila melanogaster wing imaginal discs with smo3 mutant clones",
+      "metric": "Clone roundness (4πA/L²), clone position relative to A/P boundary",
+      "baseline": "Previous heterotypic interaction model (Landsberg et al.)",
+      "result": "Homotypic redistribution model recapitulates non-local sorting effects of smo- clones observed experimentally"
+    },
+    {
+      "doi": "10.1038/s41580-023-00615-w",
+      "problem": "How have single-cell multi-omics technologies evolved over the past decade, and what are their current capabilities, applications, and limitations?",
+      "method": "Comprehensive review of established and cutting-edge single-cell multi-omics technologies, evaluated across throughput, resolution, modality integration, uniqueness, and accuracy dimensions.",
+      "finding": "Single-cell multi-omics have advanced cell lineage tracing, tissue/cell atlas production, tumor immunology, and spatial mapping; key remaining challenges include benchmarking computational integration tools, high sequencing costs, limited single-cell coverage, and low throughput for spatial technologies.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/s13059-019-1730-3",
+      "problem": "What is the current state of genome-scale metabolic model (GEM) reconstruction across organisms, and what are their key applications in systems-level metabolic studies?",
+      "method": "Review of GEM reconstruction pipelines and simulation approaches including flux balance analysis, with case studies spanning strain engineering, drug targeting, enzyme function prediction, pan-reactome analysis, and multi-organism interaction modeling.",
+      "finding": "GEMs have been successfully applied to strain development (e.g., E. coli d-phenyllactic acid production increased from 0.55 to 1.62 g/L), drug targeting in pathogens like P. falciparum and A. baumannii, enzyme function discovery, and modeling multi-cell interactions; future integration of protein allocation and structural information will expand capabilities.",
+      "dataset": "GEMs across bacteria, archaea, and eukarya (e.g., E. coli iJO1366, Y. lipolytica iYLI647, P. falciparum, A. baumannii)",
+      "metric": "Production titer (g/L), gene essentiality prediction accuracy",
+      "baseline": "E. coli base strain XB201T (0.55 g/L d-phenyllactic acid)",
+      "result": "Engineered strain: 1.62 g/L d-phenyllactic acid; fed-batch: 13.9 g/L aromatic polymer"
+    },
+    {
+      "doi": "10.3389/fninf.2020.00034",
+      "problem": "Can energy deficiency at cellular and network levels explain the excitotoxic loss of dopaminergic SNc neurons in Parkinson's disease, and which neuroprotective interventions are most effective?",
+      "method": "A multi-scale hybrid excitotoxicity model (HEM) combining Izhikevich spiking neuron models for STN/GPe with a detailed biophysical conductance-based model of SNc neurons including calcium dynamics, energy metabolism (glycolysis, oxidative phosphorylation), and apoptotic pathways, simulated in MATLAB.",
+      "finding": "Energy deficiency causes SNc neurons to shift from tonic to bursting firing and leads to calcium accumulation and apoptosis; glutamate inhibition and apoptotic signal blocker therapies can halt SNc cell loss, while other interventions (dopamine restoration, DBS, calcium channel blockers) only slow progression.",
+      "dataset": "Simulated rat basal ganglia network (STN-GPe-SNc) based on anatomical data",
+      "metric": "Percentage of surviving SNc cells, firing frequency (Hz), intracellular calcium concentration (mM), extracellular dopamine concentration",
+      "baseline": "Normal energy conditions (no hypoglycemia/hypoxia)",
+      "result": "Glutamate inhibition and apoptotic signal blockers halt SNc cell loss; SNc tonic firing 3-8 Hz, bursting ~20 Hz"
+    },
+    {
+      "doi": "10.1093/bioinformatics/btp324",
+      "problem": "Existing hash table-based short read aligners like MAQ are too slow for large-scale resequencing and do not support gapped alignment for single-end reads.",
+      "method": "Burrows-Wheeler Alignment tool (BWA) using backward search with Burrows-Wheeler Transform (BWT) for efficient short read alignment against large reference genomes, supporting mismatches, gaps, base space (Illumina) and color space (SOLiD) reads.",
+      "finding": "BWA is ~10-20x faster than MAQ while achieving similar accuracy; it supports gapped alignment for single-end reads and outputs in SAM format compatible with SAMtools for downstream variant calling.",
+      "dataset": "Simulated reads from human genome; real Illumina and SOLiD sequencing data",
+      "metric": "Alignment speed (CPU seconds), mapping accuracy (error rate of confident mappings), number of mapped reads, memory usage",
+      "baseline": "MAQ, SOAPv2, Bowtie",
+      "result": "10-20x faster than MAQ with similar accuracy; requires ~2.3 GB memory for human genome"
+    },
+    {
+      "doi": "10.1186/1745-7580-2-2",
+      "problem": "Existing propensity scale methods for predicting linear B-cell epitopes have limited accuracy, and improved prediction methods are needed for vaccine and diagnostics design.",
+      "method": "Hidden Markov model (HMM) trained on AntiJen B-cell epitope data combined with Parker propensity scale as a weighted sum (BepiPred: 0.60 HMM + 0.40 Parker), evaluated via ROC curves on independent datasets.",
+      "finding": "The BepiPred method (HMM + Parker combination) significantly outperforms individual propensity scale methods and the standalone HMM on the independent HIV validation dataset.",
+      "dataset": "Pellequer dataset (literature B-cell epitopes), AntiJen database, HIV epitopes from Los Alamos HIV database",
+      "metric": "AUC-ROC (Aroc), sensitivity at fixed specificity, paired t-test P-values",
+      "baseline": "Parker propensity scale (Aroc=0.586), Levitt scale (Aroc=0.572), standalone HMM (Aroc=0.586)",
+      "result": "BepiPred Aroc=0.600±0.011 on HIV validation set; sensitivity 53.8% at 60% specificity"
+    }
+  ],
+  "timestamp": "2026-03-05T14:35:33.587808",
+  "extraction_count": 10
+}

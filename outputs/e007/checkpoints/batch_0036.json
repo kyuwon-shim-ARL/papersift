@@ -1,0 +1,119 @@
+{
+  "batch_index": 36,
+  "dois": [
+    "10.3390/biom8030056",
+    "10.1371/journal.pone.0070445",
+    "10.1016/j.patter.2022.100440",
+    "10.4161/onci.21355",
+    "10.1093/nar/gkp884",
+    "10.1016/j.jtcme.2020.02.006",
+    "10.3390/ph15091141",
+    "10.1155/2012/960256",
+    "10.3390/molecules22071060",
+    "10.3390/pharmaceutics14010059"
+  ],
+  "extractions": [
+    {
+      "doi": "10.3390/biom8030056",
+      "problem": "Discovery of new inhibitors against HCT116 human colon cancer cell line by developing QSAR models using both molecular descriptors and NMR descriptors.",
+      "method": "Two QSAR approaches: (A) regression models using molecular descriptors from 7,339 compounds with machine learning (SOM clustering, ward clustering); (B) classification models using 1D NMR data (1H and 13C) from 110 marine actinobacteria samples.",
+      "finding": "Approach A achieved strong predictive regression models; Approach B demonstrated that 1D NMR descriptors can predict anticancer activity of natural product samples prior to bioactivity screening, enabling a frontloading drug discovery strategy.",
+      "dataset": "7,339 molecules from ChEMBL/ZINC (Approach A); 50 crude extracts, 55 fractions, 5 pure compounds from marine actinobacteria (Approach B)",
+      "metric": "R², RMSE, classification accuracy",
+      "baseline": "",
+      "result": "Approach A: R²=0.75/0.73, RMSE=0.66/0.69 (train/test); Approach B: accuracy >63% (train and test)"
+    },
+    {
+      "doi": "10.1371/journal.pone.0070445",
+      "problem": "Estimating the fitness effects of chromosome number alterations (aneuploidy) and testing whether cancer cells have elevated tolerance to aneuploidy compared to normal cells.",
+      "method": "Discrete time branching process simulation (Chiron software) modeling cellular growth with chromosome mis-segregation and selection, integrated with FISH experimental data from fibroblasts and cancer cell lines.",
+      "finding": "Cancer cells show significantly reduced fitness penalty from aneuploidy (~6%) compared to normal cells (~30%), and combined aneuploidy tolerance plus mis-segregation better reproduces cancer genomic landscapes than mis-segregation alone.",
+      "dataset": "12,433 interphase fibroblast nuclei (FISH), >400 cancer cases from Mitelman Database",
+      "metric": "Selection parameter s (fitness reduction per aneusomy), chromosomal mis-segregation rate",
+      "baseline": "Models based on chromosomal mis-segregation alone",
+      "result": "Normal cells s≈0.30 vs cancer cells s≈0.06 (p=0.0008)"
+    },
+    {
+      "doi": "10.1016/j.patter.2022.100440",
+      "problem": "Existing computational cell type proportion estimation methods suffer from performance degradation due to mismatch between training data and real-world bulk RNA-seq data (batch effects).",
+      "method": "DAISM-DNN pipeline: in silico data augmentation (DAISM) mixing calibration samples with single-cell reference to generate dataset-specific training data, then training a deep neural network for deconvolution.",
+      "finding": "DAISM-DNN consistently and substantially outperforms nine state-of-the-art methods across all evaluated cell types in real-world datasets by building dataset-specific models that overcome cross-platform batch effects.",
+      "dataset": "11 independent real-world datasets (n=685 total samples), 36 human PBMC samples with CyTOF ground truth",
+      "metric": "Friedman test with post hoc Nemenyi test, correlation with ground truth proportions",
+      "baseline": "CIBERSORT, CIBERSORTx, EPIC, quanTIseq, MCP-counter, xCell, ABIS, MuSiC, Scaden",
+      "result": "Outperforms all 9 methods consistently across all cell types; cross-batch validation with 30 calibration + 6 test samples"
+    },
+    {
+      "doi": "10.4161/onci.21355",
+      "problem": "Functional T-cell epitope discovery for cancer immunotherapy suffers from high false-negative rates in in silico prediction and lacks systematic validation with high-throughput experimental platforms.",
+      "method": "Combined in silico epitope prediction (binding affinity, uniqueness, natural processing filters) with iTopia Epitope Discovery System measuring MHC Class I binding and stability, followed by immunogenicity testing in HLA-A2 transgenic mice.",
+      "finding": "The iTopia stability assay is a valuable complement to in silico prediction for epitope prioritization; 13 novel T-cell epitopes and analogs were identified from CEA, HER2, and TERT tumor antigens.",
+      "dataset": "225 candidate peptides from CEA, HER2, and TERT tumor-associated antigens; 5 HLA alleles (A1, A2, A3, A24, B7)",
+      "metric": "MHC complex half-life (T1/2), binding fluorescence, IFN-γ ELISPOT",
+      "baseline": "BIMAS, ANN prediction algorithms; random (non-filtered) peptide selection",
+      "result": "5- to 50-fold enrichment in MHC-I binders vs reference; 13 novel epitopes identified; 31% CEA and 8% HER2 epitopes shared with other human proteins"
+    },
+    {
+      "doi": "10.1093/nar/gkp884",
+      "problem": "Understanding how macromolecular crowding (MMC) in the intracellular environment stabilizes DNA/DNA and DNA/RNA hybrids, and why PCR efficiency is compromised by the disparity between primer-annealing and extension temperature optima.",
+      "method": "Atomistic molecular dynamics simulations (CHARMm force field, 1 ns) of nucleic acid hybrids under macromolecular confinement, validated by real-time PCR and SYBR Green I melting curve analysis under crowded conditions.",
+      "finding": "MMC stabilizes hydrogen bonding between complementary nucleotides, increases melting temperatures by up to 8°C, enhances duplex helicity, and drives specificity of duplex formation preferring matched over mismatched sequences.",
+      "dataset": "DNA oligomers (A20:T20, A15:T15, mixed sequences) and DNA:RNA hybrids (T20:rA20)",
+      "metric": "H-bond count, RMSD, melting temperature (Tm), duplex preservation percentage",
+      "baseline": "Non-crowded (standard PCR buffer) conditions",
+      "result": "Tm increase up to 8°C; duplex preservation 71% (crowded) vs 37% (non-crowded); 11/40 H-bonds retained under confinement vs 0/40 non-crowded at 34°C"
+    },
+    {
+      "doi": "10.1016/j.jtcme.2020.02.006",
+      "problem": "Investigating whether resveratrol exerts anti-neoplastic activity in ovarian cancer through epigenetic modulation of non-coding RNAs (miRNAs and lncRNAs).",
+      "method": "Microarray profiling of miRNAs and lncRNAs in OVCAR-3 ovarian cancer cells treated with 100 μM resveratrol for 24h, followed by DIANA tools pathway analysis, Gene Ontology analysis, and PubMed literature validation.",
+      "finding": "Resveratrol modulates multiple miRNAs and lncRNAs involved in cancer-relevant pathways including cell homeostasis, proliferation, death, and motility, supporting its anti-neoplastic potential via non-coding RNA epigenetic mechanisms.",
+      "dataset": "OVCAR-3 ovarian cancer cells, Human Whole Genome Oligo Microarrays 860K v2 (27,958 genes + 7,419 lincRNAs)",
+      "metric": "Log2 fold-change, adjusted p-value",
+      "baseline": "Untreated OVCAR-3 control cells",
+      "result": "44 up-regulated + 54 down-regulated miRNAs (FC>0.2, adj.p<0.01); 6 up + 1 down miRNAs (FC>0.585, adj.p<0.01)"
+    },
+    {
+      "doi": "10.3390/ph15091141",
+      "problem": "Identifying novel antimicrobial peptides (AMPs) and cell-penetrating peptides (CPPs) from venomous fish natterin toxins as alternatives to antibiotic therapies and drug delivery systems.",
+      "method": "In silico prediction pipeline using CAMP, AMPA, AmpGram, C2Pred, and CellPPD web servers, with physicochemical analysis (ProtParam, PepCalc, DispHred), membrane-binding (Boman index), immunogenicity/toxicity screening, and PEP-FOLD3 structure prediction.",
+      "finding": "57 bioactive peptides (19 AMPs, 8 CPPs, 30 dual AMP/CPPs) were identified from five natterin toxins; 15 peptides selected as lead compounds for experimental validation. 54 peptides localized to plasma membrane.",
+      "dataset": "5 natterin toxin sequences from Thalassophryne nattereri (natterin 1-4 and P)",
+      "metric": "SVM score, RF probability, Boman index, instability index, GRAVY",
+      "baseline": "",
+      "result": "57 BAPs identified; 15 lead compounds selected; 16 antiviral + 37 anticancer peptides predicted"
+    },
+    {
+      "doi": "10.1155/2012/960256",
+      "problem": "Reviewing and advancing mathematical and computational (in silico) models of tumour growth and treatment-induced cell kill to improve radiotherapy and chemotherapy planning.",
+      "method": "Review of mathematical and stochastic computer models including Monte Carlo methods, cellular automata, agent-based models, and deterministic ODE/PDE approaches for simulating fractionated radiotherapy, chemotherapy, and combined therapies.",
+      "finding": "Greater depth of tumour biology knowledge at cellular, genetic, and chemical levels is required for model advancement; computational sensitivity studies within biologically plausible limits remain valuable despite data-gathering challenges.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3390/molecules22071060",
+      "problem": "Characterizing the pharmacologic properties and cytotoxicity mechanisms of indolylquinone analogues of perezone against cancer cells using computational methods.",
+      "method": "DFT calculations (B3LYP/6-311++G(d,p)) for reactivity parameters and frontier molecular orbitals, OSIRIS for toxicological/physicochemical predictions, and molecular docking against apoptosis-related proteins (caspase-3, caspase-9, Apaf-1).",
+      "finding": "Indolylmenadione showed the highest cytotoxicity correlating with smallest HOMO-LUMO gap; docking scores correlated with IC50 ranking. No mutagenic, tumorigenic, or reproductive toxicity predicted for the four compounds.",
+      "dataset": "4 indolylquinone analogues tested on MDA-MB-231 human breast cancer cells",
+      "metric": "IC50, HOMO-LUMO gap (Egap), docking score, hydrogen bonding",
+      "baseline": "",
+      "result": "IC50 ranking: indolylmenadione (25.06 μg/mL) > indolylperezone > indolylplumbagine > indolylisoperezone; Egap correlation with cytotoxicity confirmed"
+    },
+    {
+      "doi": "10.3390/pharmaceutics14010059",
+      "problem": "Overcoming drug resistance in non-small cell lung cancer by discovering dual-targeting compounds against MEK and PIM1 kinases through drug repurposing.",
+      "method": "High-throughput virtual screening of 11,808 DrugBank molecules using Glide XP docking, RF-Score-VS (machine learning scoring function), and Prime MM/GBSA binding energy calculations against MEK1 and PIM1 targets.",
+      "finding": "Two compounds (DB012661 and DB07642) showed significant dual binding capability against both MEK and PIM1, with van der Waals interactions as the major contributor to binding affinity.",
+      "dataset": "11,808 DrugBank molecules (3,085 FDA-approved + 5,689 experimental + 3,034 investigational); MEK1 (PDB:3W8Q), PIM1 (PDB:5KZI)",
+      "metric": "Glide XP docking score, RF-Score-VS, Prime MM/GBSA ΔGbind, ROC-AUC, SIE free energy",
+      "baseline": "25 active + 75 decoy compounds from DUD-E for validation; known MEK inhibitors",
+      "result": "ROC-AUC: 0.86 (Glide XP), 0.90 (RF-Score-VS); 2 lead compounds identified with dual MEK/PIM1 binding"
+    }
+  ],
+  "timestamp": "2026-03-05T14:25:36.420170",
+  "extraction_count": 10
+}

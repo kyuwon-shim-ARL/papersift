@@ -1,0 +1,209 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+- enables: What downstream research or applications does this work enable? (1 sentence, e.g., "Enables targeted drug screening for patient-specific tumor models")
+- limits: What are the key limitations or constraints? (1 sentence, e.g., "Limited to single-cell resolution; cannot capture tissue-level interactions")
+- open_questions: What questions remain unanswered? (1 sentence, e.g., "Whether the model generalizes to non-mammalian organisms is unknown")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "...",
+    "enables": "...",
+    "limits": "...",
+    "open_questions": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1002/btpr.2335
+Title: Effect of amino acid supplementation on titer and glycosylation distribution in hybridoma cell cultures—Systems biology‐based interpretation using genome‐scale metabolic flux balance model and multivariate data analysis
+Year: 2016
+Abstract: Genome‐scale flux balance analysis (FBA) is a powerful systems biology tool to characterize intracellular reaction fluxes during cell cultures. FBA estimates intracellular reaction rates by optimizing an objective function, subject to the constraints of a metabolic model and media uptake/excretion rates. A dynamic extension to FBA, dynamic flux balance analysis (DFBA), can calculate intracellular reaction fluxes as they change during cell cultures. In a previous study by Read et al. (2013), a series of informed amino acid supplementation experiments were performed on twelve parallel murine hybridoma cell cultures, and this data was leveraged for further analysis (Read et al., Biotechnol Prog. 2013;29:745–753). In order to understand the effects of media changes on the model murine hybridoma cell line, a systems biology approach is applied in the current study. Dynamic flux balance analysis was performed using a genome‐scale mouse metabolic model, and multivariate data analysis was used for interpretation. The calculated reaction fluxes were examined using partial least squares and partial least squares discriminant analysis. The results indicate media supplementation increases product yield because it raises nutrient levels extending the growth phase, and the increased cell density allows for greater culture performance. At the same time, the directed supplementation does not change the overall metabolism of the cells. This supports the conclusion that product quality, as measured by glycoform assays, remains unchanged because the metabolism remains in a similar state. Additionally, the DFBA shows that metabolic state varies more at the beginning of the culture but less by the middle of the growth phase, possibly due to stress on the cells during inoculation. © 2016 American Institute of Chemical Engineers Biotechnol. Prog ., 32:1163–1173, 2016
+---
+
+---
+DOI: 10.5511/plantbiotechnology.20.0605a
+Title: Four-dimensional imaging with virtual reality to quantitatively explore jigsaw puzzle-like morphogenesis of &lt;i&gt;Arabidopsis&lt;/i&gt; cotyledon pavement cells
+Year: 2020
+Abstract: In most dicotyledonous plants, leaf pavement cells exhibit complex jigsaw puzzle-like cell morphogenesis during leaf expansion. Although detailed molecular biological information and mathematical modeling of this jigsaw puzzle-like cell morphogenesis are now available, a full understanding of this process remains elusive. Recent reports have highlighted the importance of three-dimensional (3D) structures (i.e., anticlinal and periclinal cell wall) in understanding the mechanical models that describe this morphogenetic process. We believe that it is important to acquire 3D shapes of pavement cells over time, i.e., acquire and analyze four-dimensional (4D) information when studying the relationship between mechanical modeling and simulations and the actual cell shape. In this report, we have developed a framework to capture and analyze 4D morphological information of <i>Arabidopsis thaliana</i> cotyledon pavement cells by using both direct water immersion observations and computational image analyses, including segmentation, surface modeling, virtual reality and morphometry. The 4D cell models allowed us to perform time-lapse 3D morphometrical analysis, providing detailed quantitative information about changes in cell growth rate and shape, with cellular complexity observed to increase during cell growth. The framework should enable analysis of various phenotypes (e.g., mutants) in greater detail, especially in the 3D deformation of the cotyledon surface, and evaluation of theoretical models that describe pavement cell morphogenesis using computational simulations. Additionally, our accurate and high-throughput acquisition of growing cell structures should be suitable for use in generating <i>in silico</i> model cell structures.
+---
+
+---
+DOI: 10.1002/jlb.6mr1218-505r
+Title: Data analysis to modeling to building theory in NK cell biology and beyond: How can computational modeling contribute?
+Year: 2019
+Abstract: Abstract The use of mathematical and computational tools in investigating Natural Killer (NK) cell biology and in general the immune system has increased steadily in the last few decades. However, unlike the physical sciences, there is a persistent ambivalence, which however is increasingly diminishing, in the biology community toward appreciating the utility of quantitative tools in addressing questions of biological importance. We survey some of the recent developments in the application of quantitative approaches for investigating different problems in NK cell biology and evaluate opportunities and challenges of using quantitative methods in providing biological insights in NK cell biology.
+---
+
+---
+DOI: 10.1080/15384101.2019.1591125
+Title: A checkpoint-oriented cell cycle simulation model
+Year: 2019
+Abstract: Modeling and in silico simulations are of major conceptual and applicative interest in studying the cell cycle and proliferation in eukaryotic cells. In this paper, we present a cell cycle checkpoint-oriented simulator that uses agent-based simulation modeling to reproduce the dynamics of a cancer cell population in exponential growth. Our in silico simulations were successfully validated by experimental in vitro supporting data obtained with HCT116 colon cancer cells. We demonstrated that this model can simulate cell confluence and the associated elongation of the G1 phase. Using nocodazole to synchronize cancer cells at mitosis, we confirmed the model predictivity and provided evidence of an additional and unexpected effect of nocodazole on the overall cell cycle progression. We anticipate that this cell cycle simulator will be a potential source of new insights and research perspectives.
+---
+
+---
+DOI: 10.1016/j.coche.2021.100702
+Title: Bioprocess digital twins of mammalian cell culture for advanced biomanufacturing
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1302/1358-992x.2025.9.036
+Title: MULTISCALE MODELLING OF THE KNEE ARTICULAR CARTILAGE TO STUDY CELL-TISSUE COMMUNICATION DYNAMICS
+Year: 2025
+Abstract: Osteoarthritis is a degenerative joint condition driven by complex biological and mechanical interactions in chondrocytes and articular cartilage (AC). Assessing these factors simultaneously in experimental set-ups is challenging, making computational models valuable. Regulatory network-based models (RNM) describe chondrocyte regulation, while finite-element models (FEM) quantify tissue mechanics. However, chondrocyte-AC model integration is not fully tackled. Hence, a multi-scale model is proposed to simulate single-cell regulation coupled with the transport of diluted species in AC, validated with in vitro models. A 2D FEM represented an AC plug with chondrocytes randomly placed by local density. A chondrocyte RNM translated into 21 reaction terms formed a reaction-diffusion model. FEM nodes with RNM terms (R i ) were restricted to chondrocyte surfaces (C i surface ), in a pericellular matrix (PCM) with reduced diffusion (Figure 1). Diffusion was zero in bone, and synovium concentrations were null. The model, initialized as fixed, healthy, or pro-inflammatory RNM-based phenotypes, evolved until steady AC concentrations were predicted. Each chondrocyte RNM (X i ) was then regulated for a month by local FEM concentrations. An in vitro cartilage degradation model used 5 mm full-depth knee AC plugs from three young calves with two replicates per animal. Explants were exposed to 10 ng/mL Interleukin-1b for two weeks, and key OA gene expression was compared to controls. Results &amp; Discussion. Diffusion streamlines revealed chondrocyte communication, with varying gradients among cell clusters. Initial chondrocyte phenotypes persisted, according to literature findings illustrating the difficulty to regenerate the AC in OA states. Translation of RNM chondrocyte profiles into quantitative tissue concentrations enabled intercellular communication through the reaction-diffusion restricted model. Moreover, predicted pro-inflammatory chondrocyte activity matched the experimental model tendency after 2 weeks, supporting the validity of the computational multi-scale integration of models. Discrepancies between experimental and computational models were found for MMP3, IL-6 and ITGA5, being qualitative only for MMP3 and ITGA5, probably because of initial extraction injury of the plug. Next steps include the incorporation of mechanical stimulation, both in the experimental and computational models, which is ongoing work, as well as the incorporation of patient data such as synovial liquid concentrations.
+---
+
+---
+DOI: 10.1145/2901378.2901402
+Title: Toward Scalable Whole-Cell Modeling of Human Cells
+Year: 2016
+Abstract: Whole-cell (WC) models comprehensively predict cellular phenotypes by simulating the biochemistry in individual cells. WC models have the potential to enable bioengineers and physicians to rationally design microorganisms and medical therapies. WC models are developed by combining multiple mathematically distinct pathway sub-models into a single multi-algorithm model. The only existing WC model represents a small bacterium. However, to enable medical therapy, new scalable methods are needed to model human cells that contain 100 times more molecular species and 10,000-100,000 times more molecules. We describe the design of a novel system for building and simulating WC models, including an expressive sequence- and rule-based modeling language and a multi-algorithm simulator that employs optimistic parallel discrete event simulation.
+---
+
+---
+DOI: 10.1182/blood-2023-181861
+Title: Mechanisms of Red Blood Cell Splenic Filtration Revealed By Multiscale Modeling and in-Vitro Microfluidic Experiments
+Year: 2023
+Abstract: Interendothelial slits in the spleen fulfill the major physiological function of continuously filtering red blood cells (RBCs) from the bloodstream to remove abnormal and aged cells. To date, the process of passage of 8 µm RBCs through 0.3-µm wide slits remains enigmatic. Should the slits increase their caliber during RBC passage as sometimes proposed in the literature? Here, we elucidated the mechanisms that govern the passage dynamics or retention of RBCs in slits by combining multiscale modeling, live imaging, and microfluidic experiments on an original device with slits of defined physiological dimensions, including submicron width. We observed that healthy RBCs pass through 0.28-µm wide rigid slits at body temperature. To achieve this tour de force, they must meet two requirements. Geometrically, their surface area-to-volume ratio must be compatible with a shape in two tether-connected equal spheres. Mechanically, they must be able to locally unfold their spectrin cytoskeleton inside the slits. In contrast, activation of the mechanosensitive PIEZO1 channel is not required. The RBC transit time through slits scales with in-slit pressure drop and slit width to the -1 and -3 power, respectively. This transit dynamics is similar to that of a Newtonian fluid in a 2D Poiseuille flow, thus showing that it is controlled by the RBC cytoplasmic viscosity. Altogether, our results clearly show that filtration through submicron-wide slits is possible without further slit opening. Furthermore, our approach addresses the critical need for in-vitro evaluation of splenic clearance of diseased or engineered RBCs for transfusion and drug delivery.
+---
+
+---
+DOI: 10.1007/978-3-319-44680-6_66
+Title: Multiscale Modeling of Malaria-Infected Red Blood Cells
+Year: 2020
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/978-3-319-50257-1_66-1
+Title: Multiscale Modeling of Malaria-Infected Red Blood Cells
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1021/acs.jcim.0c01282
+Title: High-Performance Whole-Cell Simulation Exploiting Modular Cell Biology Principles
+Year: 2021
+Abstract: One of the grand challenges of this century is modeling and simulating a whole cell. Extreme regulation of an extensive quantity of model and simulation data during whole-cell modeling and simulation renders it a computationally expensive research problem in systems biology. In this article, we present a high-performance whole-cell simulation exploiting modular cell biology principles. We prepare the simulation by dividing the unicellular bacterium, <i>Escherichia coli</i> (<i>E. coli</i>), into subcells utilizing the spatially localized densely connected protein clusters/modules. We set up a Brownian dynamics-based parallel whole-cell simulation framework by utilizing the Hamiltonian mechanics-based equations of motion. Though the velocity Verlet integration algorithm possesses the capability of solving the equations of motion, it lacks the ability to capture and deal with particle-collision scenarios. Hence, we propose an algorithm for detecting and resolving both elastic and inelastic collisions and subsequently modify the velocity Verlet integrator by incorporating our algorithm into it. Also, we address the boundary conditions to arrest the molecules' motion outside the subcell. For efficiency, we define one hashing-based data structure called the cellular dictionary to store all of the subcell-related information. A benchmark analysis of our CUDA C/C++ simulation code when tested on <i>E. coli</i> using the CPU-GPU cluster indicates that the computational time requirement decreases with the increase in the number of computing cores and becomes stable at around 128 cores. Additional testing on higher organisms such as <i>rats</i> and <i>humans</i> informs us that our proposed work can be extended to any organism and is scalable for high-end CPU-GPU clusters.
+---
+
+---
+DOI: 10.1016/j.ijhydene.2021.07.052
+Title: Accelerated stress testing of PUREBLACK® carbon-based gas diffusion layers with pore forming agent for proton exchange membrane fuel cells
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.trpro.2023.11.647
+Title: Accelerated multiscale and multiphysics modelling tools for battery cell manufacturing improvement
+Year: 2023
+Abstract: 1731
+---
+
+---
+DOI: 10.1007/s11164-024-05473-5
+Title: Exploring Schiff base ligand and their transition metal complexes: synthesis, characterization, antimicrobial, ADME and computational insight as cholesterol lowering agents and anticancer activity on HeLa cells
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.snb.2021.131189
+Title: tQ[14]-based AIE supramolecular network polymers as potential bioimaging agents for the detection of Fe3+ in live HeLa cells
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.ijhydene.2019.06.128
+Title: Coordinated power control with virtual inertia for fuel cell-based DC microgrids cluster
+Year: 2019
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.renene.2024.121759
+Title: Optimal scheduling of virtual power plants with reversible solid oxide cells in the electricity market
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/ecce44975.2020.9235813
+Title: High power density power electronic transformers using ISOS multi-cell full-wave rectifier with GaN TCM virtual capacitor converters
+Year: 2020
+Abstract: An open-loop controlled multi-cell rectifier based on ISOS (Input Series Output Series) connection topology has been newly proposed. The proposed multi-cell rectifier consists of the ac-dc line frequency rectifiers, the unregulated isolated dc-dc cell converters and the open-loop controlled buck-boost converters mainly. The isolated dc-dc converters are connected in series to realize a highly scalable high-voltage multi-cell rectifier, and the open-loop controlled buck-boost converters achieve the voltage sharing by injecting reactive power without any sensors and the feedback control systems. Features of the proposed multi-cell rectifier are that the buck-boost converters behave as the virtual capacitor converters (VCCs) to equalize the input cell voltages and the TCM (Triangular Current Mode) control is applied to achieve the soft-switching operation with GaN power transistors in VCCs. The TCM control minimizes the switching losses of the GaN transistors and achieves high efficiency under the high frequency operation. A prototype of an ac 100 V, 450 W ISOS multi-cell rectifier using three cell converters and two VCCs has been fabricated and the potential for the efficiency over 96.0% and the power density over 3.0 W/cm <sup xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">3</sup> has been also estimated. The proposed circuit topology is effective for developing the high power density power electronic transformers, and this approach will contribute to the cost down and the short time to market of the power electronics equipment taking its widespread use into account.
+---
+
+---
+DOI: 10.1016/j.cels.2025.101392
+Title: Accelerated design of Escherichia coli reduced genomes using a whole-cell model and machine learning
+Year: 2025
+Abstract: Whole-cell models (WCMs) are multi-scale computational models that aim to simulate the function of all genes and processes within a cell. This approach is promising for designing genomes tailored for specific tasks. However, a limitation of WCMs is their long runtime. Here, we show how machine learning (ML) surrogates can be used to address this limitation by training them on WCM data to accurately predict cell division. Our ML surrogate achieves a 95% reduction in computational time compared with the original WCM. We then show that the surrogate and a genome-design algorithm can generate an in silico-reduced E. coli cell, where 40% of the genes included in the WCM were removed. The reduced genome is validated using the WCM and interpreted biologically using Gene Ontology analysis. This approach illustrates how the holistic understanding gained from a WCM can be leveraged for synthetic biology tasks while reducing runtime. A record of this paper's transparent peer review process is included in the supplemental information.
+---
+
+---
+DOI: 10.1101/452433
+Title: A multiscale model of epigenetic heterogeneity reveals the kinetic routes of pathological cell fate reprogramming
+Year: 2018
+Abstract: Abstract The inherent capacity of somatic cells to switch their phenotypic status in response to damage stimuli in vivo might have a pivotal role in ageing and cancer. However, how the entry-exit mechanisms of phenotype reprogramming are established remains poorly understood. In an attempt to elucidate such mechanisms, we herein introduce a stochastic model of combined epigenetic regulation (ER)-gene regulatory network (GRN) to study the plastic phenotypic behaviours driven by ER heterogeneity. Furthermore, based on the existence of multiple scales, we formulate a method for stochastic model reduction, from which we derive an efficient hybrid simulation scheme that allows us to deal with such complex systems. Our analysis of the coupled system reveals a regime of tristability in which pluripotent stem-like and differentiated steady-states coexist with a third indecisive state. Crucially, ER heterogeneity of differentiation genes is for the most part responsible for conferring abnormal robustness to pluripotent stem-like states. We then formulate epigenetic heterogeneity-based strategies capable of unlocking and facilitating the transit from differentiation-refractory (pluripotent stem-like) to differentiation-primed epistates. The application of the hybrid numerical method validated the likelihood of such switching involving solely kinetic changes in epigenetic factors. Our results suggest that epigenetic heterogeneity regulates the mechanisms and kinetics of phenotypic robustness of cell fate reprogramming. The occurrence of tunable switches capable of modifying the nature of cell fate reprogramming from pathological to physiological might pave the way for new therapeutic strategies to regulate reparative reprogramming in ageing and cancer. Author summary Certain modifications of the structure and functioning of the protein/DNA complex called chromatin can allow adult, fully differentiated cells to adopt a stem cell-like pluripotent state in a purely epigenetic manner, not involving changes in the underlying DNA sequence. Such reprogramming-like phenomena may constitute an innate reparative route through which human tissues respond to injury and could also serve as a novel regenerative strategy in human pathological situations in which tissue or organ repair is impaired. However, it should be noted that in vivo reprogramming would be capable of maintaining tissue homeostasis provided the acquisition of pluripotency features is strictly transient and accompanied by an accurate replenishment of the specific cell types being lost. Crucially, an excessive reprogramming to pluripotency in the absence of controlled re-differentiation would impair the repair or the replacement of damaged cells, thereby promoting pathological alterations of cell fate. A mechanistic understanding of how the degree of chromatin plasticity dictates the reparative versus pathological behaviour of in vivo reprogramming to rejuvenate aged tissues while preventing tumorigenesis is urgently needed, including especially the intrinsic epigenetic heterogeneity of the tissue resident cells being reprogrammed. We here introduce a novel method that mathematically captures how epigenetic heterogeneity is actually the driving force that governs the routes and kinetics to entry into and exit from a pathological pluripotent-like state. Moreover, our approach computationally validates the likelihood of unlocking chronic, unrestrained pluripotent states and drive their differentiation down the correct path by solely manipulating the intensity and direction of few epigenetic control switches. Our approach could inspire new therapeutic approaches based on in vivo cell reprogramming for efficient tissue regeneration and rejuvenation and cancer treatment.
+---
+
+---
+DOI: 10.1016/j.bpj.2026.01.004
+Title: Multiscale mechanobiochemical modeling of cell-substrate adhesion dynamics
+Year: 2026
+Abstract: Cell adhesion is a fundamental biological process that governs cell proliferation, differentiation, migration, and tissue development. Cells adhere to the extracellular matrix through specialized transmembrane proteins, whose structures and functions are well characterized. However, it remains unclear how mechanical, chemical, and biological factors interact to regulate these proteins and hence to shape cross-scale adhesion dynamics from molecular clustering to cellular migration. Here, we propose a multiscale mechanobiochemical coupling framework to investigate the dynamics of cell-substrate adhesions, integrating key molecular steps in the integrin life cycle, from activation and clustering to signal transduction and internalization. Our model elucidates the roles of caveolin-mediated trafficking and actin-generated traction in modulating integrin dynamics and focal adhesion (FA) morphology. It identifies an antagonistic interplay between integrin internalization and clustering that governs cross-scale adhesion dynamics. Furthermore, our model quantitatively demonstrates how the substrate stiffness regulates the integrin clustering size and internalization rate. These findings provide mechanistic insights into the adhesion-associated regulation of cell migration, particularly the experimentally observed transition between durotaxis and negative durotaxis, driven by intracellular and extracellular microenvironmental factors. Our model therefore offers an effective framework for understanding the cross-scale regulation of cell adhesion involved in physiological and pathological activities, such as stem cell differentiation and cancer metastasis.
+---
+
+---
+DOI: 10.1021/acssynbio.1c00415
+Title: Accelerating Whole-Cell Simulations of mRNA Translation Using a Dedicated Hardware
+Year: 2021
+Abstract: In recent years, intracellular biophysical simulations have been used with increasing frequency not only for answering basic scientific questions but also in the field of synthetic biology. However, since these models include networks of interaction between millions of components, they are extremely time-consuming and cannot run easily on parallel computers. In this study, we demonstrate for the first time a novel approach addressing this challenge by using a dedicated hardware designed specifically to simulate such processes. As a proof of concept, we specifically focus on mRNA translation, which is the process consuming most of the energy in the cell. We design a hardware that simulates translation in <i>Escherichia coli</i> and <i>Saccharomyces cerevisiae</i> for thousands of mRNAs and ribosomes, which is in orders of magnitude faster than a similar software solution. With the sharp increase in the amount of genomic data available today and the complexity of the corresponding models inferred from them, we believe that the strategy suggested here will become common and can be used among others for simulating entire cells with all gene expression steps.
+---
+
+---
+DOI: 10.1016/j.celrep.2023.112574
+Title: Multiscale model of primary motor cortex circuits predicts in vivo cell-type-specific, behavioral state-dependent dynamics
+Year: 2023
+Abstract: Understanding cortical function requires studying multiple scales: molecular, cellular, circuit, and behavioral. We develop a multiscale, biophysically detailed model of mouse primary motor cortex (M1) with over 10,000 neurons and 30 million synapses. Neuron types, densities, spatial distributions, morphologies, biophysics, connectivity, and dendritic synapse locations are constrained by experimental data. The model includes long-range inputs from seven thalamic and cortical regions and noradrenergic inputs. Connectivity depends on cell class and cortical depth at sublaminar resolution. The model accurately predicts in vivo layer- and cell-type-specific responses (firing rates and LFP) associated with behavioral states (quiet wakefulness and movement) and experimental manipulations (noradrenaline receptor blockade and thalamus inactivation). We generate mechanistic hypotheses underlying the observed activity and analyzed low-dimensional population latent dynamics. This quantitative theoretical framework can be used to integrate and interpret M1 experimental data and sheds light on the cell-type-specific multiscale dynamics associated with several experimental conditions and behaviors.
+---
+
+---
+DOI: 10.1182/blood-2025-28
+Title: Elucidating gene alterations driving hematopoietic dysfunction in PNH via patient-derived ips cell modeling and whole-genome sequencing
+Year: 2025
+Abstract: Abstract Introduction Paroxysmal nocturnal hemoglobinuria (PNH) is a rare, life-threatening hematologic disorder caused by clonal expansion of hematopoietic stem cells (HSCs) with somatic PIGA mutations. These mutations lead to the loss of GPI-anchored proteins, such as CD55 and CD59, on red blood cells, resulting in complement-mediated hemolysis. Although complement inhibitors like eculizumab provide symptomatic relief, a substantial proportion of patients, particularly in East Asia (including Japan), exhibit a limited therapeutic response due to bone marrow failure (BMF), either present at diagnosis or developing later, such as aplastic anemia (AA) or myelodysplastic syndromes (MDS). This highlights the need for curative approaches. While PIGA-mutated (PNH-type) and wild-type HSCs coexist, the former preferentially expand. Immune escape due to GPI-AP deficiency has been proposed, yet mechanisms driving clonal dominance and ineffective hematopoiesis remain unclear (Murakami et al., Blood 2002; Hanaoka et al., Blood 2006). Although PNH-specific mutations have been hypothesized, only alterations in genes like TET2, ASXL1, and JAK2—commonly found in AA, MDS, or clonal hematopoiesis—have been reported (Shen et al., J Clin Invest 2014), and no PNH-specific mutations have been conclusively identified. Induced pluripotent stem cells (iPSCs) derived from patients offer a useful platform for studying rare diseases with limited sample availability, allowing functional gene analysis and disease modeling. We therefore generated iPSCs from PNH patients to explore gene alterations involved in PNH-associated BMF (PNH-BMF). Methods Five PNH patients with BMF were enrolled. PNH-iPSCs and matched wild-type N-iPSCs were established by reprogramming mononuclear hematopoietic cells from each patient. These iPSCs were differentiated into hematopoietic stem/progenitor cells (HSPCs), and their differentiation and proliferation were evaluated. PIGA mutations in PNH-iPSCs were corrected using CRISPR/Cas9. Whole-genome sequencing (WGS) was performed on PNH-iPSCs, N-iPSCs, and normal somatic cells from the same patients. PNH-specific variants were defined based on stopgain, frameshift, and splice-site mutations, as well as nonsynonymous SNVs annotated as pathogenic or likely pathogenic in AlphaMissense and ClinVar. Candidate variants were cross-referenced with curated databases of hematopoiesis-associated genes potentially linked to hematopoietic dysfunction. Results Among the five patients, one had hypoplastic marrow and four had normoplastic marrow. Median neutrophil counts, hemoglobin, and platelet counts were 1.6 × 10⁹/L, 8.4 g/dL, and 97 × 10⁹/L, respectively. Median proportions of PNH-type erythrocytes and granulocytes were 24.3% and 67.2%, suggesting an underlying BMF tendency. Hematopoietic dysfunction was reproduced in the PNH-iPSC model. Correction of PIGA mutations failed to fully restore normal hematopoiesis, suggesting the involvement of additional pathogenic factors. WGS analysis was successfully completed in four patients. Multiple PNH clone-specific somatic mutations were identified in all cases. In two patients, variants involved known hematopoiesis-related genes such as DNMT3A and ASXL1. One patient progressed to MDS during follow-up, indicating a possible genotype–phenotype correlation. The remaining two patients harbored novel mutations not previously reported to associate with hematopoietic dysfunction. Although not known to directly promote proliferation or survival, database analyses suggested these mutations may alter HSC biology—through impaired quiescence, lineage skewing, or disrupted interactions with the bone marrow niche. No shared mutations were observed across patients, supporting the notion that the pathogenesis of PNH-associated BMF is genetically heterogeneous. Conclusions We successfully established matched PNH- and N-iPSC lines from four patients and modeled hematopoietic abnormalities in vitro. Limited hematopoietic recovery following PIGA correction suggests the involvement of additional genetic factors. WGS identified PNH clone–specific somatic mutations in all cases, involving both known and novel genes potentially affecting hematopoiesis. These findings support the genetic heterogeneity of PNH-BMF and highlight the potential value of precision medicine in future treatment strategies. Ongoing CRISPR/Cas9-mediated knock-in experiments targeting selected genes in N-iPSCs are underway to assess their pathogenic relevance.
+---
+
+---
+DOI: 10.1016/j.jid.2017.07.416
+Title: 106 Three-dimensional agent-based modeling of the human epidermal structure and barrier function with realistic cell morphology
+Year: 2017
+Abstract: (no abstract available)
+---

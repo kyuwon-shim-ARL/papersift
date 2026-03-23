@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1016/s0017-9310(03)00305-3
+Title: Effective diffusivity and water-saturation distribution in single- and two-layer PEMFC diffusion medium
+Year: 2003
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1158/0008-5472.can-08-4859
+Title: The Mechanical Rigidity of the Extracellular Matrix Regulates the Structure, Motility, and Proliferation of Glioma Cells
+Year: 2009
+Abstract: Abstract Glioblastoma multiforme (GBM) is a malignant astrocytoma of the central nervous system associated with a median survival time of 15 months, even with aggressive therapy. This rapid progression is due in part to diffuse infiltration of single tumor cells into the brain parenchyma, which is thought to involve aberrant interactions between tumor cells and the extracellular matrix (ECM). Here, we test the hypothesis that mechanical cues from the ECM contribute to key tumor cell properties relevant to invasion. We cultured a series of glioma cell lines (U373-MG, U87-MG, U251-MG, SNB19, C6) on fibronectin-coated polymeric ECM substrates of defined mechanical rigidity and investigated the role of ECM rigidity in regulating tumor cell structure, migration, and proliferation. On highly rigid ECMs, tumor cells spread extensively, form prominent stress fibers and mature focal adhesions, and migrate rapidly. As ECM rigidity is lowered to values comparable with normal brain tissue, tumor cells appear rounded and fail to productively migrate. Remarkably, cell proliferation is also strongly regulated by ECM rigidity, with cells dividing much more rapidly on rigid than on compliant ECMs. Pharmacologic inhibition of nonmuscle myosin II–based contractility blunts this rigidity-sensitivity and rescues cell motility on highly compliant substrates. Collectively, our results provide support for a novel model in which ECM rigidity provides a transformative, microenvironmental cue that acts through actomyosin contractility to regulate the invasive properties of GBM tumor cells. [Cancer Res 2009;69(10):4167–74]
+---
+
+---
+DOI: 10.1093/bioinformatics/14.10.869
+Title: Non-linear optimization of biochemical pathways: applications to metabolic engineering and parameter estimation.
+Year: 1998
+Abstract: Abstract MOTIVATION: The simulation of biochemical kinetic systems is a powerful approach that can be used for: (i) checking the consistency of a postulated model with a set of experimental measurements, (ii) answering 'what if?' questions and (iii) exploring possible behaviours of a model. Here we describe a generic approach to combine numerical optimization methods with biochemical kinetic simulations, which is suitable for use in the rational design of improved metabolic pathways with industrial significance (metabolic engineering) and for solving the inverse problem of metabolic pathways, i.e. the estimation of parameters from measured variables. RESULTS: We discuss the suitability of various optimization methods, focusing especially on their ability or otherwise to find global optima. We recommend that a suite of diverse optimization methods should be available in simulation software as no single one performs best for all problems. We describe how we have implemented such a simulation-optimization strategy in the biochemical kinetics simulator Gepasi and present examples of its application. AVAILABILITY: The new version of Gepasi (3.20), incorporating the methodology described here, is available on the Internet at http://gepasi.dbs.aber.ac.uk/softw/Gepasi. html. CONTACT: prm@aber.ac.uk
+---
+
+---
+DOI: 10.1149/1.2221258
+Title: Temperature Dependence of the Electrode Kinetics of Oxygen Reduction at the Platinum/Nafion® Interface—A Microelectrode Investigation
+Year: 1992
+Abstract: A knowledge of the temperature dependence of the electrode‐kinetic parameters for oxygen reduction at the platinum/ proton exchange membrane (PEM) interface and of mass‐transport parameters of oxygen in the PEM is of vital importance in analyzing the performance of proton exchange‐membrane fuel cells. The microelectrode technique which was previously developed to determine these parameters at the platinum/Nafion® interface at 25°C was used in the present investigation at the same electrode/electrolyte interface. This study was carried out in the temperature range of 30–80°C and at 5 atm of oxygen pressure. The results showed a linear increase of the Tafel slope with temperature in the low current density region, but the Tafel slope was found to be independent of temperature in the high current density region. The values of the activation energy for oxygen reduction at the platinum/Nafion® interface are nearly the same as those obtained at the platinum/trifluoromethane sulfonic acid (TFMSA) interface but less than values obtained at the and interfaces. The diffusion coefficient of oxygen in Nafion increases with temperature while its solubility decreases with temperature. These parameters also depend on the water content of the membrane. The conductivity of the membrane increases with temperature until it reaches a plateau at a temperature of 80°C; the dependence of the conductivity on temperature was correlated with the variation of water content of Nafion with temperature.
+---
+
+---
+DOI: 10.1149/1.2220960
+Title: Water and Thermal Management in Solid‐Polymer‐Electrolyte Fuel Cells
+Year: 1993
+Abstract: A mathematical model of transport in a solid‐polymer‐electrolyte fuel cell is presented. A two‐dimensional membrane‐electrode assembly is considered. Water management, thermal management, and utilization of fuel are examined in detail. Because the equilibrium sorption of water between the gas phase and the polymer‐electrolyte depends strongly on temperature, water and thermal management are interrelated. The rate of heat removal is shown to be a critical parameter in the operation of these fuel cells.
+---
+
+---
+DOI: 10.4049/jimmunol.160.7.3363
+Title: Several Common HLA-DR Types Share Largely Overlapping Peptide Binding Repertoires
+Year: 1998
+Abstract: Abstract The peptide binding specificities of HLA-DRB1*0401, DRB1*0101, and DRB1*0701 have been analyzed by the use of large collections of synthetic peptides corresponding to naturally occurring sequences. The results demonstrated that nearly all peptides binding to these DR molecules bear a motif characterized by a large aromatic or hydrophobic residue in position 1 (Y, F, W, L, I, V, M) and a small, noncharged residue in position 6 (S, T, C, A, P, V, I, L, M). In addition, allele-specific secondary effects and secondary anchors were defined, and these parameters were utilized to derive allele-specific motifs and algorithms. By the combined use of such algorithms, peptides capable of degenerate DRB1*0101, DRB1*0401, and DRB1*0701 binding were identified. Additional experiments utilizing a panel of quantitative assays specific for nine additional common DR molecules identified a large set of DR molecules, which includes at least the DRB1*0101, DRB1*0401, DRB1*0701, DRB5*0101, DRB1*1501, DRB1*0901, and DRB1*1302 allelic products, characterized by overlapping peptide-binding repertoires. These results have implications for understanding the molecular interactions involved in peptide-DR binding, as well as the genetic and structural basis of MHC polymorphism. These results also have potential practical implications for the development of epitope-based prophylactic and therapeutic vaccines.
+---
+
+---
+DOI: 10.1038/nbt1215
+Title: A consensus epitope prediction approach identifies the breadth of murine TCD8+-cell responses to vaccinia virus
+Year: 2006
+Abstract: The value of predictive algorithms for identifying CD8+ T (T(CD8+))-cell epitopes has not been adequately tested experimentally. Here we demonstrate that conventional bioinformatic methods predict the vast majority of T(CD8+)-cell epitopes derived from vaccinia virus WR strain (VACV-WR) in the H-2(b) mouse model. This approach reveals the breadth of T-cell responses to vaccinia, a widely studied murine viral infection model, and may provide a tool for developing comprehensive antigenic maps of any complex pathogen.
+---
+
+---
+DOI: 10.1016/j.pbiomolbio.2004.01.004
+Title: CellML: its future, present and past
+Year: 2004
+Abstract: Advances in biotechnology and experimental techniques have lead to the elucidation of vast amounts of biological data. Mathematical models provide a method of analysing this data; however, there are two issues that need to be addressed: (1) the need for standards for defining cell models so they can, for example, be exchanged across the World Wide Web, and also read into simulation software in a consistent format and (2) eliminating the errors which arise with the current method of model publication. CellML has evolved to meet these needs of the modelling community. CellML is a free, open-source, eXtensible markup language based standard for defining mathematical models of cellular function. In this paper we summarise the structure of CellML, its current applications (including biological pathway and electrophysiological models), and its future development--in particular, the development of toolsets and the integration of ontologies.
+---
+
+---
+DOI: 10.1038/nature06957
+Title: Hippocampus-independent phase precession in entorhinal grid cells
+Year: 2008
+Abstract: Theta-phase precession in hippocampal place cells is one of the best-studied experimental models of temporal coding in the brain. Theta-phase precession is a change in spike timing in which the place cell fires at progressively earlier phases of the extracellular theta rhythm as the animal crosses the spatially restricted firing field of the neuron. Within individual theta cycles, this phase advance results in a compressed replication of the firing sequence of consecutively activated place cells along the animal's trajectory, at a timescale short enough to enable spike-time-dependent plasticity between neurons in different parts of the sequence. The neuronal circuitry required for phase precession has not yet been established. The fact that phase precession can be seen in hippocampal output stuctures such as the prefrontal cortex suggests either that efferent structures inherit the precession from the hippocampus or that it is generated locally in those structures. Here we show that phase precession is expressed independently of the hippocampus in spatially modulated grid cells in layer II of medial entorhinal cortex, one synapse upstream of the hippocampus. Phase precession is apparent in nearly all principal cells in layer II but only sparsely in layer III. The precession in layer II is not blocked by inactivation of the hippocampus, suggesting that the phase advance is generated in the grid cell network. The results point to possible mechanisms for grid formation and raise the possibility that hippocampal phase precession is inherited from entorhinal cortex.
+---
+
+---
+DOI: 10.1016/s0006-3495(94)80500-4
+Title: Effects of rapid buffers on Ca2+ diffusion and Ca2+ oscillations
+Year: 1994
+Abstract: Based on realistic mechanisms of Ca2+ buffering that include both stationary and mobile buffers, we derive and investigate models of Ca2+ diffusion in the presence of rapid buffers. We obtain a single transport equation for Ca2+ that contains the effects caused by both stationary and mobile buffers. For stationary buffers alone, we obtain an expression for the effective diffusion constant of Ca2+ that depends on local Ca2+ concentrations. Mobile buffers, such as fura-2, BAPTA, or small endogenous proteins, give rise to a transport equation that is no longer strictly diffusive. Calculations are presented to show that these effects can modify greatly the manner and rate at which Ca2+ diffuses in cells, and we compare these results with recent measurements by Allbritton et al. (1992). As a prelude to work on Ca2+ waves, we use a simplified version of our model of the activation and inhibition of the IP3 receptor Ca2+ channel in the ER membrane to illustrate the way in which Ca2+ buffering can affect both the amplitude and existence of Ca2+ oscillations.
+---
+
+---
+DOI: 10.1161/01.res.82.11.1206
+Title: Simulation Study of Cellular Electric Properties in Heart Failure
+Year: 1998
+Abstract: Abstract —Patients with severe heart failure are at high risk of sudden cardiac death. In the majority of these patients, sudden cardiac death is thought to be due to ventricular tachyarrhythmias. Alterations of the electric properties of single myocytes in heart failure may favor the occurrence of ventricular arrhythmias in these patients by inducing early or delayed afterdepolarizations. Mathematical models of the cellular action potential and its underlying ionic currents could help to elucidate possible arrhythmogenic mechanisms on a cellular level. In the present study, selected ionic currents based on human data are incorporated into a model of the ventricular action potential for the purpose of studying the cellular electrophysiological consequences of heart failure. Ionic currents that are not yet sufficiently characterized in human ventricular myocytes are adopted from the action potential model developed by Luo and Rudy (LR model). The main results obtained from this model are as follows: The action potential in ventricular myocytes from failing hearts is longer than in nonfailing control hearts. The major underlying mechanisms for this prolongation are the enhanced activity of the Na + -Ca 2+ exchanger, the slowed diastolic decay of the [Ca 2+ ] i transient, and the reduction of the inwardly rectifying K + current and the Na + -K + pump current in myocytes of failing hearts. Furthermore, the fast and slow components of the delayed rectifier K + current ( I Kr and I Ks , respectively) are of utmost importance in determining repolarization of the human ventricular action potential. In contrast, the influence of the transient outward K + current on APD is only small in both cell groups. Inhibition of I Kr promotes the development of early afterdepolarizations in failing, but not nonfailing, myocytes. Furthermore, spontaneous Ca 2+ release from the sarcoplasmic reticulum triggers a premature action potential only in failing myocytes. This model of the ventricular action potential and its alterations in heart failure is intended to serve as a tool for investigating the effects of therapeutic interventions on the electric excitability of the human ventricular myocardium.
+---
+
+---
+DOI: 10.1016/j.ijheatmasstransfer.2004.10.004
+Title: A single-phase, non-isothermal model for PEM fuel cells
+Year: 2004
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/comst.2015.2439636
+Title: Towards 1 Gbps/UE in Cellular Systems: Understanding Ultra-Dense Small Cell Deployments
+Year: 2015
+Abstract: Todays heterogeneous networks comprised of mostly macrocells and indoor small\ncells will not be able to meet the upcoming traffic demands. Indeed, it is\nforecasted that at least a 100x network capacity increase will be required to\nmeet the traffic demands in 2020. As a result, vendors and operators are now\nlooking at using every tool at hand to improve network capacity. In this epic\ncampaign, three paradigms are noteworthy, i.e., network densification, the use\nof higher frequency bands and spectral efficiency enhancement techniques. This\npaper aims at bringing further common understanding and analysing the potential\ngains and limitations of these three paradigms, together with the impact of\nidle mode capabilities at the small cells as well as the user equipment density\nand distribution in outdoor scenarios. Special attention is paid to network\ndensification and its implications when transitioning to ultra-dense small cell\ndeployments. Simulation results show that network densification with an average\ninter site distance of 35 m can increase the cell- edge UE throughput by up to\n48x, while the use of the 10GHz band with a 500MHz bandwidth can increase the\nnetwork capacity up to 5x. The use of beamforming with up to 4 antennas per\nsmall cell base station lacks behind with cell-edge throughput gains of up to\n1.49x. Our study also shows how network densifications reduces multi-user\ndiversity, and thus proportional fair alike schedulers start losing their\nadvantages with respect to round robin ones. The energy efficiency of these\nultra-dense small cell deployments is also analysed, indicating the need for\nenergy harvesting approaches to make these deployments energy- efficient.\nFinally, the top ten challenges to be addressed to bring ultra-dense small cell\ndeployments to reality are also discussed.\n
+---
+
+---
+DOI: 10.1016/s0378-7753(99)00426-7
+Title: Modelling of polymer electrolyte membrane fuel cells with variable degrees of water flooding
+Year: 2000
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/mwc.2016.7462488
+Title: User-centric ultra-dense networks for 5G: challenges, methodologies, and directions
+Year: 2016
+Abstract: Ultra-dense networking (UDN) is considered as a promising technology for 5G. In this article, we define user-centric UDN (UUDN) by introducing the philosophy of the network serving user and the "de-cellular" method. Based on the analysis of challenges and requirements of UUDN, a new architecture is presented that breaks through the traditional cellular architecture of the network controlling user. Dynamic AP grouping is proposed as the core function of UUDN, through which a user could enjoy satisfactory and secure service following her movement. Furthermore, we provide methods for mobility management, resource management, interference management, and security issues. We point out that these functions should be co-designed and jointly optimized in order to improve the system throughput with higher resource utilization, better user experience, and increased energy efficiency. Finally, future works in UUDN are discussed.
+---
+
+---
+DOI: 10.1006/jtbi.1996.0237
+Title: Modelling Morphogenesis: From Single Cells to Crawling Slugs
+Year: 1997
+Abstract: We present a three-dimensional hybrid cellular automata (CA)/partial differential equation (PDE) model that allows for the study of morphogenesis in simple cellular systems. We apply the model to the cellular slime moldDictyostelium discoideum"from single cells to crawling slug". Using simple local interactions we can achieve the basic morphogenesis with only three processes: production of and chemotaxis to cAMP and cellular adhesion. The interplay of these processes causes the amoebae to spatially self-organize leading to the complex behaviour of stream and mound formation, cell sorting and slug migration all without any change of parameters during the complete morphogenetic process.
+---
+
+---
+DOI: 10.1016/j.msec.2005.08.020
+Title: Molecularly based analysis of deformation of spectrin network and human erythrocyte
+Year: 2006
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/twc.2008.070425
+Title: Distributed Antenna Systems with Randomness
+Year: 2008
+Abstract: In a cellular distributed antenna system (DAS), distributed antenna elements (AEs) are connected to the base station via an offline dedicated link, e.g. fiber optics or line-of-sight RF. Distributed antennas have been recently shown to provide considerable gains in coverage and capacity, at much lower cost than decreasing cell size. Previous studies have neglected the key sources of randomness in such systems, notably (i) random channel effects (fading and shadowing) and (ii) the random quantity and locations of both the mobile users and the AEs. Typically, path loss has been the focus, and the AEs are assumed to be regularly spaced, both of which are significant idealizations. First, we develop an analytical framework that allows random channels to be accommodated. We use this approach to show that selection transmission (using a single AE) is preferable to maximum ratio transmission (which uses all the AEs) in a multicell environment. Interestingly, the opposite is true in an isolated cell. Second, since AEs are placed opportunistically (on tall structures with backhaul access) rather than regularly, we develop a stochastic geometry-inspired approach to determine the outage probability as a function of the number of randomly placed AEs, which we model as a point process. With selection transmission, the outage probability is shown to decrease exponentially with the number of AEs and users. In the most general setup - with multiple distributed antennas and users, and both AE selection and user selection - we show that randomly deployed AEs provide nearly the same performance as regularly spaced AEs.
+---
+
+---
+DOI: 10.1016/j.bpj.2009.07.020
+Title: Actin-Myosin Viscoelastic Flow in the Keratocyte Lamellipod
+Year: 2009
+Abstract: The lamellipod, the locomotory region of migratory cells, is shaped by the balance of protrusion and contraction. The latter is the result of myosin-generated centripetal flow of the viscoelastic actin network. Recently, quantitative flow data was obtained, yet there is no detailed theory explaining the flow in a realistic geometry. We introduce models of viscoelastic actin mechanics and myosin transport and solve the model equations numerically for the flat, fan-shaped lamellipodial domain of keratocytes. The solutions demonstrate that in the rapidly crawling cell, myosin concentrates at the rear boundary and pulls the actin network inward, so the centripetal actin flow is very slow at the front, and faster at the rear and at the sides. The computed flow and respective traction forces compare well with the experimental data. We also calculate the graded protrusion at the cell boundary necessary to maintain the cell shape and make a number of other testable predictions. We discuss model implications for the cell shape, speed, and bi-stability.
+---
+
+---
+DOI: 10.1016/j.biosystems.2004.05.025
+Title: The epitheliome: agent-based modelling of the social behaviour of cells
+Year: 2004
+Abstract: We have developed a new computational modelling paradigm for predicting the emergent behaviour resulting from the interaction of cells in epithelial tissue. As proof-of-concept, an agent-based model, in which there is a one-to-one correspondence between biological cells and software agents, has been coupled to a simple physical model. Behaviour of the computational model is compared with the growth characteristics of epithelial cells in monolayer culture, using growth media with low and physiological calcium concentrations. Results show a qualitative fit between the growth characteristics produced by the simulation and the in vitro cell models.
+---
+
+---
+DOI: 10.1111/j.1365-2184.2009.00627.x
+Title: An integrative computational model for intestinal tissue renewal
+Year: 2009
+Abstract: Abstract Objectives: The luminal surface of the gut is lined with a monolayer of epithelial cells that acts as a nutrient absorptive engine and protective barrier. To maintain its integrity and functionality, the epithelium is renewed every few days. Theoretical models are powerful tools that can be used to test hypotheses concerning the regulation of this renewal process, to investigate how its dysfunction can lead to loss of homeostasis and neoplasia, and to identify potential therapeutic interventions. Here we propose a new multiscale model for crypt dynamics that links phenomena occurring at the subcellular, cellular and tissue levels of organisation. Methods: At the subcellular level, deterministic models characterise molecular networks, such as cell‐cycle control and Wnt signalling. The output of these models determines the behaviour of each epithelial cell in response to intra‐, inter‐ and extracellular cues. The modular nature of the model enables us to easily modify individual assumptions and analyse their effects on the system as a whole. Results: We perform virtual microdissection and labelling‐index experiments, evaluate the impact of various model extensions, obtain new insight into clonal expansion in the crypt, and compare our predictions with recent mitochondrial DNA mutation data. Conclusions: We demonstrate that relaxing the assumption that stem‐cell positions are fixed enables clonal expansion and niche succession to occur. We also predict that the presence of extracellular factors near the base of the crypt alone suffices to explain the observed spatial variation in nuclear beta‐catenin levels along the crypt axis.
+---
+
+---
+DOI: 10.1038/nmeth.3204
+Title: cellPACK: a virtual mesoscope to model and visualize structural systems biology
+Year: 2014
+Abstract: cellPACK assembles computational models of the biological mesoscale, an intermediate scale (10–100 nm) between molecular and cellular biology scales. cellPACK's modular architecture unites existing and novel packing algorithms to generate, visualize and analyze comprehensive three-dimensional models of complex biological environments that integrate data from multiple experimental systems biology and structural biology sources. cellPACK is available as open-source code, with tools for validation of models and with 'recipes' and models for five biological systems: blood plasma, cytoplasm, synaptic vesicles, HIV and a mycoplasma cell. We have applied cellPACK to model distributions of HIV envelope protein to test several hypotheses for consistency with experimental observations. Biologists, educators and outreach specialists can interact with cellPACK models, develop new recipes and perform packing experiments through scripting and graphical user interfaces at http://cellPACK.org/.
+---
+
+---
+DOI: 10.1096/fasebj.9.14.7589988
+Title: Mechanisms of calcium oscillations and waves: a quantitative analysis
+Year: 1995
+Abstract: Oscillations and waves of increased intracellular free calcium concentration ([Ca 2+ ],) are observed in a wide range of cell types. Because of their inherent nonlinear nature and the consequent unreliability of intuitive approaches, mathematical modeling has an important role to play in the study of these phenomena. One important class of oscillations and waves is dependent on the presence of inositol (l, 4, 5)‐trisphosphate (IP3), which releases Ca 2+ from internal stores via the IP3 receptor/Ca 2+ channel. With the minimum possible mathematical formalism, we review mechanistic models for IP3‐de‐ pendent Ca 2+ oscillations and waves. These models are based on the regulation of the IP3 receptor by both IP3 and Ca 2+ , and incorporate experimental data on the steady‐state and kinetic properties of the receptor. The extension of the models to describe intracellular and intercellular Ca 2+ waves is considered.—Sneyd, J., Keizer, J., Sanderson, M. J. Mechanisms of calcium oscillations and waves: a quantitative analysis. FASEB J . 9, 1463‐1472 (1995)
+---
+
+---
+DOI: 10.1093/bib/bbm024
+Title: Combining experiments with multi-cell agent-based modeling to study biological tissue patterning
+Year: 2007
+Abstract: Agent-based modeling (ABM), also termed 'Individual-based modeling (IBM)', is a computational approach that simulates the interactions of autonomous entities (agents, or individual cells) with each other and their local environment to predict higher level emergent patterns. A literature-derived rule set governs the actions of each individual agent. While this technique has been widely used in the ecological and social sciences, it has only recently been applied in biomedical research. The purpose of this review is to provide an introduction to ABM as it has been used to study complex multi-cell biological phenomena, underscore the importance of coupling models with experimental work, and outline future challenges for the ABM field and its application to biomedical research. We highlight a number of published examples of ABM, focusing on work that has combined experimental with ABM analyses and how this pairing produces new understanding. We conclude with suggestions for moving forward with this parallel approach.
+---
+
+---
+DOI: 10.1111/j.1540-5915.1992.tb00389.x
+Title: Partitioning Work Centers for Group Technology: Analytical Extension and Shop‐Level Simulation Investigation*
+Year: 1992
+Abstract: ABSTRACT This paper investigates the effects of partitioning job shop work centers to implement cellular manufacturing. Analytical models are utilized to show that partitioning leads to adverse effects on flow characteristics. The setup reduction introduced in partitioned systems has to overcome these adverse effects before leading to the benefits associated with cellular manufacturing. It is shown that partitioned systems with an insufficient degree of setup reduction are inferior to unpartitioned systems. Two new parameters relevant to this context, the breakeven setup reduction factor and flow ratio, are introduced for the design of viable cellular manufacturing systems. These insights are verified using a shop‐level simulation experiment, assuming non‐Markovian conditions. The experimental factors include lot size, setup reduction factor, cell size and allowance of inter‐cell movements. It is shown that the results are consistent with analytical insights in indicating the range of parameters in which cellular manufacturing may compare favorably with the best of the functional‐layout systems.
+---
+
+---
+DOI: 10.1016/j.jcp.2007.05.025
+Title: Diffusion on a curved surface coupled to diffusion in the volume: Application to cell biology
+Year: 2007
+Abstract: An algorithm is presented for solving a diffusion equation on a curved surface coupled to diffusion in the volume, a problem often arising in cell biology. It applies to pixilated surfaces obtained from experimental images and performs at low computational cost. In the method, the Laplace-Beltrami operator is approximated locally by the Laplacian on the tangential plane and then a finite volume discretization scheme based on a Voronoi decomposition is applied. Convergence studies show that mass conservation built in the discretization scheme and cancellation of sampling error ensure convergence of the solution in space with an order between 1 and 2. The method is applied to a cell-biological problem where a signaling molecule, G-protein Rac, cycles between the cytoplasm and cell membrane thus coupling its diffusion in the membrane to that in the cell interior. Simulations on realistic cell geometry are performed to validate, and determine the accuracy of, a recently proposed simplified quantitative analysis of fluorescence loss in photobleaching. The method is implemented within the Virtual Cell computational framework freely accessible at www.vcell.org.
+---
+
+---
+DOI: 10.1080/00207548408942449
+Title: A comparative study of the performance of pure and hybrid group technology manufacturing systems using computer simulation techniques
+Year: 1984
+Abstract: Abstract Problems of workload imbalance in Group Technology (GT) can be mitigated by transferring workloads from a congested machine centre in one cell to an alternative, less congested machine centre in another cell. Such inter-cell workload transfer results in a GT system which is a hybrid between pure GT (in which components are. completely processed within a cell) and functional layout (FL) (in which components are routed from one department of similar machines to another until completely processed) Though inter-cell workload transfer is often used in practice, its effects on system performance in GT have not been evaluated. This paper describes a general purpose GT simulator which has been developed and the evaluation of workload transfer which has been carried out (Aug 1981). Various job and cell attributes are employed as criteria for initiating workload transfers and the results of such transfers are examined in terms of job satisfaction, scheduling effort and material handling as well as overall shop performance. The interacting effects of job allocation rules, priority dispatching rules and batch overlapping are investigated under varying degrees of deviation from 'pure' GT. The effects of changes in job mix and of increases in demand are also examined. So are the effects of unbalanced capacity and cell size. The implications of the results for the practical design and operation of GT systems are also discussed
+---
+
+---
+DOI: 10.1016/0272-6963(95)00030-5
+Title: Machine dedication and process flexibility in a group technology environment
+Year: 1996
+Abstract: Abstract This study investigates changes in inventory and customer service performance of a job‐shop that desires to adopt a Group Technology (GT) philosophy in its shop floor operations. Simulation methodology is pursued to explore tradeoffs in shop performance between the routing flexibility of non‐dedicated machines in a functional job‐shop and the setup efficiency of dedicated machines in shops that have machine cell layouts. Further, traditional and GT‐based scheduling procedures are investigated in these different shops to determine the conditions under which a GT philosophy may be profitably employed only in layout decisions, only in scheduling decisions, or in both layout and scheduling decisions. Results from this study show that shop layout choice is not a simple decision that can capitalize either on the high routing flexibility of the functional job‐shop or on the setup efficiency advantages of a cell shop. The tradeoffs between routing flexibility and setup efficiency must be made carefully. The impact of demand variability on performance is also dependent on the type of layout. In general, product volume variability more adversely affects the performance of functional job‐shops, while product mix variability has greater impact on the performance of cell shops. Finally, sensitivity analysis is performed to show that maintaining balance between the utilization of machines is a major determinant of performance, and consequently the best layout.
+---
+
+---
+DOI: 10.1080/09511920600596821
+Title: An ant colony optimization algorithm for scheduling virtual cellular manufacturing systems
+Year: 2006
+Abstract: This paper presents a methodology to solve the manufacturing cell creation and the production scheduling problems for designing virtual cellular manufacturing systems (VCMSs). The objective is to minimize the total materials and components travelling distance incurred. The methodology consists of (i) a mathematical model that describes the characteristics of a VCMS and includes constraints such as delivery due dates of products, maximum capacities of resources, critical tools limitation, and (ii) an ant colony optimization (ACO) algorithm for manufacturing cell formation and production scheduling. Since the proposed ACO algorithm does not indicate a feasible schedule explicitly, two simple heuristics are developed to assign workstations to the operations of the jobs, and to construct the final schedule. To demonstrate the effectiveness of the proposed methodology, both the ACO algorithm and the genetic algorithm are applied to design manufacturing cells for a company in China producing internal combustion engine components. Comparison of the results obtained with the results supplied by the company on the existing manufacturing system show that both the ACO algorithm and the genetic algorithm together with the virtual cellular manufacturing concept perform better than the current manufacturing practice in terms of average workstation utilization, product completion time and system throughput. Also, the results of a set of randomly generated numerical experiments show that the proposed ACO algorithm generates excellent final solutions in a much shorter computation time when compared with the genetic algorithm. Therefore, the mathematical model and the ACO algorithm proposed in this paper form a simple, but effective and efficient methodology to solve the manufacturing cell creation and production scheduling problems for designing VCMSs.
+---
+
+---
+DOI: 10.1016/j.tiv.2014.08.012
+Title: Biokinetics of chlorpromazine in primary rat and human hepatocytes and human HepaRG cells after repeated exposure
+Year: 2014
+Abstract: Since drug induced liver injury is difficult to predict in animal models, more representative tests are needed to better evaluate these effects in humans. Existing in vitro systems hold great potential to detect hepatotoxicity of pharmaceuticals. In this study, the in vitro biokinetics of the model hepatotoxicant chlorpromazine (CPZ) were evaluated in three different liver cell systems after repeated exposure in order to incorporate repeated-dose testing into an in vitro assay. Primary rat and human hepatocytes, cultured in sandwich configuration and the human HepaRG cell line were treated daily with CPZ for 14 days. Samples were taken from medium, cells and well plastic at specific time points after the first and last exposure. The samples were analysed by HPLC-UV to determine the amount of CPZ in these samples. Based on cytotoxicity assays, the three models were tested at 1-2 μM CPZ, while the primary rat hepatocytes and the HepaRG cell line were in addition exposed to a higher concentration of 15-20 μM. Overall, the mass balance of CPZ decreased in the course of 24 h, indicating the metabolism of the compound within the cells. The largest decrease in parent compound was seen in the primary cultures; in the HepaRG cell cultures the mass balance only decreased to 50%. CPZ accumulated in the cells during the 14-day repeated exposure. Possible explanations for the accumulation of CPZ are a decrease in metabolism over time, inhibition of efflux transporters or binding to phospholipids. The biokinetics of CPZ differed between the three liver cell models and were influenced by specific cell properties as well as culture conditions. These results support the conclusion that in vitro biokinetics data are necessary to better interpret chemical-induced cytotoxicity data.
+---
+
+---
+DOI: 10.2788/94002
+Title: A biology-based dynamic approach for the modelling of toxicity in cell-based assays. Part I: Fate modelling
+Year: 2010
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s0278-6125(82)80064-2
+Title: The automated manufacturing research facility of the national bureau of standards
+Year: 1982
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1103/physrevlett.77.3865
+Title: Generalized Gradient Approximation Made Simple
+Year: 1996
+Abstract: Generalized gradient approximations (GGA's) for the exchange-correlation energy improve upon the local spin density (LSD) description of atoms, molecules, and solids. We present a simple derivation of a simple GGA, in which all parameters (other than those in LSD) are fundamental constants. Only general features of the detailed construction underlying the Perdew-Wang 1991 (PW91) GGA are invoked. Improvements over PW91 include an accurate description of the linear response of the uniform electron gas, correct behavior under uniform scaling, and a smoother potential.
+---
+
+---
+DOI: 10.1063/1.464913
+Title: Density-functional thermochemistry. III. The role of exact exchange
+Year: 1993
+Abstract: Despite the remarkable thermochemical accuracy of Kohn–Sham density-functional theories with gradient corrections for exchange-correlation [see, for example, A. D. Becke, J. Chem. Phys. 96, 2155 (1992)], we believe that further improvements are unlikely unless exact-exchange information is considered. Arguments to support this view are presented, and a semiempirical exchange-correlation functional containing local-spin-density, gradient, and exact-exchange terms is tested on 56 atomization energies, 42 ionization potentials, 8 proton affinities, and 10 total atomic energies of first- and second-row systems. This functional performs significantly better than previous functionals with gradient corrections only, and fits experimental atomization energies with an impressively small average absolute deviation of 2.4 kcal/mol.
+---
+
+---
+DOI: 10.1038/nature14236
+Title: Human-level control through deep reinforcement learning
+Year: 2015
+Abstract: The theory of reinforcement learning provides a normative account, deeply rooted in psychological and neuroscientific perspectives on animal behaviour, of how agents may optimize their control of an environment. To use reinforcement learning successfully in situations approaching real-world complexity, however, agents are confronted with a difficult task: they must derive efficient representations of the environment from high-dimensional sensory inputs, and use these to generalize past experience to new situations. Remarkably, humans and other animals seem to solve this problem through a harmonious combination of reinforcement learning and hierarchical sensory processing systems, the former evidenced by a wealth of neural data revealing notable parallels between the phasic signals emitted by dopaminergic neurons and temporal difference reinforcement learning algorithms. While reinforcement learning agents have achieved some successes in a variety of domains, their applicability has previously been limited to domains in which useful features can be handcrafted, or to domains with fully observed, low-dimensional state spaces. Here we use recent advances in training deep neural networks to develop a novel artificial agent, termed a deep Q-network, that can learn successful policies directly from high-dimensional sensory inputs using end-to-end reinforcement learning. We tested this agent on the challenging domain of classic Atari 2600 games. We demonstrate that the deep Q-network agent, receiving only the pixels and the game score as inputs, was able to surpass the performance of all previous algorithms and achieve a level comparable to that of a professional human games tester across a set of 49 games, using the same algorithm, network architecture and hyperparameters. This work bridges the divide between high-dimensional sensory inputs and actions, resulting in the first artificial agent that is capable of learning to excel at a diverse array of challenging tasks.
+---
+
+---
+DOI: 10.1023/a:1008202821328
+Title: Differential Evolution – A Simple and Efficient Heuristic for global Optimization over Continuous Spaces
+Year: 1997
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/978-3-658-40442-0_9
+Title: Generative Adversarial Nets
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.cell.2020.02.058
+Title: Structure, Function, and Antigenicity of the SARS-CoV-2 Spike Glycoprotein
+Year: 2020
+Abstract: The recent emergence of a novel coronavirus associated with an ongoing outbreak of pneumonia (Covid-2019) resulted in infections of more than 72,000 people and claimed over 1,800 lives. Coronavirus spike (S) glycoprotein trimers promote entry into cells and are the main target of the humoral immune response. We show here that SARS-CoV-2 S mediates entry in VeroE6 cells and in BHK cells transiently transfected with human ACE2, establishing ACE2 as a functional receptor for this novel coronavirus. We further demonstrate that the receptor-binding domains of SARS-CoV-2 S and SARS-CoV S bind with similar affinities to human ACE2, which correlates with the efficient spread of SARS-CoV-2 among humans. We found that the SARS-CoV-2 S glycoprotein harbors a furin cleavage site at the boundary between the S1/S2 subunits, which is processed during biogenesis and sets this virus apart from SARS-CoV and other SARS-related CoVs. We determined a cryo-electron microscopy structure of the SARS-CoV-2 S ectodomain trimer, demonstrating spontaneous opening of the receptor-binding domain, and providing a blueprint for the design of vaccines and inhibitors of viral entry. Finally, we demonstrate that SARS-CoV S murine polyclonal sera potently inhibited SARS-CoV-2 S-mediated entry into target cells, thereby indicating that cross-neutralizing antibodies targeting conserved S epitopes can be elicited upon vaccination.
+---
+
+---
+DOI: 10.1021/cr900356p
+Title: Dye-Sensitized Solar Cells
+Year: 2010
+Abstract: A review on dye-sensitized solar cells (DSCs). Some brief notes on solar energy in general and DSC in particular are given, followed by a discussion of the operational principles of DSC (energetics and kinetics). Then, the development of material components and some specific exptl. techniques to characterize DSC are described. The current status of module development is also discussed, and finally a brief future outlook is given.
+---
+
+---
+DOI: 10.1016/0306-3623(85)90172-7
+Title: Ionic channels of excitable membranes
+Year: 1985
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/mcom.2014.6736761
+Title: Massive MIMO for next generation wireless systems
+Year: 2014
+Abstract: Multi-user MIMO offers big advantages over conventional point-to-point MIMO: it works with cheap single-antenna terminals, a rich scattering environment is not required, and resource allocation is simplified because every active terminal utilizes all of the time-frequency bins. However, multi-user MIMO, as originally envisioned, with roughly equal numbers of service antennas and terminals and frequency-division duplex operation, is not a scalable technology. Massive MIMO (also known as large-scale antenna systems, very large MIMO, hyper MIMO, full-dimension MIMO, and ARGOS) makes a clean break with current practice through the use of a large excess of service antennas over active terminals and time-division duplex operation. Extra antennas help by focusing energy into ever smaller regions of space to bring huge improvements in throughput and radiated energy efficiency. Other benefits of massive MIMO include extensive use of inexpensive low-power components, reduced latency, simplification of the MAC layer, and robustness against intentional jamming. The anticipated throughput depends on the propagation environment providing asymptotically orthogonal channels to the terminals, but so far experiments have not disclosed any limitations in this regard. While massive MIMO renders many traditional research problems irrelevant, it uncovers entirely new problems that urgently need attention: the challenge of making many low-cost low-precision components that work effectively together, acquisition and synchronization for newly joined terminals, the exploitation of extra degrees of freedom provided by the excess of service antennas, reducing internal power consumption to achieve total energy efficiency reductions, and finding new deployment scenarios. This article presents an overview of the massive MIMO concept and contemporary research on the topic.
+---
+
+---
+DOI: 10.1006/jmbi.1996.0897
+Title: Development and validation of a genetic algorithm for flexible docking 1 1Edited by F. E. Cohen
+Year: 1997
+Abstract: Prediction of small molecule binding modes to macromolecules of known three-dimensional structure is a problem of paramount importance in rational drug design (the "docking" problem). We report the development and validation of the program GOLD (Genetic Optimisation for Ligand Docking). GOLD is an automated ligand docking program that uses a genetic algorithm to explore the full range of ligand conformational flexibility with partial flexibility of the protein, and satisfies the fundamental requirement that the ligand must displace loosely bound water on binding. Numerous enhancements and modifications have been applied to the original technique resulting in a substantial increase in the reliability and the applicability of the algorithm. The advanced algorithm has been tested on a dataset of 100 complexes extracted from the Brookhaven Protein DataBank. When used to dock the ligand back into the binding site, GOLD achieved a 71% success rate in identifying the experimental binding mode.
+---
+
+---
+DOI: 10.1385/1-59259-584-7:531
+Title: Protein Identification and Analysis Tools in the ExPASy Server
+Year: 2003
+Abstract: Protein identification and analysis software performs a central role in the investigation of proteins from two-dimensional (2-D) gels. For protein identification, the user matches certain empirically gained information against a protein database to define a protein as already known or as novel. For protein analysis, information in protein databases can be used to predict certain properties about a protein, which can be useful for its empirical investigation. The two processes are thus complementary. Although there are numerable programs available for the above-mentioned applications, we have developed a set of original tools with a few main goals in mind. Specifically, these are:
+---
+
+---
+DOI: 10.1107/s0907444904011679
+Title: <i>PRODRG</i>: a tool for high-throughput crystallography of protein–ligand complexes
+Year: 2004
+Abstract: The small-molecule topology generator PRODRG is described, which takes input from existing coordinates or various two-dimensional formats and automatically generates coordinates and molecular topologies suitable for X-ray refinement of protein-ligand complexes. Test results are described for automatic generation of topologies followed by energy minimization for a subset of compounds from the Cambridge Structural Database, which shows that, within the limits of the empirical GROMOS87 force field used, structures with good geometries are generated. X-ray refinement in X-PLOR/CNS, REFMAC and SHELX using PRODRG-generated topologies produces results comparable to refinement with topologies from the standard libraries. However, tests with distorted starting coordinates show that PRODRG topologies perform better, both in terms of ligand geometry and of crystallographic R factors.
+---
+
+---
+DOI: 10.1016/j.cell.2005.08.020
+Title: Core Transcriptional Regulatory Circuitry in Human Embryonic Stem Cells
+Year: 2005
+Abstract: The transcription factors OCT4, SOX2, and NANOG have essential roles in early development and are required for the propagation of undifferentiated embryonic stem (ES) cells in culture. To gain insights into transcriptional regulation of human ES cells, we have identified OCT4, SOX2, and NANOG target genes using genome-scale location analysis. We found, surprisingly, that OCT4, SOX2, and NANOG co-occupy a substantial portion of their target genes. These target genes frequently encode transcription factors, many of which are developmentally important homeodomain proteins. Our data also indicate that OCT4, SOX2, and NANOG collaborate to form regulatory circuitry consisting of autoregulatory and feedforward loops. These results provide new insights into the transcriptional regulation of stem cells and reveal how OCT4, SOX2, and NANOG contribute to pluripotency and self-renewal.
+---

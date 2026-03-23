@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1016/j.rineng.2025.107687
+Title: Power-aware clustering and routing protocol utilizing virtual hexagonal cells and computational intelligence for smart cities with dual mobility and power-constrained IoT sensors
+Year: 2025
+Abstract: The Internet of Things (IoT) enables smart cities to collect vast data from wireless sensors, supporting predictive maintenance and infrastructure management. However, energy-efficient design remains a critical challenge for IoT-enabled Wireless Sensor Networks (WSNs). This paper proposes a novel strategy that partitions smart city WSNs into uniform hexagonal cells and employs an advanced meta-heuristic algorithm for optimal cluster head selection. Two mobile sinks traverse predefined hexagonal paths to collect sensory data efficiently. A cost-effective routing protocol is developed to extend sensor node lifetime. Simulation results demonstrate significant reductions in average energy consumption and substantial improvements in network longevity, achieving up to a 372-fold increase in the first node-to-die metric compared to the energy-efficient geographic routing protocol based on mobile sinks, and a 669-fold improvement compared to reduced k-means and rendezvous-based routing protocols. The proposed energy-aware clustering and routing framework offers a scalable solution for sustainable IoT-WSN deployments in smart cities.
+---
+
+---
+DOI: 10.1016/j.compscitech.2025.111425
+Title: A virtual fiber unit cell model for efficient simulation of dry fabric picture frame shear behavior
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.48550/arxiv.2510.07706
+Title: Large Language Models Meet Virtual Cell: A Survey
+Year: 2025
+Abstract: Large language models (LLMs) are transforming cellular biology by enabling the development of "virtual cells"--computational systems that represent, predict, and reason about cellular states and behaviors. This work provides a comprehensive review of LLMs for virtual cell modeling. We propose a unified taxonomy that organizes existing methods into two paradigms: LLMs as Oracles, for direct cellular modeling, and LLMs as Agents, for orchestrating complex scientific tasks. We identify three core tasks--cellular representation, perturbation prediction, and gene regulation inference--and review their associated models, datasets, evaluation benchmarks, as well as the critical challenges in scalability, generalizability, and interpretability.
+---
+
+---
+DOI: 10.48550/arxiv.2512.00306
+Title: VCWorld: A Biological World Model for Virtual Cell Simulation
+Year: 2025
+Abstract: Virtual cell modeling aims to predict cellular responses to perturbations. Existing virtual cell models rely heavily on large-scale single-cell datasets, learning explicit mappings between gene expression and perturbations. Although recent models attempt to incorporate multi-source biological information, their generalization remains constrained by data quality, coverage, and batch effects. More critically, these models often function as black boxes, offering predictions without interpretability or consistency with biological principles, which undermines their credibility in scientific research. To address these challenges, we present VCWorld, a cell-level white-box simulator that integrates structured biological knowledge with the iterative reasoning capabilities of large language models to instantiate a biological world model. VCWorld operates in a data-efficient manner to reproduce perturbation-induced signaling cascades and generates interpretable, stepwise predictions alongside explicit mechanistic hypotheses. In drug perturbation benchmarks, VCWorld achieves state-of-the-art predictive performance, and the inferred mechanistic pathways are consistent with publicly available biological evidence.
+---
+
+---
+DOI: 10.1016/j.jmccpl.2025.100832
+Title: Corrigendum to “Sex-specific human electromechanical multiscale in-silico models for virtual therapy evaluation” [J Mol Cell Cardiol Plus 13 (2025) 100479]
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.48550/arxiv.2512.11928
+Title: MONET -- Virtual Cell Painting of Brightfield Images and Time Lapses Using Reference Consistent Diffusion
+Year: 2025
+Abstract: Cell painting is a popular technique for creating human-interpretable, high-contrast images of cell morphology. There are two major issues with cell paint: (1) it is labor-intensive and (2) it requires chemical fixation, making the study of cell dynamics impossible. We train a diffusion model (Morphological Observation Neural Enhancement Tool, or MONET) on a large dataset to predict cell paint channels from brightfield images. We show that model quality improves with scale. The model uses a consistency architecture to generate time-lapse videos, despite the impossibility of obtaining cell paint video training data. In addition, we show that this architecture enables a form of in-context learning, allowing the model to partially transfer to out-of-distribution cell lines and imaging protocols. Virtual cell painting is not intended to replace physical cell painting completely, but to act as a complementary tool enabling novel workflows in biological research.
+---
+
+---
+DOI: 10.1089/ipm.12.06.15
+Title: Inside the Virtual Cell: New Depths for Precision Medicine
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/s41576-026-00940-8
+Title: Revisiting the blueprint for an interpretable virtual cell
+Year: 2026
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.bpj.2022.11.1696
+Title: 4D dynamical whole-cell simulations of a growing minimal cell
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1101/2025.04.09.647865
+Title: Whole-cell particle-based digital twin simulations from 4D lattice light-sheet microscopy data
+Year: 2025
+Abstract: SUMMARY We present a framework for performing whole-cell digital twin simulations which integrates 4D (x,y,z,t) lattice light-sheet microscopy (LLSM) data with particle-based reaction-diffusion modeling to capture intracellular organelle dynamics. Using imaging data from Cal27 cells, we construct digital twins that incorporate mitochondrial networks, microtubule networks, dynein and kinesin motors, the plasma membrane, and the nucleus. Passive diffusive mitochondrial dynamics are parameterized using stochastic reaction-diffusion simulations in ReaDDy, while active transport is modeled explicitly by incorporating motor-driven transport along a diffusing, polarized microtubule network. Our simulations accurately reproduce experimentally observed mitochondrial dynamics across pharmacological microtubule depolymerization conditions and reproduce the mitochondrial response to intermediate perturbations without explicit re-parameterization. This novel meso-scale digital twin framework offers a bridge between atomic-scale whole-cell simulations and experimental time and length scales.
+---
+
+---
+DOI: 10.4018/978-1-5225-1756-6.ch009
+Title: Microbial Fuel Cells Using Agent-Based Simulation
+Year: 2016
+Abstract: Microbial Fuel Cells (MFC) could generate electrical energy combined with the wastewater treatment and they can be a promising technological opportunity. This chapter presents an agent-based model and simulation of MFC comparing it with analytical models, to show that this approach could model and simulate these problems with more abstraction and with excellent results.
+---
+
+---
+DOI: 10.1016/j.jid.2017.07.416
+Title: 106 Three-dimensional agent-based modeling of the human epidermal structure and barrier function with realistic cell morphology
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1109/wsc.2017.8248206
+Title: Exploiting equation-free analysis for multi-level, agent-based models in cell biology
+Year: 2017
+Abstract: Multi-level modeling approaches have been successfully applied in systems biology to model complex systems with different levels of organization. They allow for straightforwardly integrating upward and downward causation as well as compartmental dynamics. This makes multi-level models powerful, but also expensive to simulate. Consequently, the effort required for comprehensive simulation studies with complex multi-level models is often prohibitive. One way to decrease the demand for simulations is to apply analysis methods. However, most approaches focus on differential equations models and cannot handle models with stochasticity or dynamical nesting. Among the new approaches that allow for analysis of complex systems is equation-free analysis, which has been applied to perform coarse level bifurcation analysis in various areas. We present the integration of an equation-free method into the simulation language Simulation Experiment Specification on a Scala Layer (SESSL) to analyze bi-or multistability of biochemical models, defined in the multi-level modeling language ML-Rules, and its role in cell fate selection.
+---
+
+---
+DOI: 10.1007/978-3-030-57204-4_14
+Title: Agent-Based Model of Heterogeneous T-Cell Activation in Vitro
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/978-3-030-57204-4_2
+Title: An Agent-Based Model of T Helper Cell Fate Decisions in the Thymus
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1007/978-3-030-83418-0_11
+Title: An Agent-Based Model of Infectious Diseases that Incorporates the Role of Immune Cells and Antibodies
+Year: 2021
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/s1465-3249(22)00421-2
+Title: Tissue Engineering, Embryonic, Organ and Other Tissue Specific Stem Cells: Late Breaking Abstract: ELUCIDATION OF CHAIN-MIGRATION MEDIATED JAMMING-UNJAMMING TRANSITION IN CORNEAL EPITHELIAL CELL SHEET USING AGENT-BASED MODEL
+Year: 2022
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.2139/ssrn.3665284
+Title: An Agent-Based Model of Infectious Diseases Taking into Account the Role of Immune Cells and Antibodies.
+Year: 2020
+Abstract: An agent-based infection model that takes into account the role of immune cells and antibodies has been constructed, and the effect of various factors on the spread and convergence of infection are analyzed. As a result, it was found that the calculated behavior of the numbers of newly infected, newly recovered, and the infected was qualitatively consistent with the actual phenomenon. It was found that an essential factor for the spread of infection is the number of infected persons with whom a healthy person encounters, while the existence of antibodies is not essential for the fundamental behavior of the spread and converge of infection. Based on these results, the fundamental mechanism for the spread of infection is that the probability of a healthy person encountering an infected person increases progressively, and the primary mechanism for convergence of the infection spread is that the above probability decreases progressively as the number of recovered people increases. It is considered that in order to control the spread of infection while minimizing economic deterioration, it is essential to identify infected persons, regulate their behavior, and minimize the probability for healthy persons encounter infected persons.
+---
+
+---
+DOI: 10.1201/9781420070248-24
+Title: Agent-Based Modeling of Stem Cells Saunders
+Year: 2018
+Abstract: The multi-agent systems approach has become recognized as a useful approach for modeling and simulating biological complex systems. In this chapter we provide an example of such an approach, which concerns the modeling and simulation of the Hematopoietic Stem Cell (HSC) system in adults. We are specifically interested in how local cell interactions give rise to well understood properties of systems of stem cells, such as the ability to maintain their own population and to maintain a population of fully differentiated functional cells. There is a need to establish key cell mechanisms that can produce self-regulating behavior of HSC systems using different theoretical techniques. It is our belief that modeling the behavior of HSCs in the adult human body as an agent-based system is the most appropriate way of understanding these mechanisms and the consequent process of self-organization.
+---
+
+---
+DOI: 10.1145/3518997.3534990
+Title: ACESO: A 3D Agent-Based Simulation of the Interaction Between Immune and Tumor Cells
+Year: 2022
+Abstract: Immunotherapy consists of assisting or augmenting the immune system to prevent or treat diseases and has shown great promise in improving upon the conventional methods of treating cancer, namely radiation therapy, chemotherapy, and surgery [2]. However, conducting preclinical studies in this field can take months to years and often require costly equipment and training to execute. Researchers have used in-silico methods to reduce the time to conduct these studies, computationally exploring many different experimental configurations in a fraction of the time needed in a wet lab [1]. A common method used to describe the interaction of the immune system with tumor cells is through ordinary and partial differential equations of the evolution in the populations, but these top-down approaches often cannot capture the necessary detail required to understand the dynamics that operate at the cellular level [3]. Appropriately, studies that approach these systems from the bottom-up, particularly agent-based simulations, have shown success in capturing the dynamics of cell-to-cell interactions [4].
+---
+
+---
+DOI: 10.1101/2022.08.06.503043
+Title: A spatialised agent-based model of NOTCH signalling pathway in Endothelial Cells predicts emergent heterogeneity due to continual dynamic phenotypic adjustments
+Year: 2022
+Abstract: Abstract Vascular Endothelial Cells (EC) plasticity is key to homeostasis and its disruption is a hallmark of diseases such as cancer, atherosclerosis, and diabetes. The EC lineage has evolved to address in parallel sensor and actuator functions. This ability is reflected in remarkable phenotypical heterogeneity of EC across different tissues, within the same tissue, and within the same vascular bed as demonstrated by single cell image analysis and transcriptomics studies. However, how the molecular signalling dynamics in EC could generate and maintain such heterogeneity in different contexts is still largely unexplored. Recently we reported that confluent EC have spatially heterogeneous NOTCH signalling pathway (NSP) levels in vitro as confirmed from analysis of available OMICS databases. Here, we show that spatial heterogeneity of NSP levels is a feature of aortic murine endothelia in vivo and recapitulated by human EC in culture despite absence of signalling from mural cells. We study lateral induction and inhibition, cis-interactions and signalling, and target genes autoregulation in NSP. Using mathematical models and experimental observations we report that NSP dynamics can generate stable, periodic, and asynchronous oscillations of the NSP target HES1. Importantly, we observe that cell contact dependent NSP signal oscillations is the most likely parsimonious mechanistic hypothesis justifying observed spatial heterogeneity in endothelia. We propose that NSP is sufficient to enable individual EC in monolayers to acquire different phenotypes dynamically explaining robustness of quiescent endothelia in performing parallel functions.
+---
+
+---
+DOI: 10.1007/978-3-031-36024-4_20
+Title: Coupling Between a Finite Element Model of Coronary Artery Mechanics and a Microscale Agent-Based Model of Smooth Muscle Cells Through Trilinear Interpolation
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.jbiosc.2023.10.003
+Title: Agent-based approach for elucidating the release from collective arrest of cell motion in corneal epithelial cell sheet
+Year: 2023
+Abstract: Changes in cell fluidity have been observed in various cellular tissues and are strongly linked to biological phenomena such as self-organization. Recent studies suggested variety of mechanisms and factors, which are still being investigated. This study aimed to investigate changes in cell fluidity in multi-layered cell sheets, by exploring the collective arrest of cell motion and its release in cultures of corneal epithelial cells. We constructed mathematical models to simulate the behaviors of individual cells, including cell differentiation and time-dependent changes in cell-cell connections, which are defined by stochastic or kinetic rules. Changes in cell fluidity and cell sheet structures were expressed by simulating autonomous cell behaviors and interactions in tissues using an agent-based model. A single-cell level spatiotemporal analysis of cell state transition between migratable and non-migratable states revealed that the release from collective arrest of cell motion was initially triggered by a decreased ability to form cell-cell connections in the suprabasal layers, and was propagated by chain migration. Notably, the disruption of cell-cell connections and stratification occurred in the region of migratable state cells. Hence, a modeling approach that considers time-dependent changes in cell properties and behavior, and spatiotemporal analysis at the single-cell level can effectively delineate emergent phenomena arising from the complex interplay of cells.
+---
+
+---
+DOI: 10.4081/bse.225
+Title: Nebuloid: a novel in silico agent-based cell model
+Year: 2023
+Abstract: Not available.
+---
+
+---
+DOI: 10.1007/978-3-031-36024-4_54
+Title: Correction to: Coupling Between a Finite Element Model of Coronary Artery Mechanics and a Microscale Agent-Based Model of Smooth Muscle Cells Through Trilinear Interpolation
+Year: 2023
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.21203/rs.3.rs-3993742/v1
+Title: In silico investigations of triazole -trimethoxyphenyl hybrids as anti-proliferative agents against adenocarcinomic human alveolar basal epithelial cells (A549): DFT, QSAR and Molecular Docking Approaches
+Year: 2024
+Abstract: <title>Abstract</title> Twenty-eight sets of synthesized triazole-trimethoxyphenyl hybrids (TPD) were considered as anti-proliferative drugs against human alveolar basal epithelial (A549) cancer cell lines using DFT, QSAR, ADMET profile and molecular docking methods. The considered compounds were used to develop a robust QSAR model, which was used to design new triazole-trimethoxyphenyl compounds that could serve as anti-proliferative drug candidate against human alveolar basal epithelial (A549) cancer. The parameters obtained from DFT calculations such as the HOMO, LUMO, Dipole moment, chemical hardness and softness favoured TPD-11 and TPD-25 over etopoxide as strong inhibitors against human alveolar basal epithelialcancer cell (A549), which agreed with the experimental data. The QSAR modeling and validation indicated the major influence of MATS4p, minHBint3, and ATSC7c descriptors on the reported anticancer activity of the drugs in the A549- MLR-GFA QSAR (R<sup>2</sup> = 0.8632, adjusted R<sup>2</sup> = 0.7951, Q<sup>2</sup><sub>Loo</sub> = 0.6023 and R<sup>2</sup> - Q<sup>2</sup><sub>Loo</sub> = 0.2609). By leveraging data from the model, four new triazole-trimethoxyphenyl hybrids were proposed (NTPD-3, NTPD-4, NTPD-6 and NTPD-9). The DFT and molecular docking analysis showed these four compounds could be good inhibitors against adenocarcinomic human alveolar basal epithelial cells (A549) than etopoxide. However, ADMET (absorption, distribution, metabolism, excretion, and toxicity) properties revealed NTPD-6 showed excellent pharmacokinetic and toxicological profiles and might serve as a road map for new and more effective anticancer agents.
+---
+
+---
+DOI: 10.1162/isal_a_00769
+Title: ISiCell: A Participatory Methodology and Platform for Collaborative Agent-Based Modeling in Cell Biology
+Year: 2024
+Abstract: International audience
+---
+
+---
+DOI: 10.1136/jitc-2024-sitc2024.0333
+Title: 333 Agent-based modeling of tumor microenvironment dynamics in adoptive cell therapy
+Year: 2024
+Abstract: <h3>Background</h3> Adoptive cell therapy (ACT) has revolutionized cancer treatment. However, optimizing its design for consistent long-term benefits remains challenging. Mechanisms determining ACT efficacy are not fully understood, making experimentally explaining immune-tumor interactions difficult. Multiple aspects contribute to pharmacological variances, such as cellular heterogeneity and dynamic tumor microenvironment (TME). While widely used to investigate these perturbations, cell-line and animal models are resource-heavy, cross-sectional, and provide limited data granularity, hindering the translation to clinical practices. In silico modeling can flank in vivo/vitro experiments by providing additional insights and cost-effective hypothesis testing, though accuracy, complexity, and interpretability vary. To systematically evaluate ACT variables and bridge biological mechanisms with experimental observations, we hypothesized that a data-informed, rule-based microscale model can simulate cell population dynamics in ACT and thereby predict differential tumor control effects. Given the scarcity of computational models on natural killer cells, in this project, we developed ABMACT to understand, simulate, and predict TME dynamics in Chimeric Antigen Receptor Natural Killer (CAR-NK) ACT for B cell lymphoma. <h3>Methods</h3> Agent-based models (ABM) are well-suited to emulate spatial interactions at the single-cell level and retain stochasticity, flexibility, and interpretability. ABMs encode the biological rules of individual cells and simulate the collective behaviors of cell populations over time. ABMACT integrated data from in vitro/vivo experiments and scRNA-seq to capture variable cytotoxicity in NK cells, delineate NK cell fate transitions, and predict tumor control. We validated our models on a Raji-NK cell coculturing mouse model experiments<sup>1</sup> and benchmarked it against other modeling methods such as ordinary differential equations (ODE). <h3>Results</h3> By cross-evaluating multiple NK cell characteristics and dosages, we found that NK cell proliferation rate most significantly influenced time to tumor clearance, followed by effector-to-target ratio, and serial killing capacity. Higher baseline cytotoxicity, proliferation rate, serial killing capacity, and lower death rate in the CD19IL15 CAR-NK group accelerated tumor reduction. ABMACT substantially outperforms ODE models in the accuracy and interpretability of NK cell dynamics. In addition, ABMACT allows investigations of multiple dosing, which can help optimize ACT treatment schedules and dosages. <h3>Conclusions</h3> By developing ABMACT, we provide a computational framework for testing the impact of CAR-NK ACT design and conditions on long-term tumor control and patient responses. Integrating biological knowledge with multi-modal data, ABMACT offers mechanistic explanations of immune-tumor interactions. In silico models reduce the need for extensive laboratory work and can adapt to other cell types and ACTs, aiding hypothesis generation and testing for ACT design and personalized treatment planning. <h3>Reference</h3> Li L,<i> et al</i>. Loss of metabolic fitness drives tumor resistance after CAR-NK cell therapy and can be overcome by cytokine engineering. <i>Sci Adv</i> 2023;<b>9</b>:eadd6997.
+---
+
+---
+DOI: 10.2139/ssrn.5044580
+Title: An Agent-Based Modelling Framework for Tumour Growth Incorporating Mechanical and Evolutionary Aspects of Cell Dynamics
+Year: 2024
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.niox.2025.05.009
+Title: Antagonistic effect of a nitric oxide donor agents based on ruthenium complex combined with cisplatin on lung tumor cell lines
+Year: 2025
+Abstract: Nitric oxide (NO) is a versatile biological messenger involved in numerous physiological processes and anticancer mechanisms. Its functions are highly dependent on its concentration and the specific site of action. In this study, we investigated the effects of controlled NO release mediated by ruthenium-based compounds. The tests demonstrated the significant potential of combining cisplatin with the non-cytotoxic ruthenium nitrosyl complexes cis-[Ru(bpy)2(NO2)(solv)]PF6 and cis-Ru(bpy)2(NO)(pic)](PF6)3, where bpy = 2,2'-bipyridine ,pic = 4-picoline and solv = solvent. This combination increased selectivity between non-tumoral and tumoral lung cells (MRC-5/A549) compared to the selectivity index of cisplatin alone. These nitrosyl complexes exhibited an antagonistic interaction with cisplatin, reducing its cytotoxic efficacy. Cell cycle and apoptosis assays revealed that the cisplatin/Ru combination more effectively inhibited cisplatin's cytotoxic effect on the MRC-5 non-tumoral lung cell line compared to the A549 tumoral cell line. Morphological assays conducted in 3D culture with the cis-[Ru(bpy)2(NO)(pic)](PF6)3 complex confirmed its chemopreventive behavior, as the 3D system closely mimics in vivo conditions. Moreover, the absence of cytotoxicity in these ruthenium nitrosyl complexes highlights their potential as promising candidates for adjuvant therapy in combination with other drugs.
+---
+
+---
+DOI: 10.1101/2025.06.06.658236
+Title: Agent-based computational modeling of the stochastic dynamic behavior of actin filaments recapitulates the homeostatic cortical array in plant epidermal cells
+Year: 2025
+Abstract: ABSTRACT The homeostatic cortical actin array in plant cells plays important roles in fundamental processes, including intracellular transport, secretion, cell expansion, and cytoplasmic streaming. In response to diverse chemical and mechanical signals, the cortical array can remodel within minutes to assume new configurations or altered filament abundance. The homeostatic cortical actin array of some plant epidermal cells comprise sparsely distributed individual actin filaments and actin bundles, which enables tracking and quantitative analysis of dynamic properties over many minutes at high spatiotemporal resolution. Previous studies using quantitative live-cell imaging, small molecule inhibitors, and genetic mutations reveal the robust dynamic steady state of the cortical actin array, with individual filaments showing a behavior termed stochastic dynamics. Compared to experimental findings, computational efforts focused on the plant actin cytoskeleton are lacking, although computational models have the potential to define underlying mechanisms of actin array homeostasis and remodeling. Here, we used an agent-based computational model to reproduce the stochastic dynamic behavior of individual actin filaments in epidermal cells with consideration of key governing factors, including the nucleation, polymerization, depolymerization, severing, capping, and branching of filaments. Our model was able to reproduce experimental observations with respect to the abundance and length of filaments as well as the rates or frequencies of dynamic events. This model can be used to study the role of myosin motors and other actin-binding proteins, as well as the effects of signaling events and fluxes in cellular second messengers, on actin dynamics in plant cells.
+---
+
+---
+DOI: 10.1177/10781552251383925
+Title: Comparative pooled analysis of targeted therapies, or immunotherapy plus chemotherapies versus conventional platinum-based therapies or single-agent immunotherapies in recurrent or metastatic head and neck squamous cell carcinoma: A systematic review and meta-analysis
+Year: 2025
+Abstract: Background Treatment selection for recurrent or metastatic head and neck squamous cell carcinoma (R/M HNSCC) remains complex due to varying clinical outcomes across different therapeutic approaches. This systematic review and meta-analysis aim to compare the efficacy and safety of combination therapies (targeted therapies or immunotherapy plus chemotherapy) versus conventional platinum-based chemotherapy or single-agent immunotherapy. Methods A comprehensive literature search was conducted across MEDLINE (PubMed), Cochrane Library and ClinicalTrials.gov. This meta-analysis included articles published from January 2000 to December 2024. Only randomized controlled trials (RCTs) evaluating these treatment strategies in R/M HNSCC patients were included. Trials exclusively focused on nasopharyngeal carcinoma or non-randomized studies with insufficient data were excluded. Results After screening for 645 records, seven RCTs involving 2505 patients were analyzed. Combination therapies demonstrated superior survival outcomes compared to conventional approaches. Pooled analysis showed a significant improvement in progression-free survival (PFS) (HR: 0.84, 95% CI: 0.79–0.90, p &lt; 0.0001) and a trend toward improved overall survival (OS) (HR: 0.92, 95% CI: 0.86–1.00, p = 0.05). Conclusion This meta-analysis supports the use of targeted therapies or immunotherapy plus chemotherapy as a preferred first-line treatment option for R/M HNSCC due to their favorable efficacy and safety profile. Further clinical investigations are warranted to refine treatment strategies and optimize patient outcomes.
+---
+
+---
+DOI: 10.1101/2025.11.04.686578
+Title: Agent-based simulations of lung tumour evolution suggest that ongoing cell competition drives realistic clonal expansions
+Year: 2025
+Abstract: Computational simulations of tumour evolution are increasingly used to infer the rules underlying cancer growth, with the goal of one day recommending tailored treatments. To make reliable inferences, such models must be able to reflect the properties of real tumours. Recent work has shown that lung tumours undergo frequent and late subclonal expansions, which are associated with poor prognosis. This paper tests three candidate simulations of three-dimensional tumour growth, which make different assumptions about the nature of competition between cells, for their ability to replicate these late expansions. Only a model which assumes stringent competition between tumour cells for existing tissue space, after the tumour has reached a fixed size, can produce multiregion sequencing data realistic to lung tumours. This work also assesses the influence of these assumptions on the inferred selection strength of individual tumours in a large cohort of lung cancers, and finds that inferences from a well-tailored model produce much higher estimates than poorly-tailored models of the effects of driver mutations on cell fitness. Table of Contents Computational simulations of tumour evolution are increasingly used to infer the rules underlying cancer growth, with the goal of one day recommending tailored treatments. Here we show that the properties of lung cancer sequencing data are best replicated by a model which assumes that cells compete both to proliferate and survive.
+---
+
+---
+DOI: 10.1101/2025.11.24.689256
+Title: Notebook-based alignment of human and agentic reasoning in single-cell biology
+Year: 2025
+Abstract: Agentic AI is increasingly deployed on complex problems, often using chain-of-thought prompting to ground predictions in stepwise reasoning. In biomedical research, assistive agents could make this reasoning accessible to human scientists: for example, intermediate conclusions could be critically evaluated based on shared reasoning and sycophancy – the tendency to affirm a user’s claims regardless of their validity – could be mitigated. However, this interaction requires an alignment of reasoning between agents and humans that is difficult when multiple data modalities are considered, for example in single-cell biology, where human scientists reason through computational notebooks that contain code, results, and text. To address this issue, we developed kai , an agentic AI that iteratively generates analyses in computational notebooks. We find that kai can flexibly use multiple tools in sequence to solve complex cell type annotation problems. Compared with one-shot generation, kai demonstrates improved robustness against code errors and sycophancy, improved reasoning, and the ability to formulate and address questions on data. kai ’s design is model-agnostic and, therefore, scales directly with advancements in large language models.
+---
+
+---
+DOI: 10.1038/s42003-026-09653-4
+Title: Agent-based modeling of cellular dynamics in adoptive cell therapy
+Year: 2026
+Abstract: Adoptive cell therapies (ACT) leverage tumor-immune interactions to cure cancer. Despite promising phase I/II clinical trials of chimeric-antigen-receptor natural killer (CAR-NK) cell therapies, molecular mechanisms and cellular properties required to achieve clinical benefits in broad cancer spectra remain underexplored. While in vitro and in vivo experiments are essential, they are expensive, laborious, and limited to targeted investigations. Here, we present ABMACT (Agent-Based Model for Adoptive Cell Therapy), an in silico approach employing agent-based models (ABM) to simulate the continuous course and dynamics of an evolving tumor-immune ecosystem, consisting of heterogeneous "virtual cells" created based on knowledge and omics data observed in experiments and patients. Applying ABMACT in multiple therapeutic contexts indicates that to achieve optimal ACT efficacy, it is key to enhance immune cellular proliferation, cytotoxicity, and serial killing capacity. With ABMACT, in silico trials can be performed systematically to inform ACT product development and predict optimal treatment strategies.
+---
+
+---
+DOI: 10.1096/fasebj.2021.35.s1.02368
+Title: Computational Systems Biology Modeling of the Angiopoietin‐Tie Signaling Pathway and its Crosstalk with α5β1 Integrin in Endothelial Cells
+Year: 2021
+Abstract: The Angiopoietin (Ang)‐Tie signaling pathway is a major signaling pathway regulating vascular growth (angiogenesis), stability, and permeability. Dysregulation in the pathway is known to lead to vascular dysfunction related to many diseases, including cardiovascular diseases, systemic inflammation, diabetic macular edema, and cancer. Integrin α5β1 has been demonstrated to play an important role in regulating Ang‐Tie and its downstream signaling. The understanding of the molecular mechanisms of the α5β1/Ang‐Tie crosstalk has been limited due to the complexity of the reaction network formed by the ligands, receptors, integrin interactions, and the molecular regulatory mechanisms. The present study uses a mechanistic computational model of the Ang‐Tie signaling pathway and its crosstalk with α5β1 to demonstrate the ability of integrin α5β1 to modulate Tie2 activation by affecting the junctional localization of the co‐receptor Tie1. The model provides a mechanistic explanation of how AXT107, an α5β1‐modulating peptide, promotes the Tie2‐activation function of Ang2 and predicts that simultaneously targeting α5β1 and VE‐PTP can synergistically enhance the activation of Tie2 in endothelial cells in pathological states. The model is also used to make quantitative prediction of the effects of simultaneously targeting various aspects of the α5β1/Ang‐Tie crosstalk, including the integrin, VE‐PTP, and Ang2.
+---
+
+---
+DOI: 10.1158/1538-7445.am2018-ng01
+Title: Abstract NG01: Effects of altering receptor structure in CAR T cells: Predictions from an experimentally-validated systems biology model
+Year: 2018
+Abstract: Abstract Background and motivation. As T cell immunotherapy applications have expanded, it has become increasingly important to better understand the signaling events that lead to T cell activation. We are particularly interested in chimeric antigen receptor- (CAR-) engineered T cells (CAR-T cells). CAR-T cells have emerged as a promising treatment for B cell lymphoma, but their success has not transferred to other cancer types. This is, in part, due to a fundamental lack of understanding of the mechanistic signaling events initiated by the CAR intracellular domains, which prevents us from being able to engineer an optimal CAR. Traditional CARs consist of intracellular signaling domains derived from CD3ζ, the main activating domain in the endogenous T cell receptor (TCR), and a co-stimulatory domain, such as CD28. The immuno-tyrosine activating motifs (ITAMs) on CD3ζ are able to induce T cell cytotoxicity on their own, while CD28 and other co-stimulatory signaling domains augment particular aspects of the response. It is known that phosphorylation of the six tyrosine sites on CD3ζ and four on CD28 by lymphocyte-specific protein tyrosine kinase (LCK) results in downstream signaling that leads to T cell activation. However, the specific mechanisms that control LCK's binding and catalytic activity are not well defined. These ten phosphorylation sites on the CAR contribute to different signaling events in the T cells, so understanding the mechanisms through which these sites are activated can inform the best strategies for engineering the next generations of CARs. To date, development of CAR constructs is largely achieved using a trial-and-error experimental approach, which has several disadvantages: it does not uncover why a particular CAR construct works; it does not necessarily identify the optimal design, just a particular design that works; and it does not generate insight that can be generalized to different cancer types. Additionally, this trial-and-error approach does not consider the intracellular signaling induced by the CAR, which ultimately governs T cell function and promotes cell killing. Our proposed research uses computational modeling to address these limitations. In this study, I describe our work to develop a predictive mechanistic computational model that describes the signaling events that occur upon CAR activation. This work builds on our published model of LCK autoregulation [1]. Here, we use quantitative phospho-proteomic mass spectroscopy and computational modeling to quantify the site-specific kinetics of CD3ζ and CD28 phosphorylation. We apply the model to improve our understanding of how CAR structure influences activation and to develop new hypotheses for the optimal design of CAR-engineered T cell systems. Citation Format: Jennifer A. Rohrs, Dongqing Zheng, Nicholas A. Graham, Pin Wang, Stacey D. Finley. Effects of altering receptor structure in CAR T cells: Predictions from an experimentally-validated systems biology model [abstract]. In: Proceedings of the American Association for Cancer Research Annual Meeting 2018; 2018 Apr 14-18; Chicago, IL. Philadelphia (PA): AACR; Cancer Res 2018;78(13 Suppl):Abstract nr NG01.
+---
+
+---
+DOI: 10.1201/9781315154060-8
+Title: Systems Biology Approach and Modeling for the Design of Microbial Cell Factories
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1002/9783527818242.ch7
+Title: Elucidating Target Biology and Drug Mechanism of Action Across Human Cell‐Based Model Systems
+Year: 2019
+Abstract: Drug discovery operating models must evolve in order to address high attrition rates during late-stage drug development and clinical application of new therapies resulting from poor efficacy. In this chapter we outline several recent state-of-the-art advances in functional biology tools and methodology and how they combine with new developments in human cell-based disease models to enable a more in-depth and unbiased evaluation of target biology under relevant tissue and disease context. We describe how new phenotypic and pathway profiling technology platforms such as gene editing, human stem cells, high-content imaging, next-generation sequencing, and antibody-based proteomics complement and combine with other disciplines including bioinformatics, chemoinformatics, chemical proteomics, and emerging computational methods to build a more clinically predictive and informative analysis of novel therapeutic targets and drug mechanism of action. These new technology advances are converging to enable more empirical, evidence-led models for functional validation of novel therapeutic targets and candidate drugs under appropriate disease context.
+---
+
+---
+DOI: 10.1007/978-1-0716-4290-0_6
+Title: Modeling ncRNA-Mediated Circuits in Cell Fate Decision: From Systems Biology to Synthetic Biology
+Year: 2024
+Abstract: Noncoding RNAs (ncRNAs) play critical roles in essential cell fate decisions. However, the exact molecular mechanisms underlying ncRNA-mediated bistable switches remain elusive and controversial. In recent years, systematic mathematical and quantitative experimental analyses have made significant contributions to elucidating the molecular mechanisms of controlling ncRNA-mediated cell fate decision processes. In this chapter, we review and summarize the general framework of mathematical modeling of ncRNA in a pedagogical way and the application of this general framework to real biological processes. We discuss the emerging properties resulting from the reciprocal regulation between mRNA, miRNA, and competing endogenous mRNA (ceRNA). We also explore the efforts within the synthetic biology approach to understand the fundamental design principles underlying cell fate decisions. Both the positive feedback loops between ncRNAs and transcription factors and the emerging properties from the miRNA-mRNA reciprocal regulation enable bistable switches to direct cell fate decisions.
+---
+
+---
+DOI: 10.1080/02635143.2025.2536327
+Title: Chinese preservice biology teachers’ evaluation of cell system models: insights from the frames and framing perspective
+Year: 2025
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.bpj.2016.11.704
+Title: Multiscale Modeling of Red Blood Cells Squeezing through Submicron Slits
+Year: 2017
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.bpj.2017.11.2816
+Title: Multiscale Modeling of Tip-Formation and Damage of Red Blood Cells Squeezing through Submicron Slits
+Year: 2018
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1101/2023.01.09.523295
+Title: A Multiscale Protein Abundance Structured Population Kinetic Model Systematically Explores the Design Space of Constitutive and Inducible CAR-T cells
+Year: 2023
+Abstract: Abstract Engineered chimeric antigen receptor (CAR)-T cells are designed to bind to antigens overexpressed on the surface of tumor cells and induce tumor cell lysis. However, healthy cells can express these antigens at lower abundances and can get lysed by CAR-T cells. A wide variety of CAR-T cells have been designed that increase tumor cell elimination while decreasing destruction of healthy cells. However, given the cost and labor-intensive nature of such efforts, a systematic exploration of potential hypotheses becomes limited. To this end, we develop a framework (PASCAR) by combining multiscale population dynamic models and multi-objective optimization approaches with data obtained from published cytometry and cytotoxicity assays to systematically explore design space of constitutive and tunable CAR-T cells. We demonstrate PASCAR can quantitatively describe in vitro and in vivo results for constitutive and inducible CAR-T cells and can successfully predict experiments outside the training data. Our exploration of the CAR design space reveals that CAR affinities in an intermediate range of dissociation constants (K D ) in constitutive and tunable CAR-T cells can dramatically decrease healthy cell lysis but sustain a high rate of tumor cell killing. In addition, our modeling provides guidance towards optimal tuning of CAR expressions in synNotch CAR T cells. The proposed framework can be extended for other CAR immune cells.
+---
+
+---
+DOI: 10.5772/intechopen.1001127
+Title: Multiscale Viral Dynamics Modeling of Hepatitis C Virus Infection Treated with Direct-Acting Antiviral Agents and Incorporating Immune System Response and Cell Proliferation
+Year: 2023
+Abstract: Mathematical models are formulated that describes the interaction between uninfected cells, infected cells, viruses, intracellular viral RNA, cytotoxic T-lymphocytes (CTLs), antibodies, and the hepatocyte proliferation of both uninfected and infected cells. The models used in this study incorporate certain biological connections that are believed to be crucial in understanding the interactions at play. By taking these relationships into account, we can draw logical conclusions with greater accuracy. This improves our ability to understand the origins of a disease, analyze clinical information, manage treatment plans, and identify new connections. These models can be applied to a variety of infectious diseases, such as human immunodeficiency virus (HIV), human papillomavirus (HPV), hepatitis B virus (HBV), hepatitis C virus (HCV), and Covid-19. An in-depth examination of the multiscale HCV model in relation to direct-acting antiviral agents is provided, but the findings can also be applied to other viruses.
+---

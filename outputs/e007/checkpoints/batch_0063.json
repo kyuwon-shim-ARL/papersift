@@ -1,0 +1,23 @@
+{
+  "batch_index": 63,
+  "dois": [
+    "10.1093/bioinformatics/btt772",
+    "10.1371/journal.pcbi.1000163",
+    "10.3389/fdgth.2022.1007784",
+    "10.1371/journal.pone.0092303",
+    "10.1093/bioinformatics/btq033",
+    "10.1186/1471-2105-12-323",
+    "10.1186/gb-2009-10-3-r25",
+    "10.1038/sdata.2016.18",
+    "10.1038/nbt.1621",
+    "10.1093/nar/gkq603"
+  ],
+  "extractions": [
+    {
+      "type": "text",
+      "text": "I'll read the file and follow the instructions exactly."
+    }
+  ],
+  "timestamp": "2026-03-09T02:02:46.870420",
+  "extraction_count": 1
+}

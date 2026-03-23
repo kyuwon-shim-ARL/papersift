@@ -1,0 +1,119 @@
+{
+  "batch_index": 1,
+  "dois": [
+    "10.1038/s41540-022-00242-9",
+    "10.1371/journal.pcbi.1006819",
+    "10.1016/j.celrep.2023.112574",
+    "10.1186/s12862-017-0918-y",
+    "10.1371/journal.pcbi.1006592",
+    "10.3389/fphar.2018.01013",
+    "10.3389/fcell.2022.952041",
+    "10.1016/j.tiv.2017.06.015",
+    "10.1038/s41598-018-30661-w",
+    "10.1016/j.molmet.2019.09.005"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1038/s41540-022-00242-9",
+      "problem": "How to mechanistically simulate growth rate control and dynamic environmental responses in E. coli by incorporating ppGpp regulation, amino acid biosynthesis, and translation into a whole-cell model.",
+      "method": "Expanded ODE-based whole-cell model incorporating ppGpp synthesis/degradation kinetics (RelA/SpoT), amino acid biosynthesis with allosteric feedback inhibition, and transcriptional regulation; simulated nutrient upshift/downshift conditions across 16 generations and 16 initial seeds.",
+      "finding": "Small molecule feedback inhibition pathways, beyond expression regulation, play a role in ppGpp-mediated growth control. Dysregulated amino acid synthesis yields average concentrations matching experiments but reveals unexpected single-cell oscillatory fluctuations. Both nutrient upshift and downshift produce a transient increase in mRNA:rRNA ratio.",
+      "dataset": "E. coli whole-cell model (16 generations, 16 seeds; 8 generations, 4 seeds for mutant analysis)",
+      "metric": "amino acid concentration fold change, mRNA:rRNA ratio, growth rate, oscillation frequency (concavity changes)",
+      "baseline": "previous E. coli whole-cell model with fixed RNA/protein polymerization rates",
+      "result": "amino acid concentrations in allosteric inhibition mutants comparable to experimental data (Sander et al.)"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1006819",
+      "problem": "Existing mathematical models of influenza A virus replication fail to capture infection dynamics across different MOI conditions, limiting prediction of virus yields for vaccine production and DIP therapeutic use.",
+      "method": "Extended multiscale ODE model combining intracellular virus replication with cell population-level segregated infection age dynamics; introduced infection age-dependent fraction of infectious virus release (FIVR) and RdRp-mediated mRNA synthesis inhibition; calibrated to high MOI MDCK cell data.",
+      "finding": "The extended model fitted to high MOI data successfully predicts low MOI viral release dynamics with the same parameter set. DIP interference at high MOI depends exclusively on seed virus DIP content, while at low MOI it is controlled by de novo DIP generation.",
+      "dataset": "MDCK cells infected with influenza A/PR/8/34 (H1N1), MOI range 0.025–73 TCID50/cell",
+      "metric": "virus titer (log TCID50/mL), HA titer (log HAU/100μL), cell population fractions (%), intracellular vRNA/cRNA/mRNA levels",
+      "baseline": "original multiscale model by Heldt et al. (2013)",
+      "result": "successful prediction of low MOI dynamics using high MOI-calibrated parameters; model captures both intra- and extracellular dynamics simultaneously"
+    },
+    {
+      "doi": "10.1016/j.celrep.2023.112574",
+      "problem": "Understanding cortical function requires integrating molecular, cellular, circuit, and behavioral scales, but no biophysically detailed model of mouse primary motor cortex (M1) existed to predict in vivo cell-type-specific dynamics across behavioral states.",
+      "method": "Biophysically detailed computational model of mouse M1 with >10,000 neurons and 35 million synapses constrained by experimental data from 31 studies; developed using NetPyNE/NEURON with iterative grid search optimization; >20,000 simulations and 8 million HPC core hours.",
+      "finding": "Model accurately predicts layer- and cell-type-specific firing rates and LFP across quiet wakefulness and movement states, including bidirectional L5B responses. LFP power shifts from delta to gamma during movement. Model reproduces effects of thalamus inactivation and noradrenaline receptor blockade.",
+      "dataset": "mouse primary motor cortex (M1), 300μm diameter cylinder, >10,000 neurons, 35M synapses, 7 long-range input regions",
+      "metric": "firing rates (Hz), LFP power spectral density, population-specific rate changes across behavioral states",
+      "baseline": "in vivo experimental recordings (Sauerbrei et al.)",
+      "result": "cell-type-specific firing rates consistent with in vivo data across quiet/movement states; physiological delta/beta/gamma LFP oscillations emerge spontaneously"
+    },
+    {
+      "doi": "10.1186/s12862-017-0918-y",
+      "problem": "What conditions favor the evolution of evolvability versus phenotypic plasticity as adaptive strategies, and does evolving one strategy facilitate or hinder the other?",
+      "method": "Computational evolutionary modeling with Virtual Cell populations (N=1024) using ODE-based internal dynamics (metabolites, enzymes, pumps, transcription factors); varied environmental change nature and frequency across simulations with pre-evolved homeostatic wild-type strains.",
+      "finding": "Pre-evolved homeostasis regulation predisposes lineages to high evolvability. Low-frequency environmental changes drive genome restructuring enabling faster adaptation with very few mutations. High-frequency changes select for phenotypic plasticity, which is slower to evolve but stable. Under intermediate frequencies, both strategies coexist.",
+      "dataset": "Virtual Cell populations (N=1024), circular genomes encoding metabolic and regulatory proteins",
+      "metric": "fitness (homeostasis maintenance), adaptation speed (generations to readapt), number of mutations for readaptation",
+      "baseline": "wild-type Virtual Cell strains with pre-evolved homeostasis regulation",
+      "result": "rapid evolutionary adaptation with few mutations after novel change; evolvability comparable fitness to plasticity except in most rapidly changing environments"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1006592",
+      "problem": "How epigenetic regulation heterogeneity drives the entry-exit mechanisms of phenotype reprogramming and cell fate decision-making between pluripotent and differentiated states.",
+      "method": "Stochastic model coupling epigenetic regulation (ER) with a gene regulatory network (GRN) of two mutually inhibiting genes; multiscale asymptotic WKB method for stochastic model reduction; hybrid simulation scheme for efficient numerical analysis of the ER-GRN system.",
+      "finding": "The coupled system exhibits tristability where pluripotent stem-like, differentiated, and an indecisive state coexist. ER heterogeneity of differentiation genes confers abnormal robustness to stem-like states. Epigenetic heterogeneity-based strategies can unlock differentiation-refractory states through kinetic changes in epigenetic factors alone.",
+      "dataset": "two-gene regulatory circuit model (pluripotency vs differentiation gene) with epigenetic regulation",
+      "metric": "steady-state stability, transition barrier heights, switching kinetics between cell fates",
+      "baseline": "GRN model without epigenetic regulation coupling",
+      "result": "tristability regime identified; tunable epigenetic switches modify nature of cell fate reprogramming"
+    },
+    {
+      "doi": "10.3389/fphar.2018.01013",
+      "problem": "Robust methods for measuring bystander effects of hypoxia-activated prodrugs (HAPs) are lacking, limiting understanding of whether cytotoxin diffusion from targeted cells can overcome intra-tumor heterogeneity.",
+      "method": "Agent-based models coupled with 3D co-culture experiments (monolayer, multilayer, spheroid) using engineered HCT116 activator (POR-overexpressing) and target (POR-knockout) cell lines; tested SN30000 and PR104A HAPs under anoxia; ABM parameterized from monolayer/multilayer data to predict spheroid outcomes.",
+      "finding": "SN30000 shows no bystander effect due to rapid metabolic consumption limiting tissue penetration. PR104A demonstrates a significant bystander effect via more stable, lipophilic dichloro mustard metabolites not previously recognized. ABM accurately predicts SN30000 spheroid results but required inclusion of novel PR104A metabolites.",
+      "dataset": "HCT116 isogenic co-cultures (POR overexpression/knockout), multicellular spheroids",
+      "metric": "clonogenic cell survival (log cell kill), POR activity (FSL61 fluorescence, 24-fold differential), metabolite diffusion coefficients",
+      "baseline": "monolayer monoculture cytotoxicity; POR-null target cells alone",
+      "result": "PR104A bystander effect demonstrated; SN30000 penetration inhibited by metabolic consumption; novel dichloro mustard metabolites identified"
+    },
+    {
+      "doi": "10.3389/fcell.2022.952041",
+      "problem": "Understanding the heterogeneity and intercellular communication of fibro-adipogenic progenitors (FAPs) in skeletal muscle, which are crucial for homeostasis and regeneration but poorly characterized at the single-cell level.",
+      "method": "Re-analysis of published scRNAseq data from mouse and human skeletal muscle; virtual secretome analysis using OutCyte prediction tool to characterize FAP secretory profiles in resting and regenerating conditions.",
+      "finding": "Virtual secretome analysis of scRNAseq data reveals FAP communication potential and highlights the value of integrating multiple omics databases for comprehensive cell-cell interaction mapping in skeletal muscle.",
+      "dataset": "mouse and human skeletal muscle scRNAseq (previously published datasets)",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1016/j.tiv.2017.06.015",
+      "problem": "How to link in vitro toxicity assays to in vivo predictions for estragole-induced hepatotoxicity and DNA adduct formation, enabling chemical risk assessment without animal testing.",
+      "method": "Integration of a physiologically based kinetic (PBK) model with a virtual cell based assay (VCBA) into a PBK/D model; HepaRG cell viability and mitochondrial membrane potential measured via high-content analysis; KNIME workflow for automated IVIVE and forward/backward dosimetry.",
+      "finding": "The PBK/D-VCBA model successfully performs in vitro to in vivo extrapolation for estragole. At average dietary intake (0.07 mg/kg bw), predicted viability is 1.0 (no harm) with DNA adducts of 0.00084/10^8 nucleotides. Cell viability drops starting at 12.5 mM estragole in vitro.",
+      "dataset": "HepaRG cells exposed to estragole (0–75 mM, 24h), 5 biological replicates",
+      "metric": "cell viability (%), mitochondrial membrane potential (ΔΨ), DNA adducts per 10^8 nucleotides, NEC (g/gww), kr (s⁻¹)",
+      "baseline": "PBK model by Punt et al. (2009) without virtual cell integration",
+      "result": "NEC=0.00533 g/gww, kr=0.0469/s; safe at dietary intake 0.07 mg/kg bw; viability drop at 12.5 mM"
+    },
+    {
+      "doi": "10.1038/s41598-018-30661-w",
+      "problem": "Adoption of MRI for stem cell tracking has been limited by the difficulty of contrast agent synthesis and reliance on gadolinium-based agents, restricting use to specialized sites and small animal models.",
+      "method": "Synthesized gadolinium-free manganese porphyrin (MnPNH2) via scalable route; labeled human embryonic stem cells at varying concentrations and durations; MRI at 3T clinical scanner; ICP-AES for Mn quantification; fluorescence microscopy; in vivo rat transplant.",
+      "finding": "MnPNH2 produces nearly two-fold T1 reduction in labeled hESCs, maintained for 24 hours. Cell viability, proliferation, and differentiation are unaffected. Agent localizes at cell-cell boundaries and nuclei. Labeled cells show superior sensitivity for in vivo tracking in rats.",
+      "dataset": "human embryonic stem cells (hESCs), in vivo rat transplant model, 3T clinical MRI scanner",
+      "metric": "T1 relaxation time (ms), Mn concentration per cell (mol, ICP-AES), cell viability (Trypan blue), embryoid body differentiation",
+      "baseline": "unlabeled control cells",
+      "result": "~2-fold T1 decrease (P<0.05); contrast retained 24h post-labeling (P<0.05); 5.59e-11 mol Mn/cell at 0.5mM/24h"
+    },
+    {
+      "doi": "10.1016/j.molmet.2019.09.005",
+      "problem": "Studying pancreatic epithelial cell biology in vivo lacks the temporal and spatial resolution needed to resolve cellular and subcellular processes during epithelialization and endocrinogenesis.",
+      "method": "Matrigel-based 3D cyst culture from mouse E14.5 pancreatic progenitors and human iPSC-derived PPs; live imaging at subcellular resolution; reanalysis of published scRNAseq data for differential expression of TFs, adhesion molecules, and polarity components.",
+      "finding": "Successfully generated polarized pancreatic epithelial cysts expressing progenitor markers (Sox9, Pdx1, Foxa2) with proper apicobasal polarity. System enables time-resolved monitoring of polarity establishment, lumen formation, and endocrine differentiation. Both mouse and human cysts differentiate toward endocrine fate.",
+      "dataset": "mouse E14.5 pancreatic progenitors, human iPSC-derived pancreatic progenitors (HMGUi001-A)",
+      "metric": "expression of polarity markers (F-Actin, aPKC, β-catenin), TF expression (Sox9, Pdx1, Nkx6-1), endocrine differentiation rate",
+      "baseline": "2D culture protocols and in vivo observations",
+      "result": "endocrine differentiation achieved but at lower rate than 2D or 3D suspension protocols; subcellular resolution live imaging enabled"
+    }
+  ],
+  "timestamp": "2026-03-05T14:08:11.630741",
+  "extraction_count": 10
+}

@@ -1,5 +1,5 @@
 version: 1
-updated: "2026-03-04T00:15:00Z"
+updated: "2026-03-23T17:30:00Z"
 scan_paths:
   - outputs/
 experiments:
@@ -91,28 +91,128 @@ experiments:
     note: "T1 커버리지(48.7%) → T2 PMC XML 705편 → T3 A/B 비교(50편, 15 parallel agents) → T4 GO 판정"
   e007:
     path: outputs/e007/
-    script: ""
+    script: "scripts/e007_full_extraction.py"
     params:
       mode: "abstract-only first, then fulltext for PMC papers"
       model: "haiku subagent"
       batch_size_abstract: 45
-      batch_size_fulltext: 5
-    outputs: []
-    status: planned
-    description: "3,070편 전량 LLM 추출 — haiku subagent (abstract-only 69 calls + fulltext 141 calls)"
+      batch_size_fulltext: 10
+      estimated_calls: 121
+      estimated_tokens: "3.4M"
+      reuse_fulltext: "outputs/e006/pmc_fulltext.json"
+    outputs:
+      - outputs/e007/good_extractions_tagged.json
+      - outputs/e007/checkpoints/
+    status: closed
+    description: "3,070편 전량 LLM 추출 — 부분 완료 후 중단 (투자 대비 효용 부족)"
     issue: 7
     branch: ""
     priority: 1
     depends_on: [e006]
+    success_criteria: "coverage ≥90% non-empty problem+method, specificity ≥1.0 (50편 샘플)"
+    verdict: "PARTIAL — 1,194/3,070편 추출 (38.9%). Core 3 fill 89.6%, fulltext +12~18pp 확인. 34 batch truncated (regex bug), 10 batch 미실행. 전량 재추출 비용 대비 추가 인사이트 제한적 → 초록 기반으로 전환"
+    note: "fulltext vs abstract: finding +18.3pp, method +12.7pp, specificity +2.2w. 결론: 초록만으로도 core 3 fill 87%+ 달성 가능"
   e008:
     path: outputs/e008/
     script: ""
     params:
       comparison: "fulltext-enriched vs abstract-only landscape reports"
     outputs: []
-    status: planned
+    status: cancelled
     description: "다운스트림 영향 측정 — fulltext vs abstract-only landscape report 품질 비교"
     issue: 8
     branch: ""
-    priority: 1
+    priority: 3
     depends_on: [e007]
+    verdict: "CANCELLED — /sciomc 비평: 데이터 흐름 단절 (보고서가 LLM 추출 필드 미소비), non-decision design, 신호 Δ+0.044 검출 한계 이하"
+  e009:
+    path: outputs/e009/
+    script: scripts/e009_abstract_entity_experiment.py
+    params:
+      design: "additive 2-arm (Arm A: title baseline, Arm B: +abstract predefined STOPWORDS filtered)"
+      resolution: 1.0
+      seed: 42
+      dataset: "results/virtual-cell/papers_with_abstracts.json"
+    outputs:
+      - outputs/e009/results.json
+    status: complete
+    description: "Abstract predefined-entity enrichment — additive 2-arm experiment"
+    issue: ""
+    branch: ""
+    priority: 1
+    depends_on: []
+    success_criteria: "predefined mean >=30%, low-entity reduction, preservation >=80%, ARI 0.5-0.9, cluster count <=30%"
+    verdict: "CONDITIONAL GO — predefined +153.6%, low-entity 63→27(-57%), preservation 100%(5/5), ARI 0.752. FAIL: cluster count 13→8(-38.5%). 소형 cluster 흡수 경향, resolution 조정으로 완화 가능"
+    note: "5 rounds critique convergence. IDF 역전 발견(domain term=저IDF). Abstract-length bias r=0.44(bounded). 41.1% new edges from abstract. 후속: edge weighting 문헌조사 + resolution sweep"
+  e010:
+    path: outputs/e010/
+    script: scripts/e010_resolution_jaccard.py
+    params:
+      design: "T0 resolution sweep + T1 Jaccard A/B"
+      resolutions: [1.0, 1.2, 1.4, 1.6, 2.0]
+      seed: 42
+      dataset: "results/virtual-cell/papers_with_abstracts.json"
+    outputs:
+      - outputs/e010/results.json
+    status: complete
+    description: "T0 resolution sweep + T1 Jaccard weighting A/B"
+    issue: ""
+    branch: ""
+    priority: 1
+    depends_on: [e009]
+    success_criteria: "T0: r<0.50, preservation>=90%, count closest to baseline. T1: preservation>=80%, ARI>=0.7"
+    verdict: "T0 GO — resolution=1.6 selected (r=0.440, preservation 100%, Δ3 from baseline 13). T1 GO — Jaccard 채택 (ARI=0.845, preservation 83.3%, 5/6 major clusters)"
+    note: "Lexicographic selection: r=0.440 PASS, 4/5 resolutions pass preservation, res=1.6 closest to baseline. Jaccard: weight_1 edge 78.7%→mean 0.119, C5(n=15) failed dual criterion (jaccard=0.257<0.3)"
+  e011:
+    path: outputs/e011/
+    script: scripts/e011_dampening.py
+    params:
+      design: "T2 high-df dampening incremental on T1 Jaccard"
+      resolution: 1.6
+      df_threshold: 0.20
+    outputs:
+      - outputs/e011/results.json
+    status: complete
+    description: "T2 high-df entity dampening A/B (incremental on Jaccard)"
+    issue: ""
+    branch: ""
+    priority: 2
+    depends_on: [e010]
+    success_criteria: "preservation>=90%, ARI>=0.7, abstract-influenced reduction<40%"
+    verdict: "KILL — marginal effect (0% edge change). Only 2 entities above 20% threshold (whole-cell 25.7%, virtual cell 21.8%). ARI=0.640<0.7. Dampening 불필요, Jaccard만으로 충분"
+  e012:
+    path: outputs/e012/
+    script: scripts/e012_schema_pilot.py
+    params:
+      design: "T3 schema extension pilot (enables/limits/open_questions)"
+      sample_size: 50
+      sampling: "stratified by cluster"
+      model: "haiku"
+    outputs:
+      - outputs/e012/results.json
+      - outputs/e012/sampled_papers.json
+    status: complete
+    description: "T3 schema extension 3-field pilot extraction"
+    issue: ""
+    branch: ""
+    priority: 2
+    depends_on: []
+    success_criteria: "enables>=60% non-empty, limits>=40% non-empty"
+    verdict: "GO — enables 100%, limits 100%, open_questions 100%. 50편 전량 3필드 non-empty. 기존 core3(problem/method/finding)도 80-100% 유지"
+  e013:
+    path: outputs/e013/
+    script: scripts/e013_composability_temporal.py
+    params:
+      design: "T4 composability + T5 temporal momentum"
+      dataset: "results/virtual-cell/papers_with_abstracts.json"
+    outputs:
+      - outputs/e013/results.json
+    status: complete
+    description: "T4 entity-pair composability gaps + T5 temporal trend detection"
+    issue: ""
+    branch: ""
+    priority: 2
+    depends_on: [e010]
+    success_criteria: "T4: >=6/10 meaningful. T5: >=3 entities q<0.05"
+    verdict: "T4 PENDING USER EVAL — top-10 underexplored pairs generated (virtual cell×whole-cell expected=19.8 observed=0). T5 FAIL — 0 significant after BH-FDR (75 tests, v1 354편 검출력 부족). Top uncorrected: simulation declining p=0.0009, dynamics rising p=0.011"
+    note: "T5: v2(3,070편)에서 재시도 권장. T4: top pairs are cross-cluster gaps (different communities never co-occur), domain validity TBD"

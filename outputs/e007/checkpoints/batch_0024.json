@@ -1,0 +1,119 @@
+{
+  "batch_index": 24,
+  "dois": [
+    "10.1021/acsnano.1c07769",
+    "10.1021/acsomega.4c04985",
+    "10.1093/eurheartj/ehaa159",
+    "10.3389/fgene.2021.744890",
+    "10.1055/a-2649-1560",
+    "10.1002/psp4.12896",
+    "10.3389/fgene.2018.00031",
+    "10.1182/bloodadvances.2021005703",
+    "10.1038/s41598-024-76584-7",
+    "10.1007/s00432-023-05115-0"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1021/acsnano.1c07769",
+      "problem": "Nanofibril alignment during assembly controls material properties",
+      "method": "X-ray scattering-based digital twin for flow focusing",
+      "finding": "Studied nanofibril orientation during assembly",
+      "dataset": "cellulose nanofibrils",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1021/acsomega.4c04985",
+      "problem": "Digital twin for continuous VLP production",
+      "method": "Fed-batch and perfusion mode HEK293 cultivation",
+      "finding": "Evaluated cell retention systems for continuous production",
+      "dataset": "HEK293 cells",
+      "metric": "productivity",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1093/eurheartj/ehaa159",
+      "problem": "Digital twin for precision cardiology",
+      "method": "Computational cardiac modeling for personalized therapy",
+      "finding": "Framework for personalized cardiac treatment",
+      "dataset": "patient cohort",
+      "metric": "precision",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fgene.2021.744890",
+      "problem": "Germline chimerism in monochorionic dizygotic twins",
+      "method": "Genetic analysis of twin chimerism",
+      "finding": "Identified rare MCDZ twin occurrence",
+      "dataset": "twin patients",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1055/a-2649-1560",
+      "problem": "Integrated digital and biomimetic twins for precision medicine",
+      "method": "Review of digital twin approaches for MASLD",
+      "finding": "New paradigm for drug development needed",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1002/psp4.12896",
+      "problem": "Predicting benefit of treatment beyond progression in NSCLC",
+      "method": "Virtual clinical trials with lesion-level response dynamics",
+      "finding": "Virtual trials recapitulate heterogeneous clinical responses",
+      "dataset": "NSCLC patients",
+      "metric": "",
+      "baseline": "",
+      "result": "57%"
+    },
+    {
+      "doi": "10.3389/fgene.2018.00031",
+      "problem": "Ethical implications of digital twins in healthcare",
+      "method": "Ethical analysis of data-driven health paradigm",
+      "finding": "Explored ethical considerations of health digital twins",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1182/bloodadvances.2021005703",
+      "problem": "Somatic UBA2 variant in concordant ALL of monozygotic twins",
+      "method": "Genetic analysis of leukemic clones in twins",
+      "finding": "Identified pre-leukemic somatic variant in twin ALL",
+      "dataset": "twin patients",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/s41598-024-76584-7",
+      "problem": "Digital twin intervention outcomes for type 2 diabetes",
+      "method": "Retrospective observational study of DT program",
+      "finding": "1985 participants enrolled, demonstrated DT efficacy for T2D",
+      "dataset": "N=1985 T2D patients",
+      "metric": "HbA1c",
+      "baseline": "T2D medications",
+      "result": ""
+    },
+    {
+      "doi": "10.1007/s00432-023-05115-0",
+      "problem": "AML consolidation therapy timing optimization",
+      "method": "Simulation-based comparison of cytarabine dosing schedules",
+      "finding": "AC-123 reduces WBC recovery time in 99.6% of simulated cycles",
+      "dataset": "simulated cycles",
+      "metric": "p-value",
+      "baseline": "AC-135",
+      "result": "99.6%"
+    }
+  ],
+  "timestamp": "2026-03-09T01:53:16.080065",
+  "extraction_count": 10
+}

@@ -1,0 +1,119 @@
+{
+  "batch_index": 55,
+  "dois": [
+    "10.1093/bib/bbac141",
+    "10.1093/nar/gkp889",
+    "10.1007/s10237-023-01705-6",
+    "10.1002/ctm2.694",
+    "10.1371/journal.pcbi.1005783",
+    "10.1038/msb4100014",
+    "10.3389/fimmu.2012.00172",
+    "10.1098/rsif.2021.0362",
+    "10.1186/s12918-015-0147-1",
+    "10.3389/fncel.2014.00237"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1093/bib/bbac141",
+      "problem": "Abstract T cell recognition of a cognate peptide–major histocompatibility complex (pMHC) presented on the surface of infected or malignant cells is of",
+      "method": "Methods Models selected for analysis First, we gathered all publicly available models and excluded those which we were unable to perform comparative a",
+      "finding": "Results Evaluating model performance in predicting peptide immunogenicity To perform an unbiased evaluation of existing models in predicting immunogen",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1093/nar/gkp889",
+      "problem": "BioNumbers (http://www.bionumbers.hms.harvard.edu) is a database of key numbers in molecular and cell biology--the quantitative properties of biologic",
+      "method": "METHODS The software is implemented as a Microsoft ASP.NET 2.0 web application with a Microsoft SQL Server 2005 database. The search is performed with",
+      "finding": "FUTURE PLANS AND CONCLUSIONS BioNumbers is a dynamic database that is being continuously expanded and advanced. The support of the scientific communit",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1007/s10237-023-01705-6",
+      "problem": "We propose a three-dimensional computational model to simulate the transient deformation of suspended cancer cells flowing through a constricted micro",
+      "method": "Problem statement and computational method Problem description We consider an initially spherical cancer cell flowing through a constricted channel, a",
+      "finding": "Results and discussion In this section, we conduct extensive parametric studies of the effects of mechanical properties of the cell membrane, cytoplas",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1002/ctm2.694",
+      "problem": "Abstract Single‐cell RNA sequencing (scRNA‐seq) technology has become the state‐of‐the‐art approach for unravelling the heterogeneity and complexity o",
+      "method": "2 HIGH THROUGHPUT SINGLE‐CELL RNA SEQUENCING TECHNOLOGY: EXPERIMENTAL PROCEDURES The throughput of scRNA‐seq increases from a few cells per experiment",
+      "finding": "5 CONCLUSION REMARKS AND FUTURE PERSPECTIVES Single‐cell RNA sequencing has proven as one of the transforming technologies in life sciences over the p",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1005783",
+      "problem": "Ectopic heartbeats can trigger reentrant arrhythmias, leading to ventricular fibrillation and sudden cardiac death. Such events have been attributed t",
+      "method": "Methods Ventricular myocyte model We have developed a three-dimensional (3D) spatial model of a single myocyte based on the (non-spatial) Greenstein-W",
+      "finding": "Results Model properties In order to reproduce protocols designed to measure ECC properties, membrane potential was stepped to varying test potentials",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1038/msb4100014",
+      "problem": "The epidermal growth factor receptor (EGFR) signaling pathway is one of the most important pathways that regulate growth, survival, proliferation, and",
+      "method": "Supplementary Material Supplementary PDF 1 Supplementary PDF 2 Supplementary SBML 1 --- ---",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fimmu.2012.00172",
+      "problem": "The use of genetic tools, imaging technologies and ex vivo culture systems has provided significant insights into the role of tissue inducer cells and",
+      "method": "MATERIALS AND METHODS MODEL DEVELOPMENT To develop a computer simulation of lymphoid tissue formation, an agent-based approach to complex systems mode",
+      "finding": "REDUCING UNCERTAINTY IN SIMULATION RESULTS Prior to performing any analysis of simulation results, it is important to establish the number of replicat",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1098/rsif.2021.0362",
+      "problem": "We develop a parameter estimation method based on approximate Bayesian computation (ABC) for a stochastic cell invasion model using fluorescent cell c",
+      "method": "3. Methods 3.1. Simulation model We adopt the discrete random walk model developed by Simpson et al. [ 7 ] on a 2D hexagonal lattice. Each lattice sit",
+      "finding": "4. Results For SMC-ABC, we generate samples from the approximate posteriors using N = 1000 particles. From preliminary trials, we found it more useful",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/s12918-015-0147-1",
+      "problem": "Our quantitative predictions of absolute molecular concentrations and reaction fluxes have major biological implications: Model comparison provides ev",
+      "method": "Electronic supplementary material The online version of this article (doi:10.1186/s12918-015-0147-1) contains supplementary material, which is availab",
+      "finding": "Results Here we present a novel quantitative kinetic model for the interactions of the key players PKD, phosphatidylinositol 4-kinase III beta (PI4KII",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.3389/fncel.2014.00237",
+      "problem": "Unipolar Brush Cells (UBCs) have been suggested to play a critical role in cerebellar functioning, yet the corresponding cellular mechanisms remain po",
+      "method": "Methods This work presents a combined modeling (I) and experimental analysis (II) of UBC electroresponsiveness, in which the models was accurately mat",
+      "finding": "Results UBC multi-compartmental model: channel distribution and passive properties UBCs (Figure 1A ) were recorded from the granular layer of lamina X",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T02:01:57.780502",
+  "extraction_count": 10
+}

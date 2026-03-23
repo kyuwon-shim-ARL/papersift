@@ -1,0 +1,119 @@
+{
+  "batch_index": 13,
+  "dois": [
+    "10.1371/journal.pcbi.1008038",
+    "10.1371/journal.pcbi.1011257",
+    "10.7554/elife.19274",
+    "10.1111/1759-7714.13616",
+    "10.1371/journal.pmed.1002497",
+    "10.1111/j.1471-4159.2012.07825.x",
+    "10.1073/pnas.2209856120",
+    "10.3389/fimmu.2021.754712",
+    "10.1371/journal.pone.0187771",
+    "10.3389/fphys.2015.00255"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pcbi.1008038",
+      "problem": "Whole cell model with codon resolution for mRNA translation is lacking",
+      "method": "Single-cell translation elongation model operating at cell, mRNA and codon levels",
+      "finding": "High correlations between simulated and empirical values",
+      "dataset": "E. coli",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1011257",
+      "problem": "Cardiac pump function modeling requires multiscale electromechanics framework",
+      "method": "Four-chamber electromechanics simulation framework",
+      "finding": "Simulated pressure-volume loops for cardiac chambers",
+      "dataset": "patient",
+      "metric": "sensitivity",
+      "baseline": "",
+      "result": "90%"
+    },
+    {
+      "doi": "10.7554/elife.19274",
+      "problem": "In vivo crowding effects on biological macromolecule structure and dynamics",
+      "method": "All-atom molecular dynamics of atomistic cytoplasmic models",
+      "finding": "Studied protein and nucleic acid behavior in crowded cytoplasm",
+      "dataset": "M. genitalium",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1111/1759-7714.13616",
+      "problem": "NSCLC management cost estimation across disease stages",
+      "method": "Whole-disease model of NSCLC diagnostic and therapeutic actions",
+      "finding": "Mean expected cost per NSCLC patient estimated",
+      "dataset": "patients",
+      "metric": "cost",
+      "baseline": "",
+      "result": "21,328 EUR"
+    },
+    {
+      "doi": "10.1371/journal.pmed.1002497",
+      "problem": "PD-L1 role in neuroblastoma resistance to immunity",
+      "method": "Mouse model with whole cell vaccine and checkpoint inhibition",
+      "finding": "Immunogenic neuroblastoma acquires adaptive immune resistance via PD-L1",
+      "dataset": "mouse",
+      "metric": "correlation",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1111/j.1471-4159.2012.07825.x",
+      "problem": "Neural induction and differentiation from human embryonic stem cells",
+      "method": "hESC neural differentiation with defined protocols",
+      "finding": "Generated functional neural derivatives from hESCs",
+      "dataset": "human cells",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1073/pnas.2209856120",
+      "problem": "Breast cancer treatment requires patient-specific drug sensitivity profiling",
+      "method": "Ex vivo whole tumor cell culture for drug sensitivity testing",
+      "finding": "Established breast cancer whole tumor cell culture system",
+      "dataset": "patient tumors",
+      "metric": "accuracy",
+      "baseline": "",
+      "result": "P<0.05"
+    },
+    {
+      "doi": "10.3389/fimmu.2021.754712",
+      "problem": "Q-VAX whole cell vaccine causes reactogenic responses requiring improvement",
+      "method": "Evaluation of vaccine reactogenicity in sensitized animal models",
+      "finding": "Sensitized mice produce local reactogenic responses to whole cell vaccine",
+      "dataset": "mouse",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pone.0187771",
+      "problem": "Quantifying mHA variation impact on GVHD in stem cell transplant",
+      "method": "Whole exome sequencing of donor-recipient pairs",
+      "finding": "Analyzed exome sequencing data for 78 donor-recipient pairs",
+      "dataset": "78 patients",
+      "metric": "p-value",
+      "baseline": "",
+      "result": "p<0.01"
+    },
+    {
+      "doi": "10.3389/fphys.2015.00255",
+      "problem": "Multiscale modeling of cardiac excitation-contraction coupling",
+      "method": "Fully coupled spatially-detailed simulation tool for cardiac ECC",
+      "finding": "Developed fully coupled simulation tool for cardiac modeling",
+      "dataset": "cardiac cells",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-09T01:45:11.661583",
+  "extraction_count": 10
+}

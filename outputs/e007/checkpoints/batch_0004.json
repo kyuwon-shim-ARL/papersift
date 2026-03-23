@@ -1,0 +1,119 @@
+{
+  "batch_index": 4,
+  "dois": [
+    "10.1371/journal.pone.0278848",
+    "10.1371/journal.pone.0190349",
+    "10.3390/ani12233244",
+    "10.3389/fcell.2023.1260507",
+    "10.1186/s12934-022-01842-0",
+    "10.1371/journal.pcbi.1006333",
+    "10.1007/s43683-020-00016-x",
+    "10.7554/elife.64047",
+    "10.1093/jxb/erz451",
+    "10.1371/journal.pcbi.1011944"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1371/journal.pone.0278848",
+      "problem": "The cellular expression pattern of the endolysosomal cation channel TRPML3 on a whole-tissue level remains largely unknown, unlike the ubiquitously expressed TRPML1.",
+      "method": "Generated a τGFP reporter mouse model (Trpml3 IRES-Cre/eR26-τGFP) and compared expression data via immunofluorescence, immunohistochemistry with Trpml3-/- knockout controls, in situ hybridization, and RT-qPCR across multiple organs.",
+      "finding": "TRPML3 is expressed in alveolar macrophages, melanocytes, kidney collecting duct principal cells, olfactory sensory neurons, and multiple endocrine/secretory glands (parathyroid, thyroid, salivary, adrenal, pituitary, testes, ovaries), suggesting roles in hormone secretion or uptake.",
+      "dataset": "Trpml3 IRES-Cre/eR26-τGFP reporter mice, CD1 mice, Trpml3-/- knockout littermates (~75% C57BL/6, ~25% Sv129/Ola)",
+      "metric": "RT-qPCR relative expression normalized to 18S rRNA",
+      "baseline": "Trpml3-/- knockout mice (negative control for immunoreactivity specificity)",
+      "result": "Trpml3 mRNA detected in RPE, thymus, back skin, kidney, lung; not detected in cerebellum, heart, muscle, stomach, small intestine, colon"
+    },
+    {
+      "doi": "10.1371/journal.pone.0190349",
+      "problem": "Understanding the autoimmune progression in Type 1 Diabetes through simulation of CD8+ T cell and beta cell interactions at tissue scale, which is difficult to observe in clinical studies.",
+      "method": "Agent-based model on high-performance computing simulating a significant portion of mouse pancreas islets, incorporating stochastic T cell motility, cell cycle, differentiation, and target killing with 100 repeated simulations per scenario.",
+      "finding": "Basement membrane strength delays autoimmune onset; paradoxically, beta cell regeneration increases inflammation severity through an epitope-spreading-like mechanism where proliferating beta cells increase T cell contact probability.",
+      "dataset": "Simulated mouse pancreas islets with literature-derived parameters (islet diameter 100-160 μm, islet density 0.7-7.7%)",
+      "metric": "Beta cell count, T cell population dynamics over 10-week simulation period",
+      "baseline": "Scenarios without beta cell regeneration (0% rate)",
+      "result": "Beta cell regeneration >5%/day unrealistic; basement membrane strength range 1440-20160 arbitrary units tested across 100 stochastic replicates"
+    },
+    {
+      "doi": "10.3390/ani12233244",
+      "problem": "Limited data exists on multi-serovar cross-protection of whole-cell vaccines against Actinobacillus pleuropneumoniae, a major bacterial respiratory pathogen in pigs.",
+      "method": "Standardized challenge dose trials (13 studies) using intranasal or aerosol chamber inoculation across 8 serovars with uniform lung lesion scoring per European Pharmacopoeia protocols; mixed-effects meta-analysis with ICC for reproducibility.",
+      "finding": "The whole-cell vaccine (Coglapix) provides highly significant serovar-independent protection against both homologous (serovars 1, 2) and heterologous (serovars 4, 5, 6, 7, 9/11, 13) strains, with high reproducibility between studies.",
+      "dataset": "13 challenge trials across 8 A. pleuropneumoniae serovars, multiple pig breeds (Danbred, Hungaro-Seghers, Topigs-Norsvin), N=182 vaccinated + 161 positive controls",
+      "metric": "Lung Lesion Score (LLS), p-value, intraclass correlation coefficient (ICC)",
+      "baseline": "Non-vaccinated challenged positive control groups",
+      "result": "Homologous: p=0.00007 (serovar 1), p=0.00124 (serovar 2); heterologous: p=2.9×10⁻¹⁰ to p=0.00953; ICC=2.2-4.8% (high reproducibility except serovar 6 at 35%)"
+    },
+    {
+      "doi": "10.3389/fcell.2023.1260507",
+      "problem": "Whole-cell models are the ultimate goal of computational systems biology, but the field faces challenges in data collection, model integration, and simulation speed.",
+      "method": "Review of whole-cell modeling progress covering hybrid modeling methods, multi-scale simulation approaches, and high-performance computing platforms for WCM execution.",
+      "finding": "WCMs have identified novel biological phenomena but their most important contribution is highlighting the discrepancy between available data and what is needed for parameterization/validation; current simulators are too slow for multicellular models.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1186/s12934-022-01842-0",
+      "problem": "Single-host monocultures have limited protein expression capacity for consolidated bioprocessing of complex substrates; it is unclear when division of labour in consortia would be beneficial.",
+      "method": "Resource-aware whole-cell ODE model adapted from the Weiße framework, explicitly modeling ribosome allocation and translational burden in a two-strain consortium vs monoculture for starch degradation.",
+      "finding": "Once a burden threshold is reached, the consortium consistently outperforms the monoculture; DOL reduces ribosome redirection toward heterologous genes, enabling higher per-cell enzyme production and independent optimization of each strain.",
+      "dataset": "Simulated two-strain starch degradation consortium (endohydrolase + exohydrolase), Weiße model parameters",
+      "metric": "Growth rate, per-cell enzyme production",
+      "baseline": "Equivalent single-cell monoculture co-expressing both enzymes",
+      "result": "Consortium outperforms monoculture above burden threshold; each consortium cell produces more of its enzyme per cell than the monoculture"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1006333",
+      "problem": "Using carriage prevalence as a vaccine trial endpoint is complicated by nonlinear prevalence-incidence relationships, multiple pathogen strains, and age-dependent natural immunity, making sample size estimation difficult.",
+      "method": "Individual-based computational model of pneumococcal carriage incorporating serotype-specific and non-specific immunity, fitted to epidemiological settings, with simulated vaccine trials at different ages and transmission intensities.",
+      "finding": "Sampling time and age at vaccination strongly influence required sample size; infant trials in lower-transmission settings with optimal sampling windows (15-24 months post-vaccination) dramatically reduce participant requirements.",
+      "dataset": "Simulated pneumococcal carriage in two transmission settings (under-five prevalence: 66% higher, 55% lower), 50 simulation runs per scenario",
+      "metric": "Required sample size, carriage prevalence reduction",
+      "baseline": "Unvaccinated control arm",
+      "result": "Vaccine efficacy of 3/5/10 colonization equivalents (26%/39%/63% duration reduction) reduces prevalence up to 7%/10%/17%; infant trial in lower-transmission setting needs <800/330/110 participants"
+    },
+    {
+      "doi": "10.1007/s43683-020-00016-x",
+      "problem": "The COVID-19 transition to remote learning required adapting an in-person cell culture lab practical to a virtual assessment format.",
+      "method": "Virtual lab practical administered via course LMS using video tutorials, data analysis questions, multiple-choice questions, and a hemocytometer simulator.",
+      "finding": "Average student scores and grade distributions were comparable between in-person and virtual formats, with fewer grading concerns and reduced student stress in the virtual version.",
+      "dataset": "Introductory BME lab course students (in-person vs virtual cohorts)",
+      "metric": "Average student scores, grade distributions",
+      "baseline": "Previous in-person lab practical offerings",
+      "result": "Comparable scores and grade distributions across formats; fewer grading concerns for virtual practical"
+    },
+    {
+      "doi": "10.7554/elife.64047",
+      "problem": "Extracting, integrating, and presenting 3D representations of cells that are both scientifically accurate and visually appealing poses substantial computational and aesthetic challenges.",
+      "method": "Collaboration of computer artists and cell biologists using Maya, Zbrush, Houdini, and Unity3D game engine; protein structures from PDB, receptor densities from flow cytometry, lipid bilayer from CHARMM-GUI simulation.",
+      "finding": "Produced Nanoscape, a multi-scale explorable 3D cell environment; receptor density simulations based on MDA-MB-231 flow cytometry data; immersive virtual field trips may improve understanding of cellular complexity.",
+      "dataset": "MDA-MB-231 breast cancer cell surface receptor data (CD44, EGFR, EpCAM, Her2, ICAM1, αVβ3 integrin), PDB protein structures, CHARMM-GUI lipid simulations",
+      "metric": "",
+      "baseline": "Traditional learning modalities",
+      "result": ""
+    },
+    {
+      "doi": "10.1093/jxb/erz451",
+      "problem": "Computational tools for in silico analysis of how cell growth and division affect photosynthesis are scarce, limiting understanding of leaf anatomy–physiology relationships.",
+      "method": "Virtual leaf tissue generator based on Voronoi tessellation and cell growth model coupled to a 2D microscale CO2 gas transport model; 270 mesophyll geometries generated with varying growth anisotropy, growth extent, and airspace formation.",
+      "finding": "Virtual tissue was statistically similar to real tomato leaf tissue; light-saturated photosynthesis is influenced by interactive effects of growth anisotropy, growth extent, and airspace formation through exposed mesophyll surface area.",
+      "dataset": "Tomato (Solanum lycopersicum L.) leaf tissue, 270 virtual mesophyll geometries, 5 real leaf cross-section replicates",
+      "metric": "KS test p-value, mean cell area, aspect ratio, Lm (mesophyll surface area per leaf area), net photosynthesis rate (A)",
+      "baseline": "Real tomato leaf tissue microscopy cross-sections",
+      "result": "KS test p-values: 41% (spongy cell area), 70% (spongy aspect ratio), 37% (palisade cell area), 18% (palisade aspect ratio) — distributions not significantly different"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1011944",
+      "problem": "The Warburg effect (aerobic glycolysis) is energetically counter-intuitive; the role of metabolic symbiosis between oxygenated and hypoxic tumour cells in promoting tumour growth is not well understood.",
+      "method": "Multi-scale agent-based model in NetLogo integrating diffusion-reaction equations, stoichiometric equations, and Boolean gene regulatory networks (MAPK pathway); sensitivity analysis via Latin hypercube sampling and partial rank correlation.",
+      "finding": "Metabolic symbiosis reduces glucose depletion and promotes glycolysis by depleting oxygen at the tumour boundary; blocking glucose transporters (GLUT1) is predicted to be more effective at reducing tumour growth than blocking lactate intake transporters (MCT1).",
+      "dataset": "Breast cancer cell lines RNAseq data (normoxic/hypoxic), simulated tumour organoid",
+      "metric": "Symbiosis index, OXPHOS/glycolytic population ratio, partial rank correlation coefficient",
+      "baseline": "MCT1 knockout (no metabolic symbiosis)",
+      "result": "OXPHOS population ~4.5% of glycolytic under MCT1 knockout vs co-existing populations under symbiosis; minimum glucose level for glycolysis identified as key sensitivity parameter"
+    }
+  ],
+  "timestamp": "2026-03-05T14:07:41.818783",
+  "extraction_count": 10
+}

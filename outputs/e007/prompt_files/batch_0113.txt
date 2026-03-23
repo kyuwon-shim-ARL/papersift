@@ -1,0 +1,343 @@
+You are a scientific paper analyst. For each paper below, extract:
+- problem: The research problem or question addressed (1-2 sentences)
+- method: The computational/experimental methods used (1-2 sentences)
+- finding: The key results or conclusions (1-2 sentences)
+- dataset: The dataset(s) or biological system(s) studied (short phrase, e.g., "E. coli K-12", "MNIST", "patient cohort N=500")
+- metric: The evaluation metric(s) used (short phrase, e.g., "AUC-ROC", "RMSE", "fold change", "p-value")
+- baseline: The comparison baseline or prior method (short phrase, e.g., "random forest", "previous SOTA", "null model")
+- result: The quantitative result or performance claim (short phrase, e.g., "AUC=0.95", "2.3x speedup", "p<0.001")
+
+If information is not available for a field, use empty string.
+
+If the abstract is empty or missing, extract what you can from the title alone.
+
+Return a JSON array with one object per paper:
+[
+  {
+    "doi": "10.xxxx/...",
+    "problem": "...",
+    "method": "...",
+    "finding": "...",
+    "dataset": "...",
+    "metric": "...",
+    "baseline": "...",
+    "result": "..."
+  },
+  ...
+]
+
+Papers to analyze:
+---
+DOI: 10.1109/jsac.2014.2328098
+Title: What Will 5G Be?
+Year: 2014
+Abstract: What will 5G be? What it will not be is an incremental/nadvance on 4G. The previous four generations of/ncellular technology have each been a major paradigm shift/nthat has broken backwards compatibility. And indeed, 5G will/nneed to be a paradigm shift that includes very high carrier/nfrequencies with massive bandwidths, extreme base station and/ndevice densities and unprecedented numbers of antennas. But/nunlike the previous four generations, it will also be highly/nintegrative: tying any new 5G air interface and spectrum together/nwith LTE and WiFi to provide universal high-rate coverage and/na seamless user experience. To support this, the core network/nwill also have to reach unprecedented levels of flexibility and/nintelligence, spectrum regulation will need to be rethought and/nimproved, and energy and cost efficiencies will become even more/ncritical considerations. This paper discusses all of these topics,/nidentifying key challenges for future research and preliminary/n5G standardization activities, while providing a comprehensive/noverview of the current literature, and in particular of the papers/nappearing in this special issue.
+---
+
+---
+DOI: 10.1016/j.cell.2015.05.002
+Title: Highly Parallel Genome-wide Expression Profiling of Individual Cells Using Nanoliter Droplets
+Year: 2015
+Abstract: Cells, the basic units of biological structure and function, vary broadly in type and state. Single-cell genomics can characterize cell identity and function, but limitations of ease and scale have prevented its broad application. Here we describe Drop-seq, a strategy for quickly profiling thousands of individual cells by separating them into nanoliter-sized aqueous droplets, associating a different barcode with each cell's RNAs, and sequencing them all together. Drop-seq analyzes mRNA transcripts from thousands of individual cells simultaneously while remembering transcripts' cell of origin. We analyzed transcriptomes from 44,808 mouse retinal cells and identified 39 transcriptionally distinct cell populations, creating a molecular atlas of gene expression for known retinal cell classes and novel candidate cell subtypes. Drop-seq will accelerate biological discovery by enabling routine transcriptional profiling at single-cell resolution. VIDEO ABSTRACT.
+---
+
+---
+DOI: 10.1016/0021-9991(76)90041-3
+Title: A general method for numerically simulating the stochastic time evolution of coupled chemical reactions
+Year: 1976
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1016/j.mfglet.2014.12.001
+Title: A Cyber-Physical Systems architecture for Industry 4.0-based manufacturing systems
+Year: 2014
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1038/nature03721
+Title: Microstructure of a spatial map in the entorhinal cortex
+Year: 2005
+Abstract: The ability to find one's way depends on neural algorithms that integrate information about place, distance and direction, but the implementation of these operations in cortical microcircuits is poorly understood. Here we show that the dorsocaudal medial entorhinal cortex (dMEC) contains a directionally oriented, topographically organized neural map of the spatial environment. Its key unit is the 'grid cell', which is activated whenever the animal's position coincides with any vertex of a regular grid of equilateral triangles spanning the surface of the environment. Grids of neighbouring cells share a common orientation and spacing, but their vertex locations (their phases) differ. The spacing and size of individual fields increase from dorsal to ventral dMEC. The map is anchored to external landmarks, but persists in their absence, suggesting that grid cells may be part of a generalized, path-integration-based map of the spatial environment.
+---
+
+---
+DOI: 10.1073/pnas.94.25.13661
+Title: Cell locomotion and focal adhesions are regulated by substrate flexibility
+Year: 1997
+Abstract: Responses of cells to mechanical properties of the adhesion substrate were examined by culturing normal rat kidney epithelial and 3T3 fibroblastic cells on a collagen-coated polyacrylamide substrate that allows the flexibility to be varied while maintaining a constant chemical environment. Compared with cells on rigid substrates, those on flexible substrates showed reduced spreading and increased rates of motility or lamellipodial activity. Microinjection of fluorescent vinculin indicated that focal adhesions on flexible substrates were irregularly shaped and highly dynamic whereas those on firm substrates had a normal morphology and were much more stable. Cells on flexible substrates also contained a reduced amount of phosphotyrosine at adhesion sites. Treatment of these cells with phenylarsine oxide, a tyrosine phosphatase inhibitor, induced the formation of normal, stable focal adhesions similar to those on firm substrates. Conversely, treatment of cells on firm substrates with myosin inhibitors 2,3-butanedione monoxime or KT5926 caused the reduction of both vinculin and phosphotyrosine at adhesion sites. These results demonstrate the ability of cells to survey the mechanical properties of their surrounding environment and suggest the possible involvement of both protein tyrosine phosphorylation and myosin-generated cortical forces in this process. Such response to physical parameters likely represents an important mechanism of cellular interaction with the surrounding environment within a complex organism.
+---
+
+---
+DOI: 10.1162/neco.1997.9.6.1179
+Title: The NEURON Simulation Environment
+Year: 1997
+Abstract: The moment-to-moment processing of information by the nervous system involves the propagation and interaction of electrical and chemical signals that are distributed in space and time. Biologically realistic modeling is needed to test hypotheses about the mechanisms that govern these signals and how nervous system function emerges from the operation of these mechanisms. The NEURON simulation program provides a powerful and flexible environment for implementing such models of individual neurons and small networks of neurons. It is particularly useful when membrane potential is nonuniform and membrane currents are complex. We present the basic ideas that would help informed users make the most efficient use of NEURON.
+---
+
+---
+DOI: 10.1093/bioinformatics/btl485
+Title: COPASI—a COmplex PAthway SImulator
+Year: 2006
+Abstract: Abstract Motivation: Simulation and modeling is becoming a standard approach to understand complex biochemical processes. Therefore, there is a big need for software tools that allow access to diverse simulation and modeling methods as well as support for the usage of these methods. Results: Here, we present COPASI, a platform-independent and user-friendly biochemical simulator that offers several unique features. We discuss numerical issues with these features; in particular, the criteria to switch between stochastic and deterministic simulation methods, hybrid deterministic–stochastic methods, and the importance of random number generator numerical resolution in stochastic simulation. Availability: The complete software is available in binary (executable) for MS Windows, OS X, Linux (Intel) and Sun Solaris (SPARC), as well as the full source code under an open source license from . Contact: mendes@vbi.vt.edu
+---
+
+---
+DOI: 10.1126/science.1247651
+Title: Massively Parallel Single-Cell RNA-Seq for Marker-Free Decomposition of Tissues into Cell Types
+Year: 2014
+Abstract: Sequencing of RNA from thousands of individual immune cells allows unbiased identification of cellular subtypes.
+---
+
+---
+DOI: 10.1016/j.jmsy.2020.06.017
+Title: Review of digital twin about concepts, technologies, and industrial applications
+Year: 2020
+Abstract: Abstract Various kinds of engineering software and digitalized equipment are widely applied through the lifecycle of industrial products. As a result, massive data of different types are being produced. However, these data are hysteretic and isolated from each other, leading to low efficiency and low utilization of these valuable data. Simulation based on theoretical and static model has been a conventional and powerful tool for the verification, validation, and optimization of a system in its early planning stage, but no attention is paid to the simulation application during system run-time. With the development of new-generation information and digitalization technologies, more data can be collected, and it is time to find a way for the deep application of all these data. As a result, the concept of digital twin has aroused much concern and is developing rapidly. Dispute and discussions around concepts, paradigms, frameworks, applications, and technologies of digital twin are on the rise both in academic and industrial communities. After a complete search of several databases and careful selection according to the proposed criteria, 240 academic publications about digital twin are identified and classified. This paper conducts a comprehensive and in-depth review of these literatures to analyze digital twin from the perspective of concepts, technologies, and industrial applications. Research status, evolution of the concept, key enabling technologies of three aspects, and fifteen kinds of industrial applications in respective lifecycle phase are demonstrated in detail. Based on this, observations and future work recommendations for digital twin research are presented in the form of different lifecycle phases.
+---
+
+---
+DOI: 10.1002/prot.21078
+Title: Prediction of continuous B‐cell epitopes in an antigen using recurrent neural network
+Year: 2006
+Abstract: Abstract B‐cell epitopes play a vital role in the development of peptide vaccines, in diagnosis of diseases, and also for allergy research. Experimental methods used for characterizing epitopes are time consuming and demand large resources. The availability of epitope prediction method(s) can rapidly aid experimenters in simplifying this problem. The standard feed‐forward (FNN) and recurrent neural network (RNN) have been used in this study for predicting B‐cell epitopes in an antigenic sequence. The networks have been trained and tested on a clean data set, which consists of 700 non‐redundant B‐cell epitopes obtained from Bcipep database and equal number of non‐epitopes obtained randomly from Swiss‐Prot database. The networks have been trained and tested at different input window length and hidden units. Maximum accuracy has been obtained using recurrent neural network (Jordan network) with a single hidden layer of 35 hidden units for window length of 16. The final network yields an overall prediction accuracy of 65.93% when tested by fivefold cross‐validation. The corresponding sensitivity, specificity, and positive prediction values are 67.14, 64.71, and 65.61%, respectively. It has been observed that RNN (JE) was more successful than FNN in the prediction of B‐cell epitopes. The length of the peptide is also important in the prediction of B‐cell epitopes from antigenic sequences. The webserver ABCpred is freely available at www.imtech.res.in/raghava/abcpred/ . Proteins 2006. © 2006 Wiley‐Liss, Inc.
+---
+
+---
+DOI: 10.1161/01.res.74.6.1071
+Title: A dynamic model of the cardiac ventricular action potential. I. Simulations of ionic currents and concentration changes.
+Year: 1994
+Abstract: A mathematical model of the cardiac ventricular action potential is presented. In our previous work, the membrane Na+ current and K+ currents were formulated. The present article focuses on processes that regulate intracellular Ca2+ and depend on its concentration. The model presented here for the mammalian ventricular action potential is based mostly on the guinea pig ventricular cell. However, it provides the framework for modeling other types of ventricular cells with appropriate modifications made to account for species differences. The following processes are formulated: Ca2+ current through the L-type channel (ICa), the Na(+)-Ca2+ exchanger, Ca2+ release and uptake by the sarcoplasmic reticulum (SR), buffering of Ca2+ in the SR and in the myoplasm, a Ca2+ pump in the sarcolemma, the Na(+)-K+ pump, and a nonspecific Ca(2+)-activated membrane current. Activation of ICa is an order of magnitude faster than in previous models. Inactivation of ICa depends on both the membrane voltage and [Ca2+]i. SR is divided into two subcompartments, a network SR (NSR) and a junctional SR (JSR). Functionally, Ca2+ enters the NSR and translocates to the JSR following a monoexponential function. Release of Ca2+ occurs at JSR and can be triggered by two different mechanisms, Ca(2+)-induced Ca2+ release and spontaneous release. The model provides the basis for the study of arrhythmogenic activity of the single myocyte including afterdepolarizations and triggered activity. It can simulate cellular responses under different degrees of Ca2+ overload. Such simulations are presented in our accompanying article in this issue of Circulation Research.
+---
+
+---
+DOI: 10.1007/978-3-319-32156-1_5
+Title: Digital Twin—The Simulation Aspect
+Year: 2016
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1073/pnas.97.10.5528
+Title: The <i>Escherichia coli</i> MG1655 <i>in silico</i> metabolic genotype: Its definition, characteristics, and capabilities
+Year: 2000
+Abstract: The Escherichia coli MG1655 genome has been completely sequenced. The annotated sequence, biochemical information, and other information were used to reconstruct the E. coli metabolic map. The stoichiometric coefficients for each metabolic enzyme in the E. coli metabolic map were assembled to construct a genome-specific stoichiometric matrix. The E. coli stoichiometric matrix was used to define the system's characteristics and the capabilities of E. coli metabolism. The effects of gene deletions in the central metabolic pathways on the ability of the in silico metabolic network to support growth were assessed, and the in silico predictions were compared with experimental observations. It was shown that based on stoichiometric and capacity constraints the in silico analysis was able to qualitatively predict the growth potential of mutant strains in 86% of the cases examined. Herein, it is demonstrated that the synthesis of in silico metabolic genotypes based on genomic, biochemical, and strain-specific information is possible, and that systems analysis methods are available to analyze and interpret the metabolic phenotype.
+---
+
+---
+DOI: 10.1016/j.compind.2019.103130
+Title: Review of digital twin applications in manufacturing
+Year: 2019
+Abstract: Abstract In the Industry 4.0 era, the Digital Twin (DT), virtual copies of the system that are able to interact with the physical counterparts in a bi-directional way, seem to be promising enablers to replicate production systems in real time and analyse them. A DT should be capable to guarantee well-defined services to support various activities such as monitoring, maintenance, management, optimization and safety. Through an analysis of the current picture of manufacturing and a literature review about the already existing DT environment, this paper identifies what is still missing in the implemented DT to be compliant to their description in literature. Particular focuses of this paper are the degree of integration of the proposed DT with the control of the physical system, in particular with the Manufacturing Execution Systems (MES) when the production system is based on the Automation Pyramid, and the services offered from these environments, comparing them to the reference ones. This paper proposes also a practical implementation of a DT in a MES equipped assembly laboratory line of the School of Management of the Politecnico di Milano. The application has been created to pose the basis to overcome the missing implementation aspects found in literature. In such a way, the developed DT paves the way for future research to close the loop between the MES and the DT taking into consideration the number of services that a DT could offer in a single environment.
+---
+
+---
+DOI: 10.1038/d41586-019-02849-1
+Title: Make more digital twins
+Year: 2019
+Abstract: Virtual models boost smart manufacturing by simulating decisions and optimization, from design to operations, explain Fei Tao and Qinglin Qi. Virtual models boost smart manufacturing by simulating decisions and optimization, from design to operations, explain Fei Tao and Qinglin Qi.
+---
+
+---
+DOI: 10.1007/978-1-59745-525-1_5
+Title: Rule-Based Modeling of Biochemical Systems with BioNetGen
+Year: 2009
+Abstract: Rule-based modeling involves the representation of molecules as structured objects and molecular interactions as rules for transforming the attributes of these objects. The approach is notable in that it allows one to systematically incorporate site-specific details about protein-protein interactions into a model for the dynamics of a signal-transduction system, but the method has other applications as well, such as following the fates of individual carbon atoms in metabolic reactions. The consequences of protein-protein interactions are difficult to specify and track with a conventional modeling approach because of the large number of protein phosphoforms and protein complexes that these interactions potentially generate. Here, we focus on how a rule-based model is specified in the BioNetGen language (BNGL) and how a model specification is analyzed using the BioNetGen software tool. We also discuss new developments in rule-based modeling that should enable the construction and analyses of comprehensive models for signal transduction pathways and similarly large-scale models for other biochemical systems.
+---
+
+---
+DOI: 10.1006/jtbi.2001.2405
+Title: Regulation of Gene Expression in Flux Balance Models of Metabolism
+Year: 2001
+Abstract: Genome-scale metabolic networks can now be reconstructed based on annotated genomic data augmented with biochemical and physiological information about the organism. Mathematical analysis can be performed to assess the capabilities of these reconstructed networks. The constraints-based framework, with flux balance analysis (FBA), has been used successfully to predict time course of growth and by-product secretion, effects of mutation and knock-outs, and gene expression profiles. However, FBA leads to incorrect predictions in situations where regulatory effects are a dominant influence on the behavior of the organism. Thus, there is a need to include regulatory events within FBA to broaden its scope and predictive capabilities. Here we represent transcriptional regulatory events as time-dependent constraints on the capabilities of a reconstructed metabolic network to further constrain the space of possible network functions. Using a simplified metabolic/regulatory network, growth is simulated under various conditions to illustrate systemic effects such as catabolite repression, the aerobic/anaerobic diauxic shift and amino acid biosynthesis pathway repression. The incorporation of transcriptional regulatory events in FBA enables us to interpret, analyse and predict the effects of transcriptional regulation on cellular metabolism at the systemic level.
+---
+
+---
+DOI: 10.1080/00207543.2019.1566661
+Title: Defining a Digital Twin-based Cyber-Physical Production System for autonomous manufacturing in smart shop floors
+Year: 2019
+Abstract: Smart manufacturing is the core idea of the fourth industrial evolution. For a smart manufacturing shop floor, real-time monitoring, simulation and prediction of manufacturing operations are vital to improve the production efficiency and flexibility. In this paper, the Cyber-Physical System (CPS) and Digital Twin technologies are introduced to build the interconnection and interoperability of a physical shop floor and corresponding cybershop floor. A Digital Twin-based Cyber-Physical Production System (DT-CPPS) is further established, and the configuring mechanism, operating mechanism and real-time data-driven operations control of DT-CPPS are discussed in detail. It is expected that DT-CPPS will provide the basis for shop floors to march towards smart manufacturing.
+---
+
+---
+DOI: 10.1149/1.1621412
+Title: A 3D, Multiphase, Multicomponent Model of the Cathode and Anode of a PEM Fuel Cell
+Year: 2003
+Abstract: A computational fluid dynamics multiphase model of a proton-exchange membrane (PEM) fuel cell is presented. The model accounts for three-dimensional transport processes including phase change and heat transfer, and includes the gas-diffusion layers (GDL) and gas flow channels for both anode and cathode, as well as a cooling channel. Transport of liquid water inside the gas-diffusion layers is modeled using viscous forces and capillary pressure terms. The physics of phase change is accounted for by prescribing local evaporation as a function of the undersaturation and liquid water concentration. Simulations have been performed for fully humidified gases entering the cell. The results show that different competing mechanisms lead to phase change at both anode and cathode sides of the fuel cell. The predicted amount of liquid water depends strongly on the prescribed material properties, particularly the hydraulic permeability of the GDL. Analysis of the simulations at a current density of show that both condensation and evaporation take place within the cathode GDL, whereas condensation prevails throughout the anode, except near the inlet. The three-dimensional distribution of the reactants and products is evident, particularly under the land areas. For the conditions investigated in this paper, the liquid water saturation does not exceed 10% at either anode or cathode side, and increases nonlinearly with current density. © 2003 The Electrochemical Society. All rights reserved.
+---
+
+---
+DOI: 10.1007/s00285-008-0212-0
+Title: Individual-based and continuum models of growing cell populations: a comparison
+Year: 2008
+Abstract: In this paper we compare two alternative theoretical approaches for simulating the growth of cell aggregates in vitro: individual cell (agent)-based models and continuum models. We show by a quantitative analysis of both a biophysical agent-based and a continuum mechanical model that for densely packed aggregates the expansion of the cell population is dominated by cell proliferation controlled by mechanical stress. The biophysical agent-based model introduced earlier (Drasdo and Hoehme in Phys Biol 2:133-147, 2005) approximates each cell as an isotropic, homogeneous, elastic, spherical object parameterised by measurable biophysical and cell-biological quantities and has been shown by comparison to experimental findings to explain the growth patterns of dense monolayers and multicellular spheroids. Both models exhibit the same growth kinetics, with initial exponential growth of the population size and aggregate diameter followed by linear growth of the diameter and power-law growth of the cell population size. Very sparse monolayers can be explained by a very small or absent cell-cell adhesion and large random cell migration. In this case the expansion speed is not controlled by mechanical stress but by random cell migration and can be modelled by the Fisher-Kolmogorov-Petrovskii-Piskounov (FKPP) reaction-diffusion equation. The growth kinetics differs from that of densely packed aggregates in that the initial spread, as quantified by the radius of gyration, is diffusive. Since simulations of the lattice-free agent-based model in the case of very large random migration are too long to be practical, lattice-based cellular automaton (CA) models have to be used for a quantitative analysis of sparse monolayers. Analysis of these dense monolayers leads to the identification of a critical parameter of the CA model so that eventually a hierarchy of three model types (a detailed biophysical lattice-free model, a rule-based cellular automaton and a continuum approach) emerge which yield the same growth pattern for dense and sparse cell aggregates.
+---
+
+---
+DOI: 10.1529/biophysj.107.114678
+Title: Modeling the Influence of the E-Cadherin-β-Catenin Pathway in Cancer Cell Invasion: A Multiscale Approach
+Year: 2008
+Abstract: In this article, we show, using a mathematical multiscale model, how cell adhesion may be regulated by interactions between E-cadherin and beta-catenin and how the control of cell adhesion may be related to cell migration, to the epithelial-mesenchymal transition and to invasion in populations of eukaryotic cells. E-cadherin mediates cell-cell adhesion and plays a critical role in the formation and maintenance of junctional contacts between cells. Loss of E-cadherin-mediated adhesion is a key feature of the epithelial-mesenchymal transition. beta-catenin is an intracellular protein associated with the actin cytoskeleton of a cell. E-cadherins bind to beta-catenin to form a complex which can interact both with neighboring cells to form bonds, and with the cytoskeleton of the cell. When cells detach from one another, beta-catenin is released into the cytoplasm, targeted for degradation, and downregulated. In this process there are multiple protein-complexes involved which interact with beta-catenin and E-cadherin. Within a mathematical individual-based multiscale model, we are able to explain experimentally observed patterns solely by a variation of cell-cell adhesive interactions. Implications for cell migration and cancer invasion are also discussed.
+---
+
+---
+DOI: 10.1073/pnas.1107594108
+Title: Nonrandom attrition of the naive CD8 <sup>+</sup> T-cell pool with aging governed by T-cell receptor:pMHC interactions
+Year: 2011
+Abstract: Immunity against new infections declines in the last quartile of life, as do numbers of naive T cells. Peripheral maintenance of naive T cells over the lifespan is necessary because their production drastically declines by puberty, a result of thymic involution. We report that this maintenance is not random in advanced aging. As numbers and diversity of naive CD8 + T cells declined with aging, surviving cells underwent faster rates of homeostatic proliferation, were selected for high T-cell receptor:pMHC avidity, and preferentially acquired “memory-like” phenotype. These high-avidity precursors preferentially responded to infection and exhibited strong antimicrobial function. Thus, T-cell receptor avidity for self-pMHC provides a proofreading mechanism to maintain some of the fittest T cells in the otherwise crumbling naive repertoire, providing a degree of compensation for numerical and diversity defects in old T cells.
+---
+
+---
+DOI: 10.1016/j.it.2010.12.004
+Title: Alternative memory in the CD8 T cell lineage
+Year: 2011
+Abstract: A prominent population of innate CD8+ T cells develops in the thymus of several gene-deficient mouse strains, including Itk, KLF2, CBP and Id3. These cells have the phenotype and function of memory CD8+ T cells, without previous exposure to antigen. Surprisingly, the cytokine IL-4 plays a key role in their development. As this developmental mechanism was discovered, it came to light that innate CD8+ T cells exist also in normal mice and in humans. In this review, we discuss how these cells develop, compare and contrast them to other CD8 memory cells, and discuss their potential physiological relevance.
+---
+
+---
+DOI: 10.1002/eji.201545539
+Title: Evidence for eomesodermin‐expressing innate‐like CD8<sup>+</sup> KIR/NKG2A<sup>+</sup> T cells in human adults and cord blood samples
+Year: 2015
+Abstract: Polyclonal CD8 + T cells, with a marked innate/memory phenotype, high eomesodermin (Eomes) expression, and the capacity to generate IFN‐γ rapidly without prior exposure to antigen, have been described in mice. However, even though a pool of human CD8 + T cells expressing killer Ig‐like receptors (KIRs) was recently documented, the existence of a human equivalent of murine innate/memory CD8 + T cells remains to be established. Here, we provide evidence for a population of KIR/NKG2A + CD8 + T cells in healthy human adults sharing the same features, namely increased Eomes expression, prompt IFN‐γ production in response to innate‐like stimulation by IL‐12+IL‐18, and a potent antigen‐independent cytotoxic activity along with a preferential terminally differentiated effector memory phenotype. None of the above functional characteristics applied to the KIR/NKG2A − fraction of the Eomes + CD8 + T‐cell population, thereby underlining the ability of KIR/NKG2A to distinguish between “innate/memory‐like” and “conventional/memory” pools of CD8 + T cells. Remarkably, KIR/NKG2A + Eomes + CD8 + T cells with innate‐like functions and a memory/terminally differentiated effector memory phenotype were also identified in human cord blood, suggesting that their development did not depend on cognate antigens. Taken together, our results support the conclusion that CD8 + T cells co‐expressing Eomes and KIR/NKG2A may represent a new, functionally distinct “innate/memory‐like” subset in humans.
+---
+
+---
+DOI: 10.1111/j.1540-5915.1996.tb01824.x
+Title: A Virtual Cellular Manufacturing Approach to Batch Production
+Year: 1996
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1101/gr.107524.110
+Title: The Genome Analysis Toolkit: A MapReduce framework for analyzing next-generation DNA sequencing data
+Year: 2010
+Abstract: Next-generation DNA sequencing (NGS) projects, such as the 1000 Genomes Project, are already revolutionizing our understanding of genetic variation among individuals. However, the massive data sets generated by NGS—the 1000 Genome pilot alone includes nearly five terabases—make writing feature-rich, efficient, and robust analysis tools difficult for even computationally sophisticated individuals. Indeed, many professionals are limited in the scope and the ease with which they can answer scientific questions by the complexity of accessing and manipulating the data produced by these machines. Here, we discuss our Genome Analysis Toolkit (GATK), a structured programming framework designed to ease the development of efficient and robust analysis tools for next-generation DNA sequencers using the functional programming philosophy of MapReduce. The GATK provides a small but rich set of data access patterns that encompass the majority of analysis tool needs. Separating specific analysis calculations from common data management infrastructure enables us to optimize the GATK framework for correctness, stability, and CPU and memory efficiency and to enable distributed and shared memory parallelization. We highlight the capabilities of the GATK by describing the implementation and application of robust, scale-tolerant tools like coverage calculators and single nucleotide polymorphism (SNP) calling. We conclude that the GATK programming framework enables developers and analysts to quickly and easily write efficient and robust NGS tools, many of which have already been incorporated into large-scale sequencing projects like the 1000 Genomes Project and The Cancer Genome Atlas.
+---
+
+---
+DOI: 10.1038/nmeth.1923
+Title: Fast gapped-read alignment with Bowtie 2
+Year: 2012
+Abstract: As the rate of sequencing increases, greater throughput is demanded from read aligners. The full-text minute index is often used to make alignment very fast and memory-efficient, but the approach is ill-suited to finding longer, gapped alignments. Bowtie 2 combines the strengths of the full-text minute index with the flexibility and speed of hardware-accelerated dynamic programming algorithms to achieve a combination of high speed, sensitivity and accuracy.
+---
+
+---
+DOI: 10.1038/75556
+Title: Gene Ontology: tool for the unification of biology
+Year: 2000
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1107/s0021889892009944
+Title: PROCHECK: a program to check the stereochemical quality of protein structures
+Year: 1993
+Abstract: The PROCHECK suite of programs provides a detailed check on the stereochemistry of a protein structure. Its outputs comprise a number of plots in PostScript format and a comprehensive residue-by-residue listing. These give an assessment of the overall quality of the structure as compared with well refined structures of the same resolution and also highlight regions that may need further investigation. The PROCHECK programs are useful for assessing the quality not only of protein structures in the process of being solved but also of existing structures and of those being modelled on known structures.
+---
+
+---
+DOI: 10.1098/rstb.1952.0012
+Title: The chemical basis of morphogenesis
+Year: 1952
+Abstract: Abstract It is suggested that a system of chemical substances, called morphogens, reacting together and diffusing through a tissue, is adequate to account for the main phenomena of morphogenesis. Such a system, although it may originally be quite homogeneous, may later develop a pattern or structure due to an instability of the homogeneous equilibrium, which is triggered off by random disturbances. Such reaction-diffusion systems are considered in some detail in the case of an isolated ring of cells, a mathematically convenient, though biologically unusual system. The investigation is chiefly concerned with the onset of instability. It is found that there are six essentially different forms which this may take. In the most interesting form stationary waves appear on the ring. It is suggested that this might account, for instance, for the tentacle patterns on Hydra and for whorled leaves. A system of reactions and diffusion on a sphere is also considered. Such a system appears to account for gastrulation. Another reaction system in two dimensions gives rise to patterns reminiscent of dappling. It is also suggested that stationary waves in two dimensions could account for the phenomena of phyllotaxis. The purpose of this paper is to discuss a possible mechanism by which the genes of a zygote may determine the anatomical structure of the resulting organism. The theory does not make any new hypotheses; it merely suggests that certain well-known physical laws are sufficient to account for many of the facts. The full understanding of the paper requires a good knowledge of mathematics, some biology, and some elementary chemistry. Since readers cannot be expected to be experts in all of these subjects, a number of elementary facts are explained, which can be found in text-books, but whose omission would make the paper difficult reading.
+---
+
+---
+DOI: 10.1038/161777a0
+Title: A New Microscopic Principle
+Year: 1948
+Abstract: (no abstract available)
+---
+
+---
+DOI: 10.1126/science.347575
+Title: Models for the Specific Adhesion of Cells to Cells
+Year: 1978
+Abstract: A theoretical framework is proposed for the analysis of adhesion between cells or of cells to surfaces when the adhesion is mediated by reversible bonds between specific molecules such as antigen and antibody, lectin and carbohydrate, or enzyme and substrate. From a knowledge of the reaction rates for reactants in solution and of their diffusion constants both in solution and on membranes, it is possible to estimate reaction rates for membrane-bound reactants. Two models are developed for predicting the rate of bond formation between cells and are compared with experiments. The force required to separate two cells is shown to be greater than the expected electrical forces between cells, and of the same order of magnitude as the forces required to pull gangliosides and perhaps some integral membrane proteins out of the cell membrane.
+---
+
+---
+DOI: 10.1073/pnas.78.6.3824
+Title: Prediction of protein antigenic determinants from amino acid sequences.
+Year: 1981
+Abstract: A method is presented for locating protein antigenic determinants by analyzing amino acid sequences in order to find the point of greatest local hydrophilicity. This is accomplished by assigning each amino acid a numerical value (hydrophilicity value) and then repetitively averaging these values along the peptide chain. The point of highest local average hydrophilicity is invariably located in, or immediately adjacent to, an antigenic determinant. It was found that the prediction success rate depended on averaging group length, with hexapeptide averages yielding optimal results. The method was developed using 12 proteins for which extensive immunochemical analysis has been carried out and subsequently was used to predict antigenic determinants for the following proteins: hepatitis B surface antigen, influenza hemagglutinins, fowl plague virus hemagglutinin, human histocompatibility antigen HLA-B7, human interferons, Escherichia coli and cholera enterotoxins, ragweed allergens Ra3 and Ra5, and streptococcal M protein. The hepatitis B surface antigen sequence was synthesized by chemical means and was shown to have antigenic activity by radioimmunoassay.
+---
+
+---
+DOI: 10.1016/s0006-3495(00)76279-5
+Title: Cell Movement Is Guided by the Rigidity of the Substrate
+Year: 2000
+Abstract: Directional cell locomotion is critical in many physiological processes, including morphogenesis, the immune response, and wound healing. It is well known that in these processes cell movements can be guided by gradients of various chemical signals. In this study, we demonstrate that cell movement can also be guided by purely physical interactions at the cell-substrate interface. We cultured National Institutes of Health 3T3 fibroblasts on flexible polyacrylamide sheets coated with type I collagen. A transition in rigidity was introduced in the central region of the sheet by a discontinuity in the concentration of the bis-acrylamide cross-linker. Cells approaching the transition region from the soft side could easily migrate across the boundary, with a concurrent increase in spreading area and traction forces. In contrast, cells migrating from the stiff side turned around or retracted as they reached the boundary. We call this apparent preference for a stiff substrate "durotaxis." In addition to substrate rigidity, we discovered that cell movement could also be guided by manipulating the flexible substrate to produce mechanical strains in the front or rear of a polarized cell. We conclude that changes in tissue rigidity and strain could play an important controlling role in a number of normal and pathological processes involving cell locomotion.
+---
+
+---
+DOI: 10.1016/j.jtbi.2008.04.011
+Title: A methodology for performing global uncertainty and sensitivity analysis in systems biology
+Year: 2008
+Abstract: Accuracy of results from mathematical and computer models of biological systems is often complicated by the presence of uncertainties in experimental data that are used to estimate parameter values. Current mathematical modeling approaches typically use either single-parameter or local sensitivity analyses. However, these methods do not accurately assess uncertainty and sensitivity in the system as, by default, they hold all other parameters fixed at baseline values. Using techniques described within we demonstrate how a multi-dimensional parameter space can be studied globally so all uncertainties can be identified. Further, uncertainty and sensitivity analysis techniques can help to identify and ultimately control uncertainties. In this work we develop methods for applying existing analytical tools to perform analyses on a variety of mathematical and computer models. We compare two specific types of global sensitivity analysis indexes that have proven to be among the most robust and efficient. Through familiar and new examples of mathematical and computer models, we provide a complete methodology for performing these analyses, in both deterministic and stochastic settings, and propose novel techniques to handle problems encountered during these types of analyses.
+---
+
+---
+DOI: 10.1109/twc.2017.2655515
+Title: Cell-Free Massive MIMO Versus Small Cells
+Year: 2017
+Abstract: A Cell-Free Massive MIMO (multiple-input multiple-output) system comprises a very large number of distributed access points (APs), which simultaneously serve a much smaller number of users over the same time/frequency resources based on directly measured channel characteristics. The APs and users have only one antenna each. The APs acquire channel state information through time-division duplex operation and the reception of uplink pilot signals transmitted by the users. The APs perform multiplexing/de-multiplexing through conjugate beamforming on the downlink and matched filtering on the uplink. Closed-form expressions for individual user uplink and downlink throughputs lead to max-min power control algorithms. Max-min power control ensures uniformly good service throughout the area of coverage. A pilot assignment algorithm helps to mitigate the effects of pilot contamination, but power control is far more important in that regard. Cell-Free Massive MIMO has considerably improved performance with respect to a conventional small-cell scheme, whereby each user is served by a dedicated AP, in terms of both 95%-likely per-user throughput and immunity to shadow fading spatial correlation. Under uncorrelated shadow fading conditions, the cell-free scheme provides nearly fivefold improvement in 95%-likely per-user throughput over the small-cell scheme, and tenfold improvement when shadow fading is correlated.
+---
+
+---
+DOI: 10.1126/science.270.5235.397
+Title: The Minimal Gene Complement of <i>Mycoplasma genitalium</i>
+Year: 1995
+Abstract: The complete nucleotide sequence (580,070 base pairs) of the Mycoplasma genitalium genome, the smallest known genome of any free-living organism, has been determined by whole-genome random sequencing and assembly. A total of only 470 predicted coding regions were identified that include genes required for DNA replication, transcription and translation, DNA repair, cellular transport, and energy metabolism. Comparison of this genome to that of Haemophilus influenzae suggests that differences in genome content are reflected as profound differences in physiology and metabolic capacity between these two organisms.
+---
+
+---
+DOI: 10.1007/s002510050595
+Title: SYFPEITHI: database for MHC ligands and peptide motifs
+Year: 1999
+Abstract: The first version of the major histocompatibility complex (MHC) databank SYFPEITHI: database for MHC ligands and peptide motifs, is now available to the general public. It contains a collection of MHC class I and class II ligands and peptide motifs of humans and other species, such as apes, cattle, chicken, and mouse, for example, and is continuously updated. All motifs currently available are accessible as individual entries. Searches for MHC alleles, MHC motifs, natural ligands, T-cell epitopes, source proteins/organisms and references are possible. Hyperlinks to the EMBL and PubMed databases are included. In addition, ligand predictions are available for a number of MHC allelic products. The database content is restricted to published data only.
+---
+
+---
+DOI: 10.1038/nature01254
+Title: Computational systems biology
+Year: 2002
+Abstract: To understand complex biological systems requires the integration of experimental and computational research -- in other words a systems biology approach. Computational biology, through pragmatic modelling and theoretical exploration, provides a powerful foundation from which to address critical scientific questions head-on. The reviews in this Insight cover many different aspects of this energetic field, although all, in one way or another, illuminate the functioning of modular circuits, including their robustness, design and manipulation. Computational systems biology addresses questions fundamental to our understanding of life, yet progress here will lead to practical innovations in medicine, drug discovery and engineering.
+---
+
+---
+DOI: 10.1109/access.2020.2998358
+Title: Digital Twin: Enabling Technologies, Challenges and Open Research
+Year: 2020
+Abstract: Digital Twin technology is an emerging concept that has become the centre of\nattention for industry and, in more recent years, academia. The advancements in\nindustry 4.0 concepts have facilitated its growth, particularly in the\nmanufacturing industry. The Digital Twin is defined extensively but is best\ndescribed as the effortless integration of data between a physical and virtual\nmachine in either direction. The challenges, applications, and enabling\ntechnologies for Artificial Intelligence, Internet of Things (IoT) and Digital\nTwins are presented. A review of publications relating to Digital Twins is\nperformed, producing a categorical review of recent papers. The review has\ncategorised them by research areas: manufacturing, healthcare and smart cities,\ndiscussing a range of papers that reflect these areas and the current state of\nresearch. The paper provides an assessment of the enabling technologies,\nchallenges and open research for Digital Twins.\n
+---
+
+---
+DOI: 10.1016/j.cirpj.2020.02.002
+Title: Characterising the Digital Twin: A systematic literature review
+Year: 2020
+Abstract: Abstract While there has been a recent growth of interest in the Digital Twin, a variety of definitions employed across industry and academia remain. There is a need to consolidate research such to maintain a common understanding of the topic and ensure future research efforts are to be based on solid foundations. Through a systematic literature review and a thematic analysis of 92 Digital Twin publications from the last ten years, this paper provides a characterisation of the Digital Twin, identification of gaps in knowledge, and required areas of future research. In characterising the Digital Twin, the state of the concept, key terminology, and associated processes are identified, discussed, and consolidated to produce 13 characteristics (Physical Entity/Twin; Virtual Entity/Twin; Physical Environment; Virtual Environment; State; Realisation; Metrology; Twinning; Twinning Rate; Physical-to-Virtual Connection/Twinning; Virtual-to-Physical Connection/Twinning; Physical Processes; and Virtual Processes) and a complete framework of the Digital Twin and its process of operation. Following this characterisation, seven knowledge gaps and topics for future research focus are identified: Perceived Benefits; Digital Twin across the Product Life-Cycle; Use-Cases; Technical Implementations; Levels of Fidelity; Data Ownership; and Integration between Virtual Entities; each of which are required to realise the Digital Twin.
+---
+
+---
+DOI: 10.1063/1.1378322
+Title: Approximate accelerated stochastic simulation of chemically reacting systems
+Year: 2001
+Abstract: The stochastic simulation algorithm (SSA) is an essentially exact procedure for numerically simulating the time evolution of a well-stirred chemically reacting system. Despite recent major improvements in the efficiency of the SSA, its drawback remains the great amount of computer time that is often required to simulate a desired amount of system time. Presented here is the “τ-leap” method, an approximate procedure that in some circumstances can produce significant gains in simulation speed with acceptable losses in accuracy. Some primitive strategies for control parameter selection and error mitigation for the τ-leap method are described, and simulation results for two simple model systems are exhibited. With further refinement, the τ-leap method should provide a viable way of segueing from the exact SSA to the approximate chemical Langevin equation, and thence to the conventional deterministic reaction rate equation, as the system size becomes larger.
+---
+
+---
+DOI: 10.1126/science.1192588
+Title: Interdependence of Cell Growth and Gene Expression: Origins and Consequences
+Year: 2010
+Abstract: Theory of Growth Control Although quantitative studies of growth in bacterial cultures have been made for over 50 years, the relationship between cell proliferation and gene expression has not been clear. Scott et al. (p. 1099 ; see the Perspective by Lerman and Palsson ) have revealed that mass per cell exponentially increased with linear increases in growth rate and that ribosome abundance increased linearly with growth rate depending on the rate of translation. Hence, the systems properties of the biological processes involved in growth can be derived without any molecular understanding of their basis and can be used to establish fundamental properties for the design of biotechnological procedures.
+---
+
+---
+DOI: 10.1126/science.aad6253
+Title: Design and synthesis of a minimal bacterial genome
+Year: 2016
+Abstract: Designing and building a minimal genome A goal in biology is to understand the molecular and biological function of every gene in a cell. One way to approach this is to build a minimal genome that includes only the genes essential for life. In 2010, a 1079-kb genome based on the genome of Mycoplasma mycoides (JCV-syn1.0) was chemically synthesized and supported cell growth when transplanted into cytoplasm. Hutchison III et al. used a design, build, and test cycle to reduce this genome to 531 kb (473 genes). The resulting JCV-syn3.0 retains genes involved in key processes such as transcription and translation, but also contains 149 genes of unknown function. Science , this issue p. 10.1126/science.aad6253
+---

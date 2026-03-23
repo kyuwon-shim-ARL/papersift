@@ -1,0 +1,119 @@
+{
+  "batch_index": 9,
+  "dois": [
+    "10.1016/j.ejmech.2014.08.060",
+    "10.1038/s41592-024-02245-2",
+    "10.1038/s41467-021-22954-y",
+    "10.1091/mbc.e16-01-0059",
+    "10.1371/journal.pone.0161184",
+    "10.1186/s40779-025-00591-6",
+    "10.1371/journal.pone.0127972",
+    "10.1371/journal.pone.0109692",
+    "10.1039/d0sc00755b",
+    "10.1186/s40779-025-00608-0"
+  ],
+  "extractions": [
+    {
+      "doi": "10.1016/j.ejmech.2014.08.060",
+      "problem": "Selective, cell-active small molecule inhibitors for cancer-promoting PRL phosphatases are lacking despite PRL-3's clear role in cancer metastasis.",
+      "method": "Ligand-based (USR, ROCS, MACCS, UFSRAT) and structure-based (Vina docking) virtual screening of ZINC database (~3.5M molecules), followed by biochemical DiFMUP assay and SAR optimization.",
+      "finding": "Ligand-based approaches outperformed docking for PRL-3. A novel 2-cyano-2-ene-ester chemotype was identified and optimized to a low micromolar, cell-active PRL inhibitor that selectively reverts PRL-3-induced cell migration.",
+      "dataset": "ZINC database v8 (3,472,461 lead-like molecules, 641M conformers), recombinant PRL-1/2/3, VHR, PTP1B, TCPTP",
+      "metric": "IC50, hit rate, selectivity over other PTPs, cell migration reversion",
+      "baseline": "Thienopyridone (most potent known PRL-3 inhibitor)",
+      "result": "Low micromolar PRL inhibitor; USR screened 641M conformers in 57s vs ROCS 128h; ligand-based hit rate superior to docking"
+    },
+    {
+      "doi": "10.1038/s41592-024-02245-2",
+      "problem": "Automated detection of specific cells (c-Fos+) in 3D whole-brain light-sheet image stacks is challenging due to variable signal-to-noise ratios across large volumes.",
+      "method": "VR-trained deep learning pipeline (DELiVR, 3D BasicUNet) with SHANEL tissue clearing, light-sheet microscopy, and registration to Allen Brain Atlas.",
+      "finding": "VR annotation was significantly faster than 2D slice-based annotation and improved annotation quality. DELiVR outperformed all tested cell segmentation approaches including ClearMap.",
+      "dataset": "Cleared mouse brains (c-Fos+ neurons, CX3CR1-GFP microglia), cancer-related brain activity models",
+      "metric": "Instance F1 score, annotation speed, Mann-Whitney U test",
+      "baseline": "ClearMap (threshold-based), ITK-SNAP (2D slice annotation), random forest and other deep learning approaches",
+      "result": "F1 improved from 0.7383 (2D) to 0.8032 (VR); VR annotation significantly faster (P=0.0005)"
+    },
+    {
+      "doi": "10.1038/s41467-021-22954-y",
+      "problem": "How does ageing impair CD8+ T cell immune responses through asymmetric cell division (ACD), and can this decline be rescued?",
+      "method": "Confocal microscopy of CD8 polarization on mitotic cells from young/aged P14 mice, in vitro stimulation with anti-CD3/CD28/ICAM-1, transient mTOR inhibition with rapamycin, adoptive transfer, and LCMV infection.",
+      "finding": "Ageing impairs ACD in CD8+ T cells, but transient mTOR inhibition with rapamycin restores ACD rates to young levels. Virtual memory T cells retain ACD ability and memory potential during ageing, while naive CD8+ T cells lose it.",
+      "dataset": "Murine CD8+ T cells from P14 mice (young 8-16wk, middle-aged >40wk, old >70wk), LCMV-WE infection model",
+      "metric": "ACD rate (CD8 polarization), T-bet/pS6 asymmetry, expansion and memory potential",
+      "baseline": "Young untreated CD8+ T cells",
+      "result": "Rapamycin restored aged ACD rates to young levels; P=0.0005 for VR vs 2D speed (different paper — for this paper: significant ACD impairment with ageing, rescue by rapamycin, unpaired two-tailed Student's t test)"
+    },
+    {
+      "doi": "10.1091/mbc.e16-01-0059",
+      "problem": "How do PKD1/PKD2 mutations drive cell behaviors underlying ADPKD cystogenesis, and what are the respective roles of cell adhesion and proliferation?",
+      "method": "GGH/Cellular Potts model virtual-tissue simulation in CompuCell3D of a 15-cell-long renal tubule segment, validated with in vitro HK-2 3D collagen cyst formation assays using cadherin-8 ectopic expression.",
+      "finding": "Reduced cell-cell adhesion alone suffices to initiate cystogenesis matching cad8-induced cysts in vitro. Full range of in vivo cyst morphologies requires changes in both adhesion and proliferation; saccular cysts arise from decreased contact inhibition.",
+      "dataset": "HK-2 renal epithelial cells in 3D collagen, cadherin-8 adenoviral expression, ADPKD cyst morphologies",
+      "metric": "Cyst morphology classification, adhesion energy parameters, contact inhibition thresholds",
+      "baseline": "Normal renal tubule with wild-type adhesion and proliferation parameters",
+      "result": "Loss-of-adhesion simulations reproduced in vitro cad8-induced cysts; both adhesion and proliferation changes required for full in vivo morphology range"
+    },
+    {
+      "doi": "10.1371/journal.pone.0161184",
+      "problem": "Cell biology education lacks accessible, realistic tools for teaching cell ultrastructure, especially in developing countries without electron microscopy access.",
+      "method": "Three 3D EM strategies (single-section vectorization via Rhinoceros, serial-section TEM reconstruction, serial electron tomography via IMOD) combined with 3D printing to produce physical cell models.",
+      "finding": "3D prototypes of blood cells were successfully produced at up to 34,000x magnification, and digital models were made freely available for download and printing at any institution.",
+      "dataset": "Rat blood leukocytes (neutrophils, lymphocytes) from Wistar rats",
+      "metric": "Scale factor, structural fidelity to EM images",
+      "baseline": "Traditional textbook illustrations and 2D EM images",
+      "result": "Neutrophil prototype 34,000x larger than original cell; models deposited for free download"
+    },
+    {
+      "doi": "10.1186/s40779-025-00591-6",
+      "problem": "How can AI virtual cell (AIVC) technology transform cancer research by enabling in silico experimentation across molecular to tissue scales?",
+      "method": "Perspective paper proposing AIVC framework with universal representations, manipulator/decoder virtual instruments, and a computational-experimental iterative paradigm for oncology.",
+      "finding": "AIVC technology is particularly suited for oncology due to cancer's bottom-up pathogenic pattern at the cellular level, enabling multi-scale tumor simulation, virtual drug screening, and dynamic tumor evolution reconstruction.",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    },
+    {
+      "doi": "10.1371/journal.pone.0127972",
+      "problem": "How do micro-environmental selection pressures drive the somatic evolution of tumor cell aggression, particularly changes in adhesion properties?",
+      "method": "Multi-cell virtual-tissue model using GGH/Cellular Potts model in CompuCell3D with heritable parameter variation (cadherins/integrins), nutrient-limited growth, stem cell dynamics, and senescence.",
+      "finding": "Emergent stratification into regions with different survival rates drives evolution toward less cohesive cells (lower cadherins, higher integrins). Less cohesive clusters outgrow cohesive ones due to greater nutrient access, eventually producing invasive dispersed cells.",
+      "dataset": "In silico generic solid tumor with stem-like and somatic cancer cells, glucose-limited microenvironment",
+      "metric": "Cell population dynamics, adhesion parameter evolution (cadherin/integrin levels), tumor diameter",
+      "baseline": "Initial cohesive tumor state (high cadherin, low integrin)",
+      "result": "Tumor reaches ~500μm diameter in ~1 month; necrotic core ~250μm; invasive dispersed cells dominant after ~3 simulated years"
+    },
+    {
+      "doi": "10.1371/journal.pone.0109692",
+      "problem": "Traditional industrial robotic work cell design and programming are inefficient, requiring complex commands and trained personnel while posing safety risks.",
+      "method": "VR-based system (VR-Rocell) integrating VR-RoWL for layout planning and VR-RoT for robot teach-by-demonstrate programming, built with C++, OpenGL, and VRML on open platform architecture.",
+      "finding": "VR-generated layout models are compatible with commercial software without information loss, and generated KUKA robot commands are workable. Actual operation errors stem from robot dynamics, not program accuracy.",
+      "dataset": "Electronics casing assembly task with two KUKA KR16 industrial robots",
+      "metric": "Model compatibility with commercial software, command accuracy, assembly task completion",
+      "baseline": "Traditional robot programming and commercial simulation software (e.g., KUKA SimPro)",
+      "result": "Output models compatible with commercial software; generated KUKA commands workable in simulator and actual robot"
+    },
+    {
+      "doi": "10.1039/d0sc00755b",
+      "problem": "Can compressive shearing forces induce mechanochemical oligomerization of glycine, relevant to prebiotic peptide bond formation under extreme conditions?",
+      "method": "DFTB quantum molecular dynamics simulations in a virtual rotational diamond anvil cell (V-RDAC) with ensembles of 10 independent 25 ps trajectories per condition, spanning 2.9-15.6 GPa and shear rates 0.5-1.0 Å/ps.",
+      "finding": "Significant oligomerization occurs at pressures ≥10.2 GPa, forming glycine mass equivalent oligomers up to 5-GME. Lower shear rates produce higher oligomer yields with less molecular degradation. Peptide-like bonds form through condensation reactions.",
+      "dataset": "Amorphous glycine (48 molecules per simulation cell), diamond anvil surfaces",
+      "metric": "Mass fraction of oligomers, GME classification, oligomer lifetime, number of distinct molecular species",
+      "baseline": "Unreacted glycine at low pressures (2.9-6.7 GPa, few/no reactions observed)",
+      "result": "Up to 256 distinct species at 15.6 GPa; significant oligomerization at ≥10.2 GPa; 4.5 ns total trajectory time across all conditions"
+    },
+    {
+      "doi": "10.1186/s40779-025-00608-0",
+      "problem": "What are the unresolved questions in applying AI virtual cells for cancer research?",
+      "method": "Commentary/perspective article discussing open challenges (no experimental methods).",
+      "finding": "",
+      "dataset": "",
+      "metric": "",
+      "baseline": "",
+      "result": ""
+    }
+  ],
+  "timestamp": "2026-03-05T14:11:08.086726",
+  "extraction_count": 10
+}
