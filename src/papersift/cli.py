@@ -323,6 +323,54 @@ workflow: entity-based focus (skip cluster numbers)
     research_parser.add_argument("--no-llm", action="store_true",
                                 help="Skip automatic LLM extraction (save prompts only)")
 
+    # ===== Knowledge Frontier commands =====
+    redundancy_parser = subparsers.add_parser(
+        "redundancy",
+        help="Score paper redundancy within clusters (entity Jaccard + bibliographic coupling)",
+    )
+    redundancy_parser.add_argument("input", help="Papers JSON file")
+    redundancy_parser.add_argument("--clusters-from", required=True, help="Clusters JSON file ({doi: cluster_id})")
+    redundancy_parser.add_argument("--entities-from", help="Pre-computed entities JSON (skip extraction)")
+    redundancy_parser.add_argument("-o", "--output", required=True, help="Output JSON file")
+
+    temporal_parser = subparsers.add_parser(
+        "temporal",
+        help="Detect temporal trends per cluster (OLS + BH-FDR per entity)",
+    )
+    temporal_parser.add_argument("input", help="Papers JSON file")
+    temporal_parser.add_argument("--clusters-from", required=True, help="Clusters JSON file ({doi: cluster_id})")
+    temporal_parser.add_argument("--entities-from", help="Pre-computed entities JSON")
+    temporal_parser.add_argument("-o", "--output", required=True, help="Output JSON file")
+
+    gaps_parser = subparsers.add_parser(
+        "gaps",
+        help="Find structural gaps (intra-cluster) and cross-cluster bridges",
+    )
+    gaps_parser.add_argument("input", help="Papers JSON file")
+    gaps_parser.add_argument("--clusters-from", required=True, help="Clusters JSON file ({doi: cluster_id})")
+    gaps_parser.add_argument("--entities-from", help="Pre-computed entities JSON")
+    gaps_parser.add_argument("-o", "--output", required=True, help="Output JSON file")
+
+    failures_parser = subparsers.add_parser(
+        "failures",
+        help="Aggregate failure signals from limitations and open questions",
+    )
+    failures_parser.add_argument("extractions", help="Extended extractions JSON file")
+    failures_parser.add_argument("--clusters-from", required=True, help="Clusters JSON file ({doi: cluster_id})")
+    failures_parser.add_argument("-o", "--output", required=True, help="Output JSON file")
+
+    recommend_parser = subparsers.add_parser(
+        "recommend",
+        help="Generate bridge recommendations (temporal + gaps + failure signals)",
+    )
+    recommend_parser.add_argument("--frontier-results", required=True,
+                                  help="Frontier results JSON (output of redundancy/temporal/gaps)")
+    recommend_parser.add_argument("--failure-results", required=True,
+                                  help="Failure signal results JSON (output of failures)")
+    recommend_parser.add_argument("-o", "--output", required=True, help="Output JSON file")
+    recommend_parser.add_argument("--top-n", type=int, default=20,
+                                  help="Number of top recommendations to include (default: 20)")
+
     args = parser.parse_args()
 
     if args.command == "cluster":
@@ -353,6 +401,16 @@ workflow: entity-based focus (skip cluster numbers)
         run_fulltext(args)
     elif args.command == "research":
         run_research(args)
+    elif args.command == "redundancy":
+        run_redundancy(args)
+    elif args.command == "temporal":
+        run_temporal(args)
+    elif args.command == "gaps":
+        run_gaps(args)
+    elif args.command == "failures":
+        run_failures(args)
+    elif args.command == "recommend":
+        run_recommend(args)
     # Pipeline command dispatch
     elif args.command == "search":
         run_search(args)
@@ -1481,6 +1539,163 @@ def run_collection(args):
         with open(output_path, "w") as f:
             _json.dump(papers, f, indent=2, ensure_ascii=False)
         print(f"Exported {len(papers)} papers to {args.output}")
+
+
+def _load_clusters(path: str) -> dict:
+    """Load clusters JSON ({doi: cluster_id})."""
+    with open(path) as f:
+        return json.load(f)
+
+
+def _load_entities(path: str) -> dict:
+    """Load pre-computed entities JSON ({doi: [entity, ...]}) and convert lists to sets."""
+    with open(path) as f:
+        raw = json.load(f)
+    return {doi: set(ents) for doi, ents in raw.items()}
+
+
+def run_redundancy(args):
+    """Execute redundancy scoring command."""
+    from papersift.frontier import extract_entities, redundancy_scoring
+
+    papers = load_papers(args.input)
+    clusters = _load_clusters(args.clusters_from)
+    print(f"Loaded {len(papers)} papers, {len(clusters)} cluster assignments", file=sys.stderr)
+
+    if args.entities_from:
+        entity_data = _load_entities(args.entities_from)
+        print(f"Loaded pre-computed entities for {len(entity_data)} papers", file=sys.stderr)
+    else:
+        print("Extracting entities (T0)...", file=sys.stderr)
+        entity_data = extract_entities(papers)
+
+    print("\nScoring redundancy (T1)...", file=sys.stderr)
+    results = redundancy_scoring(papers, entity_data, clusters)
+
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False, default=str)
+
+    print(f"\n=== Summary ===", file=sys.stderr)
+    print(f"Pairs checked: {results['pairs_checked']:,}", file=sys.stderr)
+    print(f"Notable pairs (combined > {results['threshold']}): {results['notable_pairs']}", file=sys.stderr)
+    print(f"Axis correlation: r={results['axis_correlation']:.3f}", file=sys.stderr)
+    print(f"\nSaved: {output_path}", file=sys.stderr)
+
+
+def run_temporal(args):
+    """Execute temporal dynamics command."""
+    from papersift.frontier import extract_entities, temporal_dynamics
+
+    papers = load_papers(args.input)
+    clusters = _load_clusters(args.clusters_from)
+    print(f"Loaded {len(papers)} papers, {len(clusters)} cluster assignments", file=sys.stderr)
+
+    if args.entities_from:
+        entity_data = _load_entities(args.entities_from)
+        print(f"Loaded pre-computed entities for {len(entity_data)} papers", file=sys.stderr)
+    else:
+        print("Extracting entities (T0)...", file=sys.stderr)
+        entity_data = extract_entities(papers)
+
+    print("\nAnalyzing temporal dynamics (T2)...", file=sys.stderr)
+    results = temporal_dynamics(papers, entity_data, clusters)
+
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False, default=str)
+
+    print(f"\n=== Summary ===", file=sys.stderr)
+    print(f"Total tests: {results['total_tests']}", file=sys.stderr)
+    print(f"Significant (BH-FDR): {results['total_significant']}", file=sys.stderr)
+    print(f"Momentum variance: {results['momentum_variance']:.8f}", file=sys.stderr)
+    print(f"Clusters analyzed: {len(results['clusters'])}", file=sys.stderr)
+    print(f"\nSaved: {output_path}", file=sys.stderr)
+
+
+def run_gaps(args):
+    """Execute structural gaps command."""
+    from papersift.frontier import extract_entities, structural_gaps
+
+    papers = load_papers(args.input)
+    clusters = _load_clusters(args.clusters_from)
+    print(f"Loaded {len(papers)} papers, {len(clusters)} cluster assignments", file=sys.stderr)
+
+    if args.entities_from:
+        entity_data = _load_entities(args.entities_from)
+        print(f"Loaded pre-computed entities for {len(entity_data)} papers", file=sys.stderr)
+    else:
+        print("Extracting entities (T0)...", file=sys.stderr)
+        entity_data = extract_entities(papers)
+
+    print("\nFinding structural gaps (T3)...", file=sys.stderr)
+    results = structural_gaps(papers, entity_data, clusters)
+
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False, default=str)
+
+    print(f"\n=== Summary ===", file=sys.stderr)
+    total_gaps = sum(results["intra_summary"].values())
+    print(f"Total intra-cluster gaps: {total_gaps}", file=sys.stderr)
+    print(f"Cross-cluster bridges: {len(results['cross_cluster_bridges'])}", file=sys.stderr)
+    print(f"\nSaved: {output_path}", file=sys.stderr)
+
+
+def run_failures(args):
+    """Execute failure signal aggregation command."""
+    from papersift.failure_signal import analyze_failures
+
+    with open(args.extractions) as f:
+        extractions = json.load(f)
+    clusters = _load_clusters(args.clusters_from)
+    print(f"Loaded {len(extractions)} extractions, {len(clusters)} cluster assignments", file=sys.stderr)
+
+    results = analyze_failures(extractions, clusters)
+
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False, default=str)
+
+    print(f"\n=== Summary ===", file=sys.stderr)
+    print(f"Total limit themes: {results['total_limit_themes']}", file=sys.stderr)
+    print(f"Dead-end signals: {results['total_dead_end_signals']}", file=sys.stderr)
+    print(f"Actionable OQ themes: {results['total_oq_themes']}", file=sys.stderr)
+    print(f"Overall generic rate: {results['overall_generic_rate']:.1%}", file=sys.stderr)
+    print(f"Verdict: {results['verdict']}", file=sys.stderr)
+    print(f"\nSaved: {output_path}", file=sys.stderr)
+
+
+def run_recommend(args):
+    """Execute bridge recommendation command."""
+    from papersift.bridge_recommend import generate_recommendations
+
+    with open(args.frontier_results) as f:
+        frontier_results = json.load(f)
+    with open(args.failure_results) as f:
+        failure_results = json.load(f)
+
+    results = generate_recommendations(
+        frontier_results,
+        failure_results,
+        top_n=args.top_n,
+    )
+
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False, default=str)
+
+    print(f"\n=== Summary ===", file=sys.stderr)
+    print(f"Intra-cluster recommendations: {results['n_intra_recommendations']}", file=sys.stderr)
+    print(f"Cross-cluster recommendations: {results['n_cross_recommendations']}", file=sys.stderr)
+    print(f"Total: {results['n_total']}", file=sys.stderr)
+    print(f"Verdict: {results['verdict']}", file=sys.stderr)
+    print(f"\nSaved: {output_path}", file=sys.stderr)
 
 
 if __name__ == "__main__":
