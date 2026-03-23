@@ -1,0 +1,731 @@
+{
+  "experiment": "e014",
+  "description": "T5 temporal momentum retry on v2 (3,070 papers)",
+  "dataset": "/home/kyuwon/projects/papersift/results/virtual-cell-sweep/papers_with_abstracts.json",
+  "design": {
+    "method": "Per-entity OLS on yearly proportion + BH-FDR",
+    "valid_year_threshold": 10,
+    "entity_freq_threshold": 15,
+    "fdr_alpha": 0.05,
+    "success_criteria": ">= 3 entities q < 0.05"
+  },
+  "t5_temporal": {
+    "total_papers": 3070,
+    "papers_with_year_entities": 3070,
+    "valid_years": 34,
+    "valid_year_range": "1992-2025",
+    "total_tests": 154,
+    "significant_count": 64,
+    "significant": [
+      {
+        "entity": "therapeutic",
+        "slope": 0.002599,
+        "direction": "rising",
+        "p_value": 6.413842238338875e-08,
+        "q_value": 1e-05,
+        "freq": 150,
+        "mean_proportion": 0.0352
+      },
+      {
+        "entity": "twins",
+        "slope": 0.000892,
+        "direction": "rising",
+        "p_value": 1.172348429002252e-07,
+        "q_value": 9e-06,
+        "freq": 38,
+        "mean_proportion": 0.0071
+      },
+      {
+        "entity": "cancer",
+        "slope": 0.004992,
+        "direction": "rising",
+        "p_value": 2.2072022557283724e-07,
+        "q_value": 1.1e-05,
+        "freq": 372,
+        "mean_proportion": 0.092
+      },
+      {
+        "entity": "twin",
+        "slope": 0.003242,
+        "direction": "rising",
+        "p_value": 2.873045008406442e-07,
+        "q_value": 1.1e-05,
+        "freq": 126,
+        "mean_proportion": 0.024
+      },
+      {
+        "entity": "diagnosis",
+        "slope": 0.00098,
+        "direction": "rising",
+        "p_value": 3.1694101601987643e-07,
+        "q_value": 1e-05,
+        "freq": 53,
+        "mean_proportion": 0.0119
+      },
+      {
+        "entity": "disease",
+        "slope": 0.003481,
+        "direction": "rising",
+        "p_value": 3.584129662950583e-07,
+        "q_value": 9e-06,
+        "freq": 250,
+        "mean_proportion": 0.0615
+      },
+      {
+        "entity": "deep learning",
+        "slope": 0.000838,
+        "direction": "rising",
+        "p_value": 3.726422610216927e-07,
+        "q_value": 8e-06,
+        "freq": 35,
+        "mean_proportion": 0.0064
+      },
+      {
+        "entity": "heterogeneity",
+        "slope": 0.001348,
+        "direction": "rising",
+        "p_value": 5.278533568699761e-07,
+        "q_value": 1e-05,
+        "freq": 87,
+        "mean_proportion": 0.02
+      },
+      {
+        "entity": "digital",
+        "slope": 0.005626,
+        "direction": "rising",
+        "p_value": 6.042373596760954e-07,
+        "q_value": 1e-05,
+        "freq": 218,
+        "mean_proportion": 0.0416
+      },
+      {
+        "entity": "digital twin",
+        "slope": 0.008366,
+        "direction": "rising",
+        "p_value": 9.047101057507297e-07,
+        "q_value": 1.4e-05,
+        "freq": 321,
+        "mean_proportion": 0.0601
+      },
+      {
+        "entity": "industry",
+        "slope": 0.000459,
+        "direction": "rising",
+        "p_value": 9.766588071281212e-07,
+        "q_value": 1.4e-05,
+        "freq": 19,
+        "mean_proportion": 0.0036
+      },
+      {
+        "entity": "in silico",
+        "slope": 0.006361,
+        "direction": "rising",
+        "p_value": 1.4425605931293911e-06,
+        "q_value": 1.9e-05,
+        "freq": 545,
+        "mean_proportion": 0.1385
+      },
+      {
+        "entity": "optimization",
+        "slope": 0.002205,
+        "direction": "rising",
+        "p_value": 4.199065030675991e-06,
+        "q_value": 5e-05,
+        "freq": 157,
+        "mean_proportion": 0.0391
+      },
+      {
+        "entity": "agent-based",
+        "slope": 0.001069,
+        "direction": "rising",
+        "p_value": 5.460117329368993e-06,
+        "q_value": 6e-05,
+        "freq": 55,
+        "mean_proportion": 0.01
+      },
+      {
+        "entity": "communication",
+        "slope": 0.000328,
+        "direction": "rising",
+        "p_value": 5.706958990809984e-06,
+        "q_value": 5.9e-05,
+        "freq": 15,
+        "mean_proportion": 0.0029
+      },
+      {
+        "entity": "silico",
+        "slope": 0.001877,
+        "direction": "rising",
+        "p_value": 9.847183937565809e-06,
+        "q_value": 9.5e-05,
+        "freq": 140,
+        "mean_proportion": 0.0332
+      },
+      {
+        "entity": "hybrid",
+        "slope": 0.000496,
+        "direction": "rising",
+        "p_value": 1.1818697833877991e-05,
+        "q_value": 0.000107,
+        "freq": 22,
+        "mean_proportion": 0.0046
+      },
+      {
+        "entity": "power",
+        "slope": 0.00039,
+        "direction": "rising",
+        "p_value": 1.3375280928106668e-05,
+        "q_value": 0.000114,
+        "freq": 16,
+        "mean_proportion": 0.0036
+      },
+      {
+        "entity": "machine learning",
+        "slope": 0.001551,
+        "direction": "rising",
+        "p_value": 1.447347659052738e-05,
+        "q_value": 0.000117,
+        "freq": 60,
+        "mean_proportion": 0.0121
+      },
+      {
+        "entity": "design",
+        "slope": 0.000719,
+        "direction": "rising",
+        "p_value": 5.4300969288878875e-05,
+        "q_value": 0.000418,
+        "freq": 40,
+        "mean_proportion": 0.0079
+      },
+      {
+        "entity": "potential",
+        "slope": 0.000429,
+        "direction": "rising",
+        "p_value": 7.85072936071976e-05,
+        "q_value": 0.000576,
+        "freq": 26,
+        "mean_proportion": 0.006
+      },
+      {
+        "entity": "single-cell",
+        "slope": 0.000579,
+        "direction": "rising",
+        "p_value": 8.963478165327725e-05,
+        "q_value": 0.000627,
+        "freq": 31,
+        "mean_proportion": 0.0064
+      },
+      {
+        "entity": "cancer cell",
+        "slope": 0.001395,
+        "direction": "rising",
+        "p_value": 0.00013326000823547218,
+        "q_value": 0.000892,
+        "freq": 83,
+        "mean_proportion": 0.0187
+      },
+      {
+        "entity": "neural network",
+        "slope": 0.000822,
+        "direction": "rising",
+        "p_value": 0.00017189220341403178,
+        "q_value": 0.001103,
+        "freq": 51,
+        "mean_proportion": 0.0111
+      },
+      {
+        "entity": "screening",
+        "slope": 0.00135,
+        "direction": "rising",
+        "p_value": 0.00017908406419678144,
+        "q_value": 0.001103,
+        "freq": 120,
+        "mean_proportion": 0.0322
+      },
+      {
+        "entity": "rat",
+        "slope": -0.001701,
+        "direction": "declining",
+        "p_value": 0.00018322078280696486,
+        "q_value": 0.001085,
+        "freq": 43,
+        "mean_proportion": 0.0233
+      },
+      {
+        "entity": "allocation",
+        "slope": 0.0003,
+        "direction": "rising",
+        "p_value": 0.00018765315203624972,
+        "q_value": 0.00107,
+        "freq": 15,
+        "mean_proportion": 0.0029
+      },
+      {
+        "entity": "human",
+        "slope": 0.00398,
+        "direction": "rising",
+        "p_value": 0.00019689962616504465,
+        "q_value": 0.001083,
+        "freq": 492,
+        "mean_proportion": 0.1397
+      },
+      {
+        "entity": "prognosis",
+        "slope": 0.00045,
+        "direction": "rising",
+        "p_value": 0.00022023604195925612,
+        "q_value": 0.00117,
+        "freq": 22,
+        "mean_proportion": 0.0047
+      },
+      {
+        "entity": "robotic",
+        "slope": 0.00059,
+        "direction": "rising",
+        "p_value": 0.0002761767236299313,
+        "q_value": 0.001418,
+        "freq": 20,
+        "mean_proportion": 0.0041
+      },
+      {
+        "entity": "personalized medicine",
+        "slope": 0.000413,
+        "direction": "rising",
+        "p_value": 0.00031423096637902935,
+        "q_value": 0.001561,
+        "freq": 16,
+        "mean_proportion": 0.0037
+      },
+      {
+        "entity": "rna-seq",
+        "slope": 0.00066,
+        "direction": "rising",
+        "p_value": 0.00033719914787153646,
+        "q_value": 0.001623,
+        "freq": 36,
+        "mean_proportion": 0.0078
+      },
+      {
+        "entity": "bioinformatics",
+        "slope": 0.000727,
+        "direction": "rising",
+        "p_value": 0.00039433709452733445,
+        "q_value": 0.00184,
+        "freq": 51,
+        "mean_proportion": 0.0116
+      },
+      {
+        "entity": "battery",
+        "slope": 0.000597,
+        "direction": "rising",
+        "p_value": 0.0005284225047950628,
+        "q_value": 0.002393,
+        "freq": 24,
+        "mean_proportion": 0.0042
+      },
+      {
+        "entity": "neuronal",
+        "slope": -0.001129,
+        "direction": "declining",
+        "p_value": 0.0007399213643765663,
+        "q_value": 0.003256,
+        "freq": 44,
+        "mean_proportion": 0.0223
+      },
+      {
+        "entity": "immune cell",
+        "slope": 0.000397,
+        "direction": "rising",
+        "p_value": 0.0008613257120721519,
+        "q_value": 0.003685,
+        "freq": 19,
+        "mean_proportion": 0.0037
+      },
+      {
+        "entity": "ai",
+        "slope": 0.001555,
+        "direction": "rising",
+        "p_value": 0.0008885040659955143,
+        "q_value": 0.003698,
+        "freq": 44,
+        "mean_proportion": 0.01
+      },
+      {
+        "entity": "smart",
+        "slope": 0.0003,
+        "direction": "rising",
+        "p_value": 0.0012597631929620646,
+        "q_value": 0.005105,
+        "freq": 15,
+        "mean_proportion": 0.0029
+      },
+      {
+        "entity": "solar",
+        "slope": 0.000321,
+        "direction": "rising",
+        "p_value": 0.0013275942277744413,
+        "q_value": 0.005242,
+        "freq": 16,
+        "mean_proportion": 0.0035
+      },
+      {
+        "entity": "perturbation",
+        "slope": 0.000632,
+        "direction": "rising",
+        "p_value": 0.0019087941213472934,
+        "q_value": 0.007349,
+        "freq": 28,
+        "mean_proportion": 0.007
+      },
+      {
+        "entity": "t cell",
+        "slope": 0.000816,
+        "direction": "rising",
+        "p_value": 0.0020989942746008653,
+        "q_value": 0.007884,
+        "freq": 73,
+        "mean_proportion": 0.0194
+      },
+      {
+        "entity": "proliferation",
+        "slope": 0.001331,
+        "direction": "rising",
+        "p_value": 0.0035713202317340306,
+        "q_value": 0.013095,
+        "freq": 143,
+        "mean_proportion": 0.0387
+      },
+      {
+        "entity": "multiscale",
+        "slope": 0.00044,
+        "direction": "rising",
+        "p_value": 0.003769446124496963,
+        "q_value": 0.0135,
+        "freq": 31,
+        "mean_proportion": 0.007
+      },
+      {
+        "entity": "toward",
+        "slope": 0.000378,
+        "direction": "rising",
+        "p_value": 0.004047291124951709,
+        "q_value": 0.014166,
+        "freq": 19,
+        "mean_proportion": 0.0049
+      },
+      {
+        "entity": "alzheimer",
+        "slope": 0.000316,
+        "direction": "rising",
+        "p_value": 0.004999137335394484,
+        "q_value": 0.017108,
+        "freq": 16,
+        "mean_proportion": 0.0036
+      },
+      {
+        "entity": "dynamics",
+        "slope": 0.002434,
+        "direction": "rising",
+        "p_value": 0.005279262608710181,
+        "q_value": 0.017674,
+        "freq": 351,
+        "mean_proportion": 0.1034
+      },
+      {
+        "entity": "resource",
+        "slope": 0.000325,
+        "direction": "rising",
+        "p_value": 0.005350837774245554,
+        "q_value": 0.017533,
+        "freq": 16,
+        "mean_proportion": 0.0033
+      },
+      {
+        "entity": "cell-based",
+        "slope": 0.000284,
+        "direction": "rising",
+        "p_value": 0.005584161846175863,
+        "q_value": 0.017916,
+        "freq": 18,
+        "mean_proportion": 0.0043
+      },
+      {
+        "entity": "methylation",
+        "slope": 0.000255,
+        "direction": "rising",
+        "p_value": 0.006167551965143187,
+        "q_value": 0.019384,
+        "freq": 16,
+        "mean_proportion": 0.0033
+      },
+      {
+        "entity": "functional",
+        "slope": 0.00025,
+        "direction": "rising",
+        "p_value": 0.006423248915930307,
+        "q_value": 0.019784,
+        "freq": 16,
+        "mean_proportion": 0.0037
+      },
+      {
+        "entity": "biomarker",
+        "slope": 0.000264,
+        "direction": "rising",
+        "p_value": 0.0067644383017576885,
+        "q_value": 0.020426,
+        "freq": 18,
+        "mean_proportion": 0.0042
+      },
+      {
+        "entity": "control",
+        "slope": 0.000489,
+        "direction": "rising",
+        "p_value": 0.008551794899495868,
+        "q_value": 0.025326,
+        "freq": 32,
+        "mean_proportion": 0.0085
+      },
+      {
+        "entity": "reality",
+        "slope": 0.000295,
+        "direction": "rising",
+        "p_value": 0.009042548398856898,
+        "q_value": 0.026275,
+        "freq": 16,
+        "mean_proportion": 0.0028
+      },
+      {
+        "entity": "precision medicine",
+        "slope": 0.000447,
+        "direction": "rising",
+        "p_value": 0.010661608131399642,
+        "q_value": 0.030405,
+        "freq": 15,
+        "mean_proportion": 0.0038
+      },
+      {
+        "entity": "virtual",
+        "slope": 0.00188,
+        "direction": "rising",
+        "p_value": 0.013432928574780675,
+        "q_value": 0.037612,
+        "freq": 257,
+        "mean_proportion": 0.0753
+      },
+      {
+        "entity": "immune",
+        "slope": 0.00028,
+        "direction": "rising",
+        "p_value": 0.01406516930400755,
+        "q_value": 0.038679,
+        "freq": 18,
+        "mean_proportion": 0.0034
+      },
+      {
+        "entity": "rna",
+        "slope": 0.000252,
+        "direction": "rising",
+        "p_value": 0.014327744869801819,
+        "q_value": 0.03871,
+        "freq": 18,
+        "mean_proportion": 0.0037
+      },
+      {
+        "entity": "breast",
+        "slope": 0.000231,
+        "direction": "rising",
+        "p_value": 0.015616943767461726,
+        "q_value": 0.041466,
+        "freq": 15,
+        "mean_proportion": 0.0034
+      },
+      {
+        "entity": "application",
+        "slope": 0.000494,
+        "direction": "rising",
+        "p_value": 0.015866994896524392,
+        "q_value": 0.041416,
+        "freq": 37,
+        "mean_proportion": 0.0094
+      },
+      {
+        "entity": "mathematical",
+        "slope": -0.000885,
+        "direction": "declining",
+        "p_value": 0.01609093938878574,
+        "q_value": 0.0413,
+        "freq": 20,
+        "mean_proportion": 0.0103
+      },
+      {
+        "entity": "escherichia",
+        "slope": -0.000852,
+        "direction": "declining",
+        "p_value": 0.017710215323731716,
+        "q_value": 0.044711,
+        "freq": 23,
+        "mean_proportion": 0.0135
+      },
+      {
+        "entity": "cell fate",
+        "slope": 0.000358,
+        "direction": "rising",
+        "p_value": 0.01930319300992967,
+        "q_value": 0.047947,
+        "freq": 25,
+        "mean_proportion": 0.0065
+      },
+      {
+        "entity": "evaluation",
+        "slope": 0.000244,
+        "direction": "rising",
+        "p_value": 0.01957095869312311,
+        "q_value": 0.04784,
+        "freq": 17,
+        "mean_proportion": 0.0042
+      },
+      {
+        "entity": "stem",
+        "slope": 0.00053,
+        "direction": "rising",
+        "p_value": 0.02058001838672066,
+        "q_value": 0.049521,
+        "freq": 43,
+        "mean_proportion": 0.0105
+      }
+    ],
+    "top_rising": [
+      {
+        "entity": "therapeutic",
+        "slope": 0.002599,
+        "p_value": 6.413842238338875e-08,
+        "freq": 150
+      },
+      {
+        "entity": "twins",
+        "slope": 0.000892,
+        "p_value": 1.172348429002252e-07,
+        "freq": 38
+      },
+      {
+        "entity": "cancer",
+        "slope": 0.004992,
+        "p_value": 2.2072022557283724e-07,
+        "freq": 372
+      },
+      {
+        "entity": "twin",
+        "slope": 0.003242,
+        "p_value": 2.873045008406442e-07,
+        "freq": 126
+      },
+      {
+        "entity": "diagnosis",
+        "slope": 0.00098,
+        "p_value": 3.1694101601987643e-07,
+        "freq": 53
+      },
+      {
+        "entity": "disease",
+        "slope": 0.003481,
+        "p_value": 3.584129662950583e-07,
+        "freq": 250
+      },
+      {
+        "entity": "deep learning",
+        "slope": 0.000838,
+        "p_value": 3.726422610216927e-07,
+        "freq": 35
+      },
+      {
+        "entity": "heterogeneity",
+        "slope": 0.001348,
+        "p_value": 5.278533568699761e-07,
+        "freq": 87
+      },
+      {
+        "entity": "digital",
+        "slope": 0.005626,
+        "p_value": 6.042373596760954e-07,
+        "freq": 218
+      },
+      {
+        "entity": "digital twin",
+        "slope": 0.008366,
+        "p_value": 9.047101057507297e-07,
+        "freq": 321
+      }
+    ],
+    "top_declining": [
+      {
+        "entity": "rat",
+        "slope": -0.001701,
+        "p_value": 0.00018322078280696486,
+        "freq": 43
+      },
+      {
+        "entity": "neuronal",
+        "slope": -0.001129,
+        "p_value": 0.0007399213643765663,
+        "freq": 44
+      },
+      {
+        "entity": "mathematical",
+        "slope": -0.000885,
+        "p_value": 0.01609093938878574,
+        "freq": 20
+      },
+      {
+        "entity": "escherichia",
+        "slope": -0.000852,
+        "p_value": 0.017710215323731716,
+        "freq": 23
+      },
+      {
+        "entity": "response",
+        "slope": -0.001861,
+        "p_value": 0.054042172573325865,
+        "freq": 322
+      },
+      {
+        "entity": "membrane",
+        "slope": -0.000415,
+        "p_value": 0.07017866865684218,
+        "freq": 18
+      },
+      {
+        "entity": "escherichia coli",
+        "slope": -0.000829,
+        "p_value": 0.07179139031436521,
+        "freq": 61
+      },
+      {
+        "entity": "pathway",
+        "slope": -0.000711,
+        "p_value": 0.11515956693722076,
+        "freq": 119
+      },
+      {
+        "entity": "neuron",
+        "slope": -0.000541,
+        "p_value": 0.13199830555044467,
+        "freq": 35
+      },
+      {
+        "entity": "role",
+        "slope": -0.000353,
+        "p_value": 0.15056354218837556,
+        "freq": 27
+      }
+    ],
+    "verdict": "GO — 64 entities significant after BH-FDR",
+    "v1_comparison": {
+      "v1_papers": 354,
+      "v1_tests": 75,
+      "v1_significant": 0,
+      "v2_papers": 3070,
+      "v2_tests": 154,
+      "v2_significant": 64
+    }
+  }
+}

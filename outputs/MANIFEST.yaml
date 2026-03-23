@@ -216,3 +216,23 @@ experiments:
     success_criteria: "T4: >=6/10 meaningful. T5: >=3 entities q<0.05"
     verdict: "T4 PENDING USER EVAL — top-10 underexplored pairs generated (virtual cell×whole-cell expected=19.8 observed=0). T5 FAIL — 0 significant after BH-FDR (75 tests, v1 354편 검출력 부족). Top uncorrected: simulation declining p=0.0009, dynamics rising p=0.011"
     note: "T5: v2(3,070편)에서 재시도 권장. T4: top pairs are cross-cluster gaps (different communities never co-occur), domain validity TBD"
+  e014:
+    path: outputs/e014/
+    script: scripts/e014_temporal_v2.py
+    params:
+      design: "T5 temporal momentum retry on v2 (3,070 papers)"
+      dataset: "results/virtual-cell-sweep/papers_with_abstracts.json"
+      valid_year_threshold: 10
+      entity_freq_threshold: 15
+      fdr_alpha: 0.05
+    outputs:
+      - outputs/e014/results.json
+    status: complete
+    description: "T5 temporal momentum v2 — 64 significant entities after BH-FDR"
+    issue: ""
+    branch: ""
+    priority: 1
+    depends_on: [e013]
+    success_criteria: ">= 3 entities q < 0.05 after BH-FDR"
+    verdict: "GO — 64/154 entities significant (v1: 0/75). Top rising: digital twin, in silico, cancer, deep learning, machine learning. Top declining: rat, neuronal. 동물모델→in silico 전환 신호 확인"
+    note: "v1→v2 검출력 극적 개선 (0→64). valid_years>=10, freq>=15로 안정성 강화. Rising 60개, declining 4개 — field 전체가 computational 전환 중"
