@@ -1,0 +1,157 @@
+{
+  "experiment": "e021",
+  "title": "T3 z-score Novelty",
+  "timestamp": "2026-03-24T05:29:16.829493+00:00",
+  "null_model": {
+    "n_permutations": 1000,
+    "n_clusters_analyzed": 8,
+    "max_entities_per_cluster": 100
+  },
+  "z_score_gaps": {
+    "total_pairs_tested": 543,
+    "significant_gaps_z2": 20,
+    "significant_gaps_z3": 2,
+    "clusters_with_z2_gaps": [
+      "C0",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6"
+    ],
+    "top_10_gaps": [
+      {
+        "cluster": "C4",
+        "entity_a": "twin",
+        "entity_b": "twins",
+        "observed": 0,
+        "expected_independence": 12.776,
+        "null_mean": 11.109,
+        "null_std": 2.6338,
+        "z": -4.2178,
+        "ratio": 0.0
+      },
+      {
+        "cluster": "C2",
+        "entity_a": "virtual cell",
+        "entity_b": "small",
+        "observed": 0,
+        "expected_independence": 7.675,
+        "null_mean": 6.62,
+        "null_std": 2.0307,
+        "z": -3.26,
+        "ratio": 0.0
+      },
+      {
+        "cluster": "C2",
+        "entity_a": "virtual cell",
+        "entity_b": "digital twin",
+        "observed": 0,
+        "expected_independence": 6.464,
+        "null_mean": 5.568,
+        "null_std": 1.8765,
+        "z": -2.9672,
+        "ratio": 0.0
+      },
+      {
+        "cluster": "C2",
+        "entity_a": "virtual cell",
+        "entity_b": "screening",
+        "observed": 2,
+        "expected_independence": 9.695,
+        "null_mean": 8.432,
+        "null_std": 2.2431,
+        "z": -2.8675,
+        "ratio": 0.2063
+      },
+      {
+        "cluster": "C0",
+        "entity_a": "disease",
+        "entity_b": "cancer cell",
+        "observed": 1,
+        "expected_independence": 8.521,
+        "null_mean": 8.047,
+        "null_std": 2.4853,
+        "z": -2.8355,
+        "ratio": 0.1174
+      },
+      {
+        "cluster": "C5",
+        "entity_a": "human",
+        "entity_b": "dynamics",
+        "observed": 1,
+        "expected_independence": 7.464,
+        "null_mean": 7.185,
+        "null_std": 2.2147,
+        "z": -2.7927,
+        "ratio": 0.134
+      },
+      {
+        "cluster": "C1",
+        "entity_a": "whole-cell",
+        "entity_b": "cancer",
+        "observed": 1,
+        "expected_independence": 7.438,
+        "null_mean": 7.383,
+        "null_std": 2.335,
+        "z": -2.7336,
+        "ratio": 0.1344
+      },
+      {
+        "cluster": "C3",
+        "entity_a": "human",
+        "entity_b": "whole-cell",
+        "observed": 4,
+        "expected_independence": 11.823,
+        "null_mean": 10.962,
+        "null_std": 2.6219,
+        "z": -2.6553,
+        "ratio": 0.3383
+      },
+      {
+        "cluster": "C2",
+        "entity_a": "virtual",
+        "entity_b": "digital twin",
+        "observed": 2,
+        "expected_independence": 8.124,
+        "null_mean": 6.751,
+        "null_std": 1.8732,
+        "z": -2.5363,
+        "ratio": 0.2462
+      },
+      {
+        "cluster": "C1",
+        "entity_a": "whole-cell",
+        "entity_b": "tissue",
+        "observed": 2,
+        "expected_independence": 7.438,
+        "null_mean": 7.606,
+        "null_std": 2.3547,
+        "z": -2.3807,
+        "ratio": 0.2689
+      }
+    ]
+  },
+  "ratio_gaps": {
+    "total": 12,
+    "clusters_with_gaps": [
+      "C0",
+      "C1",
+      "C2",
+      "C4",
+      "C5"
+    ]
+  },
+  "comparison": {
+    "additional_clusters_covered": 2,
+    "additional_clusters": [
+      "C3",
+      "C6"
+    ],
+    "overlapping_pairs": 543,
+    "spearman_rho": 0.868977,
+    "spearman_p": 0.0
+  },
+  "verdict": "GO"
+}

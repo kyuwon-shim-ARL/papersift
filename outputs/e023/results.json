@@ -1,0 +1,3452 @@
+{
+  "experiment": "e023",
+  "title": "T2 Kleinberg Burst Detection",
+  "timestamp": "2026-03-24T05:32:45.052093+00:00",
+  "parameters": {
+    "resolution": "year",
+    "s_values": [
+      1.5,
+      2.0,
+      3.0
+    ],
+    "min_mentions": 5,
+    "n_states": 3,
+    "burst_threshold_state": 1
+  },
+  "results_by_s": {
+    "1.5": {
+      "n_burst_entities": 116,
+      "burst_entities": [
+        {
+          "entity": "in silico",
+          "burst_years": [
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2013,
+              "end": 2023,
+              "length": 11
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 52,
+          "total_mentions": 545
+        },
+        {
+          "entity": "human",
+          "burst_years": [
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2010,
+              "end": 2025,
+              "length": 16
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 44,
+          "total_mentions": 492
+        },
+        {
+          "entity": "simulation",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2024,
+              "length": 9
+            }
+          ],
+          "peak_year": 2024,
+          "peak_count": 32,
+          "total_mentions": 430
+        },
+        {
+          "entity": "cancer",
+          "burst_years": [
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2013,
+              "end": 2024,
+              "length": 12
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 33,
+          "total_mentions": 372
+        },
+        {
+          "entity": "dynamics",
+          "burst_years": [
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2015,
+              "end": 2025,
+              "length": 11
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 26,
+          "total_mentions": 351
+        },
+        {
+          "entity": "response",
+          "burst_years": [
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2012,
+              "end": 2023,
+              "length": 12
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 26,
+          "total_mentions": 322
+        },
+        {
+          "entity": "digital twin",
+          "burst_years": [
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2020,
+              "end": 2024,
+              "length": 5
+            }
+          ],
+          "peak_year": 2024,
+          "peak_count": 58,
+          "total_mentions": 321
+        },
+        {
+          "entity": "tissue",
+          "burst_years": [
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2010,
+              "end": 2023,
+              "length": 14
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 21,
+          "total_mentions": 277
+        },
+        {
+          "entity": "virtual",
+          "burst_years": [
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2012,
+              "end": 2025,
+              "length": 14
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 24,
+          "total_mentions": 257
+        },
+        {
+          "entity": "disease",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2023,
+              "length": 7
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 25,
+          "total_mentions": 250
+        },
+        {
+          "entity": "virtual cell",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2019,
+              "length": 4
+            },
+            {
+              "start": 2025,
+              "end": 2025,
+              "length": 1
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 26,
+          "total_mentions": 218
+        },
+        {
+          "entity": "digital",
+          "burst_years": [
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2019,
+              "end": 2024,
+              "length": 6
+            }
+          ],
+          "peak_year": 2024,
+          "peak_count": 40,
+          "total_mentions": 218
+        },
+        {
+          "entity": "whole-cell",
+          "burst_years": [
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2012,
+              "end": 2025,
+              "length": 14
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 23,
+          "total_mentions": 197
+        },
+        {
+          "entity": "algorithm",
+          "burst_years": [
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2024,
+              "length": 11
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 11,
+          "total_mentions": 168
+        },
+        {
+          "entity": "signaling",
+          "burst_years": [
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2022,
+              "length": 5
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 11,
+          "total_mentions": 160
+        },
+        {
+          "entity": "optimization",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2024,
+              "length": 8
+            }
+          ],
+          "peak_year": 2023,
+          "peak_count": 20,
+          "total_mentions": 157
+        },
+        {
+          "entity": "therapeutic",
+          "burst_years": [
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2025,
+              "length": 8
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 17,
+          "total_mentions": 150
+        },
+        {
+          "entity": "metabolic",
+          "burst_years": [
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2007,
+              "end": 2022,
+              "length": 16
+            }
+          ],
+          "peak_year": 2010,
+          "peak_count": 10,
+          "total_mentions": 147
+        },
+        {
+          "entity": "proliferation",
+          "burst_years": [
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2011,
+              "end": 2024,
+              "length": 14
+            }
+          ],
+          "peak_year": 2016,
+          "peak_count": 12,
+          "total_mentions": 143
+        },
+        {
+          "entity": "gene expression",
+          "burst_years": [
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2009,
+              "end": 2019,
+              "length": 11
+            }
+          ],
+          "peak_year": 2019,
+          "peak_count": 10,
+          "total_mentions": 140
+        },
+        {
+          "entity": "silico",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2023,
+              "length": 8
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 16,
+          "total_mentions": 140
+        },
+        {
+          "entity": "regulation",
+          "burst_years": [
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2022,
+              "length": 9
+            }
+          ],
+          "peak_year": 2014,
+          "peak_count": 11,
+          "total_mentions": 134
+        },
+        {
+          "entity": "mouse",
+          "burst_years": [
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2023,
+              "length": 10
+            }
+          ],
+          "peak_year": 2015,
+          "peak_count": 11,
+          "total_mentions": 132
+        },
+        {
+          "entity": "twin",
+          "burst_years": [
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2019,
+              "end": 2024,
+              "length": 6
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 21,
+          "total_mentions": 126
+        },
+        {
+          "entity": "screening",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2023,
+              "length": 8
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 11,
+          "total_mentions": 120
+        },
+        {
+          "entity": "pathway",
+          "burst_years": [
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2012,
+              "end": 2023,
+              "length": 12
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 10,
+          "total_mentions": 119
+        },
+        {
+          "entity": "differentiation",
+          "burst_years": [
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2010,
+              "end": 2021,
+              "length": 12
+            }
+          ],
+          "peak_year": 2015,
+          "peak_count": 9,
+          "total_mentions": 103
+        },
+        {
+          "entity": "stem cell",
+          "burst_years": [
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2013,
+              "end": 2020,
+              "length": 8
+            }
+          ],
+          "peak_year": 2013,
+          "peak_count": 9,
+          "total_mentions": 92
+        },
+        {
+          "entity": "heterogeneity",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2023,
+              "length": 7
+            }
+          ],
+          "peak_year": 2023,
+          "peak_count": 10,
+          "total_mentions": 87
+        },
+        {
+          "entity": "development",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2024,
+              "length": 8
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 7,
+          "total_mentions": 83
+        },
+        {
+          "entity": "cancer cell",
+          "burst_years": [
+            2018,
+            2019,
+            2020,
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2021,
+              "length": 4
+            }
+          ],
+          "peak_year": 2019,
+          "peak_count": 10,
+          "total_mentions": 83
+        },
+        {
+          "entity": "evolution",
+          "burst_years": [
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2025,
+              "length": 12
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 7,
+          "total_mentions": 78
+        },
+        {
+          "entity": "apoptosis",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2020,
+              "length": 5
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 10,
+          "total_mentions": 77
+        },
+        {
+          "entity": "t cell",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2019,
+              "length": 4
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 11,
+          "total_mentions": 73
+        },
+        {
+          "entity": "cell cycle",
+          "burst_years": [
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2022,
+              "length": 9
+            }
+          ],
+          "peak_year": 2015,
+          "peak_count": 6,
+          "total_mentions": 67
+        },
+        {
+          "entity": "machine learning",
+          "burst_years": [
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2025,
+              "length": 5
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 15,
+          "total_mentions": 60
+        },
+        {
+          "entity": "agent-based",
+          "burst_years": [
+            2018,
+            2019,
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2020,
+              "length": 3
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 10,
+          "total_mentions": 55
+        },
+        {
+          "entity": "ml",
+          "burst_years": [
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2024,
+              "length": 7
+            }
+          ],
+          "peak_year": 2019,
+          "peak_count": 6,
+          "total_mentions": 55
+        },
+        {
+          "entity": "bioinformatics",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2020,
+              "length": 4
+            }
+          ],
+          "peak_year": 2019,
+          "peak_count": 6,
+          "total_mentions": 51
+        },
+        {
+          "entity": "neural network",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2024,
+              "length": 8
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 7,
+          "total_mentions": 51
+        },
+        {
+          "entity": "bacteria",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2020,
+              "length": 4
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 8,
+          "total_mentions": 48
+        },
+        {
+          "entity": "clustering",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2024,
+              "length": 7
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 6,
+          "total_mentions": 46
+        },
+        {
+          "entity": "ai",
+          "burst_years": [
+            2024,
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2024,
+              "end": 2025,
+              "length": 2
+            }
+          ],
+          "peak_year": 2025,
+          "peak_count": 13,
+          "total_mentions": 44
+        },
+        {
+          "entity": "manufacturing",
+          "burst_years": [
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2022,
+              "end": 2024,
+              "length": 3
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 7,
+          "total_mentions": 44
+        },
+        {
+          "entity": "rat",
+          "burst_years": [
+            1971
+          ],
+          "burst_intervals": [
+            {
+              "start": 1971,
+              "end": 1971,
+              "length": 1
+            }
+          ],
+          "peak_year": 1971,
+          "peak_count": 2,
+          "total_mentions": 43
+        },
+        {
+          "entity": "design",
+          "burst_years": [
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2022,
+              "length": 2
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 9,
+          "total_mentions": 40
+        },
+        {
+          "entity": "twins",
+          "burst_years": [
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2019,
+              "end": 2024,
+              "length": 6
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 7,
+          "total_mentions": 38
+        },
+        {
+          "entity": "rna-seq",
+          "burst_years": [
+            2010,
+            2011,
+            2012,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018
+          ],
+          "burst_intervals": [
+            {
+              "start": 2010,
+              "end": 2018,
+              "length": 8
+            }
+          ],
+          "peak_year": 2014,
+          "peak_count": 5,
+          "total_mentions": 36
+        },
+        {
+          "entity": "production",
+          "burst_years": [
+            2017,
+            2019,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2024,
+              "length": 6
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 6,
+          "total_mentions": 35
+        },
+        {
+          "entity": "deep learning",
+          "burst_years": [
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2019,
+              "end": 2023,
+              "length": 5
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 6,
+          "total_mentions": 35
+        }
+      ]
+    },
+    "2.0": {
+      "n_burst_entities": 83,
+      "burst_entities": [
+        {
+          "entity": "in silico",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2023,
+              "length": 8
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 52,
+          "total_mentions": 545
+        },
+        {
+          "entity": "human",
+          "burst_years": [
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2012,
+              "end": 2023,
+              "length": 12
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 44,
+          "total_mentions": 492
+        },
+        {
+          "entity": "simulation",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2024,
+              "length": 9
+            }
+          ],
+          "peak_year": 2024,
+          "peak_count": 32,
+          "total_mentions": 430
+        },
+        {
+          "entity": "cancer",
+          "burst_years": [
+            2013,
+            2014,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2013,
+              "end": 2014,
+              "length": 2
+            },
+            {
+              "start": 2016,
+              "end": 2024,
+              "length": 9
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 33,
+          "total_mentions": 372
+        },
+        {
+          "entity": "dynamics",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2024,
+              "length": 9
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 26,
+          "total_mentions": 351
+        },
+        {
+          "entity": "response",
+          "burst_years": [
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2013,
+              "end": 2023,
+              "length": 11
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 26,
+          "total_mentions": 322
+        },
+        {
+          "entity": "digital twin",
+          "burst_years": [
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2020,
+              "end": 2024,
+              "length": 5
+            }
+          ],
+          "peak_year": 2024,
+          "peak_count": 58,
+          "total_mentions": 321
+        },
+        {
+          "entity": "tissue",
+          "burst_years": [
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2010,
+              "end": 2022,
+              "length": 13
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 21,
+          "total_mentions": 277
+        },
+        {
+          "entity": "virtual",
+          "burst_years": [
+            2012,
+            2013,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2012,
+              "end": 2013,
+              "length": 2
+            },
+            {
+              "start": 2015,
+              "end": 2021,
+              "length": 7
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 24,
+          "total_mentions": 257
+        },
+        {
+          "entity": "disease",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2022,
+              "length": 6
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 25,
+          "total_mentions": 250
+        },
+        {
+          "entity": "virtual cell",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2018,
+              "length": 3
+            },
+            {
+              "start": 2025,
+              "end": 2025,
+              "length": 1
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 26,
+          "total_mentions": 218
+        },
+        {
+          "entity": "digital",
+          "burst_years": [
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2019,
+              "end": 2024,
+              "length": 6
+            }
+          ],
+          "peak_year": 2024,
+          "peak_count": 40,
+          "total_mentions": 218
+        },
+        {
+          "entity": "whole-cell",
+          "burst_years": [
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2025,
+              "length": 12
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 23,
+          "total_mentions": 197
+        },
+        {
+          "entity": "algorithm",
+          "burst_years": [
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2024,
+              "length": 11
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 11,
+          "total_mentions": 168
+        },
+        {
+          "entity": "signaling",
+          "burst_years": [
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2022,
+              "length": 5
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 11,
+          "total_mentions": 160
+        },
+        {
+          "entity": "optimization",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2024,
+              "length": 8
+            }
+          ],
+          "peak_year": 2023,
+          "peak_count": 20,
+          "total_mentions": 157
+        },
+        {
+          "entity": "therapeutic",
+          "burst_years": [
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2019,
+              "end": 2023,
+              "length": 5
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 17,
+          "total_mentions": 150
+        },
+        {
+          "entity": "metabolic",
+          "burst_years": [
+            2007,
+            2008,
+            2009,
+            2010,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2007,
+              "end": 2010,
+              "length": 4
+            },
+            {
+              "start": 2019,
+              "end": 2022,
+              "length": 4
+            }
+          ],
+          "peak_year": 2010,
+          "peak_count": 10,
+          "total_mentions": 147
+        },
+        {
+          "entity": "proliferation",
+          "burst_years": [
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2024,
+              "length": 11
+            }
+          ],
+          "peak_year": 2016,
+          "peak_count": 12,
+          "total_mentions": 143
+        },
+        {
+          "entity": "gene expression",
+          "burst_years": [
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2013,
+              "end": 2019,
+              "length": 7
+            }
+          ],
+          "peak_year": 2019,
+          "peak_count": 10,
+          "total_mentions": 140
+        },
+        {
+          "entity": "silico",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2023,
+              "length": 8
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 16,
+          "total_mentions": 140
+        },
+        {
+          "entity": "regulation",
+          "burst_years": [
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2019,
+              "length": 6
+            }
+          ],
+          "peak_year": 2014,
+          "peak_count": 11,
+          "total_mentions": 134
+        },
+        {
+          "entity": "mouse",
+          "burst_years": [
+            2014,
+            2015,
+            2016
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2016,
+              "length": 3
+            }
+          ],
+          "peak_year": 2015,
+          "peak_count": 11,
+          "total_mentions": 132
+        },
+        {
+          "entity": "twin",
+          "burst_years": [
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2024,
+              "length": 4
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 21,
+          "total_mentions": 126
+        },
+        {
+          "entity": "screening",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2021,
+              "length": 5
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 11,
+          "total_mentions": 120
+        },
+        {
+          "entity": "pathway",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2022,
+              "length": 6
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 10,
+          "total_mentions": 119
+        },
+        {
+          "entity": "metabolism",
+          "burst_years": [
+            2009
+          ],
+          "burst_intervals": [
+            {
+              "start": 2009,
+              "end": 2009,
+              "length": 1
+            }
+          ],
+          "peak_year": 2009,
+          "peak_count": 11,
+          "total_mentions": 107
+        },
+        {
+          "entity": "differentiation",
+          "burst_years": [
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2013,
+              "end": 2019,
+              "length": 7
+            }
+          ],
+          "peak_year": 2015,
+          "peak_count": 9,
+          "total_mentions": 103
+        },
+        {
+          "entity": "stem cell",
+          "burst_years": [
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2013,
+              "end": 2019,
+              "length": 7
+            }
+          ],
+          "peak_year": 2013,
+          "peak_count": 9,
+          "total_mentions": 92
+        },
+        {
+          "entity": "heterogeneity",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2023,
+              "length": 7
+            }
+          ],
+          "peak_year": 2023,
+          "peak_count": 10,
+          "total_mentions": 87
+        },
+        {
+          "entity": "development",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2023,
+              "length": 7
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 7,
+          "total_mentions": 83
+        },
+        {
+          "entity": "cancer cell",
+          "burst_years": [
+            2018,
+            2019,
+            2020,
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2021,
+              "length": 4
+            }
+          ],
+          "peak_year": 2019,
+          "peak_count": 10,
+          "total_mentions": 83
+        },
+        {
+          "entity": "evolution",
+          "burst_years": [
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2023,
+              "length": 10
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 7,
+          "total_mentions": 78
+        },
+        {
+          "entity": "apoptosis",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2020,
+              "length": 5
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 10,
+          "total_mentions": 77
+        },
+        {
+          "entity": "t cell",
+          "burst_years": [
+            2017,
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2019,
+              "length": 3
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 11,
+          "total_mentions": 73
+        },
+        {
+          "entity": "cell cycle",
+          "burst_years": [
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2022,
+              "length": 5
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 6,
+          "total_mentions": 67
+        },
+        {
+          "entity": "mammalian",
+          "burst_years": [
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2019,
+              "length": 2
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 6,
+          "total_mentions": 65
+        },
+        {
+          "entity": "endothelial",
+          "burst_years": [
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2022,
+              "length": 2
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 7,
+          "total_mentions": 61
+        },
+        {
+          "entity": "machine learning",
+          "burst_years": [
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2024,
+              "length": 4
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 15,
+          "total_mentions": 60
+        },
+        {
+          "entity": "agent-based",
+          "burst_years": [
+            2018,
+            2019,
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2020,
+              "length": 3
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 10,
+          "total_mentions": 55
+        },
+        {
+          "entity": "ml",
+          "burst_years": [
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2023,
+              "length": 6
+            }
+          ],
+          "peak_year": 2019,
+          "peak_count": 6,
+          "total_mentions": 55
+        },
+        {
+          "entity": "bioinformatics",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2020,
+              "length": 4
+            }
+          ],
+          "peak_year": 2019,
+          "peak_count": 6,
+          "total_mentions": 51
+        },
+        {
+          "entity": "variability",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2022,
+              "length": 6
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 4,
+          "total_mentions": 51
+        },
+        {
+          "entity": "neural network",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2024,
+              "length": 8
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 7,
+          "total_mentions": 51
+        },
+        {
+          "entity": "bacteria",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2020,
+              "length": 4
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 8,
+          "total_mentions": 48
+        },
+        {
+          "entity": "clustering",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2021,
+              "length": 5
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 6,
+          "total_mentions": 46
+        },
+        {
+          "entity": "ai",
+          "burst_years": [
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2025,
+              "end": 2025,
+              "length": 1
+            }
+          ],
+          "peak_year": 2025,
+          "peak_count": 13,
+          "total_mentions": 44
+        },
+        {
+          "entity": "manufacturing",
+          "burst_years": [
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2022,
+              "end": 2024,
+              "length": 3
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 7,
+          "total_mentions": 44
+        },
+        {
+          "entity": "microbial",
+          "burst_years": [
+            2016,
+            2017
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2017,
+              "length": 2
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 7,
+          "total_mentions": 41
+        },
+        {
+          "entity": "design",
+          "burst_years": [
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2022,
+              "length": 2
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 9,
+          "total_mentions": 40
+        }
+      ]
+    },
+    "3.0": {
+      "n_burst_entities": 50,
+      "burst_entities": [
+        {
+          "entity": "in silico",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2021,
+              "length": 5
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 52,
+          "total_mentions": 545
+        },
+        {
+          "entity": "human",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2022,
+              "length": 6
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 44,
+          "total_mentions": 492
+        },
+        {
+          "entity": "simulation",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2024,
+              "length": 9
+            }
+          ],
+          "peak_year": 2024,
+          "peak_count": 32,
+          "total_mentions": 430
+        },
+        {
+          "entity": "cancer",
+          "burst_years": [
+            2013,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2013,
+              "end": 2013,
+              "length": 1
+            },
+            {
+              "start": 2018,
+              "end": 2022,
+              "length": 5
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 33,
+          "total_mentions": 372
+        },
+        {
+          "entity": "dynamics",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2019,
+              "length": 3
+            },
+            {
+              "start": 2021,
+              "end": 2023,
+              "length": 3
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 26,
+          "total_mentions": 351
+        },
+        {
+          "entity": "response",
+          "burst_years": [
+            2013,
+            2014,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2013,
+              "end": 2014,
+              "length": 2
+            },
+            {
+              "start": 2016,
+              "end": 2021,
+              "length": 6
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 26,
+          "total_mentions": 322
+        },
+        {
+          "entity": "digital twin",
+          "burst_years": [
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2024,
+              "length": 4
+            }
+          ],
+          "peak_year": 2024,
+          "peak_count": 58,
+          "total_mentions": 321
+        },
+        {
+          "entity": "tissue",
+          "burst_years": [
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2010,
+              "end": 2014,
+              "length": 5
+            },
+            {
+              "start": 2018,
+              "end": 2019,
+              "length": 2
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 21,
+          "total_mentions": 277
+        },
+        {
+          "entity": "virtual",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2021,
+              "length": 6
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 24,
+          "total_mentions": 257
+        },
+        {
+          "entity": "disease",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2022,
+              "length": 6
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 25,
+          "total_mentions": 250
+        },
+        {
+          "entity": "virtual cell",
+          "burst_years": [
+            2016,
+            2017,
+            2018,
+            2025
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2018,
+              "length": 3
+            },
+            {
+              "start": 2025,
+              "end": 2025,
+              "length": 1
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 26,
+          "total_mentions": 218
+        },
+        {
+          "entity": "digital",
+          "burst_years": [
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2022,
+              "end": 2024,
+              "length": 3
+            }
+          ],
+          "peak_year": 2024,
+          "peak_count": 40,
+          "total_mentions": 218
+        },
+        {
+          "entity": "whole-cell",
+          "burst_years": [
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2023,
+              "length": 3
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 23,
+          "total_mentions": 197
+        },
+        {
+          "entity": "algorithm",
+          "burst_years": [
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2015,
+              "end": 2024,
+              "length": 10
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 11,
+          "total_mentions": 168
+        },
+        {
+          "entity": "optimization",
+          "burst_years": [
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2019,
+              "end": 2024,
+              "length": 6
+            }
+          ],
+          "peak_year": 2023,
+          "peak_count": 20,
+          "total_mentions": 157
+        },
+        {
+          "entity": "therapeutic",
+          "burst_years": [
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2019,
+              "end": 2022,
+              "length": 4
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 17,
+          "total_mentions": 150
+        },
+        {
+          "entity": "proliferation",
+          "burst_years": [
+            2016,
+            2017
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2017,
+              "length": 2
+            }
+          ],
+          "peak_year": 2016,
+          "peak_count": 12,
+          "total_mentions": 143
+        },
+        {
+          "entity": "silico",
+          "burst_years": [
+            2020,
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2020,
+              "end": 2021,
+              "length": 2
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 16,
+          "total_mentions": 140
+        },
+        {
+          "entity": "regulation",
+          "burst_years": [
+            2014
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2014,
+              "length": 1
+            }
+          ],
+          "peak_year": 2014,
+          "peak_count": 11,
+          "total_mentions": 134
+        },
+        {
+          "entity": "mouse",
+          "burst_years": [
+            2014,
+            2015
+          ],
+          "burst_intervals": [
+            {
+              "start": 2014,
+              "end": 2015,
+              "length": 2
+            }
+          ],
+          "peak_year": 2015,
+          "peak_count": 11,
+          "total_mentions": 132
+        },
+        {
+          "entity": "twin",
+          "burst_years": [
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2022,
+              "end": 2024,
+              "length": 3
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 21,
+          "total_mentions": 126
+        },
+        {
+          "entity": "screening",
+          "burst_years": [
+            2017,
+            2018,
+            2019,
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2020,
+              "length": 4
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 11,
+          "total_mentions": 120
+        },
+        {
+          "entity": "pathway",
+          "burst_years": [
+            2020,
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2020,
+              "end": 2022,
+              "length": 3
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 10,
+          "total_mentions": 119
+        },
+        {
+          "entity": "metabolism",
+          "burst_years": [
+            2009
+          ],
+          "burst_intervals": [
+            {
+              "start": 2009,
+              "end": 2009,
+              "length": 1
+            }
+          ],
+          "peak_year": 2009,
+          "peak_count": 11,
+          "total_mentions": 107
+        },
+        {
+          "entity": "differentiation",
+          "burst_years": [
+            2013,
+            2014,
+            2015,
+            2016
+          ],
+          "burst_intervals": [
+            {
+              "start": 2013,
+              "end": 2016,
+              "length": 4
+            }
+          ],
+          "peak_year": 2015,
+          "peak_count": 9,
+          "total_mentions": 103
+        },
+        {
+          "entity": "stem cell",
+          "burst_years": [
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2013,
+              "end": 2019,
+              "length": 7
+            }
+          ],
+          "peak_year": 2013,
+          "peak_count": 9,
+          "total_mentions": 92
+        },
+        {
+          "entity": "heterogeneity",
+          "burst_years": [
+            2017,
+            2018,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2018,
+              "length": 2
+            },
+            {
+              "start": 2021,
+              "end": 2023,
+              "length": 3
+            }
+          ],
+          "peak_year": 2023,
+          "peak_count": 10,
+          "total_mentions": 87
+        },
+        {
+          "entity": "development",
+          "burst_years": [
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "burst_intervals": [
+            {
+              "start": 2020,
+              "end": 2023,
+              "length": 4
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 7,
+          "total_mentions": 83
+        },
+        {
+          "entity": "cancer cell",
+          "burst_years": [
+            2018,
+            2019,
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2020,
+              "length": 3
+            }
+          ],
+          "peak_year": 2019,
+          "peak_count": 10,
+          "total_mentions": 83
+        },
+        {
+          "entity": "evolution",
+          "burst_years": [
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2022,
+              "length": 2
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 7,
+          "total_mentions": 78
+        },
+        {
+          "entity": "apoptosis",
+          "burst_years": [
+            2019,
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2019,
+              "end": 2020,
+              "length": 2
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 10,
+          "total_mentions": 77
+        },
+        {
+          "entity": "t cell",
+          "burst_years": [
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2019,
+              "length": 2
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 11,
+          "total_mentions": 73
+        },
+        {
+          "entity": "systems biology",
+          "burst_years": [
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2021,
+              "length": 1
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 8,
+          "total_mentions": 68
+        },
+        {
+          "entity": "mammalian",
+          "burst_years": [
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2019,
+              "length": 2
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 6,
+          "total_mentions": 65
+        },
+        {
+          "entity": "endothelial",
+          "burst_years": [
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2022,
+              "length": 2
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 7,
+          "total_mentions": 61
+        },
+        {
+          "entity": "machine learning",
+          "burst_years": [
+            2021,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2021,
+              "length": 1
+            },
+            {
+              "start": 2024,
+              "end": 2024,
+              "length": 1
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 15,
+          "total_mentions": 60
+        },
+        {
+          "entity": "agent-based",
+          "burst_years": [
+            2018,
+            2019
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2019,
+              "length": 2
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 10,
+          "total_mentions": 55
+        },
+        {
+          "entity": "bacteria",
+          "burst_years": [
+            2017
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2017,
+              "length": 1
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 8,
+          "total_mentions": 48
+        },
+        {
+          "entity": "clustering",
+          "burst_years": [
+            2017,
+            2018
+          ],
+          "burst_intervals": [
+            {
+              "start": 2017,
+              "end": 2018,
+              "length": 2
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 6,
+          "total_mentions": 46
+        },
+        {
+          "entity": "translation",
+          "burst_years": [
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2020,
+              "end": 2020,
+              "length": 1
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 7,
+          "total_mentions": 44
+        },
+        {
+          "entity": "manufacturing",
+          "burst_years": [
+            2022,
+            2023,
+            2024
+          ],
+          "burst_intervals": [
+            {
+              "start": 2022,
+              "end": 2024,
+              "length": 3
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 7,
+          "total_mentions": 44
+        },
+        {
+          "entity": "microbial",
+          "burst_years": [
+            2016,
+            2017
+          ],
+          "burst_intervals": [
+            {
+              "start": 2016,
+              "end": 2017,
+              "length": 2
+            }
+          ],
+          "peak_year": 2017,
+          "peak_count": 7,
+          "total_mentions": 41
+        },
+        {
+          "entity": "design",
+          "burst_years": [
+            2021,
+            2022
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2022,
+              "length": 2
+            }
+          ],
+          "peak_year": 2022,
+          "peak_count": 9,
+          "total_mentions": 40
+        },
+        {
+          "entity": "dynamic",
+          "burst_years": [
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2020,
+              "end": 2020,
+              "length": 1
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 6,
+          "total_mentions": 30
+        },
+        {
+          "entity": "covid",
+          "burst_years": [
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2021,
+              "length": 1
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 15,
+          "total_mentions": 27
+        },
+        {
+          "entity": "drug",
+          "burst_years": [
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2021,
+              "length": 1
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 5,
+          "total_mentions": 19
+        },
+        {
+          "entity": "immune",
+          "burst_years": [
+            2018
+          ],
+          "burst_intervals": [
+            {
+              "start": 2018,
+              "end": 2018,
+              "length": 1
+            }
+          ],
+          "peak_year": 2018,
+          "peak_count": 6,
+          "total_mentions": 18
+        },
+        {
+          "entity": "reality",
+          "burst_years": [
+            2021
+          ],
+          "burst_intervals": [
+            {
+              "start": 2021,
+              "end": 2021,
+              "length": 1
+            }
+          ],
+          "peak_year": 2021,
+          "peak_count": 6,
+          "total_mentions": 16
+        },
+        {
+          "entity": "management",
+          "burst_years": [
+            2020
+          ],
+          "burst_intervals": [
+            {
+              "start": 2020,
+              "end": 2020,
+              "length": 1
+            }
+          ],
+          "peak_year": 2020,
+          "peak_count": 5,
+          "total_mentions": 11
+        },
+        {
+          "entity": "open",
+          "burst_years": [
+            2011
+          ],
+          "burst_intervals": [
+            {
+              "start": 2011,
+              "end": 2011,
+              "length": 1
+            }
+          ],
+          "peak_year": 2011,
+          "peak_count": 3,
+          "total_mentions": 8
+        }
+      ]
+    }
+  },
+  "best_s": 2.0,
+  "ols_comparison": {
+    "ols_significant": 14,
+    "kleinberg_burst": 50,
+    "overlap": 9,
+    "kleinberg_only": 41,
+    "ols_only": 5,
+    "kleinberg_only_entities": [
+      "apoptosis",
+      "bacteria",
+      "bioinformatics",
+      "cancer cell",
+      "cell cycle",
+      "clustering",
+      "design",
+      "development",
+      "differentiation",
+      "digital",
+      "endothelial",
+      "evolution",
+      "gene expression",
+      "heterogeneity",
+      "human",
+      "in silico",
+      "machine learning",
+      "mammalian",
+      "manufacturing",
+      "metabolic"
+    ],
+    "overlap_entities": [
+      "agent-based",
+      "ai",
+      "algorithm",
+      "cancer",
+      "digital twin",
+      "disease",
+      "dynamics",
+      "therapeutic",
+      "whole-cell"
+    ]
+  },
+  "timing_validation": {
+    "known_events": [
+      {
+        "event": "deep learning surge",
+        "expected_years": [
+          2012,
+          2015
+        ],
+        "matching_bursts": [
+          {
+            "entity": "in silico",
+            "burst_start": 2016,
+            "peak_year": 2020
+          },
+          {
+            "entity": "human",
+            "burst_start": 2012,
+            "peak_year": 2021
+          },
+          {
+            "entity": "simulation",
+            "burst_start": 2016,
+            "peak_year": 2024
+          },
+          {
+            "entity": "cancer",
+            "burst_start": 2013,
+            "peak_year": 2018
+          },
+          {
+            "entity": "dynamics",
+            "burst_start": 2016,
+            "peak_year": 2017
+          }
+        ],
+        "n_matching": 33
+      },
+      {
+        "event": "COVID-19 impact",
+        "expected_years": [
+          2020,
+          2021
+        ],
+        "matching_bursts": [
+          {
+            "entity": "digital twin",
+            "burst_start": 2020,
+            "peak_year": 2024
+          },
+          {
+            "entity": "digital",
+            "burst_start": 2019,
+            "peak_year": 2024
+          },
+          {
+            "entity": "signaling",
+            "burst_start": 2018,
+            "peak_year": 2018
+          },
+          {
+            "entity": "therapeutic",
+            "burst_start": 2019,
+            "peak_year": 2021
+          },
+          {
+            "entity": "metabolic",
+            "burst_start": 2019,
+            "peak_year": 2010
+          }
+        ],
+        "n_matching": 15
+      },
+      {
+        "event": "single-cell revolution",
+        "expected_years": [
+          2015,
+          2018
+        ],
+        "matching_bursts": [
+          {
+            "entity": "in silico",
+            "burst_start": 2016,
+            "peak_year": 2020
+          },
+          {
+            "entity": "simulation",
+            "burst_start": 2016,
+            "peak_year": 2024
+          },
+          {
+            "entity": "cancer",
+            "burst_start": 2013,
+            "peak_year": 2018
+          },
+          {
+            "entity": "dynamics",
+            "burst_start": 2016,
+            "peak_year": 2017
+          },
+          {
+            "entity": "response",
+            "burst_start": 2013,
+            "peak_year": 2018
+          }
+        ],
+        "n_matching": 41
+      },
+      {
+        "event": "transformer/attention models",
+        "expected_years": [
+          2017,
+          2020
+        ],
+        "matching_bursts": [
+          {
+            "entity": "in silico",
+            "burst_start": 2016,
+            "peak_year": 2020
+          },
+          {
+            "entity": "simulation",
+            "burst_start": 2016,
+            "peak_year": 2024
+          },
+          {
+            "entity": "cancer",
+            "burst_start": 2016,
+            "peak_year": 2018
+          },
+          {
+            "entity": "dynamics",
+            "burst_start": 2016,
+            "peak_year": 2017
+          },
+          {
+            "entity": "digital twin",
+            "burst_start": 2020,
+            "peak_year": 2024
+          }
+        ],
+        "n_matching": 36
+      },
+      {
+        "event": "AlphaFold protein structure",
+        "expected_years": [
+          2020,
+          2022
+        ],
+        "matching_bursts": [
+          {
+            "entity": "digital twin",
+            "burst_start": 2020,
+            "peak_year": 2024
+          },
+          {
+            "entity": "digital",
+            "burst_start": 2019,
+            "peak_year": 2024
+          },
+          {
+            "entity": "signaling",
+            "burst_start": 2018,
+            "peak_year": 2018
+          },
+          {
+            "entity": "therapeutic",
+            "burst_start": 2019,
+            "peak_year": 2021
+          },
+          {
+            "entity": "metabolic",
+            "burst_start": 2019,
+            "peak_year": 2010
+          }
+        ],
+        "n_matching": 15
+      }
+    ],
+    "n_matches": 5
+  },
+  "verdict": "GO",
+  "verdict_details": {
+    "burst_entities_pass": true,
+    "burst_entities_count": 83,
+    "ols_misses_pass": true,
+    "ols_misses_count": 41,
+    "timing_pass": true,
+    "timing_count": 5
+  }
+}

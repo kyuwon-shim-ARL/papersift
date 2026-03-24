@@ -1,5 +1,5 @@
 version: 1
-updated: "2026-03-23T17:30:00Z"
+updated: "2026-03-24T15:00:00Z"
 scan_paths:
   - outputs/
 experiments:
@@ -312,3 +312,115 @@ experiments:
     success_criteria: "top-10 >= 5 user-rated 'worth trying'"
     verdict: "GO — 10/10 top recs involve biology clusters, 7 linked to rising trends"
     note: "33 total recommendations (8 intra + 25 cross). Top: mechanics↔fuel-cells, fuel-cells↔immunology, neuro↔fuel-cells."
+  e019:
+    path: outputs/e019/
+    script: "scripts/e019_template_dedup.py"
+    params:
+      dedup_methods: ["regex_expanded", "semantic_embedding", "hybrid"]
+      similarity_threshold: 0.85
+      embedding_model: "all-MiniLM-L6-v2"
+    outputs:
+      - outputs/e019/results.json
+    status: complete
+    description: "T5 Template Dedup — LLM extraction boilerplate 제거 (CRITICAL)"
+    issue: ""
+    branch: ""
+    priority: 1
+    depends_on: [e017]
+    success_criteria: "T0: baseline unique rate 측정. GO: unique_lim >= 80%, unique_OQ >= 50%. CONDITIONAL: unique_lim >= 60%, unique_OQ >= 30%. KILL: unique_lim < 50%"
+    verdict: "GO — semantic_embedding(0.85) unique_lim 100%, unique_OQ 100% (baseline 37.9%/13.8%). hybrid도 100%/100%. 520 deduped limitations, 397 deduped OQs."
+    note: "T0 baseline: 37.9% lim, 13.8% OQ (exact string). regex_expanded: 35.9%/19.4%. semantic_embedding: 100%/100% (873 lim, 1310 OQ removed). Best method: semantic_embedding."
+  e020:
+    path: outputs/e020/
+    script: "scripts/e020_gap_score_embedding.py"
+    params:
+      embedding_model: "all-MiniLM-L6-v2"
+      pilot_gate: "T0: 50-pair cosine_distance CV 측정. CV>=15% → 본실험. CV<15% → domain-adapted embedding 또는 alternative metric 검토"
+      targets:
+        intra_cluster: "gap_score = 1-ratio → cosine_distance(entity_a_emb, entity_b_emb)"
+        cross_cluster: "entity_jaccard → mean_cosine_distance(cluster_a_entities, cluster_b_entities)"
+      downstream_update: "bridge_recommend.py: line 89 gap_score formula + lines 141-147 entity_jaccard thresholds 동기화"
+    outputs:
+      - outputs/e020/results.json
+    status: complete
+    description: "T6 Gap Score 활성화 — entity co-occurrence → Semantic Embedding Distance (CRITICAL)"
+    issue: ""
+    branch: ""
+    priority: 1
+    depends_on: [e018]
+    success_criteria: "T0 pilot: CV(cosine_distance)>=15% for 50 pairs. 본실험: Spearman |rho(gap,bridge)|>=0.3, CV>=15%, top-10 변동>=3, bridge_recommend.py 통합 테스트 pass"
+    verdict: "NO-GO — Pilot PASS (CV=37.8%), rho=0.738 PASS, CV=37.8% PASS, but top-10 변동=1 FAIL (target>=3). Embedding gap_score는 판별력 4.3x 향상되나 bridge_score 순위 변동 불충분."
+    note: "Pilot: 12 pairs, CV=0.378, mean_distance=0.637. Intra: old_cv=0.088→new_cv=0.378. bridge_score formula에서 momentum/failure_penalty가 지배적이어서 gap_score 변화가 순위에 전파 안 됨."
+  e021:
+    path: outputs/e021/
+    script: "scripts/e021_zscore_novelty.py"
+    params:
+      null_model: "entity frequency permutation (1000 iterations)"
+      evaluation: "primary: automated cluster spread proxy. secondary: blind A/B if evaluators available (self + 2 collaborators, kappa >= 0.6). GO/KILL decided on automated metric alone."
+    outputs:
+      - outputs/e021/results.json
+    status: complete
+    description: "T3 z-score Novelty — Uzzi/Lee 방식 통계적 유의성 순위 (HIGH)"
+    issue: ""
+    branch: ""
+    priority: 2
+    depends_on: [e015]
+    success_criteria: "z-score top-10 중 domain-relevant >= 7개 (blind A/B). Automated: z<-2 gaps가 ratio<0.2 gaps 대비 cluster spread 더 넓음 (>= 2 additional clusters)"
+    verdict: "GO — z<-2 gaps 20개 (ratio<0.2: 12개), additional clusters +2 (C3 neuro, C6 fuel-cells). Spearman rho=0.869 기존 순위 보존. 543 pairs tested, 8 clusters."
+    note: "1000 permutations, numpy BLAS vectorized. Top gap: C4 twin×twins z=-4.22. z-score가 ratio 못 잡는 C3/C6 gap 발견 — 소규모 클러스터의 under-representation 포착."
+  e022:
+    path: outputs/e022/
+    script: "scripts/e022_citation_intent.py"
+    params:
+      pilot_size: 50
+      pilot_gate: "scite API coverage >= 40% of pilot DOIs, response time < 5s/query"
+      fallback: "OpenAlex cited_by_count + is_retracted as proxy if scite unavailable"
+    outputs:
+      - outputs/e022/results.json
+    status: complete
+    description: "T5 Citation Intent Integration — scite contrasting citations (HIGH)"
+    issue: ""
+    branch: ""
+    priority: 2
+    depends_on: [e019]
+    success_criteria: "Pilot PASS → citation-validated dead-end signals >= 30% of T5 themes. Pilot FAIL → fallback: retraction+low-citation proxy identifies >= 15% dead-ends"
+    verdict: "NO-GO — scite pilot FAIL (HTTP 404, no API key). OpenAlex fallback: dead_end_rate=14.9% (threshold 15%). 456 papers flagged, 119 overlap with e017 failure signals. Borderline miss."
+    note: "3,062/3,070 DOIs matched in OpenAlex. 0 retracted papers. Heuristic: cited_by_count<=p25 AND age>=5yr. 140/520 deduped limitations contain dead-end keywords. 14.9% just below 15% threshold."
+  e023:
+    path: outputs/e023/
+    script: "scripts/e023_kleinberg_burst.py"
+    params:
+      time_resolution: "year"
+      s_parameter: 2.0
+      gamma_parameter: 1.0
+      sensitivity_sweep: [1.5, 2.0, 3.0]
+      note: "M1 대응: year resolution은 30년 코퍼스에 적합 (Kleinberg 원논문도 년도 단위). s=2.0 기본, sweep으로 민감도 확인."
+    outputs:
+      - outputs/e023/results.json
+    status: complete
+    description: "T2 Kleinberg Burst Detection — 비선형 emergence 탐지 (HIGH)"
+    issue: ""
+    branch: ""
+    priority: 2
+    depends_on: [e015]
+    success_criteria: "burst-detected entities >= 5개, OLS non-significant 중 burst detected >= 3개, burst timing이 known events와 일치 >= 2개"
+    verdict: "GO — burst entities 83 (s=2.0), OLS misses 41, timing matches 5/5 events. 3-state Kleinberg automaton, s sweep [1.5,2.0,3.0]."
+    note: "s=2.0 best. Notable Kleinberg-only: cell cycle, differentiation, apoptosis, bioinformatics. All 5 known events matched: single-cell(41), deep learning(33), transformer(36), COVID(15), AlphaFold(15). digital twin burst 2020-2024."
+  e024:
+    path: outputs/e024/
+    script: "scripts/e024_semantic_theme_cluster.py"
+    params:
+      embedding_model: "all-MiniLM-L6-v2"
+      clustering: "HDBSCAN (min_cluster_size=5)"
+      input: "e019 deduped limitations + open_questions"
+    outputs:
+      - outputs/e024/results.json
+    status: complete
+    description: "T5 Semantic Theme Clustering — embedding 기반 limitation 세분화 (HIGH)"
+    issue: ""
+    branch: ""
+    priority: 2
+    depends_on: [e019]
+    success_criteria: "cluster-specific themes >= 80% (현재 73.9%), cross-cluster duplicate themes <= 10% (현재 26.1%)"
+    verdict: "GO — 33 semantic themes, cluster-specific 100% (mean intra-sim>=0.5 all clusters), cross-cluster duplicate 0%. UMAP(384→15)+HDBSCAN(min_cluster=5)."
+    note: "Without UMAP: 2 clusters, 80.8% noise. UMAP resolved high-dim density estimation. 69.7% HDBSCAN clusters map to e017 keyword themes. 520 deduped limitations → 33 coherent themes + noise."

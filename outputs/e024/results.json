@@ -1,0 +1,393 @@
+{
+  "experiment": "e024",
+  "title": "T5 Semantic Theme Clustering",
+  "timestamp": "2026-03-24T05:38:39.701178+00:00",
+  "input": {
+    "n_deduped_limitations": 520,
+    "embedding_model": "all-MiniLM-L6-v2"
+  },
+  "hdbscan": {
+    "min_cluster_size": 5,
+    "n_clusters": 33,
+    "n_noise": 117,
+    "noise_rate": 0.225
+  },
+  "themes": [
+    {
+      "cluster_id": 15,
+      "n_items": 44,
+      "keywords": [
+        "models",
+        "expression",
+        "protein"
+      ],
+      "mean_intra_sim": 0.5698,
+      "coherent": true
+    },
+    {
+      "cluster_id": 3,
+      "n_items": 40,
+      "keywords": [
+        "limited",
+        "challenges",
+        "radio"
+      ],
+      "mean_intra_sim": 0.5553,
+      "coherent": true
+    },
+    {
+      "cluster_id": 14,
+      "n_items": 29,
+      "keywords": [
+        "model",
+        "biological",
+        "models"
+      ],
+      "mean_intra_sim": 0.587,
+      "coherent": true
+    },
+    {
+      "cluster_id": 21,
+      "n_items": 20,
+      "keywords": [
+        "cell",
+        "challenges",
+        "models"
+      ],
+      "mean_intra_sim": 0.7046,
+      "coherent": true
+    },
+    {
+      "cluster_id": 31,
+      "n_items": 19,
+      "keywords": [
+        "limitations include",
+        "key",
+        "key limitations"
+      ],
+      "mean_intra_sim": 0.7699,
+      "coherent": true
+    },
+    {
+      "cluster_id": 17,
+      "n_items": 15,
+      "keywords": [
+        "limitations",
+        "key limitations",
+        "key"
+      ],
+      "mean_intra_sim": 0.7196,
+      "coherent": true
+    },
+    {
+      "cluster_id": 8,
+      "n_items": 14,
+      "keywords": [
+        "cells",
+        "memory",
+        "antigen"
+      ],
+      "mean_intra_sim": 0.6249,
+      "coherent": true
+    },
+    {
+      "cluster_id": 11,
+      "n_items": 14,
+      "keywords": [
+        "limited",
+        "compounds",
+        "drug"
+      ],
+      "mean_intra_sim": 0.5941,
+      "coherent": true
+    },
+    {
+      "cluster_id": 13,
+      "n_items": 14,
+      "keywords": [
+        "vaccine",
+        "model",
+        "challenge"
+      ],
+      "mean_intra_sim": 0.6736,
+      "coherent": true
+    },
+    {
+      "cluster_id": 7,
+      "n_items": 12,
+      "keywords": [
+        "complexity",
+        "time",
+        "scale"
+      ],
+      "mean_intra_sim": 0.6126,
+      "coherent": true
+    },
+    {
+      "cluster_id": 28,
+      "n_items": 12,
+      "keywords": [
+        "limitations include",
+        "key limitations",
+        "key"
+      ],
+      "mean_intra_sim": 0.6654,
+      "coherent": true
+    },
+    {
+      "cluster_id": 6,
+      "n_items": 11,
+      "keywords": [
+        "cell",
+        "cells",
+        "stem"
+      ],
+      "mean_intra_sim": 0.6344,
+      "coherent": true
+    },
+    {
+      "cluster_id": 22,
+      "n_items": 11,
+      "keywords": [
+        "cells",
+        "cell",
+        "constraints"
+      ],
+      "mean_intra_sim": 0.7403,
+      "coherent": true
+    },
+    {
+      "cluster_id": 30,
+      "n_items": 10,
+      "keywords": [
+        "key limitations",
+        "limitations",
+        "limitations include"
+      ],
+      "mean_intra_sim": 0.7399,
+      "coherent": true
+    },
+    {
+      "cluster_id": 12,
+      "n_items": 9,
+      "keywords": [
+        "cancer",
+        "tumors",
+        "limited"
+      ],
+      "mean_intra_sim": 0.6565,
+      "coherent": true
+    },
+    {
+      "cluster_id": 19,
+      "n_items": 9,
+      "keywords": [
+        "models",
+        "scale",
+        "performed"
+      ],
+      "mean_intra_sim": 0.6757,
+      "coherent": true
+    },
+    {
+      "cluster_id": 24,
+      "n_items": 9,
+      "keywords": [
+        "cell",
+        "method",
+        "computational"
+      ],
+      "mean_intra_sim": 0.6135,
+      "coherent": true
+    },
+    {
+      "cluster_id": 27,
+      "n_items": 9,
+      "keywords": [
+        "cellular",
+        "density",
+        "tissue"
+      ],
+      "mean_intra_sim": 0.6041,
+      "coherent": true
+    },
+    {
+      "cluster_id": 4,
+      "n_items": 8,
+      "keywords": [
+        "virtual",
+        "cell",
+        "virtual cell"
+      ],
+      "mean_intra_sim": 0.7154,
+      "coherent": true
+    },
+    {
+      "cluster_id": 5,
+      "n_items": 8,
+      "keywords": [
+        "limitations",
+        "brain",
+        "computational"
+      ],
+      "mean_intra_sim": 0.7355,
+      "coherent": true
+    },
+    {
+      "cluster_id": 9,
+      "n_items": 8,
+      "keywords": [
+        "prediction",
+        "methods",
+        "peptides"
+      ],
+      "mean_intra_sim": 0.7234,
+      "coherent": true
+    },
+    {
+      "cluster_id": 10,
+      "n_items": 8,
+      "keywords": [
+        "treatment",
+        "effective",
+        "limited"
+      ],
+      "mean_intra_sim": 0.6133,
+      "coherent": true
+    },
+    {
+      "cluster_id": 18,
+      "n_items": 8,
+      "keywords": [
+        "data",
+        "validation",
+        "challenges"
+      ],
+      "mean_intra_sim": 0.633,
+      "coherent": true
+    },
+    {
+      "cluster_id": 20,
+      "n_items": 8,
+      "keywords": [
+        "challenges",
+        "stochastic",
+        "review"
+      ],
+      "mean_intra_sim": 0.6247,
+      "coherent": true
+    },
+    {
+      "cluster_id": 0,
+      "n_items": 7,
+      "keywords": [
+        "growth",
+        "unclear",
+        "limited"
+      ],
+      "mean_intra_sim": 0.6448,
+      "coherent": true
+    },
+    {
+      "cluster_id": 2,
+      "n_items": 7,
+      "keywords": [
+        "mechanisms",
+        "cell",
+        "sdf"
+      ],
+      "mean_intra_sim": 0.6177,
+      "coherent": true
+    },
+    {
+      "cluster_id": 16,
+      "n_items": 7,
+      "keywords": [
+        "limitations",
+        "limitations include",
+        "key"
+      ],
+      "mean_intra_sim": 0.7963,
+      "coherent": true
+    },
+    {
+      "cluster_id": 25,
+      "n_items": 6,
+      "keywords": [
+        "systems",
+        "biologists",
+        "model"
+      ],
+      "mean_intra_sim": 0.7335,
+      "coherent": true
+    },
+    {
+      "cluster_id": 26,
+      "n_items": 6,
+      "keywords": [
+        "cell",
+        "bone",
+        "process"
+      ],
+      "mean_intra_sim": 0.698,
+      "coherent": true
+    },
+    {
+      "cluster_id": 29,
+      "n_items": 6,
+      "keywords": [
+        "key limitations",
+        "limitations",
+        "include"
+      ],
+      "mean_intra_sim": 0.8311,
+      "coherent": true
+    },
+    {
+      "cluster_id": 1,
+      "n_items": 5,
+      "keywords": [
+        "vr",
+        "virtual",
+        "virtual reality"
+      ],
+      "mean_intra_sim": 0.7308,
+      "coherent": true
+    },
+    {
+      "cluster_id": 23,
+      "n_items": 5,
+      "keywords": [
+        "limitations",
+        "key limitations",
+        "key"
+      ],
+      "mean_intra_sim": 0.7231,
+      "coherent": true
+    },
+    {
+      "cluster_id": 32,
+      "n_items": 5,
+      "keywords": [
+        "limitations",
+        "digital",
+        "key"
+      ],
+      "mean_intra_sim": 0.807,
+      "coherent": true
+    }
+  ],
+  "evaluation": {
+    "cluster_specific_rate": 1.0,
+    "cross_cluster_duplicate_rate": 0.0,
+    "coherent_clusters": 33,
+    "total_clusters": 33
+  },
+  "e017_comparison": {
+    "e017_themes": 69,
+    "hdbscan_clusters": 33,
+    "one_to_one_mapping_rate": 0.697
+  },
+  "verdict": "GO",
+  "verdict_detail": "cluster_specific >= 80% AND cross_cluster_dup <= 10% | actual: csr=1.000, ccdr=0.000"
+}

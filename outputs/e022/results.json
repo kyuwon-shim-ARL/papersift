@@ -1,0 +1,32 @@
+{
+  "experiment": "e022",
+  "title": "T5 Citation Intent",
+  "timestamp": "2026-03-24T05:35:51.307126Z",
+  "pilot": {
+    "method": "scite_api",
+    "n_tested": 50,
+    "coverage": 0.0,
+    "gate": "FAIL"
+  },
+  "fallback_used": true,
+  "method": "openalex_heuristic",
+  "openalex_stats": {
+    "n_papers_queried": 3070,
+    "n_with_citations": 2953,
+    "median_citations": 41.0,
+    "n_retracted": 0,
+    "p25_citations": 16.0
+  },
+  "dead_end_detection": {
+    "total_flagged": 456,
+    "citation_dead_ends": 456,
+    "failure_signal_overlap": 119,
+    "dead_end_rate": 0.1485
+  },
+  "e019_integration": {
+    "deduped_limitations_used": 520,
+    "dead_end_keywords_found": 140
+  },
+  "verdict": "NO-GO",
+  "verdict_detail": "dead_end_rate=14.9% < 15% (OpenAlex fallback threshold)"
+}
