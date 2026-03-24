@@ -1,0 +1,1615 @@
+{
+  "experiment": "e025",
+  "title": "Bridge Score Formula Redesign",
+  "timestamp": "2026-03-24T07:38:41.030973+00:00",
+  "t0_sensitivity": {
+    "intra": {
+      "label": "intra_cluster",
+      "n": 8,
+      "leave_one_out": {
+        "momentum": {
+          "rho_with_full": 0.503,
+          "p_value": 0.203877,
+          "interpretation": "LOW influence"
+        },
+        "gap": {
+          "rho_with_full": 0.9184,
+          "p_value": 0.001279,
+          "interpretation": "HIGH influence"
+        },
+        "failure": {
+          "rho_with_full": 0.2515,
+          "p_value": 0.547943,
+          "interpretation": "LOW influence"
+        }
+      },
+      "dominance_ratio": 3.6517,
+      "dominant_component": "gap",
+      "weakest_component": "failure",
+      "variance_decomposition": {
+        "momentum": 0.2041,
+        "gap": 0.2928,
+        "failure": 2.0318
+      },
+      "distribution_stats": {
+        "momentum": {
+          "mean": 0.005444,
+          "std": 0.002256,
+          "min": 0.004332,
+          "max": 0.011385,
+          "cv": 0.4144,
+          "range": 0.007053
+        },
+        "gap": {
+          "mean": 0.61797,
+          "std": 0.173278,
+          "min": 0.222262,
+          "max": 0.781985,
+          "cv": 0.2804,
+          "range": 0.559723
+        },
+        "failure": {
+          "mean": 0.575462,
+          "std": 0.094084,
+          "min": 0.3636,
+          "max": 0.6667,
+          "cv": 0.1635,
+          "range": 0.3031
+        }
+      }
+    },
+    "cross": {
+      "label": "cross_cluster",
+      "n": 25,
+      "leave_one_out": {
+        "momentum": {
+          "rho_with_full": 0.7946,
+          "p_value": 2e-06,
+          "interpretation": "MODERATE"
+        },
+        "gap": {
+          "rho_with_full": 0.9769,
+          "p_value": 0.0,
+          "interpretation": "HIGH influence"
+        },
+        "failure": {
+          "rho_with_full": 0.9146,
+          "p_value": 0.0,
+          "interpretation": "HIGH influence"
+        }
+      },
+      "dominance_ratio": 1.2294,
+      "dominant_component": "gap",
+      "weakest_component": "momentum",
+      "variance_decomposition": {
+        "momentum": 0.751,
+        "gap": 0.2494,
+        "failure": 0.6682
+      },
+      "distribution_stats": {
+        "momentum": {
+          "mean": 0.007783,
+          "std": 0.002336,
+          "min": 0.003219,
+          "max": 0.011891,
+          "cv": 0.3001,
+          "range": 0.008672
+        },
+        "gap": {
+          "mean": 0.765215,
+          "std": 0.027404,
+          "min": 0.700722,
+          "max": 0.808189,
+          "cv": 0.0358,
+          "range": 0.107467
+        },
+        "failure": {
+          "mean": 0.436296,
+          "std": 0.092001,
+          "min": 0.2896,
+          "max": 0.6218,
+          "cv": 0.2109,
+          "range": 0.3322
+        }
+      }
+    },
+    "all": {
+      "label": "all",
+      "n": 33,
+      "leave_one_out": {
+        "momentum": {
+          "rho_with_full": 0.8612,
+          "p_value": 0.0,
+          "interpretation": "MODERATE"
+        },
+        "gap": {
+          "rho_with_full": 0.9879,
+          "p_value": 0.0,
+          "interpretation": "HIGH influence"
+        },
+        "failure": {
+          "rho_with_full": 0.9282,
+          "p_value": 0.0,
+          "interpretation": "HIGH influence"
+        }
+      },
+      "dominance_ratio": 1.1471,
+      "dominant_component": "gap",
+      "weakest_component": "momentum",
+      "variance_decomposition": {
+        "momentum": 0.8581,
+        "gap": 0.2774,
+        "failure": 0.5894
+      },
+      "distribution_stats": {
+        "momentum": {
+          "mean": 0.007216,
+          "std": 0.002524,
+          "min": 0.003219,
+          "max": 0.011891,
+          "cv": 0.3498,
+          "range": 0.008672
+        },
+        "gap": {
+          "mean": 0.729519,
+          "std": 0.108764,
+          "min": 0.222262,
+          "max": 0.808189,
+          "cv": 0.1491,
+          "range": 0.585927
+        },
+        "failure": {
+          "mean": 0.470033,
+          "std": 0.110069,
+          "min": 0.2896,
+          "max": 0.6667,
+          "cv": 0.2342,
+          "range": 0.3771
+        }
+      }
+    }
+  },
+  "t1_rank_norm": {
+    "eval_all": {
+      "label": "T1_rank_norm_all",
+      "n_recs": 33,
+      "top10_changes": 2,
+      "kendall_tau_displacement": 0.4545,
+      "dominance_ratio": 1.4695,
+      "component_rhos": {
+        "momentum": 0.693,
+        "gap": 0.4716,
+        "failure": 0.683
+      },
+      "gap_bridge_rho": 0.4716,
+      "criteria": {
+        "top10_changes": false,
+        "kendall_displacement": true,
+        "top10_OR_kendall": true,
+        "dominance_ratio": true,
+        "gap_bridge_rho_lower": true,
+        "gap_bridge_rho_upper": true,
+        "gap_bridge_rho": true
+      },
+      "overall_pass": true,
+      "top5_new": [
+        {
+          "rank": 1,
+          "key": "intra|5|dynamics|human",
+          "score": 0.875
+        },
+        {
+          "rank": 2,
+          "key": "cross|6|7",
+          "score": 0.774144
+        },
+        {
+          "rank": 3,
+          "key": "cross|5|6",
+          "score": 0.736
+        },
+        {
+          "rank": 4,
+          "key": "cross|5|7",
+          "score": 0.52992
+        },
+        {
+          "rank": 5,
+          "key": "cross|3|7",
+          "score": 0.38016
+        }
+      ]
+    },
+    "eval_intra": {
+      "label": "T1_rank_norm_intra",
+      "n_recs": 8,
+      "top10_changes": 0,
+      "kendall_tau_displacement": 0.3571,
+      "dominance_ratio": 2.6546,
+      "component_rhos": {
+        "momentum": 0.8216,
+        "gap": 0.3095,
+        "failure": 0.8216
+      },
+      "gap_bridge_rho": 0.3095,
+      "criteria": {
+        "top10_changes": false,
+        "kendall_displacement": true,
+        "top10_OR_kendall": true,
+        "dominance_ratio": false,
+        "gap_bridge_rho_lower": true,
+        "gap_bridge_rho_upper": true,
+        "gap_bridge_rho": true
+      },
+      "overall_pass": false,
+      "top5_new": [
+        {
+          "rank": 1,
+          "key": "intra|5|dynamics|human",
+          "score": 0.875
+        },
+        {
+          "rank": 2,
+          "key": "intra|1|cancer|whole-cell",
+          "score": 0.354492
+        },
+        {
+          "rank": 3,
+          "key": "intra|1|rna-seq|whole-cell",
+          "score": 0.177246
+        },
+        {
+          "rank": 4,
+          "key": "intra|1|virtual cell|whole-cell",
+          "score": 0.118164
+        },
+        {
+          "rank": 5,
+          "key": "intra|0|apoptosis|tissue",
+          "score": 0.0625
+        }
+      ]
+    },
+    "eval_cross": {
+      "label": "T1_rank_norm_cross",
+      "n_recs": 25,
+      "top10_changes": 3,
+      "kendall_tau_displacement": 0.3,
+      "dominance_ratio": 1.1932,
+      "component_rhos": {
+        "momentum": 0.7885,
+        "gap": 0.6963,
+        "failure": 0.8308
+      },
+      "gap_bridge_rho": 0.6963,
+      "criteria": {
+        "top10_changes": true,
+        "kendall_displacement": true,
+        "top10_OR_kendall": true,
+        "dominance_ratio": true,
+        "gap_bridge_rho_lower": true,
+        "gap_bridge_rho_upper": true,
+        "gap_bridge_rho": true
+      },
+      "overall_pass": true,
+      "top5_new": [
+        {
+          "rank": 1,
+          "key": "cross|6|7",
+          "score": 0.774144
+        },
+        {
+          "rank": 2,
+          "key": "cross|5|6",
+          "score": 0.736
+        },
+        {
+          "rank": 3,
+          "key": "cross|5|7",
+          "score": 0.52992
+        },
+        {
+          "rank": 4,
+          "key": "cross|3|7",
+          "score": 0.38016
+        },
+        {
+          "rank": 5,
+          "key": "cross|3|6",
+          "score": 0.336
+        }
+      ]
+    },
+    "top_20": [
+      {
+        "type": "intra_cluster",
+        "cluster": "5",
+        "cluster_label": "mechanics/ABM",
+        "entity_a": "dynamics",
+        "entity_b": "human",
+        "bridge_score": 0.875,
+        "momentum_score": 0.011385,
+        "gap_score": 0.7403888702392578,
+        "failure_penalty": 0.3636,
+        "gap_expected": 7.46,
+        "gap_observed": 1,
+        "rising_involved": false,
+        "recommendation": "Explore the intersection of 'dynamics' and 'human' within mechanics/ABM. Expected co-occurrence=7.5 but observed=1, suggesting an underexplored combination.",
+        "formula": "rank_norm",
+        "r_momentum": 1.0,
+        "r_gap": 0.875,
+        "r_inv_failure": 1.0,
+        "old_bridge_score": 0.006275
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "6",
+        "cluster_b": "7",
+        "cluster_a_label": "fuel-cells/energy",
+        "cluster_b_label": "immunology",
+        "bridge_score": 0.774144,
+        "momentum_score": 0.011363,
+        "gap_score": 0.7914211273193359,
+        "failure_penalty": 0.3,
+        "entity_jaccard": 0.1389,
+        "rising_in_shared": [],
+        "recommendation": "Bridge fuel-cells/energy ↔ immunology (Jaccard=0.139, 15 shared entities). These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.96,
+        "r_gap": 0.84,
+        "r_inv_failure": 0.96,
+        "old_bridge_score": 0.006982
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "5",
+        "cluster_b": "6",
+        "cluster_a_label": "mechanics/ABM",
+        "cluster_b_label": "fuel-cells/energy",
+        "bridge_score": 0.736,
+        "momentum_score": 0.011891,
+        "gap_score": 0.7891235642962986,
+        "failure_penalty": 0.3151,
+        "entity_jaccard": 0.1457,
+        "rising_in_shared": [
+          "digital twin"
+        ],
+        "recommendation": "Bridge mechanics/ABM ↔ fuel-cells/energy (Jaccard=0.146, 22 shared entities). Rising entities in overlap: digital twin. These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 1.0,
+        "r_gap": 0.8,
+        "r_inv_failure": 0.92,
+        "old_bridge_score": 0.007259
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "5",
+        "cluster_b": "7",
+        "cluster_a_label": "mechanics/ABM",
+        "cluster_b_label": "immunology",
+        "bridge_score": 0.52992,
+        "momentum_score": 0.010857,
+        "gap_score": 0.7860017087724473,
+        "failure_penalty": 0.3484,
+        "entity_jaccard": 0.2576,
+        "rising_in_shared": [
+          "agent-based"
+        ],
+        "recommendation": "Bridge mechanics/ABM ↔ immunology (Jaccard=0.258, 34 shared entities). Rising entities in overlap: agent-based. These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.92,
+        "r_gap": 0.72,
+        "r_inv_failure": 0.8,
+        "old_bridge_score": 0.006259
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "3",
+        "cluster_b": "7",
+        "cluster_a_label": "neuro/electrophysiology",
+        "cluster_b_label": "immunology",
+        "bridge_score": 0.38016,
+        "momentum_score": 0.009151,
+        "gap_score": 0.773195497194926,
+        "failure_penalty": 0.3229,
+        "entity_jaccard": 0.2449,
+        "rising_in_shared": [
+          "disease"
+        ],
+        "recommendation": "Bridge neuro/electrophysiology ↔ immunology (Jaccard=0.245, 36 shared entities). Rising entities in overlap: disease. These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.72,
+        "r_gap": 0.6,
+        "r_inv_failure": 0.88,
+        "old_bridge_score": 0.00564
+      },
+      {
+        "type": "intra_cluster",
+        "cluster": "1",
+        "cluster_label": "whole-cell/systems-biology",
+        "entity_a": "cancer",
+        "entity_b": "whole-cell",
+        "bridge_score": 0.354492,
+        "momentum_score": 0.004792,
+        "gap_score": 0.7014182806015015,
+        "failure_penalty": 0.56,
+        "gap_expected": 7.44,
+        "gap_observed": 1,
+        "rising_involved": true,
+        "recommendation": "Explore the intersection of 'cancer' and 'whole-cell' within whole-cell/systems-biology. Expected co-occurrence=7.4 but observed=1, suggesting an underexplored combination.",
+        "formula": "rank_norm",
+        "r_momentum": 0.6875,
+        "r_gap": 0.75,
+        "r_inv_failure": 0.6875,
+        "old_bridge_score": 0.001825
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "3",
+        "cluster_b": "6",
+        "cluster_a_label": "neuro/electrophysiology",
+        "cluster_b_label": "fuel-cells/energy",
+        "bridge_score": 0.336,
+        "momentum_score": 0.010186,
+        "gap_score": 0.7622622172037761,
+        "failure_penalty": 0.2896,
+        "entity_jaccard": 0.1515,
+        "rising_in_shared": [
+          "disease",
+          "digital twin"
+        ],
+        "recommendation": "Bridge neuro/electrophysiology ↔ fuel-cells/energy (Jaccard=0.151, 25 shared entities). Rising entities in overlap: disease, digital twin. These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.8,
+        "r_gap": 0.42,
+        "r_inv_failure": 1.0,
+        "old_bridge_score": 0.006534
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "1",
+        "cluster_b": "6",
+        "cluster_a_label": "whole-cell/systems-biology",
+        "cluster_b_label": "fuel-cells/energy",
+        "bridge_score": 0.315392,
+        "momentum_score": 0.007796,
+        "gap_score": 0.7948193868001302,
+        "failure_penalty": 0.4133,
+        "entity_jaccard": 0.1176,
+        "rising_in_shared": [
+          "digital twin"
+        ],
+        "recommendation": "Bridge whole-cell/systems-biology ↔ fuel-cells/energy (Jaccard=0.118, 24 shared entities). Rising entities in overlap: digital twin. These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.56,
+        "r_gap": 0.88,
+        "r_inv_failure": 0.64,
+        "old_bridge_score": 0.00382
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "3",
+        "cluster_b": "5",
+        "cluster_a_label": "neuro/electrophysiology",
+        "cluster_b_label": "mechanics/ABM",
+        "bridge_score": 0.306432,
+        "momentum_score": 0.00968,
+        "gap_score": 0.7623116479979621,
+        "failure_penalty": 0.338,
+        "entity_jaccard": 0.3164,
+        "rising_in_shared": [
+          "agent-based"
+        ],
+        "recommendation": "Bridge neuro/electrophysiology ↔ mechanics/ABM (Jaccard=0.316, 56 shared entities). Rising entities in overlap: agent-based. These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.76,
+        "r_gap": 0.48,
+        "r_inv_failure": 0.84,
+        "old_bridge_score": 0.004916
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "4",
+        "cluster_b": "7",
+        "cluster_a_label": "digital-twin/manufacturing",
+        "cluster_b_label": "immunology",
+        "bridge_score": 0.274176,
+        "momentum_score": 0.01021,
+        "gap_score": 0.7822066850132412,
+        "failure_penalty": 0.4551,
+        "entity_jaccard": 0.1285,
+        "rising_in_shared": [
+          "cancer",
+          "algorithm"
+        ],
+        "recommendation": "Bridge digital-twin/manufacturing ↔ immunology (Jaccard=0.129, 23 shared entities). Rising entities in overlap: cancer, algorithm. These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.84,
+        "r_gap": 0.68,
+        "r_inv_failure": 0.48,
+        "old_bridge_score": 0.004768
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "2",
+        "cluster_b": "7",
+        "cluster_a_label": "telecom/V2X",
+        "cluster_b_label": "immunology",
+        "bridge_score": 0.238464,
+        "momentum_score": 0.006786,
+        "gap_score": 0.7965765807363722,
+        "failure_penalty": 0.3611,
+        "entity_jaccard": 0.1505,
+        "rising_in_shared": [],
+        "recommendation": "Bridge telecom/V2X ↔ immunology (Jaccard=0.150, 31 shared entities). These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.36,
+        "r_gap": 0.92,
+        "r_inv_failure": 0.72,
+        "old_bridge_score": 0.003906
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "1",
+        "cluster_b": "5",
+        "cluster_a_label": "whole-cell/systems-biology",
+        "cluster_b_label": "mechanics/ABM",
+        "bridge_score": 0.185856,
+        "momentum_score": 0.00729,
+        "gap_score": 0.8000005761782328,
+        "failure_penalty": 0.4618,
+        "entity_jaccard": 0.2783,
+        "rising_in_shared": [
+          "agent-based"
+        ],
+        "recommendation": "Bridge whole-cell/systems-biology ↔ mechanics/ABM (Jaccard=0.278, 59 shared entities). Rising entities in overlap: agent-based. These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.44,
+        "r_gap": 0.96,
+        "r_inv_failure": 0.44,
+        "old_bridge_score": 0.003309
+      },
+      {
+        "type": "intra_cluster",
+        "cluster": "1",
+        "cluster_label": "whole-cell/systems-biology",
+        "entity_a": "rna-seq",
+        "entity_b": "whole-cell",
+        "bridge_score": 0.177246,
+        "momentum_score": 0.004792,
+        "gap_score": 0.6659575700759888,
+        "failure_penalty": 0.56,
+        "gap_expected": 5.52,
+        "gap_observed": 1,
+        "rising_involved": true,
+        "recommendation": "Explore the intersection of 'rna-seq' and 'whole-cell' within whole-cell/systems-biology. Expected co-occurrence=5.5 but observed=1, suggesting an underexplored combination.",
+        "formula": "rank_norm",
+        "r_momentum": 0.6875,
+        "r_gap": 0.375,
+        "r_inv_failure": 0.6875,
+        "old_bridge_score": 0.001727
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "1",
+        "cluster_b": "7",
+        "cluster_a_label": "whole-cell/systems-biology",
+        "cluster_b_label": "immunology",
+        "bridge_score": 0.1664,
+        "momentum_score": 0.006762,
+        "gap_score": 0.8081888026661344,
+        "failure_penalty": 0.4466,
+        "entity_jaccard": 0.2077,
+        "rising_in_shared": [],
+        "recommendation": "Bridge whole-cell/systems-biology ↔ immunology (Jaccard=0.208, 38 shared entities). These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.32,
+        "r_gap": 1.0,
+        "r_inv_failure": 0.52,
+        "old_bridge_score": 0.003684
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "4",
+        "cluster_b": "5",
+        "cluster_a_label": "digital-twin/manufacturing",
+        "cluster_b_label": "mechanics/ABM",
+        "bridge_score": 0.164736,
+        "momentum_score": 0.010738,
+        "gap_score": 0.7700998081101311,
+        "failure_penalty": 0.4702,
+        "entity_jaccard": 0.1351,
+        "rising_in_shared": [
+          "cancer",
+          "algorithm"
+        ],
+        "recommendation": "Bridge digital-twin/manufacturing ↔ mechanics/ABM (Jaccard=0.135, 30 shared entities). Rising entities in overlap: cancer, algorithm. These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.88,
+        "r_gap": 0.52,
+        "r_inv_failure": 0.36,
+        "old_bridge_score": 0.00495
+      },
+      {
+        "type": "intra_cluster",
+        "cluster": "1",
+        "cluster_label": "whole-cell/systems-biology",
+        "entity_a": "virtual cell",
+        "entity_b": "whole-cell",
+        "bridge_score": 0.118164,
+        "momentum_score": 0.004792,
+        "gap_score": 0.4638734459877014,
+        "failure_penalty": 0.56,
+        "gap_expected": 5.52,
+        "gap_observed": 1,
+        "rising_involved": true,
+        "recommendation": "Explore the intersection of 'virtual cell' and 'whole-cell' within whole-cell/systems-biology. Expected co-occurrence=5.5 but observed=1, suggesting an underexplored combination.",
+        "formula": "rank_norm",
+        "r_momentum": 0.6875,
+        "r_gap": 0.25,
+        "r_inv_failure": 0.6875,
+        "old_bridge_score": 0.001727
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "0",
+        "cluster_b": "6",
+        "cluster_a_label": "in-silico/pharmacology",
+        "cluster_b_label": "fuel-cells/energy",
+        "bridge_score": 0.10752,
+        "momentum_score": 0.008365,
+        "gap_score": 0.7622622172037761,
+        "failure_penalty": 0.4667,
+        "entity_jaccard": 0.0862,
+        "rising_in_shared": [
+          "dynamics",
+          "digital twin"
+        ],
+        "recommendation": "Bridge in-silico/pharmacology ↔ fuel-cells/energy (Jaccard=0.086, 25 shared entities). Rising entities in overlap: dynamics, digital twin. These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.64,
+        "r_gap": 0.42,
+        "r_inv_failure": 0.4,
+        "old_bridge_score": 0.003446
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "0",
+        "cluster_b": "5",
+        "cluster_a_label": "in-silico/pharmacology",
+        "cluster_b_label": "mechanics/ABM",
+        "bridge_score": 0.0672,
+        "momentum_score": 0.007858,
+        "gap_score": 0.7715441955460443,
+        "failure_penalty": 0.5151,
+        "entity_jaccard": 0.2136,
+        "rising_in_shared": [],
+        "recommendation": "Bridge in-silico/pharmacology ↔ mechanics/ABM (Jaccard=0.214, 63 shared entities). These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.6,
+        "r_gap": 0.56,
+        "r_inv_failure": 0.2,
+        "old_bridge_score": 0.003707
+      },
+      {
+        "type": "cross_cluster",
+        "cluster_a": "2",
+        "cluster_b": "5",
+        "cluster_a_label": "telecom/V2X",
+        "cluster_b_label": "mechanics/ABM",
+        "bridge_score": 0.06528,
+        "momentum_score": 0.007314,
+        "gap_score": 0.7367374618848165,
+        "failure_penalty": 0.3762,
+        "entity_jaccard": 0.1811,
+        "rising_in_shared": [],
+        "recommendation": "Bridge telecom/V2X ↔ mechanics/ABM (Jaccard=0.181, 44 shared entities). These communities share vocabulary but rarely cite each other.",
+        "formula": "rank_norm",
+        "r_momentum": 0.48,
+        "r_gap": 0.2,
+        "r_inv_failure": 0.68,
+        "old_bridge_score": 0.00439
+      },
+      {
+        "type": "intra_cluster",
+        "cluster": "0",
+        "cluster_label": "in-silico/pharmacology",
+        "entity_a": "apoptosis",
+        "entity_b": "tissue",
+        "bridge_score": 0.0625,
+        "momentum_score": 0.004332,
+        "gap_score": 0.7819848656654358,
+        "failure_penalty": 0.6667,
+        "gap_expected": 5.11,
+        "gap_observed": 1,
+        "rising_involved": false,
+        "recommendation": "Explore the intersection of 'apoptosis' and 'tissue' within in-silico/pharmacology. Expected co-occurrence=5.1 but observed=1, suggesting an underexplored combination.",
+        "formula": "rank_norm",
+        "r_momentum": 0.25,
+        "r_gap": 1.0,
+        "r_inv_failure": 0.25,
+        "old_bridge_score": 0.001161
+      }
+    ]
+  },
+  "t2_weighted_geometric": {
+    "auto": {
+      "weights": [
+        0.3572,
+        0.3114,
+        0.3314
+      ],
+      "eval_all": {
+        "label": "T2_auto_all",
+        "n_recs": 33,
+        "top10_changes": 1,
+        "kendall_tau_displacement": 0.1288,
+        "dominance_ratio": 1.6098,
+        "component_rhos": {
+          "momentum": 0.9406,
+          "gap": 0.5843,
+          "failure": 0.8737
+        },
+        "gap_bridge_rho": 0.5843,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": false,
+          "top10_OR_kendall": false,
+          "dominance_ratio": true,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": true,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "cross|5|6",
+            "score": 0.168254
+          },
+          {
+            "rank": 2,
+            "key": "cross|6|7",
+            "score": 0.166898
+          },
+          {
+            "rank": 3,
+            "key": "cross|5|7",
+            "score": 0.160009
+          },
+          {
+            "rank": 4,
+            "key": "cross|3|6",
+            "score": 0.159417
+          },
+          {
+            "rank": 5,
+            "key": "intra|5|dynamics|human",
+            "score": 0.1585
+          }
+        ]
+      },
+      "eval_intra": {
+        "label": "T2_auto_intra",
+        "n_recs": 8,
+        "top10_changes": 0,
+        "kendall_tau_displacement": 0.5714,
+        "dominance_ratio": 1.1302,
+        "component_rhos": {
+          "momentum": 0.5477,
+          "gap": 0.619,
+          "failure": 0.5477
+        },
+        "gap_bridge_rho": 0.619,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": true,
+          "top10_OR_kendall": true,
+          "dominance_ratio": true,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": true,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "intra|5|dynamics|human",
+            "score": 0.1585
+          },
+          {
+            "rank": 2,
+            "key": "intra|1|cancer|whole-cell",
+            "score": 0.101241
+          },
+          {
+            "rank": 3,
+            "key": "intra|1|rna-seq|whole-cell",
+            "score": 0.099619
+          },
+          {
+            "rank": 4,
+            "key": "intra|0|apoptosis|tissue",
+            "score": 0.092137
+          },
+          {
+            "rank": 5,
+            "key": "intra|1|virtual cell|whole-cell",
+            "score": 0.08901
+          }
+        ]
+      },
+      "eval_cross": {
+        "label": "T2_auto_cross",
+        "n_recs": 25,
+        "top10_changes": 1,
+        "kendall_tau_displacement": 0.12,
+        "dominance_ratio": 2.2249,
+        "component_rhos": {
+          "momentum": 0.9338,
+          "gap": 0.4197,
+          "failure": 0.8062
+        },
+        "gap_bridge_rho": 0.4197,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": false,
+          "top10_OR_kendall": false,
+          "dominance_ratio": false,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": false,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "cross|5|6",
+            "score": 0.168254
+          },
+          {
+            "rank": 2,
+            "key": "cross|6|7",
+            "score": 0.166898
+          },
+          {
+            "rank": 3,
+            "key": "cross|5|7",
+            "score": 0.160009
+          },
+          {
+            "rank": 4,
+            "key": "cross|3|6",
+            "score": 0.159417
+          },
+          {
+            "rank": 5,
+            "key": "cross|3|5",
+            "score": 0.152927
+          }
+        ]
+      }
+    },
+    "equal": {
+      "weights": [
+        0.333,
+        0.333,
+        0.334
+      ],
+      "eval_all": {
+        "label": "T2_equal_all",
+        "n_recs": 33,
+        "top10_changes": 1,
+        "kendall_tau_displacement": 0.1364,
+        "dominance_ratio": 1.5796,
+        "component_rhos": {
+          "momentum": 0.9332,
+          "gap": 0.5908,
+          "failure": 0.877
+        },
+        "gap_bridge_rho": 0.5908,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": false,
+          "top10_OR_kendall": false,
+          "dominance_ratio": true,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": true,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "cross|5|6",
+            "score": 0.186164
+          },
+          {
+            "rank": 2,
+            "key": "cross|6|7",
+            "score": 0.184889
+          },
+          {
+            "rank": 3,
+            "key": "cross|5|7",
+            "score": 0.177393
+          },
+          {
+            "rank": 4,
+            "key": "cross|3|6",
+            "score": 0.176933
+          },
+          {
+            "rank": 5,
+            "key": "intra|5|dynamics|human",
+            "score": 0.175281
+          }
+        ]
+      },
+      "eval_intra": {
+        "label": "T2_equal_intra",
+        "n_recs": 8,
+        "top10_changes": 0,
+        "kendall_tau_displacement": 0.7143,
+        "dominance_ratio": 2.0216,
+        "component_rhos": {
+          "momentum": 0.3651,
+          "gap": 0.7381,
+          "failure": 0.3651
+        },
+        "gap_bridge_rho": 0.7381,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": true,
+          "top10_OR_kendall": true,
+          "dominance_ratio": false,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": false,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "intra|5|dynamics|human",
+            "score": 0.175281
+          },
+          {
+            "rank": 2,
+            "key": "intra|1|cancer|whole-cell",
+            "score": 0.114087
+          },
+          {
+            "rank": 3,
+            "key": "intra|1|rna-seq|whole-cell",
+            "score": 0.112133
+          },
+          {
+            "rank": 4,
+            "key": "intra|0|apoptosis|tissue",
+            "score": 0.104251
+          },
+          {
+            "rank": 5,
+            "key": "intra|0|cancer|covid",
+            "score": 0.099838
+          }
+        ]
+      },
+      "eval_cross": {
+        "label": "T2_equal_cross",
+        "n_recs": 25,
+        "top10_changes": 1,
+        "kendall_tau_displacement": 0.12,
+        "dominance_ratio": 2.1444,
+        "component_rhos": {
+          "momentum": 0.9223,
+          "gap": 0.4301,
+          "failure": 0.8223
+        },
+        "gap_bridge_rho": 0.4301,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": false,
+          "top10_OR_kendall": false,
+          "dominance_ratio": false,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": false,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "cross|5|6",
+            "score": 0.186164
+          },
+          {
+            "rank": 2,
+            "key": "cross|6|7",
+            "score": 0.184889
+          },
+          {
+            "rank": 3,
+            "key": "cross|5|7",
+            "score": 0.177393
+          },
+          {
+            "rank": 4,
+            "key": "cross|3|6",
+            "score": 0.176933
+          },
+          {
+            "rank": 5,
+            "key": "cross|3|5",
+            "score": 0.169908
+          }
+        ]
+      }
+    },
+    "gap_boost": {
+      "weights": [
+        0.3247,
+        0.374,
+        0.3013
+      ],
+      "eval_all": {
+        "label": "T2_gap_boost_all",
+        "n_recs": 33,
+        "top10_changes": 1,
+        "kendall_tau_displacement": 0.1326,
+        "dominance_ratio": 1.5849,
+        "component_rhos": {
+          "momentum": 0.9359,
+          "gap": 0.5905,
+          "failure": 0.8723
+        },
+        "gap_bridge_rho": 0.5905,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": false,
+          "top10_OR_kendall": false,
+          "dominance_ratio": true,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": true,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "cross|5|6",
+            "score": 0.193656
+          },
+          {
+            "rank": 2,
+            "key": "cross|6|7",
+            "score": 0.192288
+          },
+          {
+            "rank": 3,
+            "key": "cross|5|7",
+            "score": 0.184942
+          },
+          {
+            "rank": 4,
+            "key": "cross|3|6",
+            "score": 0.183808
+          },
+          {
+            "rank": 5,
+            "key": "intra|5|dynamics|human",
+            "score": 0.182362
+          }
+        ]
+      },
+      "eval_intra": {
+        "label": "T2_gap_boost_intra",
+        "n_recs": 8,
+        "top10_changes": 0,
+        "kendall_tau_displacement": 0.7143,
+        "dominance_ratio": 2.0216,
+        "component_rhos": {
+          "momentum": 0.3651,
+          "gap": 0.7381,
+          "failure": 0.3651
+        },
+        "gap_bridge_rho": 0.7381,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": true,
+          "top10_OR_kendall": true,
+          "dominance_ratio": false,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": false,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "intra|5|dynamics|human",
+            "score": 0.182362
+          },
+          {
+            "rank": 2,
+            "key": "intra|1|cancer|whole-cell",
+            "score": 0.120735
+          },
+          {
+            "rank": 3,
+            "key": "intra|1|rna-seq|whole-cell",
+            "score": 0.118415
+          },
+          {
+            "rank": 4,
+            "key": "intra|0|apoptosis|tissue",
+            "score": 0.111923
+          },
+          {
+            "rank": 5,
+            "key": "intra|0|cancer|covid",
+            "score": 0.106616
+          }
+        ]
+      },
+      "eval_cross": {
+        "label": "T2_gap_boost_cross",
+        "n_recs": 25,
+        "top10_changes": 1,
+        "kendall_tau_displacement": 0.1133,
+        "dominance_ratio": 2.1628,
+        "component_rhos": {
+          "momentum": 0.9285,
+          "gap": 0.4293,
+          "failure": 0.8123
+        },
+        "gap_bridge_rho": 0.4293,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": false,
+          "top10_OR_kendall": false,
+          "dominance_ratio": false,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": false,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "cross|5|6",
+            "score": 0.193656
+          },
+          {
+            "rank": 2,
+            "key": "cross|6|7",
+            "score": 0.192288
+          },
+          {
+            "rank": 3,
+            "key": "cross|5|7",
+            "score": 0.184942
+          },
+          {
+            "rank": 4,
+            "key": "cross|3|6",
+            "score": 0.183808
+          },
+          {
+            "rank": 5,
+            "key": "cross|3|5",
+            "score": 0.176993
+          }
+        ]
+      }
+    },
+    "momentum_boost": {
+      "weights": [
+        0.4156,
+        0.2831,
+        0.3013
+      ],
+      "eval_all": {
+        "label": "T2_momentum_boost_all",
+        "n_recs": 33,
+        "top10_changes": 1,
+        "kendall_tau_displacement": 0.1326,
+        "dominance_ratio": 1.6532,
+        "component_rhos": {
+          "momentum": 0.9496,
+          "gap": 0.5744,
+          "failure": 0.859
+        },
+        "gap_bridge_rho": 0.5744,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": false,
+          "top10_OR_kendall": false,
+          "dominance_ratio": true,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": true,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "cross|5|6",
+            "score": 0.132256
+          },
+          {
+            "rank": 2,
+            "key": "cross|6|7",
+            "score": 0.130747
+          },
+          {
+            "rank": 3,
+            "key": "cross|5|7",
+            "score": 0.125311
+          },
+          {
+            "rank": 4,
+            "key": "intra|5|dynamics|human",
+            "score": 0.124773
+          },
+          {
+            "rank": 5,
+            "key": "cross|3|6",
+            "score": 0.124167
+          }
+        ]
+      },
+      "eval_intra": {
+        "label": "T2_momentum_boost_intra",
+        "n_recs": 8,
+        "top10_changes": 0,
+        "kendall_tau_displacement": 0.5714,
+        "dominance_ratio": 1.1302,
+        "component_rhos": {
+          "momentum": 0.5477,
+          "gap": 0.619,
+          "failure": 0.5477
+        },
+        "gap_bridge_rho": 0.619,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": true,
+          "top10_OR_kendall": true,
+          "dominance_ratio": true,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": true,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "intra|5|dynamics|human",
+            "score": 0.124773
+          },
+          {
+            "rank": 2,
+            "key": "intra|1|cancer|whole-cell",
+            "score": 0.076735
+          },
+          {
+            "rank": 3,
+            "key": "intra|1|rna-seq|whole-cell",
+            "score": 0.075616
+          },
+          {
+            "rank": 4,
+            "key": "intra|0|apoptosis|tissue",
+            "score": 0.069791
+          },
+          {
+            "rank": 5,
+            "key": "intra|1|virtual cell|whole-cell",
+            "score": 0.068258
+          }
+        ]
+      },
+      "eval_cross": {
+        "label": "T2_momentum_boost_cross",
+        "n_recs": 25,
+        "top10_changes": 1,
+        "kendall_tau_displacement": 0.1067,
+        "dominance_ratio": 2.4068,
+        "component_rhos": {
+          "momentum": 0.9454,
+          "gap": 0.3928,
+          "failure": 0.7915
+        },
+        "gap_bridge_rho": 0.3928,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": false,
+          "top10_OR_kendall": false,
+          "dominance_ratio": false,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": false,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "cross|5|6",
+            "score": 0.132256
+          },
+          {
+            "rank": 2,
+            "key": "cross|6|7",
+            "score": 0.130747
+          },
+          {
+            "rank": 3,
+            "key": "cross|5|7",
+            "score": 0.125311
+          },
+          {
+            "rank": 4,
+            "key": "cross|3|6",
+            "score": 0.124167
+          },
+          {
+            "rank": 5,
+            "key": "cross|3|5",
+            "score": 0.119011
+          }
+        ]
+      }
+    },
+    "failure_boost": {
+      "weights": [
+        0.3247,
+        0.2831,
+        0.3922
+      ],
+      "eval_all": {
+        "label": "T2_failure_boost_all",
+        "n_recs": 33,
+        "top10_changes": 1,
+        "kendall_tau_displacement": 0.1212,
+        "dominance_ratio": 1.5977,
+        "component_rhos": {
+          "momentum": 0.9332,
+          "gap": 0.5841,
+          "failure": 0.8854
+        },
+        "gap_bridge_rho": 0.5841,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": false,
+          "top10_OR_kendall": false,
+          "dominance_ratio": true,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": true,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "cross|5|6",
+            "score": 0.191178
+          },
+          {
+            "rank": 2,
+            "key": "cross|6|7",
+            "score": 0.190154
+          },
+          {
+            "rank": 3,
+            "key": "cross|3|6",
+            "score": 0.182634
+          },
+          {
+            "rank": 4,
+            "key": "cross|5|7",
+            "score": 0.181816
+          },
+          {
+            "rank": 5,
+            "key": "intra|5|dynamics|human",
+            "score": 0.17987
+          }
+        ]
+      },
+      "eval_intra": {
+        "label": "T2_failure_boost_intra",
+        "n_recs": 8,
+        "top10_changes": 0,
+        "kendall_tau_displacement": 0.5714,
+        "dominance_ratio": 1.1302,
+        "component_rhos": {
+          "momentum": 0.5477,
+          "gap": 0.619,
+          "failure": 0.5477
+        },
+        "gap_bridge_rho": 0.619,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": true,
+          "top10_OR_kendall": true,
+          "dominance_ratio": true,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": true,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "intra|5|dynamics|human",
+            "score": 0.17987
+          },
+          {
+            "rank": 2,
+            "key": "intra|1|cancer|whole-cell",
+            "score": 0.115724
+          },
+          {
+            "rank": 3,
+            "key": "intra|1|rna-seq|whole-cell",
+            "score": 0.114036
+          },
+          {
+            "rank": 4,
+            "key": "intra|0|apoptosis|tissue",
+            "score": 0.103575
+          },
+          {
+            "rank": 5,
+            "key": "intra|1|virtual cell|whole-cell",
+            "score": 0.10294
+          }
+        ]
+      },
+      "eval_cross": {
+        "label": "T2_failure_boost_cross",
+        "n_recs": 25,
+        "top10_changes": 1,
+        "kendall_tau_displacement": 0.1067,
+        "dominance_ratio": 2.1826,
+        "component_rhos": {
+          "momentum": 0.9169,
+          "gap": 0.4201,
+          "failure": 0.8315
+        },
+        "gap_bridge_rho": 0.4201,
+        "criteria": {
+          "top10_changes": false,
+          "kendall_displacement": false,
+          "top10_OR_kendall": false,
+          "dominance_ratio": false,
+          "gap_bridge_rho_lower": true,
+          "gap_bridge_rho_upper": true,
+          "gap_bridge_rho": true
+        },
+        "overall_pass": false,
+        "top5_new": [
+          {
+            "rank": 1,
+            "key": "cross|5|6",
+            "score": 0.191178
+          },
+          {
+            "rank": 2,
+            "key": "cross|6|7",
+            "score": 0.190154
+          },
+          {
+            "rank": 3,
+            "key": "cross|3|6",
+            "score": 0.182634
+          },
+          {
+            "rank": 4,
+            "key": "cross|5|7",
+            "score": 0.181816
+          },
+          {
+            "rank": 5,
+            "key": "cross|3|5",
+            "score": 0.174737
+          }
+        ]
+      }
+    }
+  },
+  "t3_selection": {
+    "n_candidates": 6,
+    "candidates": [
+      {
+        "name": "T1_rank_norm",
+        "dominance": 1.4695,
+        "top10_changes": 2,
+        "kendall_displacement": 0.4545,
+        "gap_bridge_rho": 0.4716,
+        "intra_pass": false,
+        "cross_pass": true,
+        "independent_pass": false,
+        "weights": null
+      },
+      {
+        "name": "T2_equal",
+        "dominance": 1.5796,
+        "top10_changes": 1,
+        "kendall_displacement": 0.1364,
+        "gap_bridge_rho": 0.5908,
+        "intra_pass": false,
+        "cross_pass": false,
+        "independent_pass": false,
+        "weights": [
+          0.333,
+          0.333,
+          0.334
+        ]
+      },
+      {
+        "name": "T2_gap_boost",
+        "dominance": 1.5849,
+        "top10_changes": 1,
+        "kendall_displacement": 0.1326,
+        "gap_bridge_rho": 0.5905,
+        "intra_pass": false,
+        "cross_pass": false,
+        "independent_pass": false,
+        "weights": [
+          0.3247,
+          0.374,
+          0.3013
+        ]
+      },
+      {
+        "name": "T2_failure_boost",
+        "dominance": 1.5977,
+        "top10_changes": 1,
+        "kendall_displacement": 0.1212,
+        "gap_bridge_rho": 0.5841,
+        "intra_pass": true,
+        "cross_pass": false,
+        "independent_pass": false,
+        "weights": [
+          0.3247,
+          0.2831,
+          0.3922
+        ]
+      },
+      {
+        "name": "T2_auto",
+        "dominance": 1.6098,
+        "top10_changes": 1,
+        "kendall_displacement": 0.1288,
+        "gap_bridge_rho": 0.5843,
+        "intra_pass": true,
+        "cross_pass": false,
+        "independent_pass": false,
+        "weights": [
+          0.3572,
+          0.3114,
+          0.3314
+        ]
+      },
+      {
+        "name": "T2_momentum_boost",
+        "dominance": 1.6532,
+        "top10_changes": 1,
+        "kendall_displacement": 0.1326,
+        "gap_bridge_rho": 0.5744,
+        "intra_pass": true,
+        "cross_pass": false,
+        "independent_pass": false,
+        "weights": [
+          0.4156,
+          0.2831,
+          0.3013
+        ]
+      }
+    ],
+    "best": "T1_rank_norm"
+  },
+  "verdict": "GO — T1_rank_norm, dominance=1.4695"
+}

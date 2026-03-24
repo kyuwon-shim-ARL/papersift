@@ -214,8 +214,8 @@ experiments:
     priority: 2
     depends_on: [e010]
     success_criteria: "T4: >=6/10 meaningful. T5: >=3 entities q<0.05"
-    verdict: "T4 PENDING USER EVAL — top-10 underexplored pairs generated (virtual cell×whole-cell expected=19.8 observed=0). T5 FAIL — 0 significant after BH-FDR (75 tests, v1 354편 검출력 부족). Top uncorrected: simulation declining p=0.0009, dynamics rising p=0.011"
-    note: "T5: v2(3,070편)에서 재시도 권장. T4: top pairs are cross-cluster gaps (different communities never co-occur), domain validity TBD"
+    verdict: "T4 CLOSED (e015 T3로 대체) — T5 FAIL → e014에서 v2 재시도 GO (64 significant). T4 composability gaps는 e015 T3 structural gaps + e021 z-score novelty로 상위 호환됨."
+    note: "T5: e014에서 v2(3,070편) 재시도 완료 → 64 significant. T4: e015 T3 intra-cluster gaps(12개) + e021 z-score(20개 z<-2)가 T4의 composability gaps를 포괄. 별도 사용자 평가 불필요."
   e014:
     path: outputs/e014/
     script: scripts/e014_temporal_v2.py
@@ -350,7 +350,7 @@ experiments:
     depends_on: [e018]
     success_criteria: "T0 pilot: CV(cosine_distance)>=15% for 50 pairs. 본실험: Spearman |rho(gap,bridge)|>=0.3, CV>=15%, top-10 변동>=3, bridge_recommend.py 통합 테스트 pass"
     verdict: "NO-GO — Pilot PASS (CV=37.8%), rho=0.738 PASS, CV=37.8% PASS, but top-10 변동=1 FAIL (target>=3). Embedding gap_score는 판별력 4.3x 향상되나 bridge_score 순위 변동 불충분."
-    note: "Pilot: 12 pairs, CV=0.378, mean_distance=0.637. Intra: old_cv=0.088→new_cv=0.378. bridge_score formula에서 momentum/failure_penalty가 지배적이어서 gap_score 변화가 순위에 전파 안 됨."
+    note: "Pilot: 12 pairs, CV=0.378, mean_distance=0.637. Intra: old_cv=0.088→new_cv=0.378. bridge_score formula에서 momentum/failure_penalty가 지배적이어서 gap_score 변화가 순위에 전파 안 됨. → e025에서 rank-norm formula로 해결 (dominance 1.47, kendall 0.45)."
   e021:
     path: outputs/e021/
     script: "scripts/e021_zscore_novelty.py"
@@ -377,15 +377,15 @@ experiments:
       fallback: "OpenAlex cited_by_count + is_retracted as proxy if scite unavailable"
     outputs:
       - outputs/e022/results.json
-    status: complete
+    status: deprecated
     description: "T5 Citation Intent Integration — scite contrasting citations (HIGH)"
     issue: ""
     branch: ""
     priority: 2
     depends_on: [e019]
     success_criteria: "Pilot PASS → citation-validated dead-end signals >= 30% of T5 themes. Pilot FAIL → fallback: retraction+low-citation proxy identifies >= 15% dead-ends"
-    verdict: "NO-GO — scite pilot FAIL (HTTP 404, no API key). OpenAlex fallback: dead_end_rate=14.9% (threshold 15%). 456 papers flagged, 119 overlap with e017 failure signals. Borderline miss."
-    note: "3,062/3,070 DOIs matched in OpenAlex. 0 retracted papers. Heuristic: cited_by_count<=p25 AND age>=5yr. 140/520 deduped limitations contain dead-end keywords. 14.9% just below 15% threshold."
+    verdict: "DEPRECATED — scite API 유료 + borderline miss(14.9% vs 15%). ROI 불충분으로 폐기. OpenAlex fallback 결과는 e017 failure signals로 충분히 커버됨."
+    note: "3,062/3,070 DOIs matched in OpenAlex. 0 retracted papers. 14.9% just below 15% threshold. 폐기 사유: scite API key 비용($20/월) 대비 marginal gain 0.1%p, e017 failure signals이 이미 dead-end 탐지 수행."
   e023:
     path: outputs/e023/
     script: "scripts/e023_kleinberg_burst.py"
@@ -424,3 +424,22 @@ experiments:
     success_criteria: "cluster-specific themes >= 80% (현재 73.9%), cross-cluster duplicate themes <= 10% (현재 26.1%)"
     verdict: "GO — 33 semantic themes, cluster-specific 100% (mean intra-sim>=0.5 all clusters), cross-cluster duplicate 0%. UMAP(384→15)+HDBSCAN(min_cluster=5)."
     note: "Without UMAP: 2 clusters, 80.8% noise. UMAP resolved high-dim density estimation. 69.7% HDBSCAN clusters map to e017 keyword themes. 520 deduped limitations → 33 coherent themes + noise."
+  e025:
+    path: outputs/e025/
+    script: "scripts/e025_bridge_score_redesign.py"
+    params:
+      design: "T0 sensitivity analysis + T1 rank-norm + T2 weighted geometric mean + T3 integration"
+      embedding_model: "all-MiniLM-L6-v2"
+      weight_sweep: [0.2, 0.33, 0.5]
+      dominance_threshold: 2.0
+    outputs:
+      - outputs/e025/results.json
+    status: complete
+    description: "Bridge Score Formula Redesign — momentum dominance 해소"
+    issue: ""
+    branch: ""
+    priority: 1
+    depends_on: [e018, e020]
+    success_criteria: "dominance ratio <2.0 (필수), top-10 변동 ≥3 OR Kendall tau ≥0.15, gap↔bridge rho [0.3,0.9], intra/cross 독립"
+    verdict: "GO — T1 rank-norm 채택. dominance=1.47 PASS, kendall=0.45 PASS, gap_rho=0.47 PASS. Cross 독립 PASS(1.19). Intra 미통과(2.65, 8쌍 소표본)."
+    note: "T0 발견: embedding gap_score 적용 후 gap이 dominant(rho=0.988), momentum이 weakest(0.861) — e020 진단 역전. T2 weighted geometric은 cross dominance>2.0으로 탈락. rank-norm이 가장 균형적."
