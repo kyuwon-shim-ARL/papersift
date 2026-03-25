@@ -1,0 +1,215 @@
+{
+  "protocol": {
+    "evaluator": "single_author_pilot",
+    "scale": {
+      "novelty": "1-5 Likert (1=obvious, 5=highly novel)",
+      "feasibility": "1-5 Likert (1=infeasible, 5=immediately actionable)",
+      "relevance": "binary (0=irrelevant to virtual cell research, 1=relevant)"
+    },
+    "selection_criteria": {
+      "source": "e025 t1_rank_norm.top_20",
+      "sort": "bridge_score descending",
+      "intra": "top 5 intra_cluster by bridge_score",
+      "cross": "top 5 cross_cluster by bridge_score",
+      "total": 10,
+      "tie_breaking": "if fewer than 5 in category, fill from other category"
+    }
+  },
+  "evaluation_form_schema": {
+    "bridge_id": {
+      "type": "string",
+      "description": "Unique identifier (rank-based)"
+    },
+    "source_cluster": {
+      "type": "string",
+      "description": "Source cluster label"
+    },
+    "target_cluster": {
+      "type": "string",
+      "description": "Target cluster label (same as source for intra)"
+    },
+    "entity_pair": {
+      "type": "string",
+      "description": "Entity pair or cluster pair description"
+    },
+    "bridge_score": {
+      "type": "number",
+      "description": "Rank-normalized bridge score from e025"
+    },
+    "novelty_score": {
+      "type": "integer",
+      "min": 1,
+      "max": 5,
+      "description": "Novelty rating"
+    },
+    "feasibility_score": {
+      "type": "integer",
+      "min": 1,
+      "max": 5,
+      "description": "Feasibility rating"
+    },
+    "relevance_binary": {
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "Domain relevance"
+    },
+    "evaluator_id": {
+      "type": "string",
+      "description": "Evaluator identifier"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "ISO 8601",
+      "description": "Evaluation timestamp"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Free-text notes"
+    }
+  },
+  "selected_bridges": [
+    {
+      "bridge_id": "B01",
+      "type": "intra",
+      "source_cluster": "mechanics/ABM",
+      "target_cluster": "mechanics/ABM",
+      "entity_pair": "dynamics x human",
+      "bridge_score": 0.875,
+      "novelty_score": null,
+      "feasibility_score": null,
+      "relevance_binary": null,
+      "evaluator_id": null,
+      "timestamp": null,
+      "notes": null
+    },
+    {
+      "bridge_id": "B02",
+      "type": "intra",
+      "source_cluster": "whole-cell/systems-biology",
+      "target_cluster": "whole-cell/systems-biology",
+      "entity_pair": "cancer x whole-cell",
+      "bridge_score": 0.3545,
+      "novelty_score": null,
+      "feasibility_score": null,
+      "relevance_binary": null,
+      "evaluator_id": null,
+      "timestamp": null,
+      "notes": null
+    },
+    {
+      "bridge_id": "B03",
+      "type": "intra",
+      "source_cluster": "whole-cell/systems-biology",
+      "target_cluster": "whole-cell/systems-biology",
+      "entity_pair": "rna-seq x whole-cell",
+      "bridge_score": 0.1772,
+      "novelty_score": null,
+      "feasibility_score": null,
+      "relevance_binary": null,
+      "evaluator_id": null,
+      "timestamp": null,
+      "notes": null
+    },
+    {
+      "bridge_id": "B04",
+      "type": "intra",
+      "source_cluster": "whole-cell/systems-biology",
+      "target_cluster": "whole-cell/systems-biology",
+      "entity_pair": "virtual cell x whole-cell",
+      "bridge_score": 0.1182,
+      "novelty_score": null,
+      "feasibility_score": null,
+      "relevance_binary": null,
+      "evaluator_id": null,
+      "timestamp": null,
+      "notes": null
+    },
+    {
+      "bridge_id": "B05",
+      "type": "intra",
+      "source_cluster": "in-silico/pharmacology",
+      "target_cluster": "in-silico/pharmacology",
+      "entity_pair": "apoptosis x tissue",
+      "bridge_score": 0.0625,
+      "novelty_score": null,
+      "feasibility_score": null,
+      "relevance_binary": null,
+      "evaluator_id": null,
+      "timestamp": null,
+      "notes": null
+    },
+    {
+      "bridge_id": "B06",
+      "type": "cross",
+      "source_cluster": "fuel-cells/energy",
+      "target_cluster": "immunology",
+      "entity_pair": "fuel-cells/energy <-> immunology",
+      "bridge_score": 0.7741,
+      "novelty_score": null,
+      "feasibility_score": null,
+      "relevance_binary": null,
+      "evaluator_id": null,
+      "timestamp": null,
+      "notes": null
+    },
+    {
+      "bridge_id": "B07",
+      "type": "cross",
+      "source_cluster": "mechanics/ABM",
+      "target_cluster": "fuel-cells/energy",
+      "entity_pair": "mechanics/ABM <-> fuel-cells/energy",
+      "bridge_score": 0.736,
+      "novelty_score": null,
+      "feasibility_score": null,
+      "relevance_binary": null,
+      "evaluator_id": null,
+      "timestamp": null,
+      "notes": null
+    },
+    {
+      "bridge_id": "B08",
+      "type": "cross",
+      "source_cluster": "mechanics/ABM",
+      "target_cluster": "immunology",
+      "entity_pair": "mechanics/ABM <-> immunology",
+      "bridge_score": 0.5299,
+      "novelty_score": null,
+      "feasibility_score": null,
+      "relevance_binary": null,
+      "evaluator_id": null,
+      "timestamp": null,
+      "notes": null
+    },
+    {
+      "bridge_id": "B09",
+      "type": "cross",
+      "source_cluster": "neuro/electrophysiology",
+      "target_cluster": "immunology",
+      "entity_pair": "neuro/electrophysiology <-> immunology",
+      "bridge_score": 0.3802,
+      "novelty_score": null,
+      "feasibility_score": null,
+      "relevance_binary": null,
+      "evaluator_id": null,
+      "timestamp": null,
+      "notes": null
+    },
+    {
+      "bridge_id": "B10",
+      "type": "cross",
+      "source_cluster": "neuro/electrophysiology",
+      "target_cluster": "fuel-cells/energy",
+      "entity_pair": "neuro/electrophysiology <-> fuel-cells/energy",
+      "bridge_score": 0.336,
+      "novelty_score": null,
+      "feasibility_score": null,
+      "relevance_binary": null,
+      "evaluator_id": null,
+      "timestamp": null,
+      "notes": null
+    }
+  ]
+}

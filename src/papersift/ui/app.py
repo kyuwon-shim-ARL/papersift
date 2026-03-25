@@ -59,7 +59,15 @@ def create_app(papers_path: str, use_topics: bool = False, analysis_dir: str = N
     embedding = compute_paper_embedding(papers, method="tsne", use_topics=use_topics)
 
     # Load analysis data if directory provided
-    analysis_data = load_analysis_data(analysis_dir) if analysis_dir else {}
+    # Auto-detect v1.1 outputs directory (outputs/ relative to project root)
+    v11_dir = None
+    if analysis_dir:
+        # Try outputs/ relative to analysis_dir parent, or project root
+        for candidate in [Path(analysis_dir).parent / 'outputs', Path('outputs')]:
+            if candidate.exists() and (candidate / 'e025' / 'results.json').exists():
+                v11_dir = str(candidate)
+                break
+    analysis_data = load_analysis_data(analysis_dir, v11_dir=v11_dir) if analysis_dir else {}
 
     # Load extractions if available
     extractions = {}
