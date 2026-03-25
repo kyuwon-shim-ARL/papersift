@@ -110,8 +110,8 @@ experiments:
     priority: 1
     depends_on: [e006]
     success_criteria: "coverage ≥90% non-empty problem+method, specificity ≥1.0 (50편 샘플)"
-    verdict: "PARTIAL — 1,194/3,070편 추출 (38.9%). Core 3 fill 89.6%, fulltext +12~18pp 확인. 34 batch truncated (regex bug), 10 batch 미실행. 전량 재추출 비용 대비 추가 인사이트 제한적 → 초록 기반으로 전환"
-    note: "fulltext vs abstract: finding +18.3pp, method +12.7pp, specificity +2.2w. 결론: 초록만으로도 core 3 fill 87%+ 달성 가능"
+    verdict: "SCOPE-OUT — 1,194/3,070편 추출 (38.9%). 전량 재추출 won't-resume 확정. 사유: 투자 대비 효용 부족 + downstream(e017/e019/e024)에서 partial 데이터 이미 활용 완료"
+    note: "fulltext vs abstract: finding +18.3pp, method +12.7pp, specificity +2.2w. 결론: 초록만으로도 core 3 fill 87%+ 달성 가능. 2026-03-25 scope-out 확정."
   e008:
     path: outputs/e008/
     script: ""
@@ -276,8 +276,8 @@ experiments:
     priority: 1
     depends_on: [e012]
     success_criteria: "enables >= 80%, limits >= 60%, open_questions >= 60%"
-    verdict: "CONDITIONAL — enables 52.7%, limits 45.6%, open_questions 49.7% (above 40% kill, below GO thresholds)"
-    note: "Pass 1: 69 batches all 10 fields → low extended fill (20.1/12.9/17.0%). Pass 2: 84 batches focused 3 fields only → merged 52.7/45.6/49.7%. Sufficient for downstream T5/T6."
+    verdict: "GO-AS-IS — enables 52.7%, limits 45.6%, open_questions 49.7%. 원 기준 미달이나 downstream 3개 실험(e017 GO, e019 GO, e024 GO) 모두 성공적 활용 완료. 추가 추출 불필요."
+    note: "Pass 1: 69 batches all 10 fields → low extended fill (20.1/12.9/17.0%). Pass 2: 84 batches focused 3 fields only → merged 52.7/45.6/49.7%. Sufficient for downstream T5/T6. 2026-03-25 GO-AS-IS 확정."
   e017:
     path: outputs/e017/
     script: scripts/e017_failure_signal.py

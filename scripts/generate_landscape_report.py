@@ -84,6 +84,31 @@ def load_data(input_dir: Path) -> dict:
     }
 
 
+def load_v11_data(v11_dir: Path) -> dict | None:
+    """Load Knowledge Frontier v1.1 experiment results.
+
+    Returns None if the directory does not exist.
+    Each sub-key returns None if the individual file is missing.
+    """
+    if not v11_dir.exists():
+        return None
+
+    def _try_load(rel: str):
+        path = v11_dir / rel
+        try:
+            with open(path, encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return None
+
+    return {
+        "burst": _try_load("e023/results.json"),
+        "zscore": _try_load("e021/results.json"),
+        "themes": _try_load("e024/results.json"),
+        "bridge": _try_load("e025/results.json"),
+    }
+
+
 def abbrev(full_name: str) -> str:
     """Convert full method name to abbreviated display name."""
     return FULL_TO_ABBREV.get(full_name, full_name)
@@ -201,7 +226,7 @@ def _generate_synthesis(data: dict) -> list[str]:
     return insights
 
 
-def generate_markdown(data: dict, output_dir: Path) -> Path:
+def generate_markdown(data: dict, output_dir: Path, v11: dict | None = None) -> Path:
     """Generate Korean-language markdown report."""
     output_dir.mkdir(parents=True, exist_ok=True)
     out_path = output_dir / "landscape-report.md"
@@ -685,6 +710,107 @@ def generate_markdown(data: dict, output_dir: Path) -> Path:
     w()
     w("---")
     w()
+
+    # --- v1.1 sections (Knowledge Frontier) ---
+    if v11 is not None:
+        # Section 11: Burst Detection
+        burst = v11.get("burst")
+        if burst is not None:
+            s2 = burst.get("results_by_s", {}).get("2.0", {})
+            burst_entities = s2.get("burst_entities", [])
+            kleinberg_only = burst.get("ols_comparison", {}).get("kleinberg_only", "N/A")
+            n_matches = burst.get("timing_validation", {}).get("n_matches", "N/A")
+            w("## 11. Burst Detection (Kleinberg Automaton)")
+            w()
+            w("Kleinberg 3-state automaton으로 탐지한 비선형 emergence 패턴. "
+              "OLS 선형 트렌드로 포착되지 않는 급격한 부상을 감지.")
+            w()
+            w(f"- **Burst entities**: {len(burst_entities)}개 (s=2.0)")
+            w(f"- **OLS 미감지**: {kleinberg_only}개 (Kleinberg에서만 탐지)")
+            w(f"- **Known event 매칭**: {n_matches}/5")
+            w()
+            w("### Top Burst Entities")
+            w("| Entity | Peak Year | Total Mentions |")
+            w("|--------|-----------|---------------|")
+            for ent in burst_entities[:10]:
+                w(f"| {ent.get('entity', '?')} | {ent.get('peak_year', '?')} "
+                  f"| {ent.get('total_mentions', '?')} |")
+            w()
+            w("---")
+            w()
+
+        # Section 12: Research Gaps
+        zscore = v11.get("zscore")
+        themes_data = v11.get("themes")
+        w("## 12. Research Gaps — 통계적 유의성 기반")
+        w()
+        if zscore is not None:
+            zg = zscore.get("z_score_gaps", {})
+            sig_z2 = zg.get("significant_gaps_z2", "N/A")
+            clusters_z2 = zg.get("clusters_with_z2_gaps", [])
+            top10 = zg.get("top_10_gaps", [])
+            w("### Z-score Novelty Gaps")
+            w("Uzzi/Lee 방식 null model permutation (1000회)으로 유의한 "
+              "under-representation 탐지.")
+            w()
+            w(f"- **z < -2 gaps**: {sig_z2}개")
+            w(f"- **Covered clusters**: {', '.join(str(c) for c in clusters_z2)}")
+            w()
+            w("### Top Gaps")
+            w("| Cluster | Entity A | Entity B | z-score | Expected | Observed |")
+            w("|---------|----------|----------|---------|----------|----------|")
+            for g in top10[:10]:
+                w(f"| {g.get('cluster','?')} | {g.get('entity_a','?')} "
+                  f"| {g.get('entity_b','?')} | {g.get('z', 0):.3f} "
+                  f"| {g.get('expected_independence', 0):.1f} "
+                  f"| {g.get('observed', 0)} |")
+            w()
+        if themes_data is not None:
+            themes_list = themes_data.get("themes", [])
+            w("### Semantic Limitation Themes")
+            w("HDBSCAN 클러스터링으로 520개 limitations에서 추출한 "
+              f"{len(themes_list)}개 의미 그룹.")
+            w()
+            w(f"- **Themes**: {len(themes_list)}개")
+            w()
+        w("---")
+        w()
+
+        # Section 13: Bridge Recommendations
+        bridge = v11.get("bridge")
+        if bridge is not None:
+            top20 = bridge.get("t1_rank_norm", {}).get("top_20", [])
+            w("## 13. Bridge Recommendations — Rank-Normalized")
+            w()
+            w("e025 rank-norm formula로 momentum dominance를 해소한 연구 연결 추천.")
+            w("`bridge_score = r_momentum × r_gap × r_inv_failure` (percentile rank 정규화)")
+            w()
+            w("### Top 10 Recommendations")
+            w("| Rank | Type | Score | Momentum | Gap | Description |")
+            w("|------|------|-------|----------|-----|-------------|")
+            for i, rec in enumerate(top20[:10], 1):
+                rec_type = rec.get("type", "?")
+                score = rec.get("bridge_score", 0)
+                r_mom = rec.get("r_momentum", 0)
+                r_gap = rec.get("r_gap", 0)
+                # Build description from label + entity info
+                if rec_type == "intra_cluster":
+                    label = rec.get("cluster_label", rec.get("cluster", "?"))
+                    ea = rec.get("entity_a", "")
+                    eb = rec.get("entity_b", "")
+                    desc = f"{label}: {ea} × {eb}"
+                else:
+                    la = rec.get("cluster_a_label", rec.get("cluster_a", "?"))
+                    lb = rec.get("cluster_b_label", rec.get("cluster_b", "?"))
+                    ea = rec.get("entity_a", rec.get("shared_entities", [""])[0]
+                                 if rec.get("shared_entities") else "")
+                    desc = f"{la} ↔ {lb} ({ea})"
+                w(f"| {i} | {rec_type} | {score:.3f} | {r_mom:.3f} | {r_gap:.3f} "
+                  f"| {desc} |")
+            w()
+            w("---")
+            w()
+
     w("## 데이터 출처")
     w()
     w("| 파일 | 설명 | 크기 |")
@@ -712,7 +838,7 @@ def generate_markdown(data: dict, output_dir: Path) -> Path:
 # Layer 3: HTML dashboard
 # ---------------------------------------------------------------------------
 
-def generate_html(data: dict, output_dir: Path, offline: bool = False) -> Path:
+def generate_html(data: dict, output_dir: Path, offline: bool = False, v11: dict | None = None) -> Path:
     """Generate standalone interactive HTML dashboard.
 
     Args:
@@ -882,6 +1008,80 @@ def generate_html(data: dict, output_dir: Path, offline: bool = False) -> Path:
         plotly_script = f'<script>{get_plotlyjs()}</script>'
     else:
         plotly_script = '<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>'
+
+    # --- Build v1.1 HTML section ---
+    v11_html_section = ""
+    if v11 is not None:
+        parts = []
+        parts.append('<section class="v11-section" style="max-width:1200px;margin:40px auto;padding:0 20px;">')
+        parts.append('<h2 style="border-bottom:2px solid var(--accent,#3498db);padding-bottom:8px;">Knowledge Frontier v1.1</h2>')
+
+        # Burst Detection
+        burst = v11.get("burst")
+        if burst is not None:
+            s2 = burst.get("results_by_s", {}).get("2.0", {})
+            burst_entities = s2.get("burst_entities", [])
+            kleinberg_only = burst.get("ols_comparison", {}).get("kleinberg_only", "N/A")
+            n_matches = burst.get("timing_validation", {}).get("n_matches", "N/A")
+            parts.append('<h3>11. Burst Detection (Kleinberg Automaton)</h3>')
+            parts.append(f'<p>Burst entities: <strong>{len(burst_entities)}</strong> (s=2.0) &nbsp;|&nbsp; OLS 미감지: <strong>{kleinberg_only}</strong>개 &nbsp;|&nbsp; Known event 매칭: <strong>{n_matches}/5</strong></p>')
+            parts.append('<table style="width:100%;border-collapse:collapse;font-size:13px;">')
+            parts.append('<thead><tr style="background:var(--bg2,#f8f9fa);"><th style="padding:6px 10px;text-align:left;border:1px solid var(--border,#dee2e6);">Entity</th><th style="padding:6px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">Peak Year</th><th style="padding:6px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">Total Mentions</th></tr></thead>')
+            parts.append('<tbody>')
+            for ent in burst_entities[:10]:
+                parts.append(f'<tr><td style="padding:5px 10px;border:1px solid var(--border,#dee2e6);">{ent.get("entity","?")}</td><td style="padding:5px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">{ent.get("peak_year","?")}</td><td style="padding:5px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">{ent.get("total_mentions","?")}</td></tr>')
+            parts.append('</tbody></table>')
+
+        # Research Gaps
+        zscore = v11.get("zscore")
+        themes_data = v11.get("themes")
+        parts.append('<h3 style="margin-top:30px;">12. Research Gaps — 통계적 유의성 기반</h3>')
+        if zscore is not None:
+            zg = zscore.get("z_score_gaps", {})
+            sig_z2 = zg.get("significant_gaps_z2", "N/A")
+            clusters_z2 = zg.get("clusters_with_z2_gaps", [])
+            top10 = zg.get("top_10_gaps", [])
+            parts.append(f'<p>z &lt; -2 gaps: <strong>{sig_z2}개</strong> &nbsp;|&nbsp; Covered clusters: {", ".join(str(c) for c in clusters_z2)}</p>')
+            parts.append('<table style="width:100%;border-collapse:collapse;font-size:13px;">')
+            parts.append('<thead><tr style="background:var(--bg2,#f8f9fa);"><th style="padding:6px 10px;text-align:left;border:1px solid var(--border,#dee2e6);">Cluster</th><th style="padding:6px 10px;text-align:left;border:1px solid var(--border,#dee2e6);">Entity A</th><th style="padding:6px 10px;text-align:left;border:1px solid var(--border,#dee2e6);">Entity B</th><th style="padding:6px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">z-score</th><th style="padding:6px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">Expected</th><th style="padding:6px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">Observed</th></tr></thead>')
+            parts.append('<tbody>')
+            for g in top10[:10]:
+                parts.append(f'<tr><td style="padding:5px 10px;border:1px solid var(--border,#dee2e6);">{g.get("cluster","?")}</td><td style="padding:5px 10px;border:1px solid var(--border,#dee2e6);">{g.get("entity_a","?")}</td><td style="padding:5px 10px;border:1px solid var(--border,#dee2e6);">{g.get("entity_b","?")}</td><td style="padding:5px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">{g.get("z",0):.3f}</td><td style="padding:5px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">{g.get("expected_independence",0):.1f}</td><td style="padding:5px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">{g.get("observed",0)}</td></tr>')
+            parts.append('</tbody></table>')
+        if themes_data is not None:
+            themes_list = themes_data.get("themes", [])
+            parts.append(f'<p style="margin-top:12px;">Semantic Limitation Themes (HDBSCAN): <strong>{len(themes_list)}개</strong> 의미 그룹</p>')
+
+        # Bridge Recommendations
+        bridge = v11.get("bridge")
+        if bridge is not None:
+            top20 = bridge.get("t1_rank_norm", {}).get("top_20", [])
+            parts.append('<h3 style="margin-top:30px;">13. Bridge Recommendations — Rank-Normalized</h3>')
+            parts.append('<p>e025 rank-norm formula: <code>bridge_score = r_momentum × r_gap × r_inv_failure</code></p>')
+            parts.append('<table style="width:100%;border-collapse:collapse;font-size:13px;">')
+            parts.append('<thead><tr style="background:var(--bg2,#f8f9fa);"><th style="padding:6px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">#</th><th style="padding:6px 10px;text-align:left;border:1px solid var(--border,#dee2e6);">Type</th><th style="padding:6px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">Score</th><th style="padding:6px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">Momentum</th><th style="padding:6px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">Gap</th><th style="padding:6px 10px;text-align:left;border:1px solid var(--border,#dee2e6);">Description</th></tr></thead>')
+            parts.append('<tbody>')
+            for i, rec in enumerate(top20[:10], 1):
+                rec_type = rec.get("type", "?")
+                score = rec.get("bridge_score", 0)
+                r_mom = rec.get("r_momentum", 0)
+                r_gap = rec.get("r_gap", 0)
+                if rec_type == "intra_cluster":
+                    label = rec.get("cluster_label", rec.get("cluster", "?"))
+                    ea = rec.get("entity_a", "")
+                    eb = rec.get("entity_b", "")
+                    desc = f"{label}: {ea} × {eb}"
+                else:
+                    la = rec.get("cluster_a_label", rec.get("cluster_a", "?"))
+                    lb = rec.get("cluster_b_label", rec.get("cluster_b", "?"))
+                    shared = rec.get("shared_entities", [])
+                    ea = rec.get("entity_a", shared[0] if shared else "")
+                    desc = f"{la} ↔ {lb} ({ea})"
+                parts.append(f'<tr><td style="padding:5px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">{i}</td><td style="padding:5px 10px;border:1px solid var(--border,#dee2e6);">{rec_type}</td><td style="padding:5px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">{score:.3f}</td><td style="padding:5px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">{r_mom:.3f}</td><td style="padding:5px 10px;text-align:center;border:1px solid var(--border,#dee2e6);">{r_gap:.3f}</td><td style="padding:5px 10px;border:1px solid var(--border,#dee2e6);">{desc}</td></tr>')
+            parts.append('</tbody></table>')
+
+        parts.append('</section>')
+        v11_html_section = "\n".join(parts)
 
     # --- Build HTML ---
     html = f"""<!DOCTYPE html>
@@ -1314,6 +1514,7 @@ hypData.forEach(h => {{
   hypContainer.appendChild(card);
 }});
 </script>
+{v11_html_section}
 </body>
 </html>"""
 
@@ -1350,6 +1551,10 @@ def parse_args() -> argparse.Namespace:
         "--offline", action="store_true", default=False,
         help="Inline Plotly.js for offline viewing (adds ~3.5MB, default: use CDN)"
     )
+    parser.add_argument(
+        "--v11-dir", type=Path, default=Path("outputs"),
+        help="Directory containing v1.1 experiment results (e021-e025)"
+    )
     return parser.parse_args()
 
 
@@ -1364,11 +1569,18 @@ def main() -> None:
     data = load_data(args.input_dir)
     print(f"Loaded {len(data['papers']):,} papers, {len(data['doi_index']):,} DOIs", file=sys.stderr)
 
+    v11 = load_v11_data(args.v11_dir)
+    if v11 is not None:
+        loaded = [k for k, v in v11.items() if v is not None]
+        print(f"Loaded v1.1 data: {loaded}", file=sys.stderr)
+    else:
+        print(f"v1.1 data not found at {args.v11_dir} — skipping v1.1 sections", file=sys.stderr)
+
     if args.markdown or args.all:
-        generate_markdown(data, args.output_dir)
+        generate_markdown(data, args.output_dir, v11=v11)
 
     if args.html or args.all:
-        generate_html(data, args.output_dir, offline=args.offline)
+        generate_html(data, args.output_dir, offline=args.offline, v11=v11)
 
     print("Done.", file=sys.stderr)
 

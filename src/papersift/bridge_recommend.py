@@ -1,7 +1,23 @@
 """Bridge recommendation: combine temporal + structural gaps + failure signals.
 
-Refactored from scripts/e018_bridge_recommendation.py for use as CLI subcommand.
+Uses rank-normalization (e025) to prevent single-component dominance.
+Each component (momentum, gap, failure) is converted to percentile rank [0,1]
+before multiplicative combination: bridge_score = r_momentum * r_gap * r_inv_failure.
+
+Intra-cluster and cross-cluster pools are ranked independently.
+
+Limitations (from e025 validation on virtual-cell-sweep 3,070 papers):
+  1. Small intra pool (n~8) has limited rank granularity (dominance 2.65 vs target <2.0).
+     Cross pool (n~25) passes (dominance 1.19).
+  2. Validated on a single dataset only; generalization unverified.
+  3. Rank transformation makes raw scores non-interpretable; use rank position instead.
+  4. Intra/cross pools are ranked independently, so bridge_score values are not
+     directly comparable across pool types.
+
+Refactored from scripts/e018_bridge_recommendation.py, updated with e025 rank-norm.
 """
+
+from scipy.stats import rankdata
 
 # Default cluster labels; callers may override via cluster_labels parameter
 DEFAULT_CLUSTER_LABELS = {
@@ -60,6 +76,18 @@ def _compute_failure_penalties(e017_data: dict) -> dict:
     return penalties
 
 
+def _rank_normalize(values: list[float]) -> list[float]:
+    """Convert raw values to percentile ranks in [0, 1].
+
+    Uses scipy.stats.rankdata with 'average' method, then divides by n.
+    """
+    n = len(values)
+    if n < 2:
+        return [1.0] * n
+    ranks = rankdata(values, method="average")
+    return [round(float(r / n), 4) for r in ranks]
+
+
 def _generate_intra_cluster_recommendations(
     momentum: dict,
     gaps: dict,
@@ -67,7 +95,8 @@ def _generate_intra_cluster_recommendations(
     biology_clusters: set,
     cluster_labels: dict,
 ) -> list[dict]:
-    recommendations = []
+    # Phase 1: collect raw components for all intra recommendations
+    raw_entries = []
 
     for cid in biology_clusters:
         if cid not in gaps["intra_gaps"]:
@@ -87,31 +116,59 @@ def _generate_intra_cluster_recommendations(
             gap_ratio = gap["ratio"]
 
             gap_score = max(0, 1.0 - gap_ratio)
-
             momentum_boost = 1.5 if (entity_a in rising_entities or entity_b in rising_entities) else 1.0
+            boosted_momentum = momentum_score * momentum_boost
 
-            bridge_score = momentum_score * momentum_boost * gap_score * (1 - failure_penalty)
-
-            recommendations.append({
-                "type": "intra_cluster",
-                "cluster": cid,
-                "cluster_label": cluster_labels.get(cid, cid),
+            raw_entries.append({
+                "cid": cid,
                 "entity_a": entity_a,
                 "entity_b": entity_b,
-                "bridge_score": round(bridge_score, 6),
-                "momentum_score": round(momentum_score * momentum_boost, 6),
-                "gap_score": round(gap_score, 4),
-                "failure_penalty": round(failure_penalty, 4),
-                "gap_expected": gap["expected"],
-                "gap_observed": gap["observed"],
+                "momentum_raw": boosted_momentum,
+                "gap_raw": gap_score,
+                "failure_raw": failure_penalty,
+                "gap": gap,
                 "rising_involved": bool({entity_a, entity_b} & rising_entities),
-                "recommendation": (
-                    f"Explore the intersection of '{entity_a}' and '{entity_b}' "
-                    f"within {cluster_labels.get(cid, 'C' + cid)}. "
-                    f"Expected co-occurrence={gap['expected']:.1f} but observed={gap['observed']}, "
-                    f"suggesting an underexplored combination."
-                ),
+                "cluster_label": cluster_labels.get(cid, cid),
             })
+
+    if not raw_entries:
+        return []
+
+    # Phase 2: rank-normalize each component independently
+    r_momentum = _rank_normalize([e["momentum_raw"] for e in raw_entries])
+    r_gap = _rank_normalize([e["gap_raw"] for e in raw_entries])
+    # Invert failure: lower penalty = better rank
+    r_inv_failure = _rank_normalize([-e["failure_raw"] for e in raw_entries])
+
+    # Phase 3: compute bridge_score and build output
+    recommendations = []
+    for i, entry in enumerate(raw_entries):
+        bridge_score = r_momentum[i] * r_gap[i] * r_inv_failure[i]
+        gap = entry["gap"]
+
+        recommendations.append({
+            "type": "intra_cluster",
+            "cluster": entry["cid"],
+            "cluster_label": entry["cluster_label"],
+            "entity_a": entry["entity_a"],
+            "entity_b": entry["entity_b"],
+            "bridge_score": round(bridge_score, 6),
+            "momentum_score": round(entry["momentum_raw"], 6),
+            "gap_score": round(entry["gap_raw"], 4),
+            "failure_penalty": round(entry["failure_raw"], 4),
+            "r_momentum": r_momentum[i],
+            "r_gap": r_gap[i],
+            "r_inv_failure": r_inv_failure[i],
+            "gap_expected": gap["expected"],
+            "gap_observed": gap["observed"],
+            "rising_involved": entry["rising_involved"],
+            "recommendation": (
+                f"Explore the intersection of '{entry['entity_a']}' and '{entry['entity_b']}' "
+                f"within {entry['cluster_label']}. "
+                f"Expected co-occurrence={gap['expected']:.1f} but observed={gap['observed']}, "
+                f"suggesting an underexplored combination."
+            ),
+        })
 
     return recommendations
 
@@ -123,7 +180,8 @@ def _generate_cross_cluster_recommendations(
     biology_clusters: set,
     cluster_labels: dict,
 ) -> list[dict]:
-    recommendations = []
+    # Phase 1: collect raw components for all cross recommendations
+    raw_entries = []
 
     for bridge in gaps["bridges"]:
         ca, cb = bridge["cluster_a"], bridge["cluster_b"]
@@ -148,31 +206,57 @@ def _generate_cross_cluster_recommendations(
 
         combined_failure = (fa.get("penalty", 0) + fb.get("penalty", 0)) / 2
 
-        bridge_score = combined_momentum * gap_score * (1 - combined_failure)
-
         rising_a = set(ma.get("rising", []))
         rising_b = set(mb.get("rising", []))
         shared = set(bridge["shared_entities"])
         rising_shared = shared & (rising_a | rising_b)
 
+        raw_entries.append({
+            "ca": ca,
+            "cb": cb,
+            "momentum_raw": combined_momentum,
+            "gap_raw": gap_score,
+            "failure_raw": combined_failure,
+            "jaccard": jaccard,
+            "bridge": bridge,
+            "rising_shared": rising_shared,
+        })
+
+    if not raw_entries:
+        return []
+
+    # Phase 2: rank-normalize each component independently
+    r_momentum = _rank_normalize([e["momentum_raw"] for e in raw_entries])
+    r_gap = _rank_normalize([e["gap_raw"] for e in raw_entries])
+    r_inv_failure = _rank_normalize([-e["failure_raw"] for e in raw_entries])
+
+    # Phase 3: compute bridge_score and build output
+    recommendations = []
+    for i, entry in enumerate(raw_entries):
+        bridge_score = r_momentum[i] * r_gap[i] * r_inv_failure[i]
+        bridge = entry["bridge"]
+
         recommendations.append({
             "type": "cross_cluster",
-            "cluster_a": ca,
-            "cluster_b": cb,
-            "cluster_a_label": cluster_labels.get(ca, ca),
-            "cluster_b_label": cluster_labels.get(cb, cb),
+            "cluster_a": entry["ca"],
+            "cluster_b": entry["cb"],
+            "cluster_a_label": cluster_labels.get(entry["ca"], entry["ca"]),
+            "cluster_b_label": cluster_labels.get(entry["cb"], entry["cb"]),
             "bridge_score": round(bridge_score, 6),
-            "momentum_score": round(combined_momentum, 6),
-            "gap_score": round(gap_score, 4),
-            "failure_penalty": round(combined_failure, 4),
-            "entity_jaccard": jaccard,
+            "momentum_score": round(entry["momentum_raw"], 6),
+            "gap_score": round(entry["gap_raw"], 4),
+            "failure_penalty": round(entry["failure_raw"], 4),
+            "r_momentum": r_momentum[i],
+            "r_gap": r_gap[i],
+            "r_inv_failure": r_inv_failure[i],
+            "entity_jaccard": entry["jaccard"],
             "shared_entities": bridge["shared_entities"],
-            "rising_in_shared": list(rising_shared),
+            "rising_in_shared": list(entry["rising_shared"]),
             "recommendation": (
-                f"Bridge {cluster_labels.get(ca, 'C' + ca)} <-> "
-                f"{cluster_labels.get(cb, 'C' + cb)} "
-                f"(Jaccard={jaccard:.3f}, {bridge['shared_count']} shared entities). "
-                + (f"Rising entities in overlap: {', '.join(rising_shared)}. " if rising_shared else "")
+                f"Bridge {cluster_labels.get(entry['ca'], 'C' + entry['ca'])} <-> "
+                f"{cluster_labels.get(entry['cb'], 'C' + entry['cb'])} "
+                f"(Jaccard={entry['jaccard']:.3f}, {bridge['shared_count']} shared entities). "
+                + (f"Rising entities in overlap: {', '.join(entry['rising_shared'])}. " if entry["rising_shared"] else "")
                 + "These communities share vocabulary but rarely cite each other."
             ),
         })
@@ -188,6 +272,10 @@ def generate_recommendations(
     top_n: int = 20,
 ) -> dict:
     """Generate bridge recommendations combining T2+T3 (frontier) and failure signals.
+
+    Uses rank-normalization (e025) to prevent momentum dominance in the
+    multiplicative bridge_score formula. Each component is converted to
+    percentile rank before combination.
 
     Args:
         frontier_results: Output from e015 pipeline containing 't2_temporal' and
@@ -256,6 +344,7 @@ def generate_recommendations(
         "top_10_bio_involved": n_bio_involved,
         "top_10_with_rising": n_with_rising,
         "verdict": verdict,
+        "formula": "rank_norm (e025)",
         "momentum_summary": {
             cid: {"momentum": v["momentum"], "rising": v["rising"]}
             for cid, v in momentum.items()
