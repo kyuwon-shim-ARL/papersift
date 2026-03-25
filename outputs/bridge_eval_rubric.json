@@ -1,10 +1,35 @@
 {
+  "version": 2,
+  "updated_at": "2026-03-25T13:28:00Z",
   "protocol": {
-    "evaluator": "single_author_pilot",
+    "type": "pilot_finding",
+    "limitation": "N=1 evaluator, results are pilot-level evidence only. No statistical power for generalization.",
+    "evaluator": "single_author_primary",
+    "peer_evaluator": "optional (if available, compute Cohen's kappa >= 0.6)",
+    "fallback": "test-retest reliability (2-week interval, same 10 items, Pearson r >= 0.7)",
     "scale": {
-      "novelty": "1-5 Likert (1=obvious, 5=highly novel)",
-      "feasibility": "1-5 Likert (1=infeasible, 5=immediately actionable)",
+      "novelty": "1-5 Likert (1=obvious/well-known connection, 2=somewhat known, 3=moderately novel, 4=novel, 5=highly novel/surprising)",
+      "feasibility": "1-5 Likert (1=infeasible/no clear path, 2=very difficult, 3=possible with effort, 4=feasible, 5=immediately actionable)",
+      "overall_interest": "1-5 Likert (1=no interest, 2=low, 3=moderate, 4=high, 5=would pursue immediately)",
       "relevance": "binary (0=irrelevant to virtual cell research, 1=relevant)"
+    },
+    "go_no_go": {
+      "worth_trying_definition": "novelty >= 3 AND feasibility >= 3 AND overall_interest >= 3",
+      "GO": ">= 5/10 worth-trying",
+      "CONDITIONAL": "3-4/10 worth-trying",
+      "NO_GO": "< 3/10 worth-trying → scoring formula 재검토"
+    },
+    "pilot": {
+      "size": 3,
+      "items": ["B01", "B06", "B09"],
+      "rationale": "1 intra (highest score) + 1 cross (highest score) + 1 cross (lowest score) for range coverage",
+      "adjustment_criteria": {
+        "variance_threshold": 2.0,
+        "action_if_exceeded": "clarify scale anchors in evaluation guide",
+        "time_threshold_minutes": 15,
+        "action_if_exceeded": "reduce notes field to optional, simplify rubric"
+      },
+      "proceed_to_main": "pilot results reviewed, rubric adjusted if needed, then evaluate remaining 7 items"
     },
     "selection_criteria": {
       "source": "e025 t1_rank_norm.top_20",
@@ -15,60 +40,30 @@
       "tie_breaking": "if fewer than 5 in category, fill from other category"
     }
   },
-  "evaluation_form_schema": {
-    "bridge_id": {
-      "type": "string",
-      "description": "Unique identifier (rank-based)"
+  "evaluation_guide": {
+    "instructions": "각 bridge recommendation에 대해 아래 4개 항목을 평가하세요. 평가 전 해당 bridge의 source/target cluster 논문 5편 이상을 훑어보고 context를 파악하세요.",
+    "novelty_anchors": {
+      "1": "이미 잘 알려진 연결. 해당 분야 리뷰 논문에 언급됨.",
+      "2": "일부 연구자가 인지하고 있으나 체계적 탐구는 부족.",
+      "3": "합리적이나 명시적으로 연결된 논문이 드묾.",
+      "4": "새로운 시각. 소수의 관련 시도만 존재.",
+      "5": "완전히 새로운 연결. 기존 문헌에서 발견되지 않음."
     },
-    "source_cluster": {
-      "type": "string",
-      "description": "Source cluster label"
+    "feasibility_anchors": {
+      "1": "실현 불가. 필요 기술/데이터가 존재하지 않음.",
+      "2": "매우 어려움. 다년간 기반 연구 필요.",
+      "3": "가능하나 상당한 노력 필요. 1-2년 프로젝트.",
+      "4": "실현 가능. 기존 도구/데이터로 6개월 내 착수 가능.",
+      "5": "즉시 실행 가능. 기존 파이프라인에 통합 가능."
     },
-    "target_cluster": {
-      "type": "string",
-      "description": "Target cluster label (same as source for intra)"
+    "overall_interest_anchors": {
+      "1": "관심 없음. 연구 가치를 느끼지 못함.",
+      "2": "약간의 호기심. 직접 추구하지는 않겠음.",
+      "3": "흥미로움. 동료가 한다면 관심을 가질 것.",
+      "4": "높은 관심. 리소스가 있다면 시도하고 싶음.",
+      "5": "즉시 추구하고 싶음. 연구 계획에 포함할 것."
     },
-    "entity_pair": {
-      "type": "string",
-      "description": "Entity pair or cluster pair description"
-    },
-    "bridge_score": {
-      "type": "number",
-      "description": "Rank-normalized bridge score from e025"
-    },
-    "novelty_score": {
-      "type": "integer",
-      "min": 1,
-      "max": 5,
-      "description": "Novelty rating"
-    },
-    "feasibility_score": {
-      "type": "integer",
-      "min": 1,
-      "max": 5,
-      "description": "Feasibility rating"
-    },
-    "relevance_binary": {
-      "type": "integer",
-      "enum": [
-        0,
-        1
-      ],
-      "description": "Domain relevance"
-    },
-    "evaluator_id": {
-      "type": "string",
-      "description": "Evaluator identifier"
-    },
-    "timestamp": {
-      "type": "string",
-      "format": "ISO 8601",
-      "description": "Evaluation timestamp"
-    },
-    "notes": {
-      "type": "string",
-      "description": "Free-text notes"
-    }
+    "time_estimate": "pilot 3건: ~30분, 본평가 7건: ~1시간"
   },
   "selected_bridges": [
     {
@@ -80,6 +75,7 @@
       "bridge_score": 0.875,
       "novelty_score": null,
       "feasibility_score": null,
+      "overall_interest": null,
       "relevance_binary": null,
       "evaluator_id": null,
       "timestamp": null,
@@ -94,6 +90,7 @@
       "bridge_score": 0.3545,
       "novelty_score": null,
       "feasibility_score": null,
+      "overall_interest": null,
       "relevance_binary": null,
       "evaluator_id": null,
       "timestamp": null,
@@ -108,6 +105,7 @@
       "bridge_score": 0.1772,
       "novelty_score": null,
       "feasibility_score": null,
+      "overall_interest": null,
       "relevance_binary": null,
       "evaluator_id": null,
       "timestamp": null,
@@ -122,6 +120,7 @@
       "bridge_score": 0.1182,
       "novelty_score": null,
       "feasibility_score": null,
+      "overall_interest": null,
       "relevance_binary": null,
       "evaluator_id": null,
       "timestamp": null,
@@ -136,6 +135,7 @@
       "bridge_score": 0.0625,
       "novelty_score": null,
       "feasibility_score": null,
+      "overall_interest": null,
       "relevance_binary": null,
       "evaluator_id": null,
       "timestamp": null,
@@ -150,6 +150,7 @@
       "bridge_score": 0.7741,
       "novelty_score": null,
       "feasibility_score": null,
+      "overall_interest": null,
       "relevance_binary": null,
       "evaluator_id": null,
       "timestamp": null,
@@ -164,6 +165,7 @@
       "bridge_score": 0.736,
       "novelty_score": null,
       "feasibility_score": null,
+      "overall_interest": null,
       "relevance_binary": null,
       "evaluator_id": null,
       "timestamp": null,
@@ -178,6 +180,7 @@
       "bridge_score": 0.5299,
       "novelty_score": null,
       "feasibility_score": null,
+      "overall_interest": null,
       "relevance_binary": null,
       "evaluator_id": null,
       "timestamp": null,
@@ -192,6 +195,7 @@
       "bridge_score": 0.3802,
       "novelty_score": null,
       "feasibility_score": null,
+      "overall_interest": null,
       "relevance_binary": null,
       "evaluator_id": null,
       "timestamp": null,
@@ -206,6 +210,7 @@
       "bridge_score": 0.336,
       "novelty_score": null,
       "feasibility_score": null,
+      "overall_interest": null,
       "relevance_binary": null,
       "evaluator_id": null,
       "timestamp": null,

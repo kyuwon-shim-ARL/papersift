@@ -1,5 +1,5 @@
 version: 1
-updated: "2026-03-24T15:00:00Z"
+updated: "2026-03-25T13:17:00Z"
 scan_paths:
   - outputs/
 experiments:
@@ -443,3 +443,56 @@ experiments:
     success_criteria: "dominance ratio <2.0 (필수), top-10 변동 ≥3 OR Kendall tau ≥0.15, gap↔bridge rho [0.3,0.9], intra/cross 독립"
     verdict: "GO — T1 rank-norm 채택. dominance=1.47 PASS, kendall=0.45 PASS, gap_rho=0.47 PASS. Cross 독립 PASS(1.19). Intra 미통과(2.65, 8쌍 소표본)."
     note: "T0 발견: embedding gap_score 적용 후 gap이 dominant(rho=0.988), momentum이 weakest(0.861) — e020 진단 역전. T2 weighted geometric은 cross dominance>2.0으로 탈락. rank-norm이 가장 균형적."
+  e026:
+    path: outputs/e026/
+    script: ""
+    params:
+      design: "Likert 5-point × 3 (novelty, feasibility, overall_interest)"
+      evaluators: "self (primary) + optional peer"
+      pilot_size: 3
+      main_size: 10
+      fallback: "test-retest reliability (2-week interval, Pearson r>=0.7)"
+    outputs:
+      - outputs/bridge_eval_rubric.json
+    status: in_progress
+    description: "Bridge User Evaluation — top-10 bridge recommendations novelty/feasibility 평가"
+    issue: 9
+    branch: ""
+    priority: 1
+    depends_on: [e025]
+    success_criteria: "10건 전량 평가, worth-trying(novelty>=3 AND feasibility>=3 AND overall_interest>=3) >=5/10 → GO"
+    verdict: ""
+  e027:
+    path: outputs/e027/
+    script: ""
+    params:
+      design: "sweep→cluster→Knowledge Frontier per domain"
+      domains:
+        - "drug discovery/QSAR (1,000-3,000편)"
+        - "gut microbiome-disease (2,000-5,000편)"
+      min_papers: 500
+    outputs:
+      - outputs/e027/domain_research.json
+    status: in_progress
+    description: "Domain Expansion Test — PaperSift 범용성 검증 (drug/QSAR + microbiome)"
+    issue: 10
+    branch: ""
+    priority: 2
+    depends_on: []
+    success_criteria: "도메인별: >=3 domain-specific clusters, stability>=80%, entity coverage>=50%. 2/2 pass → GO"
+    verdict: ""
+  retro001:
+    path: outputs/retro001/
+    script: ""
+    params:
+      target_experiments: [e002, e003, e004, e007, e008, e011, e020, e022]
+    outputs:
+      - outputs/retro001/lessons_learned.json
+    status: complete
+    description: "Retrospective: e001-e025 Lessons Learned Registry — NO-GO 8건 실패 원인 체계화"
+    issue: 11
+    branch: ""
+    priority: 2
+    depends_on: []
+    success_criteria: "8건 전량 failure_cause/lesson/applicability 기록"
+    verdict: "COMPLETE — 8건 전량 기록 + 5개 cross-cutting themes 도출"
