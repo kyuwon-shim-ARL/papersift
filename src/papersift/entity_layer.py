@@ -12,10 +12,12 @@ Key components:
 
 import re
 from collections import defaultdict
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
 import igraph as ig
 import leidenalg
+import yaml
 
 
 # Stopwords to filter from capitalized word extraction
@@ -57,7 +59,14 @@ STOPWORDS = {
 class ImprovedEntityExtractor:
     """Rule-based entity extraction with word-boundary matching."""
 
-    def __init__(self):
+    def __init__(self, domain_vocab: Optional[Dict[str, List[str]]] = None):
+        if domain_vocab:
+            self.methods = domain_vocab.get('methods', [])
+            self.organisms = domain_vocab.get('organisms', [])
+            self.concepts = domain_vocab.get('concepts', [])
+            self.datasets = domain_vocab.get('datasets', [])
+            self._compile_patterns()
+            return
         # Methods - use word boundaries
         self.methods = [
             'scGPT', 'transformer', 'transformers', 'LSTM', 'CNN', 'RNN', 'GRU',
@@ -233,15 +242,17 @@ class EntityLayerBuilder:
     - Title + Topics (--use-topics): Also include OpenAlex topics as entities for richer clustering
     """
 
-    def __init__(self, use_topics: bool = False):
+    def __init__(self, use_topics: bool = False, domain_vocab: Optional[Dict[str, List[str]]] = None):
         """
         Initialize the entity layer builder.
 
         Args:
             use_topics: If True, also use OpenAlex topics from paper['topics'] as entities.
                        Requires enriched paper data with 'topics' field.
+            domain_vocab: Optional domain-specific vocabulary dict with keys
+                         'methods', 'organisms', 'concepts', 'datasets'.
         """
-        self.extractor = ImprovedEntityExtractor()
+        self.extractor = ImprovedEntityExtractor(domain_vocab=domain_vocab)
         self.use_topics = use_topics
         self.graph: Optional[ig.Graph] = None
         self._paper_entities: Dict[str, set] = {}  # doi -> set(entity_names)

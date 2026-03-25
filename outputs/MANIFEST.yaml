@@ -473,14 +473,19 @@ experiments:
       min_papers: 500
     outputs:
       - outputs/e027/domain_research.json
-    status: in_progress
-    description: "Domain Expansion Test — PaperSift 범용성 검증 (drug/QSAR + microbiome)"
+      - outputs/e027/go_no_go.json
+      - results/gut-microbiome-sweep/papers.json
+      - results/gut-microbiome-sweep/clusters.json
+      - results/gut-microbiome-sweep/communities.json
+      - domains/gut_microbiome.yaml
+    status: complete
+    description: "Domain Expansion Test — PaperSift 범용성 검증 (gut microbiome GO, QSAR deferred)"
     issue: 10
     branch: ""
     priority: 2
     depends_on: []
     success_criteria: "도메인별: >=3 domain-specific clusters, stability>=80%, entity coverage>=50%. 2/2 pass → GO"
-    verdict: ""
+    verdict: "GO — gut microbiome: 3,767편, 7 major clusters, modularity 0.434, noise 7.6%, coverage 98%. QSAR deferred."
   retro001:
     path: outputs/retro001/
     script: ""

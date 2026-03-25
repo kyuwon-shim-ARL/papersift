@@ -59,6 +59,8 @@ Examples:
     cluster_parser.add_argument("--validate", action="store_true")
     cluster_parser.add_argument("--use-topics", action="store_true",
                                 help="Use OpenAlex topics as additional entities (requires enriched data)")
+    cluster_parser.add_argument("--domain-vocab", type=str, default=None,
+                                help="Path to domain-specific entity vocabulary YAML file")
 
     # ===== enrich command =====
     enrich_parser = subparsers.add_parser(
@@ -581,11 +583,23 @@ def run_cluster(args):
     papers = load_papers(args.input)
     print(f"Loaded {len(papers)} papers")
 
+    # Load domain vocabulary if specified
+    domain_vocab = None
+    vocab_path = getattr(args, 'domain_vocab', None)
+    if vocab_path:
+        import yaml
+        with open(vocab_path) as f:
+            domain_vocab = yaml.safe_load(f)
+        entity_count = sum(len(domain_vocab.get(k, [])) for k in ['methods', 'organisms', 'concepts', 'datasets'])
+        print(f"Loaded domain vocabulary: {vocab_path} ({entity_count} entities)")
+
     # Build entity graph and cluster
     use_topics = getattr(args, 'use_topics', False)
     mode = "Title + OpenAlex Topics" if use_topics else "Title-only"
+    if domain_vocab:
+        mode += f" + Domain({domain_vocab.get('domain', 'custom')})"
     print(f"Building entity graph ({mode})...")
-    builder = EntityLayerBuilder(use_topics=use_topics)
+    builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
     builder.build_from_papers(papers)
     print(f"  Graph: {builder.graph.vcount()} nodes, {builder.graph.ecount()} edges")
 

@@ -1,0 +1,44 @@
+{
+  "experiment": "e027",
+  "domain": "gut_microbiome",
+  "verdict": "GO",
+  "evaluated_at": "2026-03-25T15:25:00Z",
+  "sweep": {
+    "queries": 5,
+    "sorts": "hybrid (relevance_score + cited_by_count)",
+    "citation_chaining": true,
+    "total_papers": 3767
+  },
+  "clustering": {
+    "vocabulary": "domains/gut_microbiome.yaml",
+    "entity_count": 172,
+    "vocab_coverage": "98.0% (49/50 sample titles)",
+    "resolution": 1.0,
+    "seed": 42,
+    "total_clusters": 306,
+    "major_clusters": 7,
+    "singleton_clusters": 285,
+    "noise_pct": 7.6
+  },
+  "go_no_go": {
+    "clusters_ge_4": {"value": 7, "threshold": 4, "pass": true},
+    "noise_le_40": {"value": 7.6, "threshold": 40, "pass": true},
+    "modularity_ge_03": {"value": 0.434, "threshold": 0.3, "pass": true}
+  },
+  "major_clusters_summary": [
+    {"id": "C0", "size": 738, "theme": "gut microbiome + obesity + human"},
+    {"id": "C1", "size": 724, "theme": "gut-brain axis + microbiota-gut-brain"},
+    {"id": "C2", "size": 657, "theme": "FMT + Clostridium + infection"},
+    {"id": "C3", "size": 620, "theme": "intestinal microbiome + disease"},
+    {"id": "C4", "size": 583, "theme": "gut microbiota + obesity"},
+    {"id": "C5", "size": 105, "theme": "antibiotic + microbial diversity"},
+    {"id": "C6", "size": 22, "theme": "immunotherapy + commensal + PD-1"}
+  ],
+  "comparison_to_virtual_cell": {
+    "virtual_cell_papers": 3070,
+    "virtual_cell_clusters": 11,
+    "gut_microbiome_papers": 3767,
+    "gut_microbiome_clusters": 7,
+    "notes": "Similar dataset size. Fewer major clusters likely due to higher domain coherence (all biology, no noise domains like fuel-cells/telecom)."
+  }
+}
