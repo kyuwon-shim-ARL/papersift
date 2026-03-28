@@ -29,6 +29,12 @@ outputs/**/communities.json
 outputs/**/seeds_v2_enriched.json
 outputs/**/execution.log
 
+# Intermediate analysis outputs (reproducible, not in MANIFEST)
+outputs/ANALYSIS_INDEX.md
+outputs/CLUSTERING_QUALITY_ANALYSIS.md
+outputs/FINDINGS_STRUCTURED.txt
+outputs/e009_e010_e011_SUMMARY.txt
+
 # Generated data (large, reproducible)
 reports/
 results/
