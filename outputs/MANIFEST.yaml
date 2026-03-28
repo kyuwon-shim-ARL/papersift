@@ -501,3 +501,37 @@ experiments:
     depends_on: []
     success_criteria: "8건 전량 failure_cause/lesson/applicability 기록"
     verdict: "COMPLETE — 8건 전량 기록 + 5개 cross-cutting themes 도출"
+  e028:
+    path: outputs/e028/
+    script: ""
+    params:
+      design: "light pipeline (sweep→cluster→temporal→gaps) per domain"
+      domains:
+        - "neuroscience memory/learning (1,000-3,000편)"
+        - "AI foundation models (1,000-3,000편, year>=2023)"
+        - "AMR antimicrobial resistance (1,000-3,000편)"
+      pipeline: "paper-pipeline sweep → papersift cluster → temporal → gaps"
+      bridge_selection: "도메인당 bridge_score 상위 10건 → 총 30건"
+    outputs:
+      - outputs/e028/bridge_candidates.json
+      - outputs/bridge_eval_rubric.json
+      - domains/amr.yaml
+      - domains/neuroscience_memory.yaml
+      - domains/ai_foundation.yaml
+      - results/amr-sweep/papers.json
+      - results/amr-sweep/clusters.json
+      - results/amr-sweep/gaps.json
+      - results/neuroscience-sweep/papers.json
+      - results/neuroscience-sweep/clusters.json
+      - results/neuroscience-sweep/gaps.json
+      - results/ai-foundation-sweep/papers.json
+      - results/ai-foundation-sweep/clusters.json
+      - results/ai-foundation-sweep/gaps.json
+    status: complete
+    description: "Multi-Domain Bridge Evaluation — 사용자 전문 3개 도메인에서 bridge candidates 생성"
+    issue: 12
+    branch: ""
+    priority: 1
+    depends_on: [e025, e027]
+    success_criteria: "3개 도메인 모두 >=5 clusters + 도메인당 >=5 cross-cluster bridges + 총 30건 bridge candidates 생성"
+    verdict: "GO — AMR 1,907편/6clusters/15bridges, Neuroscience 2,066편/23clusters/78bridges, AI 2,089편/4clusters/6bridges. 총 30건 rubric v3 생성."
