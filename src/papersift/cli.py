@@ -101,6 +101,16 @@ Examples:
     stream_parser.add_argument("--format", choices=["table", "json"], default="table",
                                help="Output format (default: table)")
 
+    # ===== generate-views command =====
+    gen_parser = subparsers.add_parser(
+        "generate-views",
+        help="Generate standalone HTML visualization views",
+        description="Generate interactive HTML files for exploring clustering results. No server needed."
+    )
+    gen_parser.add_argument("results_dir", help="Path to results directory (containing clusters.json, papers.json, etc.)")
+    gen_parser.add_argument("-o", "--output-dir", help="Output directory for HTML files (default: {results_dir}/views/)")
+    gen_parser.add_argument("--views", nargs="+", choices=["overview", "bridges", "timeline", "detail", "drilldown", "all"], default=["all"], help="Which views to generate (default: all)")
+
     # ===== ui command (NEW) =====
     ui_parser = subparsers.add_parser(
         "ui",
@@ -413,6 +423,13 @@ workflow: entity-based focus (skip cluster numbers)
         run_failures(args)
     elif args.command == "recommend":
         run_recommend(args)
+    elif args.command == "generate-views":
+        from papersift.views import generate_all_views
+        output_dir = args.output_dir
+        generated = generate_all_views(args.results_dir, output_dir)
+        print(f"Generated {len(generated)} view files:")
+        for f in generated:
+            print(f"  {f}")
     # Pipeline command dispatch
     elif args.command == "search":
         run_search(args)

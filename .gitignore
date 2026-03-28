@@ -33,3 +33,4 @@ outputs/**/execution.log
 reports/
 results/
 data/
+.gstack/

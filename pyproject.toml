@@ -44,3 +44,4 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/papersift"]
+artifacts = ["src/papersift/static/*.js"]
