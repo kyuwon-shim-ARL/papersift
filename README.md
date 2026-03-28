@@ -484,6 +484,50 @@ UniProt, PDB, GenBank, KEGG, Reactome, TCGA, GTEx, Human Cell Atlas, CellxGene, 
 
 **Capitalized Terms** are also extracted from titles (e.g., "scGPT", "ScanPy"), excluding common stopwords.
 
+### generate-views - Create standalone HTML visualizations
+
+```bash
+papersift generate-views RESULTS_DIR [-o OUTPUT_DIR]
+```
+
+Generate interactive HTML files for exploring clustering results offline. No server needed.
+
+**Arguments:**
+- `RESULTS_DIR`: Path to results directory (containing clusters.json, papers.json, etc.)
+- `-o, --output-dir`: Output directory for HTML files (default: `{RESULTS_DIR}/views/`)
+
+**Generated pages:** overview (cluster map), bridges (cross-cluster connections), ranking (bridge scores), timeline (temporal trends), detail (paper directory with cluster filter), decision (summary dashboard).
+
+**Example:**
+
+```bash
+papersift generate-views results/virtual-cell-sweep/ -o views/
+open views/overview.html
+```
+
+All pages work offline with bundled Plotly.js and include a navigation bar linking every view.
+
+### Knowledge Frontier Pipeline
+
+PaperSift includes a Knowledge Frontier analysis pipeline that identifies temporal trends, research gaps, and cross-cluster bridge opportunities.
+
+**Commands:**
+
+```bash
+# Detect temporal trends (rising/declining entities per cluster)
+papersift temporal results/ -o results/temporal.json
+
+# Find research gaps (under-explored entity combinations)
+papersift gaps results/ -o results/gaps.json
+
+# Generate bridge recommendations (cross-cluster opportunities)
+papersift bridges results/ -o results/bridges.json
+```
+
+The pipeline uses rank-normalized scoring to balance three dimensions: momentum (temporal trend strength), gap (structural under-representation), and failure penalty (known dead-ends from literature). Bridge scores identify the most promising unexplored connections between research communities.
+
+**Validated across 5 domains:** virtual cell (3,070 papers), gut microbiome (3,767), AMR (1,907), neuroscience (2,066), AI foundation models (2,089).
+
 ## Advanced Usage
 
 ### Entity Extraction Pipeline
