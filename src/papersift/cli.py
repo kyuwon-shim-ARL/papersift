@@ -4,7 +4,9 @@
 import argparse
 import json
 import os
+import re
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 from papersift.doi import normalize_doi
@@ -57,8 +59,12 @@ Examples:
     cluster_parser.add_argument("--resolution", type=float, default=1.0)
     cluster_parser.add_argument("--seed", type=int, default=42)
     cluster_parser.add_argument("--validate", action="store_true")
-    cluster_parser.add_argument("--use-topics", action="store_true",
+    cluster_parser.add_argument("--use-topics", action="store_true", default=True,
                                 help="Use OpenAlex topics as additional entities (requires enriched data)")
+    cluster_parser.add_argument("--no-topics", action="store_true",
+                                help="Disable OpenAlex topics (title-only entity extraction)")
+    cluster_parser.add_argument("--use-abstract", action="store_true",
+                                help="Also extract entities from paper abstracts")
     cluster_parser.add_argument("--domain-vocab", type=str, default=None,
                                 help="Path to domain-specific entity vocabulary YAML file")
 
@@ -85,6 +91,8 @@ Examples:
     find_parser.add_argument("--format", choices=["table", "json"], default="table")
     find_parser.add_argument("--use-topics", action="store_true",
                              help="Use OpenAlex topics as additional entities")
+    find_parser.add_argument("--domain-vocab", type=str, default=None,
+                             help="Path to domain-specific entity vocabulary YAML file")
 
     # ===== stream command (NEW) =====
     stream_parser = subparsers.add_parser(
@@ -100,6 +108,8 @@ Examples:
                                help="Use OpenAlex topics as additional entities")
     stream_parser.add_argument("--format", choices=["table", "json"], default="table",
                                help="Output format (default: table)")
+    stream_parser.add_argument("--domain-vocab", type=str, default=None,
+                               help="Path to domain-specific entity vocabulary YAML file")
 
     # ===== generate-views command =====
     gen_parser = subparsers.add_parser(
@@ -154,6 +164,8 @@ Examples:
                                help="Sub-cluster a specific cluster (e.g., '3' or '3.1')")
     browse_parser.add_argument("--sub-resolution", type=float, default=1.0,
                                help="Resolution for sub-clustering (default: 1.0)")
+    browse_parser.add_argument("--domain-vocab", type=str, default=None,
+                               help="Path to domain-specific entity vocabulary YAML file")
 
     # ===== landscape command (NEW) =====
     landscape_parser = subparsers.add_parser(
@@ -171,6 +183,8 @@ Examples:
     landscape_parser.add_argument("--seed", type=int, default=42, help="Random seed")
     landscape_parser.add_argument("--interactive", action="store_true",
                                    help="Open in browser after export")
+    landscape_parser.add_argument("--domain-vocab", type=str, default=None,
+                                   help="Path to domain-specific entity vocabulary YAML file")
 
     # ===== filter command (NEW) =====
     filter_parser = subparsers.add_parser(
@@ -192,6 +206,8 @@ Examples:
     filter_parser.add_argument("--format", choices=["json", "table"], default="json",
                                help="Output format (default: json)")
     filter_parser.add_argument("-o", "--output", help="Output file (default: stdout)")
+    filter_parser.add_argument("--domain-vocab", type=str, default=None,
+                               help="Path to domain-specific entity vocabulary YAML file")
 
     # ===== merge command (NEW) =====
     merge_parser = subparsers.add_parser(
@@ -230,6 +246,19 @@ Examples:
     subcluster_parser.add_argument("--seed", type=int, default=42)
     subcluster_parser.add_argument("-o", "--output", help="Output directory for updated clusters")
     subcluster_parser.add_argument("--format", choices=["json", "table"], default="table")
+    subcluster_parser.add_argument("--domain-vocab", type=str, default=None,
+                                    help="Path to domain-specific entity vocabulary YAML file")
+
+    # ===== generate-vocab command =====
+    genvocab_parser = subparsers.add_parser(
+        "generate-vocab",
+        help="Generate domain-specific entity vocabulary YAML from sample paper titles"
+    )
+    genvocab_parser.add_argument("domain", help="Domain name (e.g., 'gut_microbiome')")
+    genvocab_parser.add_argument("--from-papers", required=True, help="Papers JSON file to sample titles from")
+    genvocab_parser.add_argument("-o", "--output", help="Output YAML file (default: domains/<domain>.yaml)")
+    genvocab_parser.add_argument("--sample-size", type=int, default=50, help="Number of titles to sample (default: 50)")
+    genvocab_parser.add_argument("--seed", type=int, default=42, help="Random seed for sampling")
 
     # ===== Pipeline commands (require papersift[pipeline]) =====
 
@@ -334,6 +363,8 @@ workflow: entity-based focus (skip cluster numbers)
                                 help="Fetch PMC fulltext and use for enhanced extraction (slower but higher quality)")
     research_parser.add_argument("--no-llm", action="store_true",
                                 help="Skip automatic LLM extraction (save prompts only)")
+    research_parser.add_argument("--domain-vocab", type=str, default=None,
+                                help="Path to domain-specific entity vocabulary YAML file")
 
     # ===== Knowledge Frontier commands =====
     redundancy_parser = subparsers.add_parser(
@@ -407,6 +438,8 @@ workflow: entity-based focus (skip cluster numbers)
         run_dedupe(args)
     elif args.command == "subcluster":
         run_subcluster(args)
+    elif args.command == "generate-vocab":
+        run_generate_vocab(args)
     elif args.command == "abstract":
         run_abstract(args)
     elif args.command == "fulltext":
@@ -470,7 +503,8 @@ def run_find(args):
 
     papers = load_papers(args.input)
     use_topics = getattr(args, 'use_topics', False)
-    builder = EntityLayerBuilder(use_topics=use_topics)
+    domain_vocab = _load_domain_vocab(args)
+    builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
     builder.build_from_papers(papers)
 
     if args.hubs:
@@ -521,7 +555,8 @@ def run_stream(args):
 
     papers = load_papers(args.input)
     use_topics = getattr(args, 'use_topics', False)
-    builder = EntityLayerBuilder(use_topics=use_topics)
+    domain_vocab = _load_domain_vocab(args)
+    builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
     builder.build_from_papers(papers)
 
     if args.expand:
@@ -588,6 +623,16 @@ def load_papers(path):
     return papers
 
 
+def _load_domain_vocab(args):
+    """Load domain vocabulary from YAML file if --domain-vocab was specified."""
+    vocab_path = getattr(args, 'domain_vocab', None)
+    if not vocab_path:
+        return None
+    import yaml
+    with open(vocab_path) as f:
+        return yaml.safe_load(f)
+
+
 def get_title(papers, doi):
     return next((p['title'] for p in papers if p['doi'] == doi), doi)
 
@@ -611,12 +656,15 @@ def run_cluster(args):
         print(f"Loaded domain vocabulary: {vocab_path} ({entity_count} entities)")
 
     # Build entity graph and cluster
-    use_topics = getattr(args, 'use_topics', False)
+    use_topics = getattr(args, 'use_topics', True) and not getattr(args, 'no_topics', False)
     mode = "Title + OpenAlex Topics" if use_topics else "Title-only"
+    use_abstract = getattr(args, 'use_abstract', False)
     if domain_vocab:
         mode += f" + Domain({domain_vocab.get('domain', 'custom')})"
+    if use_abstract:
+        mode += " + Abstract"
     print(f"Building entity graph ({mode})...")
-    builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
+    builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab, use_abstract=use_abstract)
     builder.build_from_papers(papers)
     print(f"  Graph: {builder.graph.vcount()} nodes, {builder.graph.ecount()} edges")
 
@@ -710,7 +758,8 @@ def run_browse(args):
 
     papers = load_papers(args.input)
     use_topics = getattr(args, 'use_topics', False)
-    builder = EntityLayerBuilder(use_topics=use_topics)
+    domain_vocab = _load_domain_vocab(args)
+    builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
     builder.build_from_papers(papers)
 
     clusters = builder.run_leiden(resolution=args.resolution, seed=42)
@@ -747,14 +796,14 @@ def run_browse(args):
             sub_results = sub_cluster(
                 papers, target_cid, clusters,
                 resolution=getattr(args, 'sub_resolution', 1.0),
-                seed=42, use_topics=use_topics
+                seed=42, use_topics=use_topics, domain_vocab=domain_vocab
             )
         except ValueError as e:
             print(f"Error: {e}", file=sys.stderr)
             sys.exit(1)
 
         # Build summaries for sub-clusters
-        sub_builder = EntityLayerBuilder(use_topics=use_topics)
+        sub_builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
         subset = [p for p in papers if p['doi'] in sub_results]
         sub_builder.build_from_papers(subset)
         sub_summaries = sub_builder.get_cluster_summary(sub_results)
@@ -875,10 +924,11 @@ def run_landscape(args):
 
     papers = load_papers(args.input)
     use_topics = getattr(args, 'use_topics', False)
+    domain_vocab = _load_domain_vocab(args)
     print(f"Loaded {len(papers)} papers", file=sys.stderr)
 
     # Cluster for coloring
-    builder = EntityLayerBuilder(use_topics=use_topics)
+    builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
     builder.build_from_papers(papers)
     clusters = builder.run_leiden(resolution=args.resolution, seed=args.seed)
     num_clusters = len(set(clusters.values()))
@@ -896,11 +946,11 @@ def run_landscape(args):
             print(f"  (Adjusted perplexity to {kwargs['perplexity']:.1f} for small sample size)", file=sys.stderr)
 
     try:
-        embedding = embed_papers(papers, method=args.method, use_topics=use_topics, random_state=args.seed, **kwargs)
+        embedding = embed_papers(papers, method=args.method, use_topics=use_topics, domain_vocab=domain_vocab, random_state=args.seed, **kwargs)
     except ImportError as e:
         print(f"Error: {e}", file=sys.stderr)
         print("Falling back to t-SNE...", file=sys.stderr)
-        embedding = embed_papers(papers, method="tsne", use_topics=use_topics, random_state=args.seed, **kwargs)
+        embedding = embed_papers(papers, method="tsne", use_topics=use_topics, domain_vocab=domain_vocab, random_state=args.seed, **kwargs)
 
     # Build Plotly figure
     try:
@@ -974,12 +1024,13 @@ def run_filter(args):
     from papersift import EntityLayerBuilder
 
     papers = load_papers(args.input)
+    domain_vocab = _load_domain_vocab(args)
     matching_dois = set(p['doi'] for p in papers)  # Start with all
 
     # Entity filter
     if args.entity:
         use_topics = getattr(args, 'use_topics', False)
-        builder = EntityLayerBuilder(use_topics=use_topics)
+        builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
         builder.build_from_papers(papers)
 
         entity_matches = []
@@ -1012,7 +1063,7 @@ def run_filter(args):
             # Cluster on-the-fly
             print("Clustering on-the-fly with resolution=" + str(args.resolution), file=sys.stderr)
             use_topics = getattr(args, 'use_topics', False)
-            builder = EntityLayerBuilder(use_topics=use_topics)
+            builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
             builder.build_from_papers(papers)
             clusters = builder.run_leiden(resolution=args.resolution, seed=42)
 
@@ -1260,6 +1311,7 @@ def run_research(args):
         resolution=args.resolution,
         seed=args.seed,
         use_fulltext=getattr(args, 'use_fulltext', False),
+        domain_vocab=_load_domain_vocab(args),
     )
 
     # Always run Phase 1
@@ -1313,6 +1365,65 @@ def run_research(args):
             print(f"  3. Run: papersift research {args.input} -o {args.output} --extractions-from <results.json>", file=sys.stderr)
 
 
+def run_generate_vocab(args):
+    """Generate domain-specific entity vocabulary YAML from sample paper titles."""
+    import random
+    import yaml
+    from papersift.entity_layer import ImprovedEntityExtractor
+
+    papers = load_papers(args.from_papers)
+    print(f"Loaded {len(papers)} papers", file=sys.stderr)
+
+    # Sample titles
+    rng = random.Random(args.seed)
+    sample = rng.sample(papers, min(args.sample_size, len(papers)))
+    titles = [p['title'] for p in sample if p.get('title')]
+    print(f"Sampled {len(titles)} titles for vocabulary generation", file=sys.stderr)
+
+    # Get existing entities to avoid duplicates
+    extractor = ImprovedEntityExtractor()
+    existing = set()
+    for attr in ('methods', 'organisms', 'concepts', 'datasets'):
+        for term in getattr(extractor, attr):
+            existing.add(term.lower())
+
+    # Extract capitalized terms from titles as candidate entities
+    cap_pattern = re.compile(r'\b([A-Z][A-Za-z0-9-]{2,})\b')
+    from papersift.entity_layer import STOPWORDS
+    candidates = defaultdict(int)
+    for title in titles:
+        for match in cap_pattern.finditer(title):
+            term = match.group(1)
+            key = term.lower()
+            # Filter: not a stopword, not single char/number-only, not already in defaults
+            if key not in STOPWORDS and key not in existing and not term.isdigit() and len(term) > 1:
+                candidates[term] += 1
+
+    # Keep terms appearing in >= 2 titles
+    frequent = {term: count for term, count in candidates.items() if count >= 2}
+    sorted_terms = sorted(frequent.items(), key=lambda x: -x[1])
+
+    # Build YAML structure
+    vocab = {
+        'domain': args.domain,
+        'description': f"Auto-generated vocabulary for {args.domain} domain",
+        'methods': [],
+        'organisms': [],
+        'concepts': [term for term, _ in sorted_terms],
+        'datasets': [],
+    }
+
+    # Output
+    output_path = args.output or f"domains/{args.domain}.yaml"
+    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, 'w') as f:
+        f.write(f"# {args.domain} Domain Vocabulary for PaperSift\n")
+        f.write(f"# Auto-generated from {len(titles)} sample titles\n\n")
+        yaml.dump(vocab, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
+
+    print(f"Generated {len(vocab['concepts'])} candidate terms → {output_path}", file=sys.stderr)
+
+
 def run_subcluster(args):
     """Sub-cluster a specific cluster using the standalone sub_cluster function."""
     from papersift.embedding import sub_cluster
@@ -1323,6 +1434,7 @@ def run_subcluster(args):
         clusters = json.load(f)
 
     use_topics = getattr(args, 'use_topics', False)
+    domain_vocab = _load_domain_vocab(args)
     target_cid = args.cluster
 
     # Try to match as int if possible (clusters.json values are often ints)
@@ -1339,6 +1451,7 @@ def run_subcluster(args):
             resolution=args.resolution,
             seed=args.seed,
             use_topics=use_topics,
+            domain_vocab=domain_vocab,
         )
     except ValueError as e:
         print(f"Error: {e}", file=sys.stderr)

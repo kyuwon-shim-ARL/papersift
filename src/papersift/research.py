@@ -54,7 +54,7 @@ class ResearchOutput:
 class ResearchPipeline:
     """Research pipeline orchestrator with prepare/finalize pattern."""
 
-    def __init__(self, use_topics: bool = False, resolution: float = 1.0, seed: int = 42, use_fulltext: bool = False):
+    def __init__(self, use_topics: bool = False, resolution: float = 1.0, seed: int = 42, use_fulltext: bool = False, domain_vocab=None):
         """Initialize the research pipeline.
 
         Args:
@@ -62,11 +62,13 @@ class ResearchPipeline:
             resolution: Leiden clustering resolution (higher = more clusters)
             seed: Random seed for reproducible clustering
             use_fulltext: If True, fetch PMC fulltext for enhanced extraction
+            domain_vocab: Optional domain-specific vocabulary dict to merge with defaults
         """
         self.use_topics = use_topics
         self.resolution = resolution
         self.seed = seed
         self.use_fulltext = use_fulltext
+        self.domain_vocab = domain_vocab
 
     def prepare(
         self,
@@ -90,7 +92,7 @@ class ResearchPipeline:
 
         # Step 1: Cluster papers
         print("Step 1: Clustering papers...", file=sys.stderr)
-        builder = EntityLayerBuilder(use_topics=self.use_topics)
+        builder = EntityLayerBuilder(use_topics=self.use_topics, domain_vocab=self.domain_vocab)
         builder.build_from_papers(papers)
 
         if clusters_from:

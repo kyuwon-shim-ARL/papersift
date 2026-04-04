@@ -60,13 +60,7 @@ class ImprovedEntityExtractor:
     """Rule-based entity extraction with word-boundary matching."""
 
     def __init__(self, domain_vocab: Optional[Dict[str, List[str]]] = None):
-        if domain_vocab:
-            self.methods = domain_vocab.get('methods', [])
-            self.organisms = domain_vocab.get('organisms', [])
-            self.concepts = domain_vocab.get('concepts', [])
-            self.datasets = domain_vocab.get('datasets', [])
-            self._compile_patterns()
-            return
+        # Always start with default vocabulary, then MERGE domain_vocab on top
         # Methods - use word boundaries
         self.methods = [
             'scGPT', 'transformer', 'transformers', 'LSTM', 'CNN', 'RNN', 'GRU',
@@ -138,6 +132,17 @@ class ImprovedEntityExtractor:
             'STRING', 'DrugBank', 'ChEMBL', 'PubChem',
             'scRNA-seq atlas', 'cell atlas', 'expression atlas',
         ]
+
+        # MERGE domain_vocab on top of defaults (union, domain terms take priority)
+        if domain_vocab:
+            for key in ('methods', 'organisms', 'concepts', 'datasets'):
+                extra = domain_vocab.get(key, [])
+                if extra:
+                    existing = set(t.lower() for t in getattr(self, key))
+                    for term in extra:
+                        if term.lower() not in existing:
+                            getattr(self, key).append(term)
+                            existing.add(term.lower())
 
         # Build compiled patterns for word-boundary matching
         self._compile_patterns()
@@ -242,7 +247,7 @@ class EntityLayerBuilder:
     - Title + Topics (--use-topics): Also include OpenAlex topics as entities for richer clustering
     """
 
-    def __init__(self, use_topics: bool = False, domain_vocab: Optional[Dict[str, List[str]]] = None):
+    def __init__(self, use_topics: bool = False, domain_vocab: Optional[Dict[str, List[str]]] = None, use_abstract: bool = False):
         """
         Initialize the entity layer builder.
 
@@ -251,9 +256,11 @@ class EntityLayerBuilder:
                        Requires enriched paper data with 'topics' field.
             domain_vocab: Optional domain-specific vocabulary dict with keys
                          'methods', 'organisms', 'concepts', 'datasets'.
+            use_abstract: If True, also extract entities from paper abstracts.
         """
         self.extractor = ImprovedEntityExtractor(domain_vocab=domain_vocab)
         self.use_topics = use_topics
+        self.use_abstract = use_abstract
         self.graph: Optional[ig.Graph] = None
         self._paper_entities: Dict[str, set] = {}  # doi -> set(entity_names)
         self._dois: List[str] = []
@@ -274,6 +281,23 @@ class EntityLayerBuilder:
             paper.get('category', '')
         )
         entity_set = {e['name'].lower() for e in entities}
+
+        # Extract entities from abstract if enabled
+        if self.use_abstract:
+            abstract = paper.get('abstract', '')
+            if abstract:
+                all_patterns = (
+                    [(m, pat) for m, pat in self.extractor.method_patterns]
+                    + [(o, pat) for o, pat in self.extractor.organism_patterns]
+                    + [(c, pat) for c, pat in self.extractor.concept_patterns]
+                    + [(d, pat) for d, pat in self.extractor.dataset_patterns]
+                )
+                for name, pattern in all_patterns:
+                    key = name.lower()
+                    if key in STOPWORDS:
+                        continue
+                    if key not in entity_set and pattern.search(abstract):
+                        entity_set.add(key)
 
         # Add OpenAlex topics if enabled
         if self.use_topics:
@@ -577,3 +601,88 @@ class EntityLayerBuilder:
             current = next_doi
 
         return path
+
+
+def compute_rho_gate(
+    papers: List[Dict[str, Any]],
+    use_topics: bool = False,
+    domain_vocab: Optional[Dict[str, List[str]]] = None,
+    n_samples: int = 500,
+    seed: int = 42,
+) -> Dict[str, Any]:
+    """Measure Spearman correlation between entity Jaccard and cosine similarity.
+
+    Used as a gate for hybrid MVE: if entity and embedding similarities are
+    too correlated (redundant) or too uncorrelated (dilution risk), skip hybrid.
+
+    Args:
+        papers: List of paper dicts.
+        use_topics: Use OpenAlex topics.
+        domain_vocab: Optional domain vocabulary.
+        n_samples: Number of paper pairs to sample.
+        seed: Random seed.
+
+    Returns:
+        Dict with 'rho', 'p_value', 'decision' ('GO'/'SKIP'), 'reason'.
+    """
+    import random
+    import numpy as np
+    from scipy.stats import spearmanr
+
+    builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
+    builder.build_from_papers(papers)
+
+    dois = list(builder.paper_entities.keys())
+    if len(dois) < 10:
+        return {'rho': 0.0, 'p_value': 1.0, 'decision': 'SKIP', 'reason': 'Too few papers'}
+
+    # Sample pairs
+    rng = random.Random(seed)
+    pairs = []
+    max_attempts = n_samples * 3
+    attempts = 0
+    while len(pairs) < n_samples and attempts < max_attempts:
+        i, j = rng.sample(range(len(dois)), 2)
+        pairs.append((dois[i], dois[j]))
+        attempts += 1
+
+    # Entity Jaccard similarities
+    entity_jaccards = []
+    for d1, d2 in pairs:
+        e1 = builder.paper_entities.get(d1, set())
+        e2 = builder.paper_entities.get(d2, set())
+        union = e1 | e2
+        if not union:
+            entity_jaccards.append(0.0)
+        else:
+            entity_jaccards.append(len(e1 & e2) / len(union))
+
+    # Cosine similarities from entity-presence vectors
+    from papersift.embedding import extract_paper_entities, build_entity_matrix
+    paper_entities = builder.paper_entities
+    matrix, doi_list, entity_list = build_entity_matrix(papers, paper_entities)
+    doi_to_idx = {d: i for i, d in enumerate(doi_list)}
+
+    cosine_sims = []
+    for d1, d2 in pairs:
+        i1, i2 = doi_to_idx.get(d1), doi_to_idx.get(d2)
+        if i1 is None or i2 is None:
+            cosine_sims.append(0.0)
+            continue
+        v1, v2 = matrix[i1], matrix[i2]
+        norm1, norm2 = np.linalg.norm(v1), np.linalg.norm(v2)
+        if norm1 == 0 or norm2 == 0:
+            cosine_sims.append(0.0)
+        else:
+            cosine_sims.append(float(np.dot(v1, v2) / (norm1 * norm2)))
+
+    rho, p_value = spearmanr(entity_jaccards, cosine_sims)
+
+    if rho < 0.3:
+        decision, reason = 'SKIP', f'rho={rho:.3f} < 0.3 (dilution risk)'
+    elif rho > 0.7:
+        decision, reason = 'SKIP', f'rho={rho:.3f} > 0.7 (redundant)'
+    else:
+        decision, reason = 'GO', f'rho={rho:.3f} in [0.3, 0.7]'
+
+    return {'rho': float(rho), 'p_value': float(p_value), 'decision': decision, 'reason': reason}

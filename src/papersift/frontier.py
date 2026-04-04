@@ -7,39 +7,24 @@ from collections import Counter, defaultdict
 
 import numpy as np
 
-from papersift.entity_layer import STOPWORDS, ImprovedEntityExtractor
+from papersift.entity_layer import EntityLayerBuilder
 
 
-def extract_entities(papers: list[dict]) -> dict[str, set]:
+def extract_entities(papers: list[dict], domain_vocab=None) -> dict[str, set]:
     """T0: Extract entities (title + abstract) for all papers.
+
+    Uses EntityLayerBuilder with use_abstract=True for unified extraction.
 
     Args:
         papers: List of paper dicts with 'doi', 'title', optional 'abstract'.
+        domain_vocab: Optional domain-specific vocabulary dict.
 
     Returns:
         Dict mapping doi -> set of entity strings.
     """
-    extractor = ImprovedEntityExtractor()
-    all_patterns = (
-        [(m, pat, "METHOD") for m, pat in extractor.method_patterns]
-        + [(o, pat, "ORGANISM") for o, pat in extractor.organism_patterns]
-        + [(c, pat, "CONCEPT") for c, pat in extractor.concept_patterns]
-        + [(d, pat, "DATASET") for d, pat in extractor.dataset_patterns]
-    )
-
-    entity_data: dict[str, set] = {}
-    for p in papers:
-        entities = extractor.extract_entities(p["title"], p.get("category", ""))
-        entity_set = {e["name"].lower() for e in entities}
-        abstract = p.get("abstract", "")
-        if abstract:
-            for name, pattern, _etype in all_patterns:
-                key = name.lower()
-                if key in STOPWORDS:
-                    continue
-                if key not in entity_set and pattern.search(abstract):
-                    entity_set.add(key)
-        entity_data[p["doi"]] = entity_set
+    builder = EntityLayerBuilder(use_abstract=True, domain_vocab=domain_vocab)
+    builder.build_from_papers(papers)
+    entity_data = dict(builder.paper_entities)
 
     non_empty = sum(1 for v in entity_data.values() if v)
     if entity_data:

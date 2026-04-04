@@ -20,17 +20,19 @@ from papersift.entity_layer import EntityLayerBuilder
 def extract_paper_entities(
     papers: List[Dict[str, Any]],
     use_topics: bool = False,
+    domain_vocab: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, set]:
     """Extract entity sets for each paper using a temporary EntityLayerBuilder.
 
     Args:
         papers: List of paper dicts with 'doi' and 'title' fields.
         use_topics: If True, also use OpenAlex topics as entities.
+        domain_vocab: Optional domain-specific vocabulary to merge with defaults.
 
     Returns:
         Mapping of DOI to set of lowercase entity names.
     """
-    builder = EntityLayerBuilder(use_topics=use_topics)
+    builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
     builder.build_from_papers(papers)
     return builder.paper_entities
 
@@ -137,6 +139,7 @@ def embed_papers(
     papers: List[Dict[str, Any]],
     method: str = "umap",
     use_topics: bool = False,
+    domain_vocab: Optional[Dict[str, Any]] = None,
     random_state: int = 42,
     **kwargs: Any,
 ) -> Dict[str, Tuple[float, float]]:
@@ -153,13 +156,14 @@ def embed_papers(
         papers: List of paper dicts with 'doi' and 'title' fields.
         method: ``"umap"`` or ``"tsne"``.
         use_topics: If True, also use OpenAlex topics as entities.
+        domain_vocab: Optional domain-specific vocabulary to merge with defaults.
         random_state: Seed for reproducibility.
         **kwargs: Forwarded to compute_embedding.
 
     Returns:
         Mapping of DOI to (x, y) coordinate tuple.
     """
-    paper_entities = extract_paper_entities(papers, use_topics=use_topics)
+    paper_entities = extract_paper_entities(papers, use_topics=use_topics, domain_vocab=domain_vocab)
     matrix, doi_list, entity_list = build_entity_matrix(papers, paper_entities)
 
     coords = compute_embedding(
@@ -198,6 +202,7 @@ def sub_cluster(
     resolution: float = 1.0,
     seed: Optional[int] = None,
     use_topics: bool = False,
+    domain_vocab: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, str]:
     """Hierarchical sub-clustering within an existing cluster.
 
@@ -245,7 +250,7 @@ def sub_cluster(
     subset = [p for p in papers if p["doi"] in member_dois]
 
     # Build a fresh entity graph and cluster the subset
-    builder = EntityLayerBuilder(use_topics=use_topics)
+    builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
     builder.build_from_papers(subset)
     sub_clusters = builder.run_leiden(resolution=resolution, seed=seed)
 

@@ -78,9 +78,10 @@ def cluster_papers(
     resolution: float = 1.0,
     seed: int = 42,
     use_topics: bool = False,
+    domain_vocab=None,
 ) -> Tuple[Dict[str, int], EntityLayerBuilder]:
     """Run Leiden clustering on papers with optional topic-enhanced entities."""
-    builder = EntityLayerBuilder(use_topics=use_topics)
+    builder = EntityLayerBuilder(use_topics=use_topics, domain_vocab=domain_vocab)
     builder.build_from_papers(papers)
     clusters = builder.run_leiden(resolution=resolution, seed=seed)
     return clusters, builder
