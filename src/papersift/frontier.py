@@ -332,7 +332,9 @@ def structural_gaps(
         else:
             print(f"  C{cid}: 0 gaps")
 
-    cluster_entity_sets: dict = {}
+    # cluster_entity_data[cid] = (entity_set, freq_Counter, total_entity_occurrences)
+    # Counter retained (not just set) to enable b-potential bridge ranking below.
+    cluster_entity_data: dict = {}
     for cid, dois in cluster_dois.items():
         if len(dois) < 20:
             continue
@@ -340,30 +342,61 @@ def structural_gaps(
         for d in dois:
             for e in entity_data.get(d, set()):
                 freq[e] += 1
-        cluster_entity_sets[cid] = {e for e, c in freq.items() if c >= 3}
+        # Filter low-frequency noise (freq>=3) but preserve counts for retained entities.
+        retained = Counter({e: c for e, c in freq.items() if c >= 3})
+        if retained:
+            cluster_entity_data[cid] = (set(retained), retained, sum(retained.values()))
+
+    # Bridge ranking via b-potential (Hristovski D, Kastrin A, 2010)
+    # "Identification of concepts bridging diverse biomedical domains"
+    # BMC Bioinformatics 11(S5):P4. doi:10.1186/1471-2105-11-S5-P4
+    # bridge_score(t, A, B) = ctfidf_a(t) * ctfidf_b(t)
+    # where ctfidf_c(t) = (count(t,c)/total_c) * log(1 + N_clusters / df_c(t))
+    # Replaces alphabetical sorted(s_a & s_b)[:10] which collapsed to general
+    # low-letter terms (antibiotic, bacteria, clinical) regardless of specificity.
+    n_clusters = len(cluster_entity_data)
+    # df_c(t): number of clusters in which entity t appears (after freq>=3 filter)
+    cluster_df: Counter = Counter()
+    for cid, (ent_set, _, _) in cluster_entity_data.items():
+        for e in ent_set:
+            cluster_df[e] += 1
 
     bridges = []
-    cids = sorted(cluster_entity_sets.keys())
+    cids = sorted(cluster_entity_data.keys())
     for i in range(len(cids)):
         for j in range(i + 1, len(cids)):
             c_a, c_b = cids[i], cids[j]
-            s_a = cluster_entity_sets[c_a]
-            s_b = cluster_entity_sets[c_b]
+            s_a, freq_a, tot_a = cluster_entity_data[c_a]
+            s_b, freq_b, tot_b = cluster_entity_data[c_b]
             union = s_a | s_b
             if not union:
                 continue
-            jaccard = len(s_a & s_b) / len(union)
-            shared = sorted(s_a & s_b)
+            inter = s_a & s_b
+            jaccard = len(inter) / len(union)
 
             if jaccard > 0.05:
+                # Score each shared entity by b-potential (product of c-TF-IDF in both clusters)
+                scored = []
+                for t in inter:
+                    df_t = cluster_df[t]
+                    if df_t == 0 or tot_a == 0 or tot_b == 0:
+                        continue
+                    idf = np.log(1.0 + n_clusters / df_t)
+                    tf_a = freq_a[t] / tot_a
+                    tf_b = freq_b[t] / tot_b
+                    score = tf_a * idf * tf_b * idf
+                    scored.append((t, score))
+                scored.sort(key=lambda x: -x[1])
+                shared_top = [t for t, _ in scored[:10]]
+
                 bridges.append({
                     "cluster_a": c_a,
                     "cluster_b": c_b,
                     "entity_jaccard": round(jaccard, 4),
-                    "shared_entities": shared[:10],
+                    "shared_entities": shared_top,
                     "unique_a": len(s_a - s_b),
                     "unique_b": len(s_b - s_a),
-                    "shared_count": len(shared),
+                    "shared_count": len(inter),
                 })
 
     bridges.sort(key=lambda x: -x["entity_jaccard"])
