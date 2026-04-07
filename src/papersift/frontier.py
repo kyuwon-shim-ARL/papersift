@@ -264,6 +264,9 @@ def structural_gaps(
     papers: list[dict],
     entity_data: dict[str, set],
     clusters: dict[str, int],
+    *,
+    background_cluster_fraction: float = 0.80,
+    background_terms_extra: set | None = None,
 ) -> dict:
     """T3: Intra-cluster gaps + cross-cluster bridges.
 
@@ -271,14 +274,50 @@ def structural_gaps(
         papers: List of paper dicts (unused directly, for API consistency).
         entity_data: DOI -> set of entities.
         clusters: DOI -> cluster_id mapping.
+        background_cluster_fraction: e031 stoplist — entities appearing in at
+            least this fraction of valid clusters (size>=20) are considered
+            domain-general background and removed from bridge ranking. Default
+            0.80 means terms appearing in >=80% of clusters are filtered. Set
+            to 1.01 to disable. AMR corpora have ~30 such terms (bacteria,
+            antibiotics, treatment, clinical, mechanisms) that overwhelm both
+            alphabetical and b-potential ranking. Cluster-level prevalence is
+            the correct signal: a term in ALL clusters cannot discriminate
+            between them and is, by definition, not a bridge.
+        background_terms_extra: Optional explicit stoplist to merge with
+            data-driven filter.
 
     Returns:
-        Result dict with intra_cluster_gaps, cross_cluster_bridges, intra_summary.
+        Result dict with intra_cluster_gaps, cross_cluster_bridges, intra_summary,
+        and background_terms (the auto-detected stoplist for diagnostics).
     """
     cluster_dois: dict = defaultdict(list)
     for doi, cid in clusters.items():
         if doi in entity_data:
             cluster_dois[cid].append(doi)
+
+    # e031 stoplist: data-driven cluster-level background filter
+    # An entity appearing in (almost) every valid cluster cannot discriminate
+    # between clusters and is, by definition, not a bridge. Compute per-entity
+    # cluster_df (# of valid clusters containing it with freq>=3).
+    valid_clusters = [cid for cid, dois in cluster_dois.items() if len(dois) >= 20]
+    n_valid_clusters = len(valid_clusters) or 1
+    cluster_appearance: Counter = Counter()
+    for cid in valid_clusters:
+        seen_in_cluster: set = set()
+        cluster_freq: Counter = Counter()
+        for d in cluster_dois[cid]:
+            for e in entity_data.get(d, set()):
+                cluster_freq[e] += 1
+        for e, c in cluster_freq.items():
+            if c >= 3 and e not in seen_in_cluster:
+                seen_in_cluster.add(e)
+                cluster_appearance[e] += 1
+    background_terms = {
+        e for e, df in cluster_appearance.items()
+        if (df / n_valid_clusters) >= background_cluster_fraction
+    }
+    if background_terms_extra:
+        background_terms |= set(background_terms_extra)
 
     intra_gaps: dict = {}
 
@@ -341,6 +380,8 @@ def structural_gaps(
         freq: Counter = Counter()
         for d in dois:
             for e in entity_data.get(d, set()):
+                if e in background_terms:
+                    continue  # e031: skip domain-general background terms
                 freq[e] += 1
         # Filter low-frequency noise (freq>=3) but preserve counts for retained entities.
         retained = Counter({e: c for e, c in freq.items() if c >= 3})
@@ -408,4 +449,5 @@ def structural_gaps(
         "intra_cluster_gaps": {str(k): v for k, v in intra_gaps.items()},
         "cross_cluster_bridges": bridges,
         "intra_summary": {str(cid): len(gaps) for cid, gaps in intra_gaps.items()},
+        "background_terms": sorted(background_terms),  # e031 diagnostic
     }
