@@ -12,6 +12,7 @@ venv/
 
 # OMC Experiment Workflow
 outputs/**/*.csv
+!outputs/e026/bridge_evaluation.csv
 outputs/**/*.png
 outputs/**/*.pkl
 outputs/**/checkpoints/

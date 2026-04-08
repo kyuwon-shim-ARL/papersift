@@ -264,6 +264,9 @@ def structural_gaps(
     papers: list[dict],
     entity_data: dict[str, set],
     clusters: dict[str, int],
+    *,
+    background_cluster_fraction: float = 0.80,
+    background_terms_extra: set | None = None,
 ) -> dict:
     """T3: Intra-cluster gaps + cross-cluster bridges.
 
@@ -271,14 +274,50 @@ def structural_gaps(
         papers: List of paper dicts (unused directly, for API consistency).
         entity_data: DOI -> set of entities.
         clusters: DOI -> cluster_id mapping.
+        background_cluster_fraction: e031 stoplist — entities appearing in at
+            least this fraction of valid clusters (size>=20) are considered
+            domain-general background and removed from bridge ranking. Default
+            0.80 means terms appearing in >=80% of clusters are filtered. Set
+            to 1.01 to disable. AMR corpora have ~30 such terms (bacteria,
+            antibiotics, treatment, clinical, mechanisms) that overwhelm both
+            alphabetical and b-potential ranking. Cluster-level prevalence is
+            the correct signal: a term in ALL clusters cannot discriminate
+            between them and is, by definition, not a bridge.
+        background_terms_extra: Optional explicit stoplist to merge with
+            data-driven filter.
 
     Returns:
-        Result dict with intra_cluster_gaps, cross_cluster_bridges, intra_summary.
+        Result dict with intra_cluster_gaps, cross_cluster_bridges, intra_summary,
+        and background_terms (the auto-detected stoplist for diagnostics).
     """
     cluster_dois: dict = defaultdict(list)
     for doi, cid in clusters.items():
         if doi in entity_data:
             cluster_dois[cid].append(doi)
+
+    # e031 stoplist: data-driven cluster-level background filter
+    # An entity appearing in (almost) every valid cluster cannot discriminate
+    # between clusters and is, by definition, not a bridge. Compute per-entity
+    # cluster_df (# of valid clusters containing it with freq>=3).
+    valid_clusters = [cid for cid, dois in cluster_dois.items() if len(dois) >= 20]
+    n_valid_clusters = len(valid_clusters) or 1
+    cluster_appearance: Counter = Counter()
+    for cid in valid_clusters:
+        seen_in_cluster: set = set()
+        cluster_freq: Counter = Counter()
+        for d in cluster_dois[cid]:
+            for e in entity_data.get(d, set()):
+                cluster_freq[e] += 1
+        for e, c in cluster_freq.items():
+            if c >= 3 and e not in seen_in_cluster:
+                seen_in_cluster.add(e)
+                cluster_appearance[e] += 1
+    background_terms = {
+        e for e, df in cluster_appearance.items()
+        if (df / n_valid_clusters) >= background_cluster_fraction
+    }
+    if background_terms_extra:
+        background_terms |= set(background_terms_extra)
 
     intra_gaps: dict = {}
 
@@ -332,38 +371,73 @@ def structural_gaps(
         else:
             print(f"  C{cid}: 0 gaps")
 
-    cluster_entity_sets: dict = {}
+    # cluster_entity_data[cid] = (entity_set, freq_Counter, total_entity_occurrences)
+    # Counter retained (not just set) to enable b-potential bridge ranking below.
+    cluster_entity_data: dict = {}
     for cid, dois in cluster_dois.items():
         if len(dois) < 20:
             continue
         freq: Counter = Counter()
         for d in dois:
             for e in entity_data.get(d, set()):
+                if e in background_terms:
+                    continue  # e031: skip domain-general background terms
                 freq[e] += 1
-        cluster_entity_sets[cid] = {e for e, c in freq.items() if c >= 3}
+        # Filter low-frequency noise (freq>=3) but preserve counts for retained entities.
+        retained = Counter({e: c for e, c in freq.items() if c >= 3})
+        if retained:
+            cluster_entity_data[cid] = (set(retained), retained, sum(retained.values()))
+
+    # Bridge ranking via b-potential (Hristovski D, Kastrin A, 2010)
+    # "Identification of concepts bridging diverse biomedical domains"
+    # BMC Bioinformatics 11(S5):P4. doi:10.1186/1471-2105-11-S5-P4
+    # bridge_score(t, A, B) = ctfidf_a(t) * ctfidf_b(t)
+    # where ctfidf_c(t) = (count(t,c)/total_c) * log(1 + N_clusters / df_c(t))
+    # Replaces alphabetical sorted(s_a & s_b)[:10] which collapsed to general
+    # low-letter terms (antibiotic, bacteria, clinical) regardless of specificity.
+    n_clusters = len(cluster_entity_data)
+    # df_c(t): number of clusters in which entity t appears (after freq>=3 filter)
+    cluster_df: Counter = Counter()
+    for cid, (ent_set, _, _) in cluster_entity_data.items():
+        for e in ent_set:
+            cluster_df[e] += 1
 
     bridges = []
-    cids = sorted(cluster_entity_sets.keys())
+    cids = sorted(cluster_entity_data.keys())
     for i in range(len(cids)):
         for j in range(i + 1, len(cids)):
             c_a, c_b = cids[i], cids[j]
-            s_a = cluster_entity_sets[c_a]
-            s_b = cluster_entity_sets[c_b]
+            s_a, freq_a, tot_a = cluster_entity_data[c_a]
+            s_b, freq_b, tot_b = cluster_entity_data[c_b]
             union = s_a | s_b
             if not union:
                 continue
-            jaccard = len(s_a & s_b) / len(union)
-            shared = sorted(s_a & s_b)
+            inter = s_a & s_b
+            jaccard = len(inter) / len(union)
 
             if jaccard > 0.05:
+                # Score each shared entity by b-potential (product of c-TF-IDF in both clusters)
+                scored = []
+                for t in inter:
+                    df_t = cluster_df[t]
+                    if df_t == 0 or tot_a == 0 or tot_b == 0:
+                        continue
+                    idf = np.log(1.0 + n_clusters / df_t)
+                    tf_a = freq_a[t] / tot_a
+                    tf_b = freq_b[t] / tot_b
+                    score = tf_a * idf * tf_b * idf
+                    scored.append((t, score))
+                scored.sort(key=lambda x: -x[1])
+                shared_top = [t for t, _ in scored[:10]]
+
                 bridges.append({
                     "cluster_a": c_a,
                     "cluster_b": c_b,
                     "entity_jaccard": round(jaccard, 4),
-                    "shared_entities": shared[:10],
+                    "shared_entities": shared_top,
                     "unique_a": len(s_a - s_b),
                     "unique_b": len(s_b - s_a),
-                    "shared_count": len(shared),
+                    "shared_count": len(inter),
                 })
 
     bridges.sort(key=lambda x: -x["entity_jaccard"])
@@ -375,4 +449,5 @@ def structural_gaps(
         "intra_cluster_gaps": {str(k): v for k, v in intra_gaps.items()},
         "cross_cluster_bridges": bridges,
         "intra_summary": {str(cid): len(gaps) for cid, gaps in intra_gaps.items()},
+        "background_terms": sorted(background_terms),  # e031 diagnostic
     }

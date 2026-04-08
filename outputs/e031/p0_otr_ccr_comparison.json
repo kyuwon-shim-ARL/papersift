@@ -1,0 +1,594 @@
+[
+  {
+    "bridge_id": "B01",
+    "domain": "amr",
+    "entity_pair": "C4 <-> C5",
+    "old_top5": [
+      "america",
+      "antibiotic",
+      "antibiotics",
+      "antimicrobial",
+      "bacteria"
+    ],
+    "new_top5": [
+      "surveillance",
+      "states",
+      "united",
+      "epidemiology",
+      "eskape"
+    ],
+    "old_otr": 0.6,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.0,
+    "old_eval": "FAIL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B02",
+    "domain": "amr",
+    "entity_pair": "C0 <-> C2",
+    "old_top5": [
+      "action",
+      "active",
+      "antibiotic",
+      "antibiotics",
+      "antimicrobial"
+    ],
+    "new_top5": [
+      "drug",
+      "biofilms",
+      "biofilm",
+      "multidrug",
+      "therapeutic"
+    ],
+    "old_otr": 0.4,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.0,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B03",
+    "domain": "amr",
+    "entity_pair": "C0 <-> C4",
+    "old_top5": [
+      "action",
+      "antibiotic",
+      "antibiotics",
+      "antimicrobial",
+      "bacteria"
+    ],
+    "new_top5": [
+      "klebsiella",
+      "escherichia",
+      "escherichia coli",
+      "global",
+      "salmonella"
+    ],
+    "old_otr": 0.6,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.2,
+    "old_eval": "FAIL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B04",
+    "domain": "amr",
+    "entity_pair": "C1 <-> C4",
+    "old_top5": [
+      "america",
+      "antibiotic",
+      "bacteria",
+      "bacterial",
+      "burden"
+    ],
+    "new_top5": [
+      "disease",
+      "diseases",
+      "global",
+      "infectious",
+      "society"
+    ],
+    "old_otr": 0.4,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.0,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B05",
+    "domain": "amr",
+    "entity_pair": "C0 <-> C3",
+    "old_top5": [
+      "acinetobacter",
+      "antibiotic",
+      "antibiotics",
+      "antimicrobial",
+      "bacteria"
+    ],
+    "new_top5": [
+      "acinetobacter",
+      "pseudomonas",
+      "escherichia",
+      "escherichia coli",
+      "evolution"
+    ],
+    "old_otr": 0.6,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.2,
+    "old_eval": "FAIL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B06",
+    "domain": "amr",
+    "entity_pair": "C3 <-> C4",
+    "old_top5": [
+      "antibiotic",
+      "antibiotics",
+      "antimicrobial",
+      "bacteria",
+      "bacterial"
+    ],
+    "new_top5": [
+      "global",
+      "use",
+      "escherichia",
+      "escherichia coli",
+      "pathogens"
+    ],
+    "old_otr": 0.6,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.2,
+    "old_eval": "FAIL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B07",
+    "domain": "amr",
+    "entity_pair": "C2 <-> C3",
+    "old_top5": [
+      "agents",
+      "antibiotic",
+      "antibiotics",
+      "antimicrobial",
+      "bacteria"
+    ],
+    "new_top5": [
+      "drug-resistant",
+      "resistant",
+      "transfer",
+      "multidrug",
+      "potential"
+    ],
+    "old_otr": 0.6,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.2,
+    "old_eval": "FAIL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B08",
+    "domain": "amr",
+    "entity_pair": "C1 <-> C5",
+    "old_top5": [
+      "adults",
+      "america",
+      "antibiotic",
+      "bacteria",
+      "clinical"
+    ],
+    "new_top5": [
+      "guidelines",
+      "diagnosis",
+      "society",
+      "management",
+      "america"
+    ],
+    "old_otr": 0.4,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.0,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B09",
+    "domain": "amr",
+    "entity_pair": "C0 <-> C5",
+    "old_top5": [
+      "antibiotic",
+      "antibiotics",
+      "antimicrobial",
+      "bacteria",
+      "clinical"
+    ],
+    "new_top5": null,
+    "matched": false
+  },
+  {
+    "bridge_id": "B10",
+    "domain": "amr",
+    "entity_pair": "C1 <-> C2",
+    "old_top5": [
+      "antibiotic",
+      "bacteria",
+      "bacterial",
+      "cancer",
+      "chronic"
+    ],
+    "new_top5": [
+      "cancer",
+      "therapeutic",
+      "microbiome",
+      "effects",
+      "management"
+    ],
+    "old_otr": 0.4,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.0,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B11",
+    "domain": "neuroscience",
+    "entity_pair": "C9 <-> C10",
+    "old_top5": [
+      "ca1",
+      "hippocampal",
+      "long-term",
+      "ltp",
+      "memory"
+    ],
+    "new_top5": [
+      "ca1",
+      "ltp",
+      "synaptic",
+      "hippocampal",
+      "long-term"
+    ],
+    "old_otr": 0.2,
+    "old_ccr": 0.2,
+    "new_otr": 0.2,
+    "new_ccr": 0.2,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B12",
+    "domain": "neuroscience",
+    "entity_pair": "C1 <-> C2",
+    "old_top5": [
+      "ampa",
+      "arc",
+      "calcium",
+      "consolidation",
+      "creb"
+    ],
+    "new_top5": [
+      "long-term",
+      "synaptic",
+      "plasticity",
+      "hippocampal",
+      "memory"
+    ],
+    "old_otr": 0.0,
+    "old_ccr": 0.0,
+    "new_otr": 0.4,
+    "new_ccr": 0.2,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B13",
+    "domain": "neuroscience",
+    "entity_pair": "C9 <-> C11",
+    "old_top5": [
+      "ca1",
+      "hippocampus",
+      "ltp",
+      "memory",
+      "nmda"
+    ],
+    "new_top5": [
+      "nmda",
+      "memory",
+      "ca1",
+      "ltp",
+      "receptor"
+    ],
+    "old_otr": 0.2,
+    "old_ccr": 0.0,
+    "new_otr": 0.2,
+    "new_ccr": 0.0,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B14",
+    "domain": "neuroscience",
+    "entity_pair": "C2 <-> C5",
+    "old_top5": [
+      "arc",
+      "brain-derived",
+      "dentate",
+      "depression",
+      "essential"
+    ],
+    "new_top5": [
+      "potentiation",
+      "long-term",
+      "hippocampal",
+      "factor",
+      "depression"
+    ],
+    "old_otr": 0.0,
+    "old_ccr": 0.2,
+    "new_otr": 0.0,
+    "new_ccr": 0.2,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B15",
+    "domain": "neuroscience",
+    "entity_pair": "C1 <-> C5",
+    "old_top5": [
+      "adult",
+      "arc",
+      "bdnf",
+      "dendritic",
+      "development"
+    ],
+    "new_top5": [
+      "plasticity",
+      "bdnf",
+      "synaptic",
+      "neuronal",
+      "hippocampal"
+    ],
+    "old_otr": 0.0,
+    "old_ccr": 0.0,
+    "new_otr": 0.2,
+    "new_ccr": 0.0,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B16",
+    "domain": "neuroscience",
+    "entity_pair": "C2 <-> C8",
+    "old_top5": [
+      "ampa",
+      "ca1",
+      "calcium",
+      "channels",
+      "glutamate"
+    ],
+    "new_top5": [
+      "nmda",
+      "receptor",
+      "induction",
+      "hippocampal",
+      "glutamate"
+    ],
+    "old_otr": 0.0,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.0,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B17",
+    "domain": "neuroscience",
+    "entity_pair": "C8 <-> C10",
+    "old_top5": [
+      "ca1",
+      "camkii",
+      "hippocampal",
+      "ltp",
+      "postsynaptic"
+    ],
+    "new_top5": [
+      "ltp",
+      "camkii",
+      "postsynaptic",
+      "ca1",
+      "synapses"
+    ],
+    "old_otr": 0.0,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.0,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B18",
+    "domain": "neuroscience",
+    "entity_pair": "C8 <-> C9",
+    "old_top5": [
+      "ca1",
+      "hippocampal",
+      "ltp",
+      "nmda",
+      "rat"
+    ],
+    "new_top5": [
+      "nmda",
+      "ltp",
+      "receptor",
+      "rat",
+      "ca1"
+    ],
+    "old_otr": 0.0,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.0,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B19",
+    "domain": "neuroscience",
+    "entity_pair": "C8 <-> C14",
+    "old_top5": [
+      "ampa",
+      "hippocampal",
+      "interaction",
+      "receptor",
+      "receptors"
+    ],
+    "new_top5": [
+      "ampa",
+      "receptor",
+      "interaction",
+      "receptors",
+      "synapses"
+    ],
+    "old_otr": 0.0,
+    "old_ccr": 0.0,
+    "new_otr": 0.0,
+    "new_ccr": 0.0,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B20",
+    "domain": "neuroscience",
+    "entity_pair": "C6 <-> C9",
+    "old_top5": [
+      "development",
+      "hippocampal",
+      "hippocampus",
+      "long-term",
+      "memory"
+    ],
+    "new_top5": [
+      "spatial",
+      "memory",
+      "hippocampus",
+      "development",
+      "long-term"
+    ],
+    "old_otr": 0.2,
+    "old_ccr": 0.2,
+    "new_otr": 0.2,
+    "new_ccr": 0.2,
+    "old_eval": "CONDITIONAL",
+    "new_eval": "CONDITIONAL",
+    "matched": true
+  },
+  {
+    "bridge_id": "B21",
+    "domain": "ai",
+    "entity_pair": "C0 <-> C2",
+    "old_top5": [
+      "adversarial",
+      "ai",
+      "answering",
+      "artificial",
+      "autonomous"
+    ],
+    "new_top5": null,
+    "matched": false
+  },
+  {
+    "bridge_id": "B22",
+    "domain": "ai",
+    "entity_pair": "C2 <-> C3",
+    "old_top5": [
+      "ai",
+      "artificial",
+      "benchmark",
+      "bias",
+      "case"
+    ],
+    "new_top5": null,
+    "matched": false
+  },
+  {
+    "bridge_id": "B23",
+    "domain": "ai",
+    "entity_pair": "C0 <-> C3",
+    "old_top5": [
+      "ai",
+      "artificial",
+      "benchmark",
+      "biomedical",
+      "chatgpt"
+    ],
+    "new_top5": null,
+    "matched": false
+  },
+  {
+    "bridge_id": "B24",
+    "domain": "ai",
+    "entity_pair": "C1 <-> C3",
+    "old_top5": [
+      "ai",
+      "care",
+      "clinical",
+      "development",
+      "diagnosis"
+    ],
+    "new_top5": null,
+    "matched": false
+  },
+  {
+    "bridge_id": "B25",
+    "domain": "ai",
+    "entity_pair": "C0 <-> C1",
+    "old_top5": [
+      "ai",
+      "algorithm",
+      "cancer",
+      "change",
+      "classification"
+    ],
+    "new_top5": null,
+    "matched": false
+  },
+  {
+    "bridge_id": "B26",
+    "domain": "ai",
+    "entity_pair": "C1 <-> C2",
+    "old_top5": [
+      "ai",
+      "association",
+      "exploring",
+      "fine-tuning",
+      "foundation model"
+    ],
+    "new_top5": null,
+    "matched": false
+  }
+]

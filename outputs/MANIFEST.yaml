@@ -535,3 +535,75 @@ experiments:
     depends_on: [e025, e027]
     success_criteria: "3개 도메인 모두 >=5 clusters + 도메인당 >=5 cross-cluster bridges + 총 30건 bridge candidates 생성"
     verdict: "GO — AMR 1,907편/6clusters/15bridges, Neuroscience 2,066편/23clusters/78bridges, AI 2,089편/4clusters/6bridges. 총 30건 rubric v3 생성."
+  e029:
+    path: outputs/e029/
+    script: "scripts/e029_3way_comparison.py, scripts/e029_regression.py, scripts/e029_rho_gate.py"
+    params:
+      design: "Phase 0-4 clustering quality 실데이터 검증 — T1 3-way 비교 + T2 rho 게이트 + T3 회귀 테스트"
+      datasets:
+        - "results/gut-microbiome-sweep/papers.json"
+        - "results/virtual-cell/papers_with_abstracts.json"
+      t1_arms: ["topics-only", "abstract-only", "topics+abstract"]
+      t1_gate: "singleton 감소 >=5pp AND 엔티티/논문 >=20%, stability 5회 co-clustering >=80%"
+      t2_rho_gate: "0.3 <= rho <= 0.7 → GO, else SKIP"
+      t3_regression: "virtual-cell 클러스터 수 ±2, 논문 재배치 <=15%"
+      seed: 42
+    outputs:
+      - outputs/e029/t1_3way_comparison.json
+      - outputs/e029/t2_rho_gate.json
+      - outputs/e029/t3_regression_snapshot.json
+    status: complete
+    description: "Phase 0-4 실데이터 검증 — 3-way A/B(gut-microbiome), rho 게이트, virtual-cell 회귀"
+    issue: ""
+    branch: ""
+    priority: 1
+    depends_on: [e009, e010, e027]
+    success_criteria: "T1: GO/NO-GO 판정 완료 + stability>=80%. T2: rho 게이트 판정 기록. T3: 254 tests pass + virtual-cell 클러스터 수 ±2 + 재배치 <=15%"
+    verdict: "NO-GO — T1: abstract 엔티티 추가 가치 없음 (Arm C=Arm A 동일, Arm B 과편화 287 clusters). T2: rho=0.999 SKIP (redundant). T3: PASS (7 clusters 보존, 재배치 0%, 254 tests). --use-abstract default=False 유지, Phase 4 hybrid 불필요."
+    note: "핵심 발견: topics(OpenAlex)가 abstract predefined-entity를 완전 포괄. abstract-only는 4.2 entities/paper로 topics-only 7.17 대비 41% 감소. gut-microbiome에서 abstract 엔티티는 도메인 특화 용어 부족으로 과편화 유발."
+  e030:
+    path: outputs/e030/
+    script: scripts/e030_vocab_comparison.py
+    params:
+      design: "generate-vocab 품질 비교 — Haiku one-shot vs regex vs rule-based"
+      dataset: "results/gut-microbiome-sweep/papers.json"
+      arms:
+        - "A: rule-based baseline (gut_microbiome.yaml 172 terms)"
+        - "B: regex generate-vocab (16 terms from 50 titles)"
+        - "C: Haiku one-shot generate-vocab (62 terms)"
+      sample_size: 50
+      metrics: ["entity_coverage", "clustering_ARI", "n_clusters", "avg_entities"]
+    outputs:
+      - outputs/e030/vocab_comparison.json
+      - outputs/e030/clustering_comparison.json
+    status: complete
+    description: "generate-vocab 품질 검증 — Haiku vs regex vs rule-based 클러스터링 품질"
+    issue: ""
+    branch: ""
+    priority: 1
+    depends_on: []
+    success_criteria: "ARI>=0.7 AND coverage >= baseline+10pp"
+    verdict: "NO-GO — baseline coverage=100% (saturated), coverage+10pp impossible. ARI: Haiku=0.785 PASS, regex=0.573 FAIL. Haiku preserves baseline structure but adds no coverage gain. Curated vocab remains best."
+  e031:
+    path: outputs/e031/
+    script: "scripts/e031_p0_compare.py, scripts/e031_regen_eval.py"
+    params:
+      design: "Bridge granularity fix — alphabetical→b-potential (Hristovski 2010) + cluster-level background filter"
+      domains: [amr, neuroscience, ai-foundation]
+      background_cluster_fraction: 0.80
+      b_potential_formula: "score(t,A,B) = ctfidf_a(t) × ctfidf_b(t)"
+    outputs:
+      - outputs/e031/p0_otr_ccr_comparison.json
+      - outputs/e031/p0_diff_table.md
+      - outputs/e031/p0c_verdict.md
+      - outputs/e031/bridge_candidates_bpot.json
+      - outputs/e026/bridge_evaluation.csv
+    status: complete
+    description: "Bridge entity collapse fix — b-potential ranking + data-driven background stoplist"
+    issue: ""
+    branch: "feat/e031-bridge-granularity"
+    priority: 1
+    depends_on: [e028]
+    success_criteria: "P0c gate: OTR<=0.40 PASS rate >=50% on e028 bridges"
+    verdict: "GO — Phase A PASS. OTR PASS rate 100% (19/19, was 73.7%). AMR 44%→100%, Neuro 100%→100%. Background filter auto-detected 12 AMR terms (bacteria/antibiotics/resistance etc). b-potential re-ranks to domain-specific entities (klebsiella, eskape, biofilms vs old antibiotic/bacteria). Phase B-D (auto-subcluster leaf bridges) OPTIONAL per P0c gate."
+    note: "Two-part fix: (1) b-potential product score replaces alphabetical sort (2) cluster-level background filter drops terms appearing in >=80% of clusters. AMR most affected (+56pp OTR). B12 neuroscience minor regression (OTR 0.0→0.4, borderline PASS). e026 eval CSV regenerated with new entities (22/30 bridges updated)."

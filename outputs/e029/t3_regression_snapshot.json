@@ -1,0 +1,36 @@
+{
+  "experiment": "e029-T3",
+  "dataset": "results/virtual-cell/papers_with_abstracts.json",
+  "n_papers": 354,
+  "seed": 42,
+  "resolution": 1.0,
+  "baseline_n_clusters": 7,
+  "new_n_clusters": 7,
+  "cluster_count_check": {
+    "expected_range": "5-9",
+    "actual": 7,
+    "pass": true
+  },
+  "major_clusters_check": {
+    "required": 5,
+    "actual": 5,
+    "pass": true
+  },
+  "reassignment_check": {
+    "max_allowed_pct": 15.0,
+    "actual_pct": 0.0,
+    "reassigned_papers": 0,
+    "pass": true
+  },
+  "singletons": 0,
+  "cluster_sizes": {
+    "0": 102,
+    "1": 97,
+    "2": 79,
+    "3": 53,
+    "4": 15,
+    "5": 5,
+    "6": 3
+  },
+  "verdict": "PASS"
+}

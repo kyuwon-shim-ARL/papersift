@@ -1,0 +1,16 @@
+{
+  "experiment": "e029-T2",
+  "dataset": "results/gut-microbiome-sweep/papers.json",
+  "n_papers": 3767,
+  "best_arm": "A_topics_only",
+  "rho": 0.9991082367846666,
+  "p_value": 0.0,
+  "decision": "SKIP",
+  "reason": "rho=0.999 > 0.7 (redundant)",
+  "gate_ranges": {
+    "GO": "0.3 <= rho <= 0.7",
+    "SKIP_low": "rho < 0.3 (dilution risk)",
+    "SKIP_high": "rho > 0.7 (redundant)"
+  },
+  "note": "T2 SKIP does not affect e029 verdict. Phase 4 conditional only."
+}
