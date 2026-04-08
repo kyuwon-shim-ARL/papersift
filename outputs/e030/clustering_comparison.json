@@ -1,0 +1,51 @@
+{
+  "experiment": "e030-T5-T6",
+  "dataset": "results/gut-microbiome-sweep/papers.json",
+  "n_papers": 3767,
+  "seed": 42,
+  "arms": {
+    "A_baseline": {
+      "vocab_source": "domains/gut_microbiome.yaml",
+      "coverage": 1.0,
+      "avg_entities": 7.87,
+      "n_clusters": 4,
+      "singleton_pct": 0.0
+    },
+    "B_regex": {
+      "vocab_source": "regex generate-vocab",
+      "coverage": 1.0,
+      "avg_entities": 8.04,
+      "n_clusters": 5,
+      "singleton_pct": 0.0,
+      "coverage_delta": 0.0,
+      "ari_vs_baseline": 0.5731,
+      "ari_pass": false,
+      "coverage_pass": false,
+      "go": false
+    },
+    "C_haiku": {
+      "vocab_source": "Claude Haiku one-shot",
+      "coverage": 1.0,
+      "avg_entities": 7.41,
+      "n_clusters": 5,
+      "singleton_pct": 0.0,
+      "coverage_delta": 0.0,
+      "ari_vs_baseline": 0.7849,
+      "ari_pass": true,
+      "coverage_pass": false,
+      "go": false
+    }
+  },
+  "cross_ari": {
+    "B_vs_A": 0.5731,
+    "C_vs_A": 0.7849,
+    "B_vs_C": 0.556
+  },
+  "go_criteria": {
+    "ari_threshold": 0.7,
+    "coverage_threshold": 1.1,
+    "baseline_coverage": 1.0
+  },
+  "verdict": "NO-GO — Neither arm meets ARI>=0.7 AND coverage>=baseline+10pp",
+  "best_arm": "A_baseline"
+}
