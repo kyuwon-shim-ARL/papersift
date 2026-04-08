@@ -7,7 +7,6 @@ Combines CrossValidator + citation-based confidence calculation.
 from dataclasses import dataclass
 from typing import Dict, List, Any, Optional
 from collections import defaultdict
-import numpy as np
 from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
 import igraph as ig
 import leidenalg

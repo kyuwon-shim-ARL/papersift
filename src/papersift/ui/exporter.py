@@ -2,7 +2,6 @@
 
 import plotly.graph_objects as go
 import networkx as nx
-from pathlib import Path
 
 from papersift.ui.utils.data_loader import (
     load_papers,

@@ -56,7 +56,7 @@ print(f"[STAT:effect_size] method_proposal is {method_rate/sota_broad_rate:.1f}x
 print("\n[FINDING] Combined pattern underperforms individual patterns")
 combined_rate = stats['combined']['avg_hit_rate']
 print(f"[STAT:rate] combined = {combined_rate:.3f} vs method_proposal = {method_rate:.3f}")
-print(f"[LIMITATION] OR query may have different semantics than expected in fulltext search")
+print("[LIMITATION] OR query may have different semantics than expected in fulltext search")
 
 # Create visualizations
 print("\n" + "=" * 80)
@@ -209,7 +209,7 @@ for rank, (name, data) in enumerate(ranked, 1):
     else:
         report += "— |\n"
 
-report += f"""
+report += """
 ### 3. Seed Papers (Top 10 by Citations)
 
 | Paper | Citations | Best Pattern | Hit Rate |
@@ -327,9 +327,9 @@ print("\n" + "=" * 80)
 print("ANALYSIS COMPLETE")
 print("=" * 80)
 print(f"\nAll outputs saved to: {output_dir}")
-print(f"- fulltext_coverage.json")
-print(f"- filter_patterns.json")
-print(f"- execution.log")
-print(f"- e002_summary.png")
-print(f"- e002_detailed_patterns.png")
-print(f"- e002_report.md")
+print("- fulltext_coverage.json")
+print("- filter_patterns.json")
+print("- execution.log")
+print("- e002_summary.png")
+print("- e002_detailed_patterns.png")
+print("- e002_report.md")

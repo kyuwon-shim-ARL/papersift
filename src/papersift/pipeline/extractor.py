@@ -1,8 +1,6 @@
 """Text extraction from PDF/XML with GROBID and pymupdf4llm fallback."""
 
-import os
 import re
-import tempfile
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 from pathlib import Path

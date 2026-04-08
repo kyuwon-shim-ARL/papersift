@@ -207,7 +207,7 @@ class ResearchPipeline:
         Returns:
             ResearchOutput with fully enriched papers
         """
-        print(f"\n=== Phase 2: Finalize ===\n", file=sys.stderr)
+        print("\n=== Phase 2: Finalize ===\n", file=sys.stderr)
 
         # Load extractions
         extractions = []

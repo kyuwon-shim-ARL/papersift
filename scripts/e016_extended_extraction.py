@@ -17,8 +17,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 from papersift.extract import (
     build_batch_prompts,
     filter_extraction_quality,
-    merge_extractions,
-    parse_llm_response,
 )
 
 DATA_PATH = Path(__file__).resolve().parent.parent / "results/virtual-cell-sweep/papers_with_abstracts.json"

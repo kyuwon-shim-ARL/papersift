@@ -146,7 +146,7 @@ def run_temporal(papers, entity_data):
     print(f"Significant after BH-FDR (q < 0.05): {len(significant)}")
 
     if significant:
-        print(f"\nSignificant entity trends:")
+        print("\nSignificant entity trends:")
         for r in significant[:30]:
             print(f"  {r['entity']}: slope={r['slope']:.6f} ({r['direction']}), "
                   f"p={r['p_value']:.6f}, q={r['q_value']:.4f}, "
@@ -158,10 +158,10 @@ def run_temporal(papers, entity_data):
     top_rising = sorted([r for r in results if r["slope"] > 0], key=lambda x: x["p_value"])[:10]
     top_declining = sorted([r for r in results if r["slope"] < 0], key=lambda x: x["p_value"])[:10]
 
-    print(f"\nTop-10 rising (before FDR):")
+    print("\nTop-10 rising (before FDR):")
     for r in top_rising:
         print(f"  {r['entity']}: slope={r['slope']:.6f}, p={r['p_value']:.6f}, freq={r['freq']}")
-    print(f"\nTop-10 declining (before FDR):")
+    print("\nTop-10 declining (before FDR):")
     for r in top_declining:
         print(f"  {r['entity']}: slope={r['slope']:.6f}, p={r['p_value']:.6f}, freq={r['freq']}")
 
@@ -172,8 +172,8 @@ def run_temporal(papers, entity_data):
     print(f"\n  >>> e014 VERDICT: {verdict} <<<")
 
     # Comparison with v1
-    print(f"\n--- v1 vs v2 comparison ---")
-    print(f"  v1: 354 papers, 75 entities tested, 0 significant")
+    print("\n--- v1 vs v2 comparison ---")
+    print("  v1: 354 papers, 75 entities tested, 0 significant")
     print(f"  v2: {len(papers)} papers, {len(test_entities)} entities tested, {len(significant)} significant")
 
     return {

@@ -10,7 +10,6 @@ Success: rho >= 0.3 AND CV >= 15% AND top-10 changes >= 3.
 """
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -137,7 +136,6 @@ def compute_new_intra_scores(
             continue
         key = (rec["cluster"], rec["entity_a"], rec["entity_b"])
         new_gap = pair_lookup.get(key, rec["gap_score"])  # fallback to old if not found
-        old_momentum_boost_ratio = rec["momentum_score"] / (rec["momentum_score"] / rec["gap_score"]) if rec["gap_score"] > 0 else rec["momentum_score"]
         # Reconstruct: bridge_score = momentum_score * new_gap * (1 - failure_penalty)
         # momentum_score in rec already includes boost factor
         new_bridge = rec["momentum_score"] * new_gap * (1.0 - rec["failure_penalty"])
@@ -373,7 +371,7 @@ def run():
     new_cv = intra_stats["new_cv"]
     n_changed = top10["n_changed"]
 
-    print(f"\nEvaluation:")
+    print("\nEvaluation:")
     print(f"  Spearman rho = {rho:.4f} (target >= 0.3)")
     print(f"  New CV = {new_cv:.4f} (target >= 0.15)")
     print(f"  Top-10 changes = {n_changed} (target >= 3)")

@@ -1,9 +1,7 @@
 """Base constants, CSS/JS helpers, and shared utilities for PaperSift HTML views."""
 
-import json
 from collections import Counter, defaultdict
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List
 
 # ---------------------------------------------------------------------------
 # Constants

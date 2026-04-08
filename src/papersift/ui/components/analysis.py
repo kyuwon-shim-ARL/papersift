@@ -2,7 +2,7 @@
 
 import json
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional
 
 from dash import html, dcc
 import dash_ag_grid as dag
@@ -391,7 +391,7 @@ def create_burst_timeline_tab(burst_data: Optional[dict]) -> html.Div:
     n_total = len(entities)
     return html.Div([
         html.H3(f'Kleinberg Burst Detection (s=2.0, {n_total} entities)', style={'marginBottom': '10px'}),
-        html.P(f'Top 15 entities by total mentions. Each bar shows a burst interval.',
+        html.P('Top 15 entities by total mentions. Each bar shows a burst interval.',
                style={'fontSize': '13px', 'color': 'var(--text-secondary)', 'marginBottom': '10px'}),
         dcc.Graph(
             id='analysis-v11-burst-chart',
@@ -552,7 +552,7 @@ def create_bridge_recommendations_tab(bridge_data: Optional[dict]) -> html.Div:
     dominance = bridge_data.get('t1_rank_norm', {}).get('eval_all', {}).get('dominance_ratio', 'N/A')
 
     return html.Div([
-        html.H3(f'Bridge Recommendations — Rank-Normalized (top 20)', style={'marginBottom': '10px'}),
+        html.H3('Bridge Recommendations — Rank-Normalized (top 20)', style={'marginBottom': '10px'}),
         html.P(f'Dominance ratio: {dominance} (target <2.0). Formula: bridge = r_momentum × r_gap × r_inv_failure.',
                style={'fontSize': '13px', 'color': 'var(--text-secondary)', 'marginBottom': '10px'}),
         dag.AgGrid(

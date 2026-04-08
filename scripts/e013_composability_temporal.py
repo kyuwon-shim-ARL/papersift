@@ -14,7 +14,7 @@ T5: Per-entity temporal trend via OLS on yearly proportion.
 
 import json
 import sys
-from collections import Counter, defaultdict
+from collections import Counter
 from itertools import combinations
 from pathlib import Path
 
@@ -121,7 +121,7 @@ def run_t4(papers, entity_data):
     gaps.sort(key=lambda x: (x["ratio"], -x["expected"]))
 
     print(f"Total entity pairs analyzed: {len(gaps)}")
-    print(f"\nTop-10 underexplored pairs (lowest observed/expected ratio):")
+    print("\nTop-10 underexplored pairs (lowest observed/expected ratio):")
     top10 = gaps[:10]
     for i, g in enumerate(top10, 1):
         print(f"  {i}. {g['entity_a']} × {g['entity_b']}: "
@@ -130,7 +130,7 @@ def run_t4(papers, entity_data):
 
     # Also show top overexplored for context
     overexplored = sorted(gaps, key=lambda x: -x["ratio"])[:5]
-    print(f"\nTop-5 overexplored pairs (highest ratio, for context):")
+    print("\nTop-5 overexplored pairs (highest ratio, for context):")
     for g in overexplored:
         print(f"  {g['entity_a']} × {g['entity_b']}: ratio={g['ratio']:.2f} "
               f"(obs={g['observed']}, exp={g['expected']})")
@@ -232,7 +232,7 @@ def run_t5(papers, entity_data):
     print(f"Significant after FDR (q < 0.05): {len(significant)}")
 
     if significant:
-        print(f"\nSignificant entity trends:")
+        print("\nSignificant entity trends:")
         for r in significant[:20]:
             print(f"  {r['entity']}: slope={r['slope']:.6f} ({r['direction']}), "
                   f"p={r['p_value']:.4f}, q={r['q_value']:.4f}, freq={r['freq']}")
@@ -243,10 +243,10 @@ def run_t5(papers, entity_data):
     top_rising = sorted([r for r in results if r["slope"] > 0], key=lambda x: x["p_value"])[:5]
     top_declining = sorted([r for r in results if r["slope"] < 0], key=lambda x: x["p_value"])[:5]
 
-    print(f"\nTop-5 rising (before FDR):")
+    print("\nTop-5 rising (before FDR):")
     for r in top_rising:
         print(f"  {r['entity']}: slope={r['slope']:.6f}, p={r['p_value']:.4f}, freq={r['freq']}")
-    print(f"Top-5 declining (before FDR):")
+    print("Top-5 declining (before FDR):")
     for r in top_declining:
         print(f"  {r['entity']}: slope={r['slope']:.6f}, p={r['p_value']:.4f}, freq={r['freq']}")
 

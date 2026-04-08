@@ -169,7 +169,6 @@ def evaluate_clustering(
         sims = cosine_similarity(non_noise_embs, centroid_matrix)  # (N, K)
         duplicates = 0
         for i, own_label in enumerate(non_noise_labels):
-            own_col = centroid_ids.index(own_label)
             for j, other_label in enumerate(centroid_ids):
                 if other_label == own_label:
                     continue
@@ -262,7 +261,7 @@ def run():
         verdict = "NO-GO — " + "; ".join(parts)
 
     # Print summary
-    print(f"\n=== e024 Results ===")
+    print("\n=== e024 Results ===")
     print(f"Clusters: {n_clusters}, Noise: {n_noise} ({noise_rate:.1%})")
     print(f"Cluster-specific rate: {csr:.1%} (coherent clusters: {evaluation['coherent_clusters']}/{evaluation['total_clusters']})")
     print(f"Cross-cluster dup rate: {ccdr:.1%}")

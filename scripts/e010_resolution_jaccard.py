@@ -19,7 +19,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from papersift.entity_layer import STOPWORDS, EntityLayerBuilder, ImprovedEntityExtractor
+from papersift.entity_layer import STOPWORDS, ImprovedEntityExtractor
 
 DATA_PATH = Path(__file__).resolve().parent.parent / "results/virtual-cell/papers_with_abstracts.json"
 OUTPUT_DIR = Path(__file__).resolve().parent.parent / "outputs/e010"
@@ -170,7 +170,6 @@ def compute_abstract_partition(papers, entity_data, clusters):
 
     def dist(paper_list):
         c = Counter(clusters[p["doi"]] for p in paper_list)
-        sizes = Counter(c.values())
         return {
             "paper_count": len(paper_list),
             "mean_entities": round(float(np.mean([len(entity_data[p["doi"]]["entities"]) for p in paper_list])), 2) if paper_list else 0,

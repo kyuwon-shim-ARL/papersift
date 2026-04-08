@@ -186,7 +186,7 @@ def main():
     print(f"Matched bridges: {n_total} / {len(comparison)}")
     print(f"OTR <= 0.40 — old (alphabetical): {n_old_pass}/{n_total} ({old_rate:.1%})")
     print(f"OTR <= 0.40 — new (b-potential):  {n_new_pass}/{n_total} ({new_rate:.1%})")
-    print(f"Combined PASS (OTR<=0.40 AND CCR>=0.30):")
+    print("Combined PASS (OTR<=0.40 AND CCR>=0.30):")
     print(f"  old: {n_eval_pass_old}/{n_total}, new: {n_eval_pass_new}/{n_total}")
 
     # Decision gate
@@ -195,15 +195,15 @@ def main():
 
     # Diff table
     md = ["# e031 P0b/P0c — Bridge Comparison (alphabetical → b-potential)\n"]
-    md.append(f"**Date**: 2026-04-07  \n**Source**: outputs/e028/bridge_candidates.json (old) vs frontier.run_pipeline (new, T1 commit 2676a73)\n")
-    md.append(f"## Aggregate\n")
-    md.append(f"| Metric | Old (alphabetical) | New (b-potential) |")
-    md.append(f"|---|---|---|")
+    md.append("**Date**: 2026-04-07  \n**Source**: outputs/e028/bridge_candidates.json (old) vs frontier.run_pipeline (new, T1 commit 2676a73)\n")
+    md.append("## Aggregate\n")
+    md.append("| Metric | Old (alphabetical) | New (b-potential) |")
+    md.append("|---|---|---|")
     md.append(f"| OTR ≤ 0.40 PASS rate | {n_old_pass}/{n_total} ({old_rate:.1%}) | **{n_new_pass}/{n_total} ({new_rate:.1%})** |")
     md.append(f"| Combined eval PASS (OTR≤0.40 ∧ CCR≥0.30) | {n_eval_pass_old}/{n_total} | **{n_eval_pass_new}/{n_total}** |")
     md.append(f"| **P0c automated gate** (≥50% OTR PASS) | — | **{'PASS ✓' if gate_pass else 'FAIL ✗'}** |\n")
 
-    md.append(f"## Per-domain breakdown\n")
+    md.append("## Per-domain breakdown\n")
     for domain in ["amr", "ai-foundation", "neuroscience"]:
         dm = [c for c in matched if c["domain"] == domain]
         if not dm:
@@ -214,10 +214,10 @@ def main():
         md.append(f"- OTR≤0.40: old {old_p}/{len(dm)} ({old_p/len(dm):.0%}) → new {new_p}/{len(dm)} ({new_p/len(dm):.0%})")
         md.append("")
 
-    md.append(f"## Spot-check table — top-3 bridges per domain\n")
-    md.append(f"For each, eyeball whether the new top-5 are more domain-specific than the old.\n")
-    md.append(f"| ID | Domain | Pair | Old top-5 (alphabetical) | New top-5 (b-potential) | Old OTR / CCR | New OTR / CCR |")
-    md.append(f"|---|---|---|---|---|---|---|")
+    md.append("## Spot-check table — top-3 bridges per domain\n")
+    md.append("For each, eyeball whether the new top-5 are more domain-specific than the old.\n")
+    md.append("| ID | Domain | Pair | Old top-5 (alphabetical) | New top-5 (b-potential) | Old OTR / CCR | New OTR / CCR |")
+    md.append("|---|---|---|---|---|---|---|")
     seen_per_domain: dict = {}
     for c in matched:
         d = c["domain"]
@@ -236,30 +236,30 @@ def main():
     # Verdict file
     verdict_md = [
         "# e031 P0c Decision Gate Verdict\n",
-        f"**Date**: 2026-04-07\n",
-        f"**Branch**: feat/e031-bridge-granularity\n",
-        f"**Commit (T1)**: 2676a73\n",
+        "**Date**: 2026-04-07\n",
+        "**Branch**: feat/e031-bridge-granularity\n",
+        "**Commit (T1)**: 2676a73\n",
         "## Automated signal (Signal 1)",
-        f"- Threshold: ≥50% of e028 bridges achieve OTR ≤ 0.40",
+        "- Threshold: ≥50% of e028 bridges achieve OTR ≤ 0.40",
         f"- Result: {n_new_pass}/{n_total} = **{new_rate:.1%}**",
         f"- Verdict: **{'PASS ✓' if gate_pass else 'FAIL ✗'}**\n",
         "## Human spot-check (Signal 2) — REQUIRED",
-        f"User must review `outputs/e031/p0_diff_table.md` and self-assess:",
-        f"- For top-3 bridges per domain (9 total), do the new top-5 entities look more domain-specific than antibiotic/bacteria/clinical?",
-        f"- Required: 2-of-3 reviewer agreement on at least 6/9 spot-checks.\n",
+        "User must review `outputs/e031/p0_diff_table.md` and self-assess:",
+        "- For top-3 bridges per domain (9 total), do the new top-5 entities look more domain-specific than antibiotic/bacteria/clinical?",
+        "- Required: 2-of-3 reviewer agreement on at least 6/9 spot-checks.\n",
         "## Combined decision",
-        f"- BOTH signals PASS → ship P0a alone, mark P1-P3 optional. Phase A complete.",
-        f"- Either signal FAIL → proceed to T4 (P0d) → Phase B-D.\n",
-        f"## Files",
+        "- BOTH signals PASS → ship P0a alone, mark P1-P3 optional. Phase A complete.",
+        "- Either signal FAIL → proceed to T4 (P0d) → Phase B-D.\n",
+        "## Files",
         f"- `outputs/e031/p0_otr_ccr_comparison.json` ({len(comparison)} entries)",
-        f"- `outputs/e031/p0_diff_table.md` (human review table)",
-        f"- This verdict file",
+        "- `outputs/e031/p0_diff_table.md` (human review table)",
+        "- This verdict file",
     ]
     (OUT_DIR / "p0c_verdict.md").write_text("\n".join(verdict_md))
 
-    print(f"\nWrote outputs/e031/p0_otr_ccr_comparison.json")
-    print(f"Wrote outputs/e031/p0_diff_table.md")
-    print(f"Wrote outputs/e031/p0c_verdict.md")
+    print("\nWrote outputs/e031/p0_otr_ccr_comparison.json")
+    print("Wrote outputs/e031/p0_diff_table.md")
+    print("Wrote outputs/e031/p0c_verdict.md")
 
 
 if __name__ == "__main__":

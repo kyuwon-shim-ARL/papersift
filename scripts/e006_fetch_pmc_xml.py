@@ -295,7 +295,7 @@ def main():
     with open(output_path, "w") as f:
         json.dump(results, f, indent=2)
 
-    print(f"\nComplete!")
+    print("\nComplete!")
     print(f"  Total papers with PMCIDs: {len(papers_with_pmcid)}")
     print(f"  Successfully fetched: {fetched}")
     print(f"  Skipped (already fetched): {skipped}")

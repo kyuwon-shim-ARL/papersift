@@ -1,12 +1,10 @@
 """Timeline (V6) HTML view generator."""
 
 import json
-from collections import Counter, defaultdict
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List
 
-from .base import (STOPWORDS, CLUSTER_COLORS, _BASE_CSS, _THEME_JS,
-                   _nav_bar, _html_shell, generate_labels)
+from .base import (CLUSTER_COLORS, _html_shell)
 
 
 def generate_timeline(
@@ -66,7 +64,6 @@ def generate_timeline(
     for i, ent in enumerate(top_entities):
         entity_name = ent.get('entity', f'Entity {i}')
         slope = ent.get('slope', 0)
-        is_rising = slope >= 0
         cid_str = ent.get('_cluster_id', '0')
         try:
             cid_int = int(cid_str)

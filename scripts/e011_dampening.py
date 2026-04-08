@@ -15,11 +15,10 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from papersift.entity_layer import STOPWORDS, EntityLayerBuilder, ImprovedEntityExtractor
+from papersift.entity_layer import STOPWORDS, ImprovedEntityExtractor
 
 DATA_PATH = Path(__file__).resolve().parent.parent / "results/virtual-cell/papers_with_abstracts.json"
 OUTPUT_DIR = Path(__file__).resolve().parent.parent / "outputs/e011"

@@ -94,7 +94,7 @@ def test_filter_patterns(seed_papers: List[Dict]) -> Dict:
         try:
             work = Works().filter(doi=doi).get()
             if not work:
-                print(f"  ERROR: Paper not found in OpenAlex")
+                print("  ERROR: Paper not found in OpenAlex")
                 continue
 
             oa_id = work[0]['id']
@@ -104,7 +104,7 @@ def test_filter_patterns(seed_papers: List[Dict]) -> Dict:
             print(f"  Total citing papers: {total_citing}")
 
             if total_citing == 0:
-                print(f"  WARNING: No citing papers found")
+                print("  WARNING: No citing papers found")
                 for pattern_name in patterns.keys():
                     results[pattern_name].append({
                         'seed_doi': doi,
@@ -165,7 +165,7 @@ def main():
     print("=" * 80)
 
     # Load papers
-    print(f"\n[OBJECTIVE] Measure OpenAlex fulltext indexing coverage and filter pattern effectiveness")
+    print("\n[OBJECTIVE] Measure OpenAlex fulltext indexing coverage and filter pattern effectiveness")
     print(f"[DATA] Loading papers from {papers_path}")
     papers = load_papers(papers_path)
     print(f"[DATA] Loaded {len(papers)} papers")
@@ -304,8 +304,8 @@ def main():
     print(f"3. Method vs SOTA: method_proposal {100*pattern_stats['method_proposal']['avg_hit_rate']:.1f}% "
           f"vs sota_narrow {100*pattern_stats['sota_narrow']['avg_hit_rate']:.1f}%")
 
-    print(f"\n[LIMITATION] Analysis limited to top 10 cited papers; may not represent full dataset diversity")
-    print(f"[LIMITATION] Pattern matching depends on fulltext availability and quality")
+    print("\n[LIMITATION] Analysis limited to top 10 cited papers; may not represent full dataset diversity")
+    print("[LIMITATION] Pattern matching depends on fulltext availability and quality")
 
 
 if __name__ == "__main__":

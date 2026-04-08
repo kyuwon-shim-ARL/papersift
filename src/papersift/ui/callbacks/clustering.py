@@ -1,7 +1,7 @@
 """Callbacks for re-clustering and filtering operations."""
 
 import json
-from dash import callback, Input, Output, State, ctx, no_update, dcc
+from dash import Input, Output, State, no_update, dcc
 
 
 def _push_checkpoint(history, checkpoint):

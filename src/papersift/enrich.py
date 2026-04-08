@@ -5,7 +5,6 @@ Fetches referenced_works (as DOIs), topics, and abstracts from OpenAlex API.
 Requires optional dependency: pip install papersift[enrich]
 """
 
-import json
 import sys
 import time
 from typing import Dict, List, Optional, Any

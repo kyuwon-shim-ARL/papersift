@@ -152,7 +152,7 @@ def t1_redundancy(papers, entity_data, clusters):
     print(f"  Pairs checked: {pairs_checked:,}")
     print(f"  Notable pairs (combined > 0.15): {len(results)}")
     print(f"  Entity↔Biblio correlation: r={corr:.3f}")
-    print(f"\n  Top-20 redundant pairs:")
+    print("\n  Top-20 redundant pairs:")
     for r in results[:20]:
         print(f"    cluster={r['cluster']}: {r['doi_a'][:30]}... × {r['doi_b'][:30]}... "
               f"combined={r['combined_score']:.3f} (entity={r['entity_jaccard']:.3f}, biblio={r['biblio_coupling']:.3f})")

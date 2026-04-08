@@ -215,7 +215,6 @@ def _generate_synthesis(data: dict) -> list[str]:
 
     # 5. Domain specialization vs convergence balance
     divergent_methods = flows.get("summary_stats", {}).get("divergent_methods", [])
-    stable_methods = flows.get("summary_stats", {}).get("stable_methods", [])
     if convergent_methods and divergent_methods:
         insights.append(
             f"5. **수렴-발산 균형**: {len(convergent_methods)}개 방법론은 도메인 간 수렴 패턴을, "
@@ -853,7 +852,6 @@ def generate_html(data: dict, output_dir: Path, offline: bool = False, v11: dict
     flows = data["flows"]
     trends = data["trends"]
     hyp = data["hypotheses"]
-    doi_index = data["doi_index"]
 
     domains = landscape["level_0"]["domains"]
     total_papers = landscape["metadata"]["total_biology_papers"]

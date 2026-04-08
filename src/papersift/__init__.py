@@ -18,13 +18,13 @@ __all__ = [
 ]
 
 try:
-    from papersift.enrich import OpenAlexEnricher
+    from papersift.enrich import OpenAlexEnricher  # noqa: F401
     __all__.append("OpenAlexEnricher")
 except ImportError:
     pass  # pyalex not installed
 
 try:
-    from papersift.embedding import (
+    from papersift.embedding import (  # noqa: F401
         embed_papers,
         build_entity_matrix,
         compute_embedding,
@@ -42,7 +42,7 @@ except ImportError:
     pass  # Should not happen since numpy/sklearn are core deps
 
 try:
-    from papersift.pipeline import (
+    from papersift.pipeline import (  # noqa: F401
         PaperDiscovery,
         PaperFetcher,
         ContentResult,
@@ -62,9 +62,9 @@ except ImportError:
     pass  # pipeline dependencies not installed
 
 try:
-    from papersift.abstract import AbstractFetcher
-    from papersift.research import ResearchPipeline, ResearchOutput, PreparedData
-    from papersift.extract import build_batch_prompts, parse_llm_response, merge_extractions
+    from papersift.abstract import AbstractFetcher  # noqa: F401
+    from papersift.research import ResearchPipeline, ResearchOutput, PreparedData  # noqa: F401
+    from papersift.extract import build_batch_prompts, parse_llm_response, merge_extractions  # noqa: F401
     __all__.extend([
         "AbstractFetcher",
         "ResearchPipeline",

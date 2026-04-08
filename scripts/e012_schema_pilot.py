@@ -17,7 +17,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 from papersift.entity_layer import STOPWORDS, EntityLayerBuilder, ImprovedEntityExtractor
-from papersift.extract import build_batch_prompts, parse_llm_response
+from papersift.extract import build_batch_prompts
 
 DATA_PATH = Path(__file__).resolve().parent.parent / "results/virtual-cell/papers_with_abstracts.json"
 OUTPUT_DIR = Path(__file__).resolve().parent.parent / "outputs/e012"
@@ -92,8 +92,6 @@ def stratified_sample(papers, clusters, target=50):
     singletons = [m[0] for c, m in cluster_members.items() if len(m) == 1]
 
     no_abstract = [p for p in papers if not p.get("abstract")]
-    has_abstract = [p for p in papers if p.get("abstract")]
-
     sampled_dois = set()
     sampled = []
 

@@ -1,7 +1,6 @@
 """PaperSift HTML view generators — sub-package."""
 
 import json
-import os
 import shutil
 from collections import defaultdict
 from importlib.resources import files as pkg_files

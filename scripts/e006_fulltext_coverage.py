@@ -365,7 +365,7 @@ def compute_summary(
 
         has_pdf = bool(unpaywall.get('pdf_url'))
         has_xml = epmc.get('has_fulltext_xml', False)
-        has_oa = unpaywall.get('is_oa', False) or openalex
+
 
         # Any fulltext = has PDF or XML or OpenAlex fulltext
         has_any = has_pdf or has_xml or openalex
@@ -429,29 +429,29 @@ def print_summary(summary: Dict[str, Any]) -> None:
 
     # Unpaywall
     upw = summary['sources']['unpaywall']
-    print(f"\nUnpaywall:")
+    print("\nUnpaywall:")
     print(f"  OA papers: {upw['oa_count']} ({upw['oa_count']/total*100:.1f}%)")
     print(f"  PDF available: {upw['pdf_available']} ({upw['pdf_available']/total*100:.1f}%)")
-    print(f"  By status:")
+    print("  By status:")
     for status, count in sorted(upw['by_status'].items()):
         print(f"    {status}: {count} ({count/total*100:.1f}%)")
 
     # Europe PMC
     epmc = summary['sources']['europe_pmc']
-    print(f"\nEurope PMC:")
+    print("\nEurope PMC:")
     print(f"  Found: {epmc['found']} ({epmc['found']/total*100:.1f}%)")
     print(f"  Has PMCID: {epmc['has_pmcid']} ({epmc['has_pmcid']/total*100:.1f}%)")
     print(f"  Fulltext XML: {epmc['has_fulltext_xml']} ({epmc['has_fulltext_xml']/total*100:.1f}%)")
 
     # OpenAlex
     oalex = summary['sources']['openalex']
-    print(f"\nOpenAlex:")
+    print("\nOpenAlex:")
     print(f"  Has fulltext: {oalex['has_fulltext']} ({oalex['has_fulltext']/total*100:.1f}%)")
 
     # Combined
     combined = summary['combined']
-    print(f"\n" + "="*60)
-    print(f"COMBINED COVERAGE:")
+    print("\n" + "="*60)
+    print("COMBINED COVERAGE:")
     print(f"  Any fulltext: {combined['any_fulltext']} ({combined['any_fulltext_pct']*100:.1f}%)")
     print(f"  PDF or XML: {combined['pdf_or_xml']} ({combined['pdf_or_xml']/total*100:.1f}%)")
     print(f"\n  VERDICT: {combined['go_no_go']} (threshold: 60%)")

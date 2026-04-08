@@ -16,7 +16,6 @@ Decision rule: dominance < 2.0 mandatory + 2/3 others → GO.
 """
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -545,7 +544,7 @@ def run():
         closest = min(all_evals, key=lambda x: abs(x[1]["dominance_ratio"] - 2.0))
         verdict = f"NO-GO — no formula passes all criteria. Closest: {closest[0]} (dominance={closest[1]['dominance_ratio']:.4f})"
         best = None
-        print(f"\n  No formula passed all criteria.")
+        print("\n  No formula passed all criteria.")
         print(f"  Closest: {closest[0]}, dominance={closest[1]['dominance_ratio']:.4f}")
 
     print(f"\nVerdict: {verdict}")

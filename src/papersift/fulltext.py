@@ -294,7 +294,7 @@ class FulltextFetcher:
                 else:
                     return None
 
-            except (urllib.error.URLError, TimeoutError) as e:
+            except (urllib.error.URLError, TimeoutError):
                 if attempt < max_retries - 1:
                     time.sleep(2**attempt)
                 else:

@@ -134,13 +134,7 @@ def compute_entity_stats(entity_data, papers):
         types = data["types"]
 
         all_counts.append(len(ents))
-        pred = sum(1 for e in ents if types.get(e, "METHOD") in ("METHOD", "ORGANISM", "CONCEPT", "DATASET")
-                   and e in {name.lower() for name, _ in ImprovedEntityExtractor().method_patterns}
-                   or e in {name.lower() for name, _ in ImprovedEntityExtractor().organism_patterns}
-                   or e in {name.lower() for name, _ in ImprovedEntityExtractor().concept_patterns}
-                   or e in {name.lower() for name, _ in ImprovedEntityExtractor().dataset_patterns})
-
-        # Simpler: count by whether entity is in predefined lists
+        # Count by whether entity is in predefined lists
         predefined_set = _get_predefined_set()
         n_pred = sum(1 for e in ents if e in predefined_set)
         n_heur = len(ents) - n_pred
@@ -450,7 +444,7 @@ def main():
     pred_increase = (stats_b_entity["predefined_mean"] - stats_a_entity["predefined_mean"]) / stats_a_entity["predefined_mean"] * 100 if stats_a_entity["predefined_mean"] > 0 else 0
     print(f"  Predefined mean: {stats_a_entity['predefined_mean']:.2f} → {stats_b_entity['predefined_mean']:.2f} ({pred_increase:+.1f}%)")
     print(f"  Heuristic mean: {stats_a_entity['heuristic_mean']:.2f} → {stats_b_entity['heuristic_mean']:.2f} (unchanged, additive)")
-    print(f"  Universal connectors (>10% papers):")
+    print("  Universal connectors (>10% papers):")
     for uc in stats_b_entity["top_universal_connectors"][:10]:
         print(f"    {uc['entity']}: {uc['doc_freq']} papers ({uc['pct']}%)")
 

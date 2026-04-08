@@ -177,7 +177,6 @@ def detect_burst_intervals(state_sequence, threshold=1):
     years = sorted(state_sequence.keys())
     intervals = []
     in_burst = False
-    burst_start = None
     burst_years = []
 
     for y in years:
@@ -185,7 +184,6 @@ def detect_burst_intervals(state_sequence, threshold=1):
         if state >= threshold:
             if not in_burst:
                 in_burst = True
-                burst_start = y
                 burst_years = [y]
             else:
                 burst_years.append(y)

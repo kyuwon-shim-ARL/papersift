@@ -28,7 +28,6 @@ import json
 import subprocess
 import sys
 import time
-from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
@@ -334,10 +333,10 @@ def merge_and_export(papers: list, all_extractions: list, clusters: dict, output
     # Also save flat extractions for reproducibility
     save_json(flat_extractions, output_dir / "raw_extractions.json")
 
-    print(f"\n=== Export Summary ===", file=sys.stderr)
+    print("\n=== Export Summary ===", file=sys.stderr)
     print(f"Total papers: {total}", file=sys.stderr)
     print(f"With fulltext: {with_ft} ({100*with_ft/total:.1f}%)", file=sys.stderr)
-    print(f"Coverage:", file=sys.stderr)
+    print("Coverage:", file=sys.stderr)
     for field, pct in stats["coverage"].items():
         print(f"  {field}: {pct}%", file=sys.stderr)
     print(f"\nOutput: {output_dir}/", file=sys.stderr)
@@ -358,7 +357,7 @@ def validate_success(output_dir: Path) -> bool:
     problem_pct = coverage["problem"]
     method_pct = coverage["method"]
 
-    print(f"\n=== e007 Success Criteria Validation ===\n", file=sys.stderr)
+    print("\n=== e007 Success Criteria Validation ===\n", file=sys.stderr)
     print(f"problem coverage: {problem_pct}% (threshold: ≥90%)", file=sys.stderr)
     print(f"method coverage:  {method_pct}% (threshold: ≥90%)", file=sys.stderr)
 
@@ -370,14 +369,14 @@ def validate_success(output_dir: Path) -> bool:
 
     both_pass = problem_pass and method_pass
     if both_pass:
-        print(f"\n** GO — success criteria met **", file=sys.stderr)
+        print("\n** GO — success criteria met **", file=sys.stderr)
     elif problem_pct >= 70 and method_pct >= 70:
-        print(f"\n** PARTIAL GO — 70-90% range, acceptable with caveats **", file=sys.stderr)
+        print("\n** PARTIAL GO — 70-90% range, acceptable with caveats **", file=sys.stderr)
     else:
-        print(f"\n** NO-GO — coverage below threshold **", file=sys.stderr)
+        print("\n** NO-GO — coverage below threshold **", file=sys.stderr)
 
     # Also show all fields
-    print(f"\nAll field coverage:", file=sys.stderr)
+    print("\nAll field coverage:", file=sys.stderr)
     for field, pct in coverage.items():
         marker = "OK" if pct >= 90 else "LOW" if pct >= 70 else "FAIL"
         print(f"  {field}: {pct}% [{marker}]", file=sys.stderr)
@@ -476,8 +475,8 @@ def main():
         )
 
     # === Phase 3: Finalize ===
-    print(f"\n=== Phase 3: Merge & Export ===\n", file=sys.stderr)
-    stats = merge_and_export(papers, all_results, clusters, OUTPUT_DIR)
+    print("\n=== Phase 3: Merge & Export ===\n", file=sys.stderr)
+    merge_and_export(papers, all_results, clusters, OUTPUT_DIR)
 
     # === Phase 4: Validate ===
     print("", file=sys.stderr)

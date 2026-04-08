@@ -104,7 +104,7 @@ def permutation_null(paper_entities_idx, entity_freqs, n_entities, rng):
 
     # Flat pool: each entity token appears entity_freqs[e] times
     pool = np.repeat(np.arange(n_entities, dtype=np.int32), entity_freqs.astype(int))
-    pool_size = len(pool)
+
 
     # Accumulate sum and sum-of-squares of co-occurrence matrices
     pair_sums = np.zeros((n_entities, n_entities), dtype=np.float64)
@@ -260,7 +260,7 @@ def main():
     clusters_with_z2 = sorted(set(g["cluster"] for g in z2_gaps))
     top10_z2 = sorted(z2_gaps, key=lambda g: g["z"])[:10]
 
-    print(f"\nZ-score gaps summary:")
+    print("\nZ-score gaps summary:")
     print(f"  Total pairs tested: {len(all_gaps)}")
     print(f"  z < -2: {len(z2_gaps)} gaps in clusters {clusters_with_z2}")
     print(f"  z < -3: {len(z3_gaps)} gaps")
@@ -269,7 +269,7 @@ def main():
     ratio_gaps = [g for g in all_gaps if g["ratio"] < 0.2]
     clusters_with_ratio = sorted(set(g["cluster"] for g in ratio_gaps))
 
-    print(f"\nRatio-based gaps (ratio < 0.2):")
+    print("\nRatio-based gaps (ratio < 0.2):")
     print(f"  Total: {len(ratio_gaps)} gaps in clusters {clusters_with_ratio}")
 
     # ── Comparison ────────────────────────────────────────────────────
@@ -283,12 +283,10 @@ def main():
 
     # Spearman correlation on overlapping pairs
     # Match pairs by (cluster, entity_a, entity_b)
-    ratio_lookup = {(g["cluster"], g["entity_a"], g["entity_b"]): g["ratio"] for g in ratio_gaps}
-    # Also include all pairs that appear in both
+    # Include all pairs that appear in both
     paired_z = []
     paired_ratio = []
     for g in all_gaps:
-        key = (g["cluster"], g["entity_a"], g["entity_b"])
         # ratio-based score: use negative ratio so correlation with z makes sense
         paired_z.append(g["z"])
         paired_ratio.append(g["ratio"])

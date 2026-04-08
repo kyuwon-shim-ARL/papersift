@@ -281,12 +281,12 @@ Examples:
     fetch_parser.add_argument("--grobid-url", default="http://localhost:8070")
 
     # status command
-    status_parser = subparsers.add_parser("status", help="Show paper store status")
+    subparsers.add_parser("status", help="Show paper store status")
 
     # collection command
     collection_parser = subparsers.add_parser("collection", help="Manage collections")
     collection_sub = collection_parser.add_subparsers(dest="collection_cmd")
-    coll_list = collection_sub.add_parser("list", help="List collections")
+    collection_sub.add_parser("list", help="List collections")
     coll_show = collection_sub.add_parser("show", help="Show collection details")
     coll_show.add_argument("name", help="Collection name")
     coll_create = collection_sub.add_parser("create", help="Create collection")
@@ -693,7 +693,7 @@ def run_cluster(args):
 
     # Validation (if requested)
     if args.validate:
-        print(f"\nValidating with citation data...")
+        print("\nValidating with citation data...")
         validator = ClusterValidator(clusters, papers)
 
         if not validator.has_citation_data():
@@ -883,7 +883,7 @@ def _browse_detail(summaries, cluster_ids, papers, full=False, format_type="tabl
             print(f"Top Entities: {', '.join(s['top_entities'])}")
 
             # Sample papers (first 3)
-            print(f"\nSample Papers:")
+            print("\nSample Papers:")
             for i, doi in enumerate(s['dois'][:3], 1):
                 title = get_title(papers, doi)
                 year = next((p.get('year', '?') for p in papers if p['doi'] == doi), '?')
@@ -1145,7 +1145,7 @@ def run_merge(args):
 
 def run_dedupe(args):
     """Remove non-paper DOIs and deduplicate preprint/published pairs."""
-    from papersift.doi import clean_papers, classify_doi, DoiType
+    from papersift.doi import clean_papers
 
     papers = load_papers(args.input)
 
@@ -1180,7 +1180,7 @@ def run_dedupe(args):
 
     if getattr(args, 'report', False):
         # Detailed report
-        print(f"\nDOI Type Distribution (input):", file=sys.stderr)
+        print("\nDOI Type Distribution (input):", file=sys.stderr)
         for dtype, count in sorted(stats.get('doi_types', {}).items()):
             print(f"  {dtype}: {count}", file=sys.stderr)
 
@@ -1210,7 +1210,7 @@ def run_abstract(args):
     # Print summary
     total = stats['total']
     with_abs = stats['with_abstract']
-    print(f"\n=== Summary ===", file=sys.stderr)
+    print("\n=== Summary ===", file=sys.stderr)
     print(f"Total papers: {total}", file=sys.stderr)
     print(f"With abstract: {with_abs} ({100*with_abs/total:.1f}%)" if total else "With abstract: 0", file=sys.stderr)
     print(f"Without abstract: {stats['without_abstract']}", file=sys.stderr)
@@ -1230,7 +1230,6 @@ def _run_claude_extraction(prompts, max_parallel=5):
         List of lists of extraction dicts (one list per prompt batch)
     """
     import concurrent.futures
-    import shutil
     import subprocess
 
     from papersift.extract import parse_llm_response
@@ -1290,7 +1289,7 @@ def run_fulltext(args):
     # Print summary
     total = stats['total']
     with_ft = stats['with_fulltext']
-    print(f"\n=== Summary ===", file=sys.stderr)
+    print("\n=== Summary ===", file=sys.stderr)
     print(f"Total papers: {total}", file=sys.stderr)
     print(f"With fulltext: {with_ft} ({100*with_ft/total:.1f}%)" if total else "With fulltext: 0", file=sys.stderr)
     print(f"Without fulltext: {stats['without_fulltext']}", file=sys.stderr)
@@ -1359,9 +1358,9 @@ def run_research(args):
             pipeline.export(output, output_dir, prepared=prepared)
 
             print(f"\nPhase 1 complete. {n_prompts} extraction prompts saved to {prompts_path}", file=sys.stderr)
-            print(f"\nTo complete the pipeline:", file=sys.stderr)
-            print(f"  1. Run LLM extraction on the prompts (e.g., via Claude Code Task tool)", file=sys.stderr)
-            print(f"  2. Save results to a JSON file", file=sys.stderr)
+            print("\nTo complete the pipeline:", file=sys.stderr)
+            print("  1. Run LLM extraction on the prompts (e.g., via Claude Code Task tool)", file=sys.stderr)
+            print("  2. Save results to a JSON file", file=sys.stderr)
             print(f"  3. Run: papersift research {args.input} -o {args.output} --extractions-from <results.json>", file=sys.stderr)
 
 
@@ -1624,7 +1623,7 @@ def run_status(args):
     print("=" * 50)
     print(f"Total papers: {stats['total_papers']}")
     print(f"Collections: {stats['collections']}")
-    print(f"\nLayers:")
+    print("\nLayers:")
     for layer, count in stats["by_layer"].items():
         print(f"  {layer}: {count}")
     print(f"\nContent available: {stats['content_available']}")
@@ -1721,7 +1720,7 @@ def run_redundancy(args):
     with open(output_path, "w") as f:
         json.dump(results, f, indent=2, ensure_ascii=False, default=str)
 
-    print(f"\n=== Summary ===", file=sys.stderr)
+    print("\n=== Summary ===", file=sys.stderr)
     print(f"Pairs checked: {results['pairs_checked']:,}", file=sys.stderr)
     print(f"Notable pairs (combined > {results['threshold']}): {results['notable_pairs']}", file=sys.stderr)
     print(f"Axis correlation: r={results['axis_correlation']:.3f}", file=sys.stderr)
@@ -1751,7 +1750,7 @@ def run_temporal(args):
     with open(output_path, "w") as f:
         json.dump(results, f, indent=2, ensure_ascii=False, default=str)
 
-    print(f"\n=== Summary ===", file=sys.stderr)
+    print("\n=== Summary ===", file=sys.stderr)
     print(f"Total tests: {results['total_tests']}", file=sys.stderr)
     print(f"Significant (BH-FDR): {results['total_significant']}", file=sys.stderr)
     print(f"Momentum variance: {results['momentum_variance']:.8f}", file=sys.stderr)
@@ -1782,7 +1781,7 @@ def run_gaps(args):
     with open(output_path, "w") as f:
         json.dump(results, f, indent=2, ensure_ascii=False, default=str)
 
-    print(f"\n=== Summary ===", file=sys.stderr)
+    print("\n=== Summary ===", file=sys.stderr)
     total_gaps = sum(results["intra_summary"].values())
     print(f"Total intra-cluster gaps: {total_gaps}", file=sys.stderr)
     print(f"Cross-cluster bridges: {len(results['cross_cluster_bridges'])}", file=sys.stderr)
@@ -1805,7 +1804,7 @@ def run_failures(args):
     with open(output_path, "w") as f:
         json.dump(results, f, indent=2, ensure_ascii=False, default=str)
 
-    print(f"\n=== Summary ===", file=sys.stderr)
+    print("\n=== Summary ===", file=sys.stderr)
     print(f"Total limit themes: {results['total_limit_themes']}", file=sys.stderr)
     print(f"Dead-end signals: {results['total_dead_end_signals']}", file=sys.stderr)
     print(f"Actionable OQ themes: {results['total_oq_themes']}", file=sys.stderr)
@@ -1834,7 +1833,7 @@ def run_recommend(args):
     with open(output_path, "w") as f:
         json.dump(results, f, indent=2, ensure_ascii=False, default=str)
 
-    print(f"\n=== Summary ===", file=sys.stderr)
+    print("\n=== Summary ===", file=sys.stderr)
     print(f"Intra-cluster recommendations: {results['n_intra_recommendations']}", file=sys.stderr)
     print(f"Cross-cluster recommendations: {results['n_cross_recommendations']}", file=sys.stderr)
     print(f"Total: {results['n_total']}", file=sys.stderr)

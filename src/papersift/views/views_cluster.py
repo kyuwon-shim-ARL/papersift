@@ -1,12 +1,11 @@
 """Cluster overview (V2) and drill-down (V5) HTML view generators."""
 
 import json
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List
 
-from .base import (STOPWORDS, CLUSTER_COLORS, _BASE_CSS, _THEME_JS,
-                   _nav_bar, _html_shell, generate_labels)
+from .base import (STOPWORDS, CLUSTER_COLORS, _html_shell)
 
 
 def generate_overview(

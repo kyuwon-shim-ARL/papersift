@@ -478,7 +478,7 @@ def main():
 
         if not abstract_path.exists() or not fulltext_path.exists():
             print(f"ERROR: Missing extraction files in {args.output_dir}")
-            print(f"Expected: ab_abstract_extractions.json, ab_fulltext_extractions.json")
+            print("Expected: ab_abstract_extractions.json, ab_fulltext_extractions.json")
             return 1
 
         evaluate_extractions(abstract_path, fulltext_path, args.output_dir)
@@ -490,10 +490,10 @@ def main():
             return 1
 
         if not args.papers.exists() or not args.fulltext.exists():
-            print(f"ERROR: Input files not found")
+            print("ERROR: Input files not found")
             return 1
 
-        print(f"\n=== e006 A/B Preparation: Sample Selection ===\n")
+        print("\n=== e006 A/B Preparation: Sample Selection ===\n")
 
         # Load data
         print(f"Loading papers from: {args.papers}")
@@ -560,10 +560,10 @@ def main():
         print(f"Saved to: {template_path}")
 
         print("\n=== Preparation complete ===")
-        print(f"\nNext steps:")
-        print(f"1. Run LLM extraction on abstract-only prompts")
-        print(f"2. Run LLM extraction on fulltext prompts")
-        print(f"3. Save results as ab_abstract_extractions.json and ab_fulltext_extractions.json")
+        print("\nNext steps:")
+        print("1. Run LLM extraction on abstract-only prompts")
+        print("2. Run LLM extraction on fulltext prompts")
+        print("3. Save results as ab_abstract_extractions.json and ab_fulltext_extractions.json")
         print(f"4. Run: python scripts/e006_ab_comparison.py --evaluate --output-dir {args.output_dir}")
 
     return 0

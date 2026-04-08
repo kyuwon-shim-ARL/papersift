@@ -191,7 +191,7 @@ def main():
 
     # Summary
     total = len(papers)
-    print(f"\n=== Summary ===")
+    print("\n=== Summary ===")
     print(f"Total papers: {total}")
     print(f"With abstract: {with_abstract} ({with_abstract/total*100:.1f}%)")
     print(f"  OpenAlex: {len(oa_abstracts)}")

@@ -12,12 +12,10 @@ Key components:
 
 import re
 from collections import defaultdict
-from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
 import igraph as ig
 import leidenalg
-import yaml
 
 
 # Stopwords to filter from capitalized word extraction
@@ -658,7 +656,7 @@ def compute_rho_gate(
             entity_jaccards.append(len(e1 & e2) / len(union))
 
     # Cosine similarities from entity-presence vectors
-    from papersift.embedding import extract_paper_entities, build_entity_matrix
+    from papersift.embedding import build_entity_matrix
     paper_entities = builder.paper_entities
     matrix, doi_list, entity_list = build_entity_matrix(papers, paper_entities)
     doi_to_idx = {d: i for i, d in enumerate(doi_list)}

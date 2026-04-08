@@ -9,8 +9,6 @@ Kill: novelty < 30% (most recommendations overlap existing research).
 """
 
 import json
-import sys
-from collections import defaultdict
 from pathlib import Path
 
 E015_RESULTS = Path(__file__).resolve().parent.parent / "outputs/e015/results.json"
@@ -258,7 +256,7 @@ def run():
     all_recs.sort(key=lambda r: r["bridge_score"], reverse=True)
 
     print(f"\nGenerated {len(intra_recs)} intra-cluster + {len(cross_recs)} cross-cluster recommendations")
-    print(f"\nTop-20 recommendations:")
+    print("\nTop-20 recommendations:")
     for i, rec in enumerate(all_recs[:20], 1):
         print(f"  {i}. [{rec['type']}] score={rec['bridge_score']:.4f} — {rec['recommendation'][:100]}...")
 

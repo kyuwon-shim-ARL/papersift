@@ -1,6 +1,6 @@
 """Paper detail panel component for showing individual paper metadata."""
 
-from dash import html, dcc
+from dash import html
 
 
 def create_detail_panel() -> html.Div:

@@ -1,7 +1,6 @@
 """Load papers and prepare data for UI components."""
 
 import json
-from pathlib import Path
 from typing import Any, Dict, List, Tuple
 from papersift import EntityLayerBuilder
 

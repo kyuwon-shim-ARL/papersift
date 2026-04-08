@@ -1,6 +1,6 @@
 """Bidirectional selection synchronization between network and table."""
 
-from dash import callback, Input, Output, State, ctx, no_update, html
+from dash import Input, Output, State, no_update, html
 
 
 def register_selection_callbacks(app):

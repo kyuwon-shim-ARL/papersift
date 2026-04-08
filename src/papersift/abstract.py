@@ -63,7 +63,7 @@ class AbstractFetcher:
         results = {}
 
         # Stage 1: OpenAlex batch
-        print(f"Fetching abstracts from OpenAlex (batch of 50)...", file=sys.stderr)
+        print("Fetching abstracts from OpenAlex (batch of 50)...", file=sys.stderr)
         openalex_results = self._fetch_openalex_batch(dois)
         results.update(openalex_results)
         if self.on_progress:
@@ -77,7 +77,7 @@ class AbstractFetcher:
         remaining = [d for d in dois if d not in results]
         if remaining:
             print(
-                f"Fetching remaining from Semantic Scholar (batch of 200)...",
+                "Fetching remaining from Semantic Scholar (batch of 200)...",
                 file=sys.stderr,
             )
             s2_results = self._fetch_s2_batch(remaining)
@@ -94,7 +94,7 @@ class AbstractFetcher:
             remaining = [d for d in dois if d not in results]
             if remaining:
                 print(
-                    f"Fetching remaining from Europe PMC (individual queries)...",
+                    "Fetching remaining from Europe PMC (individual queries)...",
                     file=sys.stderr,
                 )
                 epmc_count = 0

@@ -10,7 +10,6 @@ import json
 import time
 import datetime
 import statistics
-import re
 import urllib.request
 import urllib.parse
 import urllib.error
@@ -198,7 +197,7 @@ sorted_counts = sorted(citation_counts)
 p25_idx = max(0, int(len(sorted_counts) * 0.25) - 1)
 p25_citations = sorted_counts[p25_idx] if sorted_counts else 0.0
 
-print(f"\nOpenAlex stats:")
+print("\nOpenAlex stats:")
 print(f"  n_papers_queried: {len(openalex_data)}")
 print(f"  n_with_citations: {n_with_citations}")
 print(f"  median_citations: {median_citations}")
@@ -240,7 +239,7 @@ for lim in deduped_limitations:
     if any(kw in lim_lower for kw in DEAD_END_KEYWORDS):
         dead_end_kw_found += 1
 
-print(f"\ne019 integration:")
+print("\ne019 integration:")
 print(f"  deduped_limitations used: {len(deduped_limitations)}")
 print(f"  with dead-end keywords: {dead_end_kw_found}")
 
