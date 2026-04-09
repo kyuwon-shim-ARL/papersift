@@ -11,6 +11,8 @@ Key functions:
 - sub_cluster: Hierarchical sub-clustering within an existing cluster
 """
 
+import warnings
+
 import numpy as np
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 
@@ -200,7 +202,8 @@ def sub_cluster(
     cluster_id: Union[int, str],
     clusters: Dict[str, Union[int, str]],
     resolution: float = 1.0,
-    seed: Optional[int] = None,
+    seed: int = 42,
+    singleton_warn: bool = True,
     use_topics: bool = False,
     domain_vocab: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, str]:
@@ -257,6 +260,8 @@ def sub_cluster(
     # Check if Leiden produced only a single sub-cluster
     unique_subs = set(sub_clusters.values())
     if len(unique_subs) <= 1:
+        if singleton_warn:
+            warnings.warn(f"sub_cluster fell back to singleton for parent {cluster_id}")
         return {doi: str(cluster_id) for doi in member_dois}
 
     # Map to hierarchical IDs

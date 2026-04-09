@@ -34,6 +34,11 @@ DEFAULT_CLUSTER_LABELS = {
 DEFAULT_BIOLOGY_CLUSTERS = {"0", "1", "3", "5", "7"}
 
 
+def _top_id(cid: str) -> str:
+    """Return top-level cluster ID from hierarchical ID like '3.1' → '3'."""
+    return str(cid).split(".")[0]
+
+
 def _compute_momentum_scores(t2_data: dict) -> dict:
     scores = {}
     for cid, cdata in t2_data["clusters"].items():
@@ -86,6 +91,43 @@ def _rank_normalize(values: list[float]) -> list[float]:
         return [1.0] * n
     ranks = rankdata(values, method="average")
     return [round(float(r / n), 4) for r in ranks]
+
+
+def _compute_otr(entities: list[str], otr_threshold: float = 0.10) -> float:
+    """OTR = fraction of top-5 entities that are single short tokens (proxy for over-general).
+
+    A proper OTR uses corpus prevalence >= threshold. Without that index,
+    we proxy: entities with no hyphen, no slash, and exactly one token are
+    likely domain-general.
+    """
+    top5 = entities[:5]
+    if not top5:
+        return 0.0
+    overused = sum(
+        1 for e in top5
+        if len(e.split()) == 1 and "-" not in e and "/" not in e
+    )
+    return round(overused / len(top5), 3)
+
+
+def _compute_ccr(entities: list[str]) -> float:
+    """CCR = fraction of entities with hyphen, slash, or 2+ tokens (compound concepts)."""
+    if not entities:
+        return 0.0
+    compound = sum(
+        1 for e in entities
+        if "-" in e or "/" in e or len(e.split()) >= 2
+    )
+    return round(compound / len(entities), 3)
+
+
+def _evaluability(otr: float, ccr: float) -> str:
+    """Combined PASS rule: otr <= 0.40 AND ccr >= 0.30."""
+    if otr <= 0.40 and ccr >= 0.30:
+        return "PASS"
+    elif otr <= 0.60:
+        return "CONDITIONAL"
+    return "FAIL"
 
 
 def _generate_intra_cluster_recommendations(
@@ -186,7 +228,7 @@ def _generate_cross_cluster_recommendations(
     for bridge in gaps["bridges"]:
         ca, cb = bridge["cluster_a"], bridge["cluster_b"]
 
-        if ca not in biology_clusters and cb not in biology_clusters:
+        if _top_id(ca) not in biology_clusters and _top_id(cb) not in biology_clusters:
             continue
 
         ma = momentum.get(ca, {})
@@ -252,6 +294,12 @@ def _generate_cross_cluster_recommendations(
             "entity_jaccard": entry["jaccard"],
             "shared_entities": bridge["shared_entities"],
             "rising_in_shared": list(entry["rising_shared"]),
+            "otr": _compute_otr(bridge["shared_entities"]),
+            "ccr": _compute_ccr(bridge["shared_entities"]),
+            "evaluability": _evaluability(
+                _compute_otr(bridge["shared_entities"]),
+                _compute_ccr(bridge["shared_entities"]),
+            ),
             "recommendation": (
                 f"Bridge {cluster_labels.get(entry['ca'], 'C' + entry['ca'])} <-> "
                 f"{cluster_labels.get(entry['cb'], 'C' + entry['cb'])} "
@@ -270,6 +318,8 @@ def generate_recommendations(
     biology_clusters: list[str] | None = None,
     cluster_labels: dict | None = None,
     top_n: int = 20,
+    tier: str = "top",  # "top" | "leaf"
+    leaf_filter: str = "cross_parent",  # "all" | "cross_parent" | "same_parent"
 ) -> dict:
     """Generate bridge recommendations combining T2+T3 (frontier) and failure signals.
 
@@ -298,6 +348,17 @@ def generate_recommendations(
     if cluster_labels is None:
         cluster_labels = DEFAULT_CLUSTER_LABELS
 
+    # Leaf-tier: filter bridge list to cross-parent pairs only
+    if tier == "leaf" and leaf_filter == "cross_parent":
+        import copy
+        t3 = frontier_results["t3_structural_gaps"]
+        filtered_bridges = [
+            b for b in t3["cross_cluster_bridges"]
+            if _top_id(str(b["cluster_a"])) != _top_id(str(b["cluster_b"]))
+        ]
+        frontier_results = copy.deepcopy(frontier_results)
+        frontier_results["t3_structural_gaps"]["cross_cluster_bridges"] = filtered_bridges
+
     momentum = _compute_momentum_scores(frontier_results["t2_temporal"])
     gaps = _compute_gap_scores(frontier_results["t3_structural_gaps"])
     failures = _compute_failure_penalties(failure_results)
@@ -324,9 +385,9 @@ def generate_recommendations(
     )
     n_bio_involved = sum(
         1 for r in all_recs[:10]
-        if r.get("cluster") in bio_set
-        or r.get("cluster_a") in bio_set
-        or r.get("cluster_b") in bio_set
+        if _top_id(r.get("cluster", "")) in bio_set
+        or _top_id(r.get("cluster_a", "")) in bio_set
+        or _top_id(r.get("cluster_b", "")) in bio_set
     )
 
     if len(all_recs) < 5:
@@ -352,4 +413,6 @@ def generate_recommendations(
         "failure_summary": failures,
         f"top_{top_n}": all_recs[:top_n],
         "all_recommendations": all_recs,
+        "cross_cluster_bridges": all_recs[:top_n],  # legacy flat list (kept for backward compat)
+        "hierarchical_bridges": [],  # populated when tier="leaf" is called separately
     }

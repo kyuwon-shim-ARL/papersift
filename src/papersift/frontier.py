@@ -267,6 +267,9 @@ def structural_gaps(
     *,
     background_cluster_fraction: float = 0.80,
     background_terms_extra: set | None = None,
+    min_papers: int = 20,
+    min_entities: int = 5,
+    allow_high_leaf_drop: bool = False,
 ) -> dict:
     """T3: Intra-cluster gaps + cross-cluster bridges.
 
@@ -299,7 +302,7 @@ def structural_gaps(
     # An entity appearing in (almost) every valid cluster cannot discriminate
     # between clusters and is, by definition, not a bridge. Compute per-entity
     # cluster_df (# of valid clusters containing it with freq>=3).
-    valid_clusters = [cid for cid, dois in cluster_dois.items() if len(dois) >= 20]
+    valid_clusters = [cid for cid, dois in cluster_dois.items() if len(dois) >= min_papers]
     n_valid_clusters = len(valid_clusters) or 1
     cluster_appearance: Counter = Counter()
     for cid in valid_clusters:
@@ -320,10 +323,12 @@ def structural_gaps(
         background_terms |= set(background_terms_extra)
 
     intra_gaps: dict = {}
+    _dropped_clusters: dict = {}
 
     for cid in sorted(cluster_dois.keys()):
         dois = cluster_dois[cid]
-        if len(dois) < 20:
+        if len(dois) < min_papers:
+            _dropped_clusters[cid] = (len(dois), 0, "below_min_papers")
             continue
 
         n = len(dois)
@@ -340,7 +345,7 @@ def structural_gaps(
                     cooccur[(ents[i], ents[j])] += 1
 
         gaps = []
-        frequent_entities = [e for e, c in entity_freq.items() if c >= 5]
+        frequent_entities = [e for e, c in entity_freq.items() if c >= min_entities]
         for i in range(len(frequent_entities)):
             for j in range(i + 1, len(frequent_entities)):
                 e_a, e_b = frequent_entities[i], frequent_entities[j]
@@ -365,7 +370,7 @@ def structural_gaps(
         intra_gaps[cid] = gaps[:20]
 
         if gaps:
-            print(f"  C{cid}: {len(dois)} papers, {len(frequent_entities)} entities (freq>=5), "
+            print(f"  C{cid}: {len(dois)} papers, {len(frequent_entities)} entities (freq>={min_entities}), "
                   f"{len(gaps)} gaps, top: {gaps[0]['entity_a']}x{gaps[0]['entity_b']} "
                   f"exp={gaps[0]['expected']}")
         else:
@@ -375,7 +380,7 @@ def structural_gaps(
     # Counter retained (not just set) to enable b-potential bridge ranking below.
     cluster_entity_data: dict = {}
     for cid, dois in cluster_dois.items():
-        if len(dois) < 20:
+        if len(dois) < min_papers:
             continue
         freq: Counter = Counter()
         for d in dois:
@@ -445,9 +450,84 @@ def structural_gaps(
     print(f"  Cluster pairs checked: {len(cids) * (len(cids) - 1) // 2}")
     print(f"  Bridge pairs (Jaccard > 0.05): {len(bridges)}")
 
+    import logging
+    _logger = logging.getLogger(__name__)
+    if _dropped_clusters:
+        _logger.info(f"Dropped {len(_dropped_clusters)} clusters: {_dropped_clusters}")
+
+    total_clusters = len(cluster_dois)
+    n_kept = total_clusters - len(_dropped_clusters)
+    if total_clusters > 0 and n_kept > 0:
+        drop_ratio = len(_dropped_clusters) / total_clusters
+        if drop_ratio > 0.3 and not allow_high_leaf_drop:
+            raise RuntimeError(
+                f"leaf drop ratio {drop_ratio:.1%} > 30%; "
+                "use allow_high_leaf_drop=True to override"
+            )
+
     return {
         "intra_cluster_gaps": {str(k): v for k, v in intra_gaps.items()},
         "cross_cluster_bridges": bridges,
         "intra_summary": {str(cid): len(gaps) for cid, gaps in intra_gaps.items()},
         "background_terms": sorted(background_terms),  # e031 diagnostic
+        "dropped_clusters": _dropped_clusters,
+    }
+
+
+def run_pipeline(
+    papers: list[dict],
+    clusters: dict[str, int],
+    domain_vocab=None,
+    background_cluster_fraction: float = 0.80,
+    background_terms_extra: list[str] | None = None,
+    min_papers: int = 20,
+    min_entities: int = 5,
+    allow_high_leaf_drop: bool = False,
+    cluster_overrides: dict[str, list[str]] | None = None,
+) -> dict:
+    """Run the full knowledge frontier pipeline (T0 + T2 + T3).
+
+    Args:
+        papers: List of paper dicts.
+        clusters: DOI -> cluster_id mapping from Leiden.
+        domain_vocab: Optional domain vocabulary.
+        background_cluster_fraction: Passed to structural_gaps().
+        background_terms_extra: Passed to structural_gaps().
+        min_papers: Minimum papers per cluster (passed to structural_gaps()).
+        min_entities: Minimum entity frequency (passed to structural_gaps()).
+        allow_high_leaf_drop: Allow >30% cluster drop ratio.
+        cluster_overrides: Optional externally-computed cluster -> DOI list
+            mapping. When set, bypasses internal clustering and uses this
+            partition instead. Keys are cluster IDs, values are DOI lists.
+
+    Returns:
+        Dict with keys: 'entity_data', 't2_temporal', 't3_structural_gaps'.
+    """
+    entity_data = extract_entities(papers, domain_vocab=domain_vocab)
+
+    # Apply cluster_overrides if provided
+    if cluster_overrides is not None:
+        effective_clusters: dict[str, str] = {}
+        for cid, doi_list in cluster_overrides.items():
+            for doi in doi_list:
+                effective_clusters[doi] = str(cid)
+    else:
+        effective_clusters = {doi: str(cid) for doi, cid in clusters.items()}
+
+    t2 = temporal_dynamics(papers, entity_data, effective_clusters)
+    t3 = structural_gaps(
+        papers,
+        entity_data,
+        effective_clusters,
+        background_cluster_fraction=background_cluster_fraction,
+        background_terms_extra=background_terms_extra,
+        min_papers=min_papers,
+        min_entities=min_entities,
+        allow_high_leaf_drop=allow_high_leaf_drop,
+    )
+
+    return {
+        "entity_data": entity_data,
+        "t2_temporal": t2,
+        "t3_structural_gaps": t3,
     }

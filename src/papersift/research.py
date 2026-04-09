@@ -49,6 +49,7 @@ class ResearchOutput:
     cluster_summaries: list[dict]  # per-cluster summary with top entities
     stats: dict  # pipeline statistics
     metadata: dict = field(default_factory=dict)  # pipeline metadata
+    hierarchical_bridges: list = field(default_factory=list)  # leaf-tier bridges (e031)
 
 
 class ResearchPipeline:
@@ -530,6 +531,19 @@ class ResearchPipeline:
                 )
                 size = len(cluster_papers.get(cid, []))
                 lines.append(f"- Cluster {cid} ({label}): {rate:.1f}% ({size} papers)")
+            lines.append("")
+
+        # Section 2: Hierarchical bridge drill-down (if hierarchical_bridges present)
+        if output.hierarchical_bridges:
+            lines.append("## Hierarchical Bridge Drill-Down\n")
+            lines.append("*Leaf-tier bridges — filtered to cross-parent pairs (tier='leaf', leaf_filter='cross_parent')*\n")
+            for bridge_entry in output.hierarchical_bridges[:10]:
+                ca = bridge_entry.get("cluster_a", "")
+                cb = bridge_entry.get("cluster_b", "")
+                entities = bridge_entry.get("shared_entities", [])
+                otr = bridge_entry.get("otr", "N/A")
+                evaluability = bridge_entry.get("evaluability", "N/A")
+                lines.append(f"- **{ca} ↔ {cb}**: {', '.join(entities[:5])} (OTR={otr}, {evaluability})")
             lines.append("")
 
         # Write to file
