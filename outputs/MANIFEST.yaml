@@ -586,24 +586,28 @@ experiments:
     verdict: "NO-GO — baseline coverage=100% (saturated), coverage+10pp impossible. ARI: Haiku=0.785 PASS, regex=0.573 FAIL. Haiku preserves baseline structure but adds no coverage gain. Curated vocab remains best."
   e031:
     path: outputs/e031/
-    script: "scripts/e031_p0_compare.py, scripts/e031_regen_eval.py"
+    script: "scripts/e031_p0_compare.py, scripts/e031_regen_eval.py, scripts/e031_phase_b_validation.py, scripts/e031_phase_c_validation.py, scripts/e031_phase_d_smoke_test.py"
     params:
-      design: "Bridge granularity fix — alphabetical→b-potential (Hristovski 2010) + cluster-level background filter"
+      design: "Bridge granularity fix — alphabetical→b-potential (Hristovski 2010) + cluster-level background filter + hierarchical leaf bridges"
       domains: [amr, neuroscience, ai-foundation]
       background_cluster_fraction: 0.80
       b_potential_formula: "score(t,A,B) = ctfidf_a(t) × ctfidf_b(t)"
+      phase_b: "should_subcluster() trigger (size>200 AND density<0.5 OR gen_frac>0.7), sweep_resolution {1.5,2,2.5,3}×3seeds"
+      phase_c: "_top_id() two-site filter, tier/leaf_filter params, run_pipeline() with cluster_overrides, drop counter"
+      phase_d: "OTR/CCR evaluability gate, two-tier for_research.md, hierarchical_bridges backward compat"
     outputs:
       - outputs/e031/p0_otr_ccr_comparison.json
       - outputs/e031/p0_diff_table.md
       - outputs/e031/p0c_verdict.md
       - outputs/e031/bridge_candidates_bpot.json
       - outputs/e026/bridge_evaluation.csv
-    status: complete
-    description: "Bridge entity collapse fix — b-potential ranking + data-driven background stoplist"
+      - outputs/e031/p3_smoke_test.md
+    status: final
+    description: "Bridge granularity fix — b-potential + stoplist (Phase A) + auto-subcluster + hierarchical leaf bridges (Phase B-D)"
     issue: ""
-    branch: "feat/e031-bridge-granularity"
+    branch: "feat/e031-phase-b-d"
     priority: 1
     depends_on: [e028]
-    success_criteria: "P0c gate: OTR<=0.40 PASS rate >=50% on e028 bridges"
-    verdict: "GO — Phase A PASS. OTR PASS rate 100% (19/19, was 73.7%). AMR 44%→100%, Neuro 100%→100%. Background filter auto-detected 12 AMR terms (bacteria/antibiotics/resistance etc). b-potential re-ranks to domain-specific entities (klebsiella, eskape, biofilms vs old antibiotic/bacteria). Phase B-D (auto-subcluster leaf bridges) OPTIONAL per P0c gate."
-    note: "Two-part fix: (1) b-potential product score replaces alphabetical sort (2) cluster-level background filter drops terms appearing in >=80% of clusters. AMR most affected (+56pp OTR). B12 neuroscience minor regression (OTR 0.0→0.4, borderline PASS). e026 eval CSV regenerated with new entities (22/30 bridges updated)."
+    success_criteria: "P0c gate PASS + T18 smoke test two-tier output verified"
+    verdict: "GO — Phase A+B-D complete. Phase A: OTR 73.7%→100%. Phase B-D: autosubcluster (should_subcluster, sweep_resolution, check_resolution_plateau), hierarchical bridge pipeline (_top_id two-site, tier=leaf/cross_parent, cluster_overrides, drop counter), OTR/CCR evaluability gate, two-tier for_research.md. T18 smoke test CONDITIONAL (virtual-cell mixed biology/telecom dataset expected; compound entities confirmed: digital twin, stem cell, agent-based, tumor cell)."
+    note: "Phase A: b-potential + cluster-level background filter. Phase B: autosubcluster.py new module. Phase C: _top_id two-site filter (architect HIGH-1), run_pipeline wrapper. Phase D: OTR/CCR embed in recs, hierarchical_bridges compat field, two-tier briefing. 254 tests passing throughout."
