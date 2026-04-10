@@ -615,8 +615,12 @@ experiments:
     path: outputs/e032/
     script: ""
     params: {}
-    outputs: []
-    status: experimental
+    outputs:
+      - outputs/e032/otr_baseline.json
+      - outputs/e032/smoke_test_report.md
+      - outputs/e032/t3_patch_log.md
+      - outputs/e032/threshold_calibration.md
+    status: final
     description: "OTR fix — background_terms membership + tier-aware threshold + definition unification"
     issue: 17
     branch: feat/e032-otr-fix
