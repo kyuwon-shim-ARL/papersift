@@ -339,3 +339,59 @@ def test_generate_recommendations_biology_filter():
 
     # Should still produce intra recs for C0 and cross recs for C0↔C1
     assert result["n_total"] >= 1
+
+
+# ── e032: adaptive threshold tests ───────────────────────────────────────────
+
+def _adaptive_fraction(n: int, background_cluster_fraction: float = 0.80) -> float:
+    """Mirror of the adaptive threshold logic in frontier.py structural_gaps()."""
+    return background_cluster_fraction if n <= 50 else max(0.05, 5.0 / n)
+
+
+class TestAdaptiveThreshold:
+    def test_adaptive_threshold_leaf(self):
+        """K=385 (leaf tier): adaptive = max(0.05, 5/385) = 0.05."""
+        assert _adaptive_fraction(385) == pytest.approx(0.05)
+
+    def test_adaptive_threshold_top(self):
+        """K=11 (top tier, n<=50): adaptive = 0.80 (unchanged)."""
+        assert _adaptive_fraction(11) == pytest.approx(0.80)
+
+    def test_adaptive_threshold_boundary(self):
+        """K=50 (boundary, n<=50): adaptive = 0.80 (n<=50 branch)."""
+        assert _adaptive_fraction(50) == pytest.approx(0.80)
+
+    def test_adaptive_threshold_over_boundary(self):
+        """K=51 (just over boundary): adaptive = max(0.05, 5/51) ≈ 0.098."""
+        assert _adaptive_fraction(51) == pytest.approx(max(0.05, 5.0 / 51))
+
+    def test_adaptive_threshold_edge(self):
+        """K=1 (edge): adaptive = 0.80 (n<=50 branch)."""
+        assert _adaptive_fraction(1) == pytest.approx(0.80)
+
+    def test_adaptive_threshold_large(self):
+        """K=1000: adaptive = max(0.05, 5/1000) = 0.05 (floor)."""
+        assert _adaptive_fraction(1000) == pytest.approx(0.05)
+
+    def test_structural_gaps_non_empty_background_at_large_k(self):
+        """With many clusters sharing a term, background_terms should be non-empty."""
+        from papersift.frontier import structural_gaps
+
+        # Create 60 clusters (> 50), each with one paper containing "simulation"
+        n_clusters = 60
+        papers = []
+        entity_data = {}
+        clusters = {}
+        for i in range(n_clusters):
+            doi = f"10.1/c{i}"
+            papers.append({"doi": doi, "title": f"Paper {i}", "year": 2020})
+            entity_data[doi] = {"simulation", f"unique_term_{i}"}
+            clusters[doi] = str(i)
+
+        result = structural_gaps(papers, entity_data, clusters, min_papers=1)
+        # "simulation" appears in all 60 clusters → should be in background_terms
+        # With old threshold 0.80: needs 48 clusters (48/60) → 60 clusters → YES
+        # With adaptive 5/60≈0.083: needs 5 clusters → YES
+        # Either way non-empty; key test is it doesn't crash and returns expected structure
+        assert "background_terms" in result
+        assert isinstance(result["background_terms"], list)

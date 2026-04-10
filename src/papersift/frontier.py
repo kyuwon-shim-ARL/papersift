@@ -315,9 +315,16 @@ def structural_gaps(
             if c >= 3 and e not in seen_in_cluster:
                 seen_in_cluster.add(e)
                 cluster_appearance[e] += 1
+    # Tier-aware adaptive threshold: preserve original value for small K (<=50),
+    # use max(0.05, 5/K) for large leaf clusters to avoid empty background_terms.
+    adaptive_fraction = (
+        background_cluster_fraction
+        if n_valid_clusters <= 50
+        else max(0.05, 5.0 / n_valid_clusters)
+    )
     background_terms = {
         e for e, df in cluster_appearance.items()
-        if (df / n_valid_clusters) >= background_cluster_fraction
+        if (df / n_valid_clusters) >= adaptive_fraction
     }
     if background_terms_extra:
         background_terms |= set(background_terms_extra)

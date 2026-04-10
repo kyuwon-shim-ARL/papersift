@@ -1,0 +1,325 @@
+[
+  {
+    "bridge_id": "C1_C3",
+    "cluster_a": "1",
+    "cluster_b": "3",
+    "shared_entities_top5": [
+      "whole-cell",
+      "metabolism",
+      "mouse",
+      "gene expression",
+      "pathway"
+    ],
+    "old_otr": 0.6,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C0_C1",
+    "cluster_a": "0",
+    "cluster_b": "1",
+    "shared_entities_top5": [
+      "gene expression",
+      "metabolism",
+      "silico",
+      "pathway",
+      "whole-cell"
+    ],
+    "old_otr": 0.6,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C3_C5",
+    "cluster_a": "3",
+    "cluster_b": "5",
+    "shared_entities_top5": [
+      "epithelial",
+      "stem cell",
+      "endothelial",
+      "mouse",
+      "differentiation"
+    ],
+    "old_otr": 0.8,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C0_C3",
+    "cluster_a": "0",
+    "cluster_b": "3",
+    "shared_entities_top5": [
+      "mouse",
+      "pathway",
+      "stem cell",
+      "apoptosis",
+      "mammalian"
+    ],
+    "old_otr": 0.8,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C1_C5",
+    "cluster_a": "1",
+    "cluster_b": "5",
+    "shared_entities_top5": [
+      "whole-cell",
+      "metabolism",
+      "agent-based",
+      "differentiation",
+      "gene expression"
+    ],
+    "old_otr": 0.4,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": true,
+    "new_pass_pre_patch": true,
+    "flip": false
+  },
+  {
+    "bridge_id": "C0_C5",
+    "cluster_a": "0",
+    "cluster_b": "5",
+    "shared_entities_top5": [
+      "epithelial",
+      "apoptosis",
+      "tumor cell",
+      "differentiation",
+      "endothelial"
+    ],
+    "old_otr": 0.8,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C5_C7",
+    "cluster_a": "5",
+    "cluster_b": "7",
+    "shared_entities_top5": [
+      "differentiation",
+      "agent-based",
+      "mouse",
+      "stem cell",
+      "immune cell"
+    ],
+    "old_otr": 0.4,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": true,
+    "new_pass_pre_patch": true,
+    "flip": false
+  },
+  {
+    "bridge_id": "C3_C7",
+    "cluster_a": "3",
+    "cluster_b": "7",
+    "shared_entities_top5": [
+      "mouse",
+      "differentiation",
+      "stem cell",
+      "transcription",
+      "pathway"
+    ],
+    "old_otr": 0.8,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C2_C4",
+    "cluster_a": "2",
+    "cluster_b": "4",
+    "shared_entities_top5": [
+      "virtual",
+      "manufacturing",
+      "virtual cell",
+      "ai",
+      "production"
+    ],
+    "old_otr": 0.8,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C1_C7",
+    "cluster_a": "1",
+    "cluster_b": "7",
+    "shared_entities_top5": [
+      "mouse",
+      "differentiation",
+      "agent-based",
+      "gene expression",
+      "transcription"
+    ],
+    "old_otr": 0.6,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C0_C2",
+    "cluster_a": "0",
+    "cluster_b": "2",
+    "shared_entities_top5": [
+      "cancer cell",
+      "gene expression",
+      "clustering",
+      "pathway",
+      "evaluation"
+    ],
+    "old_otr": 0.6,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C1_C2",
+    "cluster_a": "1",
+    "cluster_b": "2",
+    "shared_entities_top5": [
+      "virtual cell",
+      "virtual",
+      "gene expression",
+      "clustering",
+      "dynamic"
+    ],
+    "old_otr": 0.6,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C2_C5",
+    "cluster_a": "2",
+    "cluster_b": "5",
+    "shared_entities_top5": [
+      "virtual cell",
+      "differentiation",
+      "growth",
+      "dynamic",
+      "pathway"
+    ],
+    "old_otr": 0.8,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C0_C7",
+    "cluster_a": "0",
+    "cluster_b": "7",
+    "shared_entities_top5": [
+      "t cell",
+      "t-cell",
+      "mouse",
+      "differentiation",
+      "cd8"
+    ],
+    "old_otr": 0.6,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C1_C4",
+    "cluster_a": "1",
+    "cluster_b": "4",
+    "shared_entities_top5": [
+      "deep learning",
+      "ai",
+      "machine learning",
+      "production",
+      "virtual"
+    ],
+    "old_otr": 0.6,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C2_C3",
+    "cluster_a": "2",
+    "cluster_b": "3",
+    "shared_entities_top5": [
+      "mouse",
+      "clustering",
+      "pathway",
+      "gene expression",
+      "differentiation"
+    ],
+    "old_otr": 0.8,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C3_C6",
+    "cluster_a": "3",
+    "cluster_b": "6",
+    "shared_entities_top5": [
+      "whole-cell",
+      "whole",
+      "membrane",
+      "blood",
+      "numerical"
+    ],
+    "old_otr": 0.8,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C4_C6",
+    "cluster_a": "4",
+    "cluster_b": "6",
+    "shared_entities_top5": [
+      "fuel",
+      "battery",
+      "pem",
+      "diagnosis",
+      "machine learning"
+    ],
+    "old_otr": 0.8,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  },
+  {
+    "bridge_id": "C5_C6",
+    "cluster_a": "5",
+    "cluster_b": "6",
+    "shared_entities_top5": [
+      "multiscale",
+      "three-dimensional",
+      "mathematical",
+      "mechanics",
+      "whole-cell"
+    ],
+    "old_otr": 0.6,
+    "new_otr_pre_patch": 0.0,
+    "old_pass": false,
+    "new_pass_pre_patch": true,
+    "flip": true
+  }
+]

@@ -44,11 +44,17 @@ def main():
     results = []
     for b in bridges:
         entities = b.get("shared_entities", [])
-        # Without real corpus_prevalence data, use CCR only as proxy
         ccr = compute_ccr(entities)
-        # OTR approximation: count single-word entities
-        single_word = sum(1 for e in entities[:5] if len(e.split()) == 1 and "-" not in e)
-        otr = single_word / max(len(entities[:5]), 1)
+        # OTR via background_terms membership (corpus_prevalence standard, Kastrin 2016).
+        # Falls back to single-token proxy when background_terms not available.
+        bg = b.get("background_terms", None)
+        if bg is not None:
+            bg_set = set(bg) if not isinstance(bg, set) else bg
+            top5 = entities[:5]
+            otr = sum(1 for e in top5 if e in bg_set) / max(len(top5), 1)
+        else:
+            single_word = sum(1 for e in entities[:5] if len(e.split()) == 1 and "-" not in e)
+            otr = single_word / max(len(entities[:5]), 1)
         evaluability = "PASS" if otr <= 0.40 and ccr >= 0.30 else ("CONDITIONAL" if otr <= 0.60 else "FAIL")
         results.append({
             "cluster_a": b.get("cluster_a"),

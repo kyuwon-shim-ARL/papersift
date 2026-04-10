@@ -611,3 +611,13 @@ experiments:
     success_criteria: "P0c gate PASS + T18 smoke test two-tier output verified"
     verdict: "GO — Phase A+B-D complete. Phase A: OTR 73.7%→100%. Phase B-D: autosubcluster (should_subcluster, sweep_resolution, check_resolution_plateau), hierarchical bridge pipeline (_top_id two-site, tier=leaf/cross_parent, cluster_overrides, drop counter), OTR/CCR evaluability gate, two-tier for_research.md. T18 smoke test CONDITIONAL (virtual-cell mixed biology/telecom dataset expected; compound entities confirmed: digital twin, stem cell, agent-based, tumor cell)."
     note: "Phase A: b-potential + cluster-level background filter. Phase B: autosubcluster.py new module. Phase C: _top_id two-site filter (architect HIGH-1), run_pipeline wrapper. Phase D: OTR/CCR embed in recs, hierarchical_bridges compat field, two-tier briefing. 254 tests passing throughout."
+  e032:
+    path: outputs/e032/
+    script: ""
+    params: {}
+    outputs: []
+    status: experimental
+    description: "OTR fix — background_terms membership + tier-aware threshold + definition unification"
+    issue: 17
+    branch: feat/e032-otr-fix
+    stale: false

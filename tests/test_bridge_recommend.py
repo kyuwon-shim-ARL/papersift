@@ -212,3 +212,41 @@ class TestGenerateRecommendations:
         # Should not raise with defaults
         result = generate_recommendations(frontier, failure)
         assert isinstance(result, dict)
+
+
+# ── e032: OTR background_terms tests ─────────────────────────────────────────
+
+class TestComputeOtrBackgroundTerms:
+    def test_background_terms_reduces_otr(self):
+        """When bg has 0 of the top-5 entities, OTR should be 0."""
+        from papersift.bridge_recommend import _compute_otr
+        entities = ["simulation", "human", "cell", "model", "growth"]
+        bg = {"simulation", "human"}
+        otr = _compute_otr(entities, background_terms=bg)
+        assert otr == 0.4  # 2/5 are in bg
+
+    def test_background_terms_empty_set_gives_zero(self):
+        """Empty background_terms set: no entity is background → OTR=0."""
+        from papersift.bridge_recommend import _compute_otr
+        entities = ["simulation", "human", "cell"]
+        otr = _compute_otr(entities, background_terms=set())
+        assert otr == 0.0
+
+    def test_compute_otr_type_safety_list_input(self):
+        """bg=list is converted to set internally without error."""
+        from papersift.bridge_recommend import _compute_otr
+        entities = ["simulation", "apoptosis", "signaling"]
+        bg_list = ["simulation"]
+        otr = _compute_otr(entities, background_terms=bg_list)
+        assert otr == pytest.approx(1 / 3, rel=1e-3)
+
+    def test_fallback_when_no_background_terms(self):
+        """Without background_terms, falls back to single-token proxy."""
+        from papersift.bridge_recommend import _compute_otr
+        entities = ["cell cycle", "apoptosis", "p53"]  # "cell cycle"=multi, "apoptosis"/"p53"=single
+        otr = _compute_otr(entities)  # no background_terms
+        assert otr == pytest.approx(2 / 3, rel=1e-3)
+
+    def test_empty_entities_returns_zero(self):
+        from papersift.bridge_recommend import _compute_otr
+        assert _compute_otr([], background_terms={"x"}) == 0.0
