@@ -106,3 +106,33 @@ def test_stdin_invalid_json():
     result = run_cmd("filter", "-", "--cluster", "0", stdin_data="not json")
     assert result.returncode != 0
     assert "Error" in result.stderr or "error" in result.stderr.lower()
+
+
+def test_cli_background_terms_extra(tmp_path):
+    """gaps --background-terms-extra passes terms to structural_gaps and succeeds."""
+    import json
+    from pathlib import Path
+
+    # Build a minimal clusters.json mapping all fixture DOIs to cluster "0"
+    with open(FIXTURE) as f:
+        papers = json.load(f)
+    if isinstance(papers, dict):
+        papers = papers.get("papers", [])
+    clusters = {p["doi"]: "0" for p in papers}
+    clusters_file = str(tmp_path / "clusters.json")
+    with open(clusters_file, "w") as f:
+        json.dump(clusters, f)
+
+    output = str(tmp_path / "gaps_output.json")
+    result = run_cmd(
+        "gaps", FIXTURE,
+        "--clusters-from", clusters_file,
+        "--background-terms-extra", "simulation", "model",
+        "-o", output,
+    )
+    assert result.returncode == 0, f"CLI failed: {result.stderr}"
+    with open(output) as f:
+        data = json.load(f)
+    # background_terms should include the extra terms we supplied
+    assert "background_terms" in data
+    assert "simulation" in data["background_terms"] or "model" in data["background_terms"]

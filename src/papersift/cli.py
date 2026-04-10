@@ -392,6 +392,13 @@ workflow: entity-based focus (skip cluster numbers)
     gaps_parser.add_argument("input", help="Papers JSON file")
     gaps_parser.add_argument("--clusters-from", required=True, help="Clusters JSON file ({doi: cluster_id})")
     gaps_parser.add_argument("--entities-from", help="Pre-computed entities JSON")
+    gaps_parser.add_argument(
+        "--background-terms-extra",
+        nargs="+",
+        default=None,
+        metavar="TERM",
+        help="Additional stoplist terms merged (union) with auto-detected background terms",
+    )
     gaps_parser.add_argument("-o", "--output", required=True, help="Output JSON file")
 
     failures_parser = subparsers.add_parser(
@@ -1774,7 +1781,12 @@ def run_gaps(args):
         entity_data = extract_entities(papers)
 
     print("\nFinding structural gaps (T3)...", file=sys.stderr)
-    results = structural_gaps(papers, entity_data, clusters)
+    results = structural_gaps(
+        papers,
+        entity_data,
+        clusters,
+        background_terms_extra=set(args.background_terms_extra) if args.background_terms_extra else None,
+    )
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)

@@ -93,20 +93,27 @@ def _rank_normalize(values: list[float]) -> list[float]:
     return [round(float(r / n), 4) for r in ranks]
 
 
-def _compute_otr(entities: list[str], otr_threshold: float = 0.10) -> float:
-    """OTR = fraction of top-5 entities that are single short tokens (proxy for over-general).
+def _compute_otr(
+    entities: list[str],
+    background_terms: set[str] | None = None,
+) -> float:
+    """OTR = fraction of top-5 entities that are background (over-general).
 
-    A proper OTR uses corpus prevalence >= threshold. Without that index,
-    we proxy: entities with no hyphen, no slash, and exactly one token are
-    likely domain-general.
+    When background_terms is provided (from structural_gaps output), uses
+    corpus-prevalence membership as per Kastrin 2016 LBD standard.
+    Falls back to single-token proxy when background_terms is absent.
     """
     top5 = entities[:5]
     if not top5:
         return 0.0
-    overused = sum(
-        1 for e in top5
-        if len(e.split()) == 1 and "-" not in e and "/" not in e
-    )
+    if background_terms is not None:
+        bg = set(background_terms) if not isinstance(background_terms, set) else background_terms
+        overused = sum(1 for e in top5 if e in bg)
+    else:
+        overused = sum(
+            1 for e in top5
+            if len(e.split()) == 1 and "-" not in e and "/" not in e
+        )
     return round(overused / len(top5), 3)
 
 
@@ -221,6 +228,7 @@ def _generate_cross_cluster_recommendations(
     failures: dict,
     biology_clusters: set,
     cluster_labels: dict,
+    background_terms: set[str] | None = None,
 ) -> list[dict]:
     # Phase 1: collect raw components for all cross recommendations
     raw_entries = []
@@ -294,10 +302,10 @@ def _generate_cross_cluster_recommendations(
             "entity_jaccard": entry["jaccard"],
             "shared_entities": bridge["shared_entities"],
             "rising_in_shared": list(entry["rising_shared"]),
-            "otr": _compute_otr(bridge["shared_entities"]),
+            "otr": _compute_otr(bridge["shared_entities"], background_terms=background_terms),
             "ccr": _compute_ccr(bridge["shared_entities"]),
             "evaluability": _evaluability(
-                _compute_otr(bridge["shared_entities"]),
+                _compute_otr(bridge["shared_entities"], background_terms=background_terms),
                 _compute_ccr(bridge["shared_entities"]),
             ),
             "recommendation": (
@@ -371,8 +379,10 @@ def generate_recommendations(
     intra_recs = _generate_intra_cluster_recommendations(
         momentum, gaps, failures, bio_set, cluster_labels
     )
+    bg = frontier_results["t3_structural_gaps"].get("background_terms", [])
+    bg_set = set(bg) if bg else None
     cross_recs = _generate_cross_cluster_recommendations(
-        momentum, gaps, failures, bio_set, cluster_labels
+        momentum, gaps, failures, bio_set, cluster_labels, background_terms=bg_set
     )
 
     all_recs = intra_recs + cross_recs
