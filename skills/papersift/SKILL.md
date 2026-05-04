@@ -600,9 +600,29 @@ papersift research INPUT -o OUTPUT \
 
 **Output files:**
 - `clusters.json` - Cluster assignments ({doi: cluster_id}), compatible with `papersift filter --clusters-from`
-- `enriched_papers.json` - Full enriched data (papers + clusters + problem/method/finding)
+- `enriched_papers.json` - Full enriched data (papers + clusters + problem/method/finding + **direction**)
 - `for_research.md` - Self-contained cluster briefing for Claude/LLM analysis
 - `extraction_prompts.json` - Raw prompts for reproducibility
+
+**Direction tag (LIT-DS-001 A2)**: `enriched_papers.json`의 각 paper에 `direction` 객체를 추가하여 lit/dr 파이프라인의 의사결정 컨텍스트로 사용. omc-research-skills의 [direction-tag schema](https://github.com/kyuwon-shim-ARL/omc-research-skills/blob/master/.omc/state/direction-tag.schema.json)와 정렬:
+
+```json
+{
+  "doi": "...",
+  "problem": "...",      // 기존
+  "method": "...",       // 기존
+  "finding": "...",      // 기존
+  "direction": {         // 신규 (LIT-DS-001 A2)
+    "enables": ["후속 연구/응용 (각 80자, 최대 5개)"],
+    "blocked_by": ["명시된 한계/실패 (각 80자, 최대 5개)"],
+    "opens_questions": ["explicit future work (각 80자, 최대 5개)"],
+    "extraction_confidence": "high|medium|low|placeholder",
+    "_extraction_method": "abstract_only|abstract+full_text|manual"
+  }
+}
+```
+
+direction 필드는 paper-pipeline L1 (abstract → confidence: medium/placeholder) 또는 L2 (full text → confidence: high)에서 추출. papersift는 enriched_papers.json에 그 필드를 보존. 클러스터 단위 aggregation 시 cluster의 enables/blocked_by 합집합을 `for_research.md`에 표기 (Python 구현은 별도 PR).
 
 Run `papersift research --help` for workflow examples.
 
